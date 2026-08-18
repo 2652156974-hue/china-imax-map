@@ -1,0 +1,87 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <title>China IMAX Map</title>
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+  <style>
+    :root{--bg:#f6f7f9;--panel:rgba(255,255,255,.82);--text:#111;--muted:#666;--line:rgba(0,0,0,.12);--shadow:0 10px 30px rgba(0,0,0,.12)}
+    @media (prefers-color-scheme:dark){:root{--bg:#080808;--panel:rgba(22,22,22,.86);--text:#f5f5f5;--muted:#aaa;--line:rgba(255,255,255,.14);--shadow:0 10px 30px rgba(0,0,0,.4)}}
+    *{box-sizing:border-box} html,body,#map{height:100%;margin:0} body{font-family:system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;background:var(--bg);color:var(--text)}
+    #map{background:var(--bg)}
+    .panel{position:absolute;z-index:1000;top:16px;left:16px;width:min(390px,calc(100vw - 32px));background:var(--panel);backdrop-filter:blur(18px);border:1px solid var(--line);border-radius:20px;box-shadow:var(--shadow);padding:14px}
+    h1{font-size:18px;margin:0 0 4px}.sub{font-size:12px;color:var(--muted);margin-bottom:12px}.row{display:flex;gap:8px;flex-wrap:wrap}.filters button{border:1px solid var(--line);background:transparent;color:var(--text);border-radius:999px;padding:7px 11px;cursor:pointer;font-weight:650}.filters button.active{background:var(--text);color:var(--bg)}
+    input{width:100%;margin-top:10px;border:1px solid var(--line);background:transparent;color:var(--text);border-radius:12px;padding:10px 12px;outline:none}.status{font-size:12px;color:var(--muted);margin-top:10px}
+    .imax-marker{display:flex;align-items:center;justify-content:center;border:2px solid white;border-radius:50%;box-shadow:0 4px 12px rgba(0,0,0,.25);color:white;font-weight:800;font-size:10px}
+    .gt{background:#b91c1c}.cola{background:#7c3aed}.xt{background:#2563eb}.xenon{background:#4b5563}
+    .popup-title{font-weight:800;font-size:15px;margin-bottom:6px}.popup-grid{display:grid;grid-template-columns:auto 1fr;gap:4px 10px;font-size:12px}.popup-grid b{font-weight:700}.demo{margin-top:8px;font-size:11px;color:#b45309}
+    @media(max-width:640px){.panel{top:10px;left:10px;width:calc(100vw - 20px);border-radius:16px;padding:12px}.sub{display:none}}
+  </style>
+</head>
+<body>
+  <div id="map"></div>
+  <section class="panel">
+    <h1>中国 IMAX 地图 <span style="font-weight:500">v0.1</span></h1>
+    <div class="sub">当前仅含演示数据，用于验证地图与筛选功能。</div>
+    <div class="row filters" id="filters">
+      <button class="active" data-system="ALL">全部</button>
+      <button data-system="GT Laser">GT</button>
+      <button data-system="CoLa">CoLa</button>
+      <button data-system="XT">XT</button>
+      <button data-system="Xenon">Xenon</button>
+    </div>
+    <input id="search" placeholder="搜索城市或影院" />
+    <div class="status" id="status">加载中…</div>
+  </section>
+
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+  <script>
+    const map=L.map('map',{zoomControl:false,minZoom:3}).setView([35.5,104.5],4);
+    const dark=window.matchMedia&&window.matchMedia('(prefers-color-scheme: dark)').matches;
+    L.tileLayer(dark
+      ?'https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png'
+      :'https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png',{
+      maxZoom:19,attribution:'&copy; OpenStreetMap &copy; CARTO'
+    }).addTo(map);
+    L.control.zoom({position:'bottomright'}).addTo(map);
+
+    let cinemas=[]; let markers=[]; let activeSystem='ALL';
+    const systemClass=s=>s==='GT Laser'?'gt':s==='CoLa'?'cola':s==='XT'?'xt':'xenon';
+    const label=s=>s==='GT Laser'?'GT':s==='CoLa'?'C':s==='XT'?'XT':'Xe';
+
+    function markerIcon(c){
+      const area=(c.screenWidth||0)*(c.screenHeight||0);
+      const size=Math.max(28,Math.min(48,24+Math.sqrt(Math.max(area,1))));
+      return L.divIcon({className:'',html:`<div class="imax-marker ${systemClass(c.system)}" style="width:${size}px;height:${size}px">${label(c.system)}</div>`,iconSize:[size,size],iconAnchor:[size/2,size/2]});
+    }
+    function popup(c){
+      return `<div class="popup-title">${c.name}</div><div class="popup-grid">
+        <b>城市</b><span>${c.city}</span>
+        <b>设备</b><span>${c.system}</span>
+        <b>银幕</b><span>${c.screenWidth} × ${c.screenHeight} m</span>
+        <b>比例</b><span>${c.ratio}</span>
+        <b>声道</b><span>${c.channels}</span>
+        <b>15/70</b><span>${c.film1570?'是':'否'}</span>
+      </div><div class="demo">${c.note||''}</div>`;
+    }
+    function render(){
+      markers.forEach(m=>map.removeLayer(m)); markers=[];
+      const q=document.querySelector('#search').value.trim().toLowerCase();
+      const shown=cinemas.filter(c=>(activeSystem==='ALL'||c.system===activeSystem)&&(!q||`${c.name} ${c.city} ${c.province}`.toLowerCase().includes(q)));
+      shown.forEach(c=>{const m=L.marker([c.lat,c.lng],{icon:markerIcon(c)}).bindPopup(popup(c));m.addTo(map);markers.push(m)});
+      document.querySelector('#status').textContent=`显示 ${shown.length} / ${cinemas.length} 家影院`;
+    }
+    document.querySelector('#filters').addEventListener('click',e=>{
+      if(!e.target.matches('button')) return;
+      document.querySelectorAll('#filters button').forEach(b=>b.classList.remove('active'));
+      e.target.classList.add('active'); activeSystem=e.target.dataset.system; render();
+    });
+    document.querySelector('#search').addEventListener('input',render);
+
+    fetch('./data/cinemas.json').then(r=>{if(!r.ok)throw new Error('数据加载失败');return r.json()}).then(data=>{cinemas=data;render()}).catch(err=>{
+      document.querySelector('#status').textContent=`加载失败：${err.message}`;
+    });
+  </script>
+</body>
+</html>
