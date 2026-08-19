@@ -3,85 +3,267 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
-  <title>China IMAX Map</title>
+  <meta name="color-scheme" content="light dark" />
+  <title>中国 IMAX 银幕地图</title>
   <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
   <style>
-    :root{--bg:#f6f7f9;--panel:rgba(255,255,255,.82);--text:#111;--muted:#666;--line:rgba(0,0,0,.12);--shadow:0 10px 30px rgba(0,0,0,.12)}
-    @media (prefers-color-scheme:dark){:root{--bg:#080808;--panel:rgba(22,22,22,.86);--text:#f5f5f5;--muted:#aaa;--line:rgba(255,255,255,.14);--shadow:0 10px 30px rgba(0,0,0,.4)}}
-    *{box-sizing:border-box} html,body,#map{height:100%;margin:0} body{font-family:system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;background:var(--bg);color:var(--text)}
+    :root{
+      --bg:#f3f4f6;
+      --panel:#ffffff;
+      --text:#111827;
+      --muted:#6b7280;
+      --line:#e5e7eb;
+      --soft:#f9fafb;
+      --shadow:0 14px 40px rgba(17,24,39,.14);
+      --accent:#111827;
+    }
+    @media (prefers-color-scheme:dark){
+      :root{
+        --bg:#0b0d10;
+        --panel:#15181d;
+        --text:#f3f4f6;
+        --muted:#9ca3af;
+        --line:#2b3037;
+        --soft:#1d2127;
+        --shadow:0 18px 48px rgba(0,0,0,.42);
+        --accent:#f9fafb;
+      }
+    }
+    *{box-sizing:border-box}
+    html,body,#map{height:100%;margin:0}
+    body{
+      font-family:-apple-system,BlinkMacSystemFont,"PingFang SC","Microsoft YaHei","Segoe UI",sans-serif;
+      background:var(--bg);
+      color:var(--text);
+      overflow:hidden;
+    }
     #map{background:var(--bg)}
-    .panel{position:absolute;z-index:1000;top:16px;left:16px;width:min(390px,calc(100vw - 32px));background:var(--panel);backdrop-filter:blur(18px);border:1px solid var(--line);border-radius:20px;box-shadow:var(--shadow);padding:14px}
-    h1{font-size:18px;margin:0 0 4px}.sub{font-size:12px;color:var(--muted);margin-bottom:12px}.row{display:flex;gap:8px;flex-wrap:wrap}.filters button{border:1px solid var(--line);background:transparent;color:var(--text);border-radius:999px;padding:7px 11px;cursor:pointer;font-weight:650}.filters button.active{background:var(--text);color:var(--bg)}
-    input{width:100%;margin-top:10px;border:1px solid var(--line);background:transparent;color:var(--text);border-radius:12px;padding:10px 12px;outline:none}.status{font-size:12px;color:var(--muted);margin-top:10px}
-    .imax-marker{display:flex;align-items:center;justify-content:center;border:2px solid white;border-radius:50%;box-shadow:0 4px 12px rgba(0,0,0,.25);color:white;font-weight:800;font-size:10px}
+    .panel{
+      position:absolute;
+      z-index:1000;
+      top:max(16px,env(safe-area-inset-top));
+      left:max(16px,env(safe-area-inset-left));
+      width:min(420px,calc(100vw - 32px));
+      background:color-mix(in srgb,var(--panel) 96%,transparent);
+      border:1px solid var(--line);
+      border-radius:20px;
+      box-shadow:var(--shadow);
+      padding:16px;
+    }
+    .title-row{display:flex;align-items:center;gap:9px;margin-bottom:4px}
+    h1{font-size:19px;line-height:1.25;margin:0;font-weight:800;letter-spacing:-.02em}
+    .version{font-size:10px;font-weight:800;line-height:1;border:1px solid var(--line);border-radius:999px;padding:5px 7px;color:var(--muted);background:var(--soft)}
+    .source-line{font-size:12px;line-height:1.55;color:var(--muted);margin:0 0 11px}
+    .source-line a{color:inherit;text-decoration-thickness:1px;text-underline-offset:2px}
+    .demo-banner{font-size:11px;line-height:1.45;color:#92400e;background:#fffbeb;border:1px solid #fde68a;border-radius:10px;padding:8px 10px;margin-bottom:11px}
+    @media (prefers-color-scheme:dark){.demo-banner{color:#fcd34d;background:#2a2110;border-color:#5a4520}}
+    .filters{display:flex;gap:7px;flex-wrap:wrap}
+    .filters button{
+      appearance:none;
+      border:1px solid var(--line);
+      background:var(--panel);
+      color:var(--text);
+      border-radius:999px;
+      padding:7px 11px;
+      cursor:pointer;
+      font:inherit;
+      font-size:12px;
+      font-weight:700;
+      transition:background .12s ease,border-color .12s ease,color .12s ease;
+    }
+    .filters button:hover{border-color:#9ca3af}
+    .filters button.active{background:var(--accent);border-color:var(--accent);color:var(--bg)}
+    .search-wrap{position:relative;margin-top:10px}
+    .search-wrap::before{content:'⌕';position:absolute;left:11px;top:50%;transform:translateY(-53%);font-size:18px;color:var(--muted);pointer-events:none}
+    input{
+      width:100%;
+      border:1px solid var(--line);
+      background:var(--soft);
+      color:var(--text);
+      border-radius:12px;
+      padding:10px 12px 10px 34px;
+      outline:none;
+      font:inherit;
+      font-size:13px;
+    }
+    input:focus{border-color:#9ca3af;box-shadow:0 0 0 3px rgba(107,114,128,.12)}
+    .meta-row{display:flex;align-items:center;justify-content:space-between;gap:10px;margin-top:10px}
+    .status{font-size:12px;color:var(--muted)}
+    .coverage{font-size:10px;color:var(--muted);white-space:nowrap}
+    .legend{display:flex;gap:10px;flex-wrap:wrap;margin-top:9px;padding-top:9px;border-top:1px solid var(--line);font-size:10px;color:var(--muted)}
+    .legend span{display:inline-flex;align-items:center;gap:5px}
+    .dot{width:8px;height:8px;border-radius:50%}
+    .gt-bg{background:#b91c1c}.cola-bg{background:#7c3aed}.xt-bg{background:#2563eb}.xenon-bg{background:#4b5563}
+    .imax-marker{
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      border:2px solid rgba(255,255,255,.96);
+      border-radius:50%;
+      box-shadow:0 4px 13px rgba(0,0,0,.28);
+      color:white;
+      font-weight:850;
+      font-size:10px;
+      letter-spacing:-.02em;
+    }
     .gt{background:#b91c1c}.cola{background:#7c3aed}.xt{background:#2563eb}.xenon{background:#4b5563}
-    .popup-title{font-weight:800;font-size:15px;margin-bottom:6px}.popup-grid{display:grid;grid-template-columns:auto 1fr;gap:4px 10px;font-size:12px}.popup-grid b{font-weight:700}.demo{margin-top:8px;font-size:11px;color:#b45309}
-    @media(max-width:640px){.panel{top:10px;left:10px;width:calc(100vw - 20px);border-radius:16px;padding:12px}.sub{display:none}}
+    .leaflet-popup-content-wrapper,.leaflet-popup-tip{background:var(--panel);color:var(--text)}
+    .leaflet-popup-content-wrapper{border:1px solid var(--line);border-radius:14px;box-shadow:var(--shadow)}
+    .popup-title{font-weight:800;font-size:14px;line-height:1.4;margin-bottom:7px}
+    .popup-grid{display:grid;grid-template-columns:auto 1fr;gap:5px 10px;font-size:12px;line-height:1.35}
+    .popup-grid b{font-weight:700;color:var(--muted)}
+    .popup-note{margin-top:8px;padding-top:7px;border-top:1px solid var(--line);font-size:11px;line-height:1.4;color:var(--muted)}
+    .leaflet-control-attribution{font-size:9px!important;background:rgba(255,255,255,.82)!important}
+    @media(max-width:640px){
+      .panel{
+        top:max(10px,env(safe-area-inset-top));
+        left:10px;
+        width:calc(100vw - 20px);
+        border-radius:16px;
+        padding:13px;
+      }
+      h1{font-size:17px}
+      .source-line{font-size:11px;margin-bottom:9px}
+      .demo-banner{padding:7px 9px;margin-bottom:9px}
+      .filters{gap:6px}
+      .filters button{padding:6px 10px}
+      .coverage{display:none}
+      .legend{gap:8px}
+    }
   </style>
 </head>
 <body>
-  <div id="map"></div>
-  <section class="panel">
-    <h1>中国 IMAX 地图 <span style="font-weight:500">v0.1</span></h1>
-    <div class="sub">当前仅含演示数据，用于验证地图与筛选功能。</div>
-    <div class="row filters" id="filters">
+  <div id="map" aria-label="中国 IMAX 影院地图"></div>
+
+  <section class="panel" aria-label="地图筛选面板">
+    <div class="title-row">
+      <h1>中国 IMAX 银幕地图</h1>
+      <span class="version">v0.2</span>
+    </div>
+    <p class="source-line">
+      数据来源：<a href="https://weibo.com/6729835778" target="_blank" rel="noopener">@ArvinTingcn</a>
+      《<a href="https://docs.qq.com/sheet/DQ3FEUUZJdklNSWJP" target="_blank" rel="noopener">全球 IMAX 及特效影厅分布</a>》 · 已获授权
+    </p>
+    <div class="demo-banner">当前仍为演示数据。下一步将按授权文档导入真实影院规格，并保留原始来源标注。</div>
+
+    <div class="filters" id="filters" aria-label="放映系统筛选">
       <button class="active" data-system="ALL">全部</button>
       <button data-system="GT Laser">GT</button>
       <button data-system="CoLa">CoLa</button>
       <button data-system="XT">XT</button>
       <button data-system="Xenon">Xenon</button>
     </div>
-    <input id="search" placeholder="搜索城市或影院" />
-    <div class="status" id="status">加载中…</div>
+
+    <div class="search-wrap">
+      <input id="search" type="search" placeholder="搜索城市、地区或影院" autocomplete="off" />
+    </div>
+
+    <div class="meta-row">
+      <div class="status" id="status">加载中…</div>
+      <div class="coverage">覆盖目标：中国大陆 · 香港 · 澳门 · 台湾</div>
+    </div>
+
+    <div class="legend" aria-label="图例">
+      <span><i class="dot gt-bg"></i>GT Laser</span>
+      <span><i class="dot cola-bg"></i>CoLa</span>
+      <span><i class="dot xt-bg"></i>XT</span>
+      <span><i class="dot xenon-bg"></i>Xenon</span>
+    </div>
   </section>
 
   <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
   <script>
-    const map=L.map('map',{zoomControl:false,minZoom:3}).setView([35.5,104.5],4);
-    const dark=window.matchMedia&&window.matchMedia('(prefers-color-scheme: dark)').matches;
-    L.tileLayer(dark
-      ?'https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png'
-      :'https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png',{
-      maxZoom:19,attribution:'&copy; OpenStreetMap &copy; CARTO'
+    const map=L.map('map',{
+      zoomControl:false,
+      minZoom:3,
+      worldCopyJump:true,
+      preferCanvas:true,
+      zoomSnap:.25
+    }).setView([34.7,106.5],4.25);
+
+    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',{
+      subdomains:'abc',
+      maxZoom:19,
+      attribution:'&copy; OpenStreetMap contributors'
     }).addTo(map);
+
     L.control.zoom({position:'bottomright'}).addTo(map);
 
-    let cinemas=[]; let markers=[]; let activeSystem='ALL';
+    let cinemas=[];
+    let markers=[];
+    let activeSystem='ALL';
+
     const systemClass=s=>s==='GT Laser'?'gt':s==='CoLa'?'cola':s==='XT'?'xt':'xenon';
     const label=s=>s==='GT Laser'?'GT':s==='CoLa'?'C':s==='XT'?'XT':'Xe';
+    const safe=v=>String(v??'').replace(/[&<>'"]/g,ch=>({'&':'&amp;','<':'&lt;','>':'&gt;',"'":'&#39;','"':'&quot;'}[ch]));
+    const valueOrPending=v=>(v===null||v===undefined||v==='')?'待核':safe(v);
 
     function markerIcon(c){
-      const area=(c.screenWidth||0)*(c.screenHeight||0);
-      const size=Math.max(28,Math.min(48,24+Math.sqrt(Math.max(area,1))));
-      return L.divIcon({className:'',html:`<div class="imax-marker ${systemClass(c.system)}" style="width:${size}px;height:${size}px">${label(c.system)}</div>`,iconSize:[size,size],iconAnchor:[size/2,size/2]});
+      const area=Number(c.screenWidth||0)*Number(c.screenHeight||0);
+      const size=Math.max(27,Math.min(45,24+Math.sqrt(Math.max(area,1))));
+      return L.divIcon({
+        className:'',
+        html:`<div class="imax-marker ${systemClass(c.system)}" style="width:${size}px;height:${size}px">${label(c.system)}</div>`,
+        iconSize:[size,size],
+        iconAnchor:[size/2,size/2]
+      });
     }
+
     function popup(c){
-      return `<div class="popup-title">${c.name}</div><div class="popup-grid">
-        <b>城市</b><span>${c.city}</span>
-        <b>设备</b><span>${c.system}</span>
-        <b>银幕</b><span>${c.screenWidth} × ${c.screenHeight} m</span>
-        <b>比例</b><span>${c.ratio}</span>
-        <b>声道</b><span>${c.channels}</span>
-        <b>15/70</b><span>${c.film1570?'是':'否'}</span>
-      </div><div class="demo">${c.note||''}</div>`;
+      const size=(c.screenWidth&&c.screenHeight)?`${safe(c.screenWidth)} × ${safe(c.screenHeight)} m`:'待核';
+      return `<div class="popup-title">${safe(c.name)}</div><div class="popup-grid">
+        <b>地区</b><span>${valueOrPending(c.province)}${c.city&&c.city!==c.province?` · ${safe(c.city)}`:''}</span>
+        <b>设备</b><span>${valueOrPending(c.system)}</span>
+        <b>银幕</b><span>${size}</span>
+        <b>比例</b><span>${valueOrPending(c.ratio)}</span>
+        <b>声道</b><span>${valueOrPending(c.channels)}</span>
+        <b>15/70</b><span>${c.film1570===true?'是':c.film1570===false?'否':'待核'}</span>
+      </div>${c.note?`<div class="popup-note">${safe(c.note)}</div>`:''}`;
     }
+
     function render(){
-      markers.forEach(m=>map.removeLayer(m)); markers=[];
+      markers.forEach(m=>map.removeLayer(m));
+      markers=[];
+
       const q=document.querySelector('#search').value.trim().toLowerCase();
-      const shown=cinemas.filter(c=>(activeSystem==='ALL'||c.system===activeSystem)&&(!q||`${c.name} ${c.city} ${c.province}`.toLowerCase().includes(q)));
-      shown.forEach(c=>{const m=L.marker([c.lat,c.lng],{icon:markerIcon(c)}).bindPopup(popup(c));m.addTo(map);markers.push(m)});
-      document.querySelector('#status').textContent=`显示 ${shown.length} / ${cinemas.length} 家影院`;
+      const shown=cinemas.filter(c=>{
+        const systemMatch=activeSystem==='ALL'||c.system===activeSystem;
+        const haystack=`${c.name||''} ${c.city||''} ${c.province||''}`.toLowerCase();
+        return systemMatch&&(!q||haystack.includes(q));
+      });
+
+      shown.forEach(c=>{
+        const lat=Number(c.lat),lng=Number(c.lng);
+        if(!Number.isFinite(lat)||!Number.isFinite(lng)) return;
+        const marker=L.marker([lat,lng],{icon:markerIcon(c),title:c.name||''}).bindPopup(popup(c),{maxWidth:320});
+        marker.addTo(map);
+        markers.push(marker);
+      });
+
+      document.querySelector('#status').textContent=`显示 ${markers.length} / ${cinemas.length} 家影院`;
     }
+
     document.querySelector('#filters').addEventListener('click',e=>{
-      if(!e.target.matches('button')) return;
+      const button=e.target.closest('button[data-system]');
+      if(!button) return;
       document.querySelectorAll('#filters button').forEach(b=>b.classList.remove('active'));
-      e.target.classList.add('active'); activeSystem=e.target.dataset.system; render();
+      button.classList.add('active');
+      activeSystem=button.dataset.system;
+      render();
     });
+
     document.querySelector('#search').addEventListener('input',render);
 
-    fetch('./data/cinemas.json').then(r=>{if(!r.ok)throw new Error('数据加载失败');return r.json()}).then(data=>{cinemas=data;render()}).catch(err=>{
-      document.querySelector('#status').textContent=`加载失败：${err.message}`;
-    });
+    fetch('./data/cinemas.json')
+      .then(r=>{if(!r.ok) throw new Error(`HTTP ${r.status}`);return r.json()})
+      .then(data=>{
+        if(!Array.isArray(data)) throw new Error('数据格式错误');
+        cinemas=data;
+        render();
+      })
+      .catch(err=>{
+        document.querySelector('#status').textContent=`数据加载失败：${err.message}`;
+      });
   </script>
 </body>
 </html>
