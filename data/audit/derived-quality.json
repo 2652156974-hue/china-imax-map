@@ -1,0 +1,1458 @@
+{
+  "schemaVersion": 1,
+  "generatedAt": "2026-08-20T06:50:55.725Z",
+  "source": {
+    "maintainer": "@ArvinTingcn",
+    "document": "全球IMAX及特效影厅分布20260820",
+    "url": "https://docs.qq.com/sheet/DQ3FEUUZJdklNSWJP?tab=BB08J2",
+    "sheetUrl": "https://docs.qq.com/sheet/DQ3FEUUZJdklNSWJP",
+    "tabId": "BB08J2",
+    "tab": "IMAX中国"
+  },
+  "counts": {
+    "generatedRecords": 901,
+    "status": {
+      "unknown": 793,
+      "open": 98,
+      "closed": 9,
+      "temporarily_closed": 1
+    },
+    "projectionPrimarySystem": {
+      "Xenon": 669,
+      "Commercial Laser": 105,
+      "Laser XT": 113,
+      "unknown": 6,
+      "GT Laser": 8
+    },
+    "dome": 8,
+    "twelveChannel": 102,
+    "geography": {
+      "cityPresent": 901,
+      "reliableLatLng": 0,
+      "locatedAnyConfidence": 0,
+      "unlocated": 901,
+      "regions": {
+        "香港": 7,
+        "中国大陆": 881,
+        "台湾": 12,
+        "澳门": 1
+      }
+    },
+    "screen": {
+      "allThreeSingleValueDirect": 437,
+      "multiValueSuccessful": 0,
+      "multiValueNeedsReview": 298,
+      "abnormalData": 4,
+      "anyScreenReview": 466,
+      "fieldClasses": {
+        "width": {
+          "multi-value": 298,
+          "single-value": 451,
+          "blank": 152
+        },
+        "height": {
+          "multi-value": 298,
+          "single-value": 440,
+          "blank": 162,
+          "invalid-text": 1
+        },
+        "area": {
+          "multi-value": 297,
+          "single-value": 438,
+          "blank": 163,
+          "invalid-text": 3
+        }
+      }
+    },
+    "seats": {
+      "single-value": 855,
+      "multi-value": 38,
+      "blank": 8
+    },
+    "reviewNeeded": 901,
+    "reviewReasonCounts": {
+      "screen-multivalue": 298,
+      "status-unknown": 793,
+      "geocode-pending": 901,
+      "seats-multivalue": 38,
+      "screen-missing": 163,
+      "seats-missing": 8,
+      "projection-unrecognized": 6,
+      "screen-abnormal-text": 4,
+      "screen-area-mismatch": 2,
+      "name-history-ambiguous": 2,
+      "projection-planned-upgrade": 8
+    }
+  },
+  "validation": {
+    "recordCount": 901,
+    "sourceDataRowCount": 901,
+    "uniqueIds": 901,
+    "continuousSourceRows": true,
+    "invalidLatLng": 0,
+    "nullValues": 8481,
+    "nanValues": 0
+  },
+  "manualSamples": [
+    {
+      "kind": "first-10",
+      "kinds": [
+        "first-10",
+        "every-50th",
+        "香港",
+        "Xenon"
+      ],
+      "id": "imax-cn-0002",
+      "sourceRow": 2,
+      "name": "香港MY CINEMA YOHO MALL",
+      "region": "香港",
+      "province": "香港",
+      "city": "香港",
+      "system": "Xenon",
+      "dome": false,
+      "audioChannels": null,
+      "status": "unknown",
+      "screenSelectionConfidence": "unknown",
+      "lat": null,
+      "lng": null
+    },
+    {
+      "kind": "first-10",
+      "kinds": [
+        "first-10",
+        "香港",
+        "12声道/12聲道"
+      ],
+      "id": "imax-cn-0003",
+      "sourceRow": 3,
+      "name": "香港英皇戲院（尖沙咀iSQUARE）",
+      "region": "香港",
+      "province": "香港",
+      "city": "香港",
+      "system": "Commercial Laser",
+      "dome": false,
+      "audioChannels": 12,
+      "status": "open",
+      "screenSelectionConfidence": "unknown",
+      "lat": null,
+      "lng": null
+    },
+    {
+      "kind": "first-10",
+      "kinds": [
+        "first-10",
+        "香港",
+        "closed"
+      ],
+      "id": "imax-cn-0004",
+      "sourceRow": 4,
+      "name": "香港MCL CINEMAS（K11 Art House）",
+      "region": "香港",
+      "province": "香港",
+      "city": "香港",
+      "system": "Commercial Laser",
+      "dome": false,
+      "audioChannels": 12,
+      "status": "closed",
+      "screenSelectionConfidence": "unknown",
+      "lat": null,
+      "lng": null
+    },
+    {
+      "kind": "first-10",
+      "kinds": [
+        "first-10"
+      ],
+      "id": "imax-cn-0005",
+      "sourceRow": 5,
+      "name": "香港B+ cinema MOKO (旺角東)",
+      "region": "香港",
+      "province": "香港",
+      "city": "香港",
+      "system": "Xenon",
+      "dome": false,
+      "audioChannels": null,
+      "status": "closed",
+      "screenSelectionConfidence": "unknown",
+      "lat": null,
+      "lng": null
+    },
+    {
+      "kind": "first-10",
+      "kinds": [
+        "first-10"
+      ],
+      "id": "imax-cn-0006",
+      "sourceRow": 6,
+      "name": "香港影藝戲院(MegaBox)",
+      "region": "香港",
+      "province": "香港",
+      "city": "香港",
+      "system": "Commercial Laser",
+      "dome": false,
+      "audioChannels": 12,
+      "status": "open",
+      "screenSelectionConfidence": "unknown",
+      "lat": null,
+      "lng": null
+    },
+    {
+      "kind": "first-10",
+      "kinds": [
+        "first-10",
+        "上海"
+      ],
+      "id": "imax-cn-0007",
+      "sourceRow": 7,
+      "name": "上海万达影城（松江万达广场店）",
+      "region": "中国大陆",
+      "province": "上海",
+      "city": "上海",
+      "system": "Xenon",
+      "dome": false,
+      "audioChannels": null,
+      "status": "unknown",
+      "screenSelectionConfidence": "high",
+      "lat": null,
+      "lng": null
+    },
+    {
+      "kind": "first-10",
+      "kinds": [
+        "first-10"
+      ],
+      "id": "imax-cn-0008",
+      "sourceRow": 8,
+      "name": "上海万达影城（颛桥龙盛广场店）",
+      "region": "中国大陆",
+      "province": "上海",
+      "city": "上海",
+      "system": "Xenon",
+      "dome": false,
+      "audioChannels": null,
+      "status": "unknown",
+      "screenSelectionConfidence": "high",
+      "lat": null,
+      "lng": null
+    },
+    {
+      "kind": "first-10",
+      "kinds": [
+        "first-10"
+      ],
+      "id": "imax-cn-0009",
+      "sourceRow": 9,
+      "name": "上海横店电影城（IMAX奉贤宝龙店）",
+      "region": "中国大陆",
+      "province": "上海",
+      "city": "上海",
+      "system": "Xenon",
+      "dome": false,
+      "audioChannels": null,
+      "status": "unknown",
+      "screenSelectionConfidence": "high",
+      "lat": null,
+      "lng": null
+    },
+    {
+      "kind": "first-10",
+      "kinds": [
+        "first-10"
+      ],
+      "id": "imax-cn-0010",
+      "sourceRow": 10,
+      "name": "上海SFC上影影城（天山缤谷IMAX店）",
+      "region": "中国大陆",
+      "province": "上海",
+      "city": "上海",
+      "system": "Xenon",
+      "dome": false,
+      "audioChannels": null,
+      "status": "unknown",
+      "screenSelectionConfidence": "high",
+      "lat": null,
+      "lng": null
+    },
+    {
+      "kind": "first-10",
+      "kinds": [
+        "first-10"
+      ],
+      "id": "imax-cn-0011",
+      "sourceRow": 11,
+      "name": "上海CGV影城（七宝店）",
+      "region": "中国大陆",
+      "province": "上海",
+      "city": "上海",
+      "system": "Xenon",
+      "dome": false,
+      "audioChannels": null,
+      "status": "unknown",
+      "screenSelectionConfidence": "high",
+      "lat": null,
+      "lng": null
+    },
+    {
+      "kind": "last-10",
+      "kinds": [
+        "last-10"
+      ],
+      "id": "imax-cn-0893",
+      "sourceRow": 893,
+      "name": "常州幸福蓝海国际影城（嘉禾店）",
+      "region": "中国大陆",
+      "province": "江苏",
+      "city": "常州",
+      "system": "Xenon",
+      "dome": false,
+      "audioChannels": null,
+      "status": "unknown",
+      "screenSelectionConfidence": "high",
+      "lat": null,
+      "lng": null
+    },
+    {
+      "kind": "last-10",
+      "kinds": [
+        "last-10"
+      ],
+      "id": "imax-cn-0894",
+      "sourceRow": 894,
+      "name": "香港機場UA IMAX影院",
+      "region": "香港",
+      "province": "香港",
+      "city": "香港",
+      "system": "Xenon",
+      "dome": false,
+      "audioChannels": null,
+      "status": "unknown",
+      "screenSelectionConfidence": "high",
+      "lat": null,
+      "lng": null
+    },
+    {
+      "kind": "last-10",
+      "kinds": [
+        "last-10"
+      ],
+      "id": "imax-cn-0895",
+      "sourceRow": 895,
+      "name": "香港香港太空館",
+      "region": "香港",
+      "province": "香港",
+      "city": "香港",
+      "system": "Xenon",
+      "dome": true,
+      "audioChannels": null,
+      "status": "unknown",
+      "screenSelectionConfidence": "low",
+      "lat": null,
+      "lng": null
+    },
+    {
+      "kind": "last-10",
+      "kinds": [
+        "last-10"
+      ],
+      "id": "imax-cn-0896",
+      "sourceRow": 896,
+      "name": "昆明云南昆明摩天激光IMAX影院",
+      "region": "中国大陆",
+      "province": "云南",
+      "city": "昆明",
+      "system": "GT Laser",
+      "dome": false,
+      "audioChannels": 12,
+      "status": "closed",
+      "screenSelectionConfidence": "unknown",
+      "lat": null,
+      "lng": null
+    },
+    {
+      "kind": "last-10",
+      "kinds": [
+        "last-10"
+      ],
+      "id": "imax-cn-0897",
+      "sourceRow": 897,
+      "name": "泉州保利万和CFR国际影城（IMAX店）",
+      "region": "中国大陆",
+      "province": "福建",
+      "city": "泉州",
+      "system": "Xenon",
+      "dome": false,
+      "audioChannels": null,
+      "status": "unknown",
+      "screenSelectionConfidence": "unknown",
+      "lat": null,
+      "lng": null
+    },
+    {
+      "kind": "last-10",
+      "kinds": [
+        "last-10"
+      ],
+      "id": "imax-cn-0898",
+      "sourceRow": 898,
+      "name": "扬州上影四方国际影城",
+      "region": "中国大陆",
+      "province": "江苏",
+      "city": "扬州",
+      "system": "Xenon",
+      "dome": false,
+      "audioChannels": null,
+      "status": "unknown",
+      "screenSelectionConfidence": "high",
+      "lat": null,
+      "lng": null
+    },
+    {
+      "kind": "last-10",
+      "kinds": [
+        "last-10"
+      ],
+      "id": "imax-cn-0899",
+      "sourceRow": 899,
+      "name": "合肥华谊兄弟影院（武里山天街店）",
+      "region": "中国大陆",
+      "province": "安徽",
+      "city": "合肥",
+      "system": "Xenon",
+      "dome": false,
+      "audioChannels": null,
+      "status": "closed",
+      "screenSelectionConfidence": "unknown",
+      "lat": null,
+      "lng": null
+    },
+    {
+      "kind": "last-10",
+      "kinds": [
+        "last-10"
+      ],
+      "id": "imax-cn-0900",
+      "sourceRow": 900,
+      "name": "北京华谊兄弟影院（洋桥店）",
+      "region": "中国大陆",
+      "province": "北京",
+      "city": "北京",
+      "system": "Xenon",
+      "dome": false,
+      "audioChannels": null,
+      "status": "closed",
+      "screenSelectionConfidence": "unknown",
+      "lat": null,
+      "lng": null
+    },
+    {
+      "kind": "last-10",
+      "kinds": [
+        "last-10"
+      ],
+      "id": "imax-cn-0901",
+      "sourceRow": 901,
+      "name": "晋中华谊兄弟影院 （奥莱店)",
+      "region": "中国大陆",
+      "province": "山西",
+      "city": "晋中",
+      "system": "Xenon",
+      "dome": false,
+      "audioChannels": null,
+      "status": "unknown",
+      "screenSelectionConfidence": "high",
+      "lat": null,
+      "lng": null
+    },
+    {
+      "kind": "last-10",
+      "kinds": [
+        "last-10",
+        "every-50th"
+      ],
+      "id": "imax-cn-0902",
+      "sourceRow": 902,
+      "name": "廊坊华谊兄弟影城（燕郊天洋城店）",
+      "region": "中国大陆",
+      "province": "河北",
+      "city": "廊坊",
+      "system": "Xenon",
+      "dome": false,
+      "audioChannels": null,
+      "status": "unknown",
+      "screenSelectionConfidence": "unknown",
+      "lat": null,
+      "lng": null
+    },
+    {
+      "kind": "every-50th",
+      "kinds": [
+        "every-50th"
+      ],
+      "id": "imax-cn-0052",
+      "sourceRow": 52,
+      "name": "哈尔滨万达影城（悦荟广场店）",
+      "region": "中国大陆",
+      "province": "黑龙江",
+      "city": "哈尔滨",
+      "system": "Xenon",
+      "dome": false,
+      "audioChannels": null,
+      "status": "unknown",
+      "screenSelectionConfidence": "high",
+      "lat": null,
+      "lng": null
+    },
+    {
+      "kind": "every-50th",
+      "kinds": [
+        "every-50th"
+      ],
+      "id": "imax-cn-0102",
+      "sourceRow": 102,
+      "name": "苏州幸福蓝海国际影城（绿宝店）",
+      "region": "中国大陆",
+      "province": "江苏",
+      "city": "苏州",
+      "system": "Xenon",
+      "dome": false,
+      "audioChannels": null,
+      "status": "unknown",
+      "screenSelectionConfidence": "unknown",
+      "lat": null,
+      "lng": null
+    },
+    {
+      "kind": "every-50th",
+      "kinds": [
+        "every-50th"
+      ],
+      "id": "imax-cn-0152",
+      "sourceRow": 152,
+      "name": "盐城万达影城（万达广场店）",
+      "region": "中国大陆",
+      "province": "江苏",
+      "city": "盐城",
+      "system": "Xenon",
+      "dome": false,
+      "audioChannels": null,
+      "status": "unknown",
+      "screenSelectionConfidence": "unknown",
+      "lat": null,
+      "lng": null
+    },
+    {
+      "kind": "every-50th",
+      "kinds": [
+        "every-50th"
+      ],
+      "id": "imax-cn-0202",
+      "sourceRow": 202,
+      "name": "广州万达影城（南岗万达广场店）",
+      "region": "中国大陆",
+      "province": "广东",
+      "city": "广州",
+      "system": "Xenon",
+      "dome": false,
+      "audioChannels": null,
+      "status": "unknown",
+      "screenSelectionConfidence": "unknown",
+      "lat": null,
+      "lng": null
+    },
+    {
+      "kind": "every-50th",
+      "kinds": [
+        "every-50th"
+      ],
+      "id": "imax-cn-0252",
+      "sourceRow": 252,
+      "name": "中山金逸影城（远洋城IMAX店）",
+      "region": "中国大陆",
+      "province": "广东",
+      "city": "中山",
+      "system": "Xenon",
+      "dome": false,
+      "audioChannels": null,
+      "status": "unknown",
+      "screenSelectionConfidence": "high",
+      "lat": null,
+      "lng": null
+    },
+    {
+      "kind": "every-50th",
+      "kinds": [
+        "every-50th"
+      ],
+      "id": "imax-cn-0302",
+      "sourceRow": 302,
+      "name": "北京金泉港国际影城",
+      "region": "中国大陆",
+      "province": "北京",
+      "city": "北京",
+      "system": "Xenon",
+      "dome": false,
+      "audioChannels": null,
+      "status": "unknown",
+      "screenSelectionConfidence": "high",
+      "lat": null,
+      "lng": null
+    },
+    {
+      "kind": "every-50th",
+      "kinds": [
+        "every-50th"
+      ],
+      "id": "imax-cn-0352",
+      "sourceRow": 352,
+      "name": "鞍山万达影城（万达广场店)",
+      "region": "中国大陆",
+      "province": "辽宁",
+      "city": "鞍山",
+      "system": "Xenon",
+      "dome": false,
+      "audioChannels": null,
+      "status": "unknown",
+      "screenSelectionConfidence": "high",
+      "lat": null,
+      "lng": null
+    },
+    {
+      "kind": "every-50th",
+      "kinds": [
+        "every-50th"
+      ],
+      "id": "imax-cn-0402",
+      "sourceRow": 402,
+      "name": "长沙万达影城（中茂城IMAX店）",
+      "region": "中国大陆",
+      "province": "湖南",
+      "city": "长沙",
+      "system": "Xenon",
+      "dome": false,
+      "audioChannels": null,
+      "status": "unknown",
+      "screenSelectionConfidence": "high",
+      "lat": null,
+      "lng": null
+    },
+    {
+      "kind": "every-50th",
+      "kinds": [
+        "every-50th"
+      ],
+      "id": "imax-cn-0452",
+      "sourceRow": 452,
+      "name": "邯郸万达影城（万达广场店)",
+      "region": "中国大陆",
+      "province": "河北",
+      "city": "邯郸",
+      "system": "Xenon",
+      "dome": false,
+      "audioChannels": null,
+      "status": "unknown",
+      "screenSelectionConfidence": "unknown",
+      "lat": null,
+      "lng": null
+    },
+    {
+      "kind": "every-50th",
+      "kinds": [
+        "every-50th"
+      ],
+      "id": "imax-cn-0502",
+      "sourceRow": 502,
+      "name": "合肥万达影城（北城万达广场店)",
+      "region": "中国大陆",
+      "province": "安徽",
+      "city": "合肥",
+      "system": "Xenon",
+      "dome": false,
+      "audioChannels": null,
+      "status": "unknown",
+      "screenSelectionConfidence": "high",
+      "lat": null,
+      "lng": null
+    },
+    {
+      "kind": "every-50th",
+      "kinds": [
+        "every-50th"
+      ],
+      "id": "imax-cn-0552",
+      "sourceRow": 552,
+      "name": "宁波影都（亚细亚IMAX店）",
+      "region": "中国大陆",
+      "province": "浙江",
+      "city": "宁波",
+      "system": "Xenon",
+      "dome": false,
+      "audioChannels": null,
+      "status": "unknown",
+      "screenSelectionConfidence": "unknown",
+      "lat": null,
+      "lng": null
+    },
+    {
+      "kind": "every-50th",
+      "kinds": [
+        "every-50th"
+      ],
+      "id": "imax-cn-0602",
+      "sourceRow": 602,
+      "name": "银川万达影城（金凤万达广场店）",
+      "region": "中国大陆",
+      "province": "宁夏",
+      "city": "银川",
+      "system": "Laser XT",
+      "dome": false,
+      "audioChannels": null,
+      "status": "unknown",
+      "screenSelectionConfidence": "high",
+      "lat": null,
+      "lng": null
+    },
+    {
+      "kind": "every-50th",
+      "kinds": [
+        "every-50th"
+      ],
+      "id": "imax-cn-0652",
+      "sourceRow": 652,
+      "name": "安溪金逸影城（宝龙店）",
+      "region": "中国大陆",
+      "province": "福建",
+      "city": "安溪",
+      "system": "Xenon",
+      "dome": false,
+      "audioChannels": null,
+      "status": "unknown",
+      "screenSelectionConfidence": "high",
+      "lat": null,
+      "lng": null
+    },
+    {
+      "kind": "every-50th",
+      "kinds": [
+        "every-50th"
+      ],
+      "id": "imax-cn-0702",
+      "sourceRow": 702,
+      "name": "成都博纳国际影城（天府大悦城店）",
+      "region": "中国大陆",
+      "province": "四川",
+      "city": "成都",
+      "system": "Laser XT",
+      "dome": false,
+      "audioChannels": null,
+      "status": "unknown",
+      "screenSelectionConfidence": "high",
+      "lat": null,
+      "lng": null
+    },
+    {
+      "kind": "every-50th",
+      "kinds": [
+        "every-50th"
+      ],
+      "id": "imax-cn-0752",
+      "sourceRow": 752,
+      "name": "贵阳卢米埃影城（花溪店)",
+      "region": "中国大陆",
+      "province": "贵州",
+      "city": "贵阳",
+      "system": "Xenon",
+      "dome": false,
+      "audioChannels": null,
+      "status": "unknown",
+      "screenSelectionConfidence": "high",
+      "lat": null,
+      "lng": null
+    },
+    {
+      "kind": "every-50th",
+      "kinds": [
+        "every-50th"
+      ],
+      "id": "imax-cn-0802",
+      "sourceRow": 802,
+      "name": "重庆万象影城（弹子石万象汇IMAX激光店）",
+      "region": "中国大陆",
+      "province": "重庆",
+      "city": "重庆",
+      "system": "Commercial Laser",
+      "dome": false,
+      "audioChannels": null,
+      "status": "unknown",
+      "screenSelectionConfidence": "high",
+      "lat": null,
+      "lng": null
+    },
+    {
+      "kind": "every-50th",
+      "kinds": [
+        "every-50th"
+      ],
+      "id": "imax-cn-0852",
+      "sourceRow": 852,
+      "name": "福州海艺影城",
+      "region": "中国大陆",
+      "province": "福建",
+      "city": "福州",
+      "system": "unknown",
+      "dome": false,
+      "audioChannels": null,
+      "status": "unknown",
+      "screenSelectionConfidence": "high",
+      "lat": null,
+      "lng": null
+    },
+    {
+      "kind": "北京",
+      "kinds": [
+        "北京"
+      ],
+      "id": "imax-cn-0294",
+      "sourceRow": 294,
+      "name": "北京中國科技館（设备还在，是否放映需要实地咨询）",
+      "region": "中国大陆",
+      "province": "北京",
+      "city": "北京",
+      "system": "Xenon",
+      "dome": true,
+      "audioChannels": null,
+      "status": "unknown",
+      "screenSelectionConfidence": "low",
+      "lat": null,
+      "lng": null
+    },
+    {
+      "kind": "广州/深圳",
+      "kinds": [
+        "广州/深圳"
+      ],
+      "id": "imax-cn-0180",
+      "sourceRow": 180,
+      "name": "广州万达影城（白云万达广场店）",
+      "region": "中国大陆",
+      "province": "广东",
+      "city": "广州",
+      "system": "Xenon",
+      "dome": false,
+      "audioChannels": null,
+      "status": "unknown",
+      "screenSelectionConfidence": "unknown",
+      "lat": null,
+      "lng": null
+    },
+    {
+      "kind": "西安",
+      "kinds": [
+        "西安"
+      ],
+      "id": "imax-cn-0585",
+      "sourceRow": 585,
+      "name": "西安CGV影城（印象城店）",
+      "region": "中国大陆",
+      "province": "陕西",
+      "city": "西安",
+      "system": "Xenon",
+      "dome": false,
+      "audioChannels": null,
+      "status": "unknown",
+      "screenSelectionConfidence": "unknown",
+      "lat": null,
+      "lng": null
+    },
+    {
+      "kind": "成都",
+      "kinds": [
+        "成都"
+      ],
+      "id": "imax-cn-0681",
+      "sourceRow": 681,
+      "name": "成都万达影城（锦华万达广场店)",
+      "region": "中国大陆",
+      "province": "四川",
+      "city": "成都",
+      "system": "Xenon",
+      "dome": false,
+      "audioChannels": null,
+      "status": "unknown",
+      "screenSelectionConfidence": "high",
+      "lat": null,
+      "lng": null
+    },
+    {
+      "kind": "澳门",
+      "kinds": [
+        "澳门"
+      ],
+      "id": "imax-cn-0791",
+      "sourceRow": 791,
+      "name": "澳门英皇戲院（澳門葡京人）",
+      "region": "澳门",
+      "province": "澳门",
+      "city": "澳门",
+      "system": "Commercial Laser",
+      "dome": false,
+      "audioChannels": 12,
+      "status": "unknown",
+      "screenSelectionConfidence": "unknown",
+      "lat": null,
+      "lng": null
+    },
+    {
+      "kind": "台湾",
+      "kinds": [
+        "台湾"
+      ],
+      "id": "imax-cn-0069",
+      "sourceRow": 69,
+      "name": "台北美麗華大直影城",
+      "region": "台湾",
+      "province": "台湾",
+      "city": "台北",
+      "system": "GT Laser",
+      "dome": false,
+      "audioChannels": 12,
+      "status": "open",
+      "screenSelectionConfidence": "unknown",
+      "lat": null,
+      "lng": null
+    },
+    {
+      "kind": "台湾",
+      "kinds": [
+        "台湾"
+      ],
+      "id": "imax-cn-0070",
+      "sourceRow": 70,
+      "name": "台中老虎城威秀影城",
+      "region": "台湾",
+      "province": "台湾",
+      "city": "台中",
+      "system": "Xenon",
+      "dome": false,
+      "audioChannels": null,
+      "status": "unknown",
+      "screenSelectionConfidence": "high",
+      "lat": null,
+      "lng": null
+    },
+    {
+      "kind": "台湾",
+      "kinds": [
+        "台湾"
+      ],
+      "id": "imax-cn-0071",
+      "sourceRow": 71,
+      "name": "台中大遠百威秀影城",
+      "region": "台湾",
+      "province": "台湾",
+      "city": "台中",
+      "system": "Xenon",
+      "dome": false,
+      "audioChannels": null,
+      "status": "unknown",
+      "screenSelectionConfidence": "high",
+      "lat": null,
+      "lng": null
+    },
+    {
+      "kind": "台湾",
+      "kinds": [
+        "台湾"
+      ],
+      "id": "imax-cn-0072",
+      "sourceRow": 72,
+      "name": "新竹巨城威秀影城",
+      "region": "台湾",
+      "province": "台湾",
+      "city": "新竹",
+      "system": "Xenon",
+      "dome": false,
+      "audioChannels": null,
+      "status": "unknown",
+      "screenSelectionConfidence": "high",
+      "lat": null,
+      "lng": null
+    },
+    {
+      "kind": "台湾",
+      "kinds": [
+        "台湾"
+      ],
+      "id": "imax-cn-0073",
+      "sourceRow": 73,
+      "name": "台南南紡威秀影城",
+      "region": "台湾",
+      "province": "台湾",
+      "city": "台南",
+      "system": "Xenon",
+      "dome": false,
+      "audioChannels": null,
+      "status": "unknown",
+      "screenSelectionConfidence": "high",
+      "lat": null,
+      "lng": null
+    },
+    {
+      "kind": "GT Laser",
+      "kinds": [
+        "GT Laser",
+        "GT Laser 3D"
+      ],
+      "id": "imax-cn-0059",
+      "sourceRow": 59,
+      "name": "哈尔滨儒意影城（哈东万达广场店）",
+      "region": "中国大陆",
+      "province": "黑龙江",
+      "city": "哈尔滨",
+      "system": "GT Laser",
+      "dome": false,
+      "audioChannels": 12,
+      "status": "closed",
+      "screenSelectionConfidence": "unknown",
+      "lat": null,
+      "lng": null
+    },
+    {
+      "kind": "Laser XT",
+      "kinds": [
+        "Laser XT"
+      ],
+      "id": "imax-cn-0031",
+      "sourceRow": 31,
+      "name": "上海万达影城（金山万达广场店）",
+      "region": "中国大陆",
+      "province": "上海",
+      "city": "上海",
+      "system": "Laser XT",
+      "dome": false,
+      "audioChannels": null,
+      "status": "unknown",
+      "screenSelectionConfidence": "unknown",
+      "lat": null,
+      "lng": null
+    },
+    {
+      "kind": "Dome",
+      "kinds": [
+        "Dome",
+        "SR Dome"
+      ],
+      "id": "imax-cn-0051",
+      "sourceRow": 51,
+      "name": "哈尔滨黑龙江省科学技术馆",
+      "region": "中国大陆",
+      "province": "黑龙江",
+      "city": "哈尔滨",
+      "system": "unknown",
+      "dome": true,
+      "audioChannels": null,
+      "status": "unknown",
+      "screenSelectionConfidence": "low",
+      "lat": null,
+      "lng": null
+    },
+    {
+      "kind": "GT Dome",
+      "kinds": [
+        "GT Dome"
+      ],
+      "id": "imax-cn-0171",
+      "sourceRow": 171,
+      "name": "东莞东莞市科學技術博物館",
+      "region": "中国大陆",
+      "province": "广东",
+      "city": "东莞",
+      "system": "Xenon",
+      "dome": true,
+      "audioChannels": null,
+      "status": "unknown",
+      "screenSelectionConfidence": "low",
+      "lat": null,
+      "lng": null
+    },
+    {
+      "kind": "seeded-random",
+      "kinds": [
+        "seeded-random"
+      ],
+      "id": "imax-cn-0124",
+      "sourceRow": 124,
+      "name": "金坛星轶IMAX影城（金坛吾悦广场旗舰店）",
+      "region": "中国大陆",
+      "province": "江苏",
+      "city": "金坛",
+      "system": "Xenon",
+      "dome": false,
+      "audioChannels": null,
+      "status": "unknown",
+      "screenSelectionConfidence": "unknown",
+      "lat": null,
+      "lng": null
+    },
+    {
+      "kind": "seeded-random",
+      "kinds": [
+        "seeded-random"
+      ],
+      "id": "imax-cn-0184",
+      "sourceRow": 184,
+      "name": "广州万达影城（南沙万达广场店）",
+      "region": "中国大陆",
+      "province": "广东",
+      "city": "广州",
+      "system": "Xenon",
+      "dome": false,
+      "audioChannels": null,
+      "status": "unknown",
+      "screenSelectionConfidence": "unknown",
+      "lat": null,
+      "lng": null
+    },
+    {
+      "kind": "seeded-random",
+      "kinds": [
+        "seeded-random"
+      ],
+      "id": "imax-cn-0013",
+      "sourceRow": 13,
+      "name": "上海SFC上影百联影城（八佰伴IMAX店）",
+      "region": "中国大陆",
+      "province": "上海",
+      "city": "上海",
+      "system": "Xenon",
+      "dome": false,
+      "audioChannels": null,
+      "status": "unknown",
+      "screenSelectionConfidence": "high",
+      "lat": null,
+      "lng": null
+    },
+    {
+      "kind": "seeded-random",
+      "kinds": [
+        "seeded-random"
+      ],
+      "id": "imax-cn-0632",
+      "sourceRow": 632,
+      "name": "福州万达影城（金融街万达广场店）",
+      "region": "中国大陆",
+      "province": "福建",
+      "city": "福州",
+      "system": "Xenon",
+      "dome": false,
+      "audioChannels": null,
+      "status": "unknown",
+      "screenSelectionConfidence": "unknown",
+      "lat": null,
+      "lng": null
+    },
+    {
+      "kind": "seeded-random",
+      "kinds": [
+        "seeded-random"
+      ],
+      "id": "imax-cn-0216",
+      "sourceRow": 216,
+      "name": "深圳百老汇电影中心（IMAX万象天地店）",
+      "region": "中国大陆",
+      "province": "广东",
+      "city": "深圳",
+      "system": "Xenon",
+      "dome": false,
+      "audioChannels": null,
+      "status": "unknown",
+      "screenSelectionConfidence": "high",
+      "lat": null,
+      "lng": null
+    },
+    {
+      "kind": "seeded-random",
+      "kinds": [
+        "seeded-random"
+      ],
+      "id": "imax-cn-0822",
+      "sourceRow": 822,
+      "name": "佛山中视国际影城（富弘广场店)",
+      "region": "中国大陆",
+      "province": "广东",
+      "city": "佛山",
+      "system": "Xenon",
+      "dome": false,
+      "audioChannels": null,
+      "status": "unknown",
+      "screenSelectionConfidence": "unknown",
+      "lat": null,
+      "lng": null
+    },
+    {
+      "kind": "seeded-random",
+      "kinds": [
+        "seeded-random"
+      ],
+      "id": "imax-cn-0633",
+      "sourceRow": 633,
+      "name": "福州金逸影城IMAX（万宝商圈店）",
+      "region": "中国大陆",
+      "province": "福建",
+      "city": "福州",
+      "system": "Xenon",
+      "dome": false,
+      "audioChannels": null,
+      "status": "unknown",
+      "screenSelectionConfidence": "high",
+      "lat": null,
+      "lng": null
+    },
+    {
+      "kind": "seeded-random",
+      "kinds": [
+        "seeded-random"
+      ],
+      "id": "imax-cn-0589",
+      "sourceRow": 589,
+      "name": "西安卢米埃影城（曲江创意谷IMAX店）",
+      "region": "中国大陆",
+      "province": "陕西",
+      "city": "西安",
+      "system": "Xenon",
+      "dome": false,
+      "audioChannels": null,
+      "status": "unknown",
+      "screenSelectionConfidence": "high",
+      "lat": null,
+      "lng": null
+    },
+    {
+      "kind": "seeded-random",
+      "kinds": [
+        "seeded-random"
+      ],
+      "id": "imax-cn-0445",
+      "sourceRow": 445,
+      "name": "天津中影华臣影城（滨海IMAX店）",
+      "region": "中国大陆",
+      "province": "天津",
+      "city": "天津",
+      "system": "Xenon",
+      "dome": false,
+      "audioChannels": null,
+      "status": "unknown",
+      "screenSelectionConfidence": "high",
+      "lat": null,
+      "lng": null
+    },
+    {
+      "kind": "seeded-random",
+      "kinds": [
+        "seeded-random"
+      ],
+      "id": "imax-cn-0554",
+      "sourceRow": 554,
+      "name": "余姚CGV影城（城东店）",
+      "region": "中国大陆",
+      "province": "浙江",
+      "city": "余姚",
+      "system": "Xenon",
+      "dome": false,
+      "audioChannels": null,
+      "status": "unknown",
+      "screenSelectionConfidence": "unknown",
+      "lat": null,
+      "lng": null
+    },
+    {
+      "kind": "seeded-random",
+      "kinds": [
+        "seeded-random"
+      ],
+      "id": "imax-cn-0296",
+      "sourceRow": 296,
+      "name": "北京中国民航博物馆（建成后并未开业）",
+      "region": "中国大陆",
+      "province": "北京",
+      "city": "北京",
+      "system": "unknown",
+      "dome": false,
+      "audioChannels": null,
+      "status": "unknown",
+      "screenSelectionConfidence": "high",
+      "lat": null,
+      "lng": null
+    },
+    {
+      "kind": "seeded-random",
+      "kinds": [
+        "seeded-random"
+      ],
+      "id": "imax-cn-0467",
+      "sourceRow": 467,
+      "name": "青岛SFC上影影城（金狮广场店)",
+      "region": "中国大陆",
+      "province": "山东",
+      "city": "青岛",
+      "system": "Xenon",
+      "dome": false,
+      "audioChannels": null,
+      "status": "unknown",
+      "screenSelectionConfidence": "unknown",
+      "lat": null,
+      "lng": null
+    },
+    {
+      "kind": "seeded-random",
+      "kinds": [
+        "seeded-random"
+      ],
+      "id": "imax-cn-0696",
+      "sourceRow": 696,
+      "name": "成都寰映影城（龙泉驿世茂广场店)",
+      "region": "中国大陆",
+      "province": "四川",
+      "city": "成都",
+      "system": "Xenon",
+      "dome": false,
+      "audioChannels": null,
+      "status": "unknown",
+      "screenSelectionConfidence": "unknown",
+      "lat": null,
+      "lng": null
+    },
+    {
+      "kind": "seeded-random",
+      "kinds": [
+        "seeded-random"
+      ],
+      "id": "imax-cn-0151",
+      "sourceRow": 151,
+      "name": "盐城CGV影城（中南城店)",
+      "region": "中国大陆",
+      "province": "江苏",
+      "city": "盐城",
+      "system": "Xenon",
+      "dome": false,
+      "audioChannels": null,
+      "status": "unknown",
+      "screenSelectionConfidence": "unknown",
+      "lat": null,
+      "lng": null
+    },
+    {
+      "kind": "seeded-random",
+      "kinds": [
+        "seeded-random"
+      ],
+      "id": "imax-cn-0063",
+      "sourceRow": 63,
+      "name": "大庆万达影城（让胡路万达广场店)",
+      "region": "中国大陆",
+      "province": "黑龙江",
+      "city": "大庆",
+      "system": "Xenon",
+      "dome": false,
+      "audioChannels": null,
+      "status": "unknown",
+      "screenSelectionConfidence": "unknown",
+      "lat": null,
+      "lng": null
+    },
+    {
+      "kind": "seeded-random",
+      "kinds": [
+        "seeded-random"
+      ],
+      "id": "imax-cn-0428",
+      "sourceRow": 428,
+      "name": "长春万达影城（栖乐荟广场店）",
+      "region": "中国大陆",
+      "province": "吉林",
+      "city": "长春",
+      "system": "Xenon",
+      "dome": false,
+      "audioChannels": null,
+      "status": "unknown",
+      "screenSelectionConfidence": "high",
+      "lat": null,
+      "lng": null
+    },
+    {
+      "kind": "seeded-random",
+      "kinds": [
+        "seeded-random"
+      ],
+      "id": "imax-cn-0499",
+      "sourceRow": 499,
+      "name": "合肥万达影城（宝利丰广场店）",
+      "region": "中国大陆",
+      "province": "安徽",
+      "city": "合肥",
+      "system": "Xenon",
+      "dome": false,
+      "audioChannels": null,
+      "status": "unknown",
+      "screenSelectionConfidence": "unknown",
+      "lat": null,
+      "lng": null
+    },
+    {
+      "kind": "seeded-random",
+      "kinds": [
+        "seeded-random"
+      ],
+      "id": "imax-cn-0680",
+      "sourceRow": 680,
+      "name": "许昌万达影城（万达广场IMAX激光店）",
+      "region": "中国大陆",
+      "province": "河南",
+      "city": "许昌",
+      "system": "Laser XT",
+      "dome": false,
+      "audioChannels": null,
+      "status": "open",
+      "screenSelectionConfidence": "unknown",
+      "lat": null,
+      "lng": null
+    },
+    {
+      "kind": "seeded-random",
+      "kinds": [
+        "seeded-random"
+      ],
+      "id": "imax-cn-0170",
+      "sourceRow": 170,
+      "name": "靖江CGV影城（印象城店）",
+      "region": "中国大陆",
+      "province": "江苏",
+      "city": "靖江",
+      "system": "Laser XT",
+      "dome": false,
+      "audioChannels": 12,
+      "status": "unknown",
+      "screenSelectionConfidence": "high",
+      "lat": null,
+      "lng": null
+    },
+    {
+      "kind": "seeded-random",
+      "kinds": [
+        "seeded-random"
+      ],
+      "id": "imax-cn-0337",
+      "sourceRow": 337,
+      "name": "大连万达影城（甘井子万达广场店）",
+      "region": "中国大陆",
+      "province": "辽宁",
+      "city": "大连",
+      "system": "Xenon",
+      "dome": false,
+      "audioChannels": null,
+      "status": "unknown",
+      "screenSelectionConfidence": "high",
+      "lat": null,
+      "lng": null
+    }
+  ]
+}
