@@ -34,6 +34,15 @@
 - `data/cinemas.json` 在本次验证中未修改；人工检查原始结果前不进行正式导入。
 - 地图产品应在明显位置继续标注 `@ArvinTingcn` 与原始腾讯文档来源。
 
+### 腾讯文档全量迁移完整性审计（2026-08-20）
+
+- 审计范围严格限定为 `BB08J2`（`IMAX中国`），不是整个腾讯文档。当前文档另有 7 个工作表，均未抓取。
+- Chromium 普通访客只读运行时复核结果：`903 × 8`，`rowIndex` 连续 `0–902`，无缺行、增行、重复行；标题行、表头和最后一行均已核对。
+- 逐单元格比较 `rowIndex`、`colIndex`、`displayValue`、`rawValue`、`editValue`、`typeCode`、`typeName`，结果无差异；规范化换行后的内容哈希为 **901 / 901 data rows matched**。
+- 独立缺失值分类、分层抽样和已知特殊样本检查见 [`data/audit/arvin-imax-20260820.json`](data/audit/arvin-imax-20260820.json)；逐行 SHA-256 见 [`data/audit/arvin-imax-20260820-row-hashes.json`](data/audit/arvin-imax-20260820-row-hashes.json)。
+- 字段复杂度审计仅记录混合类型、富文本、超长多行文本、换行、空白和超链接分布，不做清洗、截断、去空格或类型强转。
+- 本次审计未覆盖其他工作表，未登录、未伪造 cookie/token、未调用复制/导出，未覆盖原始 JSON，且 `data/cinemas.json` 保持不变。
+
 ## 技术栈
 
 - Leaflet.js

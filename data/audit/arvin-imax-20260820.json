@@ -1,0 +1,2178 @@
+{
+  "auditSchemaVersion": 1,
+  "auditType": "full-migration-integrity-validation",
+  "source": {
+    "maintainer": "@ArvinTingcn",
+    "documentTitle": "全球IMAX及特效影厅分布20260820",
+    "sheetUrl": "https://docs.qq.com/sheet/DQ3FEUUZJdklNSWJP",
+    "tabId": "BB08J2",
+    "tabName": "IMAX中国",
+    "scopeStatement": "This audit covers only tab BB08J2 / IMAX中国, not the entire Tencent document."
+  },
+  "capture": {
+    "capturedAtStart": null,
+    "capturedAtEnd": "2026-08-20T06:01:51.375Z",
+    "browser": "Chromium via in-app Playwright/CDP read-only runtime inspection",
+    "pageAccess": "ordinary guest view-only",
+    "login": false,
+    "cookiesOrTokensForged": false,
+    "exportOrCopyUsed": false,
+    "pageLastModifyTime": 1787199845020,
+    "pageServerTimestamp": 1787204926,
+    "capturedAt": "2026-08-20T06:01:51.375Z"
+  },
+  "workbookTabs": [
+    {
+      "tabId": "lxy0hx",
+      "tabName": "IMAX放映系统历史",
+      "alreadyFetched": false,
+      "auditStatus": "not-fetched"
+    },
+    {
+      "tabId": "n3wvzh",
+      "tabName": "IMAX Asia&Oceania",
+      "alreadyFetched": false,
+      "auditStatus": "not-fetched"
+    },
+    {
+      "tabId": "240rc1",
+      "tabName": "IMAX America&Europe&Africa",
+      "alreadyFetched": false,
+      "auditStatus": "not-fetched"
+    },
+    {
+      "tabId": "BB08J2",
+      "tabName": "IMAX中国",
+      "alreadyFetched": true,
+      "auditStatus": "audited"
+    },
+    {
+      "tabId": "BB08J3",
+      "tabName": "中国巨幕CGS",
+      "alreadyFetched": false,
+      "auditStatus": "not-fetched"
+    },
+    {
+      "tabId": "BB08J5",
+      "tabName": "DOLBY CINEMA杜比影院",
+      "alreadyFetched": false,
+      "auditStatus": "not-fetched"
+    },
+    {
+      "tabId": "eps21i",
+      "tabName": "CINITY CINEMA",
+      "alreadyFetched": false,
+      "auditStatus": "not-fetched"
+    },
+    {
+      "tabId": "936di3",
+      "tabName": "Dolby Vision + Atmos杜比视界+全景声",
+      "alreadyFetched": false,
+      "auditStatus": "not-fetched"
+    }
+  ],
+  "onlineSheet": {
+    "tabId": "BB08J2",
+    "tabName": "IMAX中国",
+    "rowCount": 903,
+    "columnCount": 8,
+    "firstRow": {
+      "rowIndex": 0,
+      "sheetRow": 1,
+      "displayValues": [
+        "IMAX中国控股公司旗下                               影厅分布列表",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        ""
+      ]
+    },
+    "secondRow": {
+      "rowIndex": 1,
+      "sheetRow": 2,
+      "displayValues": [
+        "影城名称",
+        "放映机型号/声道",
+        "开业时间",
+        "银幕宽度（米)",
+        "银幕高度（米)",
+        "银幕面积（平方米)",
+        "座位数（个)",
+        "备注"
+      ]
+    },
+    "lastRow": {
+      "rowIndex": 902,
+      "sheetRow": 903,
+      "displayValues": [
+        "廊坊华谊兄弟影城（燕郊天洋城店）",
+        "IMAX 氙灯",
+        "2017年12月26日",
+        "16.890\n16.200",
+        "8.620\n9.100",
+        "145.5918\n147.4200",
+        "256",
+        "非常感谢银幕尺寸图提供者WeChat昵称：海明威"
+      ]
+    }
+  },
+  "rawSnapshot": {
+    "path": "data/raw/arvin-imax.json",
+    "rowCount": 903,
+    "columnCount": 8,
+    "sourceCapturedAt": null
+  },
+  "structuralChecks": {
+    "rowCountEqual": true,
+    "onlineRowCount": 903,
+    "rawRowCount": 903,
+    "columnCountEqual": true,
+    "onlineColumnCount": 8,
+    "rawColumnCount": 8,
+    "onlineRowIndexContinuous0To902": true,
+    "rawRowIndexContinuous0To902": true,
+    "onlineMissingRowIndices": [],
+    "rawMissingRowIndices": [],
+    "onlineExtraRowIndices": [],
+    "rawExtraRowIndices": [],
+    "onlineDuplicateRowIndices": {},
+    "rawDuplicateRowIndices": {},
+    "onlineLogicalColumnCounts": {
+      "8": 903
+    },
+    "rawLogicalColumnCounts": {
+      "8": 903
+    },
+    "onlineEveryRowExactly8Columns": true,
+    "rawEveryRowExactly8Columns": true,
+    "comparedRowCount": 903,
+    "rowOrCellMismatch": false,
+    "mismatchFieldCounts": {},
+    "mismatchExamples": []
+  },
+  "cellComparison": {
+    "comparisonFields": [
+      "rowIndex",
+      "colIndex",
+      "displayValue",
+      "rawValue",
+      "editValue",
+      "typeCode",
+      "typeName"
+    ],
+    "displayValueMismatchCount": 0,
+    "rawValueMismatchCount": 0,
+    "editValueMismatchCount": 0,
+    "typeCodeMismatchCount": 0,
+    "typeNameMismatchCount": 0,
+    "colIndexMismatchCount": 0,
+    "newlineMismatchCount": 0,
+    "unicodeCodePointMismatchCount": 0,
+    "specialCharacterMismatchCount": 0,
+    "decimalPresentationMismatchCount": 0,
+    "decimalPresentationMismatchExamples": []
+  },
+  "rowHashes": {
+    "algorithm": "SHA-256",
+    "normalization": "CRLF and CR normalized to LF; no trimming or content deletion",
+    "input": "displayValue(col0)||displayValue(col1)||...||displayValue(col7)",
+    "title": {
+      "online": "1f4e67495877ed303624b4c8fb53dfcb64122d4b9dd9977025a34f443857b615",
+      "raw": "1f4e67495877ed303624b4c8fb53dfcb64122d4b9dd9977025a34f443857b615",
+      "matched": true
+    },
+    "header": {
+      "online": "ede045674fababc305dabe0e9b5b851a11e6b27a7f56688afc7b289394a244b6",
+      "raw": "ede045674fababc305dabe0e9b5b851a11e6b27a7f56688afc7b289394a244b6",
+      "matched": true
+    },
+    "dataRowsExpected": 901,
+    "fullyMatchedDataRows": 901,
+    "mismatchedDataRows": 0,
+    "missingRowsInRaw": [],
+    "missingRowsInOnline": [],
+    "hashFile": "data/audit/arvin-imax-20260820-row-hashes.json"
+  },
+  "missingValueAudit": {
+    "dataRows": 901,
+    "classification": {
+      "null": "rawValue is null/undefined",
+      "emptyString": "non-null logical value with displayValue exactly empty",
+      "whitespaceOnly": "displayValue contains only whitespace, including line breaks",
+      "placeholder": "trimmed displayValue is one of configured tokens",
+      "normal": "all other text/numeric values"
+    },
+    "placeholderTokens": [
+      "-",
+      "—",
+      "/",
+      "暂无",
+      "未知",
+      "N/A",
+      "NA",
+      "n/a",
+      "无",
+      "待定",
+      "?"
+    ],
+    "online": [
+      {
+        "colIndex": 0,
+        "columnName": "影城名称",
+        "total": 901,
+        "null": 0,
+        "emptyString": 0,
+        "whitespaceOnly": 0,
+        "placeholder": 0,
+        "normal": 901,
+        "emptyOrNull": 0,
+        "nonEmpty": 901,
+        "placeholderValues": {}
+      },
+      {
+        "colIndex": 1,
+        "columnName": "放映机型号/声道",
+        "total": 901,
+        "null": 0,
+        "emptyString": 0,
+        "whitespaceOnly": 0,
+        "placeholder": 2,
+        "normal": 899,
+        "emptyOrNull": 0,
+        "nonEmpty": 901,
+        "placeholderValues": {
+          "待定": 2
+        }
+      },
+      {
+        "colIndex": 2,
+        "columnName": "开业时间",
+        "total": 901,
+        "null": 0,
+        "emptyString": 0,
+        "whitespaceOnly": 0,
+        "placeholder": 1,
+        "normal": 900,
+        "emptyOrNull": 0,
+        "nonEmpty": 901,
+        "placeholderValues": {
+          "待定": 1
+        }
+      },
+      {
+        "colIndex": 3,
+        "columnName": "银幕宽度（米)",
+        "total": 901,
+        "null": 41,
+        "emptyString": 0,
+        "whitespaceOnly": 111,
+        "placeholder": 0,
+        "normal": 749,
+        "emptyOrNull": 41,
+        "nonEmpty": 749,
+        "placeholderValues": {}
+      },
+      {
+        "colIndex": 4,
+        "columnName": "银幕高度（米)",
+        "total": 901,
+        "null": 46,
+        "emptyString": 0,
+        "whitespaceOnly": 116,
+        "placeholder": 0,
+        "normal": 739,
+        "emptyOrNull": 46,
+        "nonEmpty": 739,
+        "placeholderValues": {}
+      },
+      {
+        "colIndex": 5,
+        "columnName": "银幕面积（平方米)",
+        "total": 901,
+        "null": 78,
+        "emptyString": 0,
+        "whitespaceOnly": 85,
+        "placeholder": 0,
+        "normal": 738,
+        "emptyOrNull": 78,
+        "nonEmpty": 738,
+        "placeholderValues": {}
+      },
+      {
+        "colIndex": 6,
+        "columnName": "座位数（个)",
+        "total": 901,
+        "null": 8,
+        "emptyString": 0,
+        "whitespaceOnly": 0,
+        "placeholder": 0,
+        "normal": 893,
+        "emptyOrNull": 8,
+        "nonEmpty": 893,
+        "placeholderValues": {}
+      },
+      {
+        "colIndex": 7,
+        "columnName": "备注",
+        "total": 901,
+        "null": 766,
+        "emptyString": 0,
+        "whitespaceOnly": 0,
+        "placeholder": 0,
+        "normal": 135,
+        "emptyOrNull": 766,
+        "nonEmpty": 135,
+        "placeholderValues": {}
+      }
+    ],
+    "raw": [
+      {
+        "colIndex": 0,
+        "columnName": "影城名称",
+        "total": 901,
+        "null": 0,
+        "emptyString": 0,
+        "whitespaceOnly": 0,
+        "placeholder": 0,
+        "normal": 901,
+        "emptyOrNull": 0,
+        "nonEmpty": 901,
+        "placeholderValues": {}
+      },
+      {
+        "colIndex": 1,
+        "columnName": "放映机型号/声道",
+        "total": 901,
+        "null": 0,
+        "emptyString": 0,
+        "whitespaceOnly": 0,
+        "placeholder": 2,
+        "normal": 899,
+        "emptyOrNull": 0,
+        "nonEmpty": 901,
+        "placeholderValues": {
+          "待定": 2
+        }
+      },
+      {
+        "colIndex": 2,
+        "columnName": "开业时间",
+        "total": 901,
+        "null": 0,
+        "emptyString": 0,
+        "whitespaceOnly": 0,
+        "placeholder": 1,
+        "normal": 900,
+        "emptyOrNull": 0,
+        "nonEmpty": 901,
+        "placeholderValues": {
+          "待定": 1
+        }
+      },
+      {
+        "colIndex": 3,
+        "columnName": "银幕宽度（米)",
+        "total": 901,
+        "null": 41,
+        "emptyString": 0,
+        "whitespaceOnly": 111,
+        "placeholder": 0,
+        "normal": 749,
+        "emptyOrNull": 41,
+        "nonEmpty": 749,
+        "placeholderValues": {}
+      },
+      {
+        "colIndex": 4,
+        "columnName": "银幕高度（米)",
+        "total": 901,
+        "null": 46,
+        "emptyString": 0,
+        "whitespaceOnly": 116,
+        "placeholder": 0,
+        "normal": 739,
+        "emptyOrNull": 46,
+        "nonEmpty": 739,
+        "placeholderValues": {}
+      },
+      {
+        "colIndex": 5,
+        "columnName": "银幕面积（平方米)",
+        "total": 901,
+        "null": 78,
+        "emptyString": 0,
+        "whitespaceOnly": 85,
+        "placeholder": 0,
+        "normal": 738,
+        "emptyOrNull": 78,
+        "nonEmpty": 738,
+        "placeholderValues": {}
+      },
+      {
+        "colIndex": 6,
+        "columnName": "座位数（个)",
+        "total": 901,
+        "null": 8,
+        "emptyString": 0,
+        "whitespaceOnly": 0,
+        "placeholder": 0,
+        "normal": 893,
+        "emptyOrNull": 8,
+        "nonEmpty": 893,
+        "placeholderValues": {}
+      },
+      {
+        "colIndex": 7,
+        "columnName": "备注",
+        "total": 901,
+        "null": 766,
+        "emptyString": 0,
+        "whitespaceOnly": 0,
+        "placeholder": 0,
+        "normal": 135,
+        "emptyOrNull": 766,
+        "nonEmpty": 135,
+        "placeholderValues": {}
+      }
+    ],
+    "onlineEqualsRaw": true,
+    "previousSummary": {
+      "basis": "prior audit summary; empty/null means null+emptyString; nonempty means normal+placeholder",
+      "columns": [
+        {
+          "colIndex": 0,
+          "columnName": "影城名称",
+          "expected": {
+            "columnName": "影城名称",
+            "emptyOrNull": 0,
+            "whitespaceOnly": 0,
+            "nonEmpty": 901
+          },
+          "actual": {
+            "emptyOrNull": 0,
+            "whitespaceOnly": 0,
+            "nonEmpty": 901
+          },
+          "matched": true
+        },
+        {
+          "colIndex": 1,
+          "columnName": "放映机型号/声道",
+          "expected": {
+            "columnName": "放映机型号/声道",
+            "emptyOrNull": 0,
+            "whitespaceOnly": 0,
+            "nonEmpty": 901
+          },
+          "actual": {
+            "emptyOrNull": 0,
+            "whitespaceOnly": 0,
+            "nonEmpty": 901
+          },
+          "matched": true
+        },
+        {
+          "colIndex": 2,
+          "columnName": "开业时间",
+          "expected": {
+            "columnName": "开业时间",
+            "emptyOrNull": 0,
+            "whitespaceOnly": 0,
+            "nonEmpty": 901
+          },
+          "actual": {
+            "emptyOrNull": 0,
+            "whitespaceOnly": 0,
+            "nonEmpty": 901
+          },
+          "matched": true
+        },
+        {
+          "colIndex": 3,
+          "columnName": "银幕宽度（米)",
+          "expected": {
+            "columnName": "银幕宽度（米)",
+            "emptyOrNull": 41,
+            "whitespaceOnly": 111,
+            "nonEmpty": 749
+          },
+          "actual": {
+            "emptyOrNull": 41,
+            "whitespaceOnly": 111,
+            "nonEmpty": 749
+          },
+          "matched": true
+        },
+        {
+          "colIndex": 4,
+          "columnName": "银幕高度（米)",
+          "expected": {
+            "columnName": "银幕高度（米)",
+            "emptyOrNull": 46,
+            "whitespaceOnly": 116,
+            "nonEmpty": 739
+          },
+          "actual": {
+            "emptyOrNull": 46,
+            "whitespaceOnly": 116,
+            "nonEmpty": 739
+          },
+          "matched": true
+        },
+        {
+          "colIndex": 5,
+          "columnName": "银幕面积（平方米)",
+          "expected": {
+            "columnName": "银幕面积（平方米)",
+            "emptyOrNull": 78,
+            "whitespaceOnly": 85,
+            "nonEmpty": 738
+          },
+          "actual": {
+            "emptyOrNull": 78,
+            "whitespaceOnly": 85,
+            "nonEmpty": 738
+          },
+          "matched": true
+        },
+        {
+          "colIndex": 6,
+          "columnName": "座位数（个)",
+          "expected": {
+            "columnName": "座位数（个)",
+            "emptyOrNull": 8,
+            "whitespaceOnly": 0,
+            "nonEmpty": 893
+          },
+          "actual": {
+            "emptyOrNull": 8,
+            "whitespaceOnly": 0,
+            "nonEmpty": 893
+          },
+          "matched": true
+        },
+        {
+          "colIndex": 7,
+          "columnName": "备注",
+          "expected": {
+            "columnName": "备注",
+            "emptyOrNull": 766,
+            "whitespaceOnly": 0,
+            "nonEmpty": 135
+          },
+          "actual": {
+            "emptyOrNull": 766,
+            "whitespaceOnly": 0,
+            "nonEmpty": 135
+          },
+          "matched": true
+        }
+      ],
+      "allReproduced": true
+    }
+  },
+  "sampling": {
+    "first10": [
+      {
+        "rowIndex": 2,
+        "sheetRow": 3,
+        "values": {
+          "影城名称": "香港MY CINEMA YOHO MALL",
+          "放映机型号/声道": "IMAX 氙灯  ",
+          "开业时间": "2017年7月21日-2026年6月25日\n2026年6月26日（更新银幕）",
+          "银幕宽度（米)": "20.140\n19.871",
+          "银幕高度（米)": "11.000\n10.335",
+          "银幕面积（平方米)": "221.5400\n205.3667",
+          "座位数（个)": "409",
+          "备注": "【腾讯文档】香港观影指南（行前篇）\n香港观影指南"
+        }
+      },
+      {
+        "rowIndex": 3,
+        "sheetRow": 4,
+        "values": {
+          "影城名称": "香港英皇戲院（尖沙咀iSQUARE）",
+          "放映机型号/声道": "IMAX Commercial Laser\n12聲道音響系統",
+          "开业时间": "2009年12月17日（正式開業）\n2019年8月25日（正式結業）（IMAX @ UA iSQUARE）（UA院線經營）\n2019年12月18日（由原有的IMAX数码氙灯改為IMAX商業激光重新開業）\n（英皇戲院經收購後更名為現名）",
+          "银幕宽度（米)": "20.940\n21.184",
+          "银幕高度（米)": "11.800\n11.266",
+          "银幕面积（平方米)": "247.0920\n238.6589",
+          "座位数（个)": "458",
+          "备注": "【腾讯文档】香港戏院指南（影院篇）\n香港戏院指南（持续更新）"
+        }
+      },
+      {
+        "rowIndex": 4,
+        "sheetRow": 5,
+        "values": {
+          "影城名称": "香港MCL CINEMAS（K11 Art House）",
+          "放映机型号/声道": "IMAX Commercial Laser\n12聲道音響系統",
+          "开业时间": "2019年8月26日（正式開業）\n2021年2月28日（正式結業）\n（UnionPay IMAX @ K11 Art House）（UA院線经营）\n2021年3月6日（洲立影藝經收購後更名爲現名）",
+          "银幕宽度（米)": "20.700\n20.802",
+          "银幕高度（米)": "11.770\n11.514",
+          "银幕面积（平方米)": "243.6390\n239.5142",
+          "座位数（个)": "368",
+          "备注": "为爱发电，请各位大佬支持下"
+        }
+      },
+      {
+        "rowIndex": 5,
+        "sheetRow": 6,
+        "values": {
+          "影城名称": "香港B+ cinema MOKO (旺角東)",
+          "放映机型号/声道": "IMAX 氙灯 ",
+          "开业时间": "2014年1月28日（正式開業）\n2021年3月8日（正式結業）\n（UnionPay IMAX @ UA Cine Moko）（UA院線经营）\n2021年3月8日（UA院線全線結業）\n2021年9月16日（百老汇經收購後更名爲現名）",
+          "银幕宽度（米)": "16.330\n16.911",
+          "银幕高度（米)": "9.260\n8.723",
+          "银幕面积（平方米)": "151.2158\n147.5146",
+          "座位数（个)": "268\n264",
+          "备注": ""
+        }
+      },
+      {
+        "rowIndex": 6,
+        "sheetRow": 7,
+        "values": {
+          "影城名称": "香港影藝戲院(MegaBox)",
+          "放映机型号/声道": "IMAX Commercial Laser\n12聲道音響系統",
+          "开业时间": "2007年6月11日（開業）\n2007年7月11日（IMAX膠片MPX氙燈）\n由UA院線運營\n2010年？月？日（IMAX數碼氙燈安裝）\n2017年6月12日（換幕）\n2017年8月31日（升級為IMAX 12聲道音響系統）\n2021年3月8日（UA院線全線結業）\n2021年7月15日（嘉禾院線經收購後更名為嘉禾MegaBox）\n2025年6月6日（影藝戲院經收購後更名為現名）\n2025年6月8日（嘉禾院線正式結業）\n2025年7月1日（發佈掛幕視頻，實際掛幕時間未知）\n2025年7月10日（重新開業）",
+          "银幕宽度（米)": "17.700\n18.000\n17.538",
+          "银幕高度（米)": "12.640\n11.400\n9.528 ",
+          "银幕面积（平方米)": "227.5200\n201.7800\n167.1020",
+          "座位数（个)": "267 + 4 輪椅專用位置",
+          "备注": ""
+        }
+      },
+      {
+        "rowIndex": 7,
+        "sheetRow": 8,
+        "values": {
+          "影城名称": "上海万达影城（松江万达广场店）",
+          "放映机型号/声道": "IMAX 氙灯  ",
+          "开业时间": "2014年5月30日",
+          "银幕宽度（米)": "22.388 ",
+          "银幕高度（米)": "11.229 ",
+          "银幕面积（平方米)": "251.3948",
+          "座位数（个)": "395",
+          "备注": ""
+        }
+      },
+      {
+        "rowIndex": 8,
+        "sheetRow": 9,
+        "values": {
+          "影城名称": "上海万达影城（颛桥龙盛广场店）",
+          "放映机型号/声道": "IMAX 氙灯  ",
+          "开业时间": "2015年12月25日",
+          "银幕宽度（米)": "19.864 ",
+          "银幕高度（米)": "10.421 ",
+          "银幕面积（平方米)": "207.0027",
+          "座位数（个)": "372\n201",
+          "备注": ""
+        }
+      },
+      {
+        "rowIndex": 9,
+        "sheetRow": 10,
+        "values": {
+          "影城名称": "上海横店电影城（IMAX奉贤宝龙店）",
+          "放映机型号/声道": "IMAX 氙灯  ",
+          "开业时间": "2015年12月31日",
+          "银幕宽度（米)": "19.164 ",
+          "银幕高度（米)": "10.487 ",
+          "银幕面积（平方米)": "200.9728",
+          "座位数（个)": "273",
+          "备注": ""
+        }
+      },
+      {
+        "rowIndex": 10,
+        "sheetRow": 11,
+        "values": {
+          "影城名称": "上海SFC上影影城（天山缤谷IMAX店）",
+          "放映机型号/声道": "IMAX 氙灯  ",
+          "开业时间": "2016年8月3日",
+          "银幕宽度（米)": "18.338 ",
+          "银幕高度（米)": "9.809 ",
+          "银幕面积（平方米)": "179.8774",
+          "座位数（个)": "192",
+          "备注": ""
+        }
+      },
+      {
+        "rowIndex": 11,
+        "sheetRow": 12,
+        "values": {
+          "影城名称": "上海CGV影城（七宝店） ",
+          "放映机型号/声道": "IMAX 氙灯  ",
+          "开业时间": "2016年11月1日",
+          "银幕宽度（米)": "19.126 ",
+          "银幕高度（米)": "10.263 ",
+          "银幕面积（平方米)": "196.2901",
+          "座位数（个)": "214",
+          "备注": ""
+        }
+      }
+    ],
+    "last10": [
+      {
+        "rowIndex": 893,
+        "sheetRow": 894,
+        "values": {
+          "影城名称": "常州幸福蓝海国际影城（嘉禾店）\n原常州幸福蓝海橙天嘉禾影城",
+          "放映机型号/声道": "IMAX 氙灯",
+          "开业时间": "2012年12月31日-2025年10月29日",
+          "银幕宽度（米)": "24.080 ",
+          "银幕高度（米)": "13.597 ",
+          "银幕面积（平方米)": "327.4158",
+          "座位数（个)": "552",
+          "备注": ""
+        }
+      },
+      {
+        "rowIndex": 894,
+        "sheetRow": 895,
+        "values": {
+          "影城名称": "香港機場UA IMAX影院",
+          "放映机型号/声道": "IMAX 氙灯",
+          "开业时间": "2012年7月5日\n2017年7月19日—2019年9月29日",
+          "银幕宽度（米)": "22.400 ",
+          "银幕高度（米)": "13.800 ",
+          "银幕面积（平方米)": "309.1200",
+          "座位数（个)": "350",
+          "备注": ""
+        }
+      },
+      {
+        "rowIndex": 895,
+        "sheetRow": 896,
+        "values": {
+          "影城名称": "香港香港太空館",
+          "放映机型号/声道": "IMAX氙灯GT Dome",
+          "开业时间": "1980年10月7日",
+          "银幕宽度（米)": "23.000 ",
+          "银幕高度（米)": "",
+          "银幕面积（平方米)": "",
+          "座位数（个)": "270",
+          "备注": "全球第10家IMAX影院，亞洲第1家IMAX影院"
+        }
+      },
+      {
+        "rowIndex": 896,
+        "sheetRow": 897,
+        "values": {
+          "影城名称": "昆明云南昆明摩天激光IMAX影院\n（原昆明大都LCC光魔雷射影院）",
+          "放映机型号/声道": "IMAX Laser GT 3D\n12声道音响系统",
+          "开业时间": "2016年6月8日-2025年8月31日（停止放映）",
+          "银幕宽度（米)": "23.000\n23.100\n23.337",
+          "银幕高度（米)": "21.000\n17.370\n15.887",
+          "银幕面积（平方米)": "483.0000\n401.2470\n370.7549",
+          "座位数（个)": "363",
+          "备注": "尺寸来源上方为影院自宣，中间LF Examiner网站转换，下方为激光测距仪"
+        }
+      },
+      {
+        "rowIndex": 897,
+        "sheetRow": 898,
+        "values": {
+          "影城名称": "泉州保利万和CFR国际影城（IMAX店）\n原泉州泰禾影城（东海店） ",
+          "放映机型号/声道": "IMAX 氙灯",
+          "开业时间": "2023年1月18日",
+          "银幕宽度（米)": "  ",
+          "银幕高度（米)": "  ",
+          "银幕面积（平方米)": "  ",
+          "座位数（个)": "333",
+          "备注": "泉州泰禾影城（东海店）经营时间为2017年8月—2020年11月30日"
+        }
+      },
+      {
+        "rowIndex": 898,
+        "sheetRow": 899,
+        "values": {
+          "影城名称": "扬州上影四方国际影城",
+          "放映机型号/声道": "IMAX 氙灯",
+          "开业时间": "2016年1月16日",
+          "银幕宽度（米)": "21.900 ",
+          "银幕高度（米)": "11.880 ",
+          "银幕面积（平方米)": "260.1720",
+          "座位数（个)": "282",
+          "备注": ""
+        }
+      },
+      {
+        "rowIndex": 899,
+        "sheetRow": 900,
+        "values": {
+          "影城名称": "合肥华谊兄弟影院（武里山天街店）",
+          "放映机型号/声道": "IMAX 氙灯",
+          "开业时间": "2017年8月18日 - 2026年5月22日（无预警关门） ",
+          "银幕宽度（米)": "21.610\n21.300",
+          "银幕高度（米)": "11.490\n8.050",
+          "银幕面积（平方米)": "248.2989\n171.4650",
+          "座位数（个)": "385",
+          "备注": ""
+        }
+      },
+      {
+        "rowIndex": 900,
+        "sheetRow": 901,
+        "values": {
+          "影城名称": "北京华谊兄弟影院（洋桥店）",
+          "放映机型号/声道": "IMAX 氙灯",
+          "开业时间": "2015年8月15日 - 2026年7月14日（正式关闭）",
+          "银幕宽度（米)": "19.840\n19.840",
+          "银幕高度（米)": "10.680\n10.870",
+          "银幕面积（平方米)": "211.8912\n215.6608",
+          "座位数（个)": "321",
+          "备注": "非常感谢银幕尺寸图提供者WeChat昵称：海明威"
+        }
+      },
+      {
+        "rowIndex": 901,
+        "sheetRow": 902,
+        "values": {
+          "影城名称": "晋中华谊兄弟影院 （奥莱店)",
+          "放映机型号/声道": "IMAX 氙灯",
+          "开业时间": "2017年9月15日",
+          "银幕宽度（米)": "23.300 ",
+          "银幕高度（米)": "13.300 ",
+          "银幕面积（平方米)": "309.8900",
+          "座位数（个)": "462",
+          "备注": ""
+        }
+      },
+      {
+        "rowIndex": 902,
+        "sheetRow": 903,
+        "values": {
+          "影城名称": "廊坊华谊兄弟影城（燕郊天洋城店）",
+          "放映机型号/声道": "IMAX 氙灯",
+          "开业时间": "2017年12月26日",
+          "银幕宽度（米)": "16.890\n16.200",
+          "银幕高度（米)": "8.620\n9.100",
+          "银幕面积（平方米)": "145.5918\n147.4200",
+          "座位数（个)": "256",
+          "备注": "非常感谢银幕尺寸图提供者WeChat昵称：海明威"
+        }
+      }
+    ],
+    "everyApprox50Rows": [
+      {
+        "rowIndex": 2,
+        "sheetRow": 3,
+        "values": {
+          "影城名称": "香港MY CINEMA YOHO MALL",
+          "放映机型号/声道": "IMAX 氙灯  ",
+          "开业时间": "2017年7月21日-2026年6月25日\n2026年6月26日（更新银幕）",
+          "银幕宽度（米)": "20.140\n19.871",
+          "银幕高度（米)": "11.000\n10.335",
+          "银幕面积（平方米)": "221.5400\n205.3667",
+          "座位数（个)": "409",
+          "备注": "【腾讯文档】香港观影指南（行前篇）\n香港观影指南"
+        }
+      },
+      {
+        "rowIndex": 52,
+        "sheetRow": 53,
+        "values": {
+          "影城名称": "哈尔滨万达影城（悦荟广场店）",
+          "放映机型号/声道": "IMAX 氙灯",
+          "开业时间": "2011年11月19日",
+          "银幕宽度（米)": "16.842 ",
+          "银幕高度（米)": "8.656 ",
+          "银幕面积（平方米)": "145.7843",
+          "座位数（个)": "425",
+          "备注": ""
+        }
+      },
+      {
+        "rowIndex": 102,
+        "sheetRow": 103,
+        "values": {
+          "影城名称": "苏州幸福蓝海国际影城（绿宝店）",
+          "放映机型号/声道": "IMAX 氙灯",
+          "开业时间": "2015年12月26日",
+          "银幕宽度（米)": "24.060\n22.528",
+          "银幕高度（米)": "12.820\n12.079",
+          "银幕面积（平方米)": "308.4492\n272.1157",
+          "座位数（个)": "347",
+          "备注": ""
+        }
+      },
+      {
+        "rowIndex": 152,
+        "sheetRow": 153,
+        "values": {
+          "影城名称": "盐城万达影城（万达广场店）",
+          "放映机型号/声道": "IMAX 氙灯",
+          "开业时间": "2017年6月23日",
+          "银幕宽度（米)": "",
+          "银幕高度（米)": "  ",
+          "银幕面积（平方米)": "  ",
+          "座位数（个)": "372",
+          "备注": ""
+        }
+      },
+      {
+        "rowIndex": 202,
+        "sheetRow": 203,
+        "values": {
+          "影城名称": "广州万达影城（南岗万达广场店）",
+          "放映机型号/声道": "IMAX 氙灯",
+          "开业时间": "2020年9月30日",
+          "银幕宽度（米)": "19.840\n18.882",
+          "银幕高度（米)": "10.580\n9.975",
+          "银幕面积（平方米)": "209.9072\n188.3479",
+          "座位数（个)": "391",
+          "备注": ""
+        }
+      },
+      {
+        "rowIndex": 252,
+        "sheetRow": 253,
+        "values": {
+          "影城名称": "中山金逸影城（远洋城IMAX店）",
+          "放映机型号/声道": "IMAX 氙灯",
+          "开业时间": "2017年1月22日",
+          "银幕宽度（米)": "23.846 ",
+          "银幕高度（米)": "12.478 ",
+          "银幕面积（平方米)": "297.5503",
+          "座位数（个)": "480",
+          "备注": ""
+        }
+      },
+      {
+        "rowIndex": 302,
+        "sheetRow": 303,
+        "values": {
+          "影城名称": "北京金泉港国际影城 ",
+          "放映机型号/声道": "IMAX 氙灯",
+          "开业时间": "2017年7月1日",
+          "银幕宽度（米)": "23.660 ",
+          "银幕高度（米)": "12.550 ",
+          "银幕面积（平方米)": "296.9330",
+          "座位数（个)": "428",
+          "备注": "非常感谢银幕尺寸图提供者WeChat昵称：海明威"
+        }
+      },
+      {
+        "rowIndex": 352,
+        "sheetRow": 353,
+        "values": {
+          "影城名称": "鞍山万达影城（万达广场店)",
+          "放映机型号/声道": "IMAX 氙灯",
+          "开业时间": "2019年8月10日",
+          "银幕宽度（米)": "23.710 ",
+          "银幕高度（米)": "12.700 ",
+          "银幕面积（平方米)": "301.1170",
+          "座位数（个)": "330",
+          "备注": ""
+        }
+      },
+      {
+        "rowIndex": 402,
+        "sheetRow": 403,
+        "values": {
+          "影城名称": "长沙万达影城（中茂城IMAX店）",
+          "放映机型号/声道": "IMAX 氙灯",
+          "开业时间": "2019年4月24日",
+          "银幕宽度（米)": "21.820 ",
+          "银幕高度（米)": "11.400 ",
+          "银幕面积（平方米)": "248.7480",
+          "座位数（个)": "324",
+          "备注": ""
+        }
+      },
+      {
+        "rowIndex": 452,
+        "sheetRow": 453,
+        "values": {
+          "影城名称": "邯郸万达影城（万达广场店) ",
+          "放映机型号/声道": "IMAX 氙灯",
+          "开业时间": "2020年11月28日",
+          "银幕宽度（米)": "",
+          "银幕高度（米)": "",
+          "银幕面积（平方米)": "",
+          "座位数（个)": "392",
+          "备注": ""
+        }
+      },
+      {
+        "rowIndex": 502,
+        "sheetRow": 503,
+        "values": {
+          "影城名称": "合肥万达影城（北城万达广场店)",
+          "放映机型号/声道": "IMAX 氙灯",
+          "开业时间": "2019年12月31日",
+          "银幕宽度（米)": "18.851 ",
+          "银幕高度（米)": "10.072 ",
+          "银幕面积（平方米)": "189.8672",
+          "座位数（个)": "355",
+          "备注": ""
+        }
+      },
+      {
+        "rowIndex": 552,
+        "sheetRow": 553,
+        "values": {
+          "影城名称": "宁波影都（亚细亚IMAX店）",
+          "放映机型号/声道": "IMAX 氙灯",
+          "开业时间": "2022年12月16日",
+          "银幕宽度（米)": "23.890\n22.717",
+          "银幕高度（米)": "12.840\n11.905 ",
+          "银幕面积（平方米)": "306.7476\n270.4458",
+          "座位数（个)": "352",
+          "备注": "银幕型号:HARKNESS IMAX Coating 3.1 Peak Gain"
+        }
+      },
+      {
+        "rowIndex": 602,
+        "sheetRow": 603,
+        "values": {
+          "影城名称": "银川万达影城（金凤万达广场店）",
+          "放映机型号/声道": "IMAX Laser XT",
+          "开业时间": "2011年9月9日—2024年11月20日（IMAX 氙灯）\n2024年11月24日（挂幕）",
+          "银幕宽度（米)": "20.700 ",
+          "银幕高度（米)": "10.695 ",
+          "银幕面积（平方米)": "221.3865",
+          "座位数（个)": "306",
+          "备注": ""
+        }
+      },
+      {
+        "rowIndex": 652,
+        "sheetRow": 653,
+        "values": {
+          "影城名称": "安溪金逸影城（宝龙店）",
+          "放映机型号/声道": "IMAX 氙灯",
+          "开业时间": "2016年12月3日",
+          "银幕宽度（米)": "19.200 ",
+          "银幕高度（米)": "10.110 ",
+          "银幕面积（平方米)": "194.1120",
+          "座位数（个)": "346",
+          "备注": ""
+        }
+      },
+      {
+        "rowIndex": 702,
+        "sheetRow": 703,
+        "values": {
+          "影城名称": "成都博纳国际影城（天府大悦城店）",
+          "放映机型号/声道": "IMAX Laser XT",
+          "开业时间": "2023年12月24日（挂幕）\n2023年12月30日",
+          "银幕宽度（米)": "20.970 ",
+          "银幕高度（米)": "10.580 ",
+          "银幕面积（平方米)": "221.8626",
+          "座位数（个)": "374\n340",
+          "备注": ""
+        }
+      },
+      {
+        "rowIndex": 752,
+        "sheetRow": 753,
+        "values": {
+          "影城名称": "贵阳卢米埃影城（花溪店)",
+          "放映机型号/声道": "IMAX 氙灯",
+          "开业时间": "2019年8月20日",
+          "银幕宽度（米)": "19.090 ",
+          "银幕高度（米)": "10.020 ",
+          "银幕面积（平方米)": "191.2818",
+          "座位数（个)": "231",
+          "备注": ""
+        }
+      },
+      {
+        "rowIndex": 802,
+        "sheetRow": 803,
+        "values": {
+          "影城名称": "重庆万象影城（弹子石万象汇IMAX激光店）",
+          "放映机型号/声道": "IMAX Commercial Laser",
+          "开业时间": "2018年9月15日—2022年5月29日",
+          "银幕宽度（米)": "24.520 ",
+          "银幕高度（米)": "12.900 ",
+          "银幕面积（平方米)": "316.3080",
+          "座位数（个)": "294",
+          "备注": ""
+        }
+      },
+      {
+        "rowIndex": 852,
+        "sheetRow": 853,
+        "values": {
+          "影城名称": "福州海艺影城",
+          "放映机型号/声道": "待定",
+          "开业时间": "待定",
+          "银幕宽度（米)": "20.390 ",
+          "银幕高度（米)": "10.590 ",
+          "银幕面积（平方米)": "215.9301",
+          "座位数（个)": "475",
+          "备注": "原福州海峡文化艺术中心金逸IMAX影城经营日期为2021年2月1日—2025年3月31日\n（IMAX Commercial Laser 12声道音响系统)"
+        }
+      },
+      {
+        "rowIndex": 902,
+        "sheetRow": 903,
+        "values": {
+          "影城名称": "廊坊华谊兄弟影城（燕郊天洋城店）",
+          "放映机型号/声道": "IMAX 氙灯",
+          "开业时间": "2017年12月26日",
+          "银幕宽度（米)": "16.890\n16.200",
+          "银幕高度（米)": "8.620\n9.100",
+          "银幕面积（平方米)": "145.5918\n147.4200",
+          "座位数（个)": "256",
+          "备注": "非常感谢银幕尺寸图提供者WeChat昵称：海明威"
+        }
+      }
+    ],
+    "hongKong": {
+      "count": 7,
+      "checked": [
+        {
+          "rowIndex": 2,
+          "sheetRow": 3,
+          "values": {
+            "影城名称": "香港MY CINEMA YOHO MALL",
+            "放映机型号/声道": "IMAX 氙灯  ",
+            "开业时间": "2017年7月21日-2026年6月25日\n2026年6月26日（更新银幕）",
+            "银幕宽度（米)": "20.140\n19.871",
+            "银幕高度（米)": "11.000\n10.335",
+            "银幕面积（平方米)": "221.5400\n205.3667",
+            "座位数（个)": "409",
+            "备注": "【腾讯文档】香港观影指南（行前篇）\n香港观影指南"
+          }
+        },
+        {
+          "rowIndex": 3,
+          "sheetRow": 4,
+          "values": {
+            "影城名称": "香港英皇戲院（尖沙咀iSQUARE）",
+            "放映机型号/声道": "IMAX Commercial Laser\n12聲道音響系統",
+            "开业时间": "2009年12月17日（正式開業）\n2019年8月25日（正式結業）（IMAX @ UA iSQUARE）（UA院線經營）\n2019年12月18日（由原有的IMAX数码氙灯改為IMAX商業激光重新開業）\n（英皇戲院經收購後更名為現名）",
+            "银幕宽度（米)": "20.940\n21.184",
+            "银幕高度（米)": "11.800\n11.266",
+            "银幕面积（平方米)": "247.0920\n238.6589",
+            "座位数（个)": "458",
+            "备注": "【腾讯文档】香港戏院指南（影院篇）\n香港戏院指南（持续更新）"
+          }
+        },
+        {
+          "rowIndex": 4,
+          "sheetRow": 5,
+          "values": {
+            "影城名称": "香港MCL CINEMAS（K11 Art House）",
+            "放映机型号/声道": "IMAX Commercial Laser\n12聲道音響系統",
+            "开业时间": "2019年8月26日（正式開業）\n2021年2月28日（正式結業）\n（UnionPay IMAX @ K11 Art House）（UA院線经营）\n2021年3月6日（洲立影藝經收購後更名爲現名）",
+            "银幕宽度（米)": "20.700\n20.802",
+            "银幕高度（米)": "11.770\n11.514",
+            "银幕面积（平方米)": "243.6390\n239.5142",
+            "座位数（个)": "368",
+            "备注": "为爱发电，请各位大佬支持下"
+          }
+        }
+      ]
+    },
+    "macau": {
+      "count": 1,
+      "checked": [
+        {
+          "rowIndex": 791,
+          "sheetRow": 792,
+          "values": {
+            "影城名称": "澳门英皇戲院（澳門葡京人）",
+            "放映机型号/声道": "IMAX Commercial Laser\n12聲道音響系統",
+            "开业时间": "2021年12月15日",
+            "银幕宽度（米)": "24.590\n23.146",
+            "银幕高度（米)": "11.800\n10.801",
+            "银幕面积（平方米)": "290.1620\n249.9999",
+            "座位数（个)": "466",
+            "备注": ""
+          }
+        }
+      ],
+      "allIncluded": true
+    },
+    "taiwan": {
+      "count": 12,
+      "checked": [
+        {
+          "rowIndex": 69,
+          "sheetRow": 70,
+          "values": {
+            "影城名称": "台北美麗華大直影城\n原台北美麗華華納威秀影城",
+            "放映机型号/声道": "IMAX Laser GT 3D\n12聲道音響系統",
+            "开业时间": "2004年11月4日（掛幕）\n2004年11月19日–2006年3月1日（IMAX膠片GT氙燈）\n由美麗華以加盟方式委托華納威秀影城運營\n2006年3月1日（更名美麗華大直影城）\n2013年11月12日（更换银幕）\n2013年11月22日（新增IMAX數位氙燈）\n2016年2月15日（IMAX數位氙燈及膠片GT氙燈银幕和设备同步退役）\n2016年3月24日\n2018年6月22日（经营权纠纷停业）\n2018年7月27日（重新試營業）\n2018年8月8日（正式重新開幕）- 2025年11月30日\n2025年12月7日（更新银幕）\n2025年12月8日（重新开业）",
+            "银幕宽度（米)": "28.000\n28.800\n28.400",
+            "银幕高度（米)": "21.000\n21.150\n20.540",
+            "银幕面积（平方米)": "588.0000\n609.1200\n583.3360",
+            "座位数（个)": "404",
+            "备注": "尺寸来源\n上方为影城自宣，\n中间为lfexaminer网站转换\n下方为影城自宣（架子尺寸）"
+          }
+        },
+        {
+          "rowIndex": 70,
+          "sheetRow": 71,
+          "values": {
+            "影城名称": "台中老虎城威秀影城",
+            "放映机型号/声道": "IMAX 氙灯",
+            "开业时间": "2011年11月25日",
+            "银幕宽度（米)": "15.390 ",
+            "银幕高度（米)": "8.560 ",
+            "银幕面积（平方米)": "131.7384",
+            "座位数（个)": "307",
+            "备注": ""
+          }
+        },
+        {
+          "rowIndex": 71,
+          "sheetRow": 72,
+          "values": {
+            "影城名称": "台中大遠百威秀影城",
+            "放映机型号/声道": "IMAX 氙灯",
+            "开业时间": "2011年12月30日",
+            "银幕宽度（米)": "18.250 ",
+            "银幕高度（米)": "9.350 ",
+            "银幕面积（平方米)": "170.6375",
+            "座位数（个)": "391",
+            "备注": ""
+          }
+        },
+        {
+          "rowIndex": 72,
+          "sheetRow": 73,
+          "values": {
+            "影城名称": "新竹巨城威秀影城",
+            "放映机型号/声道": "IMAX 氙灯",
+            "开业时间": "2012年4月28日",
+            "银幕宽度（米)": "17.760 ",
+            "银幕高度（米)": "9.690 ",
+            "银幕面积（平方米)": "172.0944",
+            "座位数（个)": "260",
+            "备注": ""
+          }
+        },
+        {
+          "rowIndex": 73,
+          "sheetRow": 74,
+          "values": {
+            "影城名称": "台南南紡威秀影城",
+            "放映机型号/声道": "IMAX 氙灯",
+            "开业时间": "2015年1月28日",
+            "银幕宽度（米)": "21.800 ",
+            "银幕高度（米)": "12.200 ",
+            "银幕面积（平方米)": "265.9600",
+            "座位数（个)": "390",
+            "备注": ""
+          }
+        }
+      ]
+    },
+    "mainlandDifferentCities": {
+      "candidateCount": 240,
+      "checked": [
+        {
+          "city": "上海",
+          "rowIndex": 7,
+          "sheetRow": 8,
+          "values": {
+            "影城名称": "上海万达影城（松江万达广场店）",
+            "放映机型号/声道": "IMAX 氙灯  ",
+            "开业时间": "2014年5月30日",
+            "银幕宽度（米)": "22.388 ",
+            "银幕高度（米)": "11.229 ",
+            "银幕面积（平方米)": "251.3948",
+            "座位数（个)": "395",
+            "备注": ""
+          }
+        },
+        {
+          "city": "哈尔滨",
+          "rowIndex": 51,
+          "sheetRow": 52,
+          "values": {
+            "影城名称": "哈尔滨黑龙江省科学技术馆",
+            "放映机型号/声道": "IMAX SR Dome",
+            "开业时间": "2003年8月8日",
+            "银幕宽度（米)": "23.000 ",
+            "银幕高度（米)": "特别提示：开场前至少30分钟购票!",
+            "银幕面积（平方米)": "",
+            "座位数（个)": "300",
+            "备注": ""
+          }
+        },
+        {
+          "city": "大庆",
+          "rowIndex": 62,
+          "sheetRow": 63,
+          "values": {
+            "影城名称": "大庆万达影城（萨尔图万达广场店）",
+            "放映机型号/声道": "IMAX 氙灯",
+            "开业时间": "2011年11月25日",
+            "银幕宽度（米)": "  ",
+            "银幕高度（米)": "  ",
+            "银幕面积（平方米)": "  ",
+            "座位数（个)": "288",
+            "备注": ""
+          }
+        },
+        {
+          "city": "齐齐",
+          "rowIndex": 64,
+          "sheetRow": 65,
+          "values": {
+            "影城名称": "齐齐哈尔万达影城（万达广场店）",
+            "放映机型号/声道": "IMAX 氙灯",
+            "开业时间": "2015年8月1日",
+            "银幕宽度（米)": "  ",
+            "银幕高度（米)": "  ",
+            "银幕面积（平方米)": "  ",
+            "座位数（个)": "353",
+            "备注": ""
+          }
+        },
+        {
+          "city": "佳木",
+          "rowIndex": 65,
+          "sheetRow": 66,
+          "values": {
+            "影城名称": "佳木斯万达影城（万达广场店）",
+            "放映机型号/声道": "IMAX 氙灯",
+            "开业时间": "2015年9月12日",
+            "银幕宽度（米)": "21.400 ",
+            "银幕高度（米)": "11.390 ",
+            "银幕面积（平方米)": "243.7460",
+            "座位数（个)": "374",
+            "备注": ""
+          }
+        },
+        {
+          "city": "鸡西",
+          "rowIndex": 66,
+          "sheetRow": 67,
+          "values": {
+            "影城名称": "鸡西万达影城（万达广场店）",
+            "放映机型号/声道": "IMAX 氙灯",
+            "开业时间": "2016年7月15日",
+            "银幕宽度（米)": "  ",
+            "银幕高度（米)": "  ",
+            "银幕面积（平方米)": "  ",
+            "座位数（个)": "431",
+            "备注": ""
+          }
+        },
+        {
+          "city": "牡丹",
+          "rowIndex": 67,
+          "sheetRow": 68,
+          "values": {
+            "影城名称": "牡丹江万达影城（万达广场店）",
+            "放映机型号/声道": "IMAX 氙灯",
+            "开业时间": "2016年7月22日",
+            "银幕宽度（米)": "20.699 ",
+            "银幕高度（米)": "11.307 ",
+            "银幕面积（平方米)": "234.0435",
+            "座位数（个)": "326",
+            "备注": ""
+          }
+        },
+        {
+          "city": "绥化",
+          "rowIndex": 68,
+          "sheetRow": 69,
+          "values": {
+            "影城名称": "绥化万达影城（万达广场店)",
+            "放映机型号/声道": "IMAX 氙灯",
+            "开业时间": "2018年10月1日",
+            "银幕宽度（米)": "20.050 ",
+            "银幕高度（米)": "10.700 ",
+            "银幕面积（平方米)": "214.5350",
+            "座位数（个)": "364",
+            "备注": ""
+          }
+        },
+        {
+          "city": "南京",
+          "rowIndex": 80,
+          "sheetRow": 81,
+          "values": {
+            "影城名称": "南京万达影城（建邺万达广场店）",
+            "放映机型号/声道": "IMAX 氙灯",
+            "开业时间": "2011年7月15日",
+            "银幕宽度（米)": "21.358 ",
+            "银幕高度（米)": "11.435 ",
+            "银幕面积（平方米)": "244.2287",
+            "座位数（个)": "367",
+            "备注": ""
+          }
+        },
+        {
+          "city": "苏州",
+          "rowIndex": 99,
+          "sheetRow": 100,
+          "values": {
+            "影城名称": "苏州幸福蓝海国际影城（石路IMAX店）",
+            "放映机型号/声道": "IMAX 氙灯",
+            "开业时间": "2011年12月9日\n2017年10月11日",
+            "银幕宽度（米)": "26.090\n24.034",
+            "银幕高度（米)": "13.860\n13.150",
+            "银幕面积（平方米)": "361.6074\n316.0471",
+            "座位数（个)": "402",
+            "备注": ""
+          }
+        }
+      ]
+    },
+    "knownSamples": {
+      "香港MY CINEMA YOHO MALL": {
+        "matchCount": 1,
+        "matches": [
+          {
+            "rowIndex": 2,
+            "name": "香港MY CINEMA YOHO MALL"
+          }
+        ]
+      },
+      "台北美麗華大直影城": {
+        "matchCount": 1,
+        "matches": [
+          {
+            "rowIndex": 69,
+            "name": "台北美麗華大直影城\n原台北美麗華華納威秀影城"
+          }
+        ]
+      },
+      "澳门英皇戲院（澳門葡京人）": {
+        "matchCount": 1,
+        "matches": [
+          {
+            "rowIndex": 791,
+            "name": "澳门英皇戲院（澳門葡京人）"
+          }
+        ]
+      },
+      "IMAX Laser GT 3D": {
+        "matchCount": 8,
+        "matches": [
+          {
+            "rowIndex": 59,
+            "name": "哈尔滨儒意影城（哈东万达广场店）- 原万达影城\n原万达影城（哈东万达IMAXGT双激光店）\n（原哈尔滨泰莱时代影城）"
+          },
+          {
+            "rowIndex": 69,
+            "name": "台北美麗華大直影城\n原台北美麗華華納威秀影城"
+          },
+          {
+            "rowIndex": 172,
+            "name": "东莞万达影城（华南MALL—IMAXGT激光店）"
+          },
+          {
+            "rowIndex": 309,
+            "name": "北京中国电影博物馆"
+          },
+          {
+            "rowIndex": 331,
+            "name": "沈阳万达影城（辽宁省科技馆—万达影城IMAXGT双激光）\n原沈阳辽宁科技馆"
+          },
+          {
+            "rowIndex": 464,
+            "name": "济南山东省科技馆（新馆）"
+          },
+          {
+            "rowIndex": 757,
+            "name": "贵阳越界影城（未来方舟店） "
+          },
+          {
+            "rowIndex": 896,
+            "name": "昆明云南昆明摩天激光IMAX影院\n（原昆明大都LCC光魔雷射影院）"
+          }
+        ]
+      },
+      "12声道": {
+        "matchCount": 96,
+        "matches": [
+          {
+            "rowIndex": 17,
+            "name": "上海幸福蓝海国际影城（宝山龙湖IMAX店）"
+          },
+          {
+            "rowIndex": 19,
+            "name": "上海寰映影城（大融城店）"
+          },
+          {
+            "rowIndex": 22,
+            "name": "上海万达影城（宝山万达广场店）"
+          },
+          {
+            "rowIndex": 29,
+            "name": "上海金逸影城（凯德虹口激光IMAX店）"
+          },
+          {
+            "rowIndex": 30,
+            "name": "上海百丽宫影城（博荟广场店）"
+          },
+          {
+            "rowIndex": 32,
+            "name": "上海寰映影城（太阳宫店）"
+          },
+          {
+            "rowIndex": 33,
+            "name": "上海MOViE MOViE影城（前滩太古里店）"
+          },
+          {
+            "rowIndex": 35,
+            "name": "上海寰映影城（大宁久光店）"
+          },
+          {
+            "rowIndex": 36,
+            "name": "上海CGV影城（天空万科广场店）"
+          },
+          {
+            "rowIndex": 37,
+            "name": "上海百丽宫影城（环贸iapm店）"
+          },
+          {
+            "rowIndex": 42,
+            "name": "上海寰映影城（荟聚店）"
+          },
+          {
+            "rowIndex": 44,
+            "name": "上海万达影城（五角场万达广场店）"
+          },
+          {
+            "rowIndex": 48,
+            "name": "上海正大乐影城（正大广场IMAX店）\n原星美国际影商城（正大店）"
+          },
+          {
+            "rowIndex": 56,
+            "name": "哈尔滨万达影城（哈西万达广场店）"
+          },
+          {
+            "rowIndex": 59,
+            "name": "哈尔滨儒意影城（哈东万达广场店）- 原万达影城\n原万达影城（哈东万达IMAXGT双激光店）\n（原哈尔滨泰莱时代影城）"
+          },
+          {
+            "rowIndex": 91,
+            "name": "南京幸福蓝海国际影城（IMAX激光环宇城店)"
+          },
+          {
+            "rowIndex": 108,
+            "name": "苏州CGV影城（大悦城店) "
+          },
+          {
+            "rowIndex": 110,
+            "name": "苏州苏艺影城（艺术中心IMAX激光店)"
+          },
+          {
+            "rowIndex": 128,
+            "name": "无锡大世界影城（中山路IMAX激光店）"
+          },
+          {
+            "rowIndex": 129,
+            "name": "无锡金逸影城（光美荟聚IMAX激光店）"
+          },
+          {
+            "rowIndex": 130,
+            "name": "无锡CGV影城（八佰伴店) "
+          },
+          {
+            "rowIndex": 132,
+            "name": "无锡大世界影城（江南大悦城店）"
+          },
+          {
+            "rowIndex": 170,
+            "name": "靖江CGV影城（印象城店）"
+          },
+          {
+            "rowIndex": 172,
+            "name": "东莞万达影城（华南MALL—IMAXGT激光店）"
+          },
+          {
+            "rowIndex": 198,
+            "name": "广州美亚影城（云门店）"
+          },
+          {
+            "rowIndex": 200,
+            "name": "广州飞扬影城（IMAX激光乐峰店）"
+          },
+          {
+            "rowIndex": 205,
+            "name": "广州金逸影城（海珠城激光IMAX店）"
+          },
+          {
+            "rowIndex": 222,
+            "name": "深圳CGV影城（卓悦中心店)"
+          },
+          {
+            "rowIndex": 224,
+            "name": "深圳英皇电影城（平安金融中心店) "
+          },
+          {
+            "rowIndex": 226,
+            "name": "深圳金逸影城（宝安大仟里IMAX激光店）"
+          },
+          {
+            "rowIndex": 227,
+            "name": "深圳CGV影城（红山6979店)"
+          },
+          {
+            "rowIndex": 228,
+            "name": "深圳万达影城（龙岗万达广场店）"
+          },
+          {
+            "rowIndex": 229,
+            "name": "深圳CINESKY新天影院IMAX  壹方天地C区（壹方城)"
+          },
+          {
+            "rowIndex": 230,
+            "name": "深圳CINESKY新天影院（万科广场IMAX店）"
+          },
+          {
+            "rowIndex": 235,
+            "name": "深圳寰映影城（福田中航城君尚店）"
+          },
+          {
+            "rowIndex": 237,
+            "name": "深圳寰映影城（宝安大悦城店）"
+          },
+          {
+            "rowIndex": 260,
+            "name": "珠海CGV影城（环宇城店）"
+          },
+          {
+            "rowIndex": 267,
+            "name": "茂名东汇国际影城"
+          },
+          {
+            "rowIndex": 306,
+            "name": "北京万达影城（房山店）"
+          },
+          {
+            "rowIndex": 308,
+            "name": "北京CGV影城（清河店）\t"
+          },
+          {
+            "rowIndex": 309,
+            "name": "北京中国电影博物馆"
+          },
+          {
+            "rowIndex": 310,
+            "name": "北京博纳国际影城（大郊亭店)"
+          },
+          {
+            "rowIndex": 311,
+            "name": "北京万达影城（石景山万达广场店）"
+          },
+          {
+            "rowIndex": 314,
+            "name": "北京环球城市大道电影院"
+          },
+          {
+            "rowIndex": 315,
+            "name": "北京金逸影城（荟聚IMAX店）"
+          },
+          {
+            "rowIndex": 319,
+            "name": "北京寰映影城（昌平合生汇店）"
+          },
+          {
+            "rowIndex": 320,
+            "name": "北京儒意影城（CBD万达广场店）原万达影城"
+          },
+          {
+            "rowIndex": 321,
+            "name": "北京金逸影城（朝阳大悦城店）"
+          },
+          {
+            "rowIndex": 322,
+            "name": "北京英皇电影城（英皇中心店）"
+          },
+          {
+            "rowIndex": 323,
+            "name": "北京英皇电影城（三里屯太古里店）"
+          },
+          {
+            "rowIndex": 324,
+            "name": "北京完美世界影城（中关村IMAX+CINITY店）"
+          },
+          {
+            "rowIndex": 325,
+            "name": "北京卢米埃影城（长楹天街IMAX激光店）"
+          },
+          {
+            "rowIndex": 327,
+            "name": "北京英皇电影城（太古坊店）"
+          },
+          {
+            "rowIndex": 328,
+            "name": "沈阳万达影城（奥体万达广场店）"
+          },
+          {
+            "rowIndex": 331,
+            "name": "沈阳万达影城（辽宁省科技馆—万达影城IMAXGT双激光）\n原沈阳辽宁科技馆"
+          },
+          {
+            "rowIndex": 339,
+            "name": "大连万达影城（经开万达广场店)"
+          },
+          {
+            "rowIndex": 357,
+            "name": "昆明万达影城（西山万达广场店）"
+          },
+          {
+            "rowIndex": 361,
+            "name": "昆明百老汇影城（IMAX顺城店）"
+          },
+          {
+            "rowIndex": 371,
+            "name": "武汉武商摩尔国际电影城"
+          },
+          {
+            "rowIndex": 374,
+            "name": "武汉百美汇影城（激光IMAX恒隆广场店）"
+          },
+          {
+            "rowIndex": 377,
+            "name": "武汉CGV影城（洪山店) "
+          },
+          {
+            "rowIndex": 379,
+            "name": "武汉武商梦时代摩尔影城"
+          },
+          {
+            "rowIndex": 380,
+            "name": "武汉万达影城（汉街万达广场IMAX激光店） "
+          },
+          {
+            "rowIndex": 404,
+            "name": "长沙VHC维港影城"
+          },
+          {
+            "rowIndex": 405,
+            "name": "长沙寰映影城（荟聚IMAX激光店)"
+          },
+          {
+            "rowIndex": 441,
+            "name": "天津万象影城（万象城IMAX激光店)"
+          },
+          {
+            "rowIndex": 442,
+            "name": "天津金逸影城（大悦城IMAX店）"
+          },
+          {
+            "rowIndex": 457,
+            "name": "承德美承影院（中良凤凰城激光IMAX店）"
+          },
+          {
+            "rowIndex": 463,
+            "name": "济南万达影城（高新万达广场店）"
+          },
+          {
+            "rowIndex": 464,
+            "name": "济南山东省科技馆（新馆）"
+          },
+          {
+            "rowIndex": 476,
+            "name": "潍坊和平影院"
+          },
+          {
+            "rowIndex": 491,
+            "name": "淄博齐纳国际影城（银座店）"
+          },
+          {
+            "rowIndex": 538,
+            "name": "杭州浙影时代影城•西湖文化广场店\n（原新远国际影城）"
+          },
+          {
+            "rowIndex": 593,
+            "name": "西安寰映影城（荟聚店）"
+          },
+          {
+            "rowIndex": 606,
+            "name": "呼和浩特万达影城（万达广场店）"
+          },
+          {
+            "rowIndex": 616,
+            "name": "兰州万达影城（城关万达广场店）"
+          },
+          {
+            "rowIndex": 617,
+            "name": "兰州空间站影城（兰州中心店）"
+          },
+          {
+            "rowIndex": 624,
+            "name": "太原万达影城（龙湖万达广场店）"
+          },
+          {
+            "rowIndex": 641,
+            "name": "厦门万达影城（湖里万达广场店）"
+          },
+          {
+            "rowIndex": 644,
+            "name": "厦门寰映影城（海上世界店)"
+          },
+          {
+            "rowIndex": 665,
+            "name": "郑州儒意影城（二七万达广场IMAX激光店）\n万达影城（二七万达广场IMAX激光店）"
+          },
+          {
+            "rowIndex": 666,
+            "name": "郑州CGV影城（信万广场店）\n原郑州CGV影城（YOYOPARK店）"
+          },
+          {
+            "rowIndex": 699,
+            "name": "成都中影紫荆国际影城4K激光IMAX（环球中心旗舰店）\n原成都博纳院线环球中心旗舰店IMAX\n原成都星美国际影商城（环球IMAX店)"
+          },
+          {
+            "rowIndex": 703,
+            "name": "成都英皇电影城（国金中心店）"
+          },
+          {
+            "rowIndex": 707,
+            "name": "成都英皇电影城（新光天地店）"
+          },
+          {
+            "rowIndex": 710,
+            "name": "成都熊猫基地IMAX影院"
+          },
+          {
+            "rowIndex": 751,
+            "name": "贵阳万达影城（中大广场店）"
+          },
+          {
+            "rowIndex": 753,
+            "name": "贵阳CGV影城（印象城店) "
+          },
+          {
+            "rowIndex": 757,
+            "name": "贵阳越界影城（未来方舟店） "
+          },
+          {
+            "rowIndex": 763,
+            "name": "南宁万达影城（青秀万达广场店）"
+          },
+          {
+            "rowIndex": 764,
+            "name": "南宁民族影城 （民族大道IMAX店）"
+          },
+          {
+            "rowIndex": 771,
+            "name": "柳州万达影城（城中万达广场店）"
+          },
+          {
+            "rowIndex": 782,
+            "name": "海口中视国际影城IMAX（国秀城店）\n原中视国际影城（国兴店）"
+          },
+          {
+            "rowIndex": 788,
+            "name": "乌鲁木齐中影美美影城（MM3店）"
+          },
+          {
+            "rowIndex": 852,
+            "name": "福州海艺影城"
+          },
+          {
+            "rowIndex": 896,
+            "name": "昆明云南昆明摩天激光IMAX影院\n（原昆明大都LCC光魔雷射影院）"
+          }
+        ]
+      },
+      "12聲道": {
+        "matchCount": 7,
+        "matches": [
+          {
+            "rowIndex": 3,
+            "name": "香港英皇戲院（尖沙咀iSQUARE）"
+          },
+          {
+            "rowIndex": 4,
+            "name": "香港MCL CINEMAS（K11 Art House）"
+          },
+          {
+            "rowIndex": 6,
+            "name": "香港影藝戲院(MegaBox)"
+          },
+          {
+            "rowIndex": 69,
+            "name": "台北美麗華大直影城\n原台北美麗華華納威秀影城"
+          },
+          {
+            "rowIndex": 75,
+            "name": "花蓮新天堂樂園威秀影城"
+          },
+          {
+            "rowIndex": 76,
+            "name": "嘉義In89豪華影城"
+          },
+          {
+            "rowIndex": 791,
+            "name": "澳门英皇戲院（澳門葡京人）"
+          }
+        ]
+      },
+      "IMAX氙灯GT Dome": {
+        "matchCount": 4,
+        "matches": [
+          {
+            "rowIndex": 171,
+            "name": "东莞东莞市科學技術博物館"
+          },
+          {
+            "rowIndex": 294,
+            "name": "北京中國科技館（设备还在，是否放映需要实地咨询）"
+          },
+          {
+            "rowIndex": 863,
+            "name": "上海科技館"
+          },
+          {
+            "rowIndex": 895,
+            "name": "香港香港太空館"
+          }
+        ]
+      }
+    },
+    "multilineOpeningUpgradeClosureHistory": [
+      {
+        "rowIndex": 172,
+        "name": "东莞万达影城（华南MALL—IMAXGT激光店）",
+        "historyLineCount": 16,
+        "openingHistory": "2007年4月22日（挂幕）\n2007年5月1日—2013年11月13日（IMAX氙灯GT）\n2013年11月19日（挂幕）\n2013年12月3日（IMAX氙灯开幕仪式）\n2013年12月6日（IMAX氙灯正式营业）\n2015年10月8日（IMAX氙灯银幕退役）\n2015年10月27日（更新银幕）\n2015年11月25日\n2016年1月9日（启幕仪式）—2021年1月24日\n2021年1月26日（更新银幕）\n2021年1月30日（重新开业）\n2023年12月14日（清洁银幕）\n2025年11月19日（银幕退役）\n2025年11月20日（更新银幕）\n2025年11月22日（重新开业）\n2025年11月29日（启幕仪式）"
+      },
+      {
+        "rowIndex": 69,
+        "name": "台北美麗華大直影城\n原台北美麗華華納威秀影城",
+        "historyLineCount": 13,
+        "openingHistory": "2004年11月4日（掛幕）\n2004年11月19日–2006年3月1日（IMAX膠片GT氙燈）\n由美麗華以加盟方式委托華納威秀影城運營\n2006年3月1日（更名美麗華大直影城）\n2013年11月12日（更换银幕）\n2013年11月22日（新增IMAX數位氙燈）\n2016年2月15日（IMAX數位氙燈及膠片GT氙燈银幕和设备同步退役）\n2016年3月24日\n2018年6月22日（经营权纠纷停业）\n2018年7月27日（重新試營業）\n2018年8月8日（正式重新開幕）- 2025年11月30日\n2025年12月7日（更新银幕）\n2025年12月8日（重新开业）"
+      },
+      {
+        "rowIndex": 6,
+        "name": "香港影藝戲院(MegaBox)",
+        "historyLineCount": 12,
+        "openingHistory": "2007年6月11日（開業）\n2007年7月11日（IMAX膠片MPX氙燈）\n由UA院線運營\n2010年？月？日（IMAX數碼氙燈安裝）\n2017年6月12日（換幕）\n2017年8月31日（升級為IMAX 12聲道音響系統）\n2021年3月8日（UA院線全線結業）\n2021年7月15日（嘉禾院線經收購後更名為嘉禾MegaBox）\n2025年6月6日（影藝戲院經收購後更名為現名）\n2025年6月8日（嘉禾院線正式結業）\n2025年7月1日（發佈掛幕視頻，實際掛幕時間未知）\n2025年7月10日（重新開業）"
+      },
+      {
+        "rowIndex": 59,
+        "name": "哈尔滨儒意影城（哈东万达广场店）- 原万达影城\n原万达影城（哈东万达IMAXGT双激光店）\n（原哈尔滨泰莱时代影城）",
+        "historyLineCount": 9
+      },
+      {
+        "rowIndex": 41,
+        "name": "上海万达影城（周浦万达广场店）",
+        "historyLineCount": 6
+      },
+      {
+        "rowIndex": 44,
+        "name": "上海万达影城（五角场万达广场店）",
+        "historyLineCount": 6
+      },
+      {
+        "rowIndex": 110,
+        "name": "苏州苏艺影城（艺术中心IMAX激光店)",
+        "historyLineCount": 6
+      },
+      {
+        "rowIndex": 236,
+        "name": "深圳万达影城（海雅广场店）",
+        "historyLineCount": 6
+      },
+      {
+        "rowIndex": 782,
+        "name": "海口中视国际影城IMAX（国秀城店）\n原中视国际影城（国兴店）",
+        "historyLineCount": 6
+      },
+      {
+        "rowIndex": 5,
+        "name": "香港B+ cinema MOKO (旺角東)",
+        "historyLineCount": 5
+      }
+    ]
+  },
+  "preservationChecks": {
+    "displayValueIsPrimaryContentBaseline": true,
+    "allComparedCellsDisplayEqual": true,
+    "lineBreaksPreserved": true,
+    "unicodeContentPreserved": true,
+    "specialCharactersPreserved": true,
+    "decimalPlacesPreserved": true,
+    "noRawContentDeleted": true,
+    "rawJsonNotOverwritten": true,
+    "cinemasJsonNotModified": true
+  },
+  "fieldComplexity": {
+    "scope": "901 data rows; source values only; no trimming or type coercion",
+    "columns": [
+      {
+        "colIndex": 0,
+        "columnName": "影城名称",
+        "total": 901,
+        "typeCounts": {
+          "string": 465,
+          "richString": 436
+        },
+        "multiLineCells": 34,
+        "maxLines": 3,
+        "maxLinesRowIndex": 59,
+        "maxDisplayCodePoints": 66,
+        "maxCodePointRowIndex": 699,
+        "maxDisplayUtf16Length": 66,
+        "maxUtf16RowIndex": 699,
+        "richValueCells": 436,
+        "hyperlinkCells": 0,
+        "leadingOrTrailingWhitespaceCells": 86,
+        "nonBreakingSpaceCells": 31
+      },
+      {
+        "colIndex": 1,
+        "columnName": "放映机型号/声道",
+        "total": 901,
+        "typeCounts": {
+          "string": 297,
+          "richString": 604
+        },
+        "multiLineCells": 110,
+        "maxLines": 2,
+        "maxLinesRowIndex": 3,
+        "maxDisplayCodePoints": 32,
+        "maxCodePointRowIndex": 22,
+        "maxDisplayUtf16Length": 32,
+        "maxUtf16RowIndex": 22,
+        "richValueCells": 604,
+        "hyperlinkCells": 0,
+        "leadingOrTrailingWhitespaceCells": 25,
+        "nonBreakingSpaceCells": 0
+      },
+      {
+        "colIndex": 2,
+        "columnName": "开业时间",
+        "total": 901,
+        "typeCounts": {
+          "string": 290,
+          "number": 604,
+          "richString": 7
+        },
+        "multiLineCells": 224,
+        "maxLines": 16,
+        "maxLinesRowIndex": 172,
+        "maxDisplayCodePoints": 312,
+        "maxCodePointRowIndex": 172,
+        "maxDisplayUtf16Length": 312,
+        "maxUtf16RowIndex": 172,
+        "richValueCells": 7,
+        "hyperlinkCells": 0,
+        "leadingOrTrailingWhitespaceCells": 9,
+        "nonBreakingSpaceCells": 5
+      },
+      {
+        "colIndex": 3,
+        "columnName": "银幕宽度（米)",
+        "total": 901,
+        "typeCounts": {
+          "string": 408,
+          "number": 451,
+          "unknown": 41,
+          "richString": 1
+        },
+        "multiLineCells": 298,
+        "maxLines": 5,
+        "maxLinesRowIndex": 172,
+        "maxDisplayCodePoints": 34,
+        "maxCodePointRowIndex": 172,
+        "maxDisplayUtf16Length": 34,
+        "maxUtf16RowIndex": 172,
+        "richValueCells": 1,
+        "hyperlinkCells": 0,
+        "leadingOrTrailingWhitespaceCells": 566,
+        "nonBreakingSpaceCells": 111
+      },
+      {
+        "colIndex": 4,
+        "columnName": "银幕高度（米)",
+        "total": 901,
+        "typeCounts": {
+          "string": 414,
+          "number": 440,
+          "unknown": 46,
+          "richString": 1
+        },
+        "multiLineCells": 298,
+        "maxLines": 5,
+        "maxLinesRowIndex": 172,
+        "maxDisplayCodePoints": 50,
+        "maxCodePointRowIndex": 172,
+        "maxDisplayUtf16Length": 50,
+        "maxUtf16RowIndex": 172,
+        "richValueCells": 1,
+        "hyperlinkCells": 0,
+        "leadingOrTrailingWhitespaceCells": 563,
+        "nonBreakingSpaceCells": 116
+      },
+      {
+        "colIndex": 5,
+        "columnName": "银幕面积（平方米)",
+        "total": 901,
+        "typeCounts": {
+          "string": 384,
+          "number": 438,
+          "unknown": 78,
+          "richString": 1
+        },
+        "multiLineCells": 297,
+        "maxLines": 5,
+        "maxLinesRowIndex": 172,
+        "maxDisplayCodePoints": 44,
+        "maxCodePointRowIndex": 172,
+        "maxDisplayUtf16Length": 44,
+        "maxUtf16RowIndex": 172,
+        "richValueCells": 1,
+        "hyperlinkCells": 0,
+        "leadingOrTrailingWhitespaceCells": 88,
+        "nonBreakingSpaceCells": 85
+      },
+      {
+        "colIndex": 6,
+        "columnName": "座位数（个)",
+        "total": 901,
+        "typeCounts": {
+          "number": 855,
+          "string": 33,
+          "richString": 5,
+          "unknown": 8
+        },
+        "multiLineCells": 37,
+        "maxLines": 3,
+        "maxLinesRowIndex": 48,
+        "maxDisplayCodePoints": 14,
+        "maxCodePointRowIndex": 6,
+        "maxDisplayUtf16Length": 14,
+        "maxUtf16RowIndex": 6,
+        "richValueCells": 5,
+        "hyperlinkCells": 0,
+        "leadingOrTrailingWhitespaceCells": 0,
+        "nonBreakingSpaceCells": 0
+      },
+      {
+        "colIndex": 7,
+        "columnName": "备注",
+        "total": 901,
+        "typeCounts": {
+          "richString": 8,
+          "string": 127,
+          "unknown": 766
+        },
+        "multiLineCells": 21,
+        "maxLines": 37,
+        "maxLinesRowIndex": 12,
+        "maxDisplayCodePoints": 878,
+        "maxCodePointRowIndex": 12,
+        "maxDisplayUtf16Length": 884,
+        "maxUtf16RowIndex": 12,
+        "richValueCells": 8,
+        "hyperlinkCells": 4,
+        "leadingOrTrailingWhitespaceCells": 7,
+        "nonBreakingSpaceCells": 2
+      }
+    ]
+  }
+}
