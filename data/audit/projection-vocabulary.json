@@ -1,0 +1,714 @@
+{
+  "schemaVersion": 1,
+  "generatedAt": "2026-08-20T06:50:55.725Z",
+  "source": {
+    "maintainer": "@ArvinTingcn",
+    "document": "全球IMAX及特效影厅分布20260820",
+    "url": "https://docs.qq.com/sheet/DQ3FEUUZJdklNSWJP?tab=BB08J2",
+    "sheetUrl": "https://docs.qq.com/sheet/DQ3FEUUZJdklNSWJP",
+    "tabId": "BB08J2",
+    "tab": "IMAX中国"
+  },
+  "rules": {
+    "primarySystem": "Commercial Laser takes precedence; then GT Laser, Laser XT, Xenon; GT/SR without a stated technology remain unknown.",
+    "dimensions": "Projection raw text is preserved. GT, Laser, Dome, audio channels, 3D and film1570 are separate dimensions.",
+    "traditionalNormalization": "Traditional variants are normalized only for matching; projection.raw is not rewritten."
+  },
+  "entries": [
+    {
+      "raw": "IMAX 氙灯",
+      "normalized": "IMAX 氙灯",
+      "count": 626,
+      "exampleSourceRows": [
+        18,
+        20,
+        23,
+        38,
+        52
+      ],
+      "standardized": {
+        "technology": "xenon",
+        "system": "Xenon",
+        "geometry": null,
+        "is3D": null,
+        "audioChannels": null,
+        "dome": false,
+        "film1570": null,
+        "generation": null,
+        "plannedSystem": null
+      },
+      "recognitionStatus": "recognized",
+      "unrecognizedItems": []
+    },
+    {
+      "raw": "IMAX Laser XT",
+      "normalized": "IMAX Laser XT",
+      "count": 111,
+      "exampleSourceRows": [
+        31,
+        34,
+        39,
+        41,
+        43
+      ],
+      "standardized": {
+        "technology": "laser",
+        "system": "Laser XT",
+        "geometry": null,
+        "is3D": null,
+        "audioChannels": null,
+        "dome": false,
+        "film1570": null,
+        "generation": null,
+        "plannedSystem": null
+      },
+      "recognitionStatus": "recognized",
+      "unrecognizedItems": []
+    },
+    {
+      "raw": "IMAX Commercial Laser\n12声道音响系统",
+      "normalized": "IMAX Commercial Laser\n12声道音响系统",
+      "count": 82,
+      "exampleSourceRows": [
+        19,
+        29,
+        32,
+        33,
+        35
+      ],
+      "standardized": {
+        "technology": "laser",
+        "system": "Commercial Laser",
+        "geometry": null,
+        "is3D": null,
+        "audioChannels": 12,
+        "dome": false,
+        "film1570": null,
+        "generation": null,
+        "plannedSystem": null
+      },
+      "recognitionStatus": "recognized",
+      "unrecognizedItems": []
+    },
+    {
+      "raw": "IMAX 氙灯  ",
+      "normalized": "IMAX 氙灯",
+      "count": 19,
+      "exampleSourceRows": [
+        2,
+        7,
+        8,
+        9,
+        10
+      ],
+      "standardized": {
+        "technology": "xenon",
+        "system": "Xenon",
+        "geometry": null,
+        "is3D": null,
+        "audioChannels": null,
+        "dome": false,
+        "film1570": null,
+        "generation": null,
+        "plannedSystem": null
+      },
+      "recognitionStatus": "recognized",
+      "unrecognizedItems": []
+    },
+    {
+      "raw": "IMAX Commercial Laser",
+      "normalized": "IMAX Commercial Laser",
+      "count": 14,
+      "exampleSourceRows": [
+        40,
+        55,
+        114,
+        223,
+        401
+      ],
+      "standardized": {
+        "technology": "laser",
+        "system": "Commercial Laser",
+        "geometry": null,
+        "is3D": null,
+        "audioChannels": null,
+        "dome": false,
+        "film1570": null,
+        "generation": null,
+        "plannedSystem": null
+      },
+      "recognitionStatus": "recognized",
+      "unrecognizedItems": []
+    },
+    {
+      "raw": "IMAX 氙灯\n即将改造为IMAX Laser XT",
+      "normalized": "IMAX 氙灯\n即将改造为IMAX Laser XT",
+      "count": 7,
+      "exampleSourceRows": [
+        333,
+        468,
+        662,
+        684,
+        685
+      ],
+      "standardized": {
+        "technology": "xenon",
+        "system": "Xenon",
+        "geometry": null,
+        "is3D": null,
+        "audioChannels": null,
+        "dome": false,
+        "film1570": null,
+        "generation": null,
+        "plannedSystem": "Laser XT"
+      },
+      "recognitionStatus": "recognized-with-planned-change",
+      "unrecognizedItems": []
+    },
+    {
+      "raw": "IMAX Laser GT 3D\n12声道音响系统",
+      "normalized": "IMAX Laser GT 3D\n12声道音响系统",
+      "count": 7,
+      "exampleSourceRows": [
+        59,
+        172,
+        309,
+        331,
+        464
+      ],
+      "standardized": {
+        "technology": "laser",
+        "system": "GT Laser",
+        "geometry": "GT",
+        "is3D": true,
+        "audioChannels": 12,
+        "dome": false,
+        "film1570": null,
+        "generation": null,
+        "plannedSystem": null
+      },
+      "recognitionStatus": "recognized",
+      "unrecognizedItems": []
+    },
+    {
+      "raw": "IMAX Commercial Laser\n12聲道音響系統",
+      "normalized": "IMAX Commercial Laser\n12声道音响系統",
+      "count": 6,
+      "exampleSourceRows": [
+        3,
+        4,
+        6,
+        75,
+        76
+      ],
+      "standardized": {
+        "technology": "laser",
+        "system": "Commercial Laser",
+        "geometry": null,
+        "is3D": null,
+        "audioChannels": 12,
+        "dome": false,
+        "film1570": null,
+        "generation": null,
+        "plannedSystem": null
+      },
+      "recognitionStatus": "recognized",
+      "unrecognizedItems": []
+    },
+    {
+      "raw": "IMAX氙灯GT Dome",
+      "normalized": "IMAX氙灯GT Dome",
+      "count": 4,
+      "exampleSourceRows": [
+        171,
+        294,
+        863,
+        895
+      ],
+      "standardized": {
+        "technology": "xenon",
+        "system": "Xenon",
+        "geometry": "GT",
+        "is3D": null,
+        "audioChannels": null,
+        "dome": true,
+        "film1570": null,
+        "generation": null,
+        "plannedSystem": null
+      },
+      "recognitionStatus": "recognized",
+      "unrecognizedItems": []
+    },
+    {
+      "raw": "IMAX 氙灯 Gen 3",
+      "normalized": "IMAX 氙灯 Gen 3",
+      "count": 3,
+      "exampleSourceRows": [
+        634,
+        660,
+        661
+      ],
+      "standardized": {
+        "technology": "xenon",
+        "system": "Xenon",
+        "geometry": null,
+        "is3D": null,
+        "audioChannels": null,
+        "dome": false,
+        "film1570": null,
+        "generation": "Gen 3",
+        "plannedSystem": null
+      },
+      "recognitionStatus": "recognized",
+      "unrecognizedItems": []
+    },
+    {
+      "raw": "IMAX氙灯SR Dome",
+      "normalized": "IMAX氙灯SR Dome",
+      "count": 3,
+      "exampleSourceRows": [
+        806,
+        872,
+        889
+      ],
+      "standardized": {
+        "technology": "xenon",
+        "system": "Xenon",
+        "geometry": "SR",
+        "is3D": null,
+        "audioChannels": null,
+        "dome": true,
+        "film1570": null,
+        "generation": null,
+        "plannedSystem": null
+      },
+      "recognitionStatus": "recognized",
+      "unrecognizedItems": []
+    },
+    {
+      "raw": "待定",
+      "normalized": "待定",
+      "count": 2,
+      "exampleSourceRows": [
+        409,
+        852
+      ],
+      "standardized": {
+        "technology": "unknown",
+        "system": "unknown",
+        "geometry": null,
+        "is3D": null,
+        "audioChannels": null,
+        "dome": false,
+        "film1570": null,
+        "generation": null,
+        "plannedSystem": null
+      },
+      "recognitionStatus": "unrecognized",
+      "unrecognizedItems": [
+        "待定",
+        "未匹配标准系统"
+      ]
+    },
+    {
+      "raw": "IMAX Commercial Laser\n12声道音响系统  ",
+      "normalized": "IMAX Commercial Laser\n12声道音响系统",
+      "count": 2,
+      "exampleSourceRows": [
+        22,
+        30
+      ],
+      "standardized": {
+        "technology": "laser",
+        "system": "Commercial Laser",
+        "geometry": null,
+        "is3D": null,
+        "audioChannels": 12,
+        "dome": false,
+        "film1570": null,
+        "generation": null,
+        "plannedSystem": null
+      },
+      "recognitionStatus": "recognized",
+      "unrecognizedItems": []
+    },
+    {
+      "raw": "IMAX GT",
+      "normalized": "IMAX GT",
+      "count": 2,
+      "exampleSourceRows": [
+        809,
+        813
+      ],
+      "standardized": {
+        "technology": "unknown",
+        "system": "unknown",
+        "geometry": "GT",
+        "is3D": null,
+        "audioChannels": null,
+        "dome": false,
+        "film1570": null,
+        "generation": null,
+        "plannedSystem": null
+      },
+      "recognitionStatus": "unrecognized",
+      "unrecognizedItems": [
+        "未能确定GT的投影技术"
+      ]
+    },
+    {
+      "raw": "IMAX Laser XT\n12声道音响系统",
+      "normalized": "IMAX Laser XT\n12声道音响系统",
+      "count": 2,
+      "exampleSourceRows": [
+        170,
+        476
+      ],
+      "standardized": {
+        "technology": "laser",
+        "system": "Laser XT",
+        "geometry": null,
+        "is3D": null,
+        "audioChannels": 12,
+        "dome": false,
+        "film1570": null,
+        "generation": null,
+        "plannedSystem": null
+      },
+      "recognitionStatus": "recognized",
+      "unrecognizedItems": []
+    },
+    {
+      "raw": "IMAX 氙灯\n12声道音响系统  ",
+      "normalized": "IMAX 氙灯\n12声道音响系统",
+      "count": 1,
+      "exampleSourceRows": [
+        17
+      ],
+      "standardized": {
+        "technology": "xenon",
+        "system": "Xenon",
+        "geometry": null,
+        "is3D": null,
+        "audioChannels": 12,
+        "dome": false,
+        "film1570": null,
+        "generation": null,
+        "plannedSystem": null
+      },
+      "recognitionStatus": "recognized",
+      "unrecognizedItems": []
+    },
+    {
+      "raw": "IMAX 氙灯\n即将改造为IMAX Laser XT\t",
+      "normalized": "IMAX 氙灯\n即将改造为IMAX Laser XT",
+      "count": 1,
+      "exampleSourceRows": [
+        717
+      ],
+      "standardized": {
+        "technology": "xenon",
+        "system": "Xenon",
+        "geometry": null,
+        "is3D": null,
+        "audioChannels": null,
+        "dome": false,
+        "film1570": null,
+        "generation": null,
+        "plannedSystem": "Laser XT"
+      },
+      "recognitionStatus": "recognized-with-planned-change",
+      "unrecognizedItems": []
+    },
+    {
+      "raw": "IMAX 氙灯 ",
+      "normalized": "IMAX 氙灯",
+      "count": 1,
+      "exampleSourceRows": [
+        5
+      ],
+      "standardized": {
+        "technology": "xenon",
+        "system": "Xenon",
+        "geometry": null,
+        "is3D": null,
+        "audioChannels": null,
+        "dome": false,
+        "film1570": null,
+        "generation": null,
+        "plannedSystem": null
+      },
+      "recognitionStatus": "recognized",
+      "unrecognizedItems": []
+    },
+    {
+      "raw": "IMAX 氙灯 Gen 1",
+      "normalized": "IMAX 氙灯 Gen 1",
+      "count": 1,
+      "exampleSourceRows": [
+        732
+      ],
+      "standardized": {
+        "technology": "xenon",
+        "system": "Xenon",
+        "geometry": null,
+        "is3D": null,
+        "audioChannels": null,
+        "dome": false,
+        "film1570": null,
+        "generation": "Gen 1",
+        "plannedSystem": null
+      },
+      "recognitionStatus": "recognized",
+      "unrecognizedItems": []
+    },
+    {
+      "raw": "IMAX Commercial Laser\n12声道音响系统 ",
+      "normalized": "IMAX Commercial Laser\n12声道音响系统",
+      "count": 1,
+      "exampleSourceRows": [
+        324
+      ],
+      "standardized": {
+        "technology": "laser",
+        "system": "Commercial Laser",
+        "geometry": null,
+        "is3D": null,
+        "audioChannels": 12,
+        "dome": false,
+        "film1570": null,
+        "generation": null,
+        "plannedSystem": null
+      },
+      "recognitionStatus": "recognized",
+      "unrecognizedItems": []
+    },
+    {
+      "raw": "IMAX Laser GT 3D\n12聲道音響系統",
+      "normalized": "IMAX Laser GT 3D\n12声道音响系統",
+      "count": 1,
+      "exampleSourceRows": [
+        69
+      ],
+      "standardized": {
+        "technology": "laser",
+        "system": "GT Laser",
+        "geometry": "GT",
+        "is3D": true,
+        "audioChannels": 12,
+        "dome": false,
+        "film1570": null,
+        "generation": null,
+        "plannedSystem": null
+      },
+      "recognitionStatus": "recognized",
+      "unrecognizedItems": []
+    },
+    {
+      "raw": "IMAX SR 3D",
+      "normalized": "IMAX SR 3D",
+      "count": 1,
+      "exampleSourceRows": [
+        296
+      ],
+      "standardized": {
+        "technology": "unknown",
+        "system": "unknown",
+        "geometry": "SR",
+        "is3D": true,
+        "audioChannels": null,
+        "dome": false,
+        "film1570": null,
+        "generation": null,
+        "plannedSystem": null
+      },
+      "recognitionStatus": "unrecognized",
+      "unrecognizedItems": [
+        "未能确定SR的投影技术"
+      ]
+    },
+    {
+      "raw": "IMAX SR Dome",
+      "normalized": "IMAX SR Dome",
+      "count": 1,
+      "exampleSourceRows": [
+        51
+      ],
+      "standardized": {
+        "technology": "unknown",
+        "system": "unknown",
+        "geometry": "SR",
+        "is3D": null,
+        "audioChannels": null,
+        "dome": true,
+        "film1570": null,
+        "generation": null,
+        "plannedSystem": null
+      },
+      "recognitionStatus": "unrecognized",
+      "unrecognizedItems": [
+        "未能确定SR的投影技术"
+      ]
+    },
+    {
+      "raw": "IMAX氙灯GT",
+      "normalized": "IMAX氙灯GT",
+      "count": 1,
+      "exampleSourceRows": [
+        891
+      ],
+      "standardized": {
+        "technology": "xenon",
+        "system": "Xenon",
+        "geometry": "GT",
+        "is3D": null,
+        "audioChannels": null,
+        "dome": false,
+        "film1570": null,
+        "generation": null,
+        "plannedSystem": null
+      },
+      "recognitionStatus": "recognized",
+      "unrecognizedItems": []
+    },
+    {
+      "raw": "IMAX氙灯GT 3D",
+      "normalized": "IMAX氙灯GT 3D",
+      "count": 1,
+      "exampleSourceRows": [
+        864
+      ],
+      "standardized": {
+        "technology": "xenon",
+        "system": "Xenon",
+        "geometry": "GT",
+        "is3D": true,
+        "audioChannels": null,
+        "dome": false,
+        "film1570": null,
+        "generation": null,
+        "plannedSystem": null
+      },
+      "recognitionStatus": "recognized",
+      "unrecognizedItems": []
+    },
+    {
+      "raw": "IMAX氙灯SR 3D",
+      "normalized": "IMAX氙灯SR 3D",
+      "count": 1,
+      "exampleSourceRows": [
+        807
+      ],
+      "standardized": {
+        "technology": "xenon",
+        "system": "Xenon",
+        "geometry": "SR",
+        "is3D": true,
+        "audioChannels": null,
+        "dome": false,
+        "film1570": null,
+        "generation": null,
+        "plannedSystem": null
+      },
+      "recognitionStatus": "recognized",
+      "unrecognizedItems": []
+    }
+  ],
+  "unrecognized": [
+    {
+      "raw": "待定",
+      "normalized": "待定",
+      "count": 2,
+      "exampleSourceRows": [
+        409,
+        852
+      ],
+      "standardized": {
+        "technology": "unknown",
+        "system": "unknown",
+        "geometry": null,
+        "is3D": null,
+        "audioChannels": null,
+        "dome": false,
+        "film1570": null,
+        "generation": null,
+        "plannedSystem": null
+      },
+      "recognitionStatus": "unrecognized",
+      "unrecognizedItems": [
+        "待定",
+        "未匹配标准系统"
+      ]
+    },
+    {
+      "raw": "IMAX GT",
+      "normalized": "IMAX GT",
+      "count": 2,
+      "exampleSourceRows": [
+        809,
+        813
+      ],
+      "standardized": {
+        "technology": "unknown",
+        "system": "unknown",
+        "geometry": "GT",
+        "is3D": null,
+        "audioChannels": null,
+        "dome": false,
+        "film1570": null,
+        "generation": null,
+        "plannedSystem": null
+      },
+      "recognitionStatus": "unrecognized",
+      "unrecognizedItems": [
+        "未能确定GT的投影技术"
+      ]
+    },
+    {
+      "raw": "IMAX SR 3D",
+      "normalized": "IMAX SR 3D",
+      "count": 1,
+      "exampleSourceRows": [
+        296
+      ],
+      "standardized": {
+        "technology": "unknown",
+        "system": "unknown",
+        "geometry": "SR",
+        "is3D": true,
+        "audioChannels": null,
+        "dome": false,
+        "film1570": null,
+        "generation": null,
+        "plannedSystem": null
+      },
+      "recognitionStatus": "unrecognized",
+      "unrecognizedItems": [
+        "未能确定SR的投影技术"
+      ]
+    },
+    {
+      "raw": "IMAX SR Dome",
+      "normalized": "IMAX SR Dome",
+      "count": 1,
+      "exampleSourceRows": [
+        51
+      ],
+      "standardized": {
+        "technology": "unknown",
+        "system": "unknown",
+        "geometry": "SR",
+        "is3D": null,
+        "audioChannels": null,
+        "dome": true,
+        "film1570": null,
+        "generation": null,
+        "plannedSystem": null
+      },
+      "recognitionStatus": "unrecognized",
+      "unrecognizedItems": [
+        "未能确定SR的投影技术"
+      ]
+    }
+  ]
+}

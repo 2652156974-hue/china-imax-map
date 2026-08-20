@@ -1,0 +1,80 @@
+{
+  "schemaVersion": 1,
+  "provider": "OpenStreetMap Nominatim",
+  "retrievedAt": "2026-08-20T06:34:06.838Z",
+  "results": {},
+  "failures": [
+    {
+      "id": "imax-cn-0007",
+      "sourceRow": 7,
+      "name": "上海万达影城（松江万达广场店）",
+      "city": "上海",
+      "query": "上海万达影城（松江万达广场店）, 上海, 上海, China",
+      "reason": "request-error: fetch failed",
+      "retrievedAt": "2026-08-20T06:32:44.098Z"
+    },
+    {
+      "id": "imax-cn-0294",
+      "sourceRow": 294,
+      "name": "北京中國科技館（设备还在，是否放映需要实地咨询）",
+      "city": "北京",
+      "query": "北京中國科技館（设备还在，是否放映需要实地咨询）, 北京, 北京, China",
+      "reason": "request-error: fetch failed",
+      "retrievedAt": "2026-08-20T06:32:55.875Z"
+    },
+    {
+      "id": "imax-cn-0180",
+      "sourceRow": 180,
+      "name": "广州万达影城（白云万达广场店）",
+      "city": "广州",
+      "query": "广州万达影城（白云万达广场店）, 广州, 广东, China",
+      "reason": "request-error: fetch failed",
+      "retrievedAt": "2026-08-20T06:33:07.673Z"
+    },
+    {
+      "id": "imax-cn-0585",
+      "sourceRow": 585,
+      "name": "西安CGV影城（印象城店）",
+      "city": "西安",
+      "query": "西安CGV影城（印象城店）, 西安, 陕西, China",
+      "reason": "request-error: fetch failed",
+      "retrievedAt": "2026-08-20T06:33:19.456Z"
+    },
+    {
+      "id": "imax-cn-0681",
+      "sourceRow": 681,
+      "name": "成都万达影城（锦华万达广场店)",
+      "city": "成都",
+      "query": "成都万达影城（锦华万达广场店), 成都, 四川, China",
+      "reason": "request-error: fetch failed",
+      "retrievedAt": "2026-08-20T06:33:31.261Z"
+    },
+    {
+      "id": "imax-cn-0002",
+      "sourceRow": 2,
+      "name": "香港MY CINEMA YOHO MALL",
+      "city": "香港",
+      "query": "香港MY CINEMA YOHO MALL, Hong Kong",
+      "reason": "request-error: fetch failed",
+      "retrievedAt": "2026-08-20T06:33:43.094Z"
+    },
+    {
+      "id": "imax-cn-0003",
+      "sourceRow": 3,
+      "name": "香港英皇戲院（尖沙咀iSQUARE）",
+      "city": "香港",
+      "query": "香港英皇戲院（尖沙咀iSQUARE）, Hong Kong",
+      "reason": "request-error: fetch failed",
+      "retrievedAt": "2026-08-20T06:33:54.953Z"
+    },
+    {
+      "id": "imax-cn-0004",
+      "sourceRow": 4,
+      "name": "香港MCL CINEMAS（K11 Art House）",
+      "city": "香港",
+      "query": "香港MCL CINEMAS（K11 Art House）, Hong Kong",
+      "reason": "request-error: fetch failed",
+      "retrievedAt": "2026-08-20T06:34:06.838Z"
+    }
+  ]
+}

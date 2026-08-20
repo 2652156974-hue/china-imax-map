@@ -6,6 +6,8 @@
   <meta name="color-scheme" content="light dark" />
   <title>中国 IMAX 银幕地图</title>
   <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+  <link rel="stylesheet" href="https://unpkg.com/leaflet.markercluster@1.5.3/dist/MarkerCluster.css" />
+  <link rel="stylesheet" href="https://unpkg.com/leaflet.markercluster@1.5.3/dist/MarkerCluster.Default.css" />
   <style>
     :root{
       --bg:#f3f4f6;
@@ -55,9 +57,10 @@
     .version{font-size:10px;font-weight:800;line-height:1;border:1px solid var(--line);border-radius:999px;padding:5px 7px;color:var(--muted);background:var(--soft)}
     .source-line{font-size:12px;line-height:1.55;color:var(--muted);margin:0 0 11px}
     .source-line a{color:inherit;text-decoration-thickness:1px;text-underline-offset:2px}
-    .demo-banner{font-size:11px;line-height:1.45;color:#92400e;background:#fffbeb;border:1px solid #fde68a;border-radius:10px;padding:8px 10px;margin-bottom:11px}
-    @media (prefers-color-scheme:dark){.demo-banner{color:#fcd34d;background:#2a2110;border-color:#5a4520}}
+    .data-banner{font-size:11px;line-height:1.45;color:#075985;background:#f0f9ff;border:1px solid #bae6fd;border-radius:10px;padding:8px 10px;margin-bottom:11px}
+    @media (prefers-color-scheme:dark){.data-banner{color:#bae6fd;background:#0c2938;border-color:#164e63}}
     .filters{display:flex;gap:7px;flex-wrap:wrap}
+    .filter-label{font-size:10px;font-weight:800;color:var(--muted);margin:10px 0 5px;text-transform:uppercase;letter-spacing:.06em}
     .filters button{
       appearance:none;
       border:1px solid var(--line);
@@ -90,10 +93,16 @@
     .meta-row{display:flex;align-items:center;justify-content:space-between;gap:10px;margin-top:10px}
     .status{font-size:12px;color:var(--muted)}
     .coverage{font-size:10px;color:var(--muted);white-space:nowrap}
+    .record-list{margin-top:10px;max-height:190px;overflow:auto;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+    .record-item{padding:8px 2px;border-bottom:1px solid var(--line);font-size:11px;line-height:1.35}
+    .record-item:last-child{border-bottom:0}
+    .record-name{font-weight:800;color:var(--text)}
+    .record-meta{color:var(--muted);margin-top:2px}
+    .record-more{padding:8px 2px;font-size:10px;color:var(--muted)}
     .legend{display:flex;gap:10px;flex-wrap:wrap;margin-top:9px;padding-top:9px;border-top:1px solid var(--line);font-size:10px;color:var(--muted)}
     .legend span{display:inline-flex;align-items:center;gap:5px}
     .dot{width:8px;height:8px;border-radius:50%}
-    .gt-bg{background:#b91c1c}.cola-bg{background:#7c3aed}.xt-bg{background:#2563eb}.xenon-bg{background:#4b5563}
+    .gt-bg{background:#b91c1c}.cola-bg{background:#7c3aed}.xt-bg{background:#2563eb}.xenon-bg{background:#4b5563}.unknown-bg{background:#9ca3af}.dome-bg{background:#c2410c}
     .imax-marker{
       display:flex;
       align-items:center;
@@ -106,7 +115,7 @@
       font-size:10px;
       letter-spacing:-.02em;
     }
-    .gt{background:#b91c1c}.cola{background:#7c3aed}.xt{background:#2563eb}.xenon{background:#4b5563}
+    .gt{background:#b91c1c}.cola{background:#7c3aed}.xt{background:#2563eb}.xenon{background:#4b5563}.unknown{background:#9ca3af}.dome{background:#c2410c}
     .leaflet-popup-content-wrapper,.leaflet-popup-tip{background:var(--panel);color:var(--text)}
     .leaflet-popup-content-wrapper{border:1px solid var(--line);border-radius:14px;box-shadow:var(--shadow)}
     .popup-title{font-weight:800;font-size:14px;line-height:1.4;margin-bottom:7px}
@@ -124,7 +133,7 @@
       }
       h1{font-size:17px}
       .source-line{font-size:11px;margin-bottom:9px}
-      .demo-banner{padding:7px 9px;margin-bottom:9px}
+      .data-banner{padding:7px 9px;margin-bottom:9px}
       .filters{gap:6px}
       .filters button{padding:6px 10px}
       .coverage{display:none}
@@ -138,20 +147,42 @@
   <section class="panel" aria-label="地图筛选面板">
     <div class="title-row">
       <h1>中国 IMAX 银幕地图</h1>
-      <span class="version">v0.2</span>
+      <span class="version">v0.3</span>
     </div>
     <p class="source-line">
       数据来源：<a href="https://weibo.com/6729835778" target="_blank" rel="noopener">@ArvinTingcn</a>
-      《<a href="https://docs.qq.com/sheet/DQ3FEUUZJdklNSWJP" target="_blank" rel="noopener">全球 IMAX 及特效影厅分布</a>》 · 已获授权
+      《<a href="https://docs.qq.com/sheet/DQ3FEUUZJdklNSWJP?tab=BB08J2" target="_blank" rel="noopener">全球 IMAX 及特效影厅分布</a>》 · 已获授权
     </p>
-    <div class="demo-banner">当前仍为演示数据。下一步将按授权文档导入真实影院规格，并保留原始来源标注。</div>
+    <div class="data-banner" id="dataBanner">正在加载已审计的 IMAX中国派生数据；没有可靠坐标的记录不会被放置到地图上。</div>
 
-    <div class="filters" id="filters" aria-label="放映系统筛选">
+    <div class="filter-label">投影系统</div>
+    <div class="filters" id="systemFilters" aria-label="放映系统筛选">
       <button class="active" data-system="ALL">全部</button>
-      <button data-system="GT Laser">GT</button>
-      <button data-system="CoLa">CoLa</button>
-      <button data-system="XT">XT</button>
+      <button data-system="GT Laser">GT Laser</button>
+      <button data-system="Commercial Laser">Commercial Laser</button>
+      <button data-system="Laser XT">Laser XT</button>
       <button data-system="Xenon">Xenon</button>
+      <button data-dome="true">Dome</button>
+      <button data-system="unknown">Unknown</button>
+    </div>
+
+    <div class="filter-label">地区</div>
+    <div class="filters" id="regionFilters" aria-label="地区筛选">
+      <button class="active" data-region="ALL">全部地区</button>
+      <button data-region="中国大陆">中国大陆</button>
+      <button data-region="香港">香港</button>
+      <button data-region="澳门">澳门</button>
+      <button data-region="台湾">台湾</button>
+    </div>
+
+    <div class="filter-label">状态与声道</div>
+    <div class="filters" id="statusFilters" aria-label="营业状态筛选">
+      <button class="active" data-status="ALL">全部状态</button>
+      <button data-status="open">营业</button>
+      <button data-status="closed">已关闭</button>
+      <button data-status="temporarily_closed">暂时停业</button>
+      <button data-status="unknown">状态待核</button>
+      <button data-audio="12">12声道</button>
     </div>
 
     <div class="search-wrap">
@@ -162,16 +193,20 @@
       <div class="status" id="status">加载中…</div>
       <div class="coverage">覆盖目标：中国大陆 · 香港 · 澳门 · 台湾</div>
     </div>
+    <div class="record-list" id="recordList" aria-label="筛选后的影院记录"></div>
 
     <div class="legend" aria-label="图例">
       <span><i class="dot gt-bg"></i>GT Laser</span>
-      <span><i class="dot cola-bg"></i>CoLa</span>
-      <span><i class="dot xt-bg"></i>XT</span>
+      <span><i class="dot cola-bg"></i>Commercial Laser</span>
+      <span><i class="dot xt-bg"></i>Laser XT</span>
       <span><i class="dot xenon-bg"></i>Xenon</span>
+      <span><i class="dot unknown-bg"></i>Unknown</span>
+      <span><i class="dot dome-bg"></i>Dome标记独立</span>
     </div>
   </section>
 
   <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+  <script src="https://unpkg.com/leaflet.markercluster@1.5.3/dist/leaflet.markercluster.js"></script>
   <script>
     const map=L.map('map',{
       zoomControl:false,
@@ -190,75 +225,152 @@
     L.control.zoom({position:'bottomright'}).addTo(map);
 
     let cinemas=[];
-    let markers=[];
     let activeSystem='ALL';
+    let activeRegion='ALL';
+    let activeStatus='ALL';
+    let activeAudio=false;
+    let activeDome=false;
+    const markerLayer=L.markerClusterGroup ? L.markerClusterGroup({showCoverageOnHover:false,removeOutsideVisibleBounds:true,maxClusterRadius:48}) : L.layerGroup();
+    markerLayer.addTo(map);
 
-    const systemClass=s=>s==='GT Laser'?'gt':s==='CoLa'?'cola':s==='XT'?'xt':'xenon';
-    const label=s=>s==='GT Laser'?'GT':s==='CoLa'?'C':s==='XT'?'XT':'Xe';
+    const systemClass=c=>{
+      const system=c?.projection?.system;
+      if(system==='GT Laser') return 'gt';
+      if(system==='Commercial Laser') return 'cola';
+      if(system==='Laser XT') return 'xt';
+      if(system==='Xenon') return c?.projection?.dome?'dome':'xenon';
+      return 'unknown';
+    };
+    const label=c=>{
+      const system=c?.projection?.system;
+      if(system==='GT Laser') return 'GT';
+      if(system==='Commercial Laser') return 'CL';
+      if(system==='Laser XT') return 'XT';
+      if(system==='Xenon') return c?.projection?.dome?'D':'Xe';
+      return '?';
+    };
     const safe=v=>String(v??'').replace(/[&<>'"]/g,ch=>({'&':'&amp;','<':'&lt;','>':'&gt;',"'":'&#39;','"':'&quot;'}[ch]));
     const valueOrPending=v=>(v===null||v===undefined||v==='')?'待核':safe(v);
+    const hasCoordinate=v=>v!==null&&v!==undefined&&v!==''&&Number.isFinite(Number(v));
+    const numberOrPending=v=>Number.isFinite(Number(v))?safe(Number(v).toFixed(3).replace(/\.0+$/,'').replace(/(\.\d*?)0+$/,'$1')):'待核';
+    const statusLabel=s=>s==='open'?'营业':s==='closed'?'已关闭':s==='temporarily_closed'?'暂时停业':'待核';
+    const systemLabel=c=>{
+      const p=c?.projection||{};
+      const parts=[];
+      if(p.system&&p.system!=='unknown') parts.push(p.system);
+      if(p.geometry) parts.push(p.geometry);
+      if(p.dome) parts.push('Dome');
+      if(p.plannedSystem) parts.push(`计划：${p.plannedSystem}`);
+      return parts.length?parts.join(' · '):'待核';
+    };
 
     function markerIcon(c){
-      const area=Number(c.screenWidth||0)*Number(c.screenHeight||0);
+      const area=Number(c?.screen?.area||0);
       const size=Math.max(27,Math.min(45,24+Math.sqrt(Math.max(area,1))));
       return L.divIcon({
         className:'',
-        html:`<div class="imax-marker ${systemClass(c.system)}" style="width:${size}px;height:${size}px">${label(c.system)}</div>`,
+        html:`<div class="imax-marker ${systemClass(c)}" style="width:${size}px;height:${size}px">${label(c)}</div>`,
         iconSize:[size,size],
         iconAnchor:[size/2,size/2]
       });
     }
 
     function popup(c){
-      const size=(c.screenWidth&&c.screenHeight)?`${safe(c.screenWidth)} × ${safe(c.screenHeight)} m`:'待核';
-      return `<div class="popup-title">${safe(c.name)}</div><div class="popup-grid">
-        <b>地区</b><span>${valueOrPending(c.province)}${c.city&&c.city!==c.province?` · ${safe(c.city)}`:''}</span>
-        <b>设备</b><span>${valueOrPending(c.system)}</span>
+      const p=c.projection||{};
+      const s=c.screen||{};
+      const size=(s.width!==null&&s.height!==null)?`${numberOrPending(s.width)} × ${numberOrPending(s.height)} m`:'待核';
+      const rawScreen=[s.rawWidth,s.rawHeight,s.rawArea].filter(v=>String(v??'').trim()!=='').map(safe).join(' / ');
+      const sourceUrl=c.source?.url||'https://docs.qq.com/sheet/DQ3FEUUZJdklNSWJP?tab=BB08J2';
+      return `<div class="popup-title">${safe(c.name||'待核影院')}</div><div class="popup-grid">
+        <b>地区</b><span>${valueOrPending(c.region)}${c.city?` · ${safe(c.city)}`:''}</span>
+        <b>投影</b><span>${safe(systemLabel(c))}</span>
+        <b>声道</b><span>${p.audioChannels===null?'待核':safe(`${p.audioChannels}声道`)}</span>
         <b>银幕</b><span>${size}</span>
-        <b>比例</b><span>${valueOrPending(c.ratio)}</span>
-        <b>声道</b><span>${valueOrPending(c.channels)}</span>
-        <b>15/70</b><span>${c.film1570===true?'是':c.film1570===false?'否':'待核'}</span>
-      </div>${c.note?`<div class="popup-note">${safe(c.note)}</div>`:''}`;
+        <b>面积</b><span>${s.area===null?'待核':`${numberOrPending(s.area)} m²`}</span>
+        <b>座位</b><span>${c.seats===null?'待核':safe(c.seats)}</span>
+        <b>状态</b><span>${statusLabel(c.status)}</span>
+      </div>${rawScreen?`<div class="popup-note">源表尺寸文本：${rawScreen}</div>`:''}${c.formerNames?.length?`<div class="popup-note">曾用名：${safe(c.formerNames.join('；'))}</div>`:''}<div class="popup-note">数据来源：<a href="${safe(sourceUrl)}" target="_blank" rel="noopener">@ArvinTingcn《全球 IMAX 及特效影厅分布》</a></div>`;
     }
 
     function render(){
-      markers.forEach(m=>map.removeLayer(m));
-      markers=[];
+      markerLayer.clearLayers();
 
       const q=document.querySelector('#search').value.trim().toLowerCase();
       const shown=cinemas.filter(c=>{
-        const systemMatch=activeSystem==='ALL'||c.system===activeSystem;
-        const haystack=`${c.name||''} ${c.city||''} ${c.province||''}`.toLowerCase();
-        return systemMatch&&(!q||haystack.includes(q));
+        const systemMatch=activeSystem==='ALL'||(c.projection?.system||'unknown')===activeSystem;
+        const regionMatch=activeRegion==='ALL'||c.region===activeRegion;
+        const domeMatch=!activeDome||c.projection?.dome===true;
+        const statusMatch=activeStatus==='ALL'||c.status===activeStatus;
+        const audioMatch=!activeAudio||c.projection?.audioChannels===12;
+        const haystack=`${c.name||''} ${c.formerNames?.join(' ')||''} ${c.city||''} ${c.province||''} ${c.region||''} ${c.projection?.raw||''}`.toLowerCase();
+        return systemMatch&&regionMatch&&domeMatch&&statusMatch&&audioMatch&&(!q||haystack.includes(q));
       });
 
+      let located=0;
       shown.forEach(c=>{
-        const lat=Number(c.lat),lng=Number(c.lng);
-        if(!Number.isFinite(lat)||!Number.isFinite(lng)) return;
-        const marker=L.marker([lat,lng],{icon:markerIcon(c),title:c.name||''}).bindPopup(popup(c),{maxWidth:320});
-        marker.addTo(map);
-        markers.push(marker);
+        const lat=Number(c.location?.lat),lng=Number(c.location?.lng);
+        if(!hasCoordinate(c.location?.lat)||!hasCoordinate(c.location?.lng)) return;
+        located+=1;
+        L.marker([lat,lng],{icon:markerIcon(c),title:c.name||''}).bindPopup(popup(c),{maxWidth:340}).addTo(markerLayer);
       });
 
-      document.querySelector('#status').textContent=`显示 ${markers.length} / ${cinemas.length} 家影院`;
+      const pending=shown.length-located;
+      document.querySelector('#status').textContent=`显示 ${located} 个地图点位 / ${shown.length} 条筛选记录 · ${pending} 条待定位`;
+      const listItems=shown.slice(0,12).map(c=>{
+        const location=[c.region,c.city].filter(Boolean).join(' · ')||'地区待核';
+        const point=hasCoordinate(c.location?.lat)&&hasCoordinate(c.location?.lng)?'已定位':'待定位';
+        return `<div class="record-item"><div class="record-name">${safe(c.name||'待核影院')}</div><div class="record-meta">${safe(location)} · ${safe(systemLabel(c))} · ${statusLabel(c.status)} · ${point}</div></div>`;
+      }).join('');
+      const more=shown.length>12?`<div class="record-more">其余 ${shown.length-12} 条记录可通过搜索或筛选查看。</div>`:'';
+      document.querySelector('#recordList').innerHTML=listItems+more;
     }
 
-    document.querySelector('#filters').addEventListener('click',e=>{
-      const button=e.target.closest('button[data-system]');
+    document.querySelector('#systemFilters').addEventListener('click',e=>{
+      const button=e.target.closest('button[data-system],button[data-dome]');
       if(!button) return;
-      document.querySelectorAll('#filters button').forEach(b=>b.classList.remove('active'));
+      if(button.dataset.system){
+        document.querySelectorAll('#systemFilters button[data-system]').forEach(b=>b.classList.remove('active'));
+        button.classList.add('active');
+        activeSystem=button.dataset.system;
+      }else if(button.dataset.dome){
+        activeDome=!activeDome;
+        button.classList.toggle('active',activeDome);
+      }
+      render();
+    });
+
+    document.querySelector('#regionFilters').addEventListener('click',e=>{
+      const button=e.target.closest('button[data-region]');
+      if(!button) return;
+      document.querySelectorAll('#regionFilters button').forEach(b=>b.classList.remove('active'));
       button.classList.add('active');
-      activeSystem=button.dataset.system;
+      activeRegion=button.dataset.region;
+      render();
+    });
+
+    document.querySelector('#statusFilters').addEventListener('click',e=>{
+      const button=e.target.closest('button[data-status],button[data-audio]');
+      if(!button) return;
+      if(button.dataset.status){
+        document.querySelectorAll('#statusFilters button[data-status]').forEach(b=>b.classList.remove('active'));
+        button.classList.add('active');
+        activeStatus=button.dataset.status;
+      }else if(button.dataset.audio){
+        activeAudio=!activeAudio;
+        button.classList.toggle('active',activeAudio);
+      }
       render();
     });
 
     document.querySelector('#search').addEventListener('input',render);
 
-    fetch('./data/cinemas.json')
+    fetch('./data/derived/cinemas.json')
       .then(r=>{if(!r.ok) throw new Error(`HTTP ${r.status}`);return r.json()})
       .then(data=>{
-        if(!Array.isArray(data)) throw new Error('数据格式错误');
-        cinemas=data;
+        if(!data||!Array.isArray(data.records)) throw new Error('派生数据格式错误');
+        cinemas=data.records;
+        const located=cinemas.filter(c=>hasCoordinate(c.location?.lat)&&hasCoordinate(c.location?.lng)).length;
+        document.querySelector('#dataBanner').textContent=`已加载 ${cinemas.length} 条 IMAX中国派生记录；${located} 条有可靠坐标，${cinemas.length-located} 条待定位。多值尺寸与不确定字段仍显示“待核”。`;
         render();
       })
       .catch(err=>{
