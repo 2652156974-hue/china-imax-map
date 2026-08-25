@@ -1,6 +1,6 @@
 {
   "schemaVersion": 2,
-  "generatedAt": "2026-08-25T04:35:52.337Z",
+  "generatedAt": "2026-08-25T04:51:31.620Z",
   "status": "passed",
   "executionMode": "playwright-cli-real",
   "runtimeProvider": "official AMap JS API 2.0",

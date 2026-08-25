@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-08-25T04:49:08.474Z",
+  "generatedAt": "2026-08-25T04:52:21.822Z",
   "status": "public-runtime-ready",
   "releaseCandidate": true,
   "publicationReady": true,
@@ -41,7 +41,7 @@
   },
   "browserSmoke": {
     "schemaVersion": 2,
-    "generatedAt": "2026-08-25T04:35:52.337Z",
+    "generatedAt": "2026-08-25T04:51:31.620Z",
     "status": "passed",
     "executionMode": "playwright-cli-real",
     "runtimeProvider": "official AMap JS API 2.0",
@@ -216,7 +216,7 @@
     },
     "publicBoundary": {
       "schemaVersion": 2,
-      "generatedAt": "2026-08-25T04:49:02.926Z",
+      "generatedAt": "2026-08-25T04:52:16.155Z",
       "status": "public-boundary-check-passed",
       "publicDataset": {
         "file": "data/public/cinemas.json",

@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-08-25T04:49:08.634Z",
+  "generatedAt": "2026-08-25T04:52:21.981Z",
   "manifestType": "public-release",
   "status": "public-runtime-ready",
   "publicationReady": true,
@@ -74,17 +74,17 @@
     {
       "path": "data/audit/public-boundary.json",
       "bytes": 1542,
-      "sha256": "25cd928eae0e1f1c74aa7c0d9f5cac1f784e18901b3e00ddf5fdc552e02ad209"
+      "sha256": "e1d6b27a71d65914d092a25b6e2f4c88d4222f049515b44ba51d74cf380db342"
     },
     {
       "path": "data/audit/public-release-readiness.json",
       "bytes": 8697,
-      "sha256": "fecdcd1966272b15316580f414f708046e33aa478e79f435daf29d690c91789c"
+      "sha256": "46e8dc9e3c9f6ff292938c26a4dd7b14b7fe1e5a49fb3619161dab356421cbeb"
     },
     {
       "path": "data/audit/public-amap-browser-smoke.json",
       "bytes": 3051,
-      "sha256": "53a13a05d8973300e7ea8a1032e99acbdbb456b4deefe503978ec3ec3d7dc5d4"
+      "sha256": "d8c6d0361822ead442b8fc6fd717ea4c796fa9d614b61f367bdcbe1d601f6760"
     },
     {
       "path": "data/audit/amap-quota-guard.json",
