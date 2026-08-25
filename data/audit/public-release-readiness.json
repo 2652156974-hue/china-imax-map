@@ -1,12 +1,13 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-08-25T04:52:21.822Z",
+  "generatedAt": "2026-08-25T04:55:27.647Z",
   "status": "public-runtime-ready",
   "releaseCandidate": true,
   "publicationReady": true,
   "counts": {
     "total": 901,
     "accepted": 901,
+    "locationOnly": 100,
     "unlocated": 0,
     "acceptedPlusUnlocated": 901,
     "markerCount": 901
@@ -216,11 +217,11 @@
     },
     "publicBoundary": {
       "schemaVersion": 2,
-      "generatedAt": "2026-08-25T04:52:16.155Z",
+      "generatedAt": "2026-08-25T04:55:22.137Z",
       "status": "public-boundary-check-passed",
       "publicDataset": {
         "file": "data/public/cinemas.json",
-        "sha256": "239972a7f462439d0edba67250c813395ee7715a5a1bb63c2aeef74658cfe1dc",
+        "sha256": "8be7529ccfaba102701428efb42778513f0c7233352fb5836fda0c09a66d4bb5",
         "mode": "public-amap-runtime",
         "records": 901,
         "staticCoordinates": 0,

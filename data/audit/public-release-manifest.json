@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-08-25T04:52:21.981Z",
+  "generatedAt": "2026-08-25T04:55:27.807Z",
   "manifestType": "public-release",
   "status": "public-runtime-ready",
   "publicationReady": true,
@@ -28,8 +28,8 @@
     },
     {
       "path": "index.html",
-      "bytes": 4273,
-      "sha256": "faded320171e3524b05e07f87929b46baea32b570c07587705cad7dee5bc1fcd"
+      "bytes": 4820,
+      "sha256": "38d5407540d4584933159157d00eb91c856bd46217ad0efbc2fe5ce8d306dffe"
     },
     {
       "path": "app.mjs",
@@ -59,27 +59,27 @@
     {
       "path": "data/public/cinemas.json",
       "bytes": 1283777,
-      "sha256": "239972a7f462439d0edba67250c813395ee7715a5a1bb63c2aeef74658cfe1dc"
+      "sha256": "8be7529ccfaba102701428efb42778513f0c7233352fb5836fda0c09a66d4bb5"
     },
     {
       "path": "data/audit/public-amap-quality.json",
-      "bytes": 1346,
-      "sha256": "49bdc03b5a2ca6351cb74dfa3e0a02b503fb34c9103a7cd4b007095cd8e8a0c1"
+      "bytes": 1411,
+      "sha256": "4b2a916541d43edbf2b21fe3a20a451faa3926e7ca626b1ec3cf449334d54013"
     },
     {
       "path": "data/audit/public-amap-unresolved.json",
       "bytes": 151,
-      "sha256": "c6e88e405793a5a6c85b25edfad4786db46dab82ba3f5aadf7bde5983f854877"
+      "sha256": "158db7b8c3446b23543382eb167eff8bff083e26e6a2a51a8004afa45f9c7d92"
     },
     {
       "path": "data/audit/public-boundary.json",
       "bytes": 1542,
-      "sha256": "e1d6b27a71d65914d092a25b6e2f4c88d4222f049515b44ba51d74cf380db342"
+      "sha256": "1db23946cbe216ee185433b3d549a89c2930f6d01e02a600821e553ff0be942b"
     },
     {
       "path": "data/audit/public-release-readiness.json",
-      "bytes": 8697,
-      "sha256": "46e8dc9e3c9f6ff292938c26a4dd7b14b7fe1e5a49fb3619161dab356421cbeb"
+      "bytes": 8722,
+      "sha256": "3d2af743ec332859a4022b6ad594f7129415cffd3fb6647d2d6bda027cd3d630"
     },
     {
       "path": "data/audit/public-amap-browser-smoke.json",
@@ -118,8 +118,8 @@
     },
     {
       "path": "scripts/build-public-amap-layer.mjs",
-      "bytes": 11647,
-      "sha256": "feea15b8868ec41b1c308ebe527aae938fff577f612eec6eabb22492b378dce2"
+      "bytes": 11988,
+      "sha256": "9551b8c407d70bfbd68091aaa607d12bbb01e482a4ffe4f135ad23c123d9f753"
     },
     {
       "path": "scripts/build-public-dataset.mjs",
@@ -209,12 +209,13 @@
     {
       "path": "dist-public/data/cinemas.json",
       "bytes": 1283777,
-      "sha256": "239972a7f462439d0edba67250c813395ee7715a5a1bb63c2aeef74658cfe1dc"
+      "sha256": "8be7529ccfaba102701428efb42778513f0c7233352fb5836fda0c09a66d4bb5"
     }
   ],
   "counts": {
     "total": 901,
     "accepted": 901,
+    "locationOnly": 100,
     "unlocated": 0,
     "acceptedPlusUnlocated": 901,
     "markerCount": 901,

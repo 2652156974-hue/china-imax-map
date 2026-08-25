@@ -51,15 +51,22 @@
         <button data-status="unknown">状态待核</button>
         <button data-audio="12">12声道</button>
       </div>
-      <div class="filter-label">位置层级</div>
-      <div class="filters" id="locationFilters" aria-label="位置核验筛选">
-        <button class="active" data-location="ALL">全部位置</button>
-        <button data-location="exact">精确身份</button>
-        <button data-location="location-only">场所级定位</button>
-        <button data-location="unresolved">未定位</button>
-      </div>
       <div class="search-wrap">
         <input id="search" type="search" placeholder="搜索影院、曾用名、城市、商场或场馆" autocomplete="off" />
+      </div>
+      <div class="nearby-actions" aria-label="附近 IMAX 操作">
+        <button class="nearby-button" id="nearbyButton" type="button">我的位置</button>
+        <button class="nearby-exit" id="exitNearbyButton" type="button" hidden>× 退出附近</button>
+      </div>
+      <div class="nearby-status" id="nearbyStatus" role="status" aria-live="polite" hidden></div>
+      <div class="nearby-toolbar" id="nearbyToolbar" hidden>
+        <div class="nearby-scope" id="nearbyScope"></div>
+        <div class="nearby-sort" id="nearbySortFilters" aria-label="附近排序">
+          <button class="active" data-nearby-sort="distance" type="button">距离</button>
+          <button data-nearby-sort="screen" type="button">银幕大小</button>
+          <button data-nearby-sort="spec" type="button">综合规格</button>
+        </div>
+        <button class="nearby-expand" id="expandNearbyButton" type="button" hidden>扩大范围</button>
       </div>
     </details>
 

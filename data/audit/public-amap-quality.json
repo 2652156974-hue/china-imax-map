@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-08-25T04:47:13.708Z",
+  "generatedAt": "2026-08-25T04:55:02.332Z",
   "status": "public-amap-runtime-layer-ready",
   "dataset": "data/local/public-amap-reviewed-geocodes.json",
   "total": 901,
@@ -22,6 +22,8 @@
   "lunaReviewedExact": 224,
   "lunaReviewedLocationOnly": 65,
   "lunaReviewedHistoricalLocation": 22,
+  "canonicalIdentityExact": 801,
+  "canonicalLocationOnly": 100,
   "granularity": {
     "auditorium": 2,
     "cinema": 799,
