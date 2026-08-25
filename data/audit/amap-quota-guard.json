@@ -1,0 +1,36 @@
+{
+  "schemaVersion": 1,
+  "generatedAt": "2026-08-21T01:59:49.004Z",
+  "status": "active",
+  "monthlyQuota": {
+    "limit": 5000,
+    "consumedBeforeRunApprox": 1500,
+    "estimatedRemainingBeforeRun": 3500,
+    "estimatedRemainingAfterRun": 3500,
+    "remainingIsApproximate": true
+  },
+  "runBudget": {
+    "maxNewAmapRequests": 600,
+    "newAmapRequests": 0,
+    "cacheHits": 0,
+    "providerErrors": 0,
+    "networkRequests": 0,
+    "budgetRemaining": 600
+  },
+  "separateRegionalProviderRun": {
+    "provider": "Nominatim",
+    "scope": "Hong Kong/Macau/Taiwan",
+    "newRequests": 20,
+    "cacheHits": 0,
+    "errors": 20,
+    "consumesMainlandAmapBudget": false
+  },
+  "scope": {
+    "mainlandAmapRequestsAllowed": true,
+    "hongKongMacauTaiwanConsumeMainlandBudget": false,
+    "fullMainlandRerun": false,
+    "refreshSuccessfulQueries": false,
+    "cacheFirst": true
+  },
+  "note": "No AMap provider runner was invoked in this run. The separate regional Nominatim audit made 20 non-AMap requests; those requests do not consume the mainland AMap budget."
+}

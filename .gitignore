@@ -1,0 +1,28 @@
+# Local credentials and environment files. Never commit API keys.
+.env
+.env.*
+!.env.example
+*.key
+
+# Provider responses are private/local working caches, not public datasets.
+data/geocode/provider-cache/*.json
+
+# AMap-derived local preview data is never part of a public commit.
+/data/local/
+/tmp/
+/.local-preview/
+
+# Generated private AMap release bundle. It contains deployment-only GCJ-02
+# coordinates and must never enter the public repository history.
+/dist-private/
+
+# Public release bundle contains only publication-safe static files; regenerate it locally.
+/dist-public/
+
+# Local Playwright CLI artifacts.
+.playwright-cli/
+
+# Node/test artifacts.
+/node_modules/
+/coverage/
+*.log
