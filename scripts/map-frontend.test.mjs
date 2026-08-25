@@ -7,6 +7,7 @@ import { fileURLToPath } from 'node:url';
 const repoRoot = join(fileURLToPath(new URL('..', import.meta.url)));
 const html = await readFile(join(repoRoot, 'index.html'), 'utf8');
 const app = await readFile(join(repoRoot, 'app.mjs'), 'utf8');
+const locationFormat = await readFile(join(repoRoot, 'public-location-format.mjs'), 'utf8');
 const css = await readFile(join(repoRoot, 'styles.css'), 'utf8');
 const docs = await readFile(join(repoRoot, 'docs', 'MAP_FRONTEND.md'), 'utf8');
 
@@ -63,6 +64,22 @@ test('public field presentation keeps raw values out of normal detail rows', () 
   assert.match(app, /class="data-notes"/);
   assert.match(app, /formatNumber\(safeNumber, field === 'area' \? 2 : 3\)/);
   assert.doesNotMatch(app, /源文：/);
+});
+
+test('detail popup uses one dynamic positioning-information row', () => {
+  assert.match(app, /formatLocationInfo\(cinema, \{ hasCoordinate: hasCoordinate\(cinema\) \}\)/);
+  assert.match(app, /<b>定位信息<\/b>/);
+  assert.doesNotMatch(app, /<b>状态<\/b>|<b>位置粒度<\/b>|<b>位置\/身份<\/b>|<b>坐标来源<\/b>/);
+  assert.match(locationFormat, /空片段|formatLocationInfo/);
+});
+
+test('primary UI containers share translucent light/dark surfaces without strong blur', () => {
+  assert.match(css, /--panel:\s*rgba\(255,\s*255,\s*255,\s*\.97\)/);
+  assert.match(css, /--panel:\s*rgba\(21,\s*24,\s*29,\s*\.97\)/);
+  assert.match(css, /\.panel, \.detail-panel[\s\S]*background: var\(--panel\)/);
+  assert.match(css, /input[\s\S]*background: var\(--panel\)/);
+  assert.match(css, /backdrop-filter: blur\(4px\)/);
+  assert.doesNotMatch(css, /backdrop-filter: blur\(12px\)/);
 });
 
 test('credential proxy and attribution remain visible', () => {

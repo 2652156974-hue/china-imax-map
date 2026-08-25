@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-08-25T08:40:13.777Z",
+  "generatedAt": "2026-08-25T09:03:37.700Z",
   "manifestType": "public-release",
   "status": "public-runtime-ready",
   "publicationReady": true,
@@ -33,13 +33,18 @@
     },
     {
       "path": "app.mjs",
-      "bytes": 24416,
-      "sha256": "cb0826ca9740d47995fb0057abf59689d20a1e408957c2b86f69c0db9bbbc884"
+      "bytes": 23311,
+      "sha256": "d1562f2d248575421d7af3d65a6d69ba1d8d70aa5dbfee39b7d0d60a316ffb7c"
+    },
+    {
+      "path": "public-location-format.mjs",
+      "bytes": 3550,
+      "sha256": "97f30a1e63f7f33bb732c115c20280b1eaaafdab1a1b68717808881033da5f74"
     },
     {
       "path": "styles.css",
-      "bytes": 7921,
-      "sha256": "2eca5fcb04beb4d0ebbf17ae0ce4458ea13b20f93a5864d3eabbde02c26cd822"
+      "bytes": 7953,
+      "sha256": "0aecad11305f1b9f050f3d7bb112f383ed28880d07da7b551c52522a22815774"
     },
     {
       "path": "_headers",
@@ -94,7 +99,7 @@
     {
       "path": "data/audit/public-boundary.json",
       "bytes": 2188,
-      "sha256": "0754734cb616fe14104ea3c4bd73de011734b7ce557bb32a2dedbd9d1135677b"
+      "sha256": "208c6ecc7c7c8bc7d2267f952160345466322f761abbac9c18cba1e6c23f8a79"
     },
     {
       "path": "data/audit/public-release-readiness.json",
@@ -148,18 +153,18 @@
     },
     {
       "path": "scripts/build-public-manifest.mjs",
-      "bytes": 4489,
-      "sha256": "3cf5ae858ae65afad136471bd9ab66d1ab4ecb66a86d8cdb954c6124ed96566a"
+      "bytes": 4565,
+      "sha256": "7681a8ce428d018043cf5e6a9e496cb4a86c567cb9fa04189971bd521c52568e"
     },
     {
       "path": "scripts/build-public-release.mjs",
-      "bytes": 2477,
-      "sha256": "466fc49367770119b299bc1f22cf8dd38835d2deb57a4c9870392c96b6073626"
+      "bytes": 2507,
+      "sha256": "82b6caed0285b026826176e2e9ef17a5eb3393d30512b8221efe40c5cfc53e1e"
     },
     {
       "path": "scripts/build-cloudflare-public.mjs",
-      "bytes": 3499,
-      "sha256": "f0ac7a9045d07d6b48c464c7f820ef6065d570682729f503105b62a4511867cb"
+      "bytes": 3529,
+      "sha256": "4efbd186ca480395c06c0b0387cd7081595404a6d034aed1c9aabf42c13f003d"
     },
     {
       "path": "scripts/cloudflare-check.mjs",
@@ -243,8 +248,8 @@
     },
     {
       "path": "scripts/map-frontend.test.mjs",
-      "bytes": 3243,
-      "sha256": "9f1cdcb356f17775875e1416d21e84c5d4b61f6557d102614d765c6a93c6525d"
+      "bytes": 4228,
+      "sha256": "acb9804043acd6c4ce741937235af6ba5ec6b3e750d11223d4bc591979c57937"
     },
     {
       "path": "scripts/fixtures/amap-js-sdk.mock.js",
@@ -258,13 +263,18 @@
     },
     {
       "path": "dist-public/app.mjs",
-      "bytes": 24416,
-      "sha256": "cb0826ca9740d47995fb0057abf59689d20a1e408957c2b86f69c0db9bbbc884"
+      "bytes": 23311,
+      "sha256": "d1562f2d248575421d7af3d65a6d69ba1d8d70aa5dbfee39b7d0d60a316ffb7c"
+    },
+    {
+      "path": "dist-public/public-location-format.mjs",
+      "bytes": 3550,
+      "sha256": "97f30a1e63f7f33bb732c115c20280b1eaaafdab1a1b68717808881033da5f74"
     },
     {
       "path": "dist-public/styles.css",
-      "bytes": 7921,
-      "sha256": "2eca5fcb04beb4d0ebbf17ae0ce4458ea13b20f93a5864d3eabbde02c26cd822"
+      "bytes": 7953,
+      "sha256": "0aecad11305f1b9f050f3d7bb112f383ed28880d07da7b551c52522a22815774"
     },
     {
       "path": "dist-public/_headers",

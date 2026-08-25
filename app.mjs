@@ -1,3 +1,5 @@
+import { formatLocationInfo } from './public-location-format.mjs';
+
 const config = window.__PUBLIC_AMAP_CONFIG__ ?? {};
 const mapError = document.querySelector('#mapError');
 const dataBanner = document.querySelector('#dataBanner');
@@ -410,9 +412,6 @@ function detailHtml(cinema, popup) {
     ['面积', area.raw],
     ['座位', seats.raw]
   ]);
-  const locationText = hasCoordinate(cinema)
-    ? `高德地图 · ${escapeHtml(location.providerCrs)} · ${escapeHtml(positionTypeLabel(location.positionType))}`
-    : '未定位（保留在列表和详情中，不使用城市中心点）';
   const locationNote = locationBucket(cinema) === 'location-only'
     ? '<div class="raw-note">位置说明：场馆/商场坐标，非影院入口或影厅的精确定位。</div>'
     : '';
@@ -428,10 +427,7 @@ function detailHtml(cinema, popup) {
     `<b>高度</b><span>${height.html}</span>` +
     `<b>面积</b><span>${area.html}</span>` +
     `<b>座位</b><span>${seats.html}</span>` +
-    `<b>状态</b><span>${statusLabel(cinema.status)}</span>` +
-    `<b>位置粒度</b><span>${granularityLabel(location.locationGranularity)}</span>` +
-    `<b>位置/身份</b><span>${confidenceLabel(location.locationConfidence)} / ${confidenceLabel(location.identityConfidence)}</span>` +
-    `<b>坐标来源</b><span>${locationText}</span>` +
+    `<b>定位信息</b><span>${escapeHtml(formatLocationInfo(cinema, { hasCoordinate: hasCoordinate(cinema) }))}</span>` +
     `</div>${dataNotes}${formerNames}${locationNote}` +
     `<div class="raw-note">数据来源：<a href="${escapeHtml(cinema.source?.url || 'https://docs.qq.com/sheet/DQ3FEUUZJdklNSWJP?tab=BB08J2')}" target="_blank" rel="noopener">@ArvinTingcn《全球 IMAX 及特效影厅分布》</a></div>` +
     `</article>`;
@@ -511,10 +507,6 @@ function searchText(cinema) {
 }
 function normalizeSearch(value) { return String(value ?? '').normalize('NFKC').toLowerCase().replace(/[\s·•,，。()（）\-_/]+/g, ''); }
 function confidenceWeight(value) { return value === 'high' ? 3 : value === 'medium' ? 2 : 1; }
-function statusLabel(value) { return value === 'open' ? '营业' : value === 'closed' ? '已关闭' : value === 'temporarily_closed' ? '暂时停业' : '待核'; }
-function confidenceLabel(value) { return value === 'high' ? '高' : value === 'medium' ? '中' : value === 'low' ? '低' : '待核'; }
-function granularityLabel(value) { return value === 'auditorium' ? '影厅' : value === 'cinema' ? '影院' : value === 'venue' ? '场馆' : value === 'mall' ? '商场' : '待核'; }
-function positionTypeLabel(value) { return value === 'auditorium-poi' ? '影厅 POI' : value === 'cinema-poi' ? '影院 POI' : value === 'venue-poi' ? '场馆 POI' : value === 'mall-fallback' ? '商场回退' : '待核'; }
 function locationOnlyCount(records) { return records.filter((record) => locationBucket(record) === 'location-only').length; }
 function formatNumber(value, maximumFractionDigits = 3) {
   const number = Number(value);

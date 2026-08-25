@@ -5,7 +5,7 @@ import { fileURLToPath } from 'node:url';
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const DIST_ROOT = path.join(ROOT, 'dist-public');
 const PUBLIC_DATASET = path.join(ROOT, 'data/public/cinemas.json');
-const STATIC_FILES = ['index.html', 'app.mjs', 'styles.css', '_headers'];
+const STATIC_FILES = ['index.html', 'app.mjs', 'public-location-format.mjs', 'styles.css', '_headers'];
 
 export function buildCloudflarePublic() {
   const dataset = readJson(PUBLIC_DATASET);

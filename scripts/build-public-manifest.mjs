@@ -12,6 +12,7 @@ const publicFiles = [
   'PROJECT_STATUS.md',
   'index.html',
   'app.mjs',
+  'public-location-format.mjs',
   'styles.css',
   '_headers',
   'wrangler.jsonc',
@@ -57,6 +58,7 @@ const publicFiles = [
   'scripts/fixtures/amap-js-sdk.mock.js',
   'dist-public/index.html',
   'dist-public/app.mjs',
+  'dist-public/public-location-format.mjs',
   'dist-public/styles.css',
   'dist-public/_headers',
   'dist-public/data/cinemas.json'
