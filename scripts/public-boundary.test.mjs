@@ -18,7 +18,15 @@ test('public boundary passes for static facts and uses the clean public branch s
   assert.equal(report.cleanBranch.publicReleaseBranch, 'codex/public-release');
   assert.equal(report.cleanBranch.publicReleaseBranchExists, true);
   assert.equal(report.cleanBranch.noMergePerformed, true);
-  assert.equal(report.cleanBranch.noDeployPerformed, true);
+  assert.equal(report.cleanBranch.noDeployPerformed, report.deployment?.status !== 'deployed');
+  if (report.deployment?.status === 'deployed') {
+    assert.match(report.deployment.url, /^https:\/\/china-imax-map\./);
+    assert.equal(report.deployment.onlineVerification?.rootStatus, 200);
+    assert.equal(report.deployment.onlineVerification?.runtimeConfigStatus, 200);
+    assert.equal(report.deployment.onlineVerification?.markerRecords, 901);
+    assert.equal(report.deployment.onlineVerification?.markerUniqueSourceRows, 901);
+    assert.equal(report.deployment.onlineVerification?.forbiddenFields, false);
+  }
   assert.equal(report.warnings.some((warning) => /raw Tencent mirror/i.test(warning)), false);
 });
 

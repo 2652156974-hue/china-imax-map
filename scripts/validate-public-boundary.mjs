@@ -11,6 +11,16 @@ const MARKER_ARTIFACT = path.join(ROOT, 'tmp/cloudflare/public-amap-markers.json
 const DIST_ROOT = path.join(ROOT, 'dist-public');
 const OUTPUT_FILE = path.join(ROOT, 'data/audit/public-boundary.json');
 const PUBLIC_RELEASE_BRANCH = process.env.PUBLIC_RELEASE_BRANCH || 'codex/public-release';
+const DEPLOYMENT_URL = String(process.env.PUBLIC_WORKER_URL || '').trim().replace(/\/$/, '');
+const ONLINE_VERIFIED = process.env.PUBLIC_ONLINE_VERIFIED === 'true';
+const ONLINE_VERIFICATION = ONLINE_VERIFIED ? {
+  rootStatus: Number(process.env.PUBLIC_ROOT_STATUS || 0),
+  runtimeConfigStatus: Number(process.env.PUBLIC_RUNTIME_CONFIG_STATUS || 0),
+  markerStatus: Number(process.env.PUBLIC_MARKER_STATUS || 0),
+  markerRecords: Number(process.env.PUBLIC_MARKER_RECORDS || 0),
+  markerUniqueSourceRows: Number(process.env.PUBLIC_MARKER_UNIQUE_SOURCE_ROWS || 0),
+  forbiddenFields: process.env.PUBLIC_ONLINE_FORBIDDEN_FIELDS === 'true'
+} : null;
 const readJson = (filePath) => JSON.parse(fs.readFileSync(filePath, 'utf8'));
 const publicDataset = readJson(PUBLIC_FILE);
 const markerLayer = fs.existsSync(MARKER_FILE) ? readJson(MARKER_FILE) : null;
@@ -23,6 +33,17 @@ const errors = [];
 const warnings = [];
 const check = (condition, message) => { if (!condition) errors.push(message); };
 const warn = (condition, message) => { if (!condition) warnings.push(message); };
+
+check(!DEPLOYMENT_URL || /^https:\/\/china-imax-map\.[A-Za-z0-9.-]+$/.test(DEPLOYMENT_URL), 'PUBLIC_WORKER_URL must be the HTTPS china-imax-map Worker URL');
+check(!ONLINE_VERIFIED || Boolean(DEPLOYMENT_URL), 'online verification requires PUBLIC_WORKER_URL');
+if (ONLINE_VERIFIED) {
+  check(ONLINE_VERIFICATION.rootStatus === 200, 'online root verification must return 200');
+  check(ONLINE_VERIFICATION.runtimeConfigStatus === 200, 'online runtime-config verification must return 200');
+  check(ONLINE_VERIFICATION.markerStatus === 200, 'online marker verification must return 200');
+  check(ONLINE_VERIFICATION.markerRecords === 901, 'online marker verification must return 901 records');
+  check(ONLINE_VERIFICATION.markerUniqueSourceRows === 901, 'online marker verification must return 901 unique source rows');
+  check(ONLINE_VERIFICATION.forbiddenFields === false, 'online response contains forbidden fields');
+}
 
 check(publicDataset.mode === 'public-amap-runtime', 'public dataset is not the AMap runtime mode');
 check(publicDataset.status === 'publication-candidate', 'public dataset is not a publication candidate');
@@ -117,6 +138,12 @@ const report = {
     artifactFile: markerArtifactSha256 ? 'tmp/cloudflare/public-amap-markers.json' : null,
     artifactSha256: markerArtifactSha256
   },
+  deployment: {
+    platform: 'cloudflare-workers',
+    status: DEPLOYMENT_URL ? 'deployed' : 'not-deployed',
+    url: DEPLOYMENT_URL || null,
+    onlineVerification: ONLINE_VERIFICATION
+  },
   security: {
     cacheTracked,
     rawTracked,
@@ -136,7 +163,7 @@ const report = {
     recommendedBase: 'fba4dcd (last clean public baseline before the Tencent raw mirror)',
     noRemoteHistoryRewrite: true,
     noMergePerformed: true,
-    noDeployPerformed: true,
+    noDeployPerformed: !DEPLOYMENT_URL,
     intentionallyExcluded: ['data/raw/arvin-imax.json', 'data/geocode/provider-cache/*.json', 'data/local/', 'dist-private/', 'complete AMap coordinate export']
   }
 };

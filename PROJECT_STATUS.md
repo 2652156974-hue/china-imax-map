@@ -2,11 +2,11 @@
 
 更新日期：2026-08-25
 分支：`codex/public-release`
-发布动作：Cloudflare Worker bundle 已上传；账号尚未注册 workers.dev 子域且未配置 route，当前无 live URL
+发布动作：Cloudflare Worker 已上线；live URL：`https://china-imax-map.2652156974.workers.dev`
 
 ## 一句话状态
 
-公开运行包已把 901 条静态事实与运行时 marker 分离：静态层 0 坐标；Cloudflare Worker 从部署时生成的最小 marker 模块读取运行数据，公开静态构建不读取私有 marker。当前公开审计为 901 accepted、901 markers、0 unresolved/unlocated；bundle 已上传但尚未绑定可访问 URL。
+公开运行包已把 901 条静态事实与运行时 marker 分离：静态层 0 坐标；Cloudflare Worker 从部署时生成的最小 marker 模块读取运行数据，公开静态构建不读取私有 marker。当前公开审计为 901 accepted、901 markers、0 unresolved/unlocated；线上 root/runtime-config/marker 验收通过。
 
 ## 已完成
 
@@ -36,7 +36,7 @@ npm run cloudflare:check # 333.05 KiB upload / gzip 28.40 KiB; marker bundle ent
 - marker 只由 `/api/public/markers` 返回最小 GCJ-02 字段，使用 `sourceRow`/`id` 关联。
 - 原始数据、审核工作层和运行时 marker 源不作为公开静态文件提供。
 - 真实高德 SDK/代理 smoke 需要本机运行配置；本地测试和 Wrangler dry-run 不等于线上合规或部署，线上 gate 还包括 Cloudflare 认证、marker bundle SHA 核对、高德域名白名单和 live URL 验证。
-- Wrangler OAuth 已认证并安全设置两项 secrets；发布阶段被 Cloudflare 阻止于 workers.dev onboarding（需注册子域或配置 route），故尚未进行线上根页、runtime-config、901-marker 或 AMap proxy 验证。
+- Wrangler OAuth 已认证并安全设置两项 secrets；线上 root 与 runtime-config 均返回 200，marker 接口返回 901 条唯一 sourceRow（2–902），未发现 raw/ranked/provider-cache 或 secret 字段。按安全边界未调用 AMap proxy；生产域名白名单仍需单独确认。
 
 ## 公开入口
 

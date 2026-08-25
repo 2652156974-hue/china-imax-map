@@ -83,4 +83,4 @@ npm run deploy
 
 `npm start` 仍可用于本地 Node server 预览；它不是线上 Cloudflare 的启动方式。Cloudflare Worker 不依赖 `node:http`、`node:fs` 或 `listen`，也不会从 Worker 环境变量读取私有 marker。
 
-账号需要先在 Cloudflare Workers onboarding 注册 `workers.dev` 子域，或在 `wrangler.jsonc` 配置一个已有 route；否则 bundle 会上传但不会产生可访问的 Worker URL。
+当前线上 Worker URL：[`https://china-imax-map.2652156974.workers.dev`](https://china-imax-map.2652156974.workers.dev)。首次部署到其他账号时，需先在 Cloudflare Workers onboarding 注册 `workers.dev` 子域，或在 `wrangler.jsonc` 配置一个已有 route。

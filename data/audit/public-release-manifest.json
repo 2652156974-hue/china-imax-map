@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-08-25T08:27:57.786Z",
+  "generatedAt": "2026-08-25T08:40:13.777Z",
   "manifestType": "public-release",
   "status": "public-runtime-ready",
   "publicationReady": true,
@@ -18,13 +18,13 @@
     },
     {
       "path": "README.md",
-      "bytes": 5244,
-      "sha256": "1fdda54a08da5928f6f9096585230d0611f77731ab1f0b5ad10883a18c6cbe54"
+      "bytes": 5329,
+      "sha256": "618b2af9e59ae85b18e5af1cfc7660fdd29f56dba3394b52068e9967a4166042"
     },
     {
       "path": "PROJECT_STATUS.md",
-      "bytes": 3465,
-      "sha256": "8c13806093e8e236bb237141fba8401b43d1cbf6a655de93e252e9dffad83679"
+      "bytes": 3504,
+      "sha256": "adb3e0abdaa77bce4f5656b7823820584896021f8ef8ee5bb1c5620878698634"
     },
     {
       "path": "index.html",
@@ -93,8 +93,8 @@
     },
     {
       "path": "data/audit/public-boundary.json",
-      "bytes": 1824,
-      "sha256": "54a38b4faaa1d676d3f0d9987973b65d2427bc1ab6a6d1beb090a1714214273a"
+      "bytes": 2188,
+      "sha256": "0754734cb616fe14104ea3c4bd73de011734b7ce557bb32a2dedbd9d1135677b"
     },
     {
       "path": "data/audit/public-release-readiness.json",
@@ -188,8 +188,8 @@
     },
     {
       "path": "scripts/public-boundary.test.mjs",
-      "bytes": 1812,
-      "sha256": "c33f57ca9dad27d7bb1926caac25dec85eb8d0613065058af3482eefe6f80982"
+      "bytes": 2370,
+      "sha256": "61344111c600b58a78e7de6c1de9de43dcc3a1c1542f0ccce96574f89e5f49d5"
     },
     {
       "path": "scripts/public-data.test.mjs",
@@ -208,8 +208,8 @@
     },
     {
       "path": "scripts/validate-public-boundary.mjs",
-      "bytes": 10461,
-      "sha256": "414611738740b4d37f056c1b44580d876d18711430badba683f2d73661d8c389"
+      "bytes": 12231,
+      "sha256": "fcb73c906256bd408f94357826c4c568f04b62a2fc6d6485e10bd328784d7389"
     },
     {
       "path": "scripts/start-public-map.ps1",
