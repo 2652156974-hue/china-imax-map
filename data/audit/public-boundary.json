@@ -1,6 +1,6 @@
 {
   "schemaVersion": 2,
-  "generatedAt": "2026-08-25T09:17:18.618Z",
+  "generatedAt": "2026-08-25T09:33:56.638Z",
   "status": "public-boundary-check-passed",
   "publicDataset": {
     "file": "data/public/cinemas.json",
@@ -27,8 +27,8 @@
     "platform": "cloudflare-workers",
     "status": "deployed",
     "url": "https://china-imax-map.2652156974.workers.dev",
-    "sourceCommit": "9791014484f6e435755db62e6efc41c6ddc7daf8",
-    "workerVersion": "8d6de3d4-cad8-447e-9e22-b99df3d7766c",
+    "sourceCommit": "1fe090ad7445ea44c311238150965d72a563dbf5",
+    "workerVersion": "adb3ad08-66a0-4601-8745-3801985f474e",
     "onlineVerification": {
       "rootStatus": 200,
       "appStatus": 200,
@@ -41,7 +41,11 @@
       "forbiddenFields": false,
       "appContainsLocationInfo": true,
       "appContainsOldRows": false,
-      "stylesSharedSurfacesAndWrap": true
+      "stylesSharedSurfacesAndWrap": true,
+      "infoWindowContainerBackground": "rgba(255, 255, 255, 0.97)",
+      "infoWindowContentBackground": "rgba(255, 255, 255, 0.97)",
+      "infoWindowHasLocationInfo": true,
+      "infoWindowHasOldRows": false
     }
   },
   "security": {

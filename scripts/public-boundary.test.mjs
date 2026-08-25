@@ -32,6 +32,10 @@ test('public boundary passes for static facts and uses the clean public branch s
     assert.equal(report.deployment.onlineVerification?.appContainsLocationInfo, true);
     assert.equal(report.deployment.onlineVerification?.appContainsOldRows, false);
     assert.equal(report.deployment.onlineVerification?.stylesSharedSurfacesAndWrap, true);
+    assert.equal(report.deployment.onlineVerification?.infoWindowContainerBackground, 'rgba(255, 255, 255, 0.97)');
+    assert.equal(report.deployment.onlineVerification?.infoWindowContentBackground, 'rgba(255, 255, 255, 0.97)');
+    assert.equal(report.deployment.onlineVerification?.infoWindowHasLocationInfo, true);
+    assert.equal(report.deployment.onlineVerification?.infoWindowHasOldRows, false);
   }
   assert.equal(report.warnings.some((warning) => /raw Tencent mirror/i.test(warning)), false);
 });

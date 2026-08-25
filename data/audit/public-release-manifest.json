@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-08-25T09:17:19.352Z",
+  "generatedAt": "2026-08-25T09:33:57.296Z",
   "manifestType": "public-release",
   "status": "public-runtime-ready",
   "publicationReady": true,
@@ -43,8 +43,8 @@
     },
     {
       "path": "styles.css",
-      "bytes": 8015,
-      "sha256": "cd9d8f3b0168de56b13094466699da5a7ce57ad35350272f7417247092b4f4c1"
+      "bytes": 8477,
+      "sha256": "f9b4b57a2bb7063704d798b80fa3ad5d4cdfcbe17130d59d680df478952af274"
     },
     {
       "path": "_headers",
@@ -98,8 +98,8 @@
     },
     {
       "path": "data/audit/public-boundary.json",
-      "bytes": 2511,
-      "sha256": "7a2185fc95e312e8dfea8768fa18bcd14ad2016140bf39bea89c2ae366e55757"
+      "bytes": 2723,
+      "sha256": "9f653048a784b0ba80663cc56938dfac51f7f7b4e71007419da329234db92b41"
     },
     {
       "path": "data/audit/public-release-readiness.json",
@@ -193,8 +193,8 @@
     },
     {
       "path": "scripts/public-boundary.test.mjs",
-      "bytes": 2856,
-      "sha256": "6896d7c9397513f33a0e90a0eaca08e9609b0b8ca3b8748accabd00c072ac71a"
+      "bytes": 3260,
+      "sha256": "1af007876bdbfd6c4bc339e286e545457f226da7885f60cc2e8c0b86bcfe8f44"
     },
     {
       "path": "scripts/public-data.test.mjs",
@@ -213,8 +213,8 @@
     },
     {
       "path": "scripts/validate-public-boundary.mjs",
-      "bytes": 13596,
-      "sha256": "24a8743c67b617b0dbc77ea78a8011534d72a5140ff37f0ae612e06e20ea8616"
+      "bytes": 14557,
+      "sha256": "c0f43db199737c7841bf5162d100f24fb2e0fd6c84794401497d6e3abe075c84"
     },
     {
       "path": "scripts/start-public-map.ps1",
@@ -248,8 +248,8 @@
     },
     {
       "path": "scripts/map-frontend.test.mjs",
-      "bytes": 4327,
-      "sha256": "39b0fcd5142fda23f942d2a760d285bec339e589072a58b45b8664fe8a678c26"
+      "bytes": 4779,
+      "sha256": "06cb58512d00d9fbede68dbdca84248bb66ee5a6c41b90452ecb32d54a4d21ac"
     },
     {
       "path": "scripts/fixtures/amap-js-sdk.mock.js",
@@ -273,8 +273,8 @@
     },
     {
       "path": "dist-public/styles.css",
-      "bytes": 8015,
-      "sha256": "cd9d8f3b0168de56b13094466699da5a7ce57ad35350272f7417247092b4f4c1"
+      "bytes": 8477,
+      "sha256": "f9b4b57a2bb7063704d798b80fa3ad5d4cdfcbe17130d59d680df478952af274"
     },
     {
       "path": "dist-public/_headers",

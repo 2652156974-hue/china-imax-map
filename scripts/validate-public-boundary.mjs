@@ -27,7 +27,11 @@ const ONLINE_VERIFICATION = ONLINE_VERIFIED ? {
   forbiddenFields: process.env.PUBLIC_ONLINE_FORBIDDEN_FIELDS === 'true',
   appContainsLocationInfo: process.env.PUBLIC_APP_CONTAINS_LOCATION_INFO === 'true',
   appContainsOldRows: process.env.PUBLIC_APP_CONTAINS_OLD_ROWS === 'true',
-  stylesSharedSurfacesAndWrap: process.env.PUBLIC_STYLES_SHARED_SURFACES_AND_WRAP === 'true'
+  stylesSharedSurfacesAndWrap: process.env.PUBLIC_STYLES_SHARED_SURFACES_AND_WRAP === 'true',
+  infoWindowContainerBackground: String(process.env.PUBLIC_INFO_WINDOW_CONTAINER_BACKGROUND || '').trim(),
+  infoWindowContentBackground: String(process.env.PUBLIC_INFO_WINDOW_CONTENT_BACKGROUND || '').trim(),
+  infoWindowHasLocationInfo: process.env.PUBLIC_INFO_WINDOW_HAS_LOCATION_INFO === 'true',
+  infoWindowHasOldRows: process.env.PUBLIC_INFO_WINDOW_HAS_OLD_ROWS === 'true'
 } : null;
 const readJson = (filePath) => JSON.parse(fs.readFileSync(filePath, 'utf8'));
 const publicDataset = readJson(PUBLIC_FILE);
@@ -57,6 +61,10 @@ if (ONLINE_VERIFIED) {
   check(ONLINE_VERIFICATION.appContainsLocationInfo === true, 'online app.mjs does not contain the positioning-information row');
   check(ONLINE_VERIFICATION.appContainsOldRows === false, 'online app.mjs still contains a legacy location row');
   check(ONLINE_VERIFICATION.stylesSharedSurfacesAndWrap === true, 'online styles do not contain the approved surface/wrap rules');
+  check(ONLINE_VERIFICATION.infoWindowContainerBackground === 'rgba(255, 255, 255, 0.97)', 'online custom InfoWindow container is not an opaque light panel');
+  check(ONLINE_VERIFICATION.infoWindowContentBackground === 'rgba(255, 255, 255, 0.97)', 'online custom InfoWindow content is not an opaque light panel');
+  check(ONLINE_VERIFICATION.infoWindowHasLocationInfo === true, 'online custom InfoWindow does not expose the positioning-information row');
+  check(ONLINE_VERIFICATION.infoWindowHasOldRows === false, 'online custom InfoWindow still contains a legacy location row');
 }
 
 check(publicDataset.mode === 'public-amap-runtime', 'public dataset is not the AMap runtime mode');
