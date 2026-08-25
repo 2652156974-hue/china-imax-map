@@ -37,10 +37,11 @@ Windows 公开/私人高德地图都只从 Windows 用户环境变量读取真�
 - 在主界面显著展示 @ArvinTingcn 与原始文档来源
 - 改进搜索、筛选、弹窗和移动端显示
 - 覆盖目标明确包含：中国大陆、香港、澳门、台湾
-- 网站读取由构建器生成的 [`data/public/cinemas.json`](data/public/cinemas.json) 901 条静态事实，再由公开 server 的 `/api/public/markers` 按当前审核层在运行时返回最小 GCJ-02 点；当前审计快照为 accepted/markerCount=607、unlocated=294。内部规则派生层为 [`data/derived/cinemas.json`](data/derived/cinemas.json)，旧的 [`data/cinemas.json`](data/cinemas.json) 保持未修改，仅作为历史演示文件
+- 网站读取由构建器生成的 [`data/public/cinemas.json`](data/public/cinemas.json) 901 条静态事实，再由公开 server 的 `/api/public/markers` 在运行时返回 901 个最小 GCJ-02 点；当前验收为 accepted=901、markerCount=901、unlocated=0，其中身份精确 801、场所级定位 100。内部规则派生层为 [`data/derived/cinemas.json`](data/derived/cinemas.json)，旧的 [`data/cinemas.json`](data/cinemas.json) 保持未修改，仅作为历史演示文件
 - 增加投影系统、Dome、12 声道、营业状态、位置状态筛选，以及 AMap MarkerCluster 点位聚合
-- 323 条 Luna review 集合中的未接受记录不伪造坐标，但仍保留在搜索、筛选、列表和详情中；无坐标记录照常展示银幕与座位信息
-- 所有 901 条记录都展示银幕宽度、高度、面积和座位原文；空白显示 `暂无`，多值、换行、NBSP 或异常显示 `待核`
+- 最终 canonical layer 已接受 901 / 901 条；历史 review snapshot 仅保留为 `historical-non-blocking` provenance，不再与当前 `0 unresolved` 并列作为发布门
+- 正常单值宽度/高度/面积/座位按格式化数字显示并去除无意义尾零；空白或 NBSP 显示 `暂无`；多值/异常显示 `待核`，原文只保留在默认折叠的 `数据说明` 中，raw 仍只在数据层保留
+- 公开发布分支 `codex/public-release` 从 clean baseline `fba4dcd` 创建，排除 `data/raw/`、provider cache、`data/local/`、私有包和完整坐标导出；运行层装配时通过环境变量 `PUBLIC_AMAP_REVIEWED_SOURCE_FILE` 从外部安全位置注入 reviewed marker source，构建后的最小 layer 仍为 gitignored；当前只保留本地分支，不自动 push、merge 或 deploy
 - 本地 QA 可运行 `node scripts/build-local-preview.mjs` 后用 `index.html?preview=local` 查看旧审计预览；该模式明确标注 `LOCAL PREVIEW · NOT FOR PUBLICATION`，生成的 `data/local/` 已被 gitignore
 - 私人高德运行出口由 `node scripts/build-private-amap-release.mjs` 生成 gitignored 的 `dist-private/`，保留审核状态和更完整证据；完整说明见 [`docs/AMAP_PRIVATE_RELEASE.md`](docs/AMAP_PRIVATE_RELEASE.md)
 
@@ -83,7 +84,7 @@ node scripts/derive-cinemas.mjs
 
 银幕尺寸只接受安全的单一数值：437 条记录的宽度、高度、面积三列均可直接解析；298 条含多值尺寸且没有自动选择；0 条多值尺寸被自动选择；4 条含异常非数值文本；2 条存在面积一致性差异并保留源值、不做纠正。哈尔滨黑龙江省科学技术馆的提示文本不会被解析成高度。
 
-当前没有可靠坐标写入派生层，因此 901 条仍暂列 `geocode-pending`，不伪造坐标。港澳台已使用独立、缓存优先的 Nominatim 区域 adapter 做 20 条一次性审计；本次服务请求全部超时/失败，结果见 [`data/audit/geocode-hkmo-tw.json`](data/audit/geocode-hkmo-tw.json)，没有坐标应用到派生层。若继续补坐标，应沿用单线程限速、缓存和名称+城市双重匹配规则，并遵守 [Nominatim 使用政策](https://operations.osmfoundation.org/policies/nominatim/)。
+正式规则派生层仍不写入坐标，因此不伪造 `data/derived` 坐标；公开/私有运行层则分别使用经过验收的 GCJ-02 marker。港澳台区域审计仍保留在 [`data/audit/geocode-hkmo-tw.json`](data/audit/geocode-hkmo-tw.json)，不会改写派生层。
 
 ### POI 坐标审计
 
@@ -93,25 +94,25 @@ node scripts/derive-cinemas.mjs
 - 适配器位于 `scripts/geocode/providers/`；影院分类优先依据 AMap `typecode`，候选按适用证据重新归一化评分，并在 hard reject 之后判断真实歧义。商场 fallback 只允许商场/购物中心自身 POI；不使用商户或城市中心坐标。
 - AMap 原始坐标以 GCJ-02 保留为 `providerLat/providerLng`，公开/私人 AMap 页面直接使用；同时记录 `providerCrs`、`positionType`、来源和置信度。位置审计另行区分 `locationGranularity`（auditorium/cinema/venue/mall）、`locationConfidence` 与 `identityConfidence`；场馆主体坐标不得冒充精确影厅身份。20 条重算结果、逐条前后差异分别见 [`data/audit/geocode-test-20.json`](data/audit/geocode-test-20.json) 与 [`data/audit/geocode-matcher-diff.json`](data/audit/geocode-matcher-diff.json)。本阶段没有全量请求或坐标写入。
 - 独立 blind-50 使用固定 seed、固定 sourceRows 和 matcher SHA-256 锁。`node scripts/geocode-blind-50.mjs --selection-only` 只重建样本；`node scripts/geocode-blind-50.mjs --cache-only` 仅使用已有缓存重算，缓存缺失时立即失败，不读取 key 或回退到网络。匹配器会拒绝与源投影不兼容的 Dome/球幕、GT/巨幕、4D、XD sibling auditorium，并按省、地级市、县级行政区三层校验县级市候选；县级市映射与依据见 [`data/geocode/mainland-admin-hierarchy.json`](data/geocode/mainland-admin-hierarchy.json)。公开结果及两轮修复差异见 [`data/audit/geocode-blind-50.json`](data/audit/geocode-blind-50.json)、[`data/audit/geocode-blind-50-format-diff.json`](data/audit/geocode-blind-50-format-diff.json) 和 [`data/audit/geocode-blind-50-admin-diff.json`](data/audit/geocode-blind-50-admin-diff.json)。
-- 大陆全量只允许显式运行 `node scripts/geocode-mainland.mjs --scope=mainland --dry-run`。`574 automatic high / 109 automatic medium / 4 reviewed override high / 194 unresolved` 是历史冻结审计基线，不是当前发布计数；当前发布计数以 [`data/audit/private-release-quality.json`](data/audit/private-release-quality.json) 和 [`data/audit/public-amap-quality.json`](data/audit/public-amap-quality.json) 为准，正式 derived 坐标仍全部为空。
+- 大陆全量只允许显式运行 `node scripts/geocode-mainland.mjs --scope=mainland --dry-run`。`574 automatic high / 109 automatic medium / 4 reviewed override high / 194 unresolved` 是历史冻结审计基线，不是当前发布计数；当前发布计数以 [`data/audit/public-release-readiness.json`](data/audit/public-release-readiness.json) 为准：901 accepted、901 marker、0 unresolved、0 unlocated。
 - `data/geocode/provider-cache/*.json` 是本地私有工作缓存，已由 `.gitignore` 排除，不应进入公开 Git 历史。缓存包含第三方 API 原始候选响应；公开 audit 不复制完整候选列表。
 - `data/local/cinemas-preview.json` 是同样的本地私有预览层，只包含已有 `accepted-high` 选中结果（含现存 reviewed override）；它不是人工审核结论，不得当作 public dataset。
-- 私有高德运行包由 `scripts/build-private-amap-release.mjs` 从该本地层生成：完整保留 901 条记录，当前 607 条以 GCJ-02 绘制，294 条保持未定位，其中 pending-review=79、unresolved=215；`accepted + unlocated = 901` 且 `markerCount = accepted`。`dist-private/`、Key 与安全密钥均不进入公开 Git。网页底图使用单独的“Web端（JS API）”Key，现有 `AMAP_API_KEY` 仍只用于 Web 服务 POI 搜索。
+- 私有高德运行包由 `scripts/build-private-amap-release.mjs` 从该本地层生成：完整保留 901 条记录，901 条以 GCJ-02 绘制，pending-review=0、unresolved=0、unlocated=0；`accepted + unlocated = 901` 且 `markerCount = accepted`。`dist-private/`、Key 与安全密钥均不进入公开 Git。
 - 港澳台不占用大陆 AMap 配额；独立区域审计命令为 `node scripts/geocode-regional.mjs --scope=regional --provider=nominatim --network --max-new=20`。Nominatim 坐标为 WGS84，区域审计只写 `data/audit/geocode-hkmo-tw.json`，不会自动改写 `data/derived/cinemas.json`。
 
 ### 冻结基线与人工审核闸门
 
 - 历史 mainland 冻结基线为 `574 automaticHigh / 109 automaticMedium / 4 reviewedOverrideHigh / 194 unresolved`，见 [`data/audit/geocode-mainland-freeze.json`](data/audit/geocode-mainland-freeze.json)。冻结期间不重新请求、不刷新成功缓存、不修改 matcher、scoring、query 或 CRS；当前发布层以动态 reviewed-layer 审计为准。
-- 逐行 Luna 人工审核以 [`data/local/luna-geocode-review-323.json`](data/local/luna-geocode-review-323.json) 及其 [`data/audit/luna-geocode-review-323-summary.json`](data/audit/luna-geocode-review-323-summary.json) 为准。空 review 只规范化为 needs-more-evidence，不代表人工完成；当前 323 条中 30 条接受坐标、293 条仍需证据。
-- AMap 月度配额保护见 [`data/audit/amap-quota-guard.json`](data/audit/amap-quota-guard.json)：本轮新请求为 `0`，大陆新请求预算上限为 `600`，港澳台不占用该预算。公开地图通过官方 AMap JS API 2.0 website/H5 runtime 显示当前审核层的 607 个 GCJ-02 点；生产前仍需完成控制台域名/账户合规检查并轮换此前可能外泄的安全密钥，见 [`docs/DATA-LICENSING.md`](docs/DATA-LICENSING.md)。
+- 逐行 Luna review snapshot 仍只作为历史 provenance；其 `needsMoreEvidence/reviewComplete:false` 已明确标为 `historical-non-blocking`，当前发布门只读取最终 901/901 canonical layer。
+- AMap 月度配额保护见 [`data/audit/amap-quota-guard.json`](data/audit/amap-quota-guard.json)：本轮新请求为 `0`，大陆新请求预算上限为 `600`，港澳台不占用该预算。公开地图通过官方 AMap JS API 2.0 website/H5 runtime 显示 901 个 GCJ-02 点；生产前仍需完成控制台域名/账户合规检查，见 [`docs/DATA-LICENSING.md`](docs/DATA-LICENSING.md)。
 - 对 5 条 GT/Dome/历史影院高价值未定位记录补充了官方或运营方证据索引，见 [`data/audit/geocode-mainland-evidence-review.json`](data/audit/geocode-mainland-evidence-review.json)；该审计不应用坐标、不新增 override，记录仍保持 null。
-- 公开层必须由 [`scripts/build-public-release.mjs`](scripts/build-public-release.mjs) 从内部层显式生成；静态层不含坐标，运行时 marker 层只返回当前 accepted 数量的最小 AMap GCJ-02 字段（当前 607），不复制 raw 快照、provider cache 或完整第三方候选响应。
+- 公开层必须由 [`scripts/build-public-release.mjs`](scripts/build-public-release.mjs) 从内部层显式生成；静态层不含坐标，运行时 marker 层只返回 901 个最小 AMap GCJ-02 字段，不复制 raw 快照、provider cache 或完整第三方候选响应。
 
 数据边界：原始事实是源表显示文本、来源、行号和原始字段；投影标准化、城市前缀、状态、银幕单值解析和 `id` 是规则派生；多值尺寸、无法识别投影、状态不明、名称历史歧义和未定位记录必须人工核验。`review-needed.json` 的原因计数是可重叠的，不应相加为记录总数。
 
 ### 合并前的 raw 快照处理
 
-当前 Draft PR 的历史包含内部审计用 `data/raw/arvin-imax.json`。在最终合并到公开 `main` 前，不应直接合并当前 raw-bearing 分支；应由仓库维护者从干净的 `main` 创建发布分支，只挑选派生层、审计摘要、脚本和网页提交，或在明确备份与审批后做历史重写，并确认公开历史不再包含完整 raw 镜像。此阶段不删除本地 raw，也不自动合并 PR。
+当前 feature 分支的历史包含内部审计用 raw mirror；公开发布已改为从 clean baseline `fba4dcd` 创建 `codex/public-release`，只挑选公开安全的派生层、审计摘要、脚本和网页提交，确认公开历史不包含完整 raw 镜像。当前不删除本地 raw，也不自动 push、merge 或 deploy。
 
 ## 技术栈
 

@@ -7,8 +7,25 @@ import { buildPublicAmapLayer } from './build-public-amap-layer.mjs';
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const DIST_ROOT = path.join(ROOT, 'dist-public');
 const PUBLIC_DATASET = path.join(ROOT, 'data/public/cinemas.json');
+const DEFAULT_REVIEWED_SOURCE = [
+  path.join(ROOT, 'data/local/private-reviewed-geocodes.json'),
+  path.join(ROOT, 'data/local/cinemas-preview.json')
+].find((file) => fs.existsSync(file));
+const REVIEWED_SOURCE = process.env.PUBLIC_AMAP_REVIEWED_SOURCE_FILE
+  ? path.resolve(process.env.PUBLIC_AMAP_REVIEWED_SOURCE_FILE)
+  : DEFAULT_REVIEWED_SOURCE;
+const REVIEWED_OUTPUT = path.resolve(
+  process.env.PUBLIC_AMAP_REVIEWED_FILE || path.join(ROOT, 'data/local/public-amap-reviewed-geocodes.json')
+);
 
-const layer = buildPublicAmapLayer();
+if (!REVIEWED_SOURCE) {
+  throw new Error('Public release assembly requires PUBLIC_AMAP_REVIEWED_SOURCE_FILE when the private data/local layer is excluded.');
+}
+if (!fs.existsSync(REVIEWED_SOURCE)) {
+  throw new Error(`Public release marker source is missing: ${REVIEWED_SOURCE}`);
+}
+
+const layer = buildPublicAmapLayer({ inputFile: REVIEWED_SOURCE, outputFile: REVIEWED_OUTPUT });
 const dataset = buildPublicDataset({ runtimeMarkerCount: layer.accepted });
 assertSafeOutput(DIST_ROOT);
 fs.rmSync(DIST_ROOT, { recursive: true, force: true });

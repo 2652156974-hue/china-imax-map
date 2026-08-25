@@ -4,7 +4,7 @@ import path from 'node:path';
 const ROOT = process.cwd();
 const publicFile = path.join(ROOT, 'data/public/cinemas.json');
 const derivedFile = path.join(ROOT, 'data/derived/cinemas.json');
-const layerFile = path.join(ROOT, 'data/local/public-amap-reviewed-geocodes.json');
+const layerFile = path.resolve(process.env.PUBLIC_AMAP_REVIEWED_FILE || path.join(ROOT, 'data/local/public-amap-reviewed-geocodes.json'));
 const document = readJson(publicFile);
 const derived = readJson(derivedFile);
 const layer = fs.existsSync(layerFile) ? readJson(layerFile) : null;

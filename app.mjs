@@ -487,7 +487,7 @@ function locationBucket(cinema) {
 
 function locationBucketLabel(cinema) {
   const bucket = locationBucket(cinema);
-  return bucket === 'exact' ? '精确身份' : bucket === 'location-only' ? '仅位置' : '未定位';
+  return bucket === 'exact' ? '精确身份' : bucket === 'location-only' ? '场所级定位' : '未定位';
 }
 
 function markerColorKey(cinema) { return cinema.projection?.dome ? 'Dome' : cinema.projection?.system ?? 'unknown'; }

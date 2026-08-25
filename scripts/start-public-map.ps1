@@ -52,6 +52,9 @@ if ([string]::IsNullOrWhiteSpace($portText)) { $portText = '4173' }
 $port = 0
 if (-not [int]::TryParse($portText, [ref]$port) -or $port -lt 1 -or $port -gt 65535) { throw "PUBLIC_AMAP_PORT 无效：$portText" }
 $url = Get-BrowserUrl -HostName $hostName -Port $port
+$runtimeLayerFile = Get-UserEnvironmentValue -Name 'PUBLIC_AMAP_REVIEWED_FILE'
+if ([string]::IsNullOrWhiteSpace($runtimeLayerFile)) { $runtimeLayerFile = Join-Path $ProjectRoot 'data\local\public-amap-reviewed-geocodes.json' }
+if (-not [IO.Path]::IsPathRooted($runtimeLayerFile)) { $runtimeLayerFile = Join-Path $ProjectRoot $runtimeLayerFile }
 
 Set-Location -LiteralPath $ProjectRoot
 New-Item -ItemType Directory -Path $RuntimeDirectory -Force | Out-Null
@@ -71,6 +74,7 @@ $childEnvironment = @{
     AMAP_JS_SECURITY_CODE = $securityCode
     PUBLIC_AMAP_HOST = $hostName
     PUBLIC_AMAP_PORT = [string]$port
+    PUBLIC_AMAP_REVIEWED_FILE = $runtimeLayerFile
 }
 
 $nodePath = (Get-Command node -ErrorAction Stop).Source

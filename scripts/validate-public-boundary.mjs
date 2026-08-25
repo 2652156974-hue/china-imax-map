@@ -6,7 +6,7 @@ import { fileURLToPath } from 'node:url';
 
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const PUBLIC_FILE = path.join(ROOT, 'data/public/cinemas.json');
-const MARKER_FILE = path.join(ROOT, 'data/local/public-amap-reviewed-geocodes.json');
+const MARKER_FILE = path.resolve(process.env.PUBLIC_AMAP_REVIEWED_FILE || path.join(ROOT, 'data/local/public-amap-reviewed-geocodes.json'));
 const DIST_ROOT = path.join(ROOT, 'dist-public');
 const OUTPUT_FILE = path.join(ROOT, 'data/audit/public-boundary.json');
 const PUBLIC_RELEASE_BRANCH = process.env.PUBLIC_RELEASE_BRANCH || 'codex/public-release';
@@ -52,9 +52,12 @@ if (fs.existsSync(DIST_ROOT)) {
 }
 
 const cacheTracked = git('ls-files', 'data/geocode/provider-cache').trim().length > 0;
-const rawTracked = git('ls-files', 'data/raw/arvin-imax.json').trim().length > 0;
 const currentBranch = git('branch', '--show-current').trim();
 const releaseBranchExists = git('show-ref', '--verify', `refs/heads/${PUBLIC_RELEASE_BRANCH}`).trim().length > 0;
+const currentRawTracked = git('ls-files', 'data/raw/arvin-imax.json').trim().length > 0;
+const rawTracked = releaseBranchExists
+  ? git('ls-tree', '-r', '--name-only', PUBLIC_RELEASE_BRANCH, '--', 'data/raw/arvin-imax.json').trim().length > 0
+  : currentRawTracked;
 const rawHistory = releaseBranchExists
   ? git('log', PUBLIC_RELEASE_BRANCH, '--format=%H', '--', 'data/raw/arvin-imax.json').trim()
   : git('log', 'HEAD', '--format=%H', '--', 'data/raw/arvin-imax.json').trim();
@@ -87,6 +90,7 @@ const report = {
   security: {
     cacheTracked,
     rawTracked,
+    currentWorkspaceRawTracked: currentRawTracked,
     rawMirrorHistoryPresent: Boolean(rawHistory),
     rawMirrorHistoryScope: releaseBranchExists ? PUBLIC_RELEASE_BRANCH : currentBranch || 'HEAD',
     apiKeyPersisted: false,
