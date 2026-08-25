@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-08-25T09:11:22.552Z",
+  "generatedAt": "2026-08-25T09:17:19.352Z",
   "manifestType": "public-release",
   "status": "public-runtime-ready",
   "publicationReady": true,
@@ -98,8 +98,8 @@
     },
     {
       "path": "data/audit/public-boundary.json",
-      "bytes": 2188,
-      "sha256": "389476cf5c5bf4ff6f19ff1c0600b324449563bf7fb942a6469178fd62686169"
+      "bytes": 2511,
+      "sha256": "7a2185fc95e312e8dfea8768fa18bcd14ad2016140bf39bea89c2ae366e55757"
     },
     {
       "path": "data/audit/public-release-readiness.json",
@@ -193,8 +193,8 @@
     },
     {
       "path": "scripts/public-boundary.test.mjs",
-      "bytes": 2370,
-      "sha256": "61344111c600b58a78e7de6c1de9de43dcc3a1c1542f0ccce96574f89e5f49d5"
+      "bytes": 2856,
+      "sha256": "6896d7c9397513f33a0e90a0eaca08e9609b0b8ca3b8748accabd00c072ac71a"
     },
     {
       "path": "scripts/public-data.test.mjs",
@@ -213,8 +213,8 @@
     },
     {
       "path": "scripts/validate-public-boundary.mjs",
-      "bytes": 12231,
-      "sha256": "fcb73c906256bd408f94357826c4c568f04b62a2fc6d6485e10bd328784d7389"
+      "bytes": 13596,
+      "sha256": "24a8743c67b617b0dbc77ea78a8011534d72a5140ff37f0ae612e06e20ea8616"
     },
     {
       "path": "scripts/start-public-map.ps1",

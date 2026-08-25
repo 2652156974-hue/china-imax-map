@@ -12,14 +12,22 @@ const DIST_ROOT = path.join(ROOT, 'dist-public');
 const OUTPUT_FILE = path.join(ROOT, 'data/audit/public-boundary.json');
 const PUBLIC_RELEASE_BRANCH = process.env.PUBLIC_RELEASE_BRANCH || 'codex/public-release';
 const DEPLOYMENT_URL = String(process.env.PUBLIC_WORKER_URL || '').trim().replace(/\/$/, '');
+const DEPLOYMENT_COMMIT = String(process.env.PUBLIC_DEPLOYMENT_COMMIT || '').trim();
+const WORKER_VERSION = String(process.env.PUBLIC_WORKER_VERSION || '').trim();
 const ONLINE_VERIFIED = process.env.PUBLIC_ONLINE_VERIFIED === 'true';
 const ONLINE_VERIFICATION = ONLINE_VERIFIED ? {
   rootStatus: Number(process.env.PUBLIC_ROOT_STATUS || 0),
+  appStatus: Number(process.env.PUBLIC_APP_STATUS || 0),
+  formatterStatus: Number(process.env.PUBLIC_FORMATTER_STATUS || 0),
+  stylesStatus: Number(process.env.PUBLIC_STYLES_STATUS || 0),
   runtimeConfigStatus: Number(process.env.PUBLIC_RUNTIME_CONFIG_STATUS || 0),
   markerStatus: Number(process.env.PUBLIC_MARKER_STATUS || 0),
   markerRecords: Number(process.env.PUBLIC_MARKER_RECORDS || 0),
   markerUniqueSourceRows: Number(process.env.PUBLIC_MARKER_UNIQUE_SOURCE_ROWS || 0),
-  forbiddenFields: process.env.PUBLIC_ONLINE_FORBIDDEN_FIELDS === 'true'
+  forbiddenFields: process.env.PUBLIC_ONLINE_FORBIDDEN_FIELDS === 'true',
+  appContainsLocationInfo: process.env.PUBLIC_APP_CONTAINS_LOCATION_INFO === 'true',
+  appContainsOldRows: process.env.PUBLIC_APP_CONTAINS_OLD_ROWS === 'true',
+  stylesSharedSurfacesAndWrap: process.env.PUBLIC_STYLES_SHARED_SURFACES_AND_WRAP === 'true'
 } : null;
 const readJson = (filePath) => JSON.parse(fs.readFileSync(filePath, 'utf8'));
 const publicDataset = readJson(PUBLIC_FILE);
@@ -38,11 +46,17 @@ check(!DEPLOYMENT_URL || /^https:\/\/china-imax-map\.[A-Za-z0-9.-]+$/.test(DEPLO
 check(!ONLINE_VERIFIED || Boolean(DEPLOYMENT_URL), 'online verification requires PUBLIC_WORKER_URL');
 if (ONLINE_VERIFIED) {
   check(ONLINE_VERIFICATION.rootStatus === 200, 'online root verification must return 200');
+  check(ONLINE_VERIFICATION.appStatus === 200, 'online app.mjs verification must return 200');
+  check(ONLINE_VERIFICATION.formatterStatus === 200, 'online formatter verification must return 200');
+  check(ONLINE_VERIFICATION.stylesStatus === 200, 'online styles verification must return 200');
   check(ONLINE_VERIFICATION.runtimeConfigStatus === 200, 'online runtime-config verification must return 200');
   check(ONLINE_VERIFICATION.markerStatus === 200, 'online marker verification must return 200');
   check(ONLINE_VERIFICATION.markerRecords === 901, 'online marker verification must return 901 records');
   check(ONLINE_VERIFICATION.markerUniqueSourceRows === 901, 'online marker verification must return 901 unique source rows');
   check(ONLINE_VERIFICATION.forbiddenFields === false, 'online response contains forbidden fields');
+  check(ONLINE_VERIFICATION.appContainsLocationInfo === true, 'online app.mjs does not contain the positioning-information row');
+  check(ONLINE_VERIFICATION.appContainsOldRows === false, 'online app.mjs still contains a legacy location row');
+  check(ONLINE_VERIFICATION.stylesSharedSurfacesAndWrap === true, 'online styles do not contain the approved surface/wrap rules');
 }
 
 check(publicDataset.mode === 'public-amap-runtime', 'public dataset is not the AMap runtime mode');
@@ -142,6 +156,8 @@ const report = {
     platform: 'cloudflare-workers',
     status: DEPLOYMENT_URL ? 'deployed' : 'not-deployed',
     url: DEPLOYMENT_URL || null,
+    sourceCommit: DEPLOYMENT_COMMIT || null,
+    workerVersion: WORKER_VERSION || null,
     onlineVerification: ONLINE_VERIFICATION
   },
   security: {

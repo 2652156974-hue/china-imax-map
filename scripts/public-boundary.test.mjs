@@ -22,10 +22,16 @@ test('public boundary passes for static facts and uses the clean public branch s
   if (report.deployment?.status === 'deployed') {
     assert.match(report.deployment.url, /^https:\/\/china-imax-map\./);
     assert.equal(report.deployment.onlineVerification?.rootStatus, 200);
+    assert.equal(report.deployment.onlineVerification?.appStatus, 200);
+    assert.equal(report.deployment.onlineVerification?.formatterStatus, 200);
+    assert.equal(report.deployment.onlineVerification?.stylesStatus, 200);
     assert.equal(report.deployment.onlineVerification?.runtimeConfigStatus, 200);
     assert.equal(report.deployment.onlineVerification?.markerRecords, 901);
     assert.equal(report.deployment.onlineVerification?.markerUniqueSourceRows, 901);
     assert.equal(report.deployment.onlineVerification?.forbiddenFields, false);
+    assert.equal(report.deployment.onlineVerification?.appContainsLocationInfo, true);
+    assert.equal(report.deployment.onlineVerification?.appContainsOldRows, false);
+    assert.equal(report.deployment.onlineVerification?.stylesSharedSurfacesAndWrap, true);
   }
   assert.equal(report.warnings.some((warning) => /raw Tencent mirror/i.test(warning)), false);
 });
