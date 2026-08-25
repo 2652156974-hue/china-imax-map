@@ -1,13 +1,20 @@
 import fs from 'node:fs';
+import crypto from 'node:crypto';
 import path from 'node:path';
 
 const ROOT = process.cwd();
 const publicFile = path.join(ROOT, 'data/public/cinemas.json');
 const derivedFile = path.join(ROOT, 'data/derived/cinemas.json');
 const layerFile = path.resolve(process.env.PUBLIC_AMAP_REVIEWED_FILE || path.join(ROOT, 'data/local/public-amap-reviewed-geocodes.json'));
+const qualityFile = path.join(ROOT, 'data/audit/public-amap-quality.json');
+const readinessFile = path.join(ROOT, 'data/audit/public-release-readiness.json');
+const manifestFile = path.join(ROOT, 'data/audit/public-release-manifest.json');
 const document = readJson(publicFile);
 const derived = readJson(derivedFile);
 const layer = fs.existsSync(layerFile) ? readJson(layerFile) : null;
+const quality = readJson(qualityFile);
+const readiness = readJson(readinessFile);
+const manifest = readJson(manifestFile);
 const errors = [];
 const check = (condition, message) => { if (!condition) errors.push(message); };
 const records = document.records;
@@ -59,6 +66,24 @@ for (let sourceRow = 2; sourceRow <= 902; sourceRow += 1) check(rows.has(sourceR
 check(rawFieldMatches === 3604, `public raw field comparison expected 3604 matches, got ${rawFieldMatches}`);
 
 validateRuntimeLayer(layer, derivedByRow, check);
+const runtimeEvidence = layer ? {
+  accepted: (layer.records ?? []).filter(hasCoordinate).length,
+  unresolved: (layer.records ?? []).filter((record) => !hasCoordinate(record)).length,
+  total: layer.records?.length ?? 0,
+  source: 'local-runtime-layer'
+} : {
+  accepted: quality.markerCount,
+  unresolved: quality.unlocated,
+  total: quality.total,
+  source: 'committed-quality-audit'
+};
+check(document.runtimeMarkerCount === runtimeEvidence.accepted, 'public runtime marker count does not match runtime evidence');
+if (!layer) {
+  check(runtimeEvidence.total === 901 && runtimeEvidence.accepted === 901 && runtimeEvidence.unresolved === 0, 'committed runtime quality evidence must be 901/901/0');
+  check(readiness.publicationReady === true, 'committed public readiness evidence is not publication-ready');
+  const publicManifestEntry = manifest.files?.find((file) => file.path === 'data/public/cinemas.json');
+  check(publicManifestEntry?.sha256 === hashFile(publicFile), 'committed public manifest does not match the static dataset');
+}
 
 const serialized = JSON.stringify(document);
 check(!serialized.includes('AMAP_API_KEY'), 'public dataset contains Web Service key variable name');
@@ -73,7 +98,8 @@ const result = {
   records: records?.length ?? 0,
   staticCoordinates: document.coordinatesPublished,
   runtimeMarkerCount: document.runtimeMarkerCount,
-  runtimeLayerAccepted: layer ? layer.summary?.accepted ?? null : null,
+  runtimeLayerAccepted: runtimeEvidence.accepted,
+  runtimeEvidenceSource: runtimeEvidence.source,
   uniqueIds: ids.size,
   continuousSourceRows: [...rows].sort((a, b) => a - b).every((row, index) => row === index + 2),
   rawFieldMatches,
@@ -84,7 +110,6 @@ if (errors.length) process.exitCode = 1;
 
 function validateRuntimeLayer(runtimeLayer, derivedByRowMap, addError) {
   if (!runtimeLayer) {
-    addError(false, 'public AMap reviewed layer is missing; run npm run build:public-layer');
     return;
   }
   addError(runtimeLayer.mode === 'public-amap-reviewed-layer', 'public AMap layer mode mismatch');
@@ -127,4 +152,8 @@ function hasCoordinate(record) {
 
 function readJson(filePath) {
   return JSON.parse(fs.readFileSync(filePath, 'utf8'));
+}
+
+function hashFile(filePath) {
+  return crypto.createHash('sha256').update(fs.readFileSync(filePath)).digest('hex');
 }

@@ -2,15 +2,22 @@ import fs from 'node:fs';
 import http from 'node:http';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
+import {
+  MARKER_PATH,
+  SERVICE_PREFIX,
+  hasAcceptedMarker,
+  runtimeConfigScript,
+  selectMarkers,
+  validateMarkerLayer
+} from './public-marker-core.mjs';
 
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const DEFAULT_DIST = path.join(ROOT, 'dist-public');
 const DEFAULT_LAYER = path.join(ROOT, 'data/local/public-amap-reviewed-geocodes.json');
-const SERVICE_PREFIX = '/_AMapService';
-const MARKER_PATH = '/api/public/markers';
 
+export { hasAcceptedMarker, runtimeConfigScript, selectMarkers, validateMarkerLayer };
 export function loadPublicServerConfig(env = process.env) {
-  const host = String(env.PUBLIC_AMAP_HOST || (env.RENDER ? '0.0.0.0' : '127.0.0.1')).trim();
+  const host = String(env.PUBLIC_AMAP_HOST || '127.0.0.1').trim();
   const port = parsePort(env.PUBLIC_AMAP_PORT || env.PORT || '4173');
   const amapJsKey = String(env.AMAP_JS_API_KEY || '').trim();
   const amapSecurityCode = String(env.AMAP_JS_SECURITY_CODE || '').trim();
@@ -93,18 +100,6 @@ export function createPublicAmapServer(config) {
   });
 }
 
-export function runtimeConfigScript(config) {
-  const publicConfig = {
-    amapJsKey: config.amapJsKey,
-    serviceHost: SERVICE_PREFIX,
-    coordinateSystem: 'GCJ-02',
-    mode: 'public-amap-runtime',
-    markerEndpoint: MARKER_PATH
-  };
-  if (config.amapJsSdkUrl) publicConfig.sdkUrl = config.amapJsSdkUrl;
-  return `window.__PUBLIC_AMAP_CONFIG__ = Object.freeze(${JSON.stringify(publicConfig)});\n`;
-}
-
 function sendMockAmapSdk(response, headOnly) {
   const filePath = path.join(ROOT, 'scripts', 'fixtures', 'amap-js-sdk.mock.js');
   const body = fs.readFileSync(filePath);
@@ -113,37 +108,6 @@ function sendMockAmapSdk(response, headOnly) {
   response.setHeader('Cache-Control', 'no-store');
   response.setHeader('Content-Length', body.length);
   response.end(headOnly ? undefined : body);
-}
-
-export function selectMarkers(layerOrConfig, requestedRows) {
-  const markerMap = layerOrConfig.markerMap instanceof Map
-    ? layerOrConfig.markerMap
-    : new Map((layerOrConfig.records ?? []).map((record) => [record.sourceRow, record]));
-  const rows = [...new Set(requestedRows.map(Number))];
-  if (rows.some((row) => !Number.isInteger(row) || row < 2 || row > 902)) {
-    throw new Error('sourceRows must contain integers from 2 through 902.');
-  }
-  return rows.map((sourceRow) => markerMap.get(sourceRow)).filter(Boolean).filter(hasAcceptedMarker).map(minimalMarker);
-}
-
-export function validateMarkerLayer(layer) {
-  if (layer?.mode !== 'public-amap-reviewed-layer' || layer?.policy?.localOnly !== true) {
-    throw new Error('Marker layer must be an explicit local-only public AMap reviewed layer.');
-  }
-  if (!Array.isArray(layer.records) || layer.records.length !== 901) {
-    throw new Error('Marker layer must contain 901 source rows.');
-  }
-  if (JSON.stringify(layer).match(/rawCandidates|rankedCandidates|securityJsCode|AMAP_JS_SECURITY_CODE/i)) {
-    throw new Error('Marker layer contains forbidden raw candidate or credential text.');
-  }
-  const rows = new Set();
-  for (const record of layer.records) {
-    if (!Number.isInteger(record.sourceRow) || rows.has(record.sourceRow)) throw new Error('Marker layer sourceRow is not unique.');
-    rows.add(record.sourceRow);
-    if (hasAcceptedMarker(record) && (record.provider !== 'amap' || record.providerCrs !== 'GCJ-02')) {
-      throw new Error(`Marker layer sourceRow ${record.sourceRow} has invalid provider CRS.`);
-    }
-  }
 }
 
 async function serveMarkers(request, response, config) {
@@ -173,31 +137,6 @@ async function serveMarkers(request, response, config) {
     sourceRowKey: true,
     records
   });
-}
-
-function minimalMarker(record) {
-  return {
-    sourceRow: record.sourceRow,
-    id: record.id,
-    provider: 'amap',
-    providerPoiId: record.providerPoiId ?? null,
-    providerLat: record.providerLat,
-    providerLng: record.providerLng,
-    providerCrs: 'GCJ-02',
-    positionType: record.positionType ?? null,
-    locationGranularity: record.locationGranularity ?? null,
-    locationConfidence: record.locationConfidence ?? null,
-    identityConfidence: record.identityConfidence ?? null,
-    decisionOrigin: record.decisionOrigin,
-    reviewVerdict: record.reviewVerdict
-  };
-}
-
-export function hasAcceptedMarker(record) {
-  return record?.provider === 'amap' && record?.providerCrs === 'GCJ-02' &&
-    Number.isFinite(Number(record.providerLat)) && Number.isFinite(Number(record.providerLng)) &&
-    Number(record.providerLat) >= -90 && Number(record.providerLat) <= 90 &&
-    Number(record.providerLng) >= -180 && Number(record.providerLng) <= 180;
 }
 
 async function proxyAmapService(requestUrl, response, config, headOnly) {

@@ -10,6 +10,10 @@ data/geocode/provider-cache/*.json
 # AMap-derived local preview data is never part of a public commit.
 /data/local/
 /tmp/
+/\.wrangler/
+.dev.vars
+.dev.vars.*
+worker-configuration\.d\.ts
 /.local-preview/
 
 # Generated private AMap release bundle. It contains deployment-only GCJ-02

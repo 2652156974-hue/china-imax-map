@@ -7,12 +7,17 @@ import { fileURLToPath } from 'node:url';
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const PUBLIC_FILE = path.join(ROOT, 'data/public/cinemas.json');
 const MARKER_FILE = path.resolve(process.env.PUBLIC_AMAP_REVIEWED_FILE || path.join(ROOT, 'data/local/public-amap-reviewed-geocodes.json'));
+const MARKER_ARTIFACT = path.join(ROOT, 'tmp/cloudflare/public-amap-markers.json');
 const DIST_ROOT = path.join(ROOT, 'dist-public');
 const OUTPUT_FILE = path.join(ROOT, 'data/audit/public-boundary.json');
 const PUBLIC_RELEASE_BRANCH = process.env.PUBLIC_RELEASE_BRANCH || 'codex/public-release';
 const readJson = (filePath) => JSON.parse(fs.readFileSync(filePath, 'utf8'));
 const publicDataset = readJson(PUBLIC_FILE);
 const markerLayer = fs.existsSync(MARKER_FILE) ? readJson(MARKER_FILE) : null;
+const markerArtifactSha256 = fs.existsSync(MARKER_ARTIFACT) ? hashFile(MARKER_ARTIFACT) : null;
+const quality = readJson(path.join(ROOT, 'data/audit/public-amap-quality.json'));
+const readiness = readJson(path.join(ROOT, 'data/audit/public-release-readiness.json'));
+const manifest = readJson(path.join(ROOT, 'data/audit/public-release-manifest.json'));
 const publicSerialized = JSON.stringify(publicDataset);
 const errors = [];
 const warnings = [];
@@ -23,13 +28,34 @@ check(publicDataset.mode === 'public-amap-runtime', 'public dataset is not the A
 check(publicDataset.status === 'publication-candidate', 'public dataset is not a publication candidate');
 check(Array.isArray(publicDataset.records) && publicDataset.records.length === 901, 'public dataset must contain 901 records');
 check(publicDataset.coordinatesPublished === 0, 'public static dataset contains coordinates');
-check(markerLayer && Array.isArray(markerLayer.records), 'public runtime marker layer is missing');
 const markerAccepted = markerLayer?.records?.filter(hasCoordinate) ?? [];
 const markerUnresolved = markerLayer?.records?.filter((record) => !hasCoordinate(record)) ?? [];
-check(markerLayer?.summary?.accepted === markerAccepted.length, 'public runtime accepted count does not match marker records');
-check(markerLayer?.summary?.unresolvedPublic === markerUnresolved.length, 'public runtime unresolved count does not match marker records');
-check(markerAccepted.length + markerUnresolved.length === publicDataset.records?.length, 'public runtime accepted and unresolved counts do not partition total');
-check(publicDataset.runtimeMarkerCount === markerAccepted.length, 'public runtime marker count does not match accepted markers');
+const runtimeEvidence = markerLayer ? {
+  source: 'local-runtime-layer',
+  total: markerLayer.records?.length ?? 0,
+  accepted: markerAccepted.length,
+  unresolved: markerUnresolved.length,
+  coordinateSystem: markerLayer.coordinateSystem ?? null
+} : {
+  source: 'committed-quality-audit',
+  total: quality.total,
+  accepted: quality.markerCount,
+  unresolved: quality.unlocated,
+  coordinateSystem: quality.coordinateSystem ?? 'GCJ-02'
+};
+if (markerLayer) {
+  check(Array.isArray(markerLayer.records), 'public runtime marker layer is malformed');
+  check(markerLayer?.summary?.accepted === markerAccepted.length, 'public runtime accepted count does not match marker records');
+  check(markerLayer?.summary?.unresolvedPublic === markerUnresolved.length, 'public runtime unresolved count does not match marker records');
+  check(markerAccepted.length + markerUnresolved.length === publicDataset.records?.length, 'public runtime accepted and unresolved counts do not partition total');
+} else {
+  check(runtimeEvidence.total === 901 && runtimeEvidence.accepted === 901 && runtimeEvidence.unresolved === 0, 'committed runtime quality evidence must be 901/901/0');
+  check(readiness.publicationReady === true, 'committed public readiness evidence is not publication-ready');
+  const publicManifestEntry = manifest.files?.find((file) => file.path === 'data/public/cinemas.json');
+  check(publicManifestEntry?.sha256 === hashFile(PUBLIC_FILE), 'committed public manifest does not match the static dataset');
+  warn(false, 'private marker source is absent; runtime coverage is checked from committed quality evidence and Worker fixture tests');
+}
+check(publicDataset.runtimeMarkerCount === runtimeEvidence.accepted, 'public runtime marker count does not match runtime evidence');
 check(publicDataset.policy?.staticBulkCoordinateArtifacts === 0, 'public dataset reports a static coordinate artifact');
 check(!publicSerialized.includes('rawCandidates'), 'public dataset contains rawCandidates');
 check(!publicSerialized.includes('rankedCandidates'), 'public dataset contains rankedCandidates');
@@ -77,15 +103,19 @@ const report = {
     records: publicDataset.records?.length ?? 0,
     staticCoordinates: publicDataset.coordinatesPublished ?? null,
     runtimeMarkerCount: publicDataset.runtimeMarkerCount ?? null,
+    manifestStaticSha256: manifest.files?.find((file) => file.path === 'data/public/cinemas.json')?.sha256 ?? null,
     errors
   },
   runtimeLayer: {
-    file: 'data/local/public-amap-reviewed-geocodes.json',
-    total: markerLayer?.records?.length ?? null,
-    accepted: markerAccepted.length,
-    unresolved: markerUnresolved.length,
-    markerCount: markerAccepted.length,
-    coordinateSystem: markerLayer?.coordinateSystem ?? null
+    file: markerLayer ? 'data/local/public-amap-reviewed-geocodes.json' : 'data/audit/public-amap-quality.json',
+    source: runtimeEvidence.source,
+    total: runtimeEvidence.total,
+    accepted: runtimeEvidence.accepted,
+    unresolved: runtimeEvidence.unresolved,
+    markerCount: runtimeEvidence.accepted,
+    coordinateSystem: runtimeEvidence.coordinateSystem,
+    artifactFile: markerArtifactSha256 ? 'tmp/cloudflare/public-amap-markers.json' : null,
+    artifactSha256: markerArtifactSha256
   },
   security: {
     cacheTracked,

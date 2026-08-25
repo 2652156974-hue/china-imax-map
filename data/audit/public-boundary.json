@@ -1,6 +1,6 @@
 {
   "schemaVersion": 2,
-  "generatedAt": "2026-08-25T07:25:52.600Z",
+  "generatedAt": "2026-08-25T08:02:20.547Z",
   "status": "public-boundary-check-passed",
   "publicDataset": {
     "file": "data/public/cinemas.json",
@@ -9,15 +9,19 @@
     "records": 901,
     "staticCoordinates": 0,
     "runtimeMarkerCount": 901,
+    "manifestStaticSha256": "f0b1fa67b756ac7d2897c585a6818d506f0e8062597cf1966664e157c90b0007",
     "errors": []
   },
   "runtimeLayer": {
     "file": "data/local/public-amap-reviewed-geocodes.json",
+    "source": "local-runtime-layer",
     "total": 901,
     "accepted": 901,
     "unresolved": 0,
     "markerCount": 901,
-    "coordinateSystem": "GCJ-02"
+    "coordinateSystem": "GCJ-02",
+    "artifactFile": "tmp/cloudflare/public-amap-markers.json",
+    "artifactSha256": "feb20ed6448fb0c74f69412e1328de658370e728d462a06b441f75a769b83730"
   },
   "security": {
     "cacheTracked": false,

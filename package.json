@@ -9,15 +9,24 @@
   },
   "scripts": {
     "build:public": "node scripts/build-public-release.mjs",
+    "build:cloudflare-public": "node scripts/build-cloudflare-public.mjs",
     "validate:public": "node scripts/validate-public.mjs",
     "build:public-layer": "node scripts/build-public-amap-layer.mjs",
     "manifest:public": "node scripts/build-public-manifest.mjs",
     "prepare:deploy": "node scripts/prepare-public-deploy.mjs",
+    "cloudflare:types": "wrangler types",
+    "cloudflare:check": "npm run build:cloudflare-public && npm run cloudflare:types && tsc --noEmit && wrangler deploy --dry-run --outdir tmp/cloudflare/worker-bundle",
+    "deploy": "npm run build:cloudflare-public && wrangler deploy",
     "serve:public": "node scripts/public-amap-server.mjs",
     "start": "npm run prepare:deploy && npm run serve:public",
     "start:public": "pwsh -NoLogo -NoProfile -File scripts/start-public-map.ps1",
     "stop:public": "pwsh -NoLogo -NoProfile -File scripts/stop-public-map.ps1",
     "check": "node scripts/validate-public-boundary.mjs",
     "test": "node scripts/run-all-tests.mjs"
+  },
+  "devDependencies": {
+    "@cloudflare/workers-types": "^5.20260825.1",
+    "typescript": "^7.0.2",
+    "wrangler": "^4.125.0"
   }
 }

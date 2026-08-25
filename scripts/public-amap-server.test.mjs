@@ -1,13 +1,26 @@
 import assert from 'node:assert/strict';
-import test from 'node:test';
+import fs from 'node:fs';
+import os from 'node:os';
+import path from 'node:path';
+import test, { after } from 'node:test';
 import { createPublicAmapServer, loadPublicServerConfig, selectMarkers, runtimeConfigScript } from './public-amap-server.mjs';
+
+const testDir = fs.mkdtempSync(path.join(os.tmpdir(), 'china-imax-map-server-test-'));
+const testLayerFile = path.join(testDir, 'reviewed-layer.json');
+const testDist = path.join(testDir, 'dist-public');
+fs.mkdirSync(testDist);
+fs.copyFileSync(path.join(process.cwd(), 'index.html'), path.join(testDist, 'index.html'));
+fs.writeFileSync(testLayerFile, JSON.stringify(createTestLayer()), 'utf8');
+after(() => fs.rmSync(testDir, { recursive: true, force: true }));
 
 test('public marker service returns only requested minimal AMap GCJ-02 records', async (t) => {
   const config = loadPublicServerConfig({
     PUBLIC_AMAP_HOST: '127.0.0.1',
     PUBLIC_AMAP_PORT: '0',
     AMAP_JS_API_KEY: 'browser-key-for-test',
-    AMAP_JS_SECURITY_CODE: 'server-security-code-for-test'
+    AMAP_JS_SECURITY_CODE: 'server-security-code-for-test',
+    PUBLIC_AMAP_REVIEWED_FILE: testLayerFile,
+    PUBLIC_AMAP_DIST: testDist
   });
   assert.equal(selectMarkers(config, []).length, 0);
   const locatedRow = config.markerLayer.records.find((record) => record.provider === 'amap');
@@ -58,13 +71,38 @@ test('public server runtime config never exposes the security code', () => {
   assert.doesNotMatch(script, /secret-code/);
 });
 
-test('Render runtime binds to the platform host and port without overriding local defaults', () => {
+test('local Node runtime accepts an explicit host and platform-style port', () => {
   const config = loadPublicServerConfig({
-    RENDER: 'true',
+    PUBLIC_AMAP_HOST: '0.0.0.0',
     PORT: '10000',
     AMAP_JS_API_KEY: 'browser-key-for-test',
-    AMAP_JS_SECURITY_CODE: 'server-security-code-for-test'
+    AMAP_JS_SECURITY_CODE: 'server-security-code-for-test',
+    PUBLIC_AMAP_REVIEWED_FILE: testLayerFile,
+    PUBLIC_AMAP_DIST: testDist
   });
   assert.equal(config.host, '0.0.0.0');
   assert.equal(config.port, 10000);
 });
+
+function createTestLayer() {
+  return {
+    mode: 'public-amap-reviewed-layer',
+    coordinateSystem: 'GCJ-02',
+    policy: { localOnly: true },
+    records: Array.from({ length: 901 }, (_, index) => ({
+      sourceRow: index + 2,
+      id: `test-${index + 2}`,
+      provider: 'amap',
+      providerPoiId: `poi-${index + 2}`,
+      providerLat: 20 + (index % 30) / 100,
+      providerLng: 110 + (index % 50) / 100,
+      providerCrs: 'GCJ-02',
+      positionType: 'cinema-poi',
+      locationGranularity: 'cinema',
+      locationConfidence: 'high',
+      identityConfidence: 'high',
+      decisionOrigin: 'test-fixture',
+      reviewVerdict: 'accept-exact'
+    }))
+  };
+}

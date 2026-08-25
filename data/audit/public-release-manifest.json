@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-08-25T07:17:02.318Z",
+  "generatedAt": "2026-08-25T08:02:27.567Z",
   "manifestType": "public-release",
   "status": "public-runtime-ready",
   "publicationReady": true,
@@ -8,23 +8,23 @@
   "files": [
     {
       "path": ".env.example",
-      "bytes": 701,
-      "sha256": "ea4684f46e4840aeac3b0353fbb45426d9181bb7d24dd2857db56e2b69bdfc46"
+      "bytes": 972,
+      "sha256": "05b2ab85d3431a091552d409456bb08a7e3b6363336ee1b28b6b49216331fa33"
     },
     {
       "path": ".gitignore",
-      "bytes": 688,
-      "sha256": "c93e46a45ff39945c2c2d21814f093d51cb6586617d6cd3804e0d5842f31d3be"
+      "bytes": 751,
+      "sha256": "be16cafa030846c90d73ea55963a8cb35650776841e1e3190484996e88ce3637"
     },
     {
       "path": "README.md",
-      "bytes": 3376,
-      "sha256": "c499df43911bada02147a43980df12a81e2ce74c0f8e18b7aa1d817ba0ed1573"
+      "bytes": 5139,
+      "sha256": "9894d49986a331ca71f994b6b76da2e6e260f86cbf4310bbcde889db5d152989"
     },
     {
       "path": "PROJECT_STATUS.md",
-      "bytes": 2296,
-      "sha256": "d7f0ce1a5ef1321e4db243a6de5977b9b7f93bffbd2a8cdf687e8db94670c664"
+      "bytes": 3037,
+      "sha256": "fe364a5d2f3f69739e4881da7ac9e028bd524b5a2e4179495f4ed56619e4431f"
     },
     {
       "path": "index.html",
@@ -42,9 +42,29 @@
       "sha256": "2eca5fcb04beb4d0ebbf17ae0ce4458ea13b20f93a5864d3eabbde02c26cd822"
     },
     {
+      "path": "_headers",
+      "bytes": 675,
+      "sha256": "4f1a12bb14516aced38d51819975a93a84d2a555f248708bb3457b1373f78d4a"
+    },
+    {
+      "path": "wrangler.jsonc",
+      "bytes": 765,
+      "sha256": "d29518a6903b345e25b0580a5e0912a44185e4b32cc24293a7c38803e919d051"
+    },
+    {
+      "path": "tsconfig.json",
+      "bytes": 319,
+      "sha256": "f18a9c435901cf478b62c4eefa3dcf683cba98cce6dd2fd18f8e0608c365bd52"
+    },
+    {
       "path": "package.json",
-      "bytes": 843,
-      "sha256": "0915dbb5ce9bf353ce4f2aa06c9888e532b88193f6d948a6dd31c4a4efb227bb"
+      "bytes": 1458,
+      "sha256": "73c4b12f5fa2c5a48358763f9da0aec60bf1d5cbcabfabb7ee92963124260432"
+    },
+    {
+      "path": "package-lock.json",
+      "bytes": 62755,
+      "sha256": "23d32dd58f0fd6a5634435b260ea9bd8f93828e5a81c2376f6159d8756bf2f12"
     },
     {
       "path": "START_PUBLIC_MAP.cmd",
@@ -73,8 +93,8 @@
     },
     {
       "path": "data/audit/public-boundary.json",
-      "bytes": 1538,
-      "sha256": "a9597d3744bf381844b1c7a07e0e48a7d316a617964fa6d13299abefd0cf1c16"
+      "bytes": 1824,
+      "sha256": "3bbc398ed650996e693da1f8d60829af66a39e448441d6434136b570c5390cd2"
     },
     {
       "path": "data/audit/public-release-readiness.json",
@@ -128,8 +148,8 @@
     },
     {
       "path": "scripts/build-public-manifest.mjs",
-      "bytes": 4152,
-      "sha256": "4d23c48fdd3c79c4aac1b8ba01b7e1f10916a867f0bef4aafa4696dc13c04bc6"
+      "bytes": 4455,
+      "sha256": "16c62e9b3e8ddcc746eb3218e486fabebe366884c6a41bcce01025aa3644c010"
     },
     {
       "path": "scripts/build-public-release.mjs",
@@ -137,14 +157,29 @@
       "sha256": "466fc49367770119b299bc1f22cf8dd38835d2deb57a4c9870392c96b6073626"
     },
     {
+      "path": "scripts/build-cloudflare-public.mjs",
+      "bytes": 3499,
+      "sha256": "f0ac7a9045d07d6b48c464c7f820ef6065d570682729f503105b62a4511867cb"
+    },
+    {
+      "path": "scripts/prepare-public-deploy.mjs",
+      "bytes": 3000,
+      "sha256": "45c6a294ce4e5f47b96a82db30f3d02299bd2b18db06130a533ff78e894dff64"
+    },
+    {
+      "path": "scripts/public-marker-core.mjs",
+      "bytes": 6013,
+      "sha256": "499a4ae674575621e1a0cbfc4cb6f6bfcb5eb9113d03f859612115973c36b1fb"
+    },
+    {
       "path": "scripts/public-amap-server.mjs",
-      "bytes": 14036,
-      "sha256": "2893bc90f46f84fec134e3f77166ad0570d0340a201d1a9dd695d95230836cdc"
+      "bytes": 11258,
+      "sha256": "fa410b7f76fbfd3061c7291638fde7a75277abe5221cf08fcd9c28091a55d00f"
     },
     {
       "path": "scripts/public-amap-server.test.mjs",
-      "bytes": 2656,
-      "sha256": "d118f1f1202b4b1903f7e09c4abd838f1035b81c427b5119e1e76ed285af8ec2"
+      "bytes": 4412,
+      "sha256": "98c1c7f5a8474f0e5627143b539eb27895f602fcab0fb92d02afddd9d99d11c4"
     },
     {
       "path": "scripts/public-boundary.test.mjs",
@@ -157,14 +192,19 @@
       "sha256": "b8f0d207d8a852732a740dbaabeb75b59db27c9b15a8a9216fc428d1ad754780"
     },
     {
+      "path": "scripts/cloudflare-worker.test.mjs",
+      "bytes": 4729,
+      "sha256": "5decf17a632ecef60a235499bed585b04b944b5813c8b6b51c75e1fe80b0b2b8"
+    },
+    {
       "path": "scripts/validate-public.mjs",
-      "bytes": 9347,
-      "sha256": "f92e8bc0f67844705309060ad3a932a2029957e1cf6baa7cfb047252f161d6a4"
+      "bytes": 10837,
+      "sha256": "df0ac47d96ee2a3946ce226a7604d0229f831c1b6a5021f6ae690c09a663f66a"
     },
     {
       "path": "scripts/validate-public-boundary.mjs",
-      "bytes": 8582,
-      "sha256": "4bceb7978c3a1c4cfff8e243406e880d186c4a70992491d15278affa5ae959ac"
+      "bytes": 10461,
+      "sha256": "414611738740b4d37f056c1b44580d876d18711430badba683f2d73661d8c389"
     },
     {
       "path": "scripts/start-public-map.ps1",
@@ -175,6 +215,16 @@
       "path": "scripts/stop-public-map.ps1",
       "bytes": 1341,
       "sha256": "6d014b6b6207ec6dd5ee4563a9559f9f9af7638231e567f0247151cfe2d82d37"
+    },
+    {
+      "path": "worker/index.mjs",
+      "bytes": 7716,
+      "sha256": "ece66254226c9acaa223ace38989c412c6b18eafa493d2d2449104cad61baed1"
+    },
+    {
+      "path": "worker/types.d.ts",
+      "bytes": 163,
+      "sha256": "81fe9d765f6637e23ae04229d67afa7bdb2b1b08c83aa22768fe69c32e2149c5"
     },
     {
       "path": "scripts/map-data-adapter.mjs",
@@ -210,6 +260,11 @@
       "path": "dist-public/styles.css",
       "bytes": 7921,
       "sha256": "2eca5fcb04beb4d0ebbf17ae0ce4458ea13b20f93a5864d3eabbde02c26cd822"
+    },
+    {
+      "path": "dist-public/_headers",
+      "bytes": 675,
+      "sha256": "4f1a12bb14516aced38d51819975a93a84d2a555f248708bb3457b1373f78d4a"
     },
     {
       "path": "dist-public/data/cinemas.json",
