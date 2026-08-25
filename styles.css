@@ -141,6 +141,25 @@ input:focus { border-color: #98a2b3; box-shadow: 0 0 0 3px rgba(107, 114, 128, .
 .imax-marker { width: 16px; height: 16px; border: 2px solid #fff; border-radius: 50%; box-shadow: 0 2px 6px rgba(16, 24, 40, .28); }
 .imax-marker.location-only { border-style: dashed; }
 .imax-cluster { display: grid; place-items: center; border: 1px solid rgba(16,24,40,.24); border-radius: 50%; background: #f8fafc; color: #101828; box-shadow: 0 2px 5px rgba(16,24,40,.12); font-size: 12px; font-weight: 800; }
+.amap-info .amap-info-contentContainer {
+  box-sizing: border-box;
+  max-width: min(430px, calc(100vw - 32px));
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  background: var(--panel);
+  color: var(--text);
+  box-shadow: var(--shadow);
+  padding: 13px 14px;
+  overflow-wrap: anywhere;
+}
+.amap-info .imax-info {
+  box-sizing: border-box;
+  min-width: 0;
+  max-width: 100%;
+  background: var(--panel);
+  color: var(--text);
+  overflow-wrap: anywhere;
+}
 .amap-info-content { border: 1px solid var(--line); border-radius: 14px; background: var(--panel); color: var(--text); box-shadow: var(--shadow); padding: 13px 14px; }
 .amap-info-sharp { background: var(--panel); }
 @media (max-width: 640px) {

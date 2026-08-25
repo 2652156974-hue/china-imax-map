@@ -81,6 +81,9 @@ test('primary UI containers share translucent light/dark surfaces without strong
   assert.match(css, /\.popup-grid > span\s*\{[^}]*min-width:\s*0;[^}]*overflow-wrap:\s*anywhere/);
   assert.match(css, /backdrop-filter: blur\(4px\)/);
   assert.doesNotMatch(css, /backdrop-filter: blur\(12px\)/);
+  assert.match(css, /\.amap-info \.amap-info-contentContainer\s*\{[\s\S]*box-sizing:\s*border-box;[\s\S]*border-radius:\s*14px;[\s\S]*background:\s*var\(--panel\);[\s\S]*padding:\s*13px 14px;[\s\S]*overflow-wrap:\s*anywhere/);
+  assert.match(css, /\.amap-info \.imax-info\s*\{[\s\S]*box-sizing:\s*border-box;[\s\S]*min-width:\s*0;[\s\S]*background:\s*var\(--panel\);[\s\S]*overflow-wrap:\s*anywhere/);
+  assert.doesNotMatch(css, /^\.imax-info\s*\{/m);
 });
 
 test('credential proxy and attribution remain visible', () => {
