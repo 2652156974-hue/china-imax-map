@@ -2,11 +2,11 @@
 
 更新日期：2026-08-25
 分支：`codex/public-release`
-发布动作：Cloudflare Worker 代码与 dry-run 配置已完成；是否线上 deploy 以本次审计记录为准
+发布动作：Cloudflare Worker bundle 已上传；账号尚未注册 workers.dev 子域且未配置 route，当前无 live URL
 
 ## 一句话状态
 
-公开运行包已把 901 条静态事实与运行时 marker 分离：静态层 0 坐标；Cloudflare Worker 从 R2 读取最小 marker 对象，公开静态构建不读取私有 marker。当前公开审计为 901 accepted、901 markers、0 unresolved/unlocated。
+公开运行包已把 901 条静态事实与运行时 marker 分离：静态层 0 坐标；Cloudflare Worker 从部署时生成的最小 marker 模块读取运行数据，公开静态构建不读取私有 marker。当前公开审计为 901 accepted、901 markers、0 unresolved/unlocated；bundle 已上传但尚未绑定可访问 URL。
 
 ## 已完成
 
@@ -15,16 +15,17 @@
 - `scripts/public-data.test.mjs` 只读取公开静态层与公开审计，不依赖排除的本地审核数据。
 - 公开文档已改为只描述公开数据流、运行时坐标边界、来源署名和本地生产前检查。
 - `data/public/cinemas.json` 保留 901 条可搜索记录；屏幕与座位原文字段跨层 3,604/3,604 一致。
-- `wrangler.jsonc` 固定 Worker 名称 `china-imax-map`、R2 bucket `china-imax-map-runtime`、`nodejs_compat` 和必需的两项 Cloudflare secrets。
-- `worker/index.mjs` 只使用 Worker Web API；静态资源由 `ASSETS` 提供，marker 仅从 R2 最小对象读取，高德代理仅允许 `restapi.amap.com` 与 `webapi.amap.com`。
-- `scripts/prepare-public-deploy.mjs` 生成被忽略的最小 marker 对象及 SHA-256；`scripts/build-cloudflare-public.mjs` 只复制公开静态文件。
+- `wrangler.jsonc` 固定 Worker 名称 `china-imax-map`、`nodejs_compat` 和必需的两项 Cloudflare secrets。
+- `worker/index.mjs` 只使用 Worker Web API；静态资源由 `ASSETS` 提供，marker 仅从部署 bundle 内的最小模块读取，高德代理仅允许 `restapi.amap.com` 与 `webapi.amap.com`。
+- `scripts/prepare-public-deploy.mjs` 生成被忽略的最小 marker JSON/ES module、临时 Worker 入口及 SHA-256；`scripts/build-cloudflare-public.mjs` 只复制公开静态文件。
 
 ## 证据与检查
 
 ```powershell
-npm test                 # 15 pass / 0 fail
+npm test                 # 20 pass / 0 fail
 npm run check            # public-boundary-check-passed
 npm run validate:public  # 901 records, 0 static coordinates, 901 markers
+npm run cloudflare:check # 333.05 KiB upload / gzip 28.40 KiB; marker bundle entry passed
 ```
 
 机器可读报告：[`data/audit/public-amap-quality.json`](data/audit/public-amap-quality.json)、[`data/audit/public-release-readiness.json`](data/audit/public-release-readiness.json)、[`data/audit/public-boundary.json`](data/audit/public-boundary.json)。
@@ -34,7 +35,8 @@ npm run validate:public  # 901 records, 0 static coordinates, 901 markers
 - 静态网页数据不含 provider 坐标、raw 候选、provider cache 或安全密钥。
 - marker 只由 `/api/public/markers` 返回最小 GCJ-02 字段，使用 `sourceRow`/`id` 关联。
 - 原始数据、审核工作层和运行时 marker 源不作为公开静态文件提供。
-- 真实高德 SDK/代理 smoke 需要本机运行配置；本地测试和 Wrangler dry-run 不等于线上合规或部署，线上 gate 还包括 Cloudflare 认证、R2 对象 SHA 核对、高德域名白名单和 live URL 验证。
+- 真实高德 SDK/代理 smoke 需要本机运行配置；本地测试和 Wrangler dry-run 不等于线上合规或部署，线上 gate 还包括 Cloudflare 认证、marker bundle SHA 核对、高德域名白名单和 live URL 验证。
+- Wrangler OAuth 已认证并安全设置两项 secrets；发布阶段被 Cloudflare 阻止于 workers.dev onboarding（需注册子域或配置 route），故尚未进行线上根页、runtime-config、901-marker 或 AMap proxy 验证。
 
 ## 公开入口
 

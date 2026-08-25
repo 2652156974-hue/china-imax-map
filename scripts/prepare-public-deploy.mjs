@@ -11,6 +11,8 @@ const DEFAULT_LAYER = path.join(ROOT, 'data/local/public-amap-reviewed-geocodes.
 const OUTPUT_DIR = path.resolve(process.env.PUBLIC_AMAP_MARKER_OUTPUT_DIR || path.join(ROOT, 'tmp/cloudflare'));
 const OUTPUT_FILE = path.join(OUTPUT_DIR, 'public-amap-markers.json');
 const HASH_FILE = path.join(OUTPUT_DIR, 'public-amap-markers.sha256');
+const MODULE_FILE = path.join(OUTPUT_DIR, 'public-amap-markers.mjs');
+const WORKER_ENTRY_FILE = path.join(OUTPUT_DIR, 'worker-entry.mjs');
 const reviewedLayerFile = path.resolve(process.env.PUBLIC_AMAP_REVIEWED_FILE || DEFAULT_LAYER);
 
 export function prepareCloudflareDeploy() {
@@ -36,6 +38,8 @@ export function prepareCloudflareDeploy() {
   fs.mkdirSync(OUTPUT_DIR, { recursive: true });
   fs.writeFileSync(OUTPUT_FILE, serialized, 'utf8');
   fs.writeFileSync(HASH_FILE, `${hash}  public-amap-markers.json\n`, 'utf8');
+  fs.writeFileSync(MODULE_FILE, `export default ${serialized}`, 'utf8');
+  fs.writeFileSync(WORKER_ENTRY_FILE, "import { createWorker } from '../../worker/index.mjs';\nimport markerLayer from './public-amap-markers.mjs';\n\nexport default createWorker(markerLayer);\n", 'utf8');
   const staticBuild = buildCloudflarePublic();
 
   return {
@@ -43,6 +47,8 @@ export function prepareCloudflareDeploy() {
     mode: 'cloudflare-deploy-prepared',
     output: 'dist-public',
     markerArtifact: path.relative(ROOT, OUTPUT_FILE).replaceAll(path.sep, '/'),
+    markerModule: path.relative(ROOT, MODULE_FILE).replaceAll(path.sep, '/'),
+    workerEntry: path.relative(ROOT, WORKER_ENTRY_FILE).replaceAll(path.sep, '/'),
     markerSha256: hash,
     records: dataset.records.length,
     staticCoordinates: dataset.coordinatesPublished,

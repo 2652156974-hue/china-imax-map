@@ -3,23 +3,27 @@ import {
   MARKER_PATH,
   SERVICE_PREFIX,
   createMarkerResponse,
-  runtimeConfigScript,
-  validateRuntimeMarkerLayer
+  runtimeConfigScript
 } from '../scripts/public-marker-core.mjs';
 
 const MAX_REQUEST_BODY_BYTES = 64 * 1024;
-const MAX_MARKER_OBJECT_BYTES = 2 * 1024 * 1024;
-const DEFAULT_MARKER_OBJECT_KEY = 'public-amap-markers.json';
 const CSP = "default-src 'self' data: blob: https://*.amap.com https://*.autonavi.com; script-src 'self' 'unsafe-inline' 'unsafe-eval' https://*.amap.com https://*.autonavi.com; style-src 'self' 'unsafe-inline' https://*.amap.com https://*.autonavi.com; img-src 'self' data: blob: https:; connect-src 'self' https://*.amap.com https://*.autonavi.com; font-src 'self' data: https://*.amap.com https://*.autonavi.com; worker-src 'self' blob:; object-src 'none'; frame-ancestors 'none'; upgrade-insecure-requests";
 
-export default { fetch: handleRequest };
+/** @param {object|null} markerLayer */
+export function createWorker(markerLayer = null) {
+  /** @param {Request} request @param {WorkerEnv} env */
+  const fetch = (request, env) => handleRequest(request, env, markerLayer);
+  return { fetch };
+}
 
-/** @param {Request} request @param {WorkerEnv} env */
-export async function handleRequest(request, env) {
+export default createWorker(null);
+
+/** @param {Request} request @param {WorkerEnv} env @param {object|null} markerLayer */
+export async function handleRequest(request, env, markerLayer = null) {
   const url = new URL(request.url);
   try {
     if (url.pathname === '/runtime-config.js') return runtimeConfig(request, env);
-    if (url.pathname === MARKER_PATH) return await markerResponse(request, env);
+    if (url.pathname === MARKER_PATH) return await markerResponse(request, markerLayer);
     if (url.pathname === SERVICE_PREFIX || url.pathname.startsWith(`${SERVICE_PREFIX}/`)) return await amapProxy(request, env, url);
     const response = await env.ASSETS.fetch(request);
     return withSecurityHeaders(response);
@@ -41,37 +45,19 @@ function runtimeConfig(request, env) {
   }));
 }
 
-/** @param {Request} request @param {WorkerEnv} env */
-async function markerResponse(request, env) {
+/** @param {Request} request @param {object|null} markerLayer */
+async function markerResponse(request, markerLayer) {
   if (request.method !== 'POST') return jsonError(405, 'method_not_allowed', 'Marker service requires POST.', { Allow: 'POST' });
   const payload = await readJsonBody(request);
   if (!Array.isArray(payload?.sourceRows) || payload.sourceRows.length > 901) {
     return jsonError(400, 'invalid_request', 'sourceRows array is required and may contain at most 901 entries.');
   }
-
-  let layer;
+  if (!markerLayer) return jsonError(503, 'runtime_unavailable', 'Runtime marker data is unavailable.');
   try {
-    layer = await loadRuntimeMarkerLayer(env);
-  } catch {
-    return jsonError(503, 'runtime_unavailable', 'Runtime marker data is unavailable.');
-  }
-  try {
-    return jsonResponse(200, createMarkerResponse(layer, payload.sourceRows));
+    return jsonResponse(200, createMarkerResponse(markerLayer, payload.sourceRows));
   } catch {
     return jsonError(400, 'invalid_request', 'sourceRows must contain integers from 2 through 902.');
   }
-}
-
-/** @param {WorkerEnv} env */
-async function loadRuntimeMarkerLayer(env) {
-  const key = String(env.MARKER_OBJECT_KEY || DEFAULT_MARKER_OBJECT_KEY).trim();
-  if (!/^[A-Za-z0-9._/-]+$/.test(key) || key.startsWith('/') || key.includes('..')) throw new Error('Invalid marker object key.');
-  if (!env.RUNTIME_BUCKET || typeof env.RUNTIME_BUCKET.get !== 'function') throw new Error('R2 marker binding is missing.');
-  const object = await env.RUNTIME_BUCKET.get(key);
-  if (!object) throw new Error('R2 marker object is missing.');
-  const body = await object.text();
-  if (new TextEncoder().encode(body).byteLength > MAX_MARKER_OBJECT_BYTES) throw new Error('R2 marker object is too large.');
-  return validateRuntimeMarkerLayer(JSON.parse(body));
 }
 
 /** @param {Request} request @param {WorkerEnv} env @param {URL} url */

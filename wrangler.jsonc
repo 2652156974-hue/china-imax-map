@@ -15,15 +15,6 @@
       "/_AMapService/*"
     ]
   },
-  "r2_buckets": [
-    {
-      "binding": "RUNTIME_BUCKET",
-      "bucket_name": "china-imax-map-runtime"
-    }
-  ],
-  "vars": {
-    "MARKER_OBJECT_KEY": "public-amap-markers.json"
-  },
   "secrets": {
     "required": ["AMAP_JS_API_KEY", "AMAP_JS_SECURITY_CODE"]
   },

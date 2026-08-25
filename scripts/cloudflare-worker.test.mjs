@@ -1,6 +1,6 @@
 import assert from 'node:assert/strict';
 import test from 'node:test';
-import { buildAmapProxyTarget, handleRequest } from '../worker/index.mjs';
+import { buildAmapProxyTarget, createWorker } from '../worker/index.mjs';
 
 function runtimeLayer() {
   return {
@@ -26,17 +26,10 @@ function runtimeLayer() {
   };
 }
 
-function envFor(layer = runtimeLayer()) {
+function envFor() {
   return {
     AMAP_JS_API_KEY: 'browser-key-for-worker-test',
     AMAP_JS_SECURITY_CODE: 'worker-secret-for-test',
-    MARKER_OBJECT_KEY: 'public-amap-markers.json',
-    RUNTIME_BUCKET: {
-      async get(key) {
-        assert.equal(key, 'public-amap-markers.json');
-        return { text: async () => JSON.stringify(layer) };
-      }
-    },
     ASSETS: {
       async fetch() {
         return new Response('<!doctype html><title>fixture</title>', { headers: { 'content-type': 'text/html' } });
@@ -47,18 +40,19 @@ function envFor(layer = runtimeLayer()) {
 
 test('Worker serves static fallback, runtime config, and a minimal 901-row marker layer', async () => {
   const env = envFor();
-  const root = await handleRequest(new Request('https://china-imax-map.example/'), env);
+  const worker = createWorker(runtimeLayer());
+  const root = await worker.fetch(new Request('https://china-imax-map.example/'), env);
   assert.equal(root.status, 200);
   assert.equal(root.headers.get('x-content-type-options'), 'nosniff');
   assert.match(await root.text(), /fixture/);
 
-  const config = await handleRequest(new Request('https://china-imax-map.example/runtime-config.js'), env);
+  const config = await worker.fetch(new Request('https://china-imax-map.example/runtime-config.js'), env);
   const configText = await config.text();
   assert.equal(config.status, 200);
   assert.match(configText, /browser-key-for-worker-test/);
   assert.doesNotMatch(configText, /worker-secret-for-test/);
 
-  const marker = await handleRequest(new Request('https://china-imax-map.example/api/public/markers', {
+  const marker = await worker.fetch(new Request('https://china-imax-map.example/api/public/markers', {
     method: 'POST',
     headers: { 'content-type': 'application/json' },
     body: JSON.stringify({ sourceRows: [2, 902, 2] })
@@ -73,17 +67,19 @@ test('Worker serves static fallback, runtime config, and a minimal 901-row marke
 
 test('Worker bounds marker request bodies and returns structured errors', async () => {
   const oversized = JSON.stringify({ sourceRows: [], padding: 'x'.repeat(70 * 1024) });
-  const response = await handleRequest(new Request('https://china-imax-map.example/api/public/markers', {
+  const worker = createWorker(runtimeLayer());
+  const env = envFor();
+  const response = await worker.fetch(new Request('https://china-imax-map.example/api/public/markers', {
     method: 'POST',
     headers: { 'content-type': 'application/json' },
     body: oversized
-  }), envFor());
+  }), env);
   assert.equal(response.status, 413);
   assert.deepEqual(await response.json(), { error: { code: 'request_too_large', message: 'Request body is too large.' } });
 
-  const missing = await handleRequest(new Request('https://china-imax-map.example/api/public/markers', {
+  const missing = await createWorker(null).fetch(new Request('https://china-imax-map.example/api/public/markers', {
     method: 'POST', body: JSON.stringify({ sourceRows: [2] })
-  }), { ...envFor(), RUNTIME_BUCKET: { async get() { return null; } } });
+  }), env);
   assert.equal(missing.status, 503);
   assert.deepEqual(await missing.json(), { error: { code: 'runtime_unavailable', message: 'Runtime marker data is unavailable.' } });
 });
@@ -101,7 +97,7 @@ test('AMap proxy target is restricted to the two approved hosts and overwrites c
     return new Response('{"status":"1"}', { status: 200, headers: { 'content-type': 'application/json' } });
   };
   try {
-    const response = await handleRequest(new Request('https://china-imax-map.example/_AMapService/v3/place/text?keywords=imax'), envFor());
+    const response = await createWorker(runtimeLayer()).fetch(new Request('https://china-imax-map.example/_AMapService/v3/place/text?keywords=imax'), envFor());
     assert.equal(response.status, 200);
     assert.match(requested, /^https:\/\/restapi\.amap\.com\//);
     assert.match(requested, /jscode=worker-secret-for-test/);

@@ -37,6 +37,7 @@ const publicFiles = [
   'scripts/build-public-manifest.mjs',
   'scripts/build-public-release.mjs',
   'scripts/build-cloudflare-public.mjs',
+  'scripts/cloudflare-check.mjs',
   'scripts/prepare-public-deploy.mjs',
   'scripts/public-marker-core.mjs',
   'scripts/public-amap-server.mjs',
