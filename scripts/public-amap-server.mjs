@@ -10,8 +10,8 @@ const SERVICE_PREFIX = '/_AMapService';
 const MARKER_PATH = '/api/public/markers';
 
 export function loadPublicServerConfig(env = process.env) {
-  const host = String(env.PUBLIC_AMAP_HOST || '127.0.0.1').trim();
-  const port = parsePort(env.PUBLIC_AMAP_PORT || '4173');
+  const host = String(env.PUBLIC_AMAP_HOST || (env.RENDER ? '0.0.0.0' : '127.0.0.1')).trim();
+  const port = parsePort(env.PUBLIC_AMAP_PORT || env.PORT || '4173');
   const amapJsKey = String(env.AMAP_JS_API_KEY || '').trim();
   const amapSecurityCode = String(env.AMAP_JS_SECURITY_CODE || '').trim();
   const amapJsSdkUrl = String(env.AMAP_JS_SDK_URL || '').trim();
@@ -126,7 +126,7 @@ export function selectMarkers(layerOrConfig, requestedRows) {
   return rows.map((sourceRow) => markerMap.get(sourceRow)).filter(Boolean).filter(hasAcceptedMarker).map(minimalMarker);
 }
 
-function validateMarkerLayer(layer) {
+export function validateMarkerLayer(layer) {
   if (layer?.mode !== 'public-amap-reviewed-layer' || layer?.policy?.localOnly !== true) {
     throw new Error('Marker layer must be an explicit local-only public AMap reviewed layer.');
   }
@@ -193,7 +193,7 @@ function minimalMarker(record) {
   };
 }
 
-function hasAcceptedMarker(record) {
+export function hasAcceptedMarker(record) {
   return record?.provider === 'amap' && record?.providerCrs === 'GCJ-02' &&
     Number.isFinite(Number(record.providerLat)) && Number.isFinite(Number(record.providerLng)) &&
     Number(record.providerLat) >= -90 && Number(record.providerLat) <= 90 &&

@@ -58,3 +58,16 @@ AMap JS API 2.0                服务端运行时 GCJ-02 marker
 - [`scripts/validate-public-boundary.mjs`](scripts/validate-public-boundary.mjs)：验证公开边界。
 
 运行时 marker 源和 `dist-public/` 是本地生成物，不是公开静态下载入口。生产上线前仍需在高德控制台完成域名白名单、账户/商业状态和安全密钥轮换检查；本地测试不等于生产部署。
+
+## Render 部署
+
+使用单个 Node Web Service，连接 `codex/public-release` 分支：
+
+- Build Command：`npm install`
+- Start Command：`npm start`
+- Health Check Path：`/`
+- 环境变量：`AMAP_JS_API_KEY`、`AMAP_JS_SECURITY_CODE`
+- 环境变量 `PUBLIC_AMAP_REVIEWED_FILE=/etc/secrets/public-amap-reviewed-geocodes.json`
+- Secret File 名称：`public-amap-reviewed-geocodes.json`，内容使用本机生成并通过发布校验的最小 runtime layer
+
+`npm start` 会在运行时校验 secret file 必须恰好包含 901 个 accepted GCJ-02 marker，然后只生成无静态坐标的 `dist-public/`。Render 提供的 `PORT` 会被自动采用，服务仅把最小 marker 响应交给前端，不把安全密钥写入浏览器配置。

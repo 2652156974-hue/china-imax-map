@@ -57,3 +57,14 @@ test('public server runtime config never exposes the security code', () => {
   assert.match(script, /_AMapService/);
   assert.doesNotMatch(script, /secret-code/);
 });
+
+test('Render runtime binds to the platform host and port without overriding local defaults', () => {
+  const config = loadPublicServerConfig({
+    RENDER: 'true',
+    PORT: '10000',
+    AMAP_JS_API_KEY: 'browser-key-for-test',
+    AMAP_JS_SECURITY_CODE: 'server-security-code-for-test'
+  });
+  assert.equal(config.host, '0.0.0.0');
+  assert.equal(config.port, 10000);
+});
