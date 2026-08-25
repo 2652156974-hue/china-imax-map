@@ -227,13 +227,16 @@ function bindFilters() {
     }
     applyFilters();
   });
-  document.querySelector('#locationFilters').addEventListener('click', (event) => {
-    const button = event.target.closest('button[data-location]');
-    if (!button) return;
-    state.location = button.dataset.location;
-    activateSingle('#locationFilters button[data-location]', button);
-    applyFilters();
-  });
+  const locationFilters = document.querySelector('#locationFilters');
+  if (locationFilters) {
+    locationFilters.addEventListener('click', (event) => {
+      const button = event.target.closest('button[data-location]');
+      if (!button) return;
+      state.location = button.dataset.location;
+      activateSingle('#locationFilters button[data-location]', button);
+      applyFilters();
+    });
+  }
   searchInput.addEventListener('input', () => {
     state.query = normalizeSearch(searchInput.value);
     applyFilters();

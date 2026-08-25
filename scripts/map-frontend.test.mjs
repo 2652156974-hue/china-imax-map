@@ -44,9 +44,10 @@ test('all filters, list access, and no-coordinate detail are wired', () => {
     'data-region="香港"',
     'data-region="澳门"',
     'data-region="台湾"',
-    'data-audio="12"',
-    'data-location="unresolved"'
+    'data-audio="12"'
   ]) assert.ok(html.includes(token), `missing UI token: ${token}`);
+  assert.doesNotMatch(html, /id="locationFilters"/);
+  assert.match(app, /const locationFilters = document\.querySelector\('#locationFilters'\)/);
   assert.match(app, /button\.addEventListener\('click', \(\) => focusCinema\(cinema\)\)/);
   assert.match(app, /if \(!hasCoordinate\(cinema\)\)/);
   assert.match(app, /showDetail\(cinema\)/);
@@ -56,7 +57,7 @@ test('all filters, list access, and no-coordinate detail are wired', () => {
 });
 
 test('public field presentation keeps raw values out of normal detail rows', () => {
-  assert.match(html, /场所级定位/);
+  assert.match(`${html}\n${app}`, /场所级定位/);
   assert.doesNotMatch(`${html}\n${app}`, /位置待核/);
   assert.match(app, /function renderDataNotes/);
   assert.match(app, /class="data-notes"/);

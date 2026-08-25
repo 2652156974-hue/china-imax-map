@@ -1,46 +1,33 @@
-# Data pipeline
+# 公开数据管线
 
-## Source and grain
+公开分支的输入粒度是一条腾讯表格行对应一条影院/IMAX 记录。公开输出只保留可展示的事实字段和来源信息；坐标由运行时 marker 服务提供。
 
-The source grain is one cinema/IMAX-screen record per Tencent-sheet data row. The audited `BB08J2` / `IMAX中国` tab contains 901 data rows and eight logical columns. The raw snapshot is retained locally for migration audit and is not the public website input.
+## 公开层
 
-## Layers
+1. `data/derived/cinemas.json`：901 条规则派生记录。
+2. `data/public/cinemas.json`：公开静态事实层；不含坐标、provider 候选或凭据。
+3. `data/audit/`：公开质量、边界和发布审计摘要。
+4. 本机运行时 marker 层：由公开 server 读取，静态目录不提供批量坐标文件。
 
-1. `data/raw/arvin-imax.json` — immutable internal source snapshot.
-2. `data/derived/cinemas.json` — rule-derived 901-record cinema layer. Raw display text is retained in `nameRaw`, `projection.raw`, screen raw fields and `seatsRaw`.
-3. `data/audit/` — reproducible integrity, vocabulary, status, geocoding and quality audits.
-4. `data/derived/cinemas-final-internal.json` — optional internal publication candidate for later row-level review work.
-5. `data/public/` — 901-record static fact output produced by an explicit builder; it must not be a blind copy of internal data.
-6. `data/local/public-amap-reviewed-geocodes.json` — gitignored 901-row runtime marker decisions; current accepted GCJ-02 count is reported by `data/audit/public-amap-quality.json`.
+公开分支不携带原始快照、provider cache 或完整候选响应。运行时 marker 源需要从受控的本地环境注入，不能把它误当成公开静态数据。
 
-The final internal layer is intentionally gated:
+## 构建与验证
 
-```text
-node scripts/materialize-geocode-reviewed.mjs
-node scripts/build-final-internal.mjs
+```powershell
+npm run build:public
+npm run validate:public
+npm run check
+npm test
 ```
 
-The first command refuses to proceed without the complete row-level 219-record human review file. The second command refuses to proceed without the reviewed mainland layer and the 20-record Hong Kong/Macau/Taiwan audit. A failed gate writes a status audit and does not create a partial final dataset.
+`build:public` 先生成运行时 marker 层，再生成 `data/public/cinemas.json` 和 `dist-public/`。如果本机没有受控 marker 源，构建应失败，不以空数据或猜测坐标替代。`validate:public` 检查 901 条记录、连续 `sourceRow`、静态坐标为零、原文字段一致和 marker 层分区；`check` 检查公开路径、凭据和发布边界。
 
-Before any public-branch commit, run `node scripts/validate-public-boundary.mjs`. Its manifest confirms that the static fact layer contains no coordinates, provider caches or raw candidate fields, and that the runtime marker layer is separate from the public static directory. A raw-bearing Git history remains a clean-branch handoff warning.
+## 字段原则
 
-The AMap runtime route is part of the current publication candidate. Account/domain/commercial compliance and security-key rotation are production operations, not blockers for parser, frontend, local preview, tests or QA work.
+- 来源原文优先；`name`、投影、状态和屏幕/座位字段保持可追溯。
+- 多值、异常或无法安全解析的数值不强行选择；页面显示待核，原文留在允许的说明字段中。
+- `providerLat/providerLng` 只存在于运行时 marker 响应，保持 GCJ-02。
+- 场馆或商场位置不能自动升级为精确影院身份。
+- 静态事实层与运行时 marker 层按 `sourceRow`/`id` 连接。
 
-## Internal local preview
-
-`scripts/build-local-preview.mjs` is a development/QA-only builder. It reads the existing mainland audit, selects only `accepted-high` results (including existing reviewed overrides), and writes provider GCJ-02 plus a local WGS84 preview coordinate for legacy audit comparisons. It does not turn automatic-medium, ambiguous, location-only or unresolved rows into reviewed conclusions. The public and private AMap frontends use the original GCJ-02 fields directly.
-
-The public frontend reads the static fact layer and then requests the minimal runtime marker layer from `/api/public/markers`. The legacy `?preview=local` path remains explicitly local-only. The private frontend reads `dist-private/`; neither frontend reads provider cache.
-
-## Derivation rules
-
-- Former names require explicit grammar. Other lines remain `unparsedNameLines` and the original name remains in `nameRaw`.
-- Projection dimensions are separate: technology, GT/XT geometry, Dome, 3D, film and audio channels.
-- Multiple screen values remain raw and structured values remain null unless a high-confidence rule selects one.
-- Status events are parsed chronologically. Dated later reopen/open events supersede earlier closure; planned/future events do not establish current open status.
-- AMap provider coordinates remain GCJ-02 and are never overwritten by converted WGS84 values.
-- Venue and mall coordinates describe physical location only; they do not establish exact auditorium identity.
-
-## Geocoding layers
-
-Automatic, reviewed and unresolved decisions remain distinguishable. Each selected point carries decision origin, confidence, granularity, provider provenance and CRS. Provider caches are private and gitignored. See [GEOCODING.md](GEOCODING.md).
+前端契约见 [`MAP_FRONTEND.md`](MAP_FRONTEND.md)，来源和高德运行时边界见 [`DATA-LICENSING.md`](DATA-LICENSING.md)。

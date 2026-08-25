@@ -1,36 +1,25 @@
-# Geocoding and coordinate provenance
+# 坐标与运行时来源
 
-## Mainland AMap pipeline
+公开分支只消费已经通过发布审计的运行时 marker 层，不在公开分支重新请求 provider，也不把 provider 候选响应放进公开静态数据。当前计数以 [`data/audit/public-amap-quality.json`](../data/audit/public-amap-quality.json) 和 [`data/audit/public-release-readiness.json`](../data/audit/public-release-readiness.json) 为准。
 
-The mainland matcher is frozen at the audit SHA recorded in `data/audit/geocode-mainland-freeze.json`. It uses POI search, not city-center geocoding, and scores current name, former name, project, brand, POI type, administrative compatibility and auditorium-format compatibility.
+## 公开坐标边界
 
-The current operational quota guard is cache-first and caps new AMap requests at 600 for a run (`AMAP_MAX_NEW_REQUESTS`, hard-capped by the runner at 600). Successful cache entries are not refreshed. A mainland full rerun is not part of the current acceptance run; Hong Kong, Macau and Taiwan are separate provider scopes and do not consume this mainland budget.
+- [`data/public/cinemas.json`](../data/public/cinemas.json) 的 901 条记录全部保留，但静态 `location.lat/lng` 为 `null`。
+- `/api/public/markers` 只返回被接受的最小 marker 字段；marker 按 `sourceRow`/`id` 关联，不按名称猜配。
+- 当前公开审计为 901 accepted、901 markers、0 unresolved/unlocated。
+- 未有 marker 的记录仍能在列表和详情中查看；不得用城市中心点或其他推测位置补点。
 
-Administrative compatibility uses province, prefecture and county-level division fields. A county-level city is accepted only when the provider province, parent prefecture and `adname` agree with the auditable mapping layer.
+## 坐标系与位置语义
 
-## Hong Kong, Macau and Taiwan scope
+高德返回的 `providerLat/providerLng` 保持 `providerCrs=GCJ-02`，由 AMap JS API 2.0 直接绘制，不转换为 WGS84。位置字段需区分：
 
-Hong Kong, Macau and Taiwan are not sent through the mainland AMap budget. They have a separate regional adapter at `scripts/geocode/providers/nominatim.mjs` and a cache-first audit runner:
+- `identityConfidence`：选中的 POI 是否就是目标影院/影厅。
+- `locationConfidence`：坐标是否代表影院、场馆或商场的实际位置。
+- `locationGranularity`：`auditorium`、`cinema`、`venue` 或 `mall`。
+- `positionType`：`cinema-poi`、`venue-poi` 或 `mall-fallback`。
 
-```text
-node scripts/geocode-regional.mjs --scope=regional --provider=nominatim --network --max-new=20
-```
+场所级或商场级坐标只能说明物理位置，不能宣称为精确影厅身份；公开页面应保留该语义。
 
-The runner uses only normal public Nominatim search, identifies the application with a User-Agent, keeps at least one second between new requests, stores raw provider responses only in the ignored private cache, and writes compact selected/reject summaries to `data/audit/geocode-hkmo-tw.json`. Nominatim returns WGS84, so no GCJ-02 conversion is applied. A failed or unresolved regional result remains null; no city-centre fallback is allowed. This is a separate provider audit, not a claim that the whole Tencent document has been geocoded.
+## 生产前检查
 
-## Confidence dimensions
-
-- `identityConfidence`: confidence that the selected POI is the cinema/auditorium identity.
-- `locationConfidence`: confidence that the coordinate represents the physical cinema, venue or mall.
-- `locationGranularity`: `auditorium`, `cinema`, `venue` or `mall`.
-- `positionType`: `cinema-poi`, `venue-poi` or `mall-fallback`.
-
-An approved location-only venue remains identity-medium or lower. It must not be shown as an exact cinema identity.
-
-## CRS
-
-AMap coordinates are stored as `providerLat/providerLng` with `providerCrs=GCJ-02` and are drawn directly by both AMap JS API 2.0 frontends. The local preview and independent OSM/Nominatim audits may carry separate WGS84 fields, but those fields never replace the AMap provider coordinates or enter the public AMap runtime layer.
-
-## Public boundary
-
-The public site uses official website/H5 AMap functionality rather than publishing an independent coordinate database: static `data/public/cinemas.json` has no coordinates, while the server-side `/api/public/markers` response supplies the current accepted GCJ-02 points at runtime. The current audit snapshot is accepted/markerCount=607 with 294 unlocated records; all 901 records remain in the list and detail view. See [DATA-LICENSING.md](DATA-LICENSING.md) and [MAP_FRONTEND.md](MAP_FRONTEND.md).
+公开分支不提供 provider cache、完整候选列表或坐标批量下载。上线前需要单独检查高德控制台的域名白名单、账户/商业状态和安全密钥轮换；这些检查不能由本地 `npm test` 代替。来源与运行时限制见 [`DATA-LICENSING.md`](DATA-LICENSING.md)。

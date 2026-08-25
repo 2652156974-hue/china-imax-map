@@ -1,10 +1,10 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-08-25T04:55:27.807Z",
+  "generatedAt": "2026-08-25T07:17:02.318Z",
   "manifestType": "public-release",
   "status": "public-runtime-ready",
   "publicationReady": true,
-  "scope": "Public source, public static facts, runtime marker service, public-safe audit summaries, tests and documentation.",
+  "scope": "Public source, static facts, runtime marker service, public-safe audits, tests and documentation.",
   "files": [
     {
       "path": ".env.example",
@@ -18,13 +18,13 @@
     },
     {
       "path": "README.md",
-      "bytes": 16026,
-      "sha256": "d7d6cfc0a306bde08cba5c85f9bdc6e7cecb05a3e4f2b2ea63df217501d18b03"
+      "bytes": 3376,
+      "sha256": "c499df43911bada02147a43980df12a81e2ce74c0f8e18b7aa1d817ba0ed1573"
     },
     {
       "path": "PROJECT_STATUS.md",
-      "bytes": 4017,
-      "sha256": "dd2d6df35eec1301051afd6bc2b539807ce4764f88a0a0a9e333d9f54beb7a84"
+      "bytes": 2296,
+      "sha256": "d7f0ce1a5ef1321e4db243a6de5977b9b7f93bffbd2a8cdf687e8db94670c664"
     },
     {
       "path": "index.html",
@@ -33,8 +33,8 @@
     },
     {
       "path": "app.mjs",
-      "bytes": 24330,
-      "sha256": "0445878f2edf6f864c91292a28e03a615ed7b9ddb98cafb1b8e7dc66a6a4b527"
+      "bytes": 24416,
+      "sha256": "cb0826ca9740d47995fb0057abf59689d20a1e408957c2b86f69c0db9bbbc884"
     },
     {
       "path": "styles.css",
@@ -43,8 +43,8 @@
     },
     {
       "path": "package.json",
-      "bytes": 2219,
-      "sha256": "398887edb6d780ba48b5a9d2fb5ebd6238c23f0b2fdb20fe1173a00e9d3abb12"
+      "bytes": 843,
+      "sha256": "0915dbb5ce9bf353ce4f2aa06c9888e532b88193f6d948a6dd31c4a4efb227bb"
     },
     {
       "path": "START_PUBLIC_MAP.cmd",
@@ -59,22 +59,22 @@
     {
       "path": "data/public/cinemas.json",
       "bytes": 1283777,
-      "sha256": "8be7529ccfaba102701428efb42778513f0c7233352fb5836fda0c09a66d4bb5"
+      "sha256": "f0b1fa67b756ac7d2897c585a6818d506f0e8062597cf1966664e157c90b0007"
     },
     {
       "path": "data/audit/public-amap-quality.json",
-      "bytes": 1411,
-      "sha256": "4b2a916541d43edbf2b21fe3a20a451faa3926e7ca626b1ec3cf449334d54013"
+      "bytes": 1409,
+      "sha256": "b3722fd591388743d04db0bd99825ecc0dd9bf75c3b74774481b421901e2c148"
     },
     {
       "path": "data/audit/public-amap-unresolved.json",
       "bytes": 151,
-      "sha256": "158db7b8c3446b23543382eb167eff8bff083e26e6a2a51a8004afa45f9c7d92"
+      "sha256": "72e76a7451b1f88e0e65e4286753ef23e9ae5c191a121360bd576b03c17136db"
     },
     {
       "path": "data/audit/public-boundary.json",
-      "bytes": 1542,
-      "sha256": "1db23946cbe216ee185433b3d549a89c2930f6d01e02a600821e553ff0be942b"
+      "bytes": 1538,
+      "sha256": "a9597d3744bf381844b1c7a07e0e48a7d316a617964fa6d13299abefd0cf1c16"
     },
     {
       "path": "data/audit/public-release-readiness.json",
@@ -93,28 +93,28 @@
     },
     {
       "path": "docs/DATA-LICENSING.md",
-      "bytes": 4182,
-      "sha256": "578b49d83a1c902e65d6f9e0d317ec7747e9f235c5f1ff3a1f0bdde3ed5c6508"
+      "bytes": 1500,
+      "sha256": "ac65ca48ed93f7058fc1d92a59b57eb4eb45d3ff560050751063b4189a78e01d"
     },
     {
       "path": "docs/DATA_PIPELINE.md",
-      "bytes": 3867,
-      "sha256": "7bd8dd7dfa62f43a52134292442f92f8591707a953bf012301e6d78f322728f6"
+      "bytes": 1803,
+      "sha256": "4700658d54e7b6b0220251bd6fbaf71682a49400b4aef98b85687562bfb43d6d"
     },
     {
       "path": "docs/GEOCODING.md",
-      "bytes": 3147,
-      "sha256": "c86d84c5de19f55773ed75f65e0f0c7967523cbfa395de60a0446fc1712bfb90"
+      "bytes": 1820,
+      "sha256": "7cb8c1b070d1797ed7b0ead7813802f3a57c6e4de0a583795bbf066a4849de0d"
     },
     {
       "path": "docs/MAP_FRONTEND.md",
-      "bytes": 3575,
-      "sha256": "b352fab16edaea110267ead6297c73f60352dbfe302720158c96e4dec1a9f4ff"
+      "bytes": 1599,
+      "sha256": "1b8a6e063a8b55b047e84d7b4a6f0676b5a8abcd72f26aa6ea93852617aacbc1"
     },
     {
       "path": "docs/PROJECT_STRUCTURE.md",
-      "bytes": 4307,
-      "sha256": "dea4d43b3af780d8a462247664b0b115a834fa09f70b15a56e1de83275c6580f"
+      "bytes": 2019,
+      "sha256": "c5de26296d48a8c446376edee5761c08a9c406e7ebde126276f739f8760b945b"
     },
     {
       "path": "scripts/build-public-amap-layer.mjs",
@@ -125,6 +125,11 @@
       "path": "scripts/build-public-dataset.mjs",
       "bytes": 5805,
       "sha256": "a3c3dda7641cf5286155158c5765c32475d6446b8f3fc673c8f900785c2ec409"
+    },
+    {
+      "path": "scripts/build-public-manifest.mjs",
+      "bytes": 4152,
+      "sha256": "4d23c48fdd3c79c4aac1b8ba01b7e1f10916a867f0bef4aafa4696dc13c04bc6"
     },
     {
       "path": "scripts/build-public-release.mjs",
@@ -148,8 +153,8 @@
     },
     {
       "path": "scripts/public-data.test.mjs",
-      "bytes": 9987,
-      "sha256": "006dc940e5506b3590c640a4aca631a02567441c6cb32c297f71fa4eafafa09c"
+      "bytes": 3677,
+      "sha256": "b8f0d207d8a852732a740dbaabeb75b59db27c9b15a8a9216fc428d1ad754780"
     },
     {
       "path": "scripts/validate-public.mjs",
@@ -183,8 +188,8 @@
     },
     {
       "path": "scripts/map-frontend.test.mjs",
-      "bytes": 3117,
-      "sha256": "0699c7696ef3399a33fe084a7d50f3fb4ac43beaa6ae6ccbfac2f51b212a7316"
+      "bytes": 3243,
+      "sha256": "9f1cdcb356f17775875e1416d21e84c5d4b61f6557d102614d765c6a93c6525d"
     },
     {
       "path": "scripts/fixtures/amap-js-sdk.mock.js",
@@ -193,13 +198,13 @@
     },
     {
       "path": "dist-public/index.html",
-      "bytes": 4273,
-      "sha256": "faded320171e3524b05e07f87929b46baea32b570c07587705cad7dee5bc1fcd"
+      "bytes": 4820,
+      "sha256": "38d5407540d4584933159157d00eb91c856bd46217ad0efbc2fe5ce8d306dffe"
     },
     {
       "path": "dist-public/app.mjs",
-      "bytes": 24330,
-      "sha256": "0445878f2edf6f864c91292a28e03a615ed7b9ddb98cafb1b8e7dc66a6a4b527"
+      "bytes": 24416,
+      "sha256": "cb0826ca9740d47995fb0057abf59689d20a1e408957c2b86f69c0db9bbbc884"
     },
     {
       "path": "dist-public/styles.css",
@@ -209,7 +214,7 @@
     {
       "path": "dist-public/data/cinemas.json",
       "bytes": 1283777,
-      "sha256": "8be7529ccfaba102701428efb42778513f0c7233352fb5836fda0c09a66d4bb5"
+      "sha256": "f0b1fa67b756ac7d2897c585a6818d506f0e8062597cf1966664e157c90b0007"
     }
   ],
   "counts": {
@@ -235,36 +240,12 @@
     "staticBulkCoordinateArtifacts": 0,
     "publicBoundaryStatus": "public-boundary-check-passed"
   },
-  "gates": [],
-  "historicalReviewSnapshots": {
-    "status": "historical-non-blocking",
-    "reason": "Historical review snapshots are retained for provenance only. Current release readiness is determined by the accepted 901-record canonical layer and its 901-marker/0-unresolved invariants.",
-    "snapshots": [
-      {
-        "file": "data/audit/luna-geocode-review-323-summary.json",
-        "historical": true,
-        "blocking": false,
-        "reviewComplete": false,
-        "needsMoreEvidence": 240
-      },
-      {
-        "file": "data/audit/final-cross-certification-report.json",
-        "historical": true,
-        "blocking": false,
-        "releaseGate": "BLOCKED",
-        "unresolvedCount": 0,
-        "supersededBy": "data/audit/final-internal-materialization-status.json"
-      }
-    ]
-  },
   "exclusions": [
-    "data/raw/",
-    "data/geocode/provider-cache/",
-    "data/local/",
-    "dist-private/",
-    "complete AMap coordinate export",
-    "AMap JS security code and Web Service credentials"
+    "raw source snapshots",
+    "provider cache",
+    "local marker source",
+    "bulk coordinate export",
+    "runtime credentials"
   ],
-  "noRemotePushOrDeploy": true,
-  "branchPolicy": "created from a clean public baseline; do not merge the raw-bearing feature history"
+  "noRemotePushOrDeploy": true
 }
