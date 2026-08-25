@@ -125,6 +125,7 @@ input:focus { border-color: #98a2b3; box-shadow: 0 0 0 3px rgba(107, 114, 128, .
 .detail-title, .popup-title { margin-bottom: 8px; color: var(--text); font-size: 15px; font-weight: 800; line-height: 1.4; }
 .detail-subtitle { margin-bottom: 12px; color: var(--muted); font-size: 11px; line-height: 1.45; }
 .popup-grid { display: grid; grid-template-columns: max-content 1fr; gap: 6px 10px; font-size: 12px; line-height: 1.4; }
+.popup-grid > span { min-width: 0; overflow-wrap: anywhere; }
 .popup-grid b { color: var(--muted); font-weight: 700; }
 .raw-value { white-space: pre-wrap; overflow-wrap: anywhere; }
 .raw-note { margin-top: 8px; padding-top: 8px; border-top: 1px solid var(--line); color: var(--muted); font-size: 11px; line-height: 1.45; }

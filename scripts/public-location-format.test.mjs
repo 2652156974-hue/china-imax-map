@@ -25,14 +25,18 @@ test('location detail formatter omits empty fragments without dangling separator
     status: 'open',
     location: { locationGranularity: 'cinema', locationConfidence: 'high' }
   }, { hasCoordinate: true });
-  assert.equal(value, '营业 · 影院级 · 位置/身份 高');
+  assert.equal(value, '营业 · 影院级 · 位置 高');
   assert.doesNotMatch(value, /undefined|null|··|\/$/);
+
+  assert.equal(formatLocationInfo({ location: { identityConfidence: 'medium' } }), '身份 中');
+  assert.equal(formatLocationInfo({ location: { locationConfidence: 'Undefined', identityConfidence: 'NULL' } }), '暂无');
 });
 
 test('location detail formatter uses a single safe fallback when all source fields are empty', () => {
   const value = formatLocationInfo({ status: null, location: {} }, { hasCoordinate: false });
   assert.equal(value, '暂无');
   assert.doesNotMatch(value, /undefined|null|··|\/$/);
+  assert.equal(formatLocationInfo({ status: ' NULL ', location: { locationGranularity: 'Undefined' } }), '暂无');
 });
 
 test('location detail formatter normalizes existing AMap variants and unlocated records', () => {

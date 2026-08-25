@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-08-25T09:03:37.700Z",
+  "generatedAt": "2026-08-25T09:11:22.552Z",
   "manifestType": "public-release",
   "status": "public-runtime-ready",
   "publicationReady": true,
@@ -38,13 +38,13 @@
     },
     {
       "path": "public-location-format.mjs",
-      "bytes": 3550,
-      "sha256": "97f30a1e63f7f33bb732c115c20280b1eaaafdab1a1b68717808881033da5f74"
+      "bytes": 3748,
+      "sha256": "f9d3ecdab91586440c9f127a72ce8153869eeee05a450b6e71991b65f2fe8136"
     },
     {
       "path": "styles.css",
-      "bytes": 7953,
-      "sha256": "0aecad11305f1b9f050f3d7bb112f383ed28880d07da7b551c52522a22815774"
+      "bytes": 8015,
+      "sha256": "cd9d8f3b0168de56b13094466699da5a7ce57ad35350272f7417247092b4f4c1"
     },
     {
       "path": "_headers",
@@ -99,7 +99,7 @@
     {
       "path": "data/audit/public-boundary.json",
       "bytes": 2188,
-      "sha256": "208c6ecc7c7c8bc7d2267f952160345466322f761abbac9c18cba1e6c23f8a79"
+      "sha256": "389476cf5c5bf4ff6f19ff1c0600b324449563bf7fb942a6469178fd62686169"
     },
     {
       "path": "data/audit/public-release-readiness.json",
@@ -248,8 +248,8 @@
     },
     {
       "path": "scripts/map-frontend.test.mjs",
-      "bytes": 4228,
-      "sha256": "acb9804043acd6c4ce741937235af6ba5ec6b3e750d11223d4bc591979c57937"
+      "bytes": 4327,
+      "sha256": "39b0fcd5142fda23f942d2a760d285bec339e589072a58b45b8664fe8a678c26"
     },
     {
       "path": "scripts/fixtures/amap-js-sdk.mock.js",
@@ -268,13 +268,13 @@
     },
     {
       "path": "dist-public/public-location-format.mjs",
-      "bytes": 3550,
-      "sha256": "97f30a1e63f7f33bb732c115c20280b1eaaafdab1a1b68717808881033da5f74"
+      "bytes": 3748,
+      "sha256": "f9d3ecdab91586440c9f127a72ce8153869eeee05a450b6e71991b65f2fe8136"
     },
     {
       "path": "dist-public/styles.css",
-      "bytes": 7953,
-      "sha256": "0aecad11305f1b9f050f3d7bb112f383ed28880d07da7b551c52522a22815774"
+      "bytes": 8015,
+      "sha256": "cd9d8f3b0168de56b13094466699da5a7ce57ad35350272f7417247092b4f4c1"
     },
     {
       "path": "dist-public/_headers",

@@ -78,6 +78,7 @@ test('primary UI containers share translucent light/dark surfaces without strong
   assert.match(css, /--panel:\s*rgba\(21,\s*24,\s*29,\s*\.97\)/);
   assert.match(css, /\.panel, \.detail-panel[\s\S]*background: var\(--panel\)/);
   assert.match(css, /input[\s\S]*background: var\(--panel\)/);
+  assert.match(css, /\.popup-grid > span\s*\{[^}]*min-width:\s*0;[^}]*overflow-wrap:\s*anywhere/);
   assert.match(css, /backdrop-filter: blur\(4px\)/);
   assert.doesNotMatch(css, /backdrop-filter: blur\(12px\)/);
 });

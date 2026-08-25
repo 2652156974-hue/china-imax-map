@@ -59,11 +59,12 @@ export function formatCoordinateSource(location = {}, hasCoordinate = false) {
 }
 
 function formatConfidencePair(location) {
-  const values = [
-    labelFromMap(location?.locationConfidence, CONFIDENCE_LABELS),
-    labelFromMap(location?.identityConfidence, CONFIDENCE_LABELS)
-  ].filter(Boolean);
-  return values.length ? `位置/身份 ${values.join('/')}` : '';
+  const locationConfidence = labelFromMap(location?.locationConfidence, CONFIDENCE_LABELS);
+  const identityConfidence = labelFromMap(location?.identityConfidence, CONFIDENCE_LABELS);
+  if (locationConfidence && identityConfidence) return `位置/身份 ${locationConfidence}/${identityConfidence}`;
+  if (locationConfidence) return `位置 ${locationConfidence}`;
+  if (identityConfidence) return `身份 ${identityConfidence}`;
+  return '';
 }
 
 function labelFromMap(value, labels) {
@@ -100,5 +101,5 @@ function normalizePositionType(value) {
 
 function cleanValue(value) {
   const text = String(value ?? '').trim();
-  return text === 'undefined' || text === 'null' ? '' : text;
+  return /^(?:undefined|null)$/i.test(text) ? '' : text;
 }
