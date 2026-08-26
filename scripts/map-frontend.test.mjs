@@ -8,6 +8,7 @@ const repoRoot = join(fileURLToPath(new URL('..', import.meta.url)));
 const html = await readFile(join(repoRoot, 'index.html'), 'utf8');
 const app = await readFile(join(repoRoot, 'app.mjs'), 'utf8');
 const css = await readFile(join(repoRoot, 'styles.css'), 'utf8');
+const focusCss = await readFile(join(repoRoot, 'focus-navigation.css'), 'utf8');
 const sdkMock = await readFile(join(repoRoot, 'scripts', 'fixtures', 'amap-js-sdk.mock.js'), 'utf8');
 const docs = await readFile(join(repoRoot, 'docs', 'MAP_FRONTEND.md'), 'utf8');
 
@@ -26,7 +27,7 @@ test('AMap JS API 2.0 is the only public map runtime', () => {
   assert.match(app, /_AMapSecurityConfig/);
   assert.match(app, /serviceHost/);
   assert.doesNotMatch(app, /AMap\.MarkerCluster|averageCenter|DistrictSearch|Geocoder|PlaceSearch/);
-  assert.doesNotMatch(`${html}\n${app}\n${css}`, /maplibre|openfreemap|tile\.openstreetmap\.org/i);
+  assert.doesNotMatch(`${html}\n${app}\n${css}\n${focusCss}`, /maplibre|openfreemap|tile\.openstreetmap\.org/i);
 });
 
 test('administrative display keeps one zoom layer and explicit marker accessibility', () => {
@@ -57,11 +58,31 @@ test('administrative display keeps one zoom layer and explicit marker accessibil
   }
   assert.match(css, /\.panel, \.detail-panel \{\s*position: absolute;\s*z-index: 120;/s);
   assert.match(css, /\.detail-panel \{\s*z-index: 125;/s);
-  for (const source of [app]) {
-    assert.match(source, /item\.level === 'province' \? 6/);
-    assert.match(source, /item\.level === 'prefecture' \? 8/);
-    assert.match(source, /const targetZoom = Math\.max\(baseTargetZoom, Math\.floor\(currentZoom\) \+ 1\)/);
-  }
+  assert.match(app, /function enterAdministrativeFocus\(item\)/);
+  assert.match(app, /enterAdministrativeFocus\(item\)/);
+  assert.match(app, /function focusTargetZoom\(level\)/);
+  assert.match(app, /level === 'province'\) return 6\.25/);
+  assert.match(app, /level === 'prefecture'\) return 8\.25/);
+  assert.match(app, /return 11\.2/);
+  assert.doesNotMatch(app, /const targetZoom = Math\.max\(baseTargetZoom/);
+});
+
+test('administrative focus drilldown scopes siblings and supports breadcrumb/back restoration', () => {
+  assert.match(html, /focus-navigation\.css/);
+  assert.match(app, /focus:\s*\{\s*path:\s*\[\]/s);
+  assert.match(app, /function applyFocusScope\(records\)/);
+  assert.match(app, /records\.filter\(\(cinema\) => matchesFocusScope\(cinema, focus\)\)/);
+  assert.match(app, /function navigateFocusToDepth\(depth\)/);
+  assert.match(app, /returnView: readMapView\(\)/);
+  assert.match(app, /restoreMapView\(restoreView\)/);
+  assert.match(app, /addCrumb\('全国', 0, false\)/);
+  assert.match(app, /← 返回/);
+  assert.match(app, /event\.key !== 'Escape'/);
+  assert.match(app, /effectiveDisplayZoom\(zoom\)/);
+  assert.match(app, /resetFocusNavigation\(\);\s*state\.nearby\.active = true/s);
+  assert.match(focusCss, /\.focus-navigation/);
+  assert.match(focusCss, /\.focus-breadcrumbs/);
+  assert.match(focusCss, /\.focus-back/);
 });
 
 test('administrative binding stays on the public record, not only inside location', () => {
