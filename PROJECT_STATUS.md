@@ -3,6 +3,7 @@
 更新日期：2026-08-26
 分支：`codex/public-release`
 发布动作：Cloudflare Worker 已上线；live URL：`https://china-imax-map.2652156974.workers.dev`
+本次发布：公开分支提交 `213d3fa`；Worker version `37fae793-3783-4d17-8db7-349d19f38508`
 
 ## 一句话状态
 

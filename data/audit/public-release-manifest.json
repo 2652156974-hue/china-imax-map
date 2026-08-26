@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-08-26T01:51:02.773Z",
+  "generatedAt": "2026-08-26T01:59:17.082Z",
   "manifestType": "public-release",
   "status": "public-runtime-ready",
   "publicationReady": true,
@@ -23,8 +23,8 @@
     },
     {
       "path": "PROJECT_STATUS.md",
-      "bytes": 3549,
-      "sha256": "13484261c922a0139549a04368fbfeddb77cbb11a4eced9369954f1d8a3526d9"
+      "bytes": 3649,
+      "sha256": "9106488bb587ad49044d9ec92dc44b8c45372d2831fdffdd2f4cc93488ee9d85"
     },
     {
       "path": "index.html",
@@ -108,8 +108,8 @@
     },
     {
       "path": "data/audit/public-boundary.json",
-      "bytes": 2016,
-      "sha256": "e874a20b87a0a355a7b29c2445348c1080e9398beef59f53cb8d9be246a9437a"
+      "bytes": 2095,
+      "sha256": "bd883cded4085a8a1c91a260f3c34354f643a95c5664207bf9e3f788858d47e4"
     },
     {
       "path": "data/audit/public-release-readiness.json",

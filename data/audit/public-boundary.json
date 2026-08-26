@@ -1,6 +1,6 @@
 {
   "schemaVersion": 2,
-  "generatedAt": "2026-08-26T01:51:01.147Z",
+  "generatedAt": "2026-08-26T01:59:15.599Z",
   "status": "public-boundary-check-passed",
   "publicDataset": {
     "file": "data/public/cinemas.json",
@@ -25,10 +25,10 @@
   },
   "deployment": {
     "platform": "cloudflare-workers",
-    "status": "not-deployed",
-    "url": null,
-    "sourceCommit": null,
-    "workerVersion": null,
+    "status": "deployed",
+    "url": "https://china-imax-map.2652156974.workers.dev",
+    "sourceCommit": "213d3fa",
+    "workerVersion": "37fae793-3783-4d17-8db7-349d19f38508",
     "onlineVerification": null
   },
   "security": {
@@ -50,7 +50,7 @@
     "recommendedBase": "fba4dcd (last clean public baseline before the Tencent raw mirror)",
     "noRemoteHistoryRewrite": true,
     "noMergePerformed": true,
-    "noDeployPerformed": true,
+    "noDeployPerformed": false,
     "intentionallyExcluded": [
       "data/raw/arvin-imax.json",
       "data/geocode/provider-cache/*.json",
