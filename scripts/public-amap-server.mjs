@@ -200,7 +200,7 @@ function serveStatic(requestPath, response, config, headOnly) {
 function setSecurityHeaders(response) {
   response.setHeader('X-Content-Type-Options', 'nosniff');
   response.setHeader('Referrer-Policy', 'strict-origin-when-cross-origin');
-  response.setHeader('Permissions-Policy', 'camera=(), microphone=(), geolocation=()');
+  response.setHeader('Permissions-Policy', 'camera=(), microphone=(), geolocation=(self)');
   response.setHeader(
     'Content-Security-Policy',
     "default-src 'self' data: blob: https://*.amap.com https://*.autonavi.com; " +

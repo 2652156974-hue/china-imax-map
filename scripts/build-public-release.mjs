@@ -31,7 +31,7 @@ assertSafeOutput(DIST_ROOT);
 fs.rmSync(DIST_ROOT, { recursive: true, force: true });
 fs.mkdirSync(path.join(DIST_ROOT, 'data'), { recursive: true });
 
-for (const filename of ['index.html', 'app.mjs', 'public-location-format.mjs', 'styles.css']) {
+for (const filename of ['index.html', 'app.mjs', 'public-location-format.mjs', 'nearby.mjs', 'admin-clusters.mjs', 'styles.css', '_headers']) {
   fs.copyFileSync(path.join(ROOT, filename), path.join(DIST_ROOT, filename));
 }
 fs.copyFileSync(PUBLIC_DATASET, path.join(DIST_ROOT, 'data/cinemas.json'));

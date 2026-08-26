@@ -1,15 +1,15 @@
 {
   "schemaVersion": 2,
-  "generatedAt": "2026-08-25T09:33:56.638Z",
+  "generatedAt": "2026-08-26T01:51:01.147Z",
   "status": "public-boundary-check-passed",
   "publicDataset": {
     "file": "data/public/cinemas.json",
-    "sha256": "f0b1fa67b756ac7d2897c585a6818d506f0e8062597cf1966664e157c90b0007",
+    "sha256": "2b672af161f89a1deb18bab5c6cabbfc094be78b5f8c147647cb8440db470224",
     "mode": "public-amap-runtime",
     "records": 901,
     "staticCoordinates": 0,
     "runtimeMarkerCount": 901,
-    "manifestStaticSha256": "f0b1fa67b756ac7d2897c585a6818d506f0e8062597cf1966664e157c90b0007",
+    "manifestStaticSha256": "2b672af161f89a1deb18bab5c6cabbfc094be78b5f8c147647cb8440db470224",
     "errors": []
   },
   "runtimeLayer": {
@@ -21,32 +21,15 @@
     "markerCount": 901,
     "coordinateSystem": "GCJ-02",
     "artifactFile": "tmp/cloudflare/public-amap-markers.json",
-    "artifactSha256": "feb20ed6448fb0c74f69412e1328de658370e728d462a06b441f75a769b83730"
+    "artifactSha256": "6c209ba1702e76bcbff5b45af952a21c14b312108e7369a635c6d7fcad09c7ab"
   },
   "deployment": {
     "platform": "cloudflare-workers",
-    "status": "deployed",
-    "url": "https://china-imax-map.2652156974.workers.dev",
-    "sourceCommit": "1fe090ad7445ea44c311238150965d72a563dbf5",
-    "workerVersion": "adb3ad08-66a0-4601-8745-3801985f474e",
-    "onlineVerification": {
-      "rootStatus": 200,
-      "appStatus": 200,
-      "formatterStatus": 200,
-      "stylesStatus": 200,
-      "runtimeConfigStatus": 200,
-      "markerStatus": 200,
-      "markerRecords": 901,
-      "markerUniqueSourceRows": 901,
-      "forbiddenFields": false,
-      "appContainsLocationInfo": true,
-      "appContainsOldRows": false,
-      "stylesSharedSurfacesAndWrap": true,
-      "infoWindowContainerBackground": "rgba(255, 255, 255, 0.97)",
-      "infoWindowContentBackground": "rgba(255, 255, 255, 0.97)",
-      "infoWindowHasLocationInfo": true,
-      "infoWindowHasOldRows": false
-    }
+    "status": "not-deployed",
+    "url": null,
+    "sourceCommit": null,
+    "workerVersion": null,
+    "onlineVerification": null
   },
   "security": {
     "cacheTracked": false,
@@ -67,7 +50,7 @@
     "recommendedBase": "fba4dcd (last clean public baseline before the Tencent raw mirror)",
     "noRemoteHistoryRewrite": true,
     "noMergePerformed": true,
-    "noDeployPerformed": false,
+    "noDeployPerformed": true,
     "intentionallyExcluded": [
       "data/raw/arvin-imax.json",
       "data/geocode/provider-cache/*.json",

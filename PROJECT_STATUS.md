@@ -1,12 +1,12 @@
 # china-imax-map 公开分支状态
 
-更新日期：2026-08-25
+更新日期：2026-08-26
 分支：`codex/public-release`
 发布动作：Cloudflare Worker 已上线；live URL：`https://china-imax-map.2652156974.workers.dev`
 
 ## 一句话状态
 
-公开运行包已把 901 条静态事实与运行时 marker 分离：静态层 0 坐标；Cloudflare Worker 从部署时生成的最小 marker 模块读取运行数据，公开静态构建不读取私有 marker。当前公开审计为 901 accepted、901 markers、0 unresolved/unlocated；线上 root/runtime-config/marker 验收通过。
+公开运行包已把 901 条静态事实与运行时 marker 分离：静态层 0 坐标；Cloudflare Worker 从部署时生成的最小 marker 模块读取运行数据，公开静态构建不读取私有 marker。当前公开审计为 901 accepted、901 markers、0 unresolved/unlocated；页面包含附近搜索与行政区显示，线上 root/runtime-config/marker 验收通过。
 
 ## 已完成
 
@@ -22,10 +22,10 @@
 ## 证据与检查
 
 ```powershell
-npm test                 # 20 pass / 0 fail
+npm test                 # 51 pass / 0 fail
 npm run check            # public-boundary-check-passed
 npm run validate:public  # 901 records, 0 static coordinates, 901 markers
-npm run cloudflare:check # 333.05 KiB upload / gzip 28.40 KiB; marker bundle entry passed
+npm run cloudflare:check # 354.84 KiB upload / gzip 28.84 KiB; marker bundle entry passed
 ```
 
 机器可读报告：[`data/audit/public-amap-quality.json`](data/audit/public-amap-quality.json)、[`data/audit/public-release-readiness.json`](data/audit/public-release-readiness.json)、[`data/audit/public-boundary.json`](data/audit/public-boundary.json)。

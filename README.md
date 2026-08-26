@@ -20,7 +20,7 @@ npm run start:public
 - `data/public/cinemas.json` 含 901 条静态事实，静态坐标数为 0。
 - 运行时 marker 审计为 901 条 accepted、901 个 marker、0 条 unresolved/unlocated，坐标系为 GCJ-02。
 - 3,604 个银幕/座位原文字段在派生层与公开层一致；raw 候选、provider cache 和凭据均不进入公开输出。
-- `npm test` 目标为 15/15；`npm run check` 和 `npm run validate:public` 是公开边界的发布前检查。
+- `npm test` 当前为 51/51；`npm run check` 和 `npm run validate:public` 是公开边界的发布前检查。
 
 详细机器可读证据见 [`data/audit/public-amap-quality.json`](data/audit/public-amap-quality.json)、[`data/audit/public-release-readiness.json`](data/audit/public-release-readiness.json) 和 [`data/audit/public-boundary.json`](data/audit/public-boundary.json)。公开分支使用 Cloudflare Workers Static Assets；最小 marker 只在部署时从本地忽略源打包进 Worker，不进入 Git 或静态资产。
 
@@ -69,7 +69,7 @@ npm run prepare:deploy
 npm run cloudflare:check
 ```
 
-`prepare:deploy` 会校验 901 条 accepted GCJ-02 marker，写入被忽略的 `tmp/cloudflare/public-amap-markers.json`、可导入的 `public-amap-markers.mjs`、临时 Worker 入口和 SHA-256；`build:cloudflare-public` 只复制 `index.html`、`app.mjs`、`styles.css`、`_headers` 和 `data/public/cinemas.json`，不会读取或复制私有 marker。临时入口只把最小 marker 模块打入 Worker bundle，不会让它成为静态文件。
+`prepare:deploy` 会校验 901 条 accepted GCJ-02 marker，写入被忽略的 `tmp/cloudflare/public-amap-markers.json`、可导入的 `public-amap-markers.mjs`、临时 Worker 入口和 SHA-256；`build:cloudflare-public` 只复制公开页面、附近/行政区模块、样式、响应头和 `data/public/cinemas.json`，不会读取或复制私有 marker。临时入口只把最小 marker 模块打入 Worker bundle，不会让它成为静态文件。
 
 ```powershell
 npx wrangler secret put AMAP_JS_API_KEY

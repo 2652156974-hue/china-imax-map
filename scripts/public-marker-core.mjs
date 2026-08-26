@@ -7,6 +7,18 @@ export const PUBLIC_RECORD_COUNT = 901;
 export const FIRST_SOURCE_ROW = 2;
 export const LAST_SOURCE_ROW = FIRST_SOURCE_ROW + PUBLIC_RECORD_COUNT - 1;
 
+const ADMINISTRATIVE_FIELDS = [
+  'provinceName',
+  'provinceCode',
+  'prefectureName',
+  'prefectureCode',
+  'prefectureLevel',
+  'countyName',
+  'countyCode',
+  'countyLevel',
+  'source'
+];
+
 export function hasAcceptedMarker(record) {
   return record?.provider === 'amap' && record?.providerCrs === 'GCJ-02' &&
     Number.isFinite(Number(record.providerLat)) && Number.isFinite(Number(record.providerLng)) &&
@@ -74,8 +86,19 @@ export function minimalMarker(record) {
     locationConfidence: record.locationConfidence ?? null,
     identityConfidence: record.identityConfidence ?? null,
     decisionOrigin: record.decisionOrigin ?? null,
-    reviewVerdict: record.reviewVerdict ?? null
+    reviewVerdict: record.reviewVerdict ?? null,
+    administrative: minimalAdministrative(record.administrative)
   };
+}
+
+function minimalAdministrative(value) {
+  if (!value || typeof value !== 'object' || Array.isArray(value)) return null;
+  const output = {};
+  for (const field of ADMINISTRATIVE_FIELDS) {
+    const candidate = value[field];
+    if (typeof candidate === 'string' && candidate.trim()) output[field] = candidate.trim();
+  }
+  return Object.keys(output).length ? output : null;
 }
 
 export function buildMinimalMarkerLayer(layer) {

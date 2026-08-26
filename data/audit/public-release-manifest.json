@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-08-25T09:33:57.296Z",
+  "generatedAt": "2026-08-26T01:51:02.773Z",
   "manifestType": "public-release",
   "status": "public-runtime-ready",
   "publicationReady": true,
@@ -18,13 +18,13 @@
     },
     {
       "path": "README.md",
-      "bytes": 5329,
-      "sha256": "618b2af9e59ae85b18e5af1cfc7660fdd29f56dba3394b52068e9967a4166042"
+      "bytes": 5333,
+      "sha256": "658604d42dac28906fc054492a9b3f261f7952f393dba9382c6b8f07dbf58239"
     },
     {
       "path": "PROJECT_STATUS.md",
-      "bytes": 3504,
-      "sha256": "adb3e0abdaa77bce4f5656b7823820584896021f8ef8ee5bb1c5620878698634"
+      "bytes": 3549,
+      "sha256": "13484261c922a0139549a04368fbfeddb77cbb11a4eced9369954f1d8a3526d9"
     },
     {
       "path": "index.html",
@@ -33,8 +33,8 @@
     },
     {
       "path": "app.mjs",
-      "bytes": 23311,
-      "sha256": "d1562f2d248575421d7af3d65a6d69ba1d8d70aa5dbfee39b7d0d60a316ffb7c"
+      "bytes": 33996,
+      "sha256": "48ffe5e500c378d8cee9c9968a598f95b81421ff4895a9efe2982436493342ab"
     },
     {
       "path": "public-location-format.mjs",
@@ -42,14 +42,24 @@
       "sha256": "f9d3ecdab91586440c9f127a72ce8153869eeee05a450b6e71991b65f2fe8136"
     },
     {
+      "path": "nearby.mjs",
+      "bytes": 10663,
+      "sha256": "2079ef457f7d19948ddc44fc717523155818e757c176ec025d7b1a0dcf341650"
+    },
+    {
+      "path": "admin-clusters.mjs",
+      "bytes": 24856,
+      "sha256": "fc106d33e77dbe74d61838dd9515de22b758d873bec0549143e8f4fa19f0947d"
+    },
+    {
       "path": "styles.css",
-      "bytes": 8477,
-      "sha256": "f9b4b57a2bb7063704d798b80fa3ad5d4cdfcbe17130d59d680df478952af274"
+      "bytes": 13683,
+      "sha256": "5462b7ace442221aa1643b05a03bcf2aad60bdf4dca718485474fdbb4a09bac1"
     },
     {
       "path": "_headers",
-      "bytes": 675,
-      "sha256": "4f1a12bb14516aced38d51819975a93a84d2a555f248708bb3457b1373f78d4a"
+      "bytes": 679,
+      "sha256": "0352d3836e9346aa70adc3b346c545e3d619a889fd3021c0f39080611122a54a"
     },
     {
       "path": "wrangler.jsonc",
@@ -83,23 +93,23 @@
     },
     {
       "path": "data/public/cinemas.json",
-      "bytes": 1283777,
-      "sha256": "f0b1fa67b756ac7d2897c585a6818d506f0e8062597cf1966664e157c90b0007"
+      "bytes": 1283776,
+      "sha256": "2b672af161f89a1deb18bab5c6cabbfc094be78b5f8c147647cb8440db470224"
     },
     {
       "path": "data/audit/public-amap-quality.json",
       "bytes": 1409,
-      "sha256": "b3722fd591388743d04db0bd99825ecc0dd9bf75c3b74774481b421901e2c148"
+      "sha256": "a4047095c20f8ab3ae28181bced30a2ec16627137adcc807e586fc74c46899f2"
     },
     {
       "path": "data/audit/public-amap-unresolved.json",
       "bytes": 151,
-      "sha256": "72e76a7451b1f88e0e65e4286753ef23e9ae5c191a121360bd576b03c17136db"
+      "sha256": "6effcd4db77e3b2de853abd66857171000f671a3110eb871816d04f819634aea"
     },
     {
       "path": "data/audit/public-boundary.json",
-      "bytes": 2723,
-      "sha256": "9f653048a784b0ba80663cc56938dfac51f7f7b4e71007419da329234db92b41"
+      "bytes": 2016,
+      "sha256": "e874a20b87a0a355a7b29c2445348c1080e9398beef59f53cb8d9be246a9437a"
     },
     {
       "path": "data/audit/public-release-readiness.json",
@@ -153,18 +163,18 @@
     },
     {
       "path": "scripts/build-public-manifest.mjs",
-      "bytes": 4565,
-      "sha256": "7681a8ce428d018043cf5e6a9e496cb4a86c567cb9fa04189971bd521c52568e"
+      "bytes": 4844,
+      "sha256": "4a04859ab6e5d9d814ad016b9ab6107b26cb68fea7f7d002fb2fea8ca6f0fad0"
     },
     {
       "path": "scripts/build-public-release.mjs",
-      "bytes": 2507,
-      "sha256": "82b6caed0285b026826176e2e9ef17a5eb3393d30512b8221efe40c5cfc53e1e"
+      "bytes": 2615,
+      "sha256": "00d07e104c0a04cf0a9a545725f03e79e74118b4c338472e786fc99158d4b644"
     },
     {
       "path": "scripts/build-cloudflare-public.mjs",
-      "bytes": 3529,
-      "sha256": "4efbd186ca480395c06c0b0387cd7081595404a6d034aed1c9aabf42c13f003d"
+      "bytes": 3640,
+      "sha256": "2964226630874ba9fe5d9a4dc413acd84a6caede02d35ad72678cd66ec6c9eb5"
     },
     {
       "path": "scripts/cloudflare-check.mjs",
@@ -178,13 +188,13 @@
     },
     {
       "path": "scripts/public-marker-core.mjs",
-      "bytes": 6013,
-      "sha256": "499a4ae674575621e1a0cbfc4cb6f6bfcb5eb9113d03f859612115973c36b1fb"
+      "bytes": 6774,
+      "sha256": "9b7e8bfc1d6995edb7d45f051a4fffc3f28413f6cff20b6274cb30c8104567a1"
     },
     {
       "path": "scripts/public-amap-server.mjs",
-      "bytes": 11258,
-      "sha256": "fa410b7f76fbfd3061c7291638fde7a75277abe5221cf08fcd9c28091a55d00f"
+      "bytes": 11262,
+      "sha256": "e9786ad336a0099b6a78dc8ecfc7410f67bb785f0aa8be5219ebceaad9a1e232"
     },
     {
       "path": "scripts/public-amap-server.test.mjs",
@@ -248,13 +258,23 @@
     },
     {
       "path": "scripts/map-frontend.test.mjs",
-      "bytes": 4779,
-      "sha256": "06cb58512d00d9fbede68dbdca84248bb66ee5a6c41b90452ecb32d54a4d21ac"
+      "bytes": 6928,
+      "sha256": "09201b406853c4503dd7d50e57024c1e840df200e6eb19bed2999a356bbebd46"
     },
     {
       "path": "scripts/fixtures/amap-js-sdk.mock.js",
-      "bytes": 3026,
-      "sha256": "f41b00d10c16677204b8bbc311dda1a2cf0da11004f5e0a616d654ee829e3b40"
+      "bytes": 5481,
+      "sha256": "e779a9c4b90c12d125d35994e053963997b373401a8241915979d1ba8f071171"
+    },
+    {
+      "path": "scripts/nearby.test.mjs",
+      "bytes": 7794,
+      "sha256": "00f95afcb5d51bc4c031bd7d39e92cda7d93bc6e9300fadf5a480c24499cb8d1"
+    },
+    {
+      "path": "scripts/admin-clusters.test.mjs",
+      "bytes": 15965,
+      "sha256": "c4413701cc2e0ed70d8ef2b1e55993e1b9394595d11a867527390d7b3bd97e58"
     },
     {
       "path": "dist-public/index.html",
@@ -263,8 +283,8 @@
     },
     {
       "path": "dist-public/app.mjs",
-      "bytes": 23311,
-      "sha256": "d1562f2d248575421d7af3d65a6d69ba1d8d70aa5dbfee39b7d0d60a316ffb7c"
+      "bytes": 33996,
+      "sha256": "48ffe5e500c378d8cee9c9968a598f95b81421ff4895a9efe2982436493342ab"
     },
     {
       "path": "dist-public/public-location-format.mjs",
@@ -272,19 +292,29 @@
       "sha256": "f9d3ecdab91586440c9f127a72ce8153869eeee05a450b6e71991b65f2fe8136"
     },
     {
+      "path": "dist-public/nearby.mjs",
+      "bytes": 10663,
+      "sha256": "2079ef457f7d19948ddc44fc717523155818e757c176ec025d7b1a0dcf341650"
+    },
+    {
+      "path": "dist-public/admin-clusters.mjs",
+      "bytes": 24856,
+      "sha256": "fc106d33e77dbe74d61838dd9515de22b758d873bec0549143e8f4fa19f0947d"
+    },
+    {
       "path": "dist-public/styles.css",
-      "bytes": 8477,
-      "sha256": "f9b4b57a2bb7063704d798b80fa3ad5d4cdfcbe17130d59d680df478952af274"
+      "bytes": 13683,
+      "sha256": "5462b7ace442221aa1643b05a03bcf2aad60bdf4dca718485474fdbb4a09bac1"
     },
     {
       "path": "dist-public/_headers",
-      "bytes": 675,
-      "sha256": "4f1a12bb14516aced38d51819975a93a84d2a555f248708bb3457b1373f78d4a"
+      "bytes": 679,
+      "sha256": "0352d3836e9346aa70adc3b346c545e3d619a889fd3021c0f39080611122a54a"
     },
     {
       "path": "dist-public/data/cinemas.json",
-      "bytes": 1283777,
-      "sha256": "f0b1fa67b756ac7d2897c585a6818d506f0e8062597cf1966664e157c90b0007"
+      "bytes": 1283776,
+      "sha256": "2b672af161f89a1deb18bab5c6cabbfc094be78b5f8c147647cb8440db470224"
     }
   ],
   "counts": {

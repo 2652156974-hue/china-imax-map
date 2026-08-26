@@ -26,6 +26,7 @@
     "notes": [
       "Raw source display text is retained in projection.raw, nameRaw, screen.rawWidth/rawHeight/rawArea and seatsRaw.",
       "Multi-value dimensions are not reduced by first/last/max/min rules; unresolved values remain null and are reviewed.",
+      "Only materialized fields listed in data/audit/screen-seat-web-review-decisions.json are written back; all other conflicting values remain null and raw source text remains unchanged.",
       "Coordinates are populated only from data/derived/geocode-cache.json entries with an explicit provider and confidence."
     ]
   },
@@ -938,13 +939,13 @@
         "plannedSystem": null
       },
       "screen": {
-        "width": null,
-        "height": null,
-        "area": null,
+        "width": 25.88,
+        "height": 13.46,
+        "area": 348.345,
         "rawWidth": "25.880\n23.453",
         "rawHeight": "13.460\n12.678",
         "rawArea": "348.3450\n297.3371",
-        "selectionConfidence": "unknown"
+        "selectionConfidence": "high"
       },
       "seats": 329,
       "seatsRaw": "329",
@@ -964,6 +965,23 @@
         "sheetUrl": "https://docs.qq.com/sheet/DQ3FEUUZJdklNSWJP",
         "tabId": "BB08J2",
         "tab": "IMAX中国"
+      },
+      "screenSeatReview": {
+        "classification": "resolved-current",
+        "checkedAt": "2026-08-25",
+        "reviewer": "codex-web-review",
+        "confidence": "high",
+        "materializedFields": [
+          "width",
+          "height",
+          "area"
+        ],
+        "decisionNote": "当前配置采用已由具体影院官方身份/时间与两条独立媒体尺寸报道共同支持的第一组 25.880×13.460 / 348.3450；raw 第二组 23.453×12.678 / 297.3371 原样保留为未解释历史/测量口径，不改座位 329。",
+        "sourceUrls": [
+          "https://www.wanda.cn/2018/2018latest_0905/39180.html",
+          "https://wenhui.whb.cn/third/zaker/202001/22/316729.html",
+          "https://static.zhoudaosh.com/5DCD20D5B6D21B16CA02A14CD4395A4643AA8C65A1313BB421C6A7C16D1DFD72"
+        ]
       }
     },
     {
@@ -2448,15 +2466,15 @@
         "plannedSystem": null
       },
       "screen": {
-        "width": null,
-        "height": null,
+        "width": 24.38,
+        "height": 13.6,
         "area": null,
         "rawWidth": "24.380\n25.720\n24.380\n24.457",
         "rawHeight": "13.880\n14.030\n13.600\n13.619",
         "rawArea": "338.3944\n360.8516\n331.5680\n333.0798",
-        "selectionConfidence": "unknown"
+        "selectionConfidence": "high"
       },
-      "seats": null,
+      "seats": 426,
       "seatsRaw": "453\n445\n426",
       "status": "open",
       "historySummary": "1 条明确状态信号；最新信号：2026-05-29 开业",
@@ -2474,6 +2492,21 @@
         "sheetUrl": "https://docs.qq.com/sheet/DQ3FEUUZJdklNSWJP",
         "tabId": "BB08J2",
         "tab": "IMAX中国"
+      },
+      "screenSeatReview": {
+        "classification": "partially-resolved",
+        "checkedAt": "2026-08-25",
+        "reviewer": "codex-web-review",
+        "confidence": "high",
+        "materializedFields": [
+          "width",
+          "height",
+          "seats"
+        ],
+        "decisionNote": "网页证据可收口当前宽度、高度和座位为 24.38 m / 13.6 m / 426；原表中第三组 24.380×13.600 与 426 对齐。报道面积约 333.56 m² 与 raw 第三/第四组面积口径不完全一致，因此 area 仍待核，禁止用乘积自动填补。",
+        "sourceUrls": [
+          "https://www.esquirecn.cn/xiansheng/detail/49850"
+        ]
       }
     },
     {
