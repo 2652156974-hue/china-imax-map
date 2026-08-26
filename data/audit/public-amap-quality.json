@@ -1,0 +1,61 @@
+{
+  "schemaVersion": 1,
+  "generatedAt": "2026-08-26T01:46:25.938Z",
+  "status": "public-amap-runtime-layer-ready",
+  "dataset": "data/local/public-amap-reviewed-geocodes.json",
+  "total": 901,
+  "accepted": 901,
+  "unresolvedPublic": 0,
+  "unlocated": 0,
+  "acceptedPlusUnlocated": 901,
+  "statePartition": true,
+  "releaseInvariant": {
+    "acceptedPlusUnlocated": true,
+    "markerCountEqualsAccepted": true
+  },
+  "automaticHigh": 799,
+  "reviewedOverrideHigh": 4,
+  "automaticMedium": 0,
+  "unreviewedDefault": 0,
+  "unresolvedDefault": 0,
+  "reviewedRejections": 0,
+  "lunaReviewedExact": 80,
+  "lunaReviewedLocationOnly": 16,
+  "lunaReviewedHistoricalLocation": 2,
+  "canonicalIdentityExact": 801,
+  "canonicalLocationOnly": 100,
+  "granularity": {
+    "auditorium": 2,
+    "cinema": 799,
+    "mall": 20,
+    "venue": 80
+  },
+  "regions": {
+    "中国大陆": 881,
+    "台湾": 12,
+    "澳门": 1,
+    "香港": 7
+  },
+  "systems": {
+    "Commercial Laser": 105,
+    "GT Laser": 8,
+    "Laser XT": 113,
+    "Xenon": 669,
+    "unknown": 6
+  },
+  "duplicateProviderPoiIdGroups": [
+    {
+      "providerPoiId": "B000A83GVH",
+      "count": 2
+    },
+    {
+      "providerPoiId": "B00150C4B6",
+      "count": 2
+    }
+  ],
+  "staticBulkCoordinateArtifactsExposed": 0,
+  "securityCodeFindings": 0,
+  "markerCount": 901,
+  "markerCoordinateSystem": "GCJ-02",
+  "sourceRowAssociation": "sourceRow/id only"
+}

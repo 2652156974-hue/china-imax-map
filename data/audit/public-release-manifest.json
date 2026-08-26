@@ -1,0 +1,351 @@
+{
+  "schemaVersion": 1,
+  "generatedAt": "2026-08-26T01:59:17.082Z",
+  "manifestType": "public-release",
+  "status": "public-runtime-ready",
+  "publicationReady": true,
+  "scope": "Public source, static facts, runtime marker service, public-safe audits, tests and documentation.",
+  "files": [
+    {
+      "path": ".env.example",
+      "bytes": 923,
+      "sha256": "6219d73f3f9056bb6516426a26da635bd986746fb99f65789a9e69b66bd323d3"
+    },
+    {
+      "path": ".gitignore",
+      "bytes": 751,
+      "sha256": "be16cafa030846c90d73ea55963a8cb35650776841e1e3190484996e88ce3637"
+    },
+    {
+      "path": "README.md",
+      "bytes": 5333,
+      "sha256": "658604d42dac28906fc054492a9b3f261f7952f393dba9382c6b8f07dbf58239"
+    },
+    {
+      "path": "PROJECT_STATUS.md",
+      "bytes": 3649,
+      "sha256": "9106488bb587ad49044d9ec92dc44b8c45372d2831fdffdd2f4cc93488ee9d85"
+    },
+    {
+      "path": "index.html",
+      "bytes": 4820,
+      "sha256": "38d5407540d4584933159157d00eb91c856bd46217ad0efbc2fe5ce8d306dffe"
+    },
+    {
+      "path": "app.mjs",
+      "bytes": 33996,
+      "sha256": "48ffe5e500c378d8cee9c9968a598f95b81421ff4895a9efe2982436493342ab"
+    },
+    {
+      "path": "public-location-format.mjs",
+      "bytes": 3748,
+      "sha256": "f9d3ecdab91586440c9f127a72ce8153869eeee05a450b6e71991b65f2fe8136"
+    },
+    {
+      "path": "nearby.mjs",
+      "bytes": 10663,
+      "sha256": "2079ef457f7d19948ddc44fc717523155818e757c176ec025d7b1a0dcf341650"
+    },
+    {
+      "path": "admin-clusters.mjs",
+      "bytes": 24856,
+      "sha256": "fc106d33e77dbe74d61838dd9515de22b758d873bec0549143e8f4fa19f0947d"
+    },
+    {
+      "path": "styles.css",
+      "bytes": 13683,
+      "sha256": "5462b7ace442221aa1643b05a03bcf2aad60bdf4dca718485474fdbb4a09bac1"
+    },
+    {
+      "path": "_headers",
+      "bytes": 679,
+      "sha256": "0352d3836e9346aa70adc3b346c545e3d619a889fd3021c0f39080611122a54a"
+    },
+    {
+      "path": "wrangler.jsonc",
+      "bytes": 580,
+      "sha256": "bc077e4a4525cf0de13e310f70b786aff3276f7c75639dfacea5d7ae8f40c32e"
+    },
+    {
+      "path": "tsconfig.json",
+      "bytes": 319,
+      "sha256": "f18a9c435901cf478b62c4eefa3dcf683cba98cce6dd2fd18f8e0608c365bd52"
+    },
+    {
+      "path": "package.json",
+      "bytes": 1400,
+      "sha256": "9c7fa66e9dc7f560b40ae6e98d8b4f936ff029e59d3c7deb8a4bac60924ec0ac"
+    },
+    {
+      "path": "package-lock.json",
+      "bytes": 62755,
+      "sha256": "23d32dd58f0fd6a5634435b260ea9bd8f93828e5a81c2376f6159d8756bf2f12"
+    },
+    {
+      "path": "START_PUBLIC_MAP.cmd",
+      "bytes": 221,
+      "sha256": "2f96f2629e6e7da54d6602ce82483ab3e1feff423db8705d5299b30d441bff90"
+    },
+    {
+      "path": "STOP_PUBLIC_MAP.cmd",
+      "bytes": 219,
+      "sha256": "38d0d384ffee8ef01233bc78411eefecf749ca30b6e9194176bca9b8723f6ed7"
+    },
+    {
+      "path": "data/public/cinemas.json",
+      "bytes": 1283776,
+      "sha256": "2b672af161f89a1deb18bab5c6cabbfc094be78b5f8c147647cb8440db470224"
+    },
+    {
+      "path": "data/audit/public-amap-quality.json",
+      "bytes": 1409,
+      "sha256": "a4047095c20f8ab3ae28181bced30a2ec16627137adcc807e586fc74c46899f2"
+    },
+    {
+      "path": "data/audit/public-amap-unresolved.json",
+      "bytes": 151,
+      "sha256": "6effcd4db77e3b2de853abd66857171000f671a3110eb871816d04f819634aea"
+    },
+    {
+      "path": "data/audit/public-boundary.json",
+      "bytes": 2095,
+      "sha256": "bd883cded4085a8a1c91a260f3c34354f643a95c5664207bf9e3f788858d47e4"
+    },
+    {
+      "path": "data/audit/public-release-readiness.json",
+      "bytes": 8722,
+      "sha256": "3d2af743ec332859a4022b6ad594f7129415cffd3fb6647d2d6bda027cd3d630"
+    },
+    {
+      "path": "data/audit/public-amap-browser-smoke.json",
+      "bytes": 3051,
+      "sha256": "d8c6d0361822ead442b8fc6fd717ea4c796fa9d614b61f367bdcbe1d601f6760"
+    },
+    {
+      "path": "data/audit/amap-quota-guard.json",
+      "bytes": 1066,
+      "sha256": "89c4ff8f686e05dcaca0ed60db3abd1f72b6767cda4dd560ce6e5d9b6e875109"
+    },
+    {
+      "path": "docs/DATA-LICENSING.md",
+      "bytes": 1500,
+      "sha256": "ac65ca48ed93f7058fc1d92a59b57eb4eb45d3ff560050751063b4189a78e01d"
+    },
+    {
+      "path": "docs/DATA_PIPELINE.md",
+      "bytes": 1803,
+      "sha256": "4700658d54e7b6b0220251bd6fbaf71682a49400b4aef98b85687562bfb43d6d"
+    },
+    {
+      "path": "docs/GEOCODING.md",
+      "bytes": 1820,
+      "sha256": "7cb8c1b070d1797ed7b0ead7813802f3a57c6e4de0a583795bbf066a4849de0d"
+    },
+    {
+      "path": "docs/MAP_FRONTEND.md",
+      "bytes": 1599,
+      "sha256": "1b8a6e063a8b55b047e84d7b4a6f0676b5a8abcd72f26aa6ea93852617aacbc1"
+    },
+    {
+      "path": "docs/PROJECT_STRUCTURE.md",
+      "bytes": 2019,
+      "sha256": "c5de26296d48a8c446376edee5761c08a9c406e7ebde126276f739f8760b945b"
+    },
+    {
+      "path": "scripts/build-public-amap-layer.mjs",
+      "bytes": 11988,
+      "sha256": "9551b8c407d70bfbd68091aaa607d12bbb01e482a4ffe4f135ad23c123d9f753"
+    },
+    {
+      "path": "scripts/build-public-dataset.mjs",
+      "bytes": 5805,
+      "sha256": "a3c3dda7641cf5286155158c5765c32475d6446b8f3fc673c8f900785c2ec409"
+    },
+    {
+      "path": "scripts/build-public-manifest.mjs",
+      "bytes": 4844,
+      "sha256": "4a04859ab6e5d9d814ad016b9ab6107b26cb68fea7f7d002fb2fea8ca6f0fad0"
+    },
+    {
+      "path": "scripts/build-public-release.mjs",
+      "bytes": 2615,
+      "sha256": "00d07e104c0a04cf0a9a545725f03e79e74118b4c338472e786fc99158d4b644"
+    },
+    {
+      "path": "scripts/build-cloudflare-public.mjs",
+      "bytes": 3640,
+      "sha256": "2964226630874ba9fe5d9a4dc413acd84a6caede02d35ad72678cd66ec6c9eb5"
+    },
+    {
+      "path": "scripts/cloudflare-check.mjs",
+      "bytes": 1708,
+      "sha256": "705d748ec5f6e7bf81c88549caf6419b69fb34926c481bceb9f28c7abc1c09d5"
+    },
+    {
+      "path": "scripts/prepare-public-deploy.mjs",
+      "bytes": 3579,
+      "sha256": "9ce18e7fc04200be2e445acba0c37ecaf5ab366a335fa2100e5b979413c5b300"
+    },
+    {
+      "path": "scripts/public-marker-core.mjs",
+      "bytes": 6774,
+      "sha256": "9b7e8bfc1d6995edb7d45f051a4fffc3f28413f6cff20b6274cb30c8104567a1"
+    },
+    {
+      "path": "scripts/public-amap-server.mjs",
+      "bytes": 11262,
+      "sha256": "e9786ad336a0099b6a78dc8ecfc7410f67bb785f0aa8be5219ebceaad9a1e232"
+    },
+    {
+      "path": "scripts/public-amap-server.test.mjs",
+      "bytes": 4412,
+      "sha256": "98c1c7f5a8474f0e5627143b539eb27895f602fcab0fb92d02afddd9d99d11c4"
+    },
+    {
+      "path": "scripts/public-boundary.test.mjs",
+      "bytes": 3260,
+      "sha256": "1af007876bdbfd6c4bc339e286e545457f226da7885f60cc2e8c0b86bcfe8f44"
+    },
+    {
+      "path": "scripts/public-data.test.mjs",
+      "bytes": 3677,
+      "sha256": "b8f0d207d8a852732a740dbaabeb75b59db27c9b15a8a9216fc428d1ad754780"
+    },
+    {
+      "path": "scripts/cloudflare-worker.test.mjs",
+      "bytes": 4559,
+      "sha256": "d6b38631c5dcb641850fe1001c8670e01f10534e7c61f5a521a8ceb7e285e985"
+    },
+    {
+      "path": "scripts/validate-public.mjs",
+      "bytes": 10837,
+      "sha256": "df0ac47d96ee2a3946ce226a7604d0229f831c1b6a5021f6ae690c09a663f66a"
+    },
+    {
+      "path": "scripts/validate-public-boundary.mjs",
+      "bytes": 14557,
+      "sha256": "c0f43db199737c7841bf5162d100f24fb2e0fd6c84794401497d6e3abe075c84"
+    },
+    {
+      "path": "scripts/start-public-map.ps1",
+      "bytes": 4555,
+      "sha256": "eba44c3b3705f6359904db3e1da5c49d537654e0c4f340c873c974cfb3fa26f9"
+    },
+    {
+      "path": "scripts/stop-public-map.ps1",
+      "bytes": 1341,
+      "sha256": "6d014b6b6207ec6dd5ee4563a9559f9f9af7638231e567f0247151cfe2d82d37"
+    },
+    {
+      "path": "worker/index.mjs",
+      "bytes": 7084,
+      "sha256": "62903bf4cced9ae1b212ff0247dedb9b290f5a9f3f87779a073251ef55721747"
+    },
+    {
+      "path": "worker/types.d.ts",
+      "bytes": 105,
+      "sha256": "caec7719dfb049eb47db61b471545eef97b4037c346613a7d8140661050a6e54"
+    },
+    {
+      "path": "scripts/map-data-adapter.mjs",
+      "bytes": 3688,
+      "sha256": "30e520ca86564f42cd07166a783980ea60c44aa83d04513173756257db587c53"
+    },
+    {
+      "path": "scripts/map-data-adapter.test.mjs",
+      "bytes": 3051,
+      "sha256": "955cddd05212430ce018afa67f2e95c1684ba6940ec4ab113a21ed6484941fe8"
+    },
+    {
+      "path": "scripts/map-frontend.test.mjs",
+      "bytes": 6928,
+      "sha256": "09201b406853c4503dd7d50e57024c1e840df200e6eb19bed2999a356bbebd46"
+    },
+    {
+      "path": "scripts/fixtures/amap-js-sdk.mock.js",
+      "bytes": 5481,
+      "sha256": "e779a9c4b90c12d125d35994e053963997b373401a8241915979d1ba8f071171"
+    },
+    {
+      "path": "scripts/nearby.test.mjs",
+      "bytes": 7794,
+      "sha256": "00f95afcb5d51bc4c031bd7d39e92cda7d93bc6e9300fadf5a480c24499cb8d1"
+    },
+    {
+      "path": "scripts/admin-clusters.test.mjs",
+      "bytes": 15965,
+      "sha256": "c4413701cc2e0ed70d8ef2b1e55993e1b9394595d11a867527390d7b3bd97e58"
+    },
+    {
+      "path": "dist-public/index.html",
+      "bytes": 4820,
+      "sha256": "38d5407540d4584933159157d00eb91c856bd46217ad0efbc2fe5ce8d306dffe"
+    },
+    {
+      "path": "dist-public/app.mjs",
+      "bytes": 33996,
+      "sha256": "48ffe5e500c378d8cee9c9968a598f95b81421ff4895a9efe2982436493342ab"
+    },
+    {
+      "path": "dist-public/public-location-format.mjs",
+      "bytes": 3748,
+      "sha256": "f9d3ecdab91586440c9f127a72ce8153869eeee05a450b6e71991b65f2fe8136"
+    },
+    {
+      "path": "dist-public/nearby.mjs",
+      "bytes": 10663,
+      "sha256": "2079ef457f7d19948ddc44fc717523155818e757c176ec025d7b1a0dcf341650"
+    },
+    {
+      "path": "dist-public/admin-clusters.mjs",
+      "bytes": 24856,
+      "sha256": "fc106d33e77dbe74d61838dd9515de22b758d873bec0549143e8f4fa19f0947d"
+    },
+    {
+      "path": "dist-public/styles.css",
+      "bytes": 13683,
+      "sha256": "5462b7ace442221aa1643b05a03bcf2aad60bdf4dca718485474fdbb4a09bac1"
+    },
+    {
+      "path": "dist-public/_headers",
+      "bytes": 679,
+      "sha256": "0352d3836e9346aa70adc3b346c545e3d619a889fd3021c0f39080611122a54a"
+    },
+    {
+      "path": "dist-public/data/cinemas.json",
+      "bytes": 1283776,
+      "sha256": "2b672af161f89a1deb18bab5c6cabbfc094be78b5f8c147647cb8440db470224"
+    }
+  ],
+  "counts": {
+    "total": 901,
+    "accepted": 901,
+    "locationOnly": 100,
+    "unlocated": 0,
+    "acceptedPlusUnlocated": 901,
+    "markerCount": 901,
+    "screenSeatRawFieldMatches": 3604
+  },
+  "invariants": {
+    "acceptedPlusUnlocatedEqualsTotal": true,
+    "markerCountEqualsAccepted": true,
+    "staticCoordinates": 0,
+    "sourceRowAssociation": "sourceRow/id only"
+  },
+  "security": {
+    "rawSnapshotIncluded": false,
+    "providerCacheIncluded": false,
+    "rawCandidatesIncluded": false,
+    "securityCodeInPublicBundle": false,
+    "staticBulkCoordinateArtifacts": 0,
+    "publicBoundaryStatus": "public-boundary-check-passed"
+  },
+  "exclusions": [
+    "raw source snapshots",
+    "provider cache",
+    "local marker source",
+    "bulk coordinate export",
+    "runtime credentials"
+  ],
+  "noRemotePushOrDeploy": true
+}

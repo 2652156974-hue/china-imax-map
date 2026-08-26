@@ -1,0 +1,103 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://2652156974-hue.github.io/china-imax-map/schemas/derived-cinemas.json",
+  "title": "China IMAX derived cinema dataset",
+  "type": "object",
+  "required": ["schemaVersion", "generatedAt", "dataset", "source", "columns", "records"],
+  "properties": {
+    "schemaVersion": { "const": 1 },
+    "generatedAt": { "type": "string", "format": "date-time" },
+    "dataset": { "const": "arvin-imax-derived-cinemas" },
+    "source": {
+      "type": "object",
+      "required": ["maintainer", "document", "url", "sheetUrl", "tabId", "tab"],
+      "properties": {
+        "maintainer": { "const": "@ArvinTingcn" },
+        "document": { "type": "string" },
+        "url": { "type": "string", "format": "uri" },
+        "sheetUrl": { "type": "string", "format": "uri" },
+        "tabId": { "const": "BB08J2" },
+        "tab": { "const": "IMAX中国" }
+      },
+      "additionalProperties": true
+    },
+    "columns": { "type": "array", "minItems": 8, "items": { "type": "string" } },
+    "records": {
+      "type": "array",
+      "items": { "$ref": "#/$defs/cinema" }
+    }
+  },
+  "$defs": {
+    "nullableNumber": { "type": ["number", "null"] },
+    "cinema": {
+      "type": "object",
+      "required": ["id", "sourceRow", "name", "nameRaw", "formerNames", "unparsedNameLines", "region", "province", "city", "projection", "screen", "seats", "seatsRaw", "status", "historySummary", "location", "source"],
+      "properties": {
+        "id": { "type": "string", "minLength": 1 },
+        "sourceRow": { "type": "integer", "minimum": 2, "maximum": 902 },
+        "name": { "type": "string" },
+        "nameRaw": { "type": "string" },
+        "formerNames": { "type": "array", "items": { "type": "string" } },
+        "unparsedNameLines": { "type": "array", "items": { "type": "string" } },
+        "region": { "type": "string" },
+        "province": { "type": ["string", "null"] },
+        "city": { "type": ["string", "null"] },
+        "projection": {
+          "type": "object",
+          "required": ["raw", "technology", "system", "is3D", "audioChannels", "dome", "film1570"],
+          "properties": {
+            "raw": { "type": "string" },
+            "technology": { "type": "string" },
+            "system": { "type": "string" },
+            "geometry": { "type": ["string", "null"] },
+            "is3D": { "type": ["boolean", "null"] },
+            "audioChannels": { "type": ["integer", "null"] },
+            "dome": { "type": "boolean" },
+            "film1570": { "type": ["boolean", "null"] }
+          },
+          "additionalProperties": true
+        },
+        "screen": {
+          "type": "object",
+          "required": ["width", "height", "area", "rawWidth", "rawHeight", "rawArea", "selectionConfidence"],
+          "properties": {
+            "width": { "$ref": "#/$defs/nullableNumber" },
+            "height": { "$ref": "#/$defs/nullableNumber" },
+            "area": { "$ref": "#/$defs/nullableNumber" },
+            "rawWidth": { "type": "string" },
+            "rawHeight": { "type": "string" },
+            "rawArea": { "type": "string" },
+            "selectionConfidence": { "enum": ["high", "medium", "low", "unknown"] }
+          },
+          "additionalProperties": false
+        },
+        "seats": { "$ref": "#/$defs/nullableNumber" },
+        "seatsRaw": { "type": "string" },
+        "status": { "enum": ["open", "closed", "temporarily_closed", "unknown"] },
+        "historySummary": { "type": "string" },
+        "location": {
+          "type": "object",
+          "required": ["lat", "lng", "address", "geocodeConfidence", "geocodeSource"],
+          "properties": {
+            "lat": { "$ref": "#/$defs/nullableNumber" },
+            "lng": { "$ref": "#/$defs/nullableNumber" },
+            "providerLat": { "$ref": "#/$defs/nullableNumber" },
+            "providerLng": { "$ref": "#/$defs/nullableNumber" },
+            "providerCrs": { "type": ["string", "null"], "enum": ["GCJ-02", "WGS84", null] },
+            "mapCrs": { "type": ["string", "null"], "enum": ["WGS84", null] },
+            "positionType": { "type": ["string", "null"], "enum": ["cinema-poi", "venue-poi", "mall-fallback", null] },
+            "locationGranularity": { "type": ["string", "null"], "enum": ["auditorium", "cinema", "venue", "mall", null] },
+            "locationConfidence": { "enum": ["high", "medium", "low", "unknown"] },
+            "identityConfidence": { "enum": ["high", "medium", "low", "unknown"] },
+            "address": { "type": "string" },
+            "geocodeConfidence": { "enum": ["high", "medium", "low", "unknown"] },
+            "geocodeSource": { "type": "string" }
+          },
+          "additionalProperties": false
+        },
+        "source": { "type": "object" }
+      },
+      "additionalProperties": true
+    }
+  }
+}

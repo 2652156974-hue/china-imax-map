@@ -1,0 +1,71 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-08-25T04:51:31.620Z",
+  "status": "passed",
+  "executionMode": "playwright-cli-real",
+  "runtimeProvider": "official AMap JS API 2.0",
+  "url": "http://127.0.0.1:4173/",
+  "dataset": {
+    "totalRecords": 901,
+    "locatedRecords": 901,
+    "unlocatedRecords": 0,
+    "markerPoints": 901,
+    "markerCountInvariant": "markerPoints = accepted = 901"
+  },
+  "desktop": {
+    "viewport": { "width": 1440, "height": 900 },
+    "status": "passed",
+    "banner": "已加载 901 条公开影院记录；已定位 901 / 901 · 精确身份 801 · 场所级定位 100 · 未定位 0。坐标仅在高德地图应用内运行时使用。",
+    "clusterPoints": 901,
+    "clusterRendered": true,
+    "officialSdkLoaded": true,
+    "markerClusterLoaded": true,
+    "mapCanvasPresent": true,
+    "amapLogoVisible": true,
+    "amapCopyrightVisible": true,
+    "horizontalOverflow": false
+  },
+  "mobile": {
+    "viewport": { "width": 390, "height": 844 },
+    "status": "passed",
+    "documentClientWidth": 390,
+    "documentScrollWidth": 390,
+    "panelWidth": 370,
+    "horizontalOverflow": false,
+    "mapError": ""
+  },
+  "interactions": {
+    "searchCinema": { "sourceRow": 192, "results": 1, "popup": true, "providerCrs": "GCJ-02" },
+    "systemFilter": { "filter": "GT Laser", "results": 8 },
+    "positionOnlyFilter": { "results": 100, "精确身份": 0, "场所级定位": 100, "未定位": 0 },
+    "cluster": { "pointsAfterAllFilter": 901, "clusterCount": 1 },
+    "attributionVisible": true,
+    "sourceLinkVisible": true
+  },
+  "fieldRegression": {
+    "singleValue": { "sourceRow": 2, "seatValueVisible": "409", "rawVisible": false, "rawVisibleByDefault": false, "dataNotesVisible": false },
+    "multiValue": { "sourceRow": 309, "label": "待核", "rawVisible": false, "rawVisibleByDefault": false, "dataNotesAvailable": true, "dataNotesOpenByDefault": false, "rawFieldCount": 4 },
+    "blank": { "sourceRow": 50, "label": "暂无", "rawVisible": false, "dataNotesVisible": false, "rawFieldsRetainedInDataset": true },
+    "nbsp": { "sourceRow": 54, "label": "暂无", "rawVisible": false, "dataNotesVisible": false, "rawFieldsRetainedInDataset": true, "rawFieldCount": 4 },
+    "abnormal": { "sourceRow": 119, "label": "待核", "rawVisible": false, "rawVisibleByDefault": false, "dataNotesAvailable": true, "dataNotesOpenByDefault": false, "formattedWidth": "20.741 m", "formattedHeight": "11.244 m", "rawFieldCount": 1 }
+  },
+  "consoleErrors": [],
+  "network": {
+    "publicMarkerRequestPerLoad": 1,
+    "externalAmapRequests": 0,
+    "providerPoiRequests": 0
+  },
+  "securityProxy": {
+    "status": "passed",
+    "reason": "Official SDK loaded through the same-origin runtime path; the security code was not present as a browser DOM literal."
+  },
+  "realSdkSmoke": {
+    "status": "passed",
+    "sdk": "official AMap JS API 2.0",
+    "markerClusterLoaded": true,
+    "mapCanvasPresent": true,
+    "amapLogoVisible": true,
+    "amapCopyrightVisible": true,
+    "securityCodeInBrowser": false
+  }
+}

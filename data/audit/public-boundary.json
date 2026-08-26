@@ -1,0 +1,62 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-08-26T01:59:15.599Z",
+  "status": "public-boundary-check-passed",
+  "publicDataset": {
+    "file": "data/public/cinemas.json",
+    "sha256": "2b672af161f89a1deb18bab5c6cabbfc094be78b5f8c147647cb8440db470224",
+    "mode": "public-amap-runtime",
+    "records": 901,
+    "staticCoordinates": 0,
+    "runtimeMarkerCount": 901,
+    "manifestStaticSha256": "2b672af161f89a1deb18bab5c6cabbfc094be78b5f8c147647cb8440db470224",
+    "errors": []
+  },
+  "runtimeLayer": {
+    "file": "data/local/public-amap-reviewed-geocodes.json",
+    "source": "local-runtime-layer",
+    "total": 901,
+    "accepted": 901,
+    "unresolved": 0,
+    "markerCount": 901,
+    "coordinateSystem": "GCJ-02",
+    "artifactFile": "tmp/cloudflare/public-amap-markers.json",
+    "artifactSha256": "6c209ba1702e76bcbff5b45af952a21c14b312108e7369a635c6d7fcad09c7ab"
+  },
+  "deployment": {
+    "platform": "cloudflare-workers",
+    "status": "deployed",
+    "url": "https://china-imax-map.2652156974.workers.dev",
+    "sourceCommit": "213d3fa",
+    "workerVersion": "37fae793-3783-4d17-8db7-349d19f38508",
+    "onlineVerification": null
+  },
+  "security": {
+    "cacheTracked": false,
+    "rawTracked": false,
+    "currentWorkspaceRawTracked": false,
+    "rawMirrorHistoryPresent": false,
+    "rawMirrorHistoryScope": "codex/public-release",
+    "apiKeyPersisted": false,
+    "securityCodeInPublicBundle": false,
+    "staticBulkCoordinateArtifacts": 0,
+    "amapPublicationGate": "removed-from-development-route"
+  },
+  "warnings": [],
+  "cleanBranch": {
+    "currentBranch": "codex/public-release",
+    "publicReleaseBranch": "codex/public-release",
+    "publicReleaseBranchExists": true,
+    "recommendedBase": "fba4dcd (last clean public baseline before the Tencent raw mirror)",
+    "noRemoteHistoryRewrite": true,
+    "noMergePerformed": true,
+    "noDeployPerformed": false,
+    "intentionallyExcluded": [
+      "data/raw/arvin-imax.json",
+      "data/geocode/provider-cache/*.json",
+      "data/local/",
+      "dist-private/",
+      "complete AMap coordinate export"
+    ]
+  }
+}
