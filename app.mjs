@@ -28,6 +28,11 @@ const nearbyScope = document.querySelector('#nearbyScope');
 const nearbySortFilters = document.querySelector('#nearbySortFilters');
 const expandNearbyButton = document.querySelector('#expandNearbyButton');
 
+let focusNavigation = null;
+let focusBackButton = null;
+let focusBreadcrumbs = null;
+let focusScopeNote = null;
+
 const diagnostics = window.__imaxMapDiagnostics = {
   renderer: 'AMap JS API 2.0',
   provider: 'AMap',
@@ -42,6 +47,8 @@ const diagnostics = window.__imaxMapDiagnostics = {
   markerRequests: 0,
   geolocationRequests: 0,
   nearbyCandidateCount: 0,
+  focusDepth: 0,
+  focusScope: '全国',
   errors: []
 };
 
@@ -59,6 +66,9 @@ const state = {
   displayItems: [],
   infoWindow: null,
   AMap: null,
+  focus: {
+    path: []
+  },
   nearby: {
     active: false,
     position: null,
@@ -107,6 +117,7 @@ async function main() {
   diagnostics.locatedRecords = state.cinemas.filter(hasCoordinate).length;
 
   createMap();
+  initFocusNavigation();
   bindFilters();
   bindNearby();
   bindDetailClose();
@@ -259,6 +270,196 @@ function createMap() {
   state.infoWindow = new AMap.InfoWindow({ isCustom: true, closeWhenClickMap: true, offset: new AMap.Pixel(0, -12) });
 }
 
+function initFocusNavigation() {
+  const panel = document.querySelector('.panel');
+  const filterDetails = document.querySelector('.filter-details');
+  if (!panel || !filterDetails) return;
+
+  focusNavigation = document.createElement('nav');
+  focusNavigation.className = 'focus-navigation';
+  focusNavigation.id = 'focusNavigation';
+  focusNavigation.hidden = true;
+  focusNavigation.setAttribute('aria-label', '行政区逐层导航');
+  focusNavigation.innerHTML = `
+    <button class="focus-back" id="focusBack" type="button">← 返回</button>
+    <div class="focus-breadcrumbs" id="focusBreadcrumbs"></div>
+    <div class="focus-scope-note" id="focusScopeNote"></div>
+  `;
+  filterDetails.before(focusNavigation);
+  focusBackButton = focusNavigation.querySelector('#focusBack');
+  focusBreadcrumbs = focusNavigation.querySelector('#focusBreadcrumbs');
+  focusScopeNote = focusNavigation.querySelector('#focusScopeNote');
+
+  focusBackButton.addEventListener('click', () => navigateFocusToDepth(Math.max(0, state.focus.path.length - 1)));
+  focusBreadcrumbs.addEventListener('click', (event) => {
+    const button = event.target.closest('button[data-focus-depth]');
+    if (!button || button.disabled) return;
+    navigateFocusToDepth(Number(button.dataset.focusDepth));
+  });
+  document.addEventListener('keydown', (event) => {
+    if (event.key !== 'Escape' || !state.focus.path.length || state.nearby.active) return;
+    navigateFocusToDepth(state.focus.path.length - 1);
+  });
+  renderFocusNavigation();
+}
+
+function currentFocus() {
+  return state.focus.path[state.focus.path.length - 1] ?? null;
+}
+
+function readMapView() {
+  const center = state.map?.getCenter?.();
+  const lng = Number(center?.getLng?.() ?? center?.lng);
+  const lat = Number(center?.getLat?.() ?? center?.lat);
+  return {
+    zoom: Number(state.map?.getZoom?.()) || 4,
+    center: Number.isFinite(lng) && Number.isFinite(lat) ? [lng, lat] : [104.1954, 35.8617]
+  };
+}
+
+function restoreMapView(view) {
+  if (!view || !Array.isArray(view.center)) return;
+  state.map?.setZoomAndCenter?.(Number(view.zoom) || 4, view.center, false, 420);
+}
+
+function focusScopeFromItem(item) {
+  const first = item.records?.[0] ?? item.cinemas?.[0] ?? {};
+  const administrative = item.administrative ?? first.administrative ?? {};
+  const provinceName = administrative.provinceName || first.province || null;
+  const prefectureName = administrative.prefectureName || first.city || null;
+  const countyName = administrative.countyName || null;
+  const level = item.level || item.adminLevel || 'prefecture';
+
+  if (level === 'province') {
+    return { level, provinceName, prefectureName: null, countyName: null };
+  }
+  if (level === 'prefecture') {
+    return { level, provinceName, prefectureName, countyName: null };
+  }
+  return { level: 'county', provinceName, prefectureName, countyName };
+}
+
+function matchesFocusScope(cinema, scope) {
+  if (!scope) return true;
+  const administrative = cinema.administrative ?? {};
+  const provinceName = administrative.provinceName || cinema.province || null;
+  const prefectureName = administrative.prefectureName || cinema.city || null;
+  const countyName = administrative.countyName || null;
+  if (scope.provinceName && provinceName !== scope.provinceName) return false;
+  if (scope.prefectureName && prefectureName !== scope.prefectureName) return false;
+  if (scope.countyName && countyName !== scope.countyName) return false;
+  return true;
+}
+
+function applyFocusScope(records) {
+  const focus = currentFocus();
+  if (!focus) return records;
+  return records.filter((cinema) => matchesFocusScope(cinema, focus));
+}
+
+function focusTargetZoom(level) {
+  if (level === 'province') return 6.25;
+  if (level === 'prefecture') return 8.25;
+  return 11.2;
+}
+
+function effectiveDisplayZoom(zoom) {
+  const focus = currentFocus();
+  const numeric = Number(zoom) || 4;
+  if (!focus) return numeric;
+  if (focus.level === 'province') return Math.max(numeric, 6.01);
+  if (focus.level === 'prefecture') return Math.max(numeric, 8.01);
+  return Math.max(numeric, 11.01);
+}
+
+function enterAdministrativeFocus(item) {
+  if (!item || item.kind !== 'administrative') return;
+  const scope = focusScopeFromItem(item);
+  if (!scope.provinceName && !scope.prefectureName && !scope.countyName) return;
+
+  const existing = currentFocus();
+  const key = item.adminKey ?? item.key ?? `${scope.level}:${scope.provinceName || ''}:${scope.prefectureName || ''}:${scope.countyName || ''}`;
+  if (existing?.key === key) return;
+
+  state.focus.path.push({
+    ...scope,
+    key,
+    name: item.name || scope.countyName || scope.prefectureName || scope.provinceName || '地区',
+    returnView: readMapView()
+  });
+  state.infoWindow?.close();
+  detailPanel.hidden = true;
+  diagnostics.focusDepth = state.focus.path.length;
+  diagnostics.focusScope = currentFocus()?.name || '全国';
+  renderFocusNavigation();
+  applyFilters();
+  if (Array.isArray(item.lnglat)) {
+    state.map.setZoomAndCenter(focusTargetZoom(scope.level), item.lnglat, false, 420);
+  }
+}
+
+function navigateFocusToDepth(depth) {
+  const targetDepth = Math.max(0, Math.min(Number(depth) || 0, state.focus.path.length));
+  if (targetDepth === state.focus.path.length) return;
+  const restoreEntry = state.focus.path[targetDepth] ?? null;
+  const restoreView = restoreEntry?.returnView ?? null;
+  state.focus.path = state.focus.path.slice(0, targetDepth);
+  state.infoWindow?.close();
+  detailPanel.hidden = true;
+  diagnostics.focusDepth = state.focus.path.length;
+  diagnostics.focusScope = currentFocus()?.name || '全国';
+  renderFocusNavigation();
+  applyFilters();
+  if (restoreView) restoreMapView(restoreView);
+  else if (targetDepth === 0) state.map.setZoomAndCenter(4, [104.1954, 35.8617], false, 420);
+}
+
+function resetFocusNavigation({ restore = false } = {}) {
+  if (!state.focus.path.length) return;
+  const restoreView = state.focus.path[0]?.returnView ?? null;
+  state.focus.path = [];
+  diagnostics.focusDepth = 0;
+  diagnostics.focusScope = '全国';
+  renderFocusNavigation();
+  if (restore && restoreView) restoreMapView(restoreView);
+}
+
+function renderFocusNavigation(scopeCount = null) {
+  if (!focusNavigation || !focusBreadcrumbs) return;
+  const path = state.focus.path;
+  focusNavigation.hidden = path.length === 0;
+  if (!path.length) {
+    focusBreadcrumbs.replaceChildren();
+    if (focusScopeNote) focusScopeNote.textContent = '';
+    return;
+  }
+
+  const fragments = [];
+  const addCrumb = (label, depth, current) => {
+    if (fragments.length) {
+      const separator = document.createElement('span');
+      separator.className = 'focus-separator';
+      separator.textContent = '/';
+      fragments.push(separator);
+    }
+    const button = document.createElement('button');
+    button.type = 'button';
+    button.className = `focus-crumb${current ? ' current' : ''}`;
+    button.dataset.focusDepth = String(depth);
+    button.textContent = label;
+    button.disabled = current;
+    fragments.push(button);
+  };
+
+  addCrumb('全国', 0, false);
+  path.forEach((entry, index) => addCrumb(entry.name, index + 1, index === path.length - 1));
+  focusBreadcrumbs.replaceChildren(...fragments);
+  if (focusScopeNote) {
+    const count = Number(scopeCount);
+    focusScopeNote.textContent = Number.isFinite(count) ? `${count} 家` : '焦点模式';
+  }
+}
+
 function bindFilters() {
   document.querySelector('#systemFilters').addEventListener('click', (event) => {
     const button = event.target.closest('button');
@@ -356,6 +557,7 @@ function requestNearbyLocation() {
 }
 
 function enterNearbyMode(resolved) {
+  resetFocusNavigation();
   state.nearby.active = true;
   state.nearby.position = resolved.position;
   state.nearby.city = resolved.city;
@@ -442,8 +644,9 @@ function activateSingle(selector, selected) {
 }
 
 function applyFilters() {
-  const sourceRecords = state.nearby.active ? state.nearby.candidates : state.cinemas;
-  state.visible = sourceRecords.filter((cinema) => {
+  const baseRecords = state.nearby.active ? state.nearby.candidates : state.cinemas;
+  const scopedRecords = state.nearby.active ? baseRecords : applyFocusScope(baseRecords);
+  state.visible = scopedRecords.filter((cinema) => {
     const projection = cinema.projection ?? {};
     const matchesSystem = state.system === 'ALL' || (projection.system ?? 'unknown') === state.system;
     const matchesDome = !state.dome || projection.dome === true;
@@ -458,8 +661,11 @@ function applyFilters() {
   renderAdministrativeDisplay(located);
   renderRecordList(state.visible);
   diagnostics.visibleMarkers = located.length;
+  renderFocusNavigation(scopedRecords.length);
   if (state.nearby.active) {
     statusElement.textContent = `附近 ${state.visible.length} / ${state.nearby.candidates.length} · ${nearbySortLabel(state.nearby.sort)} · 地图点 ${located.length}`;
+  } else if (currentFocus()) {
+    statusElement.textContent = `${currentFocus().name} · 筛选 ${state.visible.length} / ${scopedRecords.length} · 地图点 ${located.length}`;
   } else {
     statusElement.textContent = `筛选 ${state.visible.length} / ${state.cinemas.length} · 地图点 ${located.length}`;
   }
@@ -467,7 +673,7 @@ function applyFilters() {
 
 function renderAdministrativeDisplay(records = state.visible.filter(hasCoordinate), zoom = state.map?.getZoom?.() ?? 4) {
   clearDisplayMarkers();
-  const items = buildAdministrativeDisplay(records, zoom);
+  const items = buildAdministrativeDisplay(records, effectiveDisplayZoom(zoom));
   const project = typeof state.map?.lngLatToContainer === 'function'
     ? (lnglat) => state.map.lngLatToContainer(lnglat)
     : state.map;
@@ -531,10 +737,7 @@ function createDisplayMarker(item) {
       if (firstCinema) openCinema(firstCinema);
       return;
     }
-    const baseTargetZoom = item.level === 'province' ? 6 : item.level === 'prefecture' ? 8 : 10;
-    const currentZoom = Number(state.map?.getZoom?.()) || 4;
-    const targetZoom = Math.max(baseTargetZoom, Math.floor(currentZoom) + 1);
-    state.map.setZoomAndCenter(targetZoom, item.lnglat, false, 420);
+    enterAdministrativeFocus(item);
   });
   return marker;
 }

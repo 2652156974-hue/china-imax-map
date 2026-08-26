@@ -1,0 +1,79 @@
+.focus-navigation {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin: 0 0 11px;
+  padding: 8px 10px;
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  background: color-mix(in srgb, var(--panel) 92%, transparent);
+  box-shadow: 0 1px 2px rgba(16, 24, 40, .04);
+}
+
+.focus-navigation[hidden] { display: none; }
+
+.focus-back {
+  appearance: none;
+  flex: 0 0 auto;
+  cursor: pointer;
+  border: 0;
+  border-right: 1px solid var(--line);
+  background: transparent;
+  color: var(--text);
+  font: inherit;
+  font-size: 11px;
+  font-weight: 800;
+  line-height: 1;
+  padding: 4px 10px 4px 2px;
+}
+
+.focus-back:hover { color: #2563eb; }
+
+.focus-breadcrumbs {
+  display: flex;
+  min-width: 0;
+  align-items: center;
+  gap: 5px;
+  overflow: hidden;
+  white-space: nowrap;
+}
+
+.focus-crumb {
+  appearance: none;
+  min-width: 0;
+  cursor: pointer;
+  border: 0;
+  background: transparent;
+  color: var(--muted);
+  font: inherit;
+  font-size: 11px;
+  font-weight: 750;
+  line-height: 1.2;
+  padding: 3px 2px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.focus-crumb:hover { color: var(--text); }
+.focus-crumb.current { color: var(--text); cursor: default; }
+.focus-separator { flex: 0 0 auto; color: var(--muted); font-size: 10px; opacity: .65; }
+
+.focus-scope-note {
+  margin-left: auto;
+  flex: 0 0 auto;
+  color: var(--muted);
+  font-size: 9px;
+  white-space: nowrap;
+}
+
+@media (max-width: 640px) {
+  .focus-navigation {
+    gap: 8px;
+    margin-bottom: 9px;
+    padding: 7px 8px;
+  }
+  .focus-scope-note { display: none; }
+  .focus-back { padding-right: 8px; }
+  .focus-crumb { max-width: 92px; }
+}
