@@ -4,6 +4,7 @@ import {
   geolocationFailureMessage,
   readAmapGeolocationResult,
   reliableScreenField,
+  resolveCanonicalScreenField,
   screenMeasureLabel,
   sortNearbyCandidates
 } from './nearby.mjs';
@@ -67,6 +68,8 @@ const diagnostics = window.__imaxMapDiagnostics = {
   focusDepth: 0,
   focusScope: '全国',
   focusRecordCount: 0,
+  navigationEvents: [],
+  renderEvents: [],
   errors: []
 };
 
@@ -330,6 +333,10 @@ function currentFocus() {
   return state.focus.path[state.focus.path.length - 1] ?? null;
 }
 
+function recordNavigationDiagnostic(fromDepth, toDepth) {
+  diagnostics.navigationEvents.push({ fromDepth, toDepth });
+}
+
 function readMapView() {
   const center = state.map?.getCenter?.();
   const lng = Number(center?.getLng?.() ?? center?.lng);
@@ -375,6 +382,8 @@ function enterAdministrativeFocus(item) {
   const key = item.adminKey ?? item.key ?? `${scope.level}:${scope.provinceName || ''}:${scope.prefectureName || ''}:${scope.countyName || ''}`;
   if (existing?.key === key) return;
 
+  recordNavigationDiagnostic(state.focus.path.length, state.focus.path.length + 1);
+
   state.focus.path.push({
     ...scope,
     key,
@@ -396,6 +405,7 @@ function enterAdministrativeFocus(item) {
 function navigateFocusToDepth(depth) {
   const targetDepth = Math.max(0, Math.min(Number(depth) || 0, state.focus.path.length));
   if (targetDepth === state.focus.path.length) return;
+  recordNavigationDiagnostic(state.focus.path.length, targetDepth);
   const restoreEntry = state.focus.path[targetDepth] ?? null;
   state.focus.path = state.focus.path.slice(0, targetDepth);
   state.infoWindow?.close();
@@ -709,12 +719,21 @@ function applyFilters() {
 }
 
 function renderAdministrativeDisplay(records = state.visible.filter(hasCoordinate), zoom = state.map?.getZoom?.() ?? 4) {
-  clearDisplayMarkers();
-  const items = buildAdministrativeDisplay(records, effectiveDisplayZoom(zoom, currentFocus()));
+  const renderStarted = performance.now();
+  const requestedZoom = Number(zoom) || 4;
+  const markerClearStarted = performance.now();
+  const removedCount = clearDisplayMarkers();
+  const markerClearMs = performance.now() - markerClearStarted;
+  const effectiveZoom = effectiveDisplayZoom(requestedZoom, currentFocus());
+  const buildStarted = performance.now();
+  const items = buildAdministrativeDisplay(records, effectiveZoom);
+  const buildAdministrativeDisplayMs = performance.now() - buildStarted;
   const displayMode = items.mode ?? 'province';
   const project = (lnglat) => projectStableCollisionPoint(lnglat, displayMode);
   const collisionItems = items.filter((item) => item.kind === 'administrative' || item.kind === 'same-site');
+  const collisionStarted = performance.now();
   const resolvedCollisionItems = resolveAdminCollisions(collisionItems, project, { maxOffsetPx: 32, stepPx: 8, paddingPx: 4 });
+  const collisionResolveMs = performance.now() - collisionStarted;
   const collisionByKey = new Map(resolvedCollisionItems.map((item) => [displayItemKey(item), item]));
   const resolvedItems = items.map((item) => (
     item.kind === 'administrative' || item.kind === 'same-site'
@@ -726,10 +745,29 @@ function renderAdministrativeDisplay(records = state.visible.filter(hasCoordinat
   diagnostics.renderedItems = resolvedItems.length;
   diagnostics.adminAggregateCount = resolvedItems.filter((item) => item.kind === 'administrative').length;
 
+  const markerCreateStarted = performance.now();
+  let createdCount = 0;
   for (const item of resolvedItems) {
     const marker = createDisplayMarker(item);
-    if (marker) state.displayMarkers.push(marker);
+    if (marker) {
+      state.displayMarkers.push(marker);
+      createdCount += 1;
+    }
   }
+  const markerCreateMs = performance.now() - markerCreateStarted;
+  diagnostics.renderEvents.push({
+    requestedZoom,
+    effectiveZoom,
+    displayMode,
+    inputRecordCount: records.length,
+    outputItemCount: resolvedItems.length,
+    buildAdministrativeDisplayMs,
+    collisionResolveMs,
+    markerClearMs,
+    markerCreateMs,
+    totalRenderMs: performance.now() - renderStarted,
+    marker: { removedCount, createdCount }
+  });
 }
 
 function displayItemKey(item) {
@@ -741,8 +779,10 @@ function withZeroDisplayOffset(item) {
 }
 
 function clearDisplayMarkers() {
+  const removedCount = state.displayMarkers.length;
   for (const marker of state.displayMarkers) marker?.setMap?.(null);
   state.displayMarkers = [];
+  return removedCount;
 }
 
 function createDisplayMarker(item) {
@@ -888,10 +928,10 @@ function popupHtml(cinema) { return detailHtml(cinema, true); }
 function detailHtml(cinema, popup) {
   const projection = cinema.projection ?? {};
   const location = cinema.location ?? {};
-  const width = screenField(cinema.screen, 'width', 'rawWidth', 'm');
-  const height = screenField(cinema.screen, 'height', 'rawHeight', 'm');
-  const area = screenField(cinema.screen, 'area', 'rawArea', 'm²');
-  const seats = seatField(cinema.seats, cinema.seatsRaw);
+  const width = screenField(cinema, 'width', 'rawWidth', 'm');
+  const height = screenField(cinema, 'height', 'rawHeight', 'm');
+  const area = screenField(cinema, 'area', 'rawArea', 'm²');
+  const seats = seatField(cinema);
   const dataNotes = renderDataNotes([
     ['宽度', width.raw],
     ['高度', height.raw],
@@ -950,22 +990,28 @@ function renderLifecycleNavigation(cinema) {
   return `<div class="history-switch"><div class="history-switch__label">同址沿革</div><div class="history-switch__options">${buttons}</div></div>`;
 }
 
-function screenField(screen = {}, field, rawField, unit) {
-  const raw = String(screen[rawField] ?? '');
-  const normalized = raw.replace(/\u00a0/g, ' ');
-  const trimmed = normalized.trim();
-  if (!trimmed) return { html: '暂无数据', raw: null };
-  const reliable = reliableScreenField(screen, field);
-  if (reliable) return { html: `${formatNumber(reliable.value, field === 'area' ? 2 : 3)} ${unit}`, raw: null };
+function screenField(record = {}, field, rawField, unit) {
+  const screen = record?.screen ?? record;
+  const raw = String(screen?.[rawField] ?? '');
+  const resolved = resolveCanonicalScreenField(record, field);
+  const reliable = reliableScreenField(screen, field) ?? reliableScreenField({ ...screen, screenSeatReview: record?.screenSeatReview }, field);
+  if (resolved.status === 'missing') return { html: '暂无数据', raw: null };
+  if (reliable && (resolved.status === 'reviewed' || resolved.status === 'direct')) {
+    return {
+      html: `${formatNumber(resolved.value, field === 'area' ? 2 : 3)} ${unit}`,
+      raw: resolved.status === 'reviewed' ? raw : null
+    };
+  }
   return { html: '<span>待核<span class="field-flag">数据说明</span></span>', raw };
 }
 
-function seatField(value, rawValue) {
-  const raw = String(rawValue ?? '');
-  const normalized = raw.replace(/\u00a0/g, ' ');
-  const trimmed = normalized.trim();
-  if (!trimmed) return { html: '暂无数据', raw: null };
-  if (/^\d+$/.test(trimmed) && Number.isFinite(Number(value))) return { html: formatNumber(value, 0), raw: null };
+function seatField(record = {}) {
+  const raw = String(record?.seatsRaw ?? '');
+  const resolved = resolveCanonicalScreenField(record, 'seats');
+  if (resolved.status === 'missing') return { html: '暂无数据', raw: null };
+  if (resolved.status === 'reviewed' || resolved.status === 'direct') {
+    return { html: formatNumber(resolved.value, 0), raw: resolved.status === 'reviewed' ? raw : null };
+  }
   return { html: '<span>待核<span class="field-flag">数据说明</span></span>', raw };
 }
 

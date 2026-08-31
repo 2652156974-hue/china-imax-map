@@ -55,24 +55,77 @@ export function displayCity(value) {
   return String(text).normalize('NFKC').trim().replace(/市$/u, '');
 }
 
-export function reliableScreenField(screen = {}, field) {
-  const rawField = `raw${field[0].toUpperCase()}${field.slice(1)}`;
-  const raw = String(screen?.[rawField] ?? '').replace(/\u00a0/g, ' ');
+/**
+ * Resolve one displayable screen/seat value without interpreting raw
+ * multi-value text. Reviewed materialization is the only authority that may
+ * select a value from ambiguous raw text.
+ */
+export function resolveCanonicalScreenField(record = {}, field) {
+  const isSeats = field === 'seats';
+  const source = isSeats
+    ? record
+    : (record?.screen && typeof record.screen === 'object' ? record.screen : record);
+  const rawField = isSeats ? 'seatsRaw' : `raw${field[0].toUpperCase()}${field.slice(1)}`;
+  const raw = String((isSeats ? record?.[rawField] : source?.[rawField]) ?? '').replace(/\u00a0/g, ' ');
   const trimmed = raw.trim();
-  const value = Number(screen?.[field]);
-  const confidence = screen?.selectionConfidence;
-  const confidenceAllowsSelection = confidence === undefined || confidence === null || confidence === 'high';
-  const positive = Number.isFinite(value) && value > 0;
-  const singleNumeric = /^[-+]?\d+(?:\.\d+)?$/.test(trimmed);
-  if (!trimmed || !confidenceAllowsSelection || !singleNumeric || !positive) return null;
-  return { value, raw: null, rawText: raw };
+  const value = Number(source?.[field]);
+  const review = record?.screenSeatReview ?? source?.screenSeatReview ?? null;
+  const materializedFields = new Set(Array.isArray(review?.materializedFields) ? review.materializedFields : []);
+  const reviewConfidence = review?.confidence;
+  const reviewAllowsMaterialization = reviewConfidence === 'high';
+  const canonicalValid = isSeats
+    ? Number.isInteger(value) && value >= 0
+    : Number.isFinite(value) && value > 0;
+  const singleNumeric = isSeats
+    ? /^\d+$/.test(trimmed)
+    : /^[-+]?\d+(?:\.\d+)?$/.test(trimmed);
+  const confidence = reviewConfidence ?? source?.selectionConfidence ?? null;
+  const directConfidenceAllowed = confidence === undefined || confidence === null || confidence === 'high';
+
+  if (canonicalValid && materializedFields.has(field) && reviewAllowsMaterialization) {
+    return {
+      status: 'reviewed',
+      value,
+      raw,
+      provenance: 'screen-seat-review',
+      confidence: reviewConfidence
+    };
+  }
+  if (canonicalValid && singleNumeric && directConfidenceAllowed) {
+    return {
+      status: 'direct',
+      value,
+      raw,
+      provenance: 'raw-single-value',
+      confidence
+    };
+  }
+  if (!trimmed) {
+    return { status: 'missing', value: null, raw, provenance: null, confidence };
+  }
+  return {
+    status: 'unresolved',
+    value: null,
+    raw,
+    provenance: materializedFields.has(field) ? 'screen-seat-review-insufficient-confidence' : null,
+    confidence
+  };
+}
+
+export function reliableScreenField(screen = {}, field) {
+  const resolved = resolveCanonicalScreenField(screen, field);
+  if (resolved.status !== 'reviewed' && resolved.status !== 'direct') return null;
+  return {
+    value: resolved.value,
+    raw: resolved.status === 'direct' ? null : resolved.raw,
+    rawText: resolved.raw
+  };
 }
 
 export function reliableScreenMeasure(record) {
-  const screen = record?.screen ?? record ?? {};
-  const area = reliableScreenField(screen, 'area');
+  const area = reliableScreenField(record, 'area');
   if (area) return { kind: 'area', value: area.value };
-  const width = reliableScreenField(screen, 'width');
+  const width = reliableScreenField(record, 'width');
   if (width) return { kind: 'width', value: width.value };
   return null;
 }

@@ -2,7 +2,7 @@
   "schemaVersion": 1,
   "dataset": "arvin-imax-public-cinemas",
   "mode": "public-amap-runtime",
-  "generatedAt": "2026-08-31T04:20:17.829Z",
+  "generatedAt": "2026-08-31T05:19:39.882Z",
   "status": "publication-candidate",
   "mapProvider": "AMap JS API 2.0",
   "coordinateSystem": "GCJ-02",
@@ -917,6 +917,14 @@
       },
       "seats": 329,
       "seatsRaw": "329",
+      "screenSeatReview": {
+        "confidence": "high",
+        "materializedFields": [
+          "width",
+          "height",
+          "area"
+        ]
+      },
       "status": "unknown",
       "historySummary": "未发现可安全判定营业状态的明确信号",
       "location": {
@@ -2369,6 +2377,14 @@
       },
       "seats": 426,
       "seatsRaw": "453\n445\n426",
+      "screenSeatReview": {
+        "confidence": "high",
+        "materializedFields": [
+          "width",
+          "height",
+          "seats"
+        ]
+      },
       "status": "open",
       "historySummary": "1 条明确状态信号；最新信号：2026-05-29 开业",
       "location": {

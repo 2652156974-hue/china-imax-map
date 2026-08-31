@@ -53,6 +53,17 @@ test('public static data has no coordinates and preserves all 3604 raw fields', 
   assert.equal(matches, 3604);
 });
 
+test('public facts retain only minimal screen-seat materialization provenance', () => {
+  const reviewed = publicData.records.filter((record) => record.screenSeatReview);
+  assert.equal(reviewed.length, 2);
+  assert.equal(reviewed.every((record) =>
+    Object.keys(record.screenSeatReview).sort().join('|') === 'confidence|materializedFields' &&
+    record.screenSeatReview.confidence === 'high' &&
+    record.screenSeatReview.materializedFields.length > 0), true);
+  assert.equal(JSON.stringify(reviewed).includes('decisionNote'), false);
+  assert.equal(JSON.stringify(reviewed).includes('sourceUrls'), false);
+});
+
 test('public reviewed layer exposes only minimal dynamic AMap GCJ-02 decisions', () => {
   assert.equal(layer.records.length, publicData.records.length);
   assert.equal(layer.summary.total, layer.records.length);

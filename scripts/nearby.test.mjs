@@ -8,6 +8,7 @@ import {
   readAmapGeolocationResult,
   reliableScreenField,
   reliableScreenMeasure,
+  resolveCanonicalScreenField,
   screenMeasureLabel,
   sortNearbyCandidates
 } from '../nearby.mjs';
@@ -122,6 +123,36 @@ test('display helpers distinguish normal, blank, NBSP, multi-value, and abnormal
   assert.equal(reliableScreenField({ area: null, rawArea: '\u00a0', selectionConfidence: 'high' }, 'area'), null);
   assert.equal(reliableScreenField({ area: null, rawArea: '12\n15', selectionConfidence: 'unknown' }, 'area'), null);
   assert.equal(reliableScreenField({ area: 12, rawArea: '12（自测）', selectionConfidence: 'high' }, 'area'), null);
+});
+
+test('reviewed canonical screen values win over raw multi-value text while retaining provenance', () => {
+  const record = {
+    screen: { width: 28, height: null, area: null, rawWidth: '28 / 26', rawHeight: '', rawArea: '', selectionConfidence: 'high' },
+    screenSeatReview: { confidence: 'high', materializedFields: ['width'] }
+  };
+  const resolved = resolveCanonicalScreenField(record, 'width');
+  assert.deepEqual(resolved, {
+    status: 'reviewed', value: 28, raw: '28 / 26', provenance: 'screen-seat-review', confidence: 'high'
+  });
+  assert.equal(resolveCanonicalScreenField(record, 'height').status, 'missing');
+});
+
+test('unresolved raw multi-value screen values remain pending and direct values stay direct', () => {
+  const unresolved = { screen: { width: null, rawWidth: '28 / 26', selectionConfidence: 'unknown' } };
+  assert.equal(resolveCanonicalScreenField(unresolved, 'width').status, 'unresolved');
+  const direct = { screen: { width: 28, rawWidth: '28', selectionConfidence: 'high' } };
+  assert.equal(resolveCanonicalScreenField(direct, 'width').status, 'direct');
+});
+
+test('reviewed canonical seats win over raw multi-value text', () => {
+  const record = {
+    seats: 426,
+    seatsRaw: '453\n445\n426',
+    screenSeatReview: { confidence: 'high', materializedFields: ['seats'] }
+  };
+  assert.deepEqual(resolveCanonicalScreenField(record, 'seats'), {
+    status: 'reviewed', value: 426, raw: '453\n445\n426', provenance: 'screen-seat-review', confidence: 'high'
+  });
 });
 
 test('AMap geolocation success, permission rejection, timeout, and missing city are handled without coordinate conversion', () => {
