@@ -26,6 +26,8 @@ import {
   navigationTargetZoom
 } from './focus-navigation.mjs';
 import { displayRenderSignature } from './render-signature.mjs';
+import { markerClickTarget, markerRenderDescriptor } from './marker-render-descriptor.mjs';
+import { createNavigationCoordinator } from './navigation-coordinator.mjs';
 
 const config = window.__PUBLIC_AMAP_CONFIG__ ?? {};
 const mapError = document.querySelector('#mapError');
@@ -49,6 +51,7 @@ let focusNavigation = null;
 let focusBackButton = null;
 let focusBreadcrumbs = null;
 let focusScopeNote = null;
+let navigationCoordinator = null;
 
 const diagnostics = window.__imaxMapDiagnostics = {
   renderer: 'AMap JS API 2.0',
@@ -293,7 +296,11 @@ function createMap() {
     showIndoorMap: false,
     mapStyle: dark ? 'amap://styles/dark' : 'amap://styles/whitesmoke'
   });
-  state.map.on?.('zoomend', () => renderAdministrativeDisplay());
+  navigationCoordinator = createNavigationCoordinator({
+    map: state.map,
+    getFocus: currentFocus,
+    render: ({ requestedZoom }) => renderAdministrativeDisplay(undefined, requestedZoom)
+  });
   state.map.addControl(new AMap.ToolBar({ position: { right: '16px', bottom: '96px' } }));
   state.map.addControl(new AMap.Scale());
   state.infoWindow = new AMap.InfoWindow({ isCustom: true, closeWhenClickMap: true, offset: new AMap.Pixel(0, -12) });
@@ -382,11 +389,16 @@ function restoreFocusReturnState(entry) {
 
 function enterAdministrativeFocus(item) {
   if (state.nearby.active || !item || item.kind !== 'administrative') return;
-  const scope = focusScopeFromItem(item);
-  if (!scope.provinceName && !scope.prefectureName && !scope.countyName) return;
+  const target = markerClickTarget(item, state.lifecycle);
+  enterAdministrativeFocusTarget(target);
+}
+
+function enterAdministrativeFocusTarget(target) {
+  const scope = target?.focus;
+  if (!scope || (!scope.provinceName && !scope.prefectureName && !scope.countyName)) return;
 
   const existing = currentFocus();
-  const key = item.adminKey ?? item.key ?? `${scope.level}:${scope.provinceName || ''}:${scope.prefectureName || ''}:${scope.countyName || ''}`;
+  const key = scope.key ?? `${scope.level}:${scope.provinceName || ''}:${scope.prefectureName || ''}:${scope.countyName || ''}`;
   if (existing?.key === key) return;
 
   recordNavigationDiagnostic(state.focus.path.length, state.focus.path.length + 1);
@@ -394,7 +406,6 @@ function enterAdministrativeFocus(item) {
   state.focus.path.push({
     ...scope,
     key,
-    name: item.name || scope.countyName || scope.prefectureName || scope.provinceName || '地区',
     ...readFocusReturnState()
   });
   state.infoWindow?.close();
@@ -402,11 +413,8 @@ function enterAdministrativeFocus(item) {
   diagnostics.focusDepth = state.focus.path.length;
   diagnostics.focusScope = currentFocus()?.name || '全国';
   renderFocusNavigation();
-  applyFilters({ targetZoom: navigationTargetZoom(currentFocus()) });
+  navigationCoordinator?.transition({ focus: currentFocus(), center: scope.lnglat, mapZoom: focusTargetZoom(scope.level) });
   recordList.scrollTop = 0;
-  if (Array.isArray(item.lnglat)) {
-    state.map.setZoomAndCenter(focusTargetZoom(scope.level), item.lnglat, false, 420);
-  }
 }
 
 function navigateFocusToDepth(depth) {
@@ -420,9 +428,17 @@ function navigateFocusToDepth(depth) {
   diagnostics.focusDepth = state.focus.path.length;
   diagnostics.focusScope = currentFocus()?.name || '全国';
   renderFocusNavigation();
-  applyFilters({ targetZoom: navigationTargetZoom(currentFocus()) });
-  if (restoreEntry) restoreFocusReturnState(restoreEntry);
-  else if (targetDepth === 0) state.map.setZoomAndCenter(4, [104.1954, 35.8617], false, 420);
+  const returnView = restoreEntry?.returnView;
+  navigationCoordinator?.transition({
+    focus: currentFocus(),
+    center: returnView?.center ?? (targetDepth === 0 ? [104.1954, 35.8617] : null),
+    mapZoom: returnView?.zoom ?? (targetDepth === 0 ? 4 : navigationTargetZoom(currentFocus()))
+  });
+  if (restoreEntry) {
+    if (Number.isFinite(Number(restoreEntry.returnScrollTop))) recordList.scrollTop = Number(restoreEntry.returnScrollTop);
+    if (Number.isFinite(Number(returnView?.pitch))) state.map?.setPitch?.(Number(returnView.pitch));
+    if (Number.isFinite(Number(returnView?.rotation))) state.map?.setRotation?.(Number(returnView.rotation));
+  }
 }
 
 function resetFocusNavigation({ restore = false } = {}) {
@@ -803,62 +819,64 @@ function clearDisplayMarkers() {
 
 function createDisplayMarker(item) {
   const AMap = state.AMap;
-  const firstCinema = item.records?.[0] ?? item.cinemas?.[0] ?? null;
-  if (!AMap?.Marker || !Array.isArray(item.lnglat) || item.lnglat.length < 2) return null;
-  const isCinema = item.kind === 'cinema';
-  const isSameSite = item.kind === 'same-site';
-  const size = isCinema ? 16 : displayItemSize(item);
+  const descriptor = markerRenderDescriptor(item, state.lifecycle);
+  if (!AMap?.Marker || !Array.isArray(descriptor.lnglat) || descriptor.lnglat.length < 2) return null;
+  const isCinema = descriptor.kind === 'cinema';
+  const isSameSite = descriptor.kind === 'same-site';
+  const size = isCinema ? 16 : displayItemSize(descriptor);
   const marker = new AMap.Marker({
     map: state.map,
-    position: item.lnglat,
-    content: displayItemHtml(item),
+    position: descriptor.lnglat,
+    content: displayItemHtml(item, descriptor),
     offset: new AMap.Pixel(-size / 2, -size / 2),
     zIndex: isCinema ? 70 : 80
   });
-  const offsetX = Number(item.offsetX) || 0;
-  const offsetY = Number(item.offsetY) || 0;
+  const offsetX = descriptor.offsetX;
+  const offsetY = descriptor.offsetY;
   marker.setOffset(new AMap.Pixel(-size / 2 + offsetX, -size / 2 + offsetY));
   marker.off?.('click');
   marker.on?.('click', () => {
-    if (isSameSite) {
-      state.map.setZoomAndCenter(17, item.lnglat, false, 420);
-      if (firstCinema) openCinema(firstCinema);
+    const target = descriptor.click;
+    if (target.type === 'same-site') {
+      state.map.setZoomAndCenter(17, descriptor.lnglat, false, 420);
+      const cinema = state.cinemas.find((record) => record.id === target.recordId);
+      if (cinema) openCinema(cinema);
       return;
     }
-    if (isCinema) {
-      if (firstCinema) openCinema(firstCinema);
+    if (target.type === 'cinema') {
+      const cinema = state.cinemas.find((record) => record.id === target.recordId);
+      if (cinema) openCinema(cinema);
       return;
     }
-    enterAdministrativeFocus(item);
+    enterAdministrativeFocusTarget(target);
   });
   return marker;
 }
 
-function displayItemHtml(item) {
-  const isCinema = item.kind === 'cinema';
-  const isSameSite = item.kind === 'same-site';
-  const firstCinema = item.records?.[0] ?? item.cinemas?.[0] ?? null;
+function displayItemHtml(item, descriptor = markerRenderDescriptor(item, state.lifecycle)) {
+  const isCinema = descriptor.kind === 'cinema';
+  const isSameSite = descriptor.kind === 'same-site';
   if (isCinema) {
-    const color = firstCinema ? (markerColors[markerColorKey(firstCinema)] ?? markerColors.unknown) : markerColors.unknown;
-    const locationOnly = firstCinema ? locationBucket(firstCinema) === 'location-only' : true;
-    const historical = firstCinema ? cinemaLifecycle(firstCinema) === 'history' : state.lifecycle === 'history';
-    const title = escapeHtml(firstCinema?.name || item.name || 'IMAX 影院');
+    const color = markerColors[descriptor.html.colorKey] ?? markerColors.unknown;
+    const title = escapeHtml(descriptor.name || 'IMAX 影院');
+    const locationOnly = descriptor.html.locationOnly;
+    const historical = descriptor.html.historical;
     return `<div class="imax-marker${locationOnly ? ' location-only' : ''}${historical ? ' is-history' : ''}" style="--marker-color:${color}" title="${title}" aria-label="${title}"><span></span></div>`;
   }
 
-  const levelClass = isSameSite ? 'admin-cluster--overlap' : `admin-cluster--${item.level || 'county'}`;
-  const fallbackClass = !isSameSite && item.fallback ? ' admin-cluster--fallback' : '';
+  const levelClass = isSameSite ? 'admin-cluster--overlap' : `admin-cluster--${descriptor.html.level}`;
+  const fallbackClass = !isSameSite && descriptor.fallback ? ' admin-cluster--fallback' : '';
   // Administrative names are identity, not optional decoration.  A crowded
   // layout may keep its bounded offset, but only a same-site cinema stack is
   // allowed to collapse to the count-only treatment.
-  const compactClass = isSameSite ? ' admin-cluster--compact' : '';
-  const historyClass = state.lifecycle === 'history' ? ' admin-cluster--history' : '';
-  const sizeClass = `count-size--${displaySizeClass(item.sizeClass)}`;
-  const name = escapeHtml(item.name || '地区待核');
-  const count = Number.isFinite(Number(item.count)) ? String(item.count) : '0';
+  const compactClass = descriptor.html.compact ? ' admin-cluster--compact' : '';
+  const historyClass = descriptor.html.historical ? ' admin-cluster--history' : '';
+  const sizeClass = `count-size--${displaySizeClass(descriptor.sizeClass)}`;
+  const name = escapeHtml(descriptor.name || '地区待核');
+  const count = descriptor.html.count;
   const title = escapeHtml(isSameSite
-    ? `同址 ${count} 家 IMAX · ${item.name || 'IMAX 影院'}`
-    : `${item.name || '地区待核'} · ${count} 家 IMAX`);
+    ? `同址 ${count} 家 IMAX · ${descriptor.name || 'IMAX 影院'}`
+    : `${descriptor.name || '地区待核'} · ${count} 家 IMAX`);
   return `<div class="admin-cluster ${levelClass}${fallbackClass}${compactClass}${historyClass} ${sizeClass}" title="${title}" aria-label="${title}" role="button">` +
     `<span class="admin-cluster__name">${name}</span><span class="admin-cluster__count">${count}</span></div>`;
 }
@@ -1049,7 +1067,6 @@ function locationBucketLabel(cinema) {
   return bucket === 'exact' ? '精确身份' : bucket === 'location-only' ? '场所级定位' : '未定位';
 }
 
-function markerColorKey(cinema) { return cinema.projection?.dome ? 'Dome' : cinema.projection?.system ?? 'unknown'; }
 function systemLabel(cinema) {
   const projection = cinema.projection ?? {};
   const parts = [];

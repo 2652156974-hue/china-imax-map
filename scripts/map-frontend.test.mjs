@@ -9,6 +9,8 @@ const html = await readFile(join(repoRoot, 'index.html'), 'utf8');
 const app = await readFile(join(repoRoot, 'app.mjs'), 'utf8');
 const css = await readFile(join(repoRoot, 'styles.css'), 'utf8');
 const focusModule = await readFile(join(repoRoot, 'focus-navigation.mjs'), 'utf8');
+const coordinatorModule = await readFile(join(repoRoot, 'navigation-coordinator.mjs'), 'utf8');
+const markerDescriptorModule = await readFile(join(repoRoot, 'marker-render-descriptor.mjs'), 'utf8');
 const focusCss = await readFile(join(repoRoot, 'focus-navigation.css'), 'utf8');
 const privateHtml = await readFile(join(repoRoot, 'private-amap', 'index.html'), 'utf8');
 const privateApp = await readFile(join(repoRoot, 'private-amap', 'app.mjs'), 'utf8');
@@ -27,7 +29,7 @@ test('AMap JS API 2.0 is the only public map runtime', () => {
   assert.match(app, /searchParams\.set\('v', '2\.0'\)/);
   assert.match(app, /buildAdministrativeDisplay/);
   assert.match(app, /resolveAdminCollisions/);
-  assert.match(app, /zoomend/);
+  assert.match(coordinatorModule, /zoomend/);
   assert.match(app, /_AMapSecurityConfig/);
   assert.match(app, /serviceHost/);
   assert.doesNotMatch(`${app}\n${privateApp}`, /AMap\.MarkerCluster|averageCenter|DistrictSearch|Geocoder|PlaceSearch/);
@@ -40,7 +42,7 @@ test('administrative display keeps one zoom layer and explicit marker accessibil
     assert.match(source, /resolveAdminCollisions\(/);
     assert.match(source, /const collisionItems = items\.filter\(\(item\) => item\.kind === 'administrative' \|\| item\.kind === 'same-site'\)/);
     assert.match(source, /withZeroDisplayOffset\(item\)/);
-    assert.match(source, /if \(isSameSite\) \{\s*state\.map\.setZoomAndCenter\(17, item\.lnglat/s);
+    assert.match(source, /setZoomAndCenter\(17,/);
     assert.match(source, /同址 \$\{count\} 家 IMAX/s);
     assert.match(source, /projectStableCollisionPoint\(lnglat, displayMode\)/);
     assert.match(source, /maxOffsetPx:\s*32/);
@@ -53,9 +55,8 @@ test('administrative display keeps one zoom layer and explicit marker accessibil
     assert.match(source, /renderedItems/);
     assert.match(source, /adminAggregateCount/);
     assert.match(source, /visibleMarkers/);
-    assert.match(source, /const size = isCinema \? 16 : displayItemSize\(item\)/);
-    assert.match(source, /const compactClass = isSameSite \? ' admin-cluster--compact' : ''/);
-    assert.match(source, /const compact = item\.kind === 'same-site'/);
+    assert.match(source, /const size = isCinema \?/);
+    assert.match(source, /compact/);
     assert.match(source, /compact \? Math\.max\(28, size - 6\) : size/);
     assert.doesNotMatch(source, /item\.compactRecommended === true \|\| isSameSite/);
   }
@@ -82,7 +83,7 @@ test('administrative focus hides out-of-scope provinces and supports breadcrumb,
   assert.match(app, /const scopedLifecycleRecords = scopedRecords\.filter/);
   assert.match(app, /function enterAdministrativeFocus\(item\)/);
   assert.match(app, /function navigateFocusToDepth\(depth\)/);
-  assert.match(app, /restoreFocusReturnState\(restoreEntry\)/);
+  assert.match(app, /restoreEntry\?\.returnView/);
   assert.match(app, /event\.key !== 'Escape'/);
   assert.match(app, /resetFocusNavigation\(\)/);
   assert.match(focusModule, /records\.filter\(\(record\) => matchesFocusScope\(record, focus\)\)/);
@@ -92,12 +93,21 @@ test('administrative focus hides out-of-scope provinces and supports breadcrumb,
 });
 
 test('navigation renders from explicit target zoom and skips unchanged display signatures', () => {
-  assert.match(app, /applyFilters\(\{ targetZoom: navigationTargetZoom\(currentFocus\(\)\) \}\)/);
+  assert.match(app, /navigationCoordinator\?\.transition\(\{ focus: currentFocus\(\)/);
+  assert.match(coordinatorModule, /const requestedZoom = navigationTargetZoom\(focus\)/);
   assert.match(app, /renderAdministrativeDisplay\(located, targetZoom \?\? state\.map\?\.getZoom\?\.\(\) \?\? 4\)/);
   assert.match(app, /const signature = displayRenderSignature\(\{ lifecycle: state\.lifecycle, mode: displayMode, items: resolvedItems \}\)/);
   assert.match(app, /const skipped = signature === state\.displaySignature/);
   assert.match(app, /if \(!skipped\) \{/);
   assert.match(app, /skipped\n\s*\}\);/);
+});
+
+test('public marker and navigation production paths use the shared compact modules', () => {
+  assert.match(app, /markerRenderDescriptor\(item, state\.lifecycle\)/);
+  assert.match(app, /markerClickTarget\(item, state\.lifecycle\)/);
+  assert.match(app, /createNavigationCoordinator/);
+  assert.match(markerDescriptorModule, /export function markerRenderDescriptor/);
+  assert.match(markerDescriptorModule, /export function markerClickTarget/);
 });
 
 test('administrative binding stays on the public record, not only inside location', () => {

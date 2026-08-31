@@ -14,6 +14,7 @@ const humanVerificationResults = Array.isArray(humanVerificationResultsDocument)
   : humanVerificationResultsDocument.results;
 const html = fs.readFileSync(path.join(ROOT, 'index.html'), 'utf8');
 const app = fs.readFileSync(path.join(ROOT, 'app.mjs'), 'utf8');
+const navigationCoordinator = fs.readFileSync(path.join(ROOT, 'navigation-coordinator.mjs'), 'utf8');
 
 test('public dataset is a 901-row AMap runtime fact layer', () => {
   assert.equal(publicData.records.length, 901);
@@ -176,7 +177,7 @@ test('public frontend loads AMap online and keeps no-coordinate detail reachable
   assert.match(app, /https:\/\/webapi\.amap\.com\/maps/);
   assert.match(app, /buildAdministrativeDisplay/);
   assert.match(app, /resolveAdminCollisions/);
-  assert.match(app, /zoomend/);
+  assert.match(navigationCoordinator, /zoomend/);
   assert.doesNotMatch(app, /AMap\.MarkerCluster|averageCenter/);
   assert.match(app, /AMap\.Geolocation/);
   assert.match(app, /method: 'POST'/);

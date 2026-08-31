@@ -170,6 +170,19 @@ test('canonical field presentation exposes the reviewed number, pending state, a
   });
 });
 
+test('canonical seat presentation distinguishes direct, missing, and reviewed values', () => {
+  const direct = { seats: 329, seatsRaw: '329', selectionConfidence: 'high' };
+  const missing = { seats: null, seatsRaw: '' };
+  const reviewed = {
+    seats: 329,
+    seatsRaw: '329\n340',
+    screenSeatReview: { confidence: 'high', materializedFields: ['seats'] }
+  };
+  assert.deepEqual(canonicalFieldPresentation(direct, 'seats'), { status: 'direct', html: '329', raw: null });
+  assert.deepEqual(canonicalFieldPresentation(missing, 'seats'), { status: 'missing', html: '暂无数据', raw: null });
+  assert.deepEqual(canonicalFieldPresentation(reviewed, 'seats'), { status: 'reviewed', html: '329', raw: '329\n340' });
+});
+
 test('AMap geolocation success, permission rejection, timeout, and missing city are handled without coordinate conversion', () => {
   const success = readAmapGeolocationResult('complete', {
     position: { lat: 30.67, lng: 104.06 },

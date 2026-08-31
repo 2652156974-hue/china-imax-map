@@ -4,6 +4,8 @@ import fs from 'node:fs';
 import { createNavigationRenderHarness } from './navigation-render-harness.mjs';
 import { cinemaLifecycle } from '../cinema-lifecycle.mjs';
 import { displayRenderSignature } from '../render-signature.mjs';
+import { markerClickTarget, markerRenderDescriptor } from '../marker-render-descriptor.mjs';
+import { buildAdministrativeDisplay } from '../admin-clusters.mjs';
 
 const publicData = JSON.parse(fs.readFileSync('data/public/cinemas.json', 'utf8'));
 const markerLayer = JSON.parse(fs.readFileSync('data/local/public-amap-reviewed-geocodes.json', 'utf8'));
@@ -69,16 +71,58 @@ test('marker HTML and placement inputs are part of the display signature', () =>
   assert.notEqual(same, displayRenderSignature({ ...base, items: [{ ...base.items[0], name: 'B' }] }));
   assert.notEqual(same, displayRenderSignature({ ...base, items: [{ ...base.items[0], offsetX: 8 }] }));
   assert.notEqual(same, displayRenderSignature({ ...base, items: [{ ...base.items[0], records: [{ ...base.items[0].records[0], projection: { system: 'GT Laser' } }] }] }));
-  assert.notEqual(same, displayRenderSignature({ ...base, items: [{ ...base.items[0], administrative: { provinceName: '江苏' } }] }));
+  const adminBase = { kind: 'administrative', level: 'province', name: 'A', count: 1, lnglat: [1, 2], records: [{ id: 'a', sourceRow: 1, name: 'A', province: '江苏' }] };
+  assert.notEqual(
+    displayRenderSignature({ lifecycle: 'current', mode: 'province', items: [adminBase] }),
+    displayRenderSignature({ lifecycle: 'current', mode: 'province', items: [{ ...adminBase, administrative: { provinceName: '浙江' } }] })
+  );
+});
+
+test('national signature is compact and excludes raw/full record payloads', () => {
+  const items = buildAdministrativeDisplay(records, 4);
+  const signature = displayRenderSignature({ lifecycle: 'current', mode: 'province', items });
+  assert.ok(signature.length < 100_000);
+  assert.doesNotMatch(signature, /rawWidth|providerLat|"projection"/);
+  assert.equal(Object.hasOwn(markerRenderDescriptor(items[0]), 'markerInput'), false);
+  assert.equal(Object.hasOwn(markerRenderDescriptor(items[0]), 'firstRecord'), false);
+});
+
+test('shared click target follows the new same-coordinate record and lifecycle changes identity', () => {
+  const first = records.find((record) => record.id === 'imax-cn-0294');
+  const next = records.find((record) => record.id === 'imax-cn-0809');
+  const firstItem = buildAdministrativeDisplay([first], 11)[0];
+  const nextItem = buildAdministrativeDisplay([next], 11)[0];
+  assert.equal(markerClickTarget(firstItem).recordId, 'imax-cn-0294');
+  assert.equal(markerClickTarget(nextItem).recordId, 'imax-cn-0809');
+  assert.notEqual(
+    displayRenderSignature({ lifecycle: 'current', mode: 'cinema', items: [nextItem] }),
+    displayRenderSignature({ lifecycle: 'history', mode: 'cinema', items: [nextItem] })
+  );
+});
+
+test('current to history is a marker rebuild, not a skipped render', () => {
+  const current = records.find((record) => cinemaLifecycle(record) === 'current');
+  const history = records.find((record) => cinemaLifecycle(record) === 'history');
+  const harness = createNavigationRenderHarness([current, history], { lifecycle: 'current' });
+  const now = harness.render({ requestedZoom: 11 });
+  harness.setLifecycle('history');
+  const former = harness.render({ requestedZoom: 11 });
+  assert.equal(now.skipped, false);
+  assert.equal(former.skipped, false);
+  assert.equal(former.removedCount, 1);
+  assert.equal(former.createdCount, 1);
 });
 
 test('navigation harness uses target LOD and skips identical zoomend without marker churn', () => {
   const harness = createNavigationRenderHarness(records);
   const national = harness.navigateTo(null);
   assert.equal(national.first.mode, 'province');
+  assert.equal(national.first.source, 'navigation');
+  assert.equal(national.zoomend.source, 'zoomend');
   assert.equal(national.first.effectiveZoom, 4);
   assert.equal(national.zoomend.skipped, true);
   assert.equal(national.zoomend.removedCount + national.zoomend.createdCount, 0);
+  assert.equal(harness.transitions.at(-1).zoom, 4);
 
   const jiangsu = harness.navigateTo(provinceJiangsu);
   assert.equal(jiangsu.first.mode, 'prefecture');

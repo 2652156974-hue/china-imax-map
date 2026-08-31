@@ -1,77 +1,94 @@
 import fs from 'node:fs';
-import { execFileSync } from 'node:child_process';
+import crypto from 'node:crypto';
 
-const output = 'data/audit/navigation-render-benchmark.json';
-const before = {
-  commit: 'f8a0a7de91b2402fd08f146ce0d84ddab23fbeef',
-  scenarios: [
-    scenario('national-to-jiangsu', [
-      event(4, 6.01, 'prefecture', 101, 13, 34, 13, 26.3, false),
-      event(6.25, 6.25, 'prefecture', 101, 13, 13, 13, 6.2, false)
-    ]),
-    scenario('jiangsu-to-national', [event(6.25, 6.25, 'prefecture', 874, 270, 13, 270, 157.8, false)]),
-    scenario('jiangsu-to-nanjing', [
-      event(6.25, 6.25, 'prefecture', 101, 13, 13, 13, 6.1, false),
-      event(6.25, 8.01, 'county', 21, 11, 13, 11, 6.7, false)
-    ]),
-    scenario('nanjing-to-jiangsu', [
-      event(8.25, 8.25, 'county', 21, 11, 11, 11, 2.5, false),
-      event(8.25, 8.25, 'county', 101, 60, 11, 60, 17.3, false)
-    ])
-  ]
-};
+const args = new Map(process.argv.slice(2).reduce((pairs, value, index, values) => {
+  if (value.startsWith('--')) pairs.push([value.slice(2), values[index + 1]]);
+  return pairs;
+}, []));
+const beforePath = args.get('before');
+const afterPath = args.get('after');
+const outputPath = args.get('output') ?? 'data/audit/navigation-render-benchmark.json';
+if (!beforePath || !afterPath) throw new Error('Usage: node scripts/build-navigation-render-benchmark.mjs --before <capture> --after <capture> [--output <file>]');
 
-const after = {
-  commit: execFileSync('git', ['rev-parse', 'HEAD'], { encoding: 'utf8' }).trim(),
-  scenarios: [
-    scenario('national-to-jiangsu', [event(6.25, 6.25, 'prefecture', 101, 13, 34, 13, 5.1, false)]),
-    scenario('jiangsu-to-national', [event(4, 4, 'province', 874, 34, 13, 34, 11.8, false)]),
-    scenario('jiangsu-to-nanjing', [event(8.25, 8.25, 'county', 21, 11, 13, 11, 11.9, false)]),
-    scenario('nanjing-to-jiangsu', [event(6.25, 6.25, 'prefecture', 101, 13, 11, 13, 4.0, false)])
-  ]
-};
-
-const benchmark = {
-  schemaVersion: 1,
-  artifact: 'navigation-render-benchmark',
-  source: 'real-browser-observation',
-  capturedAt: new Date().toISOString(),
-  browser: {
-    engine: 'Chromium',
-    userAgent: 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/151.0.0.0 Safari/537.36',
-    headed: true,
-    session: 'imax-before',
-    viewport: { width: 1036, height: 905 },
-    devicePixelRatio: 1.5
-  },
-  environment: { os: 'Windows', architecture: 'x64', node: process.version, machine: 'shared local browser host' },
-  notes: [
-    'BEFORE was captured against the independent f8a0a7d behavior before the stale-zoom fix.',
-    'AFTER was captured in the same headed Chromium session and uses bounded app diagnostics.',
-    'Coordinates, addresses, credentials, and other sensitive values are intentionally excluded.'
-  ],
-  before,
-  after
-};
-
-fs.mkdirSync('data/audit', { recursive: true });
-fs.writeFileSync(output, `${JSON.stringify(benchmark, null, 2)}\n`);
-console.log(`wrote ${output}`);
-
-function event(requestedZoom, effectiveZoom, mode, inputRecordCount, outputItemCount, removedCount, createdCount, jsTimeMs, skipped) {
-  return { requestedZoom, effectiveZoom, mode, inputRecordCount, outputItemCount, removedCount, createdCount, jsTimeMs, skipped };
+const before = readCapture(beforePath, 'before');
+const after = readCapture(afterPath, 'after');
+const names = ['national-to-jiangsu', 'jiangsu-to-national', 'jiangsu-to-nanjing', 'nanjing-to-jiangsu'];
+if (JSON.stringify(before.scenarios.map((scenario) => scenario.name)) !== JSON.stringify(names) || JSON.stringify(after.scenarios.map((scenario) => scenario.name)) !== JSON.stringify(names)) {
+  throw new Error('Benchmark captures must contain the four canonical navigation scenarios in order.');
 }
 
-function scenario(name, renderEvents) {
-  const effectiveDisplayZoomCalls = renderEvents.length;
+const benchmark = {
+  schemaVersion: 2,
+  artifact: 'navigation-render-benchmark',
+  source: 'real-browser-capture',
+  capturedAt: { before: before.capturedAt, after: after.capturedAt },
+  browser: after.browser,
+  environment: after.environment,
+  before: normalizeCapture(before),
+  after: normalizeCapture(after),
+  validation: {
+    sameBrowserSession: before.browser.session === after.browser.session && before.browser.userAgent === after.browser.userAgent,
+    sameEnvironment: JSON.stringify(before.environment) === JSON.stringify(after.environment),
+    forbiddenPayloadFields: []
+  }
+};
+if (!benchmark.validation.sameBrowserSession || !benchmark.validation.sameEnvironment) throw new Error('BEFORE and AFTER captures must use the same browser and environment.');
+fs.mkdirSync('data/audit', { recursive: true });
+fs.writeFileSync(outputPath, `${JSON.stringify(benchmark, null, 2)}\n`);
+console.log(`wrote ${outputPath}`);
+
+function readCapture(path, expectedKind) {
+  const source = fs.readFileSync(path);
+  const capture = JSON.parse(source);
+  if (capture.schemaVersion !== 1 || capture.captureKind !== expectedKind || !Array.isArray(capture.scenarios)) throw new Error(`Invalid ${expectedKind} capture: ${path}`);
+  for (const scenario of capture.scenarios) validateScenario(scenario, path);
+  capture.captureDigest = crypto.createHash('sha256').update(source).digest('hex');
+  return capture;
+}
+
+function validateScenario(scenario, path) {
+  if (typeof scenario.name !== 'string' || !Array.isArray(scenario.renderEvents)) throw new Error(`Invalid scenario in ${path}`);
+  for (const event of scenario.renderEvents) {
+    for (const field of ['requestedZoom', 'effectiveZoom', 'mode', 'inputRecordCount', 'outputItemCount', 'totalRenderMs', 'skipped']) {
+      if (!(field in event)) throw new Error(`Render event missing ${field} in ${path}`);
+    }
+    if (!event.marker || !Number.isFinite(event.marker.createdCount) || !Number.isFinite(event.marker.removedCount)) throw new Error(`Render event missing marker counts in ${path}`);
+  }
+}
+
+function normalizeCapture(capture) {
   return {
-    name,
-    renderCalls: renderEvents.length,
-    effectiveDisplayZoomCalls,
-    maxRenderedItems: Math.max(...renderEvents.map((item) => item.outputItemCount)),
-    markerCreated: renderEvents.reduce((sum, item) => sum + item.createdCount, 0),
-    markerRemoved: renderEvents.reduce((sum, item) => sum + item.removedCount, 0),
-    totalJsTimeMs: Number(renderEvents.reduce((sum, item) => sum + item.jsTimeMs, 0).toFixed(1)),
-    renderEvents
+    captureKind: capture.captureKind,
+    commit: capture.commit,
+    captureDigest: capture.captureDigest,
+    browser: capture.browser,
+    environment: capture.environment,
+    scenarios: capture.scenarios.map((scenario) => {
+      const renderEvents = scenario.renderEvents.map((event) => ({
+        requestedZoom: event.requestedZoom,
+        effectiveZoom: event.effectiveZoom,
+        mode: event.mode,
+        inputRecordCount: event.inputRecordCount,
+        outputItemCount: event.outputItemCount,
+        totalRenderMs: event.totalRenderMs,
+        marker: event.marker,
+        skipped: event.skipped,
+        source: event.source ?? null
+      }));
+      return {
+        name: scenario.name,
+        filters: scenario.filters,
+        focus: scenario.focus,
+        zoom: scenario.zoom,
+        waits: scenario.waits,
+        renderCalls: renderEvents.length,
+        markerMutatingRenderCalls: renderEvents.filter((event) => !event.skipped && (event.marker.createdCount !== 0 || event.marker.removedCount !== 0)).length,
+        maxRenderedItems: Math.max(0, ...renderEvents.map((event) => event.outputItemCount)),
+        markerCreated: renderEvents.reduce((sum, event) => sum + event.marker.createdCount, 0),
+        markerRemoved: renderEvents.reduce((sum, event) => sum + event.marker.removedCount, 0),
+        totalJsTimeMs: Number(renderEvents.reduce((sum, event) => sum + event.totalRenderMs, 0).toFixed(1)),
+        renderEvents
+      };
+    })
   };
 }
