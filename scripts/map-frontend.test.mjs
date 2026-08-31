@@ -94,7 +94,7 @@ test('administrative focus hides out-of-scope provinces and supports breadcrumb,
 test('navigation renders from explicit target zoom and skips unchanged display signatures', () => {
   assert.match(app, /applyFilters\(\{ targetZoom: navigationTargetZoom\(currentFocus\(\)\) \}\)/);
   assert.match(app, /renderAdministrativeDisplay\(located, targetZoom \?\? state\.map\?\.getZoom\?\.\(\) \?\? 4\)/);
-  assert.match(app, /const signature = displayRenderSignature\(displayMode, resolvedItems\)/);
+  assert.match(app, /const signature = displayRenderSignature\(\{ lifecycle: state\.lifecycle, mode: displayMode, items: resolvedItems \}\)/);
   assert.match(app, /const skipped = signature === state\.displaySignature/);
   assert.match(app, /if \(!skipped\) \{/);
   assert.match(app, /skipped\n\s*\}\);/);
@@ -177,7 +177,7 @@ test('public field presentation keeps raw values out of normal detail rows', () 
   assert.doesNotMatch(`${html}\n${app}`, /位置待核/);
   assert.match(app, /function renderDataNotes/);
   assert.match(app, /class="data-notes"/);
-  assert.match(app, /reliableScreenField\(screen, field\)/);
+  assert.match(app, /canonicalFieldPresentation\(record, field, unit\)/);
   assert.match(app, /暂无数据/);
   assert.doesNotMatch(app, /源文：/);
 });

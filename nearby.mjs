@@ -143,6 +143,24 @@ export function formatNumber(value, maximumFractionDigits = 3) {
   return String(Number((number + epsilon).toFixed(maximumFractionDigits)));
 }
 
+export function canonicalFieldPresentation(record = {}, field, unit = '') {
+  const resolved = resolveCanonicalScreenField(record, field);
+  if (resolved.status === 'missing') return { status: resolved.status, html: '暂无数据', raw: null };
+  if (resolved.status === 'reviewed' || resolved.status === 'direct') {
+    const digits = field === 'seats' ? 0 : field === 'area' ? 2 : 3;
+    return {
+      status: resolved.status,
+      html: `${formatNumber(resolved.value, digits)}${unit ? ` ${unit}` : ''}`,
+      raw: resolved.status === 'reviewed' ? resolved.raw : null
+    };
+  }
+  return {
+    status: resolved.status,
+    html: '<span>待核<span class="field-flag">数据说明</span></span>',
+    raw: resolved.raw
+  };
+}
+
 export function formatDistanceKm(value) {
   const number = Number(value);
   if (!Number.isFinite(number)) return '暂无数据';

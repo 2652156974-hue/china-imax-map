@@ -1,10 +1,9 @@
 import {
   buildNearbyCandidateSet,
+  canonicalFieldPresentation,
   formatDistanceKm,
   geolocationFailureMessage,
   readAmapGeolocationResult,
-  reliableScreenField,
-  resolveCanonicalScreenField,
   screenMeasureLabel,
   sortNearbyCandidates
 } from './nearby.mjs';
@@ -26,6 +25,7 @@ import {
   focusTargetZoom,
   navigationTargetZoom
 } from './focus-navigation.mjs';
+import { displayRenderSignature } from './render-signature.mjs';
 
 const config = window.__PUBLIC_AMAP_CONFIG__ ?? {};
 const mapError = document.querySelector('#mapError');
@@ -744,7 +744,7 @@ function renderAdministrativeDisplay(records = state.visible.filter(hasCoordinat
       ? collisionByKey.get(displayItemKey(item)) ?? withZeroDisplayOffset(item)
       : withZeroDisplayOffset(item)
   ));
-  const signature = displayRenderSignature(displayMode, resolvedItems);
+  const signature = displayRenderSignature({ lifecycle: state.lifecycle, mode: displayMode, items: resolvedItems });
   const skipped = signature === state.displaySignature;
   state.displayItems = resolvedItems;
   diagnostics.displayMode = displayMode;
@@ -784,18 +784,6 @@ function renderAdministrativeDisplay(records = state.visible.filter(hasCoordinat
     marker: { removedCount, createdCount },
     skipped
   });
-}
-
-function displayRenderSignature(mode, items) {
-  return JSON.stringify([
-    mode,
-    items.map((item) => ({
-      key: displayItemKey(item),
-      kind: item.kind,
-      count: item.count,
-      lnglat: item.lnglat
-    }))
-  ]);
 }
 
 function displayItemKey(item) {
@@ -1019,28 +1007,11 @@ function renderLifecycleNavigation(cinema) {
 }
 
 function screenField(record = {}, field, rawField, unit) {
-  const screen = record?.screen ?? record;
-  const raw = String(screen?.[rawField] ?? '');
-  const resolved = resolveCanonicalScreenField(record, field);
-  const reliable = reliableScreenField(screen, field) ?? reliableScreenField({ ...screen, screenSeatReview: record?.screenSeatReview }, field);
-  if (resolved.status === 'missing') return { html: '暂无数据', raw: null };
-  if (reliable && (resolved.status === 'reviewed' || resolved.status === 'direct')) {
-    return {
-      html: `${formatNumber(resolved.value, field === 'area' ? 2 : 3)} ${unit}`,
-      raw: resolved.status === 'reviewed' ? raw : null
-    };
-  }
-  return { html: '<span>待核<span class="field-flag">数据说明</span></span>', raw };
+  return canonicalFieldPresentation(record, field, unit);
 }
 
 function seatField(record = {}) {
-  const raw = String(record?.seatsRaw ?? '');
-  const resolved = resolveCanonicalScreenField(record, 'seats');
-  if (resolved.status === 'missing') return { html: '暂无数据', raw: null };
-  if (resolved.status === 'reviewed' || resolved.status === 'direct') {
-    return { html: formatNumber(resolved.value, 0), raw: resolved.status === 'reviewed' ? raw : null };
-  }
-  return { html: '<span>待核<span class="field-flag">数据说明</span></span>', raw };
+  return canonicalFieldPresentation(record, 'seats');
 }
 
 function renderDataNotes(fields) {

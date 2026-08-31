@@ -2,6 +2,7 @@ import assert from 'node:assert/strict';
 import test from 'node:test';
 import {
   buildNearbyCandidateSet,
+  canonicalFieldPresentation,
   formatDistanceKm,
   geolocationFailureMessage,
   haversineKm,
@@ -152,6 +153,20 @@ test('reviewed canonical seats win over raw multi-value text', () => {
   };
   assert.deepEqual(resolveCanonicalScreenField(record, 'seats'), {
     status: 'reviewed', value: 426, raw: '453\n445\n426', provenance: 'screen-seat-review', confidence: 'high'
+  });
+});
+
+test('canonical field presentation exposes the reviewed number, pending state, and raw note', () => {
+  const reviewed = {
+    screen: { width: 25.88, rawWidth: '25.880\n23.453', selectionConfidence: 'high' },
+    screenSeatReview: { confidence: 'high', materializedFields: ['width'] }
+  };
+  const pending = { screen: { width: null, rawWidth: '25.880\n23.453', selectionConfidence: 'unknown' } };
+  assert.deepEqual(canonicalFieldPresentation(reviewed, 'width', 'm'), {
+    status: 'reviewed', html: '25.88 m', raw: '25.880\n23.453'
+  });
+  assert.deepEqual(canonicalFieldPresentation(pending, 'width', 'm'), {
+    status: 'unresolved', html: '<span>待核<span class="field-flag">数据说明</span></span>', raw: '25.880\n23.453'
   });
 });
 

@@ -1,0 +1,247 @@
+{
+  "schemaVersion": 1,
+  "artifact": "navigation-render-benchmark",
+  "source": "real-browser-observation",
+  "capturedAt": "2026-08-31T08:49:57.469Z",
+  "browser": {
+    "engine": "Chromium",
+    "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/151.0.0.0 Safari/537.36",
+    "headed": true,
+    "session": "imax-before",
+    "viewport": {
+      "width": 1036,
+      "height": 905
+    },
+    "devicePixelRatio": 1.5
+  },
+  "environment": {
+    "os": "Windows",
+    "architecture": "x64",
+    "node": "v24.16.0",
+    "machine": "shared local browser host"
+  },
+  "notes": [
+    "BEFORE was captured against the independent f8a0a7d behavior before the stale-zoom fix.",
+    "AFTER was captured in the same headed Chromium session and uses bounded app diagnostics.",
+    "Coordinates, addresses, credentials, and other sensitive values are intentionally excluded."
+  ],
+  "before": {
+    "commit": "f8a0a7de91b2402fd08f146ce0d84ddab23fbeef",
+    "scenarios": [
+      {
+        "name": "national-to-jiangsu",
+        "renderCalls": 2,
+        "effectiveDisplayZoomCalls": 2,
+        "maxRenderedItems": 13,
+        "markerCreated": 26,
+        "markerRemoved": 47,
+        "totalJsTimeMs": 32.5,
+        "renderEvents": [
+          {
+            "requestedZoom": 4,
+            "effectiveZoom": 6.01,
+            "mode": "prefecture",
+            "inputRecordCount": 101,
+            "outputItemCount": 13,
+            "removedCount": 34,
+            "createdCount": 13,
+            "jsTimeMs": 26.3,
+            "skipped": false
+          },
+          {
+            "requestedZoom": 6.25,
+            "effectiveZoom": 6.25,
+            "mode": "prefecture",
+            "inputRecordCount": 101,
+            "outputItemCount": 13,
+            "removedCount": 13,
+            "createdCount": 13,
+            "jsTimeMs": 6.2,
+            "skipped": false
+          }
+        ]
+      },
+      {
+        "name": "jiangsu-to-national",
+        "renderCalls": 1,
+        "effectiveDisplayZoomCalls": 1,
+        "maxRenderedItems": 270,
+        "markerCreated": 270,
+        "markerRemoved": 13,
+        "totalJsTimeMs": 157.8,
+        "renderEvents": [
+          {
+            "requestedZoom": 6.25,
+            "effectiveZoom": 6.25,
+            "mode": "prefecture",
+            "inputRecordCount": 874,
+            "outputItemCount": 270,
+            "removedCount": 13,
+            "createdCount": 270,
+            "jsTimeMs": 157.8,
+            "skipped": false
+          }
+        ]
+      },
+      {
+        "name": "jiangsu-to-nanjing",
+        "renderCalls": 2,
+        "effectiveDisplayZoomCalls": 2,
+        "maxRenderedItems": 13,
+        "markerCreated": 24,
+        "markerRemoved": 26,
+        "totalJsTimeMs": 12.8,
+        "renderEvents": [
+          {
+            "requestedZoom": 6.25,
+            "effectiveZoom": 6.25,
+            "mode": "prefecture",
+            "inputRecordCount": 101,
+            "outputItemCount": 13,
+            "removedCount": 13,
+            "createdCount": 13,
+            "jsTimeMs": 6.1,
+            "skipped": false
+          },
+          {
+            "requestedZoom": 6.25,
+            "effectiveZoom": 8.01,
+            "mode": "county",
+            "inputRecordCount": 21,
+            "outputItemCount": 11,
+            "removedCount": 13,
+            "createdCount": 11,
+            "jsTimeMs": 6.7,
+            "skipped": false
+          }
+        ]
+      },
+      {
+        "name": "nanjing-to-jiangsu",
+        "renderCalls": 2,
+        "effectiveDisplayZoomCalls": 2,
+        "maxRenderedItems": 60,
+        "markerCreated": 71,
+        "markerRemoved": 22,
+        "totalJsTimeMs": 19.8,
+        "renderEvents": [
+          {
+            "requestedZoom": 8.25,
+            "effectiveZoom": 8.25,
+            "mode": "county",
+            "inputRecordCount": 21,
+            "outputItemCount": 11,
+            "removedCount": 11,
+            "createdCount": 11,
+            "jsTimeMs": 2.5,
+            "skipped": false
+          },
+          {
+            "requestedZoom": 8.25,
+            "effectiveZoom": 8.25,
+            "mode": "county",
+            "inputRecordCount": 101,
+            "outputItemCount": 60,
+            "removedCount": 11,
+            "createdCount": 60,
+            "jsTimeMs": 17.3,
+            "skipped": false
+          }
+        ]
+      }
+    ]
+  },
+  "after": {
+    "commit": "862a09660027c8353c89f14849fa53409b013f55",
+    "scenarios": [
+      {
+        "name": "national-to-jiangsu",
+        "renderCalls": 1,
+        "effectiveDisplayZoomCalls": 1,
+        "maxRenderedItems": 13,
+        "markerCreated": 13,
+        "markerRemoved": 34,
+        "totalJsTimeMs": 5.1,
+        "renderEvents": [
+          {
+            "requestedZoom": 6.25,
+            "effectiveZoom": 6.25,
+            "mode": "prefecture",
+            "inputRecordCount": 101,
+            "outputItemCount": 13,
+            "removedCount": 34,
+            "createdCount": 13,
+            "jsTimeMs": 5.1,
+            "skipped": false
+          }
+        ]
+      },
+      {
+        "name": "jiangsu-to-national",
+        "renderCalls": 1,
+        "effectiveDisplayZoomCalls": 1,
+        "maxRenderedItems": 34,
+        "markerCreated": 34,
+        "markerRemoved": 13,
+        "totalJsTimeMs": 11.8,
+        "renderEvents": [
+          {
+            "requestedZoom": 4,
+            "effectiveZoom": 4,
+            "mode": "province",
+            "inputRecordCount": 874,
+            "outputItemCount": 34,
+            "removedCount": 13,
+            "createdCount": 34,
+            "jsTimeMs": 11.8,
+            "skipped": false
+          }
+        ]
+      },
+      {
+        "name": "jiangsu-to-nanjing",
+        "renderCalls": 1,
+        "effectiveDisplayZoomCalls": 1,
+        "maxRenderedItems": 11,
+        "markerCreated": 11,
+        "markerRemoved": 13,
+        "totalJsTimeMs": 11.9,
+        "renderEvents": [
+          {
+            "requestedZoom": 8.25,
+            "effectiveZoom": 8.25,
+            "mode": "county",
+            "inputRecordCount": 21,
+            "outputItemCount": 11,
+            "removedCount": 13,
+            "createdCount": 11,
+            "jsTimeMs": 11.9,
+            "skipped": false
+          }
+        ]
+      },
+      {
+        "name": "nanjing-to-jiangsu",
+        "renderCalls": 1,
+        "effectiveDisplayZoomCalls": 1,
+        "maxRenderedItems": 13,
+        "markerCreated": 13,
+        "markerRemoved": 11,
+        "totalJsTimeMs": 4,
+        "renderEvents": [
+          {
+            "requestedZoom": 6.25,
+            "effectiveZoom": 6.25,
+            "mode": "prefecture",
+            "inputRecordCount": 101,
+            "outputItemCount": 13,
+            "removedCount": 11,
+            "createdCount": 13,
+            "jsTimeMs": 4,
+            "skipped": false
+          }
+        ]
+      }
+    ]
+  }
+}
