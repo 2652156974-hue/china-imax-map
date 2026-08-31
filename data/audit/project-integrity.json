@@ -1,0 +1,197 @@
+{
+  "schemaVersion": 1,
+  "generatedAt": "2026-08-31T04:20:05.644Z",
+  "project": "china-imax-map",
+  "git": {
+    "branch": "develop/current",
+    "head": "68fb045"
+  },
+  "status": "ok-with-release-gates",
+  "summary": {
+    "checks": 10,
+    "pass": 8,
+    "warn": 2
+  },
+  "datasets": {
+    "derived": {
+      "path": "data/derived/cinemas.json",
+      "records": 901,
+      "coordinates": 0,
+      "nullCoordinates": 901
+    },
+    "public": {
+      "path": "data/public/cinemas.json",
+      "records": 901,
+      "coordinates": 0,
+      "nullCoordinates": 901
+    },
+    "localPreview": {
+      "path": "data/local/cinemas-preview.json",
+      "records": 901,
+      "coordinates": 577,
+      "nullCoordinates": 324,
+      "role": "legacy-accepted-high-baseline-diagnostic",
+      "currentReleaseLayer": false
+    }
+  },
+  "coordinateReviewState": {
+    "automaticHigh": 573,
+    "reviewedOverrideHigh": 4,
+    "reviewedRejections": 1,
+    "localAccepted": 901,
+    "automaticMedium": 0,
+    "mainlandUnresolved": 194,
+    "regionalUnresolved": 20,
+    "totalPendingReviewOrUnresolved": 0,
+    "unlocated": 0,
+    "acceptedPlusUnlocated": 901,
+    "markerCount": 901
+  },
+  "releaseGates": [
+    "Keep data/raw/arvin-imax.json out of the eventual public main history.",
+    "Keep provider caches, rawCandidates and bulk coordinate files outside public artifacts; public markers are runtime-only AMap responses.",
+    "Rotate AMAP_JS_SECURITY_CODE before production deployment if the value was previously exposed."
+  ],
+  "checks": [
+    {
+      "id": "required-project-files",
+      "status": "pass",
+      "message": "All required project files are present.",
+      "details": {
+        "required": 31,
+        "missing": []
+      }
+    },
+    {
+      "id": "dataset-record-counts",
+      "status": "pass",
+      "message": "Derived/public records: 901/901.",
+      "details": {
+        "derived": {
+          "path": "data/derived/cinemas.json",
+          "records": 901,
+          "coordinates": 0,
+          "nullCoordinates": 901
+        },
+        "public": {
+          "path": "data/public/cinemas.json",
+          "records": 901,
+          "coordinates": 0,
+          "nullCoordinates": 901
+        },
+        "localPreview": {
+          "path": "data/local/cinemas-preview.json",
+          "records": 901,
+          "coordinates": 577,
+          "nullCoordinates": 324,
+          "role": "legacy-accepted-high-baseline-diagnostic",
+          "currentReleaseLayer": false
+        }
+      }
+    },
+    {
+      "id": "formal-coordinate-boundary",
+      "status": "pass",
+      "message": "Formal derived and public static datasets contain no coordinates; public runtime markers are served separately.",
+      "details": {
+        "derivedCoordinates": 0,
+        "publicCoordinates": 0
+      }
+    },
+    {
+      "id": "local-preview-coordinate-layer",
+      "status": "pass",
+      "message": "Legacy ignored preview contains 577 positioned records and 324 unresolved records; it is not the current reviewed release layer.",
+      "details": {
+        "path": "data/local/cinemas-preview.json",
+        "records": 901,
+        "coordinates": 577,
+        "nullCoordinates": 324,
+        "role": "legacy-accepted-high-baseline-diagnostic",
+        "currentReleaseLayer": false
+      }
+    },
+    {
+      "id": "private-artifact-git-boundary",
+      "status": "pass",
+      "message": "Existing provider caches, local review files, and private release data are ignored and untracked.",
+      "details": {
+        "checked": [
+          "data/geocode/provider-cache/amap.json",
+          "data/geocode/provider-cache/tencent.json",
+          "data/geocode/provider-cache/nominatim.json",
+          "data/local/cinemas-preview.json",
+          "data/local/luna-geocode-review-323.json",
+          "data/local/public-amap-reviewed-geocodes.json",
+          "dist-public/data/cinemas.json",
+          "dist-private/data/cinemas.json"
+        ],
+        "failures": []
+      }
+    },
+    {
+      "id": "raw-snapshot-release-gate",
+      "status": "warn",
+      "message": "The audited raw snapshot is tracked on this draft branch; do not merge this branch directly into public main.",
+      "details": {
+        "path": "data/raw/arvin-imax.json",
+        "tracked": true,
+        "localFilePreserved": true
+      }
+    },
+    {
+      "id": "credential-leak-scan",
+      "status": "pass",
+      "message": "No 32-character credential-like literal or current environment credential was found in project files.",
+      "details": {
+        "credentialLikeFindings": [],
+        "currentEnvironmentSecretMatches": [],
+        "valuesIncludedInReport": false
+      }
+    },
+    {
+      "id": "private-reviewed-state-partition",
+      "status": "pass",
+      "message": "Private reviewed states partition 901 records: accepted/located 901, pending-review 0, unresolved 0, unlocated 0; accepted + unlocated = total and markerCount = accepted.",
+      "details": {
+        "total": 901,
+        "accepted": 901,
+        "markerCount": 901,
+        "located": 901,
+        "pendingReview": 0,
+        "unresolved": 0,
+        "unlocated": 0,
+        "acceptedPlusUnlocated": 901
+      }
+    },
+    {
+      "id": "public-runtime-marker-partition",
+      "status": "pass",
+      "message": "Public runtime markers satisfy accepted 901 + unlocated 0 = 901; markerCount equals accepted.",
+      "details": {
+        "total": 901,
+        "accepted": 901,
+        "unlocated": 0,
+        "markerCount": 901
+      }
+    },
+    {
+      "id": "coordinate-review-state",
+      "status": "warn",
+      "message": "901 records are locally positioned; 0 still require review or remain unresolved.",
+      "details": {
+        "automaticHigh": 573,
+        "reviewedOverrideHigh": 4,
+        "reviewedRejections": 1,
+        "localAccepted": 901,
+        "automaticMedium": 0,
+        "mainlandUnresolved": 194,
+        "regionalUnresolved": 20,
+        "totalPendingReviewOrUnresolved": 0,
+        "unlocated": 0,
+        "acceptedPlusUnlocated": 901,
+        "markerCount": 901
+      }
+    }
+  ]
+}

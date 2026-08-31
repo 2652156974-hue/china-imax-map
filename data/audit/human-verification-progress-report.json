@@ -1,0 +1,56 @@
+{
+  "generatedAt": "2026-08-25T03:45:07.701Z",
+  "status": "human-verification-complete-release-gate-blocked",
+  "scope": {
+    "total": 901,
+    "startingLocated": 672,
+    "startingUnresolved": 229,
+    "currentLocated": 901,
+    "currentUnresolved": 0,
+    "pendingReview": 0
+  },
+  "canonical": {
+    "file": "data/local/private-reviewed-geocodes.json",
+    "finalVerdicts": {
+      "accepted-exact": 158,
+      "accepted-historical-location": 22,
+      "accepted-location-only": 62,
+      "located": 659
+    },
+    "unresolvedReasons": {},
+    "unresolvedWithCoordinates": 0
+  },
+  "evidence": {
+    "publicWebRecords": 115,
+    "publicWebStillRequiringLabel": 65,
+    "publicWebMaterializedBeforeThisReport": 50,
+    "newBaiduRequests": 0,
+    "baiduPolicy": "disabled-by-user; historical cache only"
+  },
+  "humanVerification": {
+    "resultsFile": "data/audit/human-verification-results.json",
+    "resultRecords": 229,
+    "queueFile": "data/audit/human-verification-queue.json",
+    "queueRecords": 0,
+    "priorityCounts": {},
+    "nextBatch": null,
+    "batches": []
+  },
+  "integrity": {
+    "oldApprovedCoordinatePreservation": {
+      "baselineApprovedCoordinates": 901,
+      "coordinateMismatches": 0,
+      "rawFieldComparisons": 3604,
+      "rawMismatches": 0,
+      "status": "PASS"
+    },
+    "queueCompleteness": {
+      "records": 0,
+      "missingFields": 0,
+      "status": "PASS"
+    },
+    "canonicalStatePartition": true,
+    "pendingReviewZero": true
+  },
+  "releaseGate": "BLOCKED"
+}

@@ -1,0 +1,75 @@
+{
+  "schemaVersion": 1,
+  "description": "Human-reviewed selections and rejections kept outside the generic matcher. An approved POI must already exist in provider cache and must pass all hard-reject rules; a rejected cached POI is never replaced by a guessed historical coordinate.",
+  "records": [
+    {
+      "sourceRow": 309,
+      "status": "approved-cached-poi",
+      "provider": "amap",
+      "poiId": "B0HBXCQO2P",
+      "confidence": "high",
+      "positionType": "cinema-poi",
+      "evidence": "External manual verification supplied by the project owner: China Film Museum has an IMAX GT auditorium; the exact cached AMap IMAX GT POI is selected.",
+      "provenance": "user-supplied review, 2026-08-20"
+    },
+    {
+      "sourceRow": 51,
+      "status": "approved-cached-poi",
+      "provider": "amap",
+      "poiId": "B01C302873",
+      "confidence": "high",
+      "positionType": "venue-poi",
+      "evidence": "External manual verification supplied by the project owner: the official science museum site confirms an IMAX dome; select the museum venue, not its 4D cinema POI.",
+      "provenance": "user-supplied review, 2026-08-20"
+    },
+    {
+      "sourceRow": 155,
+      "status": "approved-cached-poi",
+      "provider": "amap",
+      "poiId": "B0FFFDTAL6",
+      "confidence": "high",
+      "positionType": "cinema-poi",
+      "evidence": "External manual verification supplied by the project owner: exact Yangzhou IMAX cinema POI at Sansheng International Plaza level 3.",
+      "provenance": "user-supplied review, 2026-08-20"
+    },
+    {
+      "sourceRow": 538,
+      "status": "approved-cached-poi",
+      "provider": "amap",
+      "poiId": "B023B14BCH",
+      "confidence": "high",
+      "positionType": "cinema-poi",
+      "evidence": "External manual verification supplied by the project owner: exact Zheying Times Cinema West Lake Cultural Square POI.",
+      "provenance": "user-supplied review, 2026-08-20"
+    },
+    {
+      "sourceRow": 843,
+      "status": "reviewed-target-not-cached",
+      "provider": "amap",
+      "poiId": null,
+      "confidence": "medium",
+      "positionType": "mall-fallback",
+      "targetName": "花果园购物中心",
+      "evidence": "External manual verification supplied by the project owner: historical cinema may use Huaguoyuan Shopping Center as a historical mall fallback. No matching mall POI is present in the existing 42-request cache, so no coordinate is selected.",
+      "provenance": "user-supplied review, 2026-08-20"
+    },
+    {
+      "sourceRow": 825,
+      "status": "rejected-cached-poi",
+      "provider": "amap",
+      "poiId": "B0KRFSJADF",
+      "verdict": "reject-wrong-poi",
+      "confidence": "high",
+      "positionType": "cinema-poi",
+      "replacementPoiId": null,
+      "evidenceUrls": [
+        "https://sw.wuhan.gov.cn/xwdt/gzdt/202407/t20240718_2429891.shtml",
+        "https://sw.wuhan.gov.cn/xwdt/mtbd/202210/t20221026_2067877.shtml"
+      ],
+      "evidence": "Independent Wuhan public materials distinguish the historical Han Street Wanda complex used by sourceRow 825 (2013-09-28 to 2021-08-31; demolished) from the 2024 new Han Street Wanda at the former Wanda Movie Park location. The cached POI B0KRFSJADF is the new 2024 point and must not be reused for the historical row.",
+      "reasonCode": "historical-venue-replaced-by-new-location",
+      "reviewedAt": "2026-08-21T13:00:00.000Z",
+      "provenance": "independent public review, 2026-08-21"
+    }
+  ]
+}

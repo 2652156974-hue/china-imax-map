@@ -1,0 +1,64 @@
+{
+  "schemaVersion": 1,
+  "generatedAt": "2026-08-25T03:45:03.521Z",
+  "status": "ready-for-human-verification-after-public-web-pass",
+  "scope": {
+    "total": 901,
+    "startingLocated": 672,
+    "startingUnresolved": 229,
+    "currentLocated": 901,
+    "currentUnresolved": 0,
+    "pendingReview": 0,
+    "canonicalSource": "data/local/private-reviewed-geocodes.json",
+    "amapCache": "data/geocode/provider-cache/amap.json",
+    "publicWebEvidencePass": "data/audit/public-web-evidence-pass.json",
+    "baiduPolicy": "optional-historical-evidence-only; no new requests in this workflow"
+  },
+  "acceptancePolicy": {
+    "acceptedExact": "AMap plus one independent authoritative or otherwise strong source proves the same cinema identity, city and branch/mall; brand-only or proximity-only is insufficient.",
+    "acceptedLocationOnly": "AMap plus independent evidence proves the same mall/venue location but not a reliable cinema POI; granularity must remain mall or venue.",
+    "acceptedHistoricalLocation": "For closed/removed records, at least two independent sources prove the historical location; current POI existence is not required.",
+    "unresolved": "Retain when identity, branch, mall/venue, historical relationship or location cannot be safely proven."
+  },
+  "priorityPolicy": {
+    "P1": "AMap has a highly specific, likely unique cinema candidate and only independent second evidence is missing.",
+    "P2": "Two or more concrete AMap branch candidates require a mall, district or address check.",
+    "P3": "Mall-only, venue-only or auditorium/location split can be resolved at mall/venue level.",
+    "P4": "Former-name or rename evidence is the main missing link.",
+    "P5": "Closed or removed historical location needs historical web evidence.",
+    "P6": "Weak or genuinely long-tail information; no safe automatic shortcut."
+  },
+  "summary": {
+    "records": 0,
+    "amapLinkedRows": 0,
+    "amapRowsWithCandidates": 0,
+    "amapRowsWithStrictCandidate": 0,
+    "amapRowsWithRefinementEvidence": 0,
+    "priorityCounts": {},
+    "originalReasonCounts": {},
+    "humanStatusCounts": {}
+  },
+  "humanVerificationBatches": {
+    "policy": {
+      "default": "submit-the-current-priority-as-one-human-verification-batch",
+      "splitOnlyWhenContextIsLong": true,
+      "splitThresholdRecords": 40,
+      "targetSplitBatchRecords": 25,
+      "splitBatchRange": "20-30 when the priority group is large enough",
+      "p4AndP5": "submit-the-entire-priority-group",
+      "p6": "follow the same context-aware split rule as other long priority groups",
+      "humanResultWriteback": "apply one received human-results file in one materialization pass"
+    },
+    "priorityOrder": [
+      "P1",
+      "P2",
+      "P3",
+      "P4",
+      "P5",
+      "P6"
+    ],
+    "batches": [],
+    "nextBatch": null
+  },
+  "records": []
+}

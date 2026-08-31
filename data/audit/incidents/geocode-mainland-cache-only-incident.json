@@ -1,0 +1,39 @@
+{
+  "schemaVersion": 1,
+  "status": "isolated-cache-only-partial-run",
+  "generatedAt": "2026-08-21T13:26:03.958Z",
+  "command": "node scripts/geocode-mainland.mjs --scope=mainland --dry-run --cache-only",
+  "scope": "mainland",
+  "cacheOnly": true,
+  "recordsTraversed": 40,
+  "totalMainland": 881,
+  "cacheHits": 82,
+  "networkRequests": 0,
+  "newRequests": 0,
+  "providerErrors": 0,
+  "stoppedAt": {
+    "sourceRow": 48,
+    "query": "星美国际影商城（正大店） 上海",
+    "reason": "cache-only run refused a network request"
+  },
+  "providerCache": {
+    "entriesAtStart": 1848,
+    "entriesAtEnd": 1848,
+    "updatedAtAfterRun": "2026-08-21T13:26:03.548Z",
+    "newRawCandidateEntries": 0,
+    "preRunSnapshotAvailable": false,
+    "sourceRowsMutationProvable": false,
+    "note": "The runner updates entry.sourceRows on cache hits. Without a pre-run cache snapshot, changes beyond updatedAt/source metadata cannot be proven absent; the cache is not treated as a frozen audit input."
+  },
+  "derivedCoordinatesApplied": 0,
+  "activeAuditRecovery": {
+    "full": "data/audit/geocode-mainland-full.json",
+    "quality": "data/audit/geocode-mainland-quality.json",
+    "status": "reconstructed-partial-fidelity",
+    "records": 881,
+    "exactOriginalCopyFound": false,
+    "byteForByteRestored": false,
+    "providerRunnerExecutedDuringRecovery": false,
+    "recoveryNetworkRequests": 0
+  }
+}

@@ -1,0 +1,3328 @@
+{
+  "schemaVersion": 1,
+  "generatedAt": "2026-08-20T08:28:25.344Z",
+  "startedAt": "2026-08-20T08:26:40.321Z",
+  "status": "awaiting-independent-human-validation",
+  "mode": "blind-validation-50",
+  "matcherFrozen": {
+    "algorithm": "SHA-256",
+    "files": [
+      "scripts/geocode/scoring.mjs",
+      "scripts/geocode/query.mjs",
+      "scripts/geocode/crs.mjs"
+    ],
+    "value": "0b07db57f2ad68ad7b1a258c6cedf48124ea46e06be9bc5fa8c7bbb38a954e7f"
+  },
+  "selection": {
+    "seed": "china-imax-map-blind-50-v1-20260820",
+    "excludedPreviousSourceRows": [
+      309,
+      311,
+      314,
+      21,
+      30,
+      37,
+      198,
+      200,
+      224,
+      228,
+      593,
+      699,
+      59,
+      51,
+      155,
+      305,
+      610,
+      233,
+      538,
+      843
+    ],
+    "targetCounts": {
+      "ordinaryCommercial": 15,
+      "duplicateChain": 10,
+      "formerNameComplex": 8,
+      "closedOrTemporary": 5,
+      "atypicalVenue": 5,
+      "deterministicFill": 7
+    },
+    "actualCounts": {
+      "ordinaryCommercial": 15,
+      "duplicateChain": 10,
+      "formerNameComplex": 8,
+      "closedOrTemporary": 5,
+      "atypicalVenue": 5,
+      "deterministicFill": 7
+    },
+    "sourceRows": [
+      14,
+      577,
+      757,
+      623,
+      133,
+      291,
+      586,
+      855,
+      803,
+      858,
+      156,
+      39,
+      669,
+      820,
+      898,
+      861,
+      276,
+      417,
+      52,
+      134,
+      847,
+      266,
+      565,
+      546,
+      613,
+      646,
+      541,
+      360,
+      790,
+      731,
+      540,
+      896,
+      826,
+      859,
+      900,
+      887,
+      899,
+      857,
+      171,
+      872,
+      806,
+      464,
+      331,
+      555,
+      807,
+      726,
+      605,
+      27,
+      715,
+      168
+    ],
+    "records": [
+      {
+        "sourceRow": 14,
+        "stratum": "ordinaryCommercial",
+        "name": "上海SFC上影影城（绿地缤纷城IMAX店）",
+        "city": "上海"
+      },
+      {
+        "sourceRow": 577,
+        "stratum": "ordinaryCommercial",
+        "name": "乐清虹桥神画 IMAX 影城",
+        "city": "乐清"
+      },
+      {
+        "sourceRow": 757,
+        "stratum": "ordinaryCommercial",
+        "name": "贵阳越界影城（未来方舟店）",
+        "city": "贵阳"
+      },
+      {
+        "sourceRow": 623,
+        "stratum": "ordinaryCommercial",
+        "name": "太原万象影城（万象城IMAX激光店）",
+        "city": "太原"
+      },
+      {
+        "sourceRow": 133,
+        "stratum": "ordinaryCommercial",
+        "name": "无锡大世界影城（圆融IMAX店）",
+        "city": "无锡"
+      },
+      {
+        "sourceRow": 291,
+        "stratum": "ordinaryCommercial",
+        "name": "重庆八一影城（解放碑店）",
+        "city": "重庆"
+      },
+      {
+        "sourceRow": 586,
+        "stratum": "ordinaryCommercial",
+        "name": "西安开顿IMAX影城（光美老城根店）",
+        "city": "西安"
+      },
+      {
+        "sourceRow": 855,
+        "stratum": "ordinaryCommercial",
+        "name": "安庆SFC上影影城（百联店）",
+        "city": "安庆"
+      },
+      {
+        "sourceRow": 803,
+        "stratum": "ordinaryCommercial",
+        "name": "重庆越界影城（江北嘴店）",
+        "city": "重庆"
+      },
+      {
+        "sourceRow": 858,
+        "stratum": "ordinaryCommercial",
+        "name": "西安长安国际影城（凯德广场IMAX店)",
+        "city": "西安"
+      },
+      {
+        "sourceRow": 156,
+        "stratum": "ordinaryCommercial",
+        "name": "扬州星轶IMAX影城（邗江吾悦广场旗舰店）",
+        "city": "扬州"
+      },
+      {
+        "sourceRow": 39,
+        "stratum": "ordinaryCommercial",
+        "name": "上海博悦汇影城（环宇城IMAX店)",
+        "city": "上海"
+      },
+      {
+        "sourceRow": 669,
+        "stratum": "ordinaryCommercial",
+        "name": "郑州万象影城（郑东万象城IMAX激光店）",
+        "city": "郑州"
+      },
+      {
+        "sourceRow": 820,
+        "stratum": "ordinaryCommercial",
+        "name": "佛山越界思哲影城（三水新动力店)",
+        "city": "佛山"
+      },
+      {
+        "sourceRow": 898,
+        "stratum": "ordinaryCommercial",
+        "name": "扬州上影四方国际影城",
+        "city": "扬州"
+      },
+      {
+        "sourceRow": 861,
+        "stratum": "duplicateChain",
+        "name": "厦门金逸影城（明发IMAX店）",
+        "city": "厦门"
+      },
+      {
+        "sourceRow": 276,
+        "stratum": "duplicateChain",
+        "name": "重庆万达影城（永川万达广场店）",
+        "city": "重庆"
+      },
+      {
+        "sourceRow": 417,
+        "stratum": "duplicateChain",
+        "name": "衡阳万达影城（万达广场IMAX店）",
+        "city": "衡阳"
+      },
+      {
+        "sourceRow": 52,
+        "stratum": "duplicateChain",
+        "name": "哈尔滨万达影城（悦荟广场店）",
+        "city": "哈尔滨"
+      },
+      {
+        "sourceRow": 134,
+        "stratum": "duplicateChain",
+        "name": "无锡万达影城（滨湖万达广场店）",
+        "city": "无锡"
+      },
+      {
+        "sourceRow": 847,
+        "stratum": "duplicateChain",
+        "name": "成都CGV影城（龙泉驿店)",
+        "city": "成都"
+      },
+      {
+        "sourceRow": 266,
+        "stratum": "duplicateChain",
+        "name": "茂名万达影城（电白万达广场店)",
+        "city": "茂名"
+      },
+      {
+        "sourceRow": 565,
+        "stratum": "duplicateChain",
+        "name": "金华横店电影城（世贸广场IMAX店）",
+        "city": "金华"
+      },
+      {
+        "sourceRow": 546,
+        "stratum": "duplicateChain",
+        "name": "宁波CGV影城（鄞州店）",
+        "city": "宁波"
+      },
+      {
+        "sourceRow": 613,
+        "stratum": "duplicateChain",
+        "name": "乌海万达影城（万达广场店）",
+        "city": "乌海"
+      },
+      {
+        "sourceRow": 646,
+        "stratum": "formerNameComplex",
+        "name": "厦门寰映影城（集美银泰店）",
+        "city": "厦门"
+      },
+      {
+        "sourceRow": 541,
+        "stratum": "formerNameComplex",
+        "name": "杭州万象影城 （万象城IMAX激光店）",
+        "city": "杭州"
+      },
+      {
+        "sourceRow": 360,
+        "stratum": "formerNameComplex",
+        "name": "昆明维斯影城（海乐城IMAX店）",
+        "city": "昆明"
+      },
+      {
+        "sourceRow": 790,
+        "stratum": "formerNameComplex",
+        "name": "拉萨SFC上影IMAX影城",
+        "city": "拉萨"
+      },
+      {
+        "sourceRow": 731,
+        "stratum": "formerNameComplex",
+        "name": "南充万达影城（临江万达广场店）",
+        "city": "南充"
+      },
+      {
+        "sourceRow": 540,
+        "stratum": "formerNameComplex",
+        "name": "杭州星光嘉映影城IMAX（新天地店）",
+        "city": "杭州"
+      },
+      {
+        "sourceRow": 896,
+        "stratum": "formerNameComplex",
+        "name": "昆明云南昆明摩天激光IMAX影院",
+        "city": "昆明"
+      },
+      {
+        "sourceRow": 826,
+        "stratum": "formerNameComplex",
+        "name": "武汉UA新民众乐园电影城",
+        "city": "武汉"
+      },
+      {
+        "sourceRow": 859,
+        "stratum": "closedOrTemporary",
+        "name": "呼和浩特CGV影城（中山店）",
+        "city": "呼和浩特"
+      },
+      {
+        "sourceRow": 900,
+        "stratum": "closedOrTemporary",
+        "name": "北京华谊兄弟影院（洋桥店）",
+        "city": "北京"
+      },
+      {
+        "sourceRow": 887,
+        "stratum": "closedOrTemporary",
+        "name": "汕头星城影院（正大卜蜂中心店)",
+        "city": "汕头"
+      },
+      {
+        "sourceRow": 899,
+        "stratum": "closedOrTemporary",
+        "name": "合肥华谊兄弟影院（武里山天街店）",
+        "city": "合肥"
+      },
+      {
+        "sourceRow": 857,
+        "stratum": "closedOrTemporary",
+        "name": "西安大明宫IMAX影院",
+        "city": "西安"
+      },
+      {
+        "sourceRow": 171,
+        "stratum": "atypicalVenue",
+        "name": "东莞东莞市科學技術博物館",
+        "city": "东莞"
+      },
+      {
+        "sourceRow": 872,
+        "stratum": "atypicalVenue",
+        "name": "南京科技館",
+        "city": "南京"
+      },
+      {
+        "sourceRow": 806,
+        "stratum": "atypicalVenue",
+        "name": "重庆市少年宮影院",
+        "city": "重庆"
+      },
+      {
+        "sourceRow": 464,
+        "stratum": "atypicalVenue",
+        "name": "济南山东省科技馆（新馆）",
+        "city": "济南"
+      },
+      {
+        "sourceRow": 331,
+        "stratum": "atypicalVenue",
+        "name": "沈阳万达影城（辽宁省科技馆—万达影城IMAXGT双激光）",
+        "city": "沈阳"
+      },
+      {
+        "sourceRow": 555,
+        "stratum": "deterministicFill",
+        "name": "余姚万达影城（万达广场店）",
+        "city": "余姚"
+      },
+      {
+        "sourceRow": 807,
+        "stratum": "deterministicFill",
+        "name": "重庆科技馆",
+        "city": "重庆"
+      },
+      {
+        "sourceRow": 726,
+        "stratum": "deterministicFill",
+        "name": "眉山万达影城（雕像国际广场店）",
+        "city": "眉山"
+      },
+      {
+        "sourceRow": 605,
+        "stratum": "deterministicFill",
+        "name": "呼和浩特万达影城（回民区万达广场店）",
+        "city": "呼和浩特"
+      },
+      {
+        "sourceRow": 27,
+        "stratum": "deterministicFill",
+        "name": "上海万达影城（崇明万达广场店)",
+        "city": "上海"
+      },
+      {
+        "sourceRow": 715,
+        "stratum": "deterministicFill",
+        "name": "自贡星维国际电影城（南湖店)",
+        "city": "自贡"
+      },
+      {
+        "sourceRow": 168,
+        "stratum": "deterministicFill",
+        "name": "泰州金逸影城（姜堰IMAX店)",
+        "city": "泰州"
+      }
+    ]
+  },
+  "summary": {
+    "evaluated": 50,
+    "automaticHigh": 21,
+    "automaticMedium": 9,
+    "reviewedOverrideHigh": 0,
+    "reviewedOverrideMedium": 0,
+    "unresolved": 20,
+    "coverage": 0.6,
+    "automaticHighRate": 0.42
+  },
+  "requestPolicy": {
+    "maximumRecords": 50,
+    "fullRunEnabled": false,
+    "applyEnabled": false,
+    "keySource": "process.env.AMAP_API_KEY",
+    "keyPersisted": false,
+    "keyPrinted": false,
+    "providerCache": "local-private-gitignored",
+    "minimumIntervalMs": 800,
+    "retryFailed": false,
+    "networkRequests": 98,
+    "cacheHits": 0,
+    "providerErrors": 0
+  },
+  "coordinatePolicy": {
+    "provider": "AMap",
+    "providerCrs": "GCJ-02",
+    "mapCrs": "WGS84",
+    "providerCoordinatesPreserved": true,
+    "cityCenterFallbackAllowed": false,
+    "coordinatesAppliedToDerived": 0
+  },
+  "precision": {
+    "value": null,
+    "status": "not-calculated-before-independent-human-validation"
+  },
+  "records": [
+    {
+      "sourceRow": 14,
+      "sourceName": "上海SFC上影影城（绿地缤纷城IMAX店）",
+      "city": "上海",
+      "stratum": "ordinaryCommercial",
+      "queryVariants": [
+        {
+          "kind": "current-name-city",
+          "query": "上海SFC上影影城（绿地缤纷城IMAX店） 上海",
+          "cache": "miss-requested",
+          "ok": true,
+          "candidateCount": 2,
+          "errorCode": null
+        },
+        {
+          "kind": "device-description-removed",
+          "query": "上海SFC上影影城 上海",
+          "cache": "miss-requested",
+          "ok": true,
+          "candidateCount": 25,
+          "errorCode": null
+        }
+      ],
+      "selected": {
+        "poiId": "B0FFHPK9TC",
+        "name": "SFC上影影城(绿地缤纷城西区)",
+        "address": "东安路562号绿地缤纷城(徐汇店)西区3层",
+        "typecode": "080601",
+        "positionType": "cinema-poi",
+        "score": 0.984444,
+        "automaticDecision": "accepted-high",
+        "provider": {
+          "providerCrs": "GCJ-02",
+          "providerLat": 31.183439,
+          "providerLng": 121.455493
+        },
+        "map": {
+          "mapCrs": "WGS84",
+          "lat": 31.1853585,
+          "lng": 121.4509197
+        }
+      },
+      "topCandidate": null,
+      "hardRejectSummary": {
+        "candidateCount": 26,
+        "rejectedCandidateCount": 24,
+        "reasons": {
+          "project-mismatch": 24
+        }
+      },
+      "ambiguity": {
+        "evaluatedCandidates": 2,
+        "ignoredHardRejected": 24,
+        "trueAmbiguity": false
+      },
+      "overrideUsed": false
+    },
+    {
+      "sourceRow": 577,
+      "sourceName": "乐清虹桥神画 IMAX 影城",
+      "city": "乐清",
+      "stratum": "ordinaryCommercial",
+      "queryVariants": [
+        {
+          "kind": "current-name-city",
+          "query": "乐清虹桥神画 IMAX 影城 乐清",
+          "cache": "miss-requested",
+          "ok": true,
+          "candidateCount": 1,
+          "errorCode": null
+        }
+      ],
+      "selected": null,
+      "topCandidate": {
+        "poiId": "B0FFKOF6QH",
+        "name": "神画影城IMAX(虹桥天元广场店)",
+        "address": "飞虹南路555号华都·天元广场F4层",
+        "typecode": "080601",
+        "positionType": "cinema-poi",
+        "score": 0.408696,
+        "automaticDecision": "rejected",
+        "provider": {
+          "providerCrs": "GCJ-02",
+          "providerLat": 28.206725,
+          "providerLng": 121.043625
+        },
+        "map": {
+          "mapCrs": "WGS84",
+          "lat": 28.2098578,
+          "lng": 121.0393382
+        }
+      },
+      "hardRejectSummary": {
+        "candidateCount": 1,
+        "rejectedCandidateCount": 1,
+        "reasons": {
+          "city-mismatch": 1
+        }
+      },
+      "ambiguity": {
+        "evaluatedCandidates": 0,
+        "ignoredHardRejected": 1,
+        "trueAmbiguity": false
+      },
+      "overrideUsed": false
+    },
+    {
+      "sourceRow": 757,
+      "sourceName": "贵阳越界影城（未来方舟店）",
+      "city": "贵阳",
+      "stratum": "ordinaryCommercial",
+      "queryVariants": [
+        {
+          "kind": "current-name-city",
+          "query": "贵阳越界影城（未来方舟店） 贵阳",
+          "cache": "miss-requested",
+          "ok": true,
+          "candidateCount": 25,
+          "errorCode": null
+        }
+      ],
+      "selected": {
+        "poiId": "B0FFI0DG5O",
+        "name": "越界影城IMAX(贵阳未来方舟店)",
+        "address": "尚礼路中天未来方舟F2组团1栋",
+        "typecode": "080601",
+        "positionType": "cinema-poi",
+        "score": 0.895131,
+        "automaticDecision": "review-required-ambiguous",
+        "provider": {
+          "providerCrs": "GCJ-02",
+          "providerLat": 26.600429,
+          "providerLng": 106.75395
+        },
+        "map": {
+          "mapCrs": "WGS84",
+          "lat": 26.6039295,
+          "lng": 106.7501233
+        }
+      },
+      "topCandidate": null,
+      "hardRejectSummary": {
+        "candidateCount": 25,
+        "rejectedCandidateCount": 23,
+        "reasons": {
+          "non-cinema-poi": 23
+        }
+      },
+      "ambiguity": {
+        "evaluatedCandidates": 2,
+        "ignoredHardRejected": 23,
+        "trueAmbiguity": true,
+        "competingPoiId": "B0L2374X3H"
+      },
+      "overrideUsed": false
+    },
+    {
+      "sourceRow": 623,
+      "sourceName": "太原万象影城（万象城IMAX激光店）",
+      "city": "太原",
+      "stratum": "ordinaryCommercial",
+      "queryVariants": [
+        {
+          "kind": "current-name-city",
+          "query": "太原万象影城（万象城IMAX激光店） 太原",
+          "cache": "miss-requested",
+          "ok": true,
+          "candidateCount": 1,
+          "errorCode": null
+        },
+        {
+          "kind": "device-description-removed",
+          "query": "太原万象影城 太原",
+          "cache": "miss-requested",
+          "ok": true,
+          "candidateCount": 25,
+          "errorCode": null
+        },
+        {
+          "kind": "project-brand",
+          "query": "万象城 万象影城 太原",
+          "cache": "miss-requested",
+          "ok": true,
+          "candidateCount": 22,
+          "errorCode": null
+        }
+      ],
+      "selected": {
+        "poiId": "B0FFJK4CKP",
+        "name": "万象影城(太原万象城IMAX店)",
+        "address": "长风商务区长兴路5号万象城6层L630",
+        "typecode": "080601",
+        "positionType": "cinema-poi",
+        "score": 0.92,
+        "automaticDecision": "accepted-high",
+        "provider": {
+          "providerCrs": "GCJ-02",
+          "providerLat": 37.806991,
+          "providerLng": 112.528545
+        },
+        "map": {
+          "mapCrs": "WGS84",
+          "lat": 37.8064073,
+          "lng": 112.5221939
+        }
+      },
+      "topCandidate": null,
+      "hardRejectSummary": {
+        "candidateCount": 30,
+        "rejectedCandidateCount": 29,
+        "reasons": {
+          "non-cinema-poi": 29
+        }
+      },
+      "ambiguity": {
+        "evaluatedCandidates": 1,
+        "ignoredHardRejected": 29,
+        "trueAmbiguity": false
+      },
+      "overrideUsed": false
+    },
+    {
+      "sourceRow": 133,
+      "sourceName": "无锡大世界影城（圆融IMAX店）",
+      "city": "无锡",
+      "stratum": "ordinaryCommercial",
+      "queryVariants": [
+        {
+          "kind": "current-name-city",
+          "query": "无锡大世界影城（圆融IMAX店） 无锡",
+          "cache": "miss-requested",
+          "ok": true,
+          "candidateCount": 2,
+          "errorCode": null
+        },
+        {
+          "kind": "device-description-removed",
+          "query": "无锡大世界影城 无锡",
+          "cache": "miss-requested",
+          "ok": true,
+          "candidateCount": 22,
+          "errorCode": null
+        }
+      ],
+      "selected": {
+        "poiId": "B0LB4SBSOJ",
+        "name": "大世界影城(圆融IMAX店)",
+        "address": "锡澄路262号无锡圆融购物中心4层4220",
+        "typecode": "080601",
+        "positionType": "cinema-poi",
+        "score": 1,
+        "automaticDecision": "review-required-ambiguous",
+        "provider": {
+          "providerCrs": "GCJ-02",
+          "providerLat": 31.602487,
+          "providerLng": 120.304955
+        },
+        "map": {
+          "mapCrs": "WGS84",
+          "lat": 31.604378,
+          "lng": 120.3003463
+        }
+      },
+      "topCandidate": null,
+      "hardRejectSummary": {
+        "candidateCount": 22,
+        "rejectedCandidateCount": 20,
+        "reasons": {
+          "project-mismatch": 15,
+          "non-cinema-poi": 5
+        }
+      },
+      "ambiguity": {
+        "evaluatedCandidates": 2,
+        "ignoredHardRejected": 20,
+        "trueAmbiguity": true,
+        "competingPoiId": "B0J2F75VGL"
+      },
+      "overrideUsed": false
+    },
+    {
+      "sourceRow": 291,
+      "sourceName": "重庆八一影城（解放碑店）",
+      "city": "重庆",
+      "stratum": "ordinaryCommercial",
+      "queryVariants": [
+        {
+          "kind": "current-name-city",
+          "query": "重庆八一影城（解放碑店） 重庆",
+          "cache": "miss-requested",
+          "ok": true,
+          "candidateCount": 25,
+          "errorCode": null
+        }
+      ],
+      "selected": {
+        "poiId": "B0FFIFYDLY",
+        "name": "苏宁影城(重庆解放碑店)",
+        "address": "八一路177号6楼(临江门地铁站出入口步行350米)",
+        "typecode": "080601",
+        "positionType": "cinema-poi",
+        "score": 0.8,
+        "automaticDecision": "review-required-medium",
+        "provider": {
+          "providerCrs": "GCJ-02",
+          "providerLat": 29.556488,
+          "providerLng": 106.57813
+        },
+        "map": {
+          "mapCrs": "WGS84",
+          "lat": 29.5593774,
+          "lng": 106.5744427
+        }
+      },
+      "topCandidate": null,
+      "hardRejectSummary": {
+        "candidateCount": 25,
+        "rejectedCandidateCount": 24,
+        "reasons": {
+          "non-cinema-poi": 22,
+          "project-mismatch": 1,
+          "mall-fallback-not-qualified": 1
+        }
+      },
+      "ambiguity": {
+        "evaluatedCandidates": 1,
+        "ignoredHardRejected": 24,
+        "trueAmbiguity": false
+      },
+      "overrideUsed": false
+    },
+    {
+      "sourceRow": 586,
+      "sourceName": "西安开顿IMAX影城（光美老城根店）",
+      "city": "西安",
+      "stratum": "ordinaryCommercial",
+      "queryVariants": [
+        {
+          "kind": "current-name-city",
+          "query": "西安开顿IMAX影城（光美老城根店） 西安",
+          "cache": "miss-requested",
+          "ok": true,
+          "candidateCount": 1,
+          "errorCode": null
+        }
+      ],
+      "selected": null,
+      "topCandidate": {
+        "poiId": "B0FFHGVBWC",
+        "name": "开顿IMAX国际影城(老城根G PARK店)",
+        "address": "星火路22号老城根G park商业街3F-17",
+        "typecode": "080601",
+        "positionType": "cinema-poi",
+        "score": 0.616479,
+        "automaticDecision": "rejected",
+        "provider": {
+          "providerCrs": "GCJ-02",
+          "providerLat": 34.284717,
+          "providerLng": 108.915783
+        },
+        "map": {
+          "mapCrs": "WGS84",
+          "lat": 34.2863265,
+          "lng": 108.9111807
+        }
+      },
+      "hardRejectSummary": {
+        "candidateCount": 1,
+        "rejectedCandidateCount": 1,
+        "reasons": {
+          "project-mismatch": 1
+        }
+      },
+      "ambiguity": {
+        "evaluatedCandidates": 0,
+        "ignoredHardRejected": 1,
+        "trueAmbiguity": false
+      },
+      "overrideUsed": false
+    },
+    {
+      "sourceRow": 855,
+      "sourceName": "安庆SFC上影影城（百联店）",
+      "city": "安庆",
+      "stratum": "ordinaryCommercial",
+      "queryVariants": [
+        {
+          "kind": "current-name-city",
+          "query": "安庆SFC上影影城（百联店） 安庆",
+          "cache": "miss-requested",
+          "ok": true,
+          "candidateCount": 25,
+          "errorCode": null
+        }
+      ],
+      "selected": null,
+      "topCandidate": {
+        "poiId": "B0J6OBV8BS",
+        "name": "幸福蓝海国际影城(安庆弘阳广场店)",
+        "address": "独秀大道与迎宾东路交叉口安庆弘阳广场4F-4035",
+        "typecode": "080601",
+        "positionType": "cinema-poi",
+        "score": 0.466667,
+        "automaticDecision": "rejected",
+        "provider": {
+          "providerCrs": "GCJ-02",
+          "providerLat": 30.546029,
+          "providerLng": 117.100874
+        },
+        "map": {
+          "mapCrs": "WGS84",
+          "lat": 30.5482833,
+          "lng": 117.0953664
+        }
+      },
+      "hardRejectSummary": {
+        "candidateCount": 25,
+        "rejectedCandidateCount": 25,
+        "reasons": {
+          "project-mismatch": 18,
+          "non-cinema-poi": 7
+        }
+      },
+      "ambiguity": {
+        "evaluatedCandidates": 0,
+        "ignoredHardRejected": 25,
+        "trueAmbiguity": false
+      },
+      "overrideUsed": false
+    },
+    {
+      "sourceRow": 803,
+      "sourceName": "重庆越界影城（江北嘴店）",
+      "city": "重庆",
+      "stratum": "ordinaryCommercial",
+      "queryVariants": [
+        {
+          "kind": "current-name-city",
+          "query": "重庆越界影城（江北嘴店） 重庆",
+          "cache": "miss-requested",
+          "ok": true,
+          "candidateCount": 25,
+          "errorCode": null
+        }
+      ],
+      "selected": {
+        "poiId": "B0H2RM2N5B",
+        "name": "完美世界影城(江北嘴店)",
+        "address": "金沙门路56号财信广场3层",
+        "typecode": "080601",
+        "positionType": "cinema-poi",
+        "score": 0.866667,
+        "automaticDecision": "review-required-medium",
+        "provider": {
+          "providerCrs": "GCJ-02",
+          "providerLat": 29.571487,
+          "providerLng": 106.571822
+        },
+        "map": {
+          "mapCrs": "WGS84",
+          "lat": 29.5743647,
+          "lng": 106.5681299
+        }
+      },
+      "topCandidate": null,
+      "hardRejectSummary": {
+        "candidateCount": 25,
+        "rejectedCandidateCount": 24,
+        "reasons": {
+          "non-cinema-poi": 24
+        }
+      },
+      "ambiguity": {
+        "evaluatedCandidates": 1,
+        "ignoredHardRejected": 24,
+        "trueAmbiguity": false
+      },
+      "overrideUsed": false
+    },
+    {
+      "sourceRow": 858,
+      "sourceName": "西安长安国际影城（凯德广场IMAX店)",
+      "city": "西安",
+      "stratum": "ordinaryCommercial",
+      "queryVariants": [
+        {
+          "kind": "current-name-city",
+          "query": "西安长安国际影城（凯德广场IMAX店) 西安",
+          "cache": "miss-requested",
+          "ok": true,
+          "candidateCount": 1,
+          "errorCode": null
+        },
+        {
+          "kind": "device-description-removed",
+          "query": "西安长安国际影城 西安",
+          "cache": "miss-requested",
+          "ok": true,
+          "candidateCount": 25,
+          "errorCode": null
+        }
+      ],
+      "selected": {
+        "poiId": "B0JB5R6670",
+        "name": "长安国际影城(凯德广场店)",
+        "address": "浐河东路凯德广场御锦城3F",
+        "typecode": "080601",
+        "positionType": "cinema-poi",
+        "score": 1,
+        "automaticDecision": "accepted-high",
+        "provider": {
+          "providerCrs": "GCJ-02",
+          "providerLat": 34.277652,
+          "providerLng": 109.042949
+        },
+        "map": {
+          "mapCrs": "WGS84",
+          "lat": 34.2789623,
+          "lng": 109.0379015
+        }
+      },
+      "topCandidate": null,
+      "hardRejectSummary": {
+        "candidateCount": 25,
+        "rejectedCandidateCount": 24,
+        "reasons": {
+          "project-mismatch": 22,
+          "non-cinema-poi": 2
+        }
+      },
+      "ambiguity": {
+        "evaluatedCandidates": 1,
+        "ignoredHardRejected": 24,
+        "trueAmbiguity": false
+      },
+      "overrideUsed": false
+    },
+    {
+      "sourceRow": 156,
+      "sourceName": "扬州星轶IMAX影城（邗江吾悦广场旗舰店）",
+      "city": "扬州",
+      "stratum": "ordinaryCommercial",
+      "queryVariants": [
+        {
+          "kind": "current-name-city",
+          "query": "扬州星轶IMAX影城（邗江吾悦广场旗舰店） 扬州",
+          "cache": "miss-requested",
+          "ok": true,
+          "candidateCount": 1,
+          "errorCode": null
+        }
+      ],
+      "selected": {
+        "poiId": "B0H6YN536N",
+        "name": "扬州星轶IMAX影城(邗江吾悦广场旗舰店)",
+        "address": "竹西路29号",
+        "typecode": "080601",
+        "positionType": "cinema-poi",
+        "score": 1,
+        "automaticDecision": "accepted-high",
+        "provider": {
+          "providerCrs": "GCJ-02",
+          "providerLat": 32.419436,
+          "providerLng": 119.459171
+        },
+        "map": {
+          "mapCrs": "WGS84",
+          "lat": 32.4213811,
+          "lng": 119.4537841
+        }
+      },
+      "topCandidate": null,
+      "hardRejectSummary": {
+        "candidateCount": 1,
+        "rejectedCandidateCount": 0,
+        "reasons": {}
+      },
+      "ambiguity": {
+        "evaluatedCandidates": 1,
+        "ignoredHardRejected": 0,
+        "trueAmbiguity": false
+      },
+      "overrideUsed": false
+    },
+    {
+      "sourceRow": 39,
+      "sourceName": "上海博悦汇影城（环宇城IMAX店)",
+      "city": "上海",
+      "stratum": "ordinaryCommercial",
+      "queryVariants": [
+        {
+          "kind": "current-name-city",
+          "query": "上海博悦汇影城（环宇城IMAX店) 上海",
+          "cache": "miss-requested",
+          "ok": true,
+          "candidateCount": 1,
+          "errorCode": null
+        },
+        {
+          "kind": "device-description-removed",
+          "query": "上海博悦汇影城 上海",
+          "cache": "miss-requested",
+          "ok": true,
+          "candidateCount": 3,
+          "errorCode": null
+        }
+      ],
+      "selected": {
+        "poiId": "B0JKT6WZ41",
+        "name": "博悦汇影城IMAX",
+        "address": "铜川路699弄1号上海中海环宇城MAX L5层",
+        "typecode": "080601|080300",
+        "positionType": "cinema-poi",
+        "score": 0.958737,
+        "automaticDecision": "accepted-high",
+        "provider": {
+          "providerCrs": "GCJ-02",
+          "providerLat": 31.250622,
+          "providerLng": 121.410388
+        },
+        "map": {
+          "mapCrs": "WGS84",
+          "lat": 31.2524494,
+          "lng": 121.4057366
+        }
+      },
+      "topCandidate": null,
+      "hardRejectSummary": {
+        "candidateCount": 3,
+        "rejectedCandidateCount": 2,
+        "reasons": {
+          "project-mismatch": 1,
+          "non-cinema-poi": 1
+        }
+      },
+      "ambiguity": {
+        "evaluatedCandidates": 1,
+        "ignoredHardRejected": 2,
+        "trueAmbiguity": false
+      },
+      "overrideUsed": false
+    },
+    {
+      "sourceRow": 669,
+      "sourceName": "郑州万象影城（郑东万象城IMAX激光店）",
+      "city": "郑州",
+      "stratum": "ordinaryCommercial",
+      "queryVariants": [
+        {
+          "kind": "current-name-city",
+          "query": "郑州万象影城（郑东万象城IMAX激光店） 郑州",
+          "cache": "miss-requested",
+          "ok": true,
+          "candidateCount": 1,
+          "errorCode": null
+        },
+        {
+          "kind": "device-description-removed",
+          "query": "郑州万象影城 郑州",
+          "cache": "miss-requested",
+          "ok": true,
+          "candidateCount": 19,
+          "errorCode": null
+        },
+        {
+          "kind": "project-brand",
+          "query": "郑东万象城 万象影城 郑州",
+          "cache": "miss-requested",
+          "ok": true,
+          "candidateCount": 6,
+          "errorCode": null
+        }
+      ],
+      "selected": {
+        "poiId": "B0LDOU5QA0",
+        "name": "万象影城(郑州郑东万象城)",
+        "address": "金水东路辅路与才高街交叉口东南200米郑州郑东万象城L7层",
+        "typecode": "080601",
+        "positionType": "cinema-poi",
+        "score": 0.955975,
+        "automaticDecision": "accepted-high",
+        "provider": {
+          "providerCrs": "GCJ-02",
+          "providerLat": 34.765998,
+          "providerLng": 113.761526
+        },
+        "map": {
+          "mapCrs": "WGS84",
+          "lat": 34.7669916,
+          "lng": 113.7553516
+        }
+      },
+      "topCandidate": null,
+      "hardRejectSummary": {
+        "candidateCount": 19,
+        "rejectedCandidateCount": 17,
+        "reasons": {
+          "non-cinema-poi": 13,
+          "brand-mismatch": 3,
+          "mall-fallback-not-qualified": 1,
+          "project-mismatch": 2,
+          "non-target-business-name": 1
+        }
+      },
+      "ambiguity": {
+        "evaluatedCandidates": 2,
+        "ignoredHardRejected": 17,
+        "trueAmbiguity": false
+      },
+      "overrideUsed": false
+    },
+    {
+      "sourceRow": 820,
+      "sourceName": "佛山越界思哲影城（三水新动力店)",
+      "city": "佛山",
+      "stratum": "ordinaryCommercial",
+      "queryVariants": [
+        {
+          "kind": "current-name-city",
+          "query": "佛山越界思哲影城（三水新动力店) 佛山",
+          "cache": "miss-requested",
+          "ok": true,
+          "candidateCount": 25,
+          "errorCode": null
+        }
+      ],
+      "selected": null,
+      "topCandidate": {
+        "poiId": "B0IBO7ISIV",
+        "name": "新动力影城(新动力广场店)",
+        "address": "西青大道8号",
+        "typecode": "080601",
+        "positionType": "cinema-poi",
+        "score": 0.590659,
+        "automaticDecision": "rejected",
+        "provider": {
+          "providerCrs": "GCJ-02",
+          "providerLat": 23.172665,
+          "providerLng": 112.867355
+        },
+        "map": {
+          "mapCrs": "WGS84",
+          "lat": 23.1754928,
+          "lng": 112.8622971
+        }
+      },
+      "hardRejectSummary": {
+        "candidateCount": 25,
+        "rejectedCandidateCount": 25,
+        "reasons": {
+          "project-mismatch": 22,
+          "non-cinema-poi": 3
+        }
+      },
+      "ambiguity": {
+        "evaluatedCandidates": 0,
+        "ignoredHardRejected": 25,
+        "trueAmbiguity": false
+      },
+      "overrideUsed": false
+    },
+    {
+      "sourceRow": 898,
+      "sourceName": "扬州上影四方国际影城",
+      "city": "扬州",
+      "stratum": "ordinaryCommercial",
+      "queryVariants": [
+        {
+          "kind": "current-name-city",
+          "query": "扬州上影四方国际影城 扬州",
+          "cache": "miss-requested",
+          "ok": true,
+          "candidateCount": 1,
+          "errorCode": null
+        }
+      ],
+      "selected": {
+        "poiId": "B0FFGJDSJ4",
+        "name": "上影四方国际IMAX影城(华懋imax店)",
+        "address": "文昌中路555号华懋购物中心B座4层",
+        "typecode": "080601",
+        "positionType": "cinema-poi",
+        "score": 0.971594,
+        "automaticDecision": "accepted-high",
+        "provider": {
+          "providerCrs": "GCJ-02",
+          "providerLat": 32.389695,
+          "providerLng": 119.426395
+        },
+        "map": {
+          "mapCrs": "WGS84",
+          "lat": 32.3915853,
+          "lng": 119.4209318
+        }
+      },
+      "topCandidate": null,
+      "hardRejectSummary": {
+        "candidateCount": 1,
+        "rejectedCandidateCount": 0,
+        "reasons": {}
+      },
+      "ambiguity": {
+        "evaluatedCandidates": 1,
+        "ignoredHardRejected": 0,
+        "trueAmbiguity": false
+      },
+      "overrideUsed": false
+    },
+    {
+      "sourceRow": 861,
+      "sourceName": "厦门金逸影城（明发IMAX店）",
+      "city": "厦门",
+      "stratum": "duplicateChain",
+      "queryVariants": [
+        {
+          "kind": "current-name-city",
+          "query": "厦门金逸影城（明发IMAX店） 厦门",
+          "cache": "miss-requested",
+          "ok": true,
+          "candidateCount": 1,
+          "errorCode": null
+        },
+        {
+          "kind": "device-description-removed",
+          "query": "厦门金逸影城 厦门",
+          "cache": "miss-requested",
+          "ok": true,
+          "candidateCount": 25,
+          "errorCode": null
+        },
+        {
+          "kind": "project-brand",
+          "query": "明发 金逸影城 厦门",
+          "cache": "miss-requested",
+          "ok": true,
+          "candidateCount": 4,
+          "errorCode": null
+        }
+      ],
+      "selected": null,
+      "topCandidate": {
+        "poiId": "B0FFIA4E4V",
+        "name": "金逸明发巨幕店",
+        "address": "明发商业广场东区381号西区三楼金逸影城",
+        "typecode": "060000",
+        "positionType": null,
+        "score": 0.72,
+        "automaticDecision": "rejected",
+        "provider": {
+          "providerCrs": "GCJ-02",
+          "providerLat": 24.477269,
+          "providerLng": 118.124197
+        },
+        "map": {
+          "mapCrs": "WGS84",
+          "lat": 24.4799277,
+          "lng": 118.1192499
+        }
+      },
+      "hardRejectSummary": {
+        "candidateCount": 27,
+        "rejectedCandidateCount": 27,
+        "reasons": {
+          "non-cinema-poi": 17,
+          "brand-mismatch": 4,
+          "project-mismatch": 9
+        }
+      },
+      "ambiguity": {
+        "evaluatedCandidates": 0,
+        "ignoredHardRejected": 27,
+        "trueAmbiguity": false
+      },
+      "overrideUsed": false
+    },
+    {
+      "sourceRow": 276,
+      "sourceName": "重庆万达影城（永川万达广场店）",
+      "city": "重庆",
+      "stratum": "duplicateChain",
+      "queryVariants": [
+        {
+          "kind": "current-name-city",
+          "query": "重庆万达影城（永川万达广场店） 重庆",
+          "cache": "miss-requested",
+          "ok": true,
+          "candidateCount": 3,
+          "errorCode": null
+        },
+        {
+          "kind": "project-brand",
+          "query": "永川万达广场 万达影城 重庆",
+          "cache": "miss-requested",
+          "ok": true,
+          "candidateCount": 4,
+          "errorCode": null
+        }
+      ],
+      "selected": {
+        "poiId": "B0FFIUM5J9",
+        "name": "万达影城(重庆永川万达广场店)",
+        "address": "星光大道789号重庆永川万达广场4层",
+        "typecode": "080601",
+        "positionType": "cinema-poi",
+        "score": 0.924528,
+        "automaticDecision": "accepted-high",
+        "provider": {
+          "providerCrs": "GCJ-02",
+          "providerLat": 29.335927,
+          "providerLng": 105.928732
+        },
+        "map": {
+          "mapCrs": "WGS84",
+          "lat": 29.338927,
+          "lng": 105.9252418
+        }
+      },
+      "topCandidate": null,
+      "hardRejectSummary": {
+        "candidateCount": 4,
+        "rejectedCandidateCount": 3,
+        "reasons": {
+          "non-cinema-poi": 3
+        }
+      },
+      "ambiguity": {
+        "evaluatedCandidates": 1,
+        "ignoredHardRejected": 3,
+        "trueAmbiguity": false
+      },
+      "overrideUsed": false
+    },
+    {
+      "sourceRow": 417,
+      "sourceName": "衡阳万达影城（万达广场IMAX店）",
+      "city": "衡阳",
+      "stratum": "duplicateChain",
+      "queryVariants": [
+        {
+          "kind": "current-name-city",
+          "query": "衡阳万达影城（万达广场IMAX店） 衡阳",
+          "cache": "miss-requested",
+          "ok": true,
+          "candidateCount": 2,
+          "errorCode": null
+        },
+        {
+          "kind": "device-description-removed",
+          "query": "衡阳万达影城 衡阳",
+          "cache": "miss-requested",
+          "ok": true,
+          "candidateCount": 6,
+          "errorCode": null
+        },
+        {
+          "kind": "project-brand",
+          "query": "万达广场 万达影城 衡阳",
+          "cache": "miss-requested",
+          "ok": true,
+          "candidateCount": 6,
+          "errorCode": null
+        }
+      ],
+      "selected": {
+        "poiId": "B0FFIHNMR6",
+        "name": "万达影城(万达广场店)",
+        "address": "衡州大道与西合路交汇处万达广场4层",
+        "typecode": "080601",
+        "positionType": "cinema-poi",
+        "score": 1,
+        "automaticDecision": "accepted-high",
+        "provider": {
+          "providerCrs": "GCJ-02",
+          "providerLat": 26.883572,
+          "providerLng": 112.591438
+        },
+        "map": {
+          "mapCrs": "WGS84",
+          "lat": 26.8871736,
+          "lng": 112.5862167
+        }
+      },
+      "topCandidate": null,
+      "hardRejectSummary": {
+        "candidateCount": 6,
+        "rejectedCandidateCount": 4,
+        "reasons": {
+          "project-mismatch": 1,
+          "non-cinema-poi": 3
+        }
+      },
+      "ambiguity": {
+        "evaluatedCandidates": 2,
+        "ignoredHardRejected": 4,
+        "trueAmbiguity": false
+      },
+      "overrideUsed": false
+    },
+    {
+      "sourceRow": 52,
+      "sourceName": "哈尔滨万达影城（悦荟广场店）",
+      "city": "哈尔滨",
+      "stratum": "duplicateChain",
+      "queryVariants": [
+        {
+          "kind": "current-name-city",
+          "query": "哈尔滨万达影城（悦荟广场店） 哈尔滨",
+          "cache": "miss-requested",
+          "ok": true,
+          "candidateCount": 6,
+          "errorCode": null
+        },
+        {
+          "kind": "project-brand",
+          "query": "悦荟广场 万达影城 哈尔滨",
+          "cache": "miss-requested",
+          "ok": true,
+          "candidateCount": 4,
+          "errorCode": null
+        }
+      ],
+      "selected": null,
+      "topCandidate": {
+        "poiId": "B0KR7BEYPQ",
+        "name": "云逸宝摇杆游戏机(万达影城悦荟广场店)",
+        "address": "悦荟(道里区店)",
+        "typecode": "080305",
+        "positionType": null,
+        "score": 0.8352,
+        "automaticDecision": "rejected",
+        "provider": {
+          "providerCrs": "GCJ-02",
+          "providerLat": 45.779833,
+          "providerLng": 126.616031
+        },
+        "map": {
+          "mapCrs": "WGS84",
+          "lat": 45.7779203,
+          "lng": 126.6101051
+        }
+      },
+      "hardRejectSummary": {
+        "candidateCount": 6,
+        "rejectedCandidateCount": 6,
+        "reasons": {
+          "non-cinema-poi": 5,
+          "project-mismatch": 1
+        }
+      },
+      "ambiguity": {
+        "evaluatedCandidates": 0,
+        "ignoredHardRejected": 6,
+        "trueAmbiguity": false
+      },
+      "overrideUsed": false
+    },
+    {
+      "sourceRow": 134,
+      "sourceName": "无锡万达影城（滨湖万达广场店）",
+      "city": "无锡",
+      "stratum": "duplicateChain",
+      "queryVariants": [
+        {
+          "kind": "current-name-city",
+          "query": "无锡万达影城（滨湖万达广场店） 无锡",
+          "cache": "miss-requested",
+          "ok": true,
+          "candidateCount": 4,
+          "errorCode": null
+        },
+        {
+          "kind": "project-brand",
+          "query": "滨湖万达广场 万达影城 无锡",
+          "cache": "miss-requested",
+          "ok": true,
+          "candidateCount": 4,
+          "errorCode": null
+        }
+      ],
+      "selected": null,
+      "topCandidate": {
+        "poiId": "B01FE0K63G",
+        "name": "万达影城",
+        "address": "河埒口梁溪路35号万达广场(无锡滨湖店)3F层(西入口进入向左前方走20m,扶梯上到3F可见)",
+        "typecode": "080601",
+        "positionType": "cinema-poi",
+        "score": 0.788663,
+        "automaticDecision": "rejected",
+        "provider": {
+          "providerCrs": "GCJ-02",
+          "providerLat": 31.56156,
+          "providerLng": 120.266003
+        },
+        "map": {
+          "mapCrs": "WGS84",
+          "lat": 31.5635007,
+          "lng": 120.2614253
+        }
+      },
+      "hardRejectSummary": {
+        "candidateCount": 6,
+        "rejectedCandidateCount": 6,
+        "reasons": {
+          "project-mismatch": 2,
+          "non-cinema-poi": 3,
+          "mall-fallback-not-qualified": 1
+        }
+      },
+      "ambiguity": {
+        "evaluatedCandidates": 0,
+        "ignoredHardRejected": 6,
+        "trueAmbiguity": false
+      },
+      "overrideUsed": false
+    },
+    {
+      "sourceRow": 847,
+      "sourceName": "成都CGV影城（龙泉驿店)",
+      "city": "成都",
+      "stratum": "duplicateChain",
+      "queryVariants": [
+        {
+          "kind": "current-name-city",
+          "query": "成都CGV影城（龙泉驿店) 成都",
+          "cache": "miss-requested",
+          "ok": true,
+          "candidateCount": 13,
+          "errorCode": null
+        },
+        {
+          "kind": "project-brand",
+          "query": "龙泉驿 cgv 成都",
+          "cache": "miss-requested",
+          "ok": true,
+          "candidateCount": 25,
+          "errorCode": null
+        }
+      ],
+      "selected": null,
+      "topCandidate": {
+        "poiId": "B0JROHWIBE",
+        "name": "CGV影城(金楠IMAX店)",
+        "address": "晋吉西一街66号龙湖金楠天街购物中心5层",
+        "typecode": "080601",
+        "positionType": "cinema-poi",
+        "score": 0.661376,
+        "automaticDecision": "rejected",
+        "provider": {
+          "providerCrs": "GCJ-02",
+          "providerLat": 30.648717,
+          "providerLng": 103.995768
+        },
+        "map": {
+          "mapCrs": "WGS84",
+          "lat": 30.6513182,
+          "lng": 103.9934775
+        }
+      },
+      "hardRejectSummary": {
+        "candidateCount": 38,
+        "rejectedCandidateCount": 38,
+        "reasons": {
+          "project-mismatch": 9,
+          "non-cinema-poi": 29,
+          "brand-mismatch": 1
+        }
+      },
+      "ambiguity": {
+        "evaluatedCandidates": 0,
+        "ignoredHardRejected": 38,
+        "trueAmbiguity": false
+      },
+      "overrideUsed": false
+    },
+    {
+      "sourceRow": 266,
+      "sourceName": "茂名万达影城（电白万达广场店)",
+      "city": "茂名",
+      "stratum": "duplicateChain",
+      "queryVariants": [
+        {
+          "kind": "current-name-city",
+          "query": "茂名万达影城（电白万达广场店) 茂名",
+          "cache": "miss-requested",
+          "ok": true,
+          "candidateCount": 7,
+          "errorCode": null
+        },
+        {
+          "kind": "project-brand",
+          "query": "电白万达广场 万达影城 茂名",
+          "cache": "miss-requested",
+          "ok": true,
+          "candidateCount": 7,
+          "errorCode": null
+        }
+      ],
+      "selected": null,
+      "topCandidate": {
+        "poiId": "B0FFLIOQE3",
+        "name": "万达影城(万达广场店)",
+        "address": "水东街道迎宾大道66号万达广场4层",
+        "typecode": "080601",
+        "positionType": "cinema-poi",
+        "score": 0.738,
+        "automaticDecision": "rejected",
+        "provider": {
+          "providerCrs": "GCJ-02",
+          "providerLat": 21.529791,
+          "providerLng": 111.012733
+        },
+        "map": {
+          "mapCrs": "WGS84",
+          "lat": 21.5323143,
+          "lng": 111.0079287
+        }
+      },
+      "hardRejectSummary": {
+        "candidateCount": 7,
+        "rejectedCandidateCount": 7,
+        "reasons": {
+          "project-mismatch": 1,
+          "non-cinema-poi": 6
+        }
+      },
+      "ambiguity": {
+        "evaluatedCandidates": 0,
+        "ignoredHardRejected": 7,
+        "trueAmbiguity": false
+      },
+      "overrideUsed": false
+    },
+    {
+      "sourceRow": 565,
+      "sourceName": "金华横店电影城（世贸广场IMAX店）",
+      "city": "金华",
+      "stratum": "duplicateChain",
+      "queryVariants": [
+        {
+          "kind": "current-name-city",
+          "query": "金华横店电影城（世贸广场IMAX店） 金华",
+          "cache": "miss-requested",
+          "ok": true,
+          "candidateCount": 1,
+          "errorCode": null
+        },
+        {
+          "kind": "device-description-removed",
+          "query": "金华横店电影城 金华",
+          "cache": "miss-requested",
+          "ok": true,
+          "candidateCount": 25,
+          "errorCode": null
+        },
+        {
+          "kind": "project-brand",
+          "query": "世贸广场 横店 金华",
+          "cache": "miss-requested",
+          "ok": true,
+          "candidateCount": 2,
+          "errorCode": null
+        }
+      ],
+      "selected": {
+        "poiId": "B0J1RZG2EI",
+        "name": "横店电影城金华世贸广场店",
+        "address": "三江街道李渔路888号世贸城市广场5层B001号",
+        "typecode": "080601",
+        "positionType": "cinema-poi",
+        "score": 0.92,
+        "automaticDecision": "accepted-high",
+        "provider": {
+          "providerCrs": "GCJ-02",
+          "providerLat": 29.081492,
+          "providerLng": 119.648163
+        },
+        "map": {
+          "mapCrs": "WGS84",
+          "lat": 29.084465,
+          "lng": 119.6434569
+        }
+      },
+      "topCandidate": null,
+      "hardRejectSummary": {
+        "candidateCount": 26,
+        "rejectedCandidateCount": 25,
+        "reasons": {
+          "project-mismatch": 17,
+          "non-cinema-poi": 8
+        }
+      },
+      "ambiguity": {
+        "evaluatedCandidates": 1,
+        "ignoredHardRejected": 25,
+        "trueAmbiguity": false
+      },
+      "overrideUsed": false
+    },
+    {
+      "sourceRow": 546,
+      "sourceName": "宁波CGV影城（鄞州店）",
+      "city": "宁波",
+      "stratum": "duplicateChain",
+      "queryVariants": [
+        {
+          "kind": "current-name-city",
+          "query": "宁波CGV影城（鄞州店） 宁波",
+          "cache": "miss-requested",
+          "ok": true,
+          "candidateCount": 1,
+          "errorCode": null
+        },
+        {
+          "kind": "project-brand",
+          "query": "鄞州 cgv 宁波",
+          "cache": "miss-requested",
+          "ok": true,
+          "candidateCount": 2,
+          "errorCode": null
+        }
+      ],
+      "selected": null,
+      "topCandidate": {
+        "poiId": "B0FFGPMMZ3",
+        "name": "CGV星聚汇影城(宁波环球银泰百货)",
+        "address": "天童南路1008号环球银泰城4层",
+        "typecode": "080601",
+        "positionType": "cinema-poi",
+        "score": 0.585882,
+        "automaticDecision": "rejected",
+        "provider": {
+          "providerCrs": "GCJ-02",
+          "providerLat": 29.795474,
+          "providerLng": 121.545398
+        },
+        "map": {
+          "mapCrs": "WGS84",
+          "lat": 29.7980537,
+          "lng": 121.541234
+        }
+      },
+      "hardRejectSummary": {
+        "candidateCount": 2,
+        "rejectedCandidateCount": 2,
+        "reasons": {
+          "project-mismatch": 1,
+          "non-cinema-poi": 1
+        }
+      },
+      "ambiguity": {
+        "evaluatedCandidates": 0,
+        "ignoredHardRejected": 2,
+        "trueAmbiguity": false
+      },
+      "overrideUsed": false
+    },
+    {
+      "sourceRow": 613,
+      "sourceName": "乌海万达影城（万达广场店）",
+      "city": "乌海",
+      "stratum": "duplicateChain",
+      "queryVariants": [
+        {
+          "kind": "current-name-city",
+          "query": "乌海万达影城（万达广场店） 乌海",
+          "cache": "miss-requested",
+          "ok": true,
+          "candidateCount": 2,
+          "errorCode": null
+        },
+        {
+          "kind": "project-brand",
+          "query": "万达广场 万达影城 乌海",
+          "cache": "miss-requested",
+          "ok": true,
+          "candidateCount": 5,
+          "errorCode": null
+        }
+      ],
+      "selected": {
+        "poiId": "B0FFGZVSLY",
+        "name": "万达影城(人民南路店)",
+        "address": "人民南路万达广场4层万达影城",
+        "typecode": "080601",
+        "positionType": "cinema-poi",
+        "score": 0.92,
+        "automaticDecision": "accepted-high",
+        "provider": {
+          "providerCrs": "GCJ-02",
+          "providerLat": 39.659064,
+          "providerLng": 106.823119
+        },
+        "map": {
+          "mapCrs": "WGS84",
+          "lat": 39.6581701,
+          "lng": 106.8183989
+        }
+      },
+      "topCandidate": null,
+      "hardRejectSummary": {
+        "candidateCount": 5,
+        "rejectedCandidateCount": 4,
+        "reasons": {
+          "brand-mismatch": 1,
+          "non-cinema-poi": 3
+        }
+      },
+      "ambiguity": {
+        "evaluatedCandidates": 1,
+        "ignoredHardRejected": 4,
+        "trueAmbiguity": false
+      },
+      "overrideUsed": false
+    },
+    {
+      "sourceRow": 646,
+      "sourceName": "厦门寰映影城（集美银泰店）",
+      "city": "厦门",
+      "stratum": "formerNameComplex",
+      "queryVariants": [
+        {
+          "kind": "current-name-city",
+          "query": "厦门寰映影城（集美银泰店） 厦门",
+          "cache": "miss-requested",
+          "ok": true,
+          "candidateCount": 2,
+          "errorCode": null
+        },
+        {
+          "kind": "former-name",
+          "query": "厦门大地影城（国贸美岁天地店 厦门",
+          "cache": "miss-requested",
+          "ok": true,
+          "candidateCount": 25,
+          "errorCode": null
+        },
+        {
+          "kind": "project-brand",
+          "query": "集美银泰 寰映 厦门",
+          "cache": "miss-requested",
+          "ok": true,
+          "candidateCount": 25,
+          "errorCode": null
+        }
+      ],
+      "selected": {
+        "poiId": "B0L67DN62F",
+        "name": "寰映影城(集美银泰店)",
+        "address": "同集南路68号银泰百货集美店F4层",
+        "typecode": "080601",
+        "positionType": "cinema-poi",
+        "score": 1,
+        "automaticDecision": "accepted-high",
+        "provider": {
+          "providerCrs": "GCJ-02",
+          "providerLat": 24.589248,
+          "providerLng": 118.106382
+        },
+        "map": {
+          "mapCrs": "WGS84",
+          "lat": 24.5919062,
+          "lng": 118.1014048
+        }
+      },
+      "topCandidate": null,
+      "hardRejectSummary": {
+        "candidateCount": 49,
+        "rejectedCandidateCount": 48,
+        "reasons": {
+          "non-cinema-poi": 29,
+          "project-mismatch": 12,
+          "mall-fallback-not-qualified": 7,
+          "brand-mismatch": 11
+        }
+      },
+      "ambiguity": {
+        "evaluatedCandidates": 1,
+        "ignoredHardRejected": 48,
+        "trueAmbiguity": false
+      },
+      "overrideUsed": false
+    },
+    {
+      "sourceRow": 541,
+      "sourceName": "杭州万象影城 （万象城IMAX激光店）",
+      "city": "杭州",
+      "stratum": "formerNameComplex",
+      "queryVariants": [
+        {
+          "kind": "current-name-city",
+          "query": "杭州万象影城 （万象城IMAX激光店） 杭州",
+          "cache": "miss-requested",
+          "ok": true,
+          "candidateCount": 1,
+          "errorCode": null
+        },
+        {
+          "kind": "device-description-removed",
+          "query": "杭州万象影城 杭州",
+          "cache": "miss-requested",
+          "ok": true,
+          "candidateCount": 22,
+          "errorCode": null
+        },
+        {
+          "kind": "former-name",
+          "query": "百老汇影城（万象城店 杭州",
+          "cache": "miss-requested",
+          "ok": true,
+          "candidateCount": 2,
+          "errorCode": null
+        },
+        {
+          "kind": "project-brand",
+          "query": "万象城 万象影城 杭州",
+          "cache": "miss-requested",
+          "ok": true,
+          "candidateCount": 12,
+          "errorCode": null
+        }
+      ],
+      "selected": {
+        "poiId": "B0I6AMXU40",
+        "name": "万象影城(杭州万象城店)",
+        "address": "富春路701号杭州万象城5楼",
+        "typecode": "080601",
+        "positionType": "cinema-poi",
+        "score": 0.92,
+        "automaticDecision": "review-required-ambiguous",
+        "provider": {
+          "providerCrs": "GCJ-02",
+          "providerLat": 30.251509,
+          "providerLng": 120.214835
+        },
+        "map": {
+          "mapCrs": "WGS84",
+          "lat": 30.2539419,
+          "lng": 120.2103087
+        }
+      },
+      "topCandidate": null,
+      "hardRejectSummary": {
+        "candidateCount": 25,
+        "rejectedCandidateCount": 21,
+        "reasons": {
+          "project-mismatch": 4,
+          "non-cinema-poi": 14,
+          "mall-fallback-not-qualified": 3,
+          "brand-mismatch": 2
+        }
+      },
+      "ambiguity": {
+        "evaluatedCandidates": 4,
+        "ignoredHardRejected": 21,
+        "trueAmbiguity": true,
+        "competingPoiId": "B0J355VJUI"
+      },
+      "overrideUsed": false
+    },
+    {
+      "sourceRow": 360,
+      "sourceName": "昆明维斯影城（海乐城IMAX店）",
+      "city": "昆明",
+      "stratum": "formerNameComplex",
+      "queryVariants": [
+        {
+          "kind": "current-name-city",
+          "query": "昆明维斯影城（海乐城IMAX店） 昆明",
+          "cache": "miss-requested",
+          "ok": true,
+          "candidateCount": 1,
+          "errorCode": null
+        },
+        {
+          "kind": "device-description-removed",
+          "query": "昆明维斯影城 昆明",
+          "cache": "miss-requested",
+          "ok": true,
+          "candidateCount": 13,
+          "errorCode": null
+        },
+        {
+          "kind": "former-name",
+          "query": "昆明CGV影城（海伦店) 昆明",
+          "cache": "miss-requested",
+          "ok": true,
+          "candidateCount": 1,
+          "errorCode": null
+        },
+        {
+          "kind": "former-name",
+          "query": "昆明CGV影城（海伦店 昆明",
+          "cache": "miss-requested",
+          "ok": true,
+          "candidateCount": 1,
+          "errorCode": null
+        }
+      ],
+      "selected": {
+        "poiId": "B0J2OZG6M6",
+        "name": "维斯影城(海乐城IMAX店)",
+        "address": "金源大道3188号附近2号地海乐城5楼",
+        "typecode": "080601",
+        "positionType": "cinema-poi",
+        "score": 0.847619,
+        "automaticDecision": "review-required-medium",
+        "provider": {
+          "providerCrs": "GCJ-02",
+          "providerLat": 24.966624,
+          "providerLng": 102.742717
+        },
+        "map": {
+          "mapCrs": "WGS84",
+          "lat": 24.9695807,
+          "lng": 102.7412357
+        }
+      },
+      "topCandidate": null,
+      "hardRejectSummary": {
+        "candidateCount": 14,
+        "rejectedCandidateCount": 13,
+        "reasons": {
+          "project-mismatch": 1,
+          "non-cinema-poi": 12
+        }
+      },
+      "ambiguity": {
+        "evaluatedCandidates": 1,
+        "ignoredHardRejected": 13,
+        "trueAmbiguity": false
+      },
+      "overrideUsed": false
+    },
+    {
+      "sourceRow": 790,
+      "sourceName": "拉萨SFC上影IMAX影城",
+      "city": "拉萨",
+      "stratum": "formerNameComplex",
+      "queryVariants": [
+        {
+          "kind": "current-name-city",
+          "query": "拉萨SFC上影IMAX影城 拉萨",
+          "cache": "miss-requested",
+          "ok": true,
+          "candidateCount": 0,
+          "errorCode": null
+        },
+        {
+          "kind": "former-name",
+          "query": "天海万达影城 拉萨",
+          "cache": "miss-requested",
+          "ok": true,
+          "candidateCount": 17,
+          "errorCode": null
+        }
+      ],
+      "selected": null,
+      "topCandidate": {
+        "poiId": "B0G2ZRGW8D",
+        "name": "万达影城IMAX(拉萨城关万达广场店)",
+        "address": "拉萨城关万达广场3层",
+        "typecode": "080601",
+        "positionType": "cinema-poi",
+        "score": 0.692308,
+        "automaticDecision": "unresolved",
+        "provider": {
+          "providerCrs": "GCJ-02",
+          "providerLat": 29.656931,
+          "providerLng": 91.181883
+        },
+        "map": {
+          "mapCrs": "WGS84",
+          "lat": 29.6597377,
+          "lng": 91.1804363
+        }
+      },
+      "hardRejectSummary": {
+        "candidateCount": 17,
+        "rejectedCandidateCount": 15,
+        "reasons": {
+          "mall-fallback-not-qualified": 3,
+          "non-cinema-poi": 12
+        }
+      },
+      "ambiguity": {
+        "evaluatedCandidates": 0,
+        "ignoredHardRejected": 17,
+        "trueAmbiguity": false
+      },
+      "overrideUsed": false
+    },
+    {
+      "sourceRow": 731,
+      "sourceName": "南充万达影城（临江万达广场店）",
+      "city": "南充",
+      "stratum": "formerNameComplex",
+      "queryVariants": [
+        {
+          "kind": "current-name-city",
+          "query": "南充万达影城（临江万达广场店） 南充",
+          "cache": "miss-requested",
+          "ok": true,
+          "candidateCount": 1,
+          "errorCode": null
+        },
+        {
+          "kind": "former-name",
+          "query": "南充万达影城（保利广场店 南充",
+          "cache": "miss-requested",
+          "ok": true,
+          "candidateCount": 5,
+          "errorCode": null
+        },
+        {
+          "kind": "project-brand",
+          "query": "临江万达广场 万达影城 南充",
+          "cache": "miss-requested",
+          "ok": true,
+          "candidateCount": 1,
+          "errorCode": null
+        }
+      ],
+      "selected": null,
+      "topCandidate": {
+        "poiId": "B0FFMHT0CS",
+        "name": "万达影城(南充高坪万达广场店)",
+        "address": "万达广场4F",
+        "typecode": "080601",
+        "positionType": "cinema-poi",
+        "score": 0.710588,
+        "automaticDecision": "rejected",
+        "provider": {
+          "providerCrs": "GCJ-02",
+          "providerLat": 30.771551,
+          "providerLng": 106.097748
+        },
+        "map": {
+          "mapCrs": "WGS84",
+          "lat": 30.7738657,
+          "lng": 106.0937314
+        }
+      },
+      "hardRejectSummary": {
+        "candidateCount": 5,
+        "rejectedCandidateCount": 5,
+        "reasons": {
+          "project-mismatch": 1,
+          "non-cinema-poi": 4
+        }
+      },
+      "ambiguity": {
+        "evaluatedCandidates": 0,
+        "ignoredHardRejected": 5,
+        "trueAmbiguity": false
+      },
+      "overrideUsed": false
+    },
+    {
+      "sourceRow": 540,
+      "sourceName": "杭州星光嘉映影城IMAX（新天地店）",
+      "city": "杭州",
+      "stratum": "formerNameComplex",
+      "queryVariants": [
+        {
+          "kind": "current-name-city",
+          "query": "杭州星光嘉映影城IMAX（新天地店） 杭州",
+          "cache": "miss-requested",
+          "ok": true,
+          "candidateCount": 1,
+          "errorCode": null
+        },
+        {
+          "kind": "former-name",
+          "query": "新天地寰耀影城IMAX 杭州",
+          "cache": "miss-requested",
+          "ok": true,
+          "candidateCount": 25,
+          "errorCode": null
+        },
+        {
+          "kind": "former-name",
+          "query": "新天地新远影城IMAX 杭州",
+          "cache": "miss-requested",
+          "ok": true,
+          "candidateCount": 25,
+          "errorCode": null
+        }
+      ],
+      "selected": {
+        "poiId": "B0FFJ84IND",
+        "name": "杭州新天地寰耀影城",
+        "address": "新北街103号华盛达时代中心c座",
+        "typecode": "080601",
+        "positionType": "cinema-poi",
+        "score": 0.817391,
+        "automaticDecision": "review-required-ambiguous",
+        "provider": {
+          "providerCrs": "GCJ-02",
+          "providerLat": 30.326124,
+          "providerLng": 120.181548
+        },
+        "map": {
+          "mapCrs": "WGS84",
+          "lat": 30.3284959,
+          "lng": 120.1769277
+        }
+      },
+      "topCandidate": null,
+      "hardRejectSummary": {
+        "candidateCount": 49,
+        "rejectedCandidateCount": 41,
+        "reasons": {
+          "non-cinema-poi": 22,
+          "project-mismatch": 19
+        }
+      },
+      "ambiguity": {
+        "evaluatedCandidates": 5,
+        "ignoredHardRejected": 44,
+        "trueAmbiguity": true,
+        "competingPoiId": "B0FFHGM6RY"
+      },
+      "overrideUsed": false
+    },
+    {
+      "sourceRow": 896,
+      "sourceName": "昆明云南昆明摩天激光IMAX影院",
+      "city": "昆明",
+      "stratum": "formerNameComplex",
+      "queryVariants": [
+        {
+          "kind": "current-name-city",
+          "query": "昆明云南昆明摩天激光IMAX影院 昆明",
+          "cache": "miss-requested",
+          "ok": true,
+          "candidateCount": 1,
+          "errorCode": null
+        },
+        {
+          "kind": "former-name",
+          "query": "昆明大都LCC光魔雷射影院 昆明",
+          "cache": "miss-requested",
+          "ok": true,
+          "candidateCount": 25,
+          "errorCode": null
+        }
+      ],
+      "selected": null,
+      "topCandidate": {
+        "poiId": "B0FFI7Y7D7",
+        "name": "SFC上影影城(昆明西城IMAX店)",
+        "address": "滇缅大道西城时代购物中心5楼",
+        "typecode": "080601",
+        "positionType": "cinema-poi",
+        "score": 0.667984,
+        "automaticDecision": "unresolved",
+        "provider": {
+          "providerCrs": "GCJ-02",
+          "providerLat": 25.063872,
+          "providerLng": 102.654388
+        },
+        "map": {
+          "mapCrs": "WGS84",
+          "lat": 25.0669437,
+          "lng": 102.6530814
+        }
+      },
+      "hardRejectSummary": {
+        "candidateCount": 25,
+        "rejectedCandidateCount": 13,
+        "reasons": {
+          "non-target-business-name": 3,
+          "mall-fallback-not-qualified": 2,
+          "non-cinema-poi": 8
+        }
+      },
+      "ambiguity": {
+        "evaluatedCandidates": 0,
+        "ignoredHardRejected": 25,
+        "trueAmbiguity": false
+      },
+      "overrideUsed": false
+    },
+    {
+      "sourceRow": 826,
+      "sourceName": "武汉UA新民众乐园电影城",
+      "city": "武汉",
+      "stratum": "formerNameComplex",
+      "queryVariants": [
+        {
+          "kind": "current-name-city",
+          "query": "武汉UA新民众乐园电影城 武汉",
+          "cache": "miss-requested",
+          "ok": true,
+          "candidateCount": 25,
+          "errorCode": null
+        },
+        {
+          "kind": "former-name",
+          "query": "武汉环艺新民众乐园电影城 武汉",
+          "cache": "miss-requested",
+          "ok": true,
+          "candidateCount": 25,
+          "errorCode": null
+        }
+      ],
+      "selected": null,
+      "topCandidate": {
+        "poiId": "B0IAYHUAFO",
+        "name": "万象影城(武汉万象城店)",
+        "address": "建设大道668号武汉万象城6层(取水楼地铁站出入口旁)",
+        "typecode": "080601",
+        "positionType": "cinema-poi",
+        "score": 0.6,
+        "automaticDecision": "unresolved",
+        "provider": {
+          "providerCrs": "GCJ-02",
+          "providerLat": 30.598892,
+          "providerLng": 114.27967
+        },
+        "map": {
+          "mapCrs": "WGS84",
+          "lat": 30.601336,
+          "lng": 114.2742513
+        }
+      },
+      "hardRejectSummary": {
+        "candidateCount": 32,
+        "rejectedCandidateCount": 13,
+        "reasons": {
+          "mall-fallback-not-qualified": 4,
+          "non-cinema-poi": 9
+        }
+      },
+      "ambiguity": {
+        "evaluatedCandidates": 0,
+        "ignoredHardRejected": 32,
+        "trueAmbiguity": false
+      },
+      "overrideUsed": false
+    },
+    {
+      "sourceRow": 859,
+      "sourceName": "呼和浩特CGV影城（中山店）",
+      "city": "呼和浩特",
+      "stratum": "closedOrTemporary",
+      "queryVariants": [
+        {
+          "kind": "current-name-city",
+          "query": "呼和浩特CGV影城（中山店） 呼和浩特",
+          "cache": "miss-requested",
+          "ok": true,
+          "candidateCount": 25,
+          "errorCode": null
+        },
+        {
+          "kind": "project-brand",
+          "query": "中山 cgv 呼和浩特",
+          "cache": "miss-requested",
+          "ok": true,
+          "candidateCount": 0,
+          "errorCode": null
+        }
+      ],
+      "selected": null,
+      "topCandidate": {
+        "poiId": "B0J6U5LI83",
+        "name": "中影华晟影城(中山西路图书大厦店)",
+        "address": "中山西路街道中山西路94号图书大厦4楼",
+        "typecode": "080601",
+        "positionType": "cinema-poi",
+        "score": 0.597333,
+        "automaticDecision": "rejected",
+        "provider": {
+          "providerCrs": "GCJ-02",
+          "providerLat": 40.812247,
+          "providerLng": 111.665601
+        },
+        "map": {
+          "mapCrs": "WGS84",
+          "lat": 40.810932,
+          "lng": 111.6588358
+        }
+      },
+      "hardRejectSummary": {
+        "candidateCount": 25,
+        "rejectedCandidateCount": 25,
+        "reasons": {
+          "brand-mismatch": 20,
+          "non-cinema-poi": 5,
+          "project-mismatch": 17
+        }
+      },
+      "ambiguity": {
+        "evaluatedCandidates": 0,
+        "ignoredHardRejected": 25,
+        "trueAmbiguity": false
+      },
+      "overrideUsed": false
+    },
+    {
+      "sourceRow": 900,
+      "sourceName": "北京华谊兄弟影院（洋桥店）",
+      "city": "北京",
+      "stratum": "closedOrTemporary",
+      "queryVariants": [
+        {
+          "kind": "current-name-city",
+          "query": "北京华谊兄弟影院（洋桥店） 北京",
+          "cache": "miss-requested",
+          "ok": true,
+          "candidateCount": 1,
+          "errorCode": null
+        },
+        {
+          "kind": "project-brand",
+          "query": "洋桥 华谊 北京",
+          "cache": "miss-requested",
+          "ok": true,
+          "candidateCount": 1,
+          "errorCode": null
+        }
+      ],
+      "selected": null,
+      "topCandidate": {
+        "poiId": "B0FFF00QR4",
+        "name": "华谊兄弟影院(大红门银泰百货店)(暂停营业)",
+        "address": "马家堡东路101号院10号楼银泰百货大红门店6层",
+        "typecode": "080601",
+        "positionType": "cinema-poi",
+        "score": 0.608421,
+        "automaticDecision": "rejected",
+        "provider": {
+          "providerCrs": "GCJ-02",
+          "providerLat": 39.844636,
+          "providerLng": 116.385808
+        },
+        "map": {
+          "mapCrs": "WGS84",
+          "lat": 39.8432412,
+          "lng": 116.3795785
+        }
+      },
+      "hardRejectSummary": {
+        "candidateCount": 1,
+        "rejectedCandidateCount": 1,
+        "reasons": {
+          "project-mismatch": 1
+        }
+      },
+      "ambiguity": {
+        "evaluatedCandidates": 0,
+        "ignoredHardRejected": 1,
+        "trueAmbiguity": false
+      },
+      "overrideUsed": false
+    },
+    {
+      "sourceRow": 887,
+      "sourceName": "汕头星城影院（正大卜蜂中心店)",
+      "city": "汕头",
+      "stratum": "closedOrTemporary",
+      "queryVariants": [
+        {
+          "kind": "current-name-city",
+          "query": "汕头星城影院（正大卜蜂中心店) 汕头",
+          "cache": "miss-requested",
+          "ok": true,
+          "candidateCount": 25,
+          "errorCode": null
+        }
+      ],
+      "selected": null,
+      "topCandidate": {
+        "poiId": "B0M6M7V88S",
+        "name": "雅黛琳(卜蜂中心店)",
+        "address": "东厦北路卜蜂中心二楼",
+        "typecode": "060000",
+        "positionType": null,
+        "score": 0.514748,
+        "automaticDecision": "rejected",
+        "provider": {
+          "providerCrs": "GCJ-02",
+          "providerLat": 23.387125,
+          "providerLng": 116.712975
+        },
+        "map": {
+          "mapCrs": "WGS84",
+          "lat": 23.3897249,
+          "lng": 116.70844
+        }
+      },
+      "hardRejectSummary": {
+        "candidateCount": 25,
+        "rejectedCandidateCount": 25,
+        "reasons": {
+          "non-cinema-poi": 25
+        }
+      },
+      "ambiguity": {
+        "evaluatedCandidates": 0,
+        "ignoredHardRejected": 25,
+        "trueAmbiguity": false
+      },
+      "overrideUsed": false
+    },
+    {
+      "sourceRow": 899,
+      "sourceName": "合肥华谊兄弟影院（武里山天街店）",
+      "city": "合肥",
+      "stratum": "closedOrTemporary",
+      "queryVariants": [
+        {
+          "kind": "current-name-city",
+          "query": "合肥华谊兄弟影院（武里山天街店） 合肥",
+          "cache": "miss-requested",
+          "ok": true,
+          "candidateCount": 2,
+          "errorCode": null
+        },
+        {
+          "kind": "project-brand",
+          "query": "武里山天街 华谊 合肥",
+          "cache": "miss-requested",
+          "ok": true,
+          "candidateCount": 2,
+          "errorCode": null
+        }
+      ],
+      "selected": {
+        "poiId": "B0FFI5H9CS",
+        "name": "华谊兄弟影院(武里山天街店)",
+        "address": "合肥市新站区武里山天街A区4层",
+        "typecode": "080601",
+        "positionType": "cinema-poi",
+        "score": 1,
+        "automaticDecision": "accepted-high",
+        "provider": {
+          "providerCrs": "GCJ-02",
+          "providerLat": 31.899163,
+          "providerLng": 117.320653
+        },
+        "map": {
+          "mapCrs": "WGS84",
+          "lat": 31.9011061,
+          "lng": 117.3150443
+        }
+      },
+      "topCandidate": null,
+      "hardRejectSummary": {
+        "candidateCount": 2,
+        "rejectedCandidateCount": 1,
+        "reasons": {
+          "non-cinema-poi": 1
+        }
+      },
+      "ambiguity": {
+        "evaluatedCandidates": 1,
+        "ignoredHardRejected": 1,
+        "trueAmbiguity": false
+      },
+      "overrideUsed": false
+    },
+    {
+      "sourceRow": 857,
+      "sourceName": "西安大明宫IMAX影院",
+      "city": "西安",
+      "stratum": "closedOrTemporary",
+      "queryVariants": [
+        {
+          "kind": "current-name-city",
+          "query": "西安大明宫IMAX影院 西安",
+          "cache": "miss-requested",
+          "ok": true,
+          "candidateCount": 3,
+          "errorCode": null
+        }
+      ],
+      "selected": {
+        "poiId": "B0FFGWXZBB",
+        "name": "太平洋影城(西安大明宫店)",
+        "address": "太华南路141号家豪大厦3层",
+        "typecode": "080601",
+        "positionType": "cinema-poi",
+        "score": 0.923437,
+        "automaticDecision": "review-required-ambiguous",
+        "provider": {
+          "providerCrs": "GCJ-02",
+          "providerLat": 34.288984,
+          "providerLng": 108.972556
+        },
+        "map": {
+          "mapCrs": "WGS84",
+          "lat": 34.2904898,
+          "lng": 108.9677948
+        }
+      },
+      "topCandidate": null,
+      "hardRejectSummary": {
+        "candidateCount": 3,
+        "rejectedCandidateCount": 0,
+        "reasons": {}
+      },
+      "ambiguity": {
+        "evaluatedCandidates": 2,
+        "ignoredHardRejected": 1,
+        "trueAmbiguity": true,
+        "competingPoiId": "B0FFF64VGL"
+      },
+      "overrideUsed": false
+    },
+    {
+      "sourceRow": 171,
+      "sourceName": "东莞东莞市科學技術博物館",
+      "city": "东莞",
+      "stratum": "atypicalVenue",
+      "queryVariants": [
+        {
+          "kind": "current-name-city",
+          "query": "东莞东莞市科學技術博物館 东莞",
+          "cache": "miss-requested",
+          "ok": true,
+          "candidateCount": 25,
+          "errorCode": null
+        }
+      ],
+      "selected": {
+        "poiId": "B03017U5IJ",
+        "name": "东莞市科学技术博物馆",
+        "address": "元美中路2号(青少年活动中心旁)",
+        "typecode": "140100",
+        "positionType": "venue-poi",
+        "score": 0.966125,
+        "automaticDecision": "review-required-ambiguous",
+        "provider": {
+          "providerCrs": "GCJ-02",
+          "providerLat": 23.009527,
+          "providerLng": 113.746574
+        },
+        "map": {
+          "mapCrs": "WGS84",
+          "lat": 23.0122546,
+          "lng": 113.7413788
+        }
+      },
+      "topCandidate": null,
+      "hardRejectSummary": {
+        "candidateCount": 25,
+        "rejectedCandidateCount": 23,
+        "reasons": {
+          "non-cinema-poi": 20,
+          "venue-not-qualified": 3
+        }
+      },
+      "ambiguity": {
+        "evaluatedCandidates": 2,
+        "ignoredHardRejected": 23,
+        "trueAmbiguity": true,
+        "competingPoiId": "B0FFHS7FBX"
+      },
+      "overrideUsed": false
+    },
+    {
+      "sourceRow": 872,
+      "sourceName": "南京科技館",
+      "city": "南京",
+      "stratum": "atypicalVenue",
+      "queryVariants": [
+        {
+          "kind": "current-name-city",
+          "query": "南京科技館 南京",
+          "cache": "miss-requested",
+          "ok": true,
+          "candidateCount": 25,
+          "errorCode": null
+        }
+      ],
+      "selected": {
+        "poiId": "B0019097N2",
+        "name": "南京科技馆",
+        "address": "紫荆花路9号",
+        "typecode": "140600",
+        "positionType": "venue-poi",
+        "score": 0.990625,
+        "automaticDecision": "accepted-high",
+        "provider": {
+          "providerCrs": "GCJ-02",
+          "providerLat": 31.986056,
+          "providerLng": 118.783786
+        },
+        "map": {
+          "mapCrs": "WGS84",
+          "lat": 31.9880971,
+          "lng": 118.7785893
+        }
+      },
+      "topCandidate": null,
+      "hardRejectSummary": {
+        "candidateCount": 25,
+        "rejectedCandidateCount": 23,
+        "reasons": {
+          "venue-not-qualified": 1,
+          "non-cinema-poi": 22
+        }
+      },
+      "ambiguity": {
+        "evaluatedCandidates": 2,
+        "ignoredHardRejected": 23,
+        "trueAmbiguity": false
+      },
+      "overrideUsed": false
+    },
+    {
+      "sourceRow": 806,
+      "sourceName": "重庆市少年宮影院",
+      "city": "重庆",
+      "stratum": "atypicalVenue",
+      "queryVariants": [
+        {
+          "kind": "current-name-city",
+          "query": "重庆市少年宮影院 重庆",
+          "cache": "miss-requested",
+          "ok": true,
+          "candidateCount": 25,
+          "errorCode": null
+        }
+      ],
+      "selected": null,
+      "topCandidate": {
+        "poiId": "B0MA25QA79",
+        "name": "重庆市少年宫",
+        "address": "福康路与新南路交叉口西北220米",
+        "typecode": "141400",
+        "positionType": null,
+        "score": 0.666667,
+        "automaticDecision": "rejected",
+        "provider": {
+          "providerCrs": "GCJ-02",
+          "providerLat": 29.602225,
+          "providerLng": 106.488325
+        },
+        "map": {
+          "mapCrs": "WGS84",
+          "lat": 29.604889,
+          "lng": 106.4844384
+        }
+      },
+      "hardRejectSummary": {
+        "candidateCount": 25,
+        "rejectedCandidateCount": 25,
+        "reasons": {
+          "non-cinema-poi": 25
+        }
+      },
+      "ambiguity": {
+        "evaluatedCandidates": 0,
+        "ignoredHardRejected": 25,
+        "trueAmbiguity": false
+      },
+      "overrideUsed": false
+    },
+    {
+      "sourceRow": 464,
+      "sourceName": "济南山东省科技馆（新馆）",
+      "city": "济南",
+      "stratum": "atypicalVenue",
+      "queryVariants": [
+        {
+          "kind": "current-name-city",
+          "query": "济南山东省科技馆（新馆） 济南",
+          "cache": "miss-requested",
+          "ok": true,
+          "candidateCount": 9,
+          "errorCode": null
+        }
+      ],
+      "selected": {
+        "poiId": "B0J6N7NXBQ",
+        "name": "山东省科技馆新馆球幕影院",
+        "address": "山东省科技馆新馆",
+        "typecode": "080601",
+        "positionType": "cinema-poi",
+        "score": 0.976667,
+        "automaticDecision": "accepted-high",
+        "provider": {
+          "providerCrs": "GCJ-02",
+          "providerLat": 36.665923,
+          "providerLng": 116.908223
+        },
+        "map": {
+          "mapCrs": "WGS84",
+          "lat": 36.6658473,
+          "lng": 116.9026641
+        }
+      },
+      "topCandidate": null,
+      "hardRejectSummary": {
+        "candidateCount": 9,
+        "rejectedCandidateCount": 7,
+        "reasons": {
+          "non-cinema-poi": 7
+        }
+      },
+      "ambiguity": {
+        "evaluatedCandidates": 2,
+        "ignoredHardRejected": 7,
+        "trueAmbiguity": false
+      },
+      "overrideUsed": false
+    },
+    {
+      "sourceRow": 331,
+      "sourceName": "沈阳万达影城（辽宁省科技馆—万达影城IMAXGT双激光）",
+      "city": "沈阳",
+      "stratum": "atypicalVenue",
+      "queryVariants": [
+        {
+          "kind": "current-name-city",
+          "query": "沈阳万达影城（辽宁省科技馆—万达影城IMAXGT双激光） 沈阳",
+          "cache": "miss-requested",
+          "ok": true,
+          "candidateCount": 25,
+          "errorCode": null
+        },
+        {
+          "kind": "device-description-removed",
+          "query": "沈阳万达影城 沈阳",
+          "cache": "miss-requested",
+          "ok": true,
+          "candidateCount": 20,
+          "errorCode": null
+        },
+        {
+          "kind": "former-name",
+          "query": "沈阳辽宁科技馆 沈阳",
+          "cache": "miss-requested",
+          "ok": true,
+          "candidateCount": 25,
+          "errorCode": null
+        },
+        {
+          "kind": "project-brand",
+          "query": "辽宁省科技馆万达双 万达影城 沈阳",
+          "cache": "miss-requested",
+          "ok": true,
+          "candidateCount": 1,
+          "errorCode": null
+        }
+      ],
+      "selected": null,
+      "topCandidate": {
+        "poiId": "B001819PVO",
+        "name": "万达影城",
+        "address": "北一中路1号万达广场4层",
+        "typecode": "080601",
+        "positionType": "cinema-poi",
+        "score": 0.755855,
+        "automaticDecision": "rejected",
+        "provider": {
+          "providerCrs": "GCJ-02",
+          "providerLat": 41.814351,
+          "providerLng": 123.37927
+        },
+        "map": {
+          "mapCrs": "WGS84",
+          "lat": 41.8119155,
+          "lng": 123.3731459
+        }
+      },
+      "hardRejectSummary": {
+        "candidateCount": 53,
+        "rejectedCandidateCount": 53,
+        "reasons": {
+          "project-mismatch": 14,
+          "venue-not-qualified": 4,
+          "non-cinema-poi": 35,
+          "brand-mismatch": 7
+        }
+      },
+      "ambiguity": {
+        "evaluatedCandidates": 0,
+        "ignoredHardRejected": 53,
+        "trueAmbiguity": false
+      },
+      "overrideUsed": false
+    },
+    {
+      "sourceRow": 555,
+      "sourceName": "余姚万达影城（万达广场店）",
+      "city": "余姚",
+      "stratum": "deterministicFill",
+      "queryVariants": [
+        {
+          "kind": "current-name-city",
+          "query": "余姚万达影城（万达广场店） 余姚",
+          "cache": "miss-requested",
+          "ok": true,
+          "candidateCount": 3,
+          "errorCode": null
+        },
+        {
+          "kind": "project-brand",
+          "query": "万达广场 万达影城 余姚",
+          "cache": "miss-requested",
+          "ok": true,
+          "candidateCount": 2,
+          "errorCode": null
+        }
+      ],
+      "selected": null,
+      "topCandidate": {
+        "poiId": "B023E13P3Q",
+        "name": "万达影城(余姚万达广场店)",
+        "address": "四明西路875号万达广场4层",
+        "typecode": "080601",
+        "positionType": "cinema-poi",
+        "score": 0.648,
+        "automaticDecision": "rejected",
+        "provider": {
+          "providerCrs": "GCJ-02",
+          "providerLat": 30.028299,
+          "providerLng": 121.132535
+        },
+        "map": {
+          "mapCrs": "WGS84",
+          "lat": 30.0305877,
+          "lng": 121.1280415
+        }
+      },
+      "hardRejectSummary": {
+        "candidateCount": 3,
+        "rejectedCandidateCount": 3,
+        "reasons": {
+          "city-mismatch": 3,
+          "mall-fallback-not-qualified": 1,
+          "non-cinema-poi": 1
+        }
+      },
+      "ambiguity": {
+        "evaluatedCandidates": 0,
+        "ignoredHardRejected": 3,
+        "trueAmbiguity": false
+      },
+      "overrideUsed": false
+    },
+    {
+      "sourceRow": 807,
+      "sourceName": "重庆科技馆",
+      "city": "重庆",
+      "stratum": "deterministicFill",
+      "queryVariants": [
+        {
+          "kind": "current-name-city",
+          "query": "重庆科技馆 重庆",
+          "cache": "miss-requested",
+          "ok": true,
+          "candidateCount": 25,
+          "errorCode": null
+        }
+      ],
+      "selected": {
+        "poiId": "B0FFFOLF1H",
+        "name": "重庆科技馆A区",
+        "address": "江北城西大街7号(大剧院地铁站3号口步行140米)",
+        "typecode": "140600",
+        "positionType": "venue-poi",
+        "score": 0.941625,
+        "automaticDecision": "accepted-high",
+        "provider": {
+          "providerCrs": "GCJ-02",
+          "providerLat": 29.570583,
+          "providerLng": 106.577586
+        },
+        "map": {
+          "mapCrs": "WGS84",
+          "lat": 29.5734669,
+          "lng": 106.5738977
+        }
+      },
+      "topCandidate": null,
+      "hardRejectSummary": {
+        "candidateCount": 25,
+        "rejectedCandidateCount": 24,
+        "reasons": {
+          "venue-not-qualified": 2,
+          "non-cinema-poi": 22
+        }
+      },
+      "ambiguity": {
+        "evaluatedCandidates": 1,
+        "ignoredHardRejected": 24,
+        "trueAmbiguity": false
+      },
+      "overrideUsed": false
+    },
+    {
+      "sourceRow": 726,
+      "sourceName": "眉山万达影城（雕像国际广场店）",
+      "city": "眉山",
+      "stratum": "deterministicFill",
+      "queryVariants": [
+        {
+          "kind": "current-name-city",
+          "query": "眉山万达影城（雕像国际广场店） 眉山",
+          "cache": "miss-requested",
+          "ok": true,
+          "candidateCount": 1,
+          "errorCode": null
+        },
+        {
+          "kind": "project-brand",
+          "query": "雕像国际广场 万达影城 眉山",
+          "cache": "miss-requested",
+          "ok": true,
+          "candidateCount": 1,
+          "errorCode": null
+        }
+      ],
+      "selected": {
+        "poiId": "B0FFHKCLI9",
+        "name": "万达影城(万达广场店)",
+        "address": "环湖西路雕像国际广场5层",
+        "typecode": "080601",
+        "positionType": "cinema-poi",
+        "score": 0.92,
+        "automaticDecision": "accepted-high",
+        "provider": {
+          "providerCrs": "GCJ-02",
+          "providerLat": 30.046769,
+          "providerLng": 103.835185
+        },
+        "map": {
+          "mapCrs": "WGS84",
+          "lat": 30.0495664,
+          "lng": 103.8330592
+        }
+      },
+      "topCandidate": null,
+      "hardRejectSummary": {
+        "candidateCount": 1,
+        "rejectedCandidateCount": 0,
+        "reasons": {}
+      },
+      "ambiguity": {
+        "evaluatedCandidates": 1,
+        "ignoredHardRejected": 0,
+        "trueAmbiguity": false
+      },
+      "overrideUsed": false
+    },
+    {
+      "sourceRow": 605,
+      "sourceName": "呼和浩特万达影城（回民区万达广场店）",
+      "city": "呼和浩特",
+      "stratum": "deterministicFill",
+      "queryVariants": [
+        {
+          "kind": "current-name-city",
+          "query": "呼和浩特万达影城（回民区万达广场店） 呼和浩特",
+          "cache": "miss-requested",
+          "ok": true,
+          "candidateCount": 3,
+          "errorCode": null
+        },
+        {
+          "kind": "project-brand",
+          "query": "回民区万达广场 万达影城 呼和浩特",
+          "cache": "miss-requested",
+          "ok": true,
+          "candidateCount": 2,
+          "errorCode": null
+        }
+      ],
+      "selected": {
+        "poiId": "B0FFIT512C",
+        "name": "万达影城(回民区万达广场店)",
+        "address": "成吉思汗西街万达广场4层",
+        "typecode": "080601",
+        "positionType": "cinema-poi",
+        "score": 1,
+        "automaticDecision": "accepted-high",
+        "provider": {
+          "providerCrs": "GCJ-02",
+          "providerLat": 40.831847,
+          "providerLng": 111.6075
+        },
+        "map": {
+          "mapCrs": "WGS84",
+          "lat": 40.8305946,
+          "lng": 111.6008467
+        }
+      },
+      "topCandidate": null,
+      "hardRejectSummary": {
+        "candidateCount": 3,
+        "rejectedCandidateCount": 2,
+        "reasons": {
+          "non-cinema-poi": 1,
+          "brand-mismatch": 1,
+          "project-mismatch": 1
+        }
+      },
+      "ambiguity": {
+        "evaluatedCandidates": 1,
+        "ignoredHardRejected": 2,
+        "trueAmbiguity": false
+      },
+      "overrideUsed": false
+    },
+    {
+      "sourceRow": 27,
+      "sourceName": "上海万达影城（崇明万达广场店)",
+      "city": "上海",
+      "stratum": "deterministicFill",
+      "queryVariants": [
+        {
+          "kind": "current-name-city",
+          "query": "上海万达影城（崇明万达广场店) 上海",
+          "cache": "miss-requested",
+          "ok": true,
+          "candidateCount": 5,
+          "errorCode": null
+        },
+        {
+          "kind": "project-brand",
+          "query": "崇明万达广场 万达影城 上海",
+          "cache": "miss-requested",
+          "ok": true,
+          "candidateCount": 2,
+          "errorCode": null
+        }
+      ],
+      "selected": {
+        "poiId": "B0GKGD6JPD",
+        "name": "万达影城(上海崇明万达广场店)",
+        "address": "万达广场3楼",
+        "typecode": "080601",
+        "positionType": "cinema-poi",
+        "score": 0.92,
+        "automaticDecision": "accepted-high",
+        "provider": {
+          "providerCrs": "GCJ-02",
+          "providerLat": 31.624985,
+          "providerLng": 121.418124
+        },
+        "map": {
+          "mapCrs": "WGS84",
+          "lat": 31.6267312,
+          "lng": 121.4134447
+        }
+      },
+      "topCandidate": null,
+      "hardRejectSummary": {
+        "candidateCount": 5,
+        "rejectedCandidateCount": 4,
+        "reasons": {
+          "non-cinema-poi": 3,
+          "mall-fallback-not-qualified": 1
+        }
+      },
+      "ambiguity": {
+        "evaluatedCandidates": 1,
+        "ignoredHardRejected": 4,
+        "trueAmbiguity": false
+      },
+      "overrideUsed": false
+    },
+    {
+      "sourceRow": 715,
+      "sourceName": "自贡星维国际电影城（南湖店)",
+      "city": "自贡",
+      "stratum": "deterministicFill",
+      "queryVariants": [
+        {
+          "kind": "current-name-city",
+          "query": "自贡星维国际电影城（南湖店) 自贡",
+          "cache": "miss-requested",
+          "ok": true,
+          "candidateCount": 1,
+          "errorCode": null
+        }
+      ],
+      "selected": {
+        "poiId": "B0FFG79JA9",
+        "name": "星维国际电影城(南湖店)",
+        "address": "高新区华商国际城5号楼3层",
+        "typecode": "080601",
+        "positionType": "cinema-poi",
+        "score": 1,
+        "automaticDecision": "accepted-high",
+        "provider": {
+          "providerCrs": "GCJ-02",
+          "providerLat": 29.319873,
+          "providerLng": 104.771606
+        },
+        "map": {
+          "mapCrs": "WGS84",
+          "lat": 29.3227383,
+          "lng": 104.7689111
+        }
+      },
+      "topCandidate": null,
+      "hardRejectSummary": {
+        "candidateCount": 1,
+        "rejectedCandidateCount": 0,
+        "reasons": {}
+      },
+      "ambiguity": {
+        "evaluatedCandidates": 1,
+        "ignoredHardRejected": 0,
+        "trueAmbiguity": false
+      },
+      "overrideUsed": false
+    },
+    {
+      "sourceRow": 168,
+      "sourceName": "泰州金逸影城（姜堰IMAX店)",
+      "city": "泰州",
+      "stratum": "deterministicFill",
+      "queryVariants": [
+        {
+          "kind": "current-name-city",
+          "query": "泰州金逸影城（姜堰IMAX店) 泰州",
+          "cache": "miss-requested",
+          "ok": true,
+          "candidateCount": 1,
+          "errorCode": null
+        },
+        {
+          "kind": "device-description-removed",
+          "query": "泰州金逸影城 泰州",
+          "cache": "miss-requested",
+          "ok": true,
+          "candidateCount": 2,
+          "errorCode": null
+        },
+        {
+          "kind": "project-brand",
+          "query": "姜堰 金逸影城 泰州",
+          "cache": "miss-requested",
+          "ok": true,
+          "candidateCount": 1,
+          "errorCode": null
+        }
+      ],
+      "selected": {
+        "poiId": "B0G3SXYYJI",
+        "name": "金逸影城IMAX店(姜堰三水广场店)",
+        "address": "姜堰大道328号三水新都会A馆四楼",
+        "typecode": "080601",
+        "positionType": "cinema-poi",
+        "score": 0.962667,
+        "automaticDecision": "accepted-high",
+        "provider": {
+          "providerCrs": "GCJ-02",
+          "providerLat": 32.502775,
+          "providerLng": 120.135925
+        },
+        "map": {
+          "mapCrs": "WGS84",
+          "lat": 32.504654,
+          "lng": 120.1309821
+        }
+      },
+      "topCandidate": null,
+      "hardRejectSummary": {
+        "candidateCount": 2,
+        "rejectedCandidateCount": 1,
+        "reasons": {
+          "project-mismatch": 1
+        }
+      },
+      "ambiguity": {
+        "evaluatedCandidates": 1,
+        "ignoredHardRejected": 1,
+        "trueAmbiguity": false
+      },
+      "overrideUsed": false
+    }
+  ]
+}

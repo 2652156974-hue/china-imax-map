@@ -1,0 +1,4 @@
+import fs from 'node:fs';
+const file='data/local/luna-geocode-review-323.json'; const d=JSON.parse(fs.readFileSync(file,'utf8')); const r=d.records.find(x=>Number(x.sourceRow)===769);
+r.reviewContext={...(r.reviewContext??{}),alternateCandidates:[{provider:'amap',poiId:'B0FFHEGXON',name:'万达影城(万达广场店)',address:'柳邕路263号万达广场(柳州柳南店)4F层',pname:'广西',cityname:'柳州市',adname:'柳南区',typecode:'080601',positionType:'cinema-poi',locationGranularity:'cinema',adminMatch:{compatible:true,targetProvince:'广西',targetPrefecture:'柳州',targetCounty:null,providerProvince:'广西',providerPrefecture:'柳州',providerCounty:'柳南'},formatCompatibility:{compatible:true,exactFormatMatch:false,conflicts:[]},providerCoordinate:{crs:'GCJ-02',lat:24.288457,lng:109.392843}}]};
+const tmp=`${file}.tmp-${process.pid}`;fs.writeFileSync(tmp,`${JSON.stringify(d,null,2)}\n`);fs.renameSync(tmp,file);

@@ -1,11 +1,14 @@
 import fs from 'node:fs';
 import path from 'node:path';
+import { parseStatus, STATUS_SIGNAL_DEFINITIONS } from './status-parser.mjs';
+import { parseName } from './name-history.mjs';
 
 const ROOT = process.cwd();
 const RAW_PATH = path.join(ROOT, 'data', 'raw', 'arvin-imax.json');
 const DERIVED_DIR = path.join(ROOT, 'data', 'derived');
 const AUDIT_DIR = path.join(ROOT, 'data', 'audit');
 const GEOCODE_CACHE_PATH = path.join(DERIVED_DIR, 'geocode-cache.json');
+const SCREEN_SEAT_DECISIONS_PATH = path.join(AUDIT_DIR, 'screen-seat-web-review-decisions.json');
 const GENERATED_AT = process.env.DERIVED_GENERATED_AT || new Date().toISOString();
 
 const SOURCE = {
@@ -82,51 +85,6 @@ function parseSource() {
     throw new Error('At least one source row does not contain exactly 8 cells');
   }
   return { raw, rows };
-}
-
-function parseName(rawName) {
-  const originalLines = normalizeLineBreaks(rawName).split('\n');
-  const lines = originalLines.map(trimCell).filter(Boolean);
-  let current = lines[0] || '';
-  const formerNames = [];
-  const unparsedLines = [];
-
-  const addFormer = (value) => {
-    const cleaned = trimCell(value)
-      .replace(/^[（(]\s*原\s*/, '')
-      .replace(/^原\s*/, '')
-      .replace(/[）)]\s*$/, '')
-      .trim();
-    if (cleaned) formerNames.push(cleaned);
-  };
-
-  // Explicit parenthetical former-name marker in the first line, e.g. 拉萨...（原天海万达影城）.
-  current = current.replace(/\s*[（(]\s*原\s*([^（）()]+?)\s*[）)]/g, (_match, former) => {
-    addFormer(former);
-    return '';
-  }).trim();
-
-  // Explicit inline marker in the current name, e.g. "...店）- 原万达影城" or "...店）原万达影城".
-  const inlineFormer = current.match(/^(.+?)(?:\s*[-—]\s*|[）)]\s*)原\s*(.+)$/);
-  if (inlineFormer) {
-    current = inlineFormer[1].trim();
-    addFormer(inlineFormer[2]);
-  }
-
-  for (const line of lines.slice(1)) {
-    if (/^[（(]?\s*原\s*/.test(line)) {
-      addFormer(line);
-    } else {
-      unparsedLines.push(line);
-    }
-  }
-
-  return {
-    name: current,
-    nameRaw: normalizeLineBreaks(rawName),
-    formerNames: unique(formerNames),
-    unparsedNameLines: unparsedLines,
-  };
 }
 
 const MAINLAND_CITIES = {
@@ -323,81 +281,6 @@ function parseSeats(rawSeats) {
   return { value: null, class: 'invalid-text' };
 }
 
-const STATUS_SIGNAL_DEFINITIONS = [
-  { kind: 'closed', label: 'permanent-closure', patterns: ['正式关闭', '正式结业', '结束运营', '停止放映', '永久关闭', '关门', '闭店', '结业'] },
-  { kind: 'temporarily_closed', label: 'temporary-closure', patterns: ['停业', '暂停营业', '暂时关闭'] },
-  { kind: 'open', label: 'reopen', patterns: ['重新开业'] },
-  { kind: 'open', label: 'opening', patterns: ['试营业', '开业', '营业', '开幕'] },
-];
-
-function dateFromLine(line) {
-  const full = line.match(/(\d{4})年\s*(\d{1,2})月\s*(\d{1,2})日/);
-  if (full) return `${full[1]}-${String(full[2]).padStart(2, '0')}-${String(full[3]).padStart(2, '0')}`;
-  const month = line.match(/(\d{4})年\s*(\d{1,2})月/);
-  if (month) return `${month[1]}-${String(month[2]).padStart(2, '0')}-01`;
-  const year = line.match(/(\d{4})年/);
-  return year ? `${year[1]}-01-01` : null;
-}
-
-function parseStatus(rawHistory) {
-  const normalized = simplify(normalizeLineBreaks(rawHistory));
-  const lines = normalized.split('\n').map((line) => line.trim()).filter(Boolean);
-  const events = [];
-  lines.forEach((line, lineIndex) => {
-    const date = dateFromLine(line);
-    const lineCandidates = [];
-    for (const definition of STATUS_SIGNAL_DEFINITIONS) {
-      for (const pattern of definition.patterns) {
-        const index = line.indexOf(pattern);
-        if (index >= 0) {
-          lineCandidates.push({
-            lineIndex,
-            date,
-            kind: definition.kind,
-            label: definition.label,
-            signal: pattern,
-            signalOrder: index,
-            signalEnd: index + pattern.length,
-          });
-        }
-      }
-    }
-    // Prefer the longest marker when markers overlap (e.g. 正式结业/结业 and
-    // 重新开业/开业), while retaining separate non-overlapping markers.
-    lineCandidates.sort((a, b) => a.signalOrder - b.signalOrder || b.signal.length - a.signal.length);
-    const accepted = [];
-    for (const candidate of lineCandidates) {
-      const overlaps = accepted.some((event) => candidate.signalOrder < event.signalEnd && candidate.signalEnd > event.signalOrder);
-      if (!overlaps) accepted.push(candidate);
-    }
-    events.push(...accepted);
-  });
-
-  // Prefer dates when both events have dates. If one event has no date, retain
-  // the spreadsheet's historical line order rather than treating it as year 0.
-  events.sort((a, b) => {
-    if (a.date && b.date && a.date !== b.date) return a.date.localeCompare(b.date);
-    return a.lineIndex - b.lineIndex || a.signalOrder - b.signalOrder;
-  });
-  const latest = events.at(-1) || null;
-  const status = latest?.kind || 'unknown';
-  const confidence = latest ? (latest.date ? 'high' : 'medium') : 'unknown';
-  let reason = null;
-  if (!latest) reason = /即将|计划|预计/.test(normalized) ? 'status-future-only-or-no-decisive-event' : 'status-no-decisive-event';
-  const historySummary = latest
-    ? `${events.length} 条明确状态信号；最新信号：${latest.date || '未标日期'} ${latest.signal}`
-    : '未发现可安全判定营业状态的明确信号';
-
-  return {
-    status,
-    confidence,
-    historySummary,
-    _lines: lines.length,
-    _events: events,
-    _reason: reason,
-  };
-}
-
 function loadGeocodeCache() {
   if (!fs.existsSync(GEOCODE_CACHE_PATH)) return {};
   try {
@@ -407,6 +290,27 @@ function loadGeocodeCache() {
     console.warn(`Ignoring invalid geocode cache: ${error.message}`);
     return {};
   }
+}
+
+function loadScreenSeatDecisions() {
+  if (!fs.existsSync(SCREEN_SEAT_DECISIONS_PATH)) return new Map();
+  const dataset = JSON.parse(fs.readFileSync(SCREEN_SEAT_DECISIONS_PATH, 'utf8'));
+  const decisions = new Map();
+  const allowedFields = new Set(['width', 'height', 'area', 'seats']);
+  for (const decision of dataset.records ?? []) {
+    if (!decision?.id || decision.materialize !== true) continue;
+    const materializedFields = [...new Set((decision.materializedFields ?? []).filter((field) => allowedFields.has(field)))];
+    if (!materializedFields.length) continue;
+    for (const field of materializedFields) {
+      const value = decision.fields?.[field];
+      const valid = field === 'seats'
+        ? Number.isInteger(value) && value >= 0
+        : typeof value === 'number' && Number.isFinite(value) && value >= 0;
+      if (!valid) throw new Error(`Invalid materialized ${field} value for ${decision.id}`);
+    }
+    decisions.set(decision.id, { ...decision, materializedFields });
+  }
+  return decisions;
 }
 
 function validCoordinate(value, min, max) {
@@ -433,7 +337,7 @@ function applyGeocode(location, id, cache) {
   };
 }
 
-function buildRecord(row, geocodeCache) {
+function buildRecord(row, geocodeCache, screenSeatDecisions) {
   const sourceRow = row.rowIndex;
   const id = `imax-cn-${String(sourceRow).padStart(4, '0')}`;
   const name = parseName(cellDisplay(row, 0));
@@ -447,6 +351,16 @@ function buildRecord(row, geocodeCache) {
   const screenParsed = parseScreen(screenRaw.width, screenRaw.height, screenRaw.area);
   const seatsRaw = cellDisplay(row, 6);
   const seatsParsed = parseSeats(seatsRaw);
+  const screenSeatDecision = screenSeatDecisions.get(id) || null;
+  const materializedFields = new Set(screenSeatDecision?.materializedFields ?? []);
+  const screenFullyMaterialized = ['width', 'height', 'area'].every((field) => materializedFields.has(field));
+  const seatsMaterialized = materializedFields.has('seats');
+  const reviewedScreen = {
+    width: materializedFields.has('width') ? screenSeatDecision.fields.width : screenParsed.width,
+    height: materializedFields.has('height') ? screenSeatDecision.fields.height : screenParsed.height,
+    area: materializedFields.has('area') ? screenSeatDecision.fields.area : screenParsed.area,
+  };
+  const reviewedSeats = seatsMaterialized ? screenSeatDecision.fields.seats : seatsParsed.value;
   const statusParsed = parseStatus(cellDisplay(row, 2));
   const reasons = [];
   const details = [];
@@ -461,15 +375,17 @@ function buildRecord(row, geocodeCache) {
   if (projection.plannedSystem) addReview('projection-planned-upgrade', `源文本包含即将升级为 ${projection.plannedSystem} 的计划描述`);
   if (location.city === null) addReview('city-unknown', '未使用短字符截取；当前名称没有命中安全的城市前缀词表');
 
-  for (const [field, parsed] of Object.entries(screenParsed._fields)) {
-    if (parsed.class === 'multi-value' || parsed.class === 'multi-value-inline') addReview('screen-multivalue', `${field} 存在多组值，未选择第一/最后/最大/最小值`);
-    if (parsed.class === 'invalid-text') addReview('screen-abnormal-text', `${field} 不是安全的单一数值文本`);
-    if (parsed.class === 'blank') addReview('screen-missing', `${field} 为空或仅含空白字符`);
+  if (!screenFullyMaterialized) {
+    for (const [field, parsed] of Object.entries(screenParsed._fields)) {
+      if (parsed.class === 'multi-value' || parsed.class === 'multi-value-inline') addReview('screen-multivalue', `${field} 存在多组值，未选择第一/最后/最大/最小值`);
+      if (parsed.class === 'invalid-text') addReview('screen-abnormal-text', `${field} 不是安全的单一数值文本`);
+      if (parsed.class === 'blank') addReview('screen-missing', `${field} 为空或仅含空白字符`);
+    }
   }
-  if (screenParsed._areaMismatch) addReview('screen-area-mismatch', `width×height 与 area 相对差异 ${((screenParsed._areaRelativeDifference || 0) * 100).toFixed(2)}% > 5%`);
+  if (!screenFullyMaterialized && screenParsed._areaMismatch) addReview('screen-area-mismatch', `width×height 与 area 相对差异 ${((screenParsed._areaRelativeDifference || 0) * 100).toFixed(2)}% > 5%`);
   if (seatsParsed.class === 'blank') addReview('seats-missing', '座位数为空或仅含空白字符');
-  if (seatsParsed.class === 'multi-value') addReview('seats-multivalue', '座位数包含多组值或附加座位说明，未强行取值');
-  if (seatsParsed.class === 'invalid-text') addReview('seats-invalid', '座位数不是安全的单一整数');
+  if (!seatsMaterialized && seatsParsed.class === 'multi-value') addReview('seats-multivalue', '座位数包含多组值或附加座位说明，未强行取值');
+  if (!seatsMaterialized && seatsParsed.class === 'invalid-text') addReview('seats-invalid', '座位数不是安全的单一整数');
   if (statusParsed.status === 'unknown') addReview('status-unknown', statusParsed._reason);
 
   const locationWithGeocode = applyGeocode({
@@ -493,6 +409,7 @@ function buildRecord(row, geocodeCache) {
     name: name.name,
     nameRaw: name.nameRaw,
     formerNames: name.formerNames,
+    unparsedNameLines: name.unparsedNameLines,
     region: locationWithGeocode.region,
     province: locationWithGeocode.province,
     city: locationWithGeocode.city,
@@ -509,15 +426,15 @@ function buildRecord(row, geocodeCache) {
       plannedSystem: projection.plannedSystem,
     },
     screen: {
-      width: screenParsed.width,
-      height: screenParsed.height,
-      area: screenParsed.area,
+      width: reviewedScreen.width,
+      height: reviewedScreen.height,
+      area: reviewedScreen.area,
       rawWidth: screenRaw.width,
       rawHeight: screenRaw.height,
       rawArea: screenRaw.area,
-      selectionConfidence: screenParsed.selectionConfidence,
+      selectionConfidence: screenSeatDecision?.confidence || screenParsed.selectionConfidence,
     },
-    seats: seatsParsed.value,
+    seats: reviewedSeats,
     seatsRaw,
     status: statusParsed.status,
     historySummary: statusParsed.historySummary,
@@ -529,6 +446,17 @@ function buildRecord(row, geocodeCache) {
       geocodeSource: locationWithGeocode.geocodeSource,
     },
     source: { ...SOURCE },
+    ...(screenSeatDecision ? {
+      screenSeatReview: {
+        classification: screenSeatDecision.classification ?? null,
+        checkedAt: screenSeatDecision.checkedAt ?? null,
+        reviewer: screenSeatDecision.reviewer ?? 'codex-web-review',
+        confidence: screenSeatDecision.confidence ?? 'unknown',
+        materializedFields: [...materializedFields],
+        decisionNote: screenSeatDecision.decisionNote ?? '',
+        sourceUrls: (screenSeatDecision.sources ?? []).map((source) => source.url).filter(Boolean),
+      },
+    } : {}),
   };
 
   return {
@@ -556,7 +484,7 @@ function buildRecord(row, geocodeCache) {
         rawWidth: screenRaw.width,
         rawHeight: screenRaw.height,
         rawArea: screenRaw.area,
-        selectionConfidence: screenParsed.selectionConfidence,
+        selectionConfidence: screenSeatDecision?.confidence || screenParsed.selectionConfidence,
       },
       status: statusParsed.status,
     } : null,
@@ -569,6 +497,10 @@ function buildRecord(row, geocodeCache) {
       screenParsed,
       seatsParsed,
       statusParsed,
+      screenSeatDecision,
+      materializedFields: [...materializedFields],
+      reviewedScreen,
+      reviewedSeats,
       reasons,
     },
   };
@@ -693,8 +625,8 @@ function buildStatusAudit(recordsWithMeta) {
       permanentClosure: STATUS_SIGNAL_DEFINITIONS[0].patterns,
       temporaryClosure: STATUS_SIGNAL_DEFINITIONS[1].patterns,
       reopening: STATUS_SIGNAL_DEFINITIONS.slice(2).flatMap((definition) => definition.patterns),
-      decision: 'Events are sorted by explicit date, then source line order. A later reopen/open event supersedes an earlier closure; no explicit signal remains unknown.',
-      plannedEvents: '即将/计划/预计 without a completed opening event do not establish current open status.',
+      decision: 'Eligible events are ordered by explicit date; undated events cannot silently override dated evidence. If no dates exist, source line order is used. A later eligible reopen/open event supersedes an earlier closure.',
+      plannedEvents: '即将/计划/预计 markers and events dated after the as-of date are retained in the audit but do not establish current open status.',
     },
     summary: {
       statusCounts: countBy(recordsWithMeta, (item) => item.record.status),
@@ -710,15 +642,23 @@ function buildStatusAudit(recordsWithMeta) {
       events: _meta.statusParsed._events.map((event) => ({
         lineIndex: event.lineIndex,
         date: event.date,
+        datePrecision: event.datePrecision,
         kind: event.kind,
         label: event.label,
         signal: event.signal,
+        planned: event.planned,
+        future: event.future,
+        eligible: event.eligible,
+        exclusionReason: event.exclusionReason,
       })),
-      latestEvent: _meta.statusParsed._events.at(-1) ? {
-        date: _meta.statusParsed._events.at(-1).date,
-        kind: _meta.statusParsed._events.at(-1).kind,
-        signal: _meta.statusParsed._events.at(-1).signal,
+      latestEvent: _meta.statusParsed._latestEvent ? {
+        date: _meta.statusParsed._latestEvent.date,
+        datePrecision: _meta.statusParsed._latestEvent.datePrecision,
+        kind: _meta.statusParsed._latestEvent.kind,
+        signal: _meta.statusParsed._latestEvent.signal,
       } : null,
+      asOfDate: _meta.statusParsed.asOfDate,
+      datedEvidence: _meta.statusParsed._datedEvidence,
       reason: _meta.statusParsed._reason,
     })),
   };
@@ -784,7 +724,8 @@ function buildQualityAudit(records, recordsWithMeta, reviews, raw) {
 function main() {
   const { raw, rows } = parseSource();
   const geocodeCache = loadGeocodeCache();
-  const built = rows.map((row) => buildRecord(row, geocodeCache));
+  const screenSeatDecisions = loadScreenSeatDecisions();
+  const built = rows.map((row) => buildRecord(row, geocodeCache, screenSeatDecisions));
   const records = built.map((item) => item.record);
   const reviews = built.flatMap((item) => item.review ? [item.review] : []);
   const derived = {
@@ -799,6 +740,7 @@ function main() {
       notes: [
         'Raw source display text is retained in projection.raw, nameRaw, screen.rawWidth/rawHeight/rawArea and seatsRaw.',
         'Multi-value dimensions are not reduced by first/last/max/min rules; unresolved values remain null and are reviewed.',
+        'Only materialized fields listed in data/audit/screen-seat-web-review-decisions.json are written back; all other conflicting values remain null and raw source text remains unchanged.',
         'Coordinates are populated only from data/derived/geocode-cache.json entries with an explicit provider and confidence.',
       ],
     },

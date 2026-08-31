@@ -1,0 +1,48 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-08-21T21:10:00+08:00",
+  "mode": "private-amap-release",
+  "dataset": {
+    "total": 901,
+    "accepted": 615,
+    "markerCount": 615,
+    "located": 615,
+    "pendingReview": 71,
+    "unresolved": 215,
+    "unlocated": 286,
+    "acceptedPlusUnlocated": 901,
+    "statePartition": true,
+    "coordinateSystem": "GCJ-02"
+  },
+  "runtime": {
+    "renderer": "AMap JS API 2.0",
+    "markerClusterLoaded": true,
+    "visibleMarkers": 615,
+    "amapAttributionVisible": true,
+    "consoleErrors": 0,
+    "amapPoiRequests": 0,
+    "executionMode": "local-mock",
+    "realSdkSmokePassed": false,
+    "realSdkSmokeStatus": "blocked-missing-credentials"
+  },
+  "security": {
+    "browserKeySource": "AMAP_JS_API_KEY environment variable",
+    "securityCodeSource": "AMAP_JS_SECURITY_CODE environment variable",
+    "securityCodeExposedToBrowser": false,
+    "credentialLiteralInTrackedFiles": false,
+    "credentialLiteralInGitHistory": false,
+    "privateDistributionTracked": false,
+    "providerCacheTracked": false
+  },
+  "validation": {
+    "testsPassed": 102,
+    "testsFailed": 0,
+    "realSdkSmokePassed": false,
+    "derivedCoordinatesModified": false,
+    "newPoiRequests": 0,
+    "acceptedPlusUnlocatedEqualsTotal": true,
+    "markerCountEqualsAccepted": true,
+    "screenSeatFieldsAttached": 901,
+    "rawFieldMatches": 3604
+  }
+}

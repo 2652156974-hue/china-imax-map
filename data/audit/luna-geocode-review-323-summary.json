@@ -1,0 +1,45 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-08-24T03:51:55.266Z",
+  "status": "validated-with-unreviewed-rows",
+  "reviewComplete": false,
+  "evidenceBounded": true,
+  "total": 323,
+  "verdicts": {
+    "accept-exact": 67,
+    "accept-location-only": 15,
+    "needs-more-evidence": 240,
+    "reject-wrong-poi": 1
+  },
+  "recordsWithExplicitVerdict": 109,
+  "recordsAutoFilledNeedsMoreEvidence": 214,
+  "recordsDowngradedFromInvalidAccept": 0,
+  "recordsWithScreenSeatContext": 323,
+  "recordsWithAcceptedCoordinates": 82,
+  "reviewerMode": "Strict validator/normalizer. Empty rows remain explicitly unreviewed and never become accepted coordinates.",
+  "publicSummarySafe": true,
+  "validationErrors": {},
+  "notes": [
+    "本摘要只报告数量和 reason tags，不复制 provider response、候选数组、坐标或凭据。",
+    "空 review 只规范化为 needs-more-evidence 的未审核状态，不代表逐条人工审核完成。",
+    "accept verdict 必须同时具备合法 AMap GCJ-02 reviewedCandidate、位置/身份双置信度、粒度、reviewer、时间和独立公开证据 URL。"
+  ],
+  "reasonTags": {
+    "ambiguity": 62,
+    "auditorium": 5,
+    "closed": 4,
+    "closed-historical-venue": 21,
+    "dome": 6,
+    "duplicate-selected-poi": 2,
+    "gt-laser": 4,
+    "high-score-unresolved": 86,
+    "mall-fallback": 23,
+    "medium": 109,
+    "ordinary-unresolved": 82,
+    "temporarily_closed": 1,
+    "true-ambiguity": 62,
+    "unresolved": 214,
+    "unresolved-high-score": 95,
+    "venue-poi": 5
+  }
+}

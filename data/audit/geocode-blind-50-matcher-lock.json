@@ -1,0 +1,22 @@
+{
+  "schemaVersion": 3,
+  "seed": "china-imax-map-blind-50-v1-20260820",
+  "matcherSha256": "75b14ced1aada12d3106fda6a0ec88b3139bd98f261b5a7ce7cda612c111b0b1",
+  "previousMatcherSha256": "1496f10f92eab9d86e7f70434212c639943c0b6d544b71941a3b538f76f8a855",
+  "revisionReason": "Post-blind-validation administrative hierarchy fix plus scoped source-brand query refinement; county-level source cities require exact province, parent prefecture and adname compatibility, and 越界 is recognized for branch-specific AMap refinement queries.",
+  "sourceRows": [
+    14, 577, 757, 623, 133, 291, 586, 855, 803, 858,
+    156, 39, 669, 820, 898, 861, 276, 417, 52, 134,
+    847, 266, 565, 546, 613, 646, 541, 360, 790, 731,
+    540, 896, 826, 859, 900, 887, 899, 857, 171, 872,
+    806, 464, 331, 555, 807, 726, 605, 27, 715, 168
+  ],
+  "strata": {
+    "ordinaryCommercial": 15,
+    "duplicateChain": 10,
+    "formerNameComplex": 8,
+    "closedOrTemporary": 5,
+    "atypicalVenue": 5,
+    "deterministicFill": 7
+  }
+}

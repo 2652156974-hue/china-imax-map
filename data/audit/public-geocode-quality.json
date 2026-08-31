@@ -1,0 +1,132 @@
+{
+  "schemaVersion": 1,
+  "generatedAt": "2026-08-21T08:07:28.829Z",
+  "status": "public-coordinate-candidates-available",
+  "providerPolicyCheckedAt": "2026-08-21",
+  "providerPolicy": {
+    "provider": "OpenStreetMap via Overpass API",
+    "dataLicense": "ODbL",
+    "attribution": "© OpenStreetMap contributors",
+    "sourceUrl": "https://www.openstreetmap.org/copyright",
+    "overpassPolicyReference": "https://wiki.openstreetmap.org/wiki/Overpass_API/Overpass_API_by_Example",
+    "nominatimPolicyReference": "https://operations.osmfoundation.org/policies/nominatim/",
+    "note": "This run used Overpass bulk OSM data, not public Nominatim bulk geocoding."
+  },
+  "fetches": {
+    "networkRequests": 0,
+    "cacheHits": 2,
+    "errors": [
+      "run with --network to populate the cache",
+      "run with --network to populate the cache",
+      "run with --network to populate the cache",
+      "run with --network to populate the cache"
+    ],
+    "bboxes": [
+      {
+        "slug": "mainland-east-north",
+        "status": "cache-hit",
+        "elements": 1634,
+        "requests": 0,
+        "errors": []
+      },
+      {
+        "slug": "mainland-east-south",
+        "status": "cache-hit",
+        "elements": 2535,
+        "requests": 0,
+        "errors": []
+      },
+      {
+        "slug": "mainland-west-north",
+        "status": "network-disabled",
+        "elements": 0,
+        "requests": 0,
+        "errors": [
+          "run with --network to populate the cache"
+        ]
+      },
+      {
+        "slug": "mainland-west-south",
+        "status": "network-disabled",
+        "elements": 0,
+        "requests": 0,
+        "errors": [
+          "run with --network to populate the cache"
+        ]
+      },
+      {
+        "slug": "hong-kong-macau",
+        "status": "network-disabled",
+        "elements": 0,
+        "requests": 0,
+        "errors": [
+          "run with --network to populate the cache"
+        ]
+      },
+      {
+        "slug": "taiwan",
+        "status": "network-disabled",
+        "elements": 0,
+        "requests": 0,
+        "errors": [
+          "run with --network to populate the cache"
+        ]
+      }
+    ],
+    "priorityNominatim": {
+      "selectedRecords": 28,
+      "networkRequests": 0,
+      "cacheHits": 28,
+      "errors": [],
+      "accepted": 1,
+      "unresolved": 27
+    },
+    "uniqueOsmFeatures": 4169
+  },
+  "summary": {
+    "total": 901,
+    "publicHigh": 1,
+    "publicMediumReviewed": 1,
+    "unresolvedPublic": 899,
+    "coverage": 0.00222,
+    "locationGranularity": {
+      "cinema": 1,
+      "venue": 1
+    },
+    "providers": {
+      "osm": 2
+    },
+    "regionsWithCoordinates": {
+      "中国大陆": 2
+    },
+    "duplicateProviderIds": 0,
+    "verdicts": {
+      "accept-exact": 1,
+      "accept-location-only": 1,
+      "needs-more-evidence": 899
+    },
+    "reasons": {
+      "city-compatible": 2,
+      "city-or-identity-incompatible": 899,
+      "exact-cinema-name-project": 1,
+      "nominatim-name-match": 1,
+      "priority-public-source": 1,
+      "unique-compatible-candidate": 1,
+      "venue-only": 1
+    },
+    "gtLaser": {
+      "total": 8,
+      "accepted": 1
+    },
+    "dome": {
+      "total": 8,
+      "accepted": 0
+    },
+    "audio12": {
+      "total": 102,
+      "accepted": 1
+    }
+  },
+  "recordsWithoutRawProviderResponse": true,
+  "candidateIndexCheck": true
+}

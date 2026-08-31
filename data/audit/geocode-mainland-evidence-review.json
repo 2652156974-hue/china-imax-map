@@ -1,0 +1,124 @@
+{
+  "schemaVersion": 1,
+  "generatedAt": "2026-08-21T11:01:34.9307409+08:00",
+  "status": "evidence-collected-not-materialized",
+  "scope": "selected-mainland-high-value-unresolved",
+  "decisionPolicy": {
+    "doesNotChangeFrozenMatcher": true,
+    "doesNotApplyCoordinates": true,
+    "doesNotCreateReviewedOverride": true,
+    "nullRemainsAllowed": true
+  },
+  "records": [
+    {
+      "sourceRow": 331,
+      "sourceName": "沈阳万达影城（辽宁省科技馆—万达影城IMAXGT双激光）",
+      "city": "沈阳",
+      "projection": "IMAX Laser GT 3D",
+      "evidenceConclusion": "official-source-confirms-imax-gt-venue",
+      "evidence": [
+        {
+          "tier": "municipal-government-report",
+          "url": "https://wlgd.shenyang.gov.cn/xxfb/xxlb/202504/t20250401_4830419.html",
+          "supports": "辽宁省科技馆万达影城IMAX GT激光影厅及其放映活动"
+        },
+        {
+          "tier": "official-institution-report",
+          "url": "https://www.ln.chinanews.com.cn/news/2025/0310/349340.html",
+          "supports": "智慧三街159号辽宁省科学技术馆内的IMAX GT激光影厅"
+        }
+      ],
+      "cachedIdentityResult": {
+        "state": "insufficient-for-automatic-or-reviewed-selection",
+        "reason": "existing cinema candidate is a generic special-effects cinema and fails the frozen brand/project identity checks; no exact IMAX GT POI was selected"
+      },
+      "coordinateAction": "keep-null"
+    },
+    {
+      "sourceRow": 806,
+      "sourceName": "重庆市少年宮影院",
+      "city": "重庆",
+      "projection": "IMAX氙灯SR Dome",
+      "evidenceConclusion": "official-imax-page-confirms-related-dome-venue",
+      "evidence": [
+        {
+          "tier": "IMAX-official-theatre-page",
+          "url": "https://www.imax.com/theatre/imax-dome-chongqing-childrens-museum",
+          "supports": "IMAX Dome, Chongqing Children's Museum"
+        }
+      ],
+      "cachedIdentityResult": {
+        "state": "venue-only-evidence-not-exact-auditorium",
+        "reason": "cached result identifies a parent children's-palace venue rather than an exact cinema/auditorium POI"
+      },
+      "coordinateAction": "keep-null-until-venue-identity-is-explicitly-reviewed"
+    },
+    {
+      "sourceRow": 294,
+      "sourceName": "北京中國科技館（设备还在，是否放映需要实地咨询）",
+      "city": "北京",
+      "projection": "IMAX氙灯GT Dome",
+      "evidenceConclusion": "official-institution-page-confirms-dome-theatre-capability",
+      "evidence": [
+        {
+          "tier": "official-institution-page",
+          "url": "https://www.cstm.org.cn/cgzn/txyy/qmyy/index.html",
+          "supports": "中国科学技术馆球幕影院及其IMAX胶片/激光数字放映能力"
+        }
+      ],
+      "cachedIdentityResult": {
+        "state": "insufficient-for-coordinate-selection",
+        "reason": "existing cached top candidate is a different museum; official capability evidence alone does not identify a valid matching POI"
+      },
+      "coordinateAction": "keep-null"
+    },
+    {
+      "sourceRow": 889,
+      "sourceName": "大慶市科學技術館",
+      "city": "大庆",
+      "projection": "IMAX氙灯SR Dome",
+      "evidenceConclusion": "official-imax-page-confirms-dome-venue-and-address",
+      "evidence": [
+        {
+          "tier": "IMAX-official-theatre-page",
+          "url": "https://www.imax.com/theatre/imax-da-qing-science-technology-museum",
+          "supports": "大庆科技馆IMAX影院及中宝路、萨尔图区地址"
+        }
+      ],
+      "cachedIdentityResult": {
+        "state": "venue-location-supported-but-exact-auditorium-not-separated",
+        "reason": "cached candidate is the Daqing Science and Technology Museum venue; the source names the Dome auditorium, so venue location and auditorium identity must remain separate"
+      },
+      "coordinateAction": "keep-null-until-row-level-review"
+    },
+    {
+      "sourceRow": 896,
+      "sourceName": "昆明云南昆明摩天激光IMAX影院",
+      "city": "昆明",
+      "projection": "IMAX Laser GT 3D",
+      "status": "closed",
+      "evidenceConclusion": "historical-cinema-address-supported",
+      "evidence": [
+        {
+          "tier": "ticketing-or-cinema-listing",
+          "url": "https://m.dongfangfuli.com/cinema/detail/3890?city=23",
+          "supports": "大都激光IMAX影院，彩云北路3567号大都摩天购物中心五层"
+        }
+      ],
+      "cachedIdentityResult": {
+        "state": "historical-cinema-candidate-supported",
+        "reason": "the existing cache contains a cinema POI at the same project/address under the former 大都光魔激光影院 name; closed status requires an explicit historical-location review before application"
+      },
+      "coordinateAction": "keep-null-until-row-level-review"
+    }
+  ],
+  "summary": {
+    "records": 5,
+    "evidenceSupportedVenueOrCapability": 5,
+    "coordinatesApplied": 0,
+    "reviewedOverridesAdded": 0,
+    "additionalExactLocations": 0,
+    "additionalLocationOnly": 0,
+    "remainingNull": 5
+  }
+}

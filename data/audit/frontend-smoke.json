@@ -1,0 +1,53 @@
+{
+  "schemaVersion": 1,
+  "generatedAt": "2026-08-21T10:31:34.6039956+08:00",
+  "renderer": "MapLibre GL JS",
+  "maplibreVersion": "6.4.1",
+  "basemapProvider": "OpenFreeMap",
+  "providerLabelSchemaVerified": true,
+  "consoleErrors": 0,
+  "network": {
+    "dataRequests": 1,
+    "amapRequests": 0,
+    "geocoderRequests": 0
+  },
+  "runtime": {
+    "maplibreMapElements": 1,
+    "canvasElements": 1,
+    "leafletMapElements": 0,
+    "attributionControls": 1,
+    "mapErrors": []
+  },
+  "desktop": {
+    "status": "passed",
+    "verified": [
+      "public dataset load",
+      "mainland region filter",
+      "Hong Kong region filter returned 7 records",
+      "Traditional Chinese search via simplified query returned 台北美麗華大直影城",
+      "unresolved-location filter",
+      "MapLibre vector style and attribution control"
+    ],
+    "records": 901,
+    "visibleCoordinates": 0,
+    "nullCoordinateRecords": 901
+  },
+  "mobile": {
+    "status": "passed",
+    "viewport": {
+      "width": 390,
+      "height": 844
+    },
+    "horizontalOverflow": false,
+    "panelWidth": 370,
+    "maplibreMapElements": 1,
+    "canvasElements": 1,
+    "mapErrors": []
+  },
+  "dataBoundary": {
+    "publicationGate": "BLOCKED_PENDING_PERMISSION",
+    "coordinatesPublished": 0,
+    "nullCoordinatesRemainInListAndStatistics": true,
+    "onlyUsableCoordinatesArePlotted": true
+  }
+}

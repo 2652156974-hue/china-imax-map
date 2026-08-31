@@ -26,7 +26,7 @@ check(Array.isArray(review.records), 'review.records must be an array');
 
 const ids = new Set();
 const rows = new Set();
-const requiredRecordFields = ['id', 'sourceRow', 'name', 'formerNames', 'region', 'province', 'city', 'projection', 'screen', 'seats', 'seatsRaw', 'status', 'historySummary', 'location', 'source'];
+const requiredRecordFields = ['id', 'sourceRow', 'name', 'nameRaw', 'formerNames', 'unparsedNameLines', 'region', 'province', 'city', 'projection', 'screen', 'seats', 'seatsRaw', 'status', 'historySummary', 'location', 'source'];
 const validSystems = new Set(['GT Laser', 'Commercial Laser', 'Laser XT', 'Xenon', 'unknown']);
 const validStatuses = new Set(['open', 'closed', 'temporarily_closed', 'unknown']);
 const validConfidence = new Set(['high', 'medium', 'low', 'unknown']);
@@ -38,6 +38,7 @@ for (const record of derived.records) {
   check(Number.isInteger(record.sourceRow) && record.sourceRow >= 2 && record.sourceRow <= 902, `${record.id} invalid sourceRow`);
   check(!rows.has(record.sourceRow), `duplicate sourceRow ${record.sourceRow}`); rows.add(record.sourceRow);
   check(record.formerNames.every((name) => typeof name === 'string'), `${record.id} formerNames type error`);
+  check(Array.isArray(record.unparsedNameLines) && record.unparsedNameLines.every((line) => typeof line === 'string'), `${record.id} unparsedNameLines type error`);
   check(validSystems.has(record.projection?.system), `${record.id} invalid projection system`);
   check(validStatuses.has(record.status), `${record.id} invalid status`);
   check(validConfidence.has(record.screen?.selectionConfidence), `${record.id} invalid screen confidence`);

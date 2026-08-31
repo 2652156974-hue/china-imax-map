@@ -1,0 +1,3845 @@
+{
+  "schemaVersion": 1,
+  "generatedAt": "2026-08-21T13:26:03.541Z",
+  "startedAt": "2026-08-21T13:25:47.561Z",
+  "status": "running",
+  "mode": "mainland-full-poi-dry-run",
+  "matcher": {
+    "algorithm": "SHA-256",
+    "files": [
+      "scripts/geocode/scoring.mjs",
+      "scripts/geocode/admin-divisions.mjs",
+      "scripts/geocode/query.mjs",
+      "scripts/geocode/crs.mjs",
+      "data/geocode/mainland-admin-hierarchy.json"
+    ],
+    "value": "5f56d8a7d125403ae95e1dced4ccf7c6a55e9c872fa35495176563fcc2921dbc"
+  },
+  "adminHierarchy": {
+    "schemaVersion": 1,
+    "verifiedAt": "2026-08-20",
+    "mappingFile": "data/geocode/mainland-admin-hierarchy.json",
+    "countyLevelDivisionCount": 35,
+    "municipalities": [
+      "北京",
+      "上海",
+      "天津",
+      "重庆"
+    ],
+    "provenance": [
+      {
+        "source": "project-city-derivation",
+        "path": "scripts/derive-cinemas.mjs",
+        "note": "The source city vocabulary comes from MAINLAND_CITIES; this file separates lower-level divisions from prefecture-level cities."
+      },
+      {
+        "source": "National Bureau of Statistics of China",
+        "url": "https://www.stats.gov.cn/sj/tjbz/gjtjbz/202302/t20230213_1902741.html",
+        "note": "Administrative codes at county level and above follow the national administrative-division code standard."
+      },
+      {
+        "source": "AMap Web Service POI response schema",
+        "url": "https://lbs.amap.com/api/webservice/guide/api/search/",
+        "note": "Runtime validation uses provider fields pname, cityname and adname; POI name tokens are not administrative evidence."
+      }
+    ]
+  },
+  "progress": {
+    "completed": 40,
+    "totalMainland": 881
+  },
+  "summary": {
+    "evaluated": 40,
+    "automaticHigh": 33,
+    "automaticMedium": 2,
+    "reviewedOverrideHigh": 0,
+    "reviewedOverrideMedium": 0,
+    "unresolved": 5,
+    "coverage": 0.875
+  },
+  "requestPolicy": {
+    "scope": "mainland",
+    "dryRun": true,
+    "fullRunEnabled": true,
+    "applyEnabled": false,
+    "keySource": "not-used-cache-only",
+    "keyPersisted": false,
+    "keyPrinted": false,
+    "providerCache": "local-private-gitignored",
+    "minimumIntervalMs": 800,
+    "retryFailed": false,
+    "cacheOnly": true,
+    "maxNewRequests": 600,
+    "networkRequests": 0,
+    "cacheHits": 82,
+    "providerErrors": 0,
+    "cacheEntriesAtStart": 1848,
+    "cacheEntriesAtEnd": 1848
+  },
+  "coordinatePolicy": {
+    "provider": "AMap",
+    "providerCrs": "GCJ-02",
+    "mapCrs": "WGS84",
+    "providerCoordinatesPreserved": true,
+    "cityCenterFallbackAllowed": false,
+    "coordinatesAppliedToDerived": 0
+  },
+  "records": [
+    {
+      "sourceRow": 7,
+      "sourceName": "上海万达影城（松江万达广场店）",
+      "city": "上海",
+      "province": "上海",
+      "status": "unknown",
+      "projection": {
+        "raw": "IMAX 氙灯  ",
+        "system": "Xenon",
+        "technology": "xenon",
+        "dome": false,
+        "audioChannels": null
+      },
+      "sourceCategory": "commercial-cinema",
+      "countyLevelCity": false,
+      "queryVariants": [
+        {
+          "kind": "current-name-city",
+          "query": "上海万达影城（松江万达广场店） 上海",
+          "cache": "hit",
+          "ok": true,
+          "candidateCount": 21,
+          "errorCode": null
+        },
+        {
+          "kind": "project-brand",
+          "query": "松江万达广场 万达影城 上海",
+          "cache": "hit",
+          "ok": true,
+          "candidateCount": 6,
+          "errorCode": null
+        }
+      ],
+      "selected": null,
+      "topCandidate": {
+        "poiId": "B0FFF61106",
+        "name": "万达影城(松江店)",
+        "address": "广富林路692号万达广场4层",
+        "typecode": "080601",
+        "positionType": "cinema-poi",
+        "locationGranularity": "cinema",
+        "score": 0.833527,
+        "automaticDecision": "rejected",
+        "confidence": "unknown",
+        "locationConfidence": "unknown",
+        "identityConfidence": "unknown",
+        "geocodeSource": "amap:poi-search",
+        "adminMatch": {
+          "provinceMatch": true,
+          "prefectureMatch": true,
+          "countyMatch": null,
+          "targetLevel": "municipality",
+          "compatible": true,
+          "targetProvince": "上海",
+          "targetPrefecture": "上海",
+          "targetCounty": null,
+          "providerProvince": "上海",
+          "providerPrefecture": "上海",
+          "providerCounty": "松江",
+          "mappingSource": "municipality-rule"
+        },
+        "formatCompatibility": {
+          "compatible": true,
+          "exactFormatMatch": false,
+          "conflicts": []
+        },
+        "provider": {
+          "providerCrs": "GCJ-02",
+          "providerLat": 31.057309,
+          "providerLng": 121.242249
+        },
+        "map": {
+          "mapCrs": "WGS84",
+          "lat": 31.0594216,
+          "lng": 121.2378375
+        },
+        "reviewedOverride": null
+      },
+      "hardRejectSummary": {
+        "candidateCount": 23,
+        "rejectedCandidateCount": 23,
+        "reasons": {
+          "project-mismatch": 4,
+          "non-cinema-poi": 18,
+          "mall-fallback-not-qualified": 1
+        }
+      },
+      "ambiguity": {
+        "evaluatedCandidates": 0,
+        "ignoredHardRejected": 23,
+        "trueAmbiguity": false
+      },
+      "overrideUsed": false,
+      "reviewedOverride": null
+    },
+    {
+      "sourceRow": 8,
+      "sourceName": "上海万达影城（颛桥龙盛广场店）",
+      "city": "上海",
+      "province": "上海",
+      "status": "unknown",
+      "projection": {
+        "raw": "IMAX 氙灯  ",
+        "system": "Xenon",
+        "technology": "xenon",
+        "dome": false,
+        "audioChannels": null
+      },
+      "sourceCategory": "commercial-cinema",
+      "countyLevelCity": false,
+      "queryVariants": [
+        {
+          "kind": "current-name-city",
+          "query": "上海万达影城（颛桥龙盛广场店） 上海",
+          "cache": "hit",
+          "ok": true,
+          "candidateCount": 4,
+          "errorCode": null
+        },
+        {
+          "kind": "project-brand",
+          "query": "颛桥龙盛广场 万达影城 上海",
+          "cache": "hit",
+          "ok": true,
+          "candidateCount": 24,
+          "errorCode": null
+        }
+      ],
+      "selected": {
+        "poiId": "B0FFGF7VMV",
+        "name": "上海万达影城(颛桥龙盛广场店)",
+        "address": "都市路3759号龙盛商业广场3层",
+        "typecode": "080601",
+        "positionType": "cinema-poi",
+        "locationGranularity": "cinema",
+        "score": 1,
+        "automaticDecision": "accepted-high",
+        "confidence": "high",
+        "locationConfidence": "high",
+        "identityConfidence": "high",
+        "geocodeSource": "amap:poi-search",
+        "adminMatch": {
+          "provinceMatch": true,
+          "prefectureMatch": true,
+          "countyMatch": null,
+          "targetLevel": "municipality",
+          "compatible": true,
+          "targetProvince": "上海",
+          "targetPrefecture": "上海",
+          "targetCounty": null,
+          "providerProvince": "上海",
+          "providerPrefecture": "上海",
+          "providerCounty": "闵行",
+          "mappingSource": "municipality-rule"
+        },
+        "formatCompatibility": {
+          "compatible": true,
+          "exactFormatMatch": false,
+          "conflicts": []
+        },
+        "provider": {
+          "providerCrs": "GCJ-02",
+          "providerLat": 31.084914,
+          "providerLng": 121.399086
+        },
+        "map": {
+          "mapCrs": "WGS84",
+          "lat": 31.0868248,
+          "lng": 121.3944474
+        },
+        "reviewedOverride": null
+      },
+      "topCandidate": null,
+      "hardRejectSummary": {
+        "candidateCount": 27,
+        "rejectedCandidateCount": 26,
+        "reasons": {
+          "non-cinema-poi": 3,
+          "project-mismatch": 23,
+          "brand-mismatch": 3
+        }
+      },
+      "ambiguity": {
+        "evaluatedCandidates": 1,
+        "ignoredHardRejected": 26,
+        "trueAmbiguity": false
+      },
+      "overrideUsed": false,
+      "reviewedOverride": null
+    },
+    {
+      "sourceRow": 9,
+      "sourceName": "上海横店电影城（IMAX奉贤宝龙店）",
+      "city": "上海",
+      "province": "上海",
+      "status": "unknown",
+      "projection": {
+        "raw": "IMAX 氙灯  ",
+        "system": "Xenon",
+        "technology": "xenon",
+        "dome": false,
+        "audioChannels": null
+      },
+      "sourceCategory": "commercial-cinema",
+      "countyLevelCity": false,
+      "queryVariants": [
+        {
+          "kind": "current-name-city",
+          "query": "上海横店电影城（IMAX奉贤宝龙店） 上海",
+          "cache": "hit",
+          "ok": true,
+          "candidateCount": 1,
+          "errorCode": null
+        },
+        {
+          "kind": "device-description-removed",
+          "query": "上海横店电影城 上海",
+          "cache": "hit",
+          "ok": true,
+          "candidateCount": 9,
+          "errorCode": null
+        },
+        {
+          "kind": "project-brand",
+          "query": "奉贤宝龙 横店 上海",
+          "cache": "hit",
+          "ok": true,
+          "candidateCount": 4,
+          "errorCode": null
+        }
+      ],
+      "selected": {
+        "poiId": "B0FFGEXFZF",
+        "name": "横店影视(奉贤宝龙广场)",
+        "address": "航南公路5639号奉贤宝龙广场L4层",
+        "typecode": "080601",
+        "positionType": "cinema-poi",
+        "locationGranularity": "cinema",
+        "score": 0.92,
+        "automaticDecision": "accepted-high",
+        "confidence": "high",
+        "locationConfidence": "high",
+        "identityConfidence": "high",
+        "geocodeSource": "amap:poi-search",
+        "adminMatch": {
+          "provinceMatch": true,
+          "prefectureMatch": true,
+          "countyMatch": null,
+          "targetLevel": "municipality",
+          "compatible": true,
+          "targetProvince": "上海",
+          "targetPrefecture": "上海",
+          "targetCounty": null,
+          "providerProvince": "上海",
+          "providerPrefecture": "上海",
+          "providerCounty": "奉贤",
+          "mappingSource": "municipality-rule"
+        },
+        "formatCompatibility": {
+          "compatible": true,
+          "exactFormatMatch": false,
+          "conflicts": []
+        },
+        "provider": {
+          "providerCrs": "GCJ-02",
+          "providerLat": 30.929808,
+          "providerLng": 121.462714
+        },
+        "map": {
+          "mapCrs": "WGS84",
+          "lat": 30.9318879,
+          "lng": 121.4581827
+        },
+        "reviewedOverride": null
+      },
+      "topCandidate": null,
+      "hardRejectSummary": {
+        "candidateCount": 9,
+        "rejectedCandidateCount": 8,
+        "reasons": {
+          "non-cinema-poi": 3,
+          "project-mismatch": 5
+        }
+      },
+      "ambiguity": {
+        "evaluatedCandidates": 1,
+        "ignoredHardRejected": 8,
+        "trueAmbiguity": false
+      },
+      "overrideUsed": false,
+      "reviewedOverride": null
+    },
+    {
+      "sourceRow": 10,
+      "sourceName": "上海SFC上影影城（天山缤谷IMAX店）",
+      "city": "上海",
+      "province": "上海",
+      "status": "unknown",
+      "projection": {
+        "raw": "IMAX 氙灯  ",
+        "system": "Xenon",
+        "technology": "xenon",
+        "dome": false,
+        "audioChannels": null
+      },
+      "sourceCategory": "commercial-cinema",
+      "countyLevelCity": false,
+      "queryVariants": [
+        {
+          "kind": "current-name-city",
+          "query": "上海SFC上影影城（天山缤谷IMAX店） 上海",
+          "cache": "hit",
+          "ok": true,
+          "candidateCount": 1,
+          "errorCode": null
+        },
+        {
+          "kind": "device-description-removed",
+          "query": "上海SFC上影影城 上海",
+          "cache": "hit",
+          "ok": true,
+          "candidateCount": 25,
+          "errorCode": null
+        }
+      ],
+      "selected": null,
+      "topCandidate": {
+        "poiId": "B00155F5IG",
+        "name": "SFC上影百联影城(八佰伴IMAX店)",
+        "address": "张杨路501号上海第一八佰伴10层",
+        "typecode": "080601",
+        "positionType": "cinema-poi",
+        "locationGranularity": "cinema",
+        "score": 0.633436,
+        "automaticDecision": "rejected",
+        "confidence": "unknown",
+        "locationConfidence": "unknown",
+        "identityConfidence": "unknown",
+        "geocodeSource": "amap:poi-search",
+        "adminMatch": {
+          "provinceMatch": true,
+          "prefectureMatch": true,
+          "countyMatch": null,
+          "targetLevel": "municipality",
+          "compatible": true,
+          "targetProvince": "上海",
+          "targetPrefecture": "上海",
+          "targetCounty": null,
+          "providerProvince": "上海",
+          "providerPrefecture": "上海",
+          "providerCounty": "浦东新",
+          "mappingSource": "municipality-rule"
+        },
+        "formatCompatibility": {
+          "compatible": true,
+          "exactFormatMatch": true,
+          "conflicts": []
+        },
+        "provider": {
+          "providerCrs": "GCJ-02",
+          "providerLat": 31.228314,
+          "providerLng": 121.516917
+        },
+        "map": {
+          "mapCrs": "WGS84",
+          "lat": 31.230384,
+          "lng": 121.5125465
+        },
+        "reviewedOverride": null
+      },
+      "hardRejectSummary": {
+        "candidateCount": 25,
+        "rejectedCandidateCount": 25,
+        "reasons": {
+          "project-mismatch": 25
+        }
+      },
+      "ambiguity": {
+        "evaluatedCandidates": 0,
+        "ignoredHardRejected": 25,
+        "trueAmbiguity": false
+      },
+      "overrideUsed": false,
+      "reviewedOverride": null
+    },
+    {
+      "sourceRow": 11,
+      "sourceName": "上海CGV影城（七宝店）",
+      "city": "上海",
+      "province": "上海",
+      "status": "unknown",
+      "projection": {
+        "raw": "IMAX 氙灯  ",
+        "system": "Xenon",
+        "technology": "xenon",
+        "dome": false,
+        "audioChannels": null
+      },
+      "sourceCategory": "commercial-cinema",
+      "countyLevelCity": false,
+      "queryVariants": [
+        {
+          "kind": "current-name-city",
+          "query": "上海CGV影城（七宝店） 上海",
+          "cache": "hit",
+          "ok": true,
+          "candidateCount": 2,
+          "errorCode": null
+        },
+        {
+          "kind": "project-brand",
+          "query": "七宝 cgv 上海",
+          "cache": "hit",
+          "ok": true,
+          "candidateCount": 2,
+          "errorCode": null
+        }
+      ],
+      "selected": {
+        "poiId": "B0FFH10GID",
+        "name": "CGV星聚汇(上海七宝领展广场)",
+        "address": "漕宝路3366号七宝领展广场5层(七宝地铁站出入口旁)",
+        "typecode": "080601",
+        "positionType": "cinema-poi",
+        "locationGranularity": "cinema",
+        "score": 0.92,
+        "automaticDecision": "accepted-high",
+        "confidence": "high",
+        "locationConfidence": "high",
+        "identityConfidence": "high",
+        "geocodeSource": "amap:poi-search",
+        "adminMatch": {
+          "provinceMatch": true,
+          "prefectureMatch": true,
+          "countyMatch": null,
+          "targetLevel": "municipality",
+          "compatible": true,
+          "targetProvince": "上海",
+          "targetPrefecture": "上海",
+          "targetCounty": null,
+          "providerProvince": "上海",
+          "providerPrefecture": "上海",
+          "providerCounty": "闵行",
+          "mappingSource": "municipality-rule"
+        },
+        "formatCompatibility": {
+          "compatible": true,
+          "exactFormatMatch": false,
+          "conflicts": []
+        },
+        "provider": {
+          "providerCrs": "GCJ-02",
+          "providerLat": 31.154671,
+          "providerLng": 121.349901
+        },
+        "map": {
+          "mapCrs": "WGS84",
+          "lat": 31.1565952,
+          "lng": 121.3453166
+        },
+        "reviewedOverride": null
+      },
+      "topCandidate": null,
+      "hardRejectSummary": {
+        "candidateCount": 2,
+        "rejectedCandidateCount": 1,
+        "reasons": {
+          "non-cinema-poi": 1
+        }
+      },
+      "ambiguity": {
+        "evaluatedCandidates": 1,
+        "ignoredHardRejected": 1,
+        "trueAmbiguity": false
+      },
+      "overrideUsed": false,
+      "reviewedOverride": null
+    },
+    {
+      "sourceRow": 12,
+      "sourceName": "上海星轶IMAX影城（九亭U天地旗舰店）",
+      "city": "上海",
+      "province": "上海",
+      "status": "unknown",
+      "projection": {
+        "raw": "IMAX 氙灯  ",
+        "system": "Xenon",
+        "technology": "xenon",
+        "dome": false,
+        "audioChannels": null
+      },
+      "sourceCategory": "commercial-cinema",
+      "countyLevelCity": false,
+      "queryVariants": [
+        {
+          "kind": "current-name-city",
+          "query": "上海星轶IMAX影城（九亭U天地旗舰店） 上海",
+          "cache": "hit",
+          "ok": true,
+          "candidateCount": 1,
+          "errorCode": null
+        }
+      ],
+      "selected": {
+        "poiId": "B0FFHOEP3Y",
+        "name": "上海九亭星轶IMAX影城",
+        "address": "九亭U天地2层",
+        "typecode": "080601",
+        "positionType": "cinema-poi",
+        "locationGranularity": "cinema",
+        "score": 0.799796,
+        "automaticDecision": "review-required-medium",
+        "confidence": "medium",
+        "locationConfidence": "medium",
+        "identityConfidence": "medium",
+        "geocodeSource": "amap:poi-search",
+        "adminMatch": {
+          "provinceMatch": true,
+          "prefectureMatch": true,
+          "countyMatch": null,
+          "targetLevel": "municipality",
+          "compatible": true,
+          "targetProvince": "上海",
+          "targetPrefecture": "上海",
+          "targetCounty": null,
+          "providerProvince": "上海",
+          "providerPrefecture": "上海",
+          "providerCounty": "松江",
+          "mappingSource": "municipality-rule"
+        },
+        "formatCompatibility": {
+          "compatible": true,
+          "exactFormatMatch": true,
+          "conflicts": []
+        },
+        "provider": {
+          "providerCrs": "GCJ-02",
+          "providerLat": 31.140066,
+          "providerLng": 121.32506
+        },
+        "map": {
+          "mapCrs": "WGS84",
+          "lat": 31.1420441,
+          "lng": 121.3205316
+        },
+        "reviewedOverride": null
+      },
+      "topCandidate": null,
+      "hardRejectSummary": {
+        "candidateCount": 1,
+        "rejectedCandidateCount": 0,
+        "reasons": {}
+      },
+      "ambiguity": {
+        "evaluatedCandidates": 1,
+        "ignoredHardRejected": 0,
+        "trueAmbiguity": false
+      },
+      "overrideUsed": false,
+      "reviewedOverride": null
+    },
+    {
+      "sourceRow": 13,
+      "sourceName": "上海SFC上影百联影城（八佰伴IMAX店）",
+      "city": "上海",
+      "province": "上海",
+      "status": "unknown",
+      "projection": {
+        "raw": "IMAX 氙灯  ",
+        "system": "Xenon",
+        "technology": "xenon",
+        "dome": false,
+        "audioChannels": null
+      },
+      "sourceCategory": "commercial-cinema",
+      "countyLevelCity": false,
+      "queryVariants": [
+        {
+          "kind": "current-name-city",
+          "query": "上海SFC上影百联影城（八佰伴IMAX店） 上海",
+          "cache": "hit",
+          "ok": true,
+          "candidateCount": 1,
+          "errorCode": null
+        },
+        {
+          "kind": "device-description-removed",
+          "query": "上海SFC上影百联影城 上海",
+          "cache": "hit",
+          "ok": true,
+          "candidateCount": 10,
+          "errorCode": null
+        }
+      ],
+      "selected": {
+        "poiId": "B00155F5IG",
+        "name": "SFC上影百联影城(八佰伴IMAX店)",
+        "address": "张杨路501号上海第一八佰伴10层",
+        "typecode": "080601",
+        "positionType": "cinema-poi",
+        "locationGranularity": "cinema",
+        "score": 1,
+        "automaticDecision": "accepted-high",
+        "confidence": "high",
+        "locationConfidence": "high",
+        "identityConfidence": "high",
+        "geocodeSource": "amap:poi-search",
+        "adminMatch": {
+          "provinceMatch": true,
+          "prefectureMatch": true,
+          "countyMatch": null,
+          "targetLevel": "municipality",
+          "compatible": true,
+          "targetProvince": "上海",
+          "targetPrefecture": "上海",
+          "targetCounty": null,
+          "providerProvince": "上海",
+          "providerPrefecture": "上海",
+          "providerCounty": "浦东新",
+          "mappingSource": "municipality-rule"
+        },
+        "formatCompatibility": {
+          "compatible": true,
+          "exactFormatMatch": true,
+          "conflicts": []
+        },
+        "provider": {
+          "providerCrs": "GCJ-02",
+          "providerLat": 31.228314,
+          "providerLng": 121.516917
+        },
+        "map": {
+          "mapCrs": "WGS84",
+          "lat": 31.230384,
+          "lng": 121.5125465
+        },
+        "reviewedOverride": null
+      },
+      "topCandidate": null,
+      "hardRejectSummary": {
+        "candidateCount": 10,
+        "rejectedCandidateCount": 9,
+        "reasons": {
+          "project-mismatch": 7,
+          "non-cinema-poi": 2
+        }
+      },
+      "ambiguity": {
+        "evaluatedCandidates": 1,
+        "ignoredHardRejected": 9,
+        "trueAmbiguity": false
+      },
+      "overrideUsed": false,
+      "reviewedOverride": null
+    },
+    {
+      "sourceRow": 14,
+      "sourceName": "上海SFC上影影城（绿地缤纷城IMAX店）",
+      "city": "上海",
+      "province": "上海",
+      "status": "unknown",
+      "projection": {
+        "raw": "IMAX 氙灯  ",
+        "system": "Xenon",
+        "technology": "xenon",
+        "dome": false,
+        "audioChannels": null
+      },
+      "sourceCategory": "commercial-cinema",
+      "countyLevelCity": false,
+      "queryVariants": [
+        {
+          "kind": "current-name-city",
+          "query": "上海SFC上影影城（绿地缤纷城IMAX店） 上海",
+          "cache": "hit",
+          "ok": true,
+          "candidateCount": 2,
+          "errorCode": null
+        },
+        {
+          "kind": "device-description-removed",
+          "query": "上海SFC上影影城 上海",
+          "cache": "hit",
+          "ok": true,
+          "candidateCount": 25,
+          "errorCode": null
+        }
+      ],
+      "selected": {
+        "poiId": "B0FFHPK9TC",
+        "name": "SFC上影影城(绿地缤纷城西区)",
+        "address": "东安路562号绿地缤纷城(徐汇店)西区3层",
+        "typecode": "080601",
+        "positionType": "cinema-poi",
+        "locationGranularity": "cinema",
+        "score": 0.984444,
+        "automaticDecision": "accepted-high",
+        "confidence": "high",
+        "locationConfidence": "high",
+        "identityConfidence": "high",
+        "geocodeSource": "amap:poi-search",
+        "adminMatch": {
+          "provinceMatch": true,
+          "prefectureMatch": true,
+          "countyMatch": null,
+          "targetLevel": "municipality",
+          "compatible": true,
+          "targetProvince": "上海",
+          "targetPrefecture": "上海",
+          "targetCounty": null,
+          "providerProvince": "上海",
+          "providerPrefecture": "上海",
+          "providerCounty": "徐汇",
+          "mappingSource": "municipality-rule"
+        },
+        "formatCompatibility": {
+          "compatible": true,
+          "exactFormatMatch": false,
+          "conflicts": []
+        },
+        "provider": {
+          "providerCrs": "GCJ-02",
+          "providerLat": 31.183439,
+          "providerLng": 121.455493
+        },
+        "map": {
+          "mapCrs": "WGS84",
+          "lat": 31.1853585,
+          "lng": 121.4509197
+        },
+        "reviewedOverride": null
+      },
+      "topCandidate": null,
+      "hardRejectSummary": {
+        "candidateCount": 26,
+        "rejectedCandidateCount": 24,
+        "reasons": {
+          "project-mismatch": 24
+        }
+      },
+      "ambiguity": {
+        "evaluatedCandidates": 2,
+        "ignoredHardRejected": 24,
+        "trueAmbiguity": false
+      },
+      "overrideUsed": false,
+      "reviewedOverride": null
+    },
+    {
+      "sourceRow": 15,
+      "sourceName": "上海SFC上影影城（金桥太茂IMAX店）",
+      "city": "上海",
+      "province": "上海",
+      "status": "unknown",
+      "projection": {
+        "raw": "IMAX 氙灯  ",
+        "system": "Xenon",
+        "technology": "xenon",
+        "dome": false,
+        "audioChannels": null
+      },
+      "sourceCategory": "commercial-cinema",
+      "countyLevelCity": false,
+      "queryVariants": [
+        {
+          "kind": "current-name-city",
+          "query": "上海SFC上影影城（金桥太茂IMAX店） 上海",
+          "cache": "hit",
+          "ok": true,
+          "candidateCount": 1,
+          "errorCode": null
+        },
+        {
+          "kind": "device-description-removed",
+          "query": "上海SFC上影影城 上海",
+          "cache": "hit",
+          "ok": true,
+          "candidateCount": 25,
+          "errorCode": null
+        }
+      ],
+      "selected": {
+        "poiId": "B0FFHYF6Y6",
+        "name": "上影影城(金桥太茂商业广场)",
+        "address": "金高路1882号金桥太茂广场4层L401",
+        "typecode": "080601",
+        "positionType": "cinema-poi",
+        "locationGranularity": "cinema",
+        "score": 0.862745,
+        "automaticDecision": "review-required-medium",
+        "confidence": "medium",
+        "locationConfidence": "medium",
+        "identityConfidence": "medium",
+        "geocodeSource": "amap:poi-search",
+        "adminMatch": {
+          "provinceMatch": true,
+          "prefectureMatch": true,
+          "countyMatch": null,
+          "targetLevel": "municipality",
+          "compatible": true,
+          "targetProvince": "上海",
+          "targetPrefecture": "上海",
+          "targetCounty": null,
+          "providerProvince": "上海",
+          "providerPrefecture": "上海",
+          "providerCounty": "浦东新",
+          "mappingSource": "municipality-rule"
+        },
+        "formatCompatibility": {
+          "compatible": true,
+          "exactFormatMatch": false,
+          "conflicts": []
+        },
+        "provider": {
+          "providerCrs": "GCJ-02",
+          "providerLat": 31.267313,
+          "providerLng": 121.608207
+        },
+        "map": {
+          "mapCrs": "WGS84",
+          "lat": 31.2694967,
+          "lng": 121.6040021
+        },
+        "reviewedOverride": null
+      },
+      "topCandidate": null,
+      "hardRejectSummary": {
+        "candidateCount": 26,
+        "rejectedCandidateCount": 25,
+        "reasons": {
+          "project-mismatch": 25
+        }
+      },
+      "ambiguity": {
+        "evaluatedCandidates": 1,
+        "ignoredHardRejected": 25,
+        "trueAmbiguity": false
+      },
+      "overrideUsed": false,
+      "reviewedOverride": null
+    },
+    {
+      "sourceRow": 16,
+      "sourceName": "上海SFC上影百联影城（川沙IMAX店）",
+      "city": "上海",
+      "province": "上海",
+      "status": "unknown",
+      "projection": {
+        "raw": "IMAX 氙灯  ",
+        "system": "Xenon",
+        "technology": "xenon",
+        "dome": false,
+        "audioChannels": null
+      },
+      "sourceCategory": "commercial-cinema",
+      "countyLevelCity": false,
+      "queryVariants": [
+        {
+          "kind": "current-name-city",
+          "query": "上海SFC上影百联影城（川沙IMAX店） 上海",
+          "cache": "hit",
+          "ok": true,
+          "candidateCount": 1,
+          "errorCode": null
+        },
+        {
+          "kind": "device-description-removed",
+          "query": "上海SFC上影百联影城 上海",
+          "cache": "hit",
+          "ok": true,
+          "candidateCount": 10,
+          "errorCode": null
+        }
+      ],
+      "selected": {
+        "poiId": "B0FFIGYC8J",
+        "name": "SFC上影影城(百联川沙购物中心)",
+        "address": "川沙路5398号百联川沙购物中心F4层F4-01-0007",
+        "typecode": "080601",
+        "positionType": "cinema-poi",
+        "locationGranularity": "cinema",
+        "score": 0.971282,
+        "automaticDecision": "accepted-high",
+        "confidence": "high",
+        "locationConfidence": "high",
+        "identityConfidence": "high",
+        "geocodeSource": "amap:poi-search",
+        "adminMatch": {
+          "provinceMatch": true,
+          "prefectureMatch": true,
+          "countyMatch": null,
+          "targetLevel": "municipality",
+          "compatible": true,
+          "targetProvince": "上海",
+          "targetPrefecture": "上海",
+          "targetCounty": null,
+          "providerProvince": "上海",
+          "providerPrefecture": "上海",
+          "providerCounty": "浦东新",
+          "mappingSource": "municipality-rule"
+        },
+        "formatCompatibility": {
+          "compatible": true,
+          "exactFormatMatch": false,
+          "conflicts": []
+        },
+        "provider": {
+          "providerCrs": "GCJ-02",
+          "providerLat": 31.185298,
+          "providerLng": 121.697618
+        },
+        "map": {
+          "mapCrs": "WGS84",
+          "lat": 31.1873832,
+          "lng": 121.6932845
+        },
+        "reviewedOverride": null
+      },
+      "topCandidate": null,
+      "hardRejectSummary": {
+        "candidateCount": 10,
+        "rejectedCandidateCount": 9,
+        "reasons": {
+          "project-mismatch": 7,
+          "non-cinema-poi": 2
+        }
+      },
+      "ambiguity": {
+        "evaluatedCandidates": 1,
+        "ignoredHardRejected": 9,
+        "trueAmbiguity": false
+      },
+      "overrideUsed": false,
+      "reviewedOverride": null
+    },
+    {
+      "sourceRow": 17,
+      "sourceName": "上海幸福蓝海国际影城（宝山龙湖IMAX店）",
+      "city": "上海",
+      "province": "上海",
+      "status": "unknown",
+      "projection": {
+        "raw": "IMAX 氙灯\n12声道音响系统  ",
+        "system": "Xenon",
+        "technology": "xenon",
+        "dome": false,
+        "audioChannels": 12
+      },
+      "sourceCategory": "commercial-cinema",
+      "countyLevelCity": false,
+      "queryVariants": [
+        {
+          "kind": "current-name-city",
+          "query": "上海幸福蓝海国际影城（宝山龙湖IMAX店） 上海",
+          "cache": "hit",
+          "ok": true,
+          "candidateCount": 1,
+          "errorCode": null
+        },
+        {
+          "kind": "device-description-removed",
+          "query": "上海幸福蓝海国际影城 上海",
+          "cache": "hit",
+          "ok": true,
+          "candidateCount": 11,
+          "errorCode": null
+        },
+        {
+          "kind": "project-brand",
+          "query": "宝山龙湖 幸福蓝海 上海",
+          "cache": "hit",
+          "ok": true,
+          "candidateCount": 1,
+          "errorCode": null
+        }
+      ],
+      "selected": null,
+      "topCandidate": {
+        "poiId": "B0K1SS9WB2",
+        "name": "幸福蓝海国际影城",
+        "address": "陈家镇安润路482号3楼",
+        "typecode": "080601",
+        "positionType": "cinema-poi",
+        "locationGranularity": "cinema",
+        "score": 0.76864,
+        "automaticDecision": "rejected",
+        "confidence": "unknown",
+        "locationConfidence": "unknown",
+        "identityConfidence": "unknown",
+        "geocodeSource": "amap:poi-search",
+        "adminMatch": {
+          "provinceMatch": true,
+          "prefectureMatch": true,
+          "countyMatch": null,
+          "targetLevel": "municipality",
+          "compatible": true,
+          "targetProvince": "上海",
+          "targetPrefecture": "上海",
+          "targetCounty": null,
+          "providerProvince": "上海",
+          "providerPrefecture": "上海",
+          "providerCounty": "崇明",
+          "mappingSource": "municipality-rule"
+        },
+        "formatCompatibility": {
+          "compatible": true,
+          "exactFormatMatch": false,
+          "conflicts": []
+        },
+        "provider": {
+          "providerCrs": "GCJ-02",
+          "providerLat": 31.518967,
+          "providerLng": 121.856148
+        },
+        "map": {
+          "mapCrs": "WGS84",
+          "lat": 31.5210374,
+          "lng": 121.8519527
+        },
+        "reviewedOverride": null
+      },
+      "hardRejectSummary": {
+        "candidateCount": 11,
+        "rejectedCandidateCount": 11,
+        "reasons": {
+          "project-mismatch": 9,
+          "non-cinema-poi": 2
+        }
+      },
+      "ambiguity": {
+        "evaluatedCandidates": 0,
+        "ignoredHardRejected": 11,
+        "trueAmbiguity": false
+      },
+      "overrideUsed": false,
+      "reviewedOverride": null
+    },
+    {
+      "sourceRow": 18,
+      "sourceName": "上海CGV影城（白玉兰广场店）",
+      "city": "上海",
+      "province": "上海",
+      "status": "open",
+      "projection": {
+        "raw": "IMAX 氙灯",
+        "system": "Xenon",
+        "technology": "xenon",
+        "dome": false,
+        "audioChannels": null
+      },
+      "sourceCategory": "commercial-cinema",
+      "countyLevelCity": false,
+      "queryVariants": [
+        {
+          "kind": "current-name-city",
+          "query": "上海CGV影城（白玉兰广场店） 上海",
+          "cache": "hit",
+          "ok": true,
+          "candidateCount": 1,
+          "errorCode": null
+        },
+        {
+          "kind": "project-brand",
+          "query": "白玉兰广场 cgv 上海",
+          "cache": "hit",
+          "ok": true,
+          "candidateCount": 25,
+          "errorCode": null
+        }
+      ],
+      "selected": {
+        "poiId": "B0FFJAMFT1",
+        "name": "CGV影城(白玉兰广场IMAX店)",
+        "address": "东长治路588号上海白玉兰广场商业裙房3层11号",
+        "typecode": "080601",
+        "positionType": "cinema-poi",
+        "locationGranularity": "cinema",
+        "score": 1,
+        "automaticDecision": "accepted-high",
+        "confidence": "high",
+        "locationConfidence": "high",
+        "identityConfidence": "high",
+        "geocodeSource": "amap:poi-search",
+        "adminMatch": {
+          "provinceMatch": true,
+          "prefectureMatch": true,
+          "countyMatch": null,
+          "targetLevel": "municipality",
+          "compatible": true,
+          "targetProvince": "上海",
+          "targetPrefecture": "上海",
+          "targetCounty": null,
+          "providerProvince": "上海",
+          "providerPrefecture": "上海",
+          "providerCounty": "虹口",
+          "mappingSource": "municipality-rule"
+        },
+        "formatCompatibility": {
+          "compatible": true,
+          "exactFormatMatch": true,
+          "conflicts": []
+        },
+        "provider": {
+          "providerCrs": "GCJ-02",
+          "providerLat": 31.249288,
+          "providerLng": 121.499131
+        },
+        "map": {
+          "mapCrs": "WGS84",
+          "lat": 31.2512957,
+          "lng": 121.494695
+        },
+        "reviewedOverride": null
+      },
+      "topCandidate": null,
+      "hardRejectSummary": {
+        "candidateCount": 25,
+        "rejectedCandidateCount": 23,
+        "reasons": {
+          "non-cinema-poi": 23
+        }
+      },
+      "ambiguity": {
+        "evaluatedCandidates": 2,
+        "ignoredHardRejected": 23,
+        "trueAmbiguity": false
+      },
+      "overrideUsed": false,
+      "reviewedOverride": null
+    },
+    {
+      "sourceRow": 19,
+      "sourceName": "上海寰映影城（大融城店）",
+      "city": "上海",
+      "province": "上海",
+      "status": "unknown",
+      "projection": {
+        "raw": "IMAX Commercial Laser\n12声道音响系统",
+        "system": "Commercial Laser",
+        "technology": "laser",
+        "dome": false,
+        "audioChannels": 12
+      },
+      "sourceCategory": "commercial-cinema",
+      "countyLevelCity": false,
+      "queryVariants": [
+        {
+          "kind": "current-name-city",
+          "query": "上海寰映影城（大融城店） 上海",
+          "cache": "hit",
+          "ok": true,
+          "candidateCount": 2,
+          "errorCode": null
+        },
+        {
+          "kind": "project-brand",
+          "query": "大融城 寰映 上海",
+          "cache": "hit",
+          "ok": true,
+          "candidateCount": 2,
+          "errorCode": null
+        }
+      ],
+      "selected": {
+        "poiId": "B0FFJ9O3GG",
+        "name": "寰映影城(静安大融城店)",
+        "address": "沪太路1111弄大融城商场1号楼3层",
+        "typecode": "080601",
+        "positionType": "cinema-poi",
+        "locationGranularity": "cinema",
+        "score": 0.92,
+        "automaticDecision": "accepted-high",
+        "confidence": "high",
+        "locationConfidence": "high",
+        "identityConfidence": "high",
+        "geocodeSource": "amap:poi-search",
+        "adminMatch": {
+          "provinceMatch": true,
+          "prefectureMatch": true,
+          "countyMatch": null,
+          "targetLevel": "municipality",
+          "compatible": true,
+          "targetProvince": "上海",
+          "targetPrefecture": "上海",
+          "targetCounty": null,
+          "providerProvince": "上海",
+          "providerPrefecture": "上海",
+          "providerCounty": "静安",
+          "mappingSource": "municipality-rule"
+        },
+        "formatCompatibility": {
+          "compatible": true,
+          "exactFormatMatch": false,
+          "conflicts": []
+        },
+        "provider": {
+          "providerCrs": "GCJ-02",
+          "providerLat": 31.279866,
+          "providerLng": 121.426509
+        },
+        "map": {
+          "mapCrs": "WGS84",
+          "lat": 31.2816925,
+          "lng": 121.4218691
+        },
+        "reviewedOverride": null
+      },
+      "topCandidate": null,
+      "hardRejectSummary": {
+        "candidateCount": 2,
+        "rejectedCandidateCount": 1,
+        "reasons": {
+          "non-cinema-poi": 1
+        }
+      },
+      "ambiguity": {
+        "evaluatedCandidates": 1,
+        "ignoredHardRejected": 1,
+        "trueAmbiguity": false
+      },
+      "overrideUsed": false,
+      "reviewedOverride": null
+    },
+    {
+      "sourceRow": 20,
+      "sourceName": "上海博悦汇影城（BFC IMAX店)",
+      "city": "上海",
+      "province": "上海",
+      "status": "open",
+      "projection": {
+        "raw": "IMAX 氙灯",
+        "system": "Xenon",
+        "technology": "xenon",
+        "dome": false,
+        "audioChannels": null
+      },
+      "sourceCategory": "commercial-cinema",
+      "countyLevelCity": false,
+      "queryVariants": [
+        {
+          "kind": "current-name-city",
+          "query": "上海博悦汇影城（BFC IMAX店) 上海",
+          "cache": "hit",
+          "ok": true,
+          "candidateCount": 2,
+          "errorCode": null
+        },
+        {
+          "kind": "device-description-removed",
+          "query": "上海博悦汇影城 上海",
+          "cache": "hit",
+          "ok": true,
+          "candidateCount": 3,
+          "errorCode": null
+        }
+      ],
+      "selected": {
+        "poiId": "B0HBR64BBX",
+        "name": "博悦汇影城(BFC外滩金融中心店)",
+        "address": "中山东二路600号BFC外滩金融中心B1层",
+        "typecode": "080601",
+        "positionType": "cinema-poi",
+        "locationGranularity": "cinema",
+        "score": 0.953333,
+        "automaticDecision": "accepted-high",
+        "confidence": "high",
+        "locationConfidence": "high",
+        "identityConfidence": "high",
+        "geocodeSource": "amap:poi-search",
+        "adminMatch": {
+          "provinceMatch": true,
+          "prefectureMatch": true,
+          "countyMatch": null,
+          "targetLevel": "municipality",
+          "compatible": true,
+          "targetProvince": "上海",
+          "targetPrefecture": "上海",
+          "targetCounty": null,
+          "providerProvince": "上海",
+          "providerPrefecture": "上海",
+          "providerCounty": "黄浦",
+          "mappingSource": "municipality-rule"
+        },
+        "formatCompatibility": {
+          "compatible": true,
+          "exactFormatMatch": false,
+          "conflicts": []
+        },
+        "provider": {
+          "providerCrs": "GCJ-02",
+          "providerLat": 31.227597,
+          "providerLng": 121.497345
+        },
+        "map": {
+          "mapCrs": "WGS84",
+          "lat": 31.2296092,
+          "lng": 121.4929044
+        },
+        "reviewedOverride": null
+      },
+      "topCandidate": null,
+      "hardRejectSummary": {
+        "candidateCount": 3,
+        "rejectedCandidateCount": 2,
+        "reasons": {
+          "project-mismatch": 1,
+          "non-cinema-poi": 1
+        }
+      },
+      "ambiguity": {
+        "evaluatedCandidates": 1,
+        "ignoredHardRejected": 2,
+        "trueAmbiguity": false
+      },
+      "overrideUsed": false,
+      "reviewedOverride": null
+    },
+    {
+      "sourceRow": 21,
+      "sourceName": "上海百丽宫影城（LCM置汇旭辉广场店）",
+      "city": "上海",
+      "province": "上海",
+      "status": "unknown",
+      "projection": {
+        "raw": "IMAX 氙灯  ",
+        "system": "Xenon",
+        "technology": "xenon",
+        "dome": false,
+        "audioChannels": null
+      },
+      "sourceCategory": "commercial-cinema",
+      "countyLevelCity": false,
+      "queryVariants": [
+        {
+          "kind": "current-name-city",
+          "query": "上海百丽宫影城（LCM置汇旭辉广场店） 上海",
+          "cache": "hit",
+          "ok": true,
+          "candidateCount": 1,
+          "errorCode": null
+        },
+        {
+          "kind": "project-brand",
+          "query": "lcm置汇旭辉广场 百丽宫 上海",
+          "cache": "hit",
+          "ok": true,
+          "candidateCount": 2,
+          "errorCode": null
+        }
+      ],
+      "selected": {
+        "poiId": "B0FFJL4VPL",
+        "name": "上海百丽宫影城(LCM置汇旭辉广场店)",
+        "address": "张杨路2389弄2号LCM置汇旭辉广场4层",
+        "typecode": "080601",
+        "positionType": "cinema-poi",
+        "locationGranularity": "cinema",
+        "score": 1,
+        "automaticDecision": "accepted-high",
+        "confidence": "high",
+        "locationConfidence": "high",
+        "identityConfidence": "high",
+        "geocodeSource": "amap:poi-search",
+        "adminMatch": {
+          "provinceMatch": true,
+          "prefectureMatch": true,
+          "countyMatch": null,
+          "targetLevel": "municipality",
+          "compatible": true,
+          "targetProvince": "上海",
+          "targetPrefecture": "上海",
+          "targetCounty": null,
+          "providerProvince": "上海",
+          "providerPrefecture": "上海",
+          "providerCounty": "浦东新",
+          "mappingSource": "municipality-rule"
+        },
+        "formatCompatibility": {
+          "compatible": true,
+          "exactFormatMatch": false,
+          "conflicts": []
+        },
+        "provider": {
+          "providerCrs": "GCJ-02",
+          "providerLat": 31.242873,
+          "providerLng": 121.55552
+        },
+        "map": {
+          "mapCrs": "WGS84",
+          "lat": 31.2450305,
+          "lng": 121.5512637
+        },
+        "reviewedOverride": null
+      },
+      "topCandidate": null,
+      "hardRejectSummary": {
+        "candidateCount": 2,
+        "rejectedCandidateCount": 1,
+        "reasons": {
+          "non-cinema-poi": 1
+        }
+      },
+      "ambiguity": {
+        "evaluatedCandidates": 1,
+        "ignoredHardRejected": 1,
+        "trueAmbiguity": false
+      },
+      "overrideUsed": false,
+      "reviewedOverride": null
+    },
+    {
+      "sourceRow": 22,
+      "sourceName": "上海万达影城（宝山万达广场店）",
+      "city": "上海",
+      "province": "上海",
+      "status": "unknown",
+      "projection": {
+        "raw": "IMAX Commercial Laser\n12声道音响系统  ",
+        "system": "Commercial Laser",
+        "technology": "laser",
+        "dome": false,
+        "audioChannels": 12
+      },
+      "sourceCategory": "commercial-cinema",
+      "countyLevelCity": false,
+      "queryVariants": [
+        {
+          "kind": "current-name-city",
+          "query": "上海万达影城（宝山万达广场店） 上海",
+          "cache": "hit",
+          "ok": true,
+          "candidateCount": 6,
+          "errorCode": null
+        },
+        {
+          "kind": "project-brand",
+          "query": "宝山万达广场 万达影城 上海",
+          "cache": "hit",
+          "ok": true,
+          "candidateCount": 6,
+          "errorCode": null
+        }
+      ],
+      "selected": {
+        "poiId": "B00156GYF3",
+        "name": "万达影城(宝山万达广场店)",
+        "address": "共和新路一二八纪念路936号万达广场5层",
+        "typecode": "080601",
+        "positionType": "cinema-poi",
+        "locationGranularity": "cinema",
+        "score": 1,
+        "automaticDecision": "accepted-high",
+        "confidence": "high",
+        "locationConfidence": "high",
+        "identityConfidence": "high",
+        "geocodeSource": "amap:poi-search",
+        "adminMatch": {
+          "provinceMatch": true,
+          "prefectureMatch": true,
+          "countyMatch": null,
+          "targetLevel": "municipality",
+          "compatible": true,
+          "targetProvince": "上海",
+          "targetPrefecture": "上海",
+          "targetCounty": null,
+          "providerProvince": "上海",
+          "providerPrefecture": "上海",
+          "providerCounty": "宝山",
+          "mappingSource": "municipality-rule"
+        },
+        "formatCompatibility": {
+          "compatible": true,
+          "exactFormatMatch": false,
+          "conflicts": []
+        },
+        "provider": {
+          "providerCrs": "GCJ-02",
+          "providerLat": 31.324173,
+          "providerLng": 121.447506
+        },
+        "map": {
+          "mapCrs": "WGS84",
+          "lat": 31.3260142,
+          "lng": 121.4429006
+        },
+        "reviewedOverride": null
+      },
+      "topCandidate": null,
+      "hardRejectSummary": {
+        "candidateCount": 9,
+        "rejectedCandidateCount": 8,
+        "reasons": {
+          "project-mismatch": 2,
+          "mall-fallback-not-qualified": 1,
+          "non-cinema-poi": 5
+        }
+      },
+      "ambiguity": {
+        "evaluatedCandidates": 1,
+        "ignoredHardRejected": 8,
+        "trueAmbiguity": false
+      },
+      "overrideUsed": false,
+      "reviewedOverride": null
+    },
+    {
+      "sourceRow": 23,
+      "sourceName": "上海万达影城（青浦万达茂店）",
+      "city": "上海",
+      "province": "上海",
+      "status": "unknown",
+      "projection": {
+        "raw": "IMAX 氙灯",
+        "system": "Xenon",
+        "technology": "xenon",
+        "dome": false,
+        "audioChannels": null
+      },
+      "sourceCategory": "commercial-cinema",
+      "countyLevelCity": false,
+      "queryVariants": [
+        {
+          "kind": "current-name-city",
+          "query": "上海万达影城（青浦万达茂店） 上海",
+          "cache": "hit",
+          "ok": true,
+          "candidateCount": 1,
+          "errorCode": null
+        },
+        {
+          "kind": "project-brand",
+          "query": "青浦万达茂 万达影城 上海",
+          "cache": "hit",
+          "ok": true,
+          "candidateCount": 25,
+          "errorCode": null
+        }
+      ],
+      "selected": {
+        "poiId": "B0FFKS7JDE",
+        "name": "万达影城(上海青浦万达茂店)",
+        "address": "盈浦街道淀山湖大道1059弄1-45号A区4楼",
+        "typecode": "080601",
+        "positionType": "cinema-poi",
+        "locationGranularity": "cinema",
+        "score": 0.92,
+        "automaticDecision": "accepted-high",
+        "confidence": "high",
+        "locationConfidence": "high",
+        "identityConfidence": "high",
+        "geocodeSource": "amap:poi-search",
+        "adminMatch": {
+          "provinceMatch": true,
+          "prefectureMatch": true,
+          "countyMatch": null,
+          "targetLevel": "municipality",
+          "compatible": true,
+          "targetProvince": "上海",
+          "targetPrefecture": "上海",
+          "targetCounty": null,
+          "providerProvince": "上海",
+          "providerPrefecture": "上海",
+          "providerCounty": "青浦",
+          "mappingSource": "municipality-rule"
+        },
+        "formatCompatibility": {
+          "compatible": true,
+          "exactFormatMatch": false,
+          "conflicts": []
+        },
+        "provider": {
+          "providerCrs": "GCJ-02",
+          "providerLat": 31.132838,
+          "providerLng": 121.080964
+        },
+        "map": {
+          "mapCrs": "WGS84",
+          "lat": 31.1347333,
+          "lng": 121.0763663
+        },
+        "reviewedOverride": null
+      },
+      "topCandidate": null,
+      "hardRejectSummary": {
+        "candidateCount": 25,
+        "rejectedCandidateCount": 22,
+        "reasons": {
+          "project-mismatch": 18,
+          "non-cinema-poi": 4
+        }
+      },
+      "ambiguity": {
+        "evaluatedCandidates": 3,
+        "ignoredHardRejected": 22,
+        "trueAmbiguity": false
+      },
+      "overrideUsed": false,
+      "reviewedOverride": null
+    },
+    {
+      "sourceRow": 24,
+      "sourceName": "上海万达影城（浦江万达广场店)",
+      "city": "上海",
+      "province": "上海",
+      "status": "unknown",
+      "projection": {
+        "raw": "IMAX 氙灯  ",
+        "system": "Xenon",
+        "technology": "xenon",
+        "dome": false,
+        "audioChannels": null
+      },
+      "sourceCategory": "commercial-cinema",
+      "countyLevelCity": false,
+      "queryVariants": [
+        {
+          "kind": "current-name-city",
+          "query": "上海万达影城（浦江万达广场店) 上海",
+          "cache": "hit",
+          "ok": true,
+          "candidateCount": 2,
+          "errorCode": null
+        },
+        {
+          "kind": "project-brand",
+          "query": "浦江万达广场 万达影城 上海",
+          "cache": "hit",
+          "ok": true,
+          "candidateCount": 2,
+          "errorCode": null
+        }
+      ],
+      "selected": {
+        "poiId": "B0HB4A9NE1",
+        "name": "万达影城(上海浦江万达广场店)",
+        "address": "永跃路360号浦江万达广场4层",
+        "typecode": "080601",
+        "positionType": "cinema-poi",
+        "locationGranularity": "cinema",
+        "score": 0.92,
+        "automaticDecision": "accepted-high",
+        "confidence": "high",
+        "locationConfidence": "high",
+        "identityConfidence": "high",
+        "geocodeSource": "amap:poi-search",
+        "adminMatch": {
+          "provinceMatch": true,
+          "prefectureMatch": true,
+          "countyMatch": null,
+          "targetLevel": "municipality",
+          "compatible": true,
+          "targetProvince": "上海",
+          "targetPrefecture": "上海",
+          "targetCounty": null,
+          "providerProvince": "上海",
+          "providerPrefecture": "上海",
+          "providerCounty": "闵行",
+          "mappingSource": "municipality-rule"
+        },
+        "formatCompatibility": {
+          "compatible": true,
+          "exactFormatMatch": false,
+          "conflicts": []
+        },
+        "provider": {
+          "providerCrs": "GCJ-02",
+          "providerLat": 31.028184,
+          "providerLng": 121.511016
+        },
+        "map": {
+          "mapCrs": "WGS84",
+          "lat": 31.0303438,
+          "lng": 121.5066415
+        },
+        "reviewedOverride": null
+      },
+      "topCandidate": null,
+      "hardRejectSummary": {
+        "candidateCount": 2,
+        "rejectedCandidateCount": 1,
+        "reasons": {
+          "non-cinema-poi": 1
+        }
+      },
+      "ambiguity": {
+        "evaluatedCandidates": 1,
+        "ignoredHardRejected": 1,
+        "trueAmbiguity": false
+      },
+      "overrideUsed": false,
+      "reviewedOverride": null
+    },
+    {
+      "sourceRow": 25,
+      "sourceName": "上海幸福蓝海国际影城（招商花园城IMAX店）",
+      "city": "上海",
+      "province": "上海",
+      "status": "unknown",
+      "projection": {
+        "raw": "IMAX 氙灯  ",
+        "system": "Xenon",
+        "technology": "xenon",
+        "dome": false,
+        "audioChannels": null
+      },
+      "sourceCategory": "commercial-cinema",
+      "countyLevelCity": false,
+      "queryVariants": [
+        {
+          "kind": "current-name-city",
+          "query": "上海幸福蓝海国际影城（招商花园城IMAX店） 上海",
+          "cache": "hit",
+          "ok": true,
+          "candidateCount": 1,
+          "errorCode": null
+        },
+        {
+          "kind": "device-description-removed",
+          "query": "上海幸福蓝海国际影城 上海",
+          "cache": "hit",
+          "ok": true,
+          "candidateCount": 11,
+          "errorCode": null
+        },
+        {
+          "kind": "project-brand",
+          "query": "招商花园城 幸福蓝海 上海",
+          "cache": "hit",
+          "ok": true,
+          "candidateCount": 1,
+          "errorCode": null
+        }
+      ],
+      "selected": {
+        "poiId": "B0FFLM6UEG",
+        "name": "幸福蓝海国际影城(上海招商花园城IMAX店)",
+        "address": "水产路2069号招商花园城3楼",
+        "typecode": "080601",
+        "positionType": "cinema-poi",
+        "locationGranularity": "cinema",
+        "score": 0.951515,
+        "automaticDecision": "accepted-high",
+        "confidence": "high",
+        "locationConfidence": "high",
+        "identityConfidence": "high",
+        "geocodeSource": "amap:poi-search",
+        "adminMatch": {
+          "provinceMatch": true,
+          "prefectureMatch": true,
+          "countyMatch": null,
+          "targetLevel": "municipality",
+          "compatible": true,
+          "targetProvince": "上海",
+          "targetPrefecture": "上海",
+          "targetCounty": null,
+          "providerProvince": "上海",
+          "providerPrefecture": "上海",
+          "providerCounty": "宝山",
+          "mappingSource": "municipality-rule"
+        },
+        "formatCompatibility": {
+          "compatible": true,
+          "exactFormatMatch": true,
+          "conflicts": []
+        },
+        "provider": {
+          "providerCrs": "GCJ-02",
+          "providerLat": 31.368715,
+          "providerLng": 121.449334
+        },
+        "map": {
+          "mapCrs": "WGS84",
+          "lat": 31.3705446,
+          "lng": 121.444729
+        },
+        "reviewedOverride": null
+      },
+      "topCandidate": null,
+      "hardRejectSummary": {
+        "candidateCount": 11,
+        "rejectedCandidateCount": 10,
+        "reasons": {
+          "project-mismatch": 8,
+          "non-cinema-poi": 2
+        }
+      },
+      "ambiguity": {
+        "evaluatedCandidates": 1,
+        "ignoredHardRejected": 10,
+        "trueAmbiguity": false
+      },
+      "overrideUsed": false,
+      "reviewedOverride": null
+    },
+    {
+      "sourceRow": 26,
+      "sourceName": "上海万达影城（宝乐汇店)",
+      "city": "上海",
+      "province": "上海",
+      "status": "unknown",
+      "projection": {
+        "raw": "IMAX 氙灯  ",
+        "system": "Xenon",
+        "technology": "xenon",
+        "dome": false,
+        "audioChannels": null
+      },
+      "sourceCategory": "commercial-cinema",
+      "countyLevelCity": false,
+      "queryVariants": [
+        {
+          "kind": "current-name-city",
+          "query": "上海万达影城（宝乐汇店) 上海",
+          "cache": "hit",
+          "ok": true,
+          "candidateCount": 3,
+          "errorCode": null
+        },
+        {
+          "kind": "project-brand",
+          "query": "宝乐汇 万达影城 上海",
+          "cache": "hit",
+          "ok": true,
+          "candidateCount": 3,
+          "errorCode": null
+        }
+      ],
+      "selected": {
+        "poiId": "B0G3KYN8S6",
+        "name": "万达影城(宝乐汇印象城店)",
+        "address": "牡丹江路1569号宝乐汇印象城5层F508",
+        "typecode": "080601",
+        "positionType": "cinema-poi",
+        "locationGranularity": "cinema",
+        "score": 0.9706,
+        "automaticDecision": "accepted-high",
+        "confidence": "high",
+        "locationConfidence": "high",
+        "identityConfidence": "high",
+        "geocodeSource": "amap:poi-search",
+        "adminMatch": {
+          "provinceMatch": true,
+          "prefectureMatch": true,
+          "countyMatch": null,
+          "targetLevel": "municipality",
+          "compatible": true,
+          "targetProvince": "上海",
+          "targetPrefecture": "上海",
+          "targetCounty": null,
+          "providerProvince": "上海",
+          "providerPrefecture": "上海",
+          "providerCounty": "宝山",
+          "mappingSource": "municipality-rule"
+        },
+        "formatCompatibility": {
+          "compatible": true,
+          "exactFormatMatch": false,
+          "conflicts": []
+        },
+        "provider": {
+          "providerCrs": "GCJ-02",
+          "providerLat": 31.399153,
+          "providerLng": 121.485893
+        },
+        "map": {
+          "mapCrs": "WGS84",
+          "lat": 31.4010666,
+          "lng": 121.4813968
+        },
+        "reviewedOverride": null
+      },
+      "topCandidate": null,
+      "hardRejectSummary": {
+        "candidateCount": 3,
+        "rejectedCandidateCount": 2,
+        "reasons": {
+          "non-cinema-poi": 2
+        }
+      },
+      "ambiguity": {
+        "evaluatedCandidates": 1,
+        "ignoredHardRejected": 2,
+        "trueAmbiguity": false
+      },
+      "overrideUsed": false,
+      "reviewedOverride": null
+    },
+    {
+      "sourceRow": 27,
+      "sourceName": "上海万达影城（崇明万达广场店)",
+      "city": "上海",
+      "province": "上海",
+      "status": "unknown",
+      "projection": {
+        "raw": "IMAX 氙灯  ",
+        "system": "Xenon",
+        "technology": "xenon",
+        "dome": false,
+        "audioChannels": null
+      },
+      "sourceCategory": "commercial-cinema",
+      "countyLevelCity": false,
+      "queryVariants": [
+        {
+          "kind": "current-name-city",
+          "query": "上海万达影城（崇明万达广场店) 上海",
+          "cache": "hit",
+          "ok": true,
+          "candidateCount": 5,
+          "errorCode": null
+        },
+        {
+          "kind": "project-brand",
+          "query": "崇明万达广场 万达影城 上海",
+          "cache": "hit",
+          "ok": true,
+          "candidateCount": 2,
+          "errorCode": null
+        }
+      ],
+      "selected": {
+        "poiId": "B0GKGD6JPD",
+        "name": "万达影城(上海崇明万达广场店)",
+        "address": "万达广场3楼",
+        "typecode": "080601",
+        "positionType": "cinema-poi",
+        "locationGranularity": "cinema",
+        "score": 0.92,
+        "automaticDecision": "accepted-high",
+        "confidence": "high",
+        "locationConfidence": "high",
+        "identityConfidence": "high",
+        "geocodeSource": "amap:poi-search",
+        "adminMatch": {
+          "provinceMatch": true,
+          "prefectureMatch": true,
+          "countyMatch": null,
+          "targetLevel": "municipality",
+          "compatible": true,
+          "targetProvince": "上海",
+          "targetPrefecture": "上海",
+          "targetCounty": null,
+          "providerProvince": "上海",
+          "providerPrefecture": "上海",
+          "providerCounty": "崇明",
+          "mappingSource": "municipality-rule"
+        },
+        "formatCompatibility": {
+          "compatible": true,
+          "exactFormatMatch": false,
+          "conflicts": []
+        },
+        "provider": {
+          "providerCrs": "GCJ-02",
+          "providerLat": 31.624985,
+          "providerLng": 121.418124
+        },
+        "map": {
+          "mapCrs": "WGS84",
+          "lat": 31.6267312,
+          "lng": 121.4134447
+        },
+        "reviewedOverride": null
+      },
+      "topCandidate": null,
+      "hardRejectSummary": {
+        "candidateCount": 5,
+        "rejectedCandidateCount": 4,
+        "reasons": {
+          "non-cinema-poi": 3,
+          "mall-fallback-not-qualified": 1
+        }
+      },
+      "ambiguity": {
+        "evaluatedCandidates": 1,
+        "ignoredHardRejected": 4,
+        "trueAmbiguity": false
+      },
+      "overrideUsed": false,
+      "reviewedOverride": null
+    },
+    {
+      "sourceRow": 28,
+      "sourceName": "上海万达影城（马桥万达广场店)",
+      "city": "上海",
+      "province": "上海",
+      "status": "unknown",
+      "projection": {
+        "raw": "IMAX 氙灯  ",
+        "system": "Xenon",
+        "technology": "xenon",
+        "dome": false,
+        "audioChannels": null
+      },
+      "sourceCategory": "commercial-cinema",
+      "countyLevelCity": false,
+      "queryVariants": [
+        {
+          "kind": "current-name-city",
+          "query": "上海万达影城（马桥万达广场店) 上海",
+          "cache": "hit",
+          "ok": true,
+          "candidateCount": 4,
+          "errorCode": null
+        },
+        {
+          "kind": "project-brand",
+          "query": "马桥万达广场 万达影城 上海",
+          "cache": "hit",
+          "ok": true,
+          "candidateCount": 2,
+          "errorCode": null
+        }
+      ],
+      "selected": {
+        "poiId": "B0GK1HXRZD",
+        "name": "万达影城(马桥万达广场店)",
+        "address": "富岩路121号马桥万达广场5F-A室、6层",
+        "typecode": "080601",
+        "positionType": "cinema-poi",
+        "locationGranularity": "cinema",
+        "score": 1,
+        "automaticDecision": "accepted-high",
+        "confidence": "high",
+        "locationConfidence": "high",
+        "identityConfidence": "high",
+        "geocodeSource": "amap:poi-search",
+        "adminMatch": {
+          "provinceMatch": true,
+          "prefectureMatch": true,
+          "countyMatch": null,
+          "targetLevel": "municipality",
+          "compatible": true,
+          "targetProvince": "上海",
+          "targetPrefecture": "上海",
+          "targetCounty": null,
+          "providerProvince": "上海",
+          "providerPrefecture": "上海",
+          "providerCounty": "闵行",
+          "mappingSource": "municipality-rule"
+        },
+        "formatCompatibility": {
+          "compatible": true,
+          "exactFormatMatch": false,
+          "conflicts": []
+        },
+        "provider": {
+          "providerCrs": "GCJ-02",
+          "providerLat": 31.023666,
+          "providerLng": 121.37239
+        },
+        "map": {
+          "mapCrs": "WGS84",
+          "lat": 31.0256302,
+          "lng": 121.3677778
+        },
+        "reviewedOverride": null
+      },
+      "topCandidate": null,
+      "hardRejectSummary": {
+        "candidateCount": 4,
+        "rejectedCandidateCount": 3,
+        "reasons": {
+          "non-cinema-poi": 3
+        }
+      },
+      "ambiguity": {
+        "evaluatedCandidates": 1,
+        "ignoredHardRejected": 3,
+        "trueAmbiguity": false
+      },
+      "overrideUsed": false,
+      "reviewedOverride": null
+    },
+    {
+      "sourceRow": 29,
+      "sourceName": "上海金逸影城（凯德虹口激光IMAX店）",
+      "city": "上海",
+      "province": "上海",
+      "status": "unknown",
+      "projection": {
+        "raw": "IMAX Commercial Laser\n12声道音响系统",
+        "system": "Commercial Laser",
+        "technology": "laser",
+        "dome": false,
+        "audioChannels": 12
+      },
+      "sourceCategory": "commercial-cinema",
+      "countyLevelCity": false,
+      "queryVariants": [
+        {
+          "kind": "current-name-city",
+          "query": "上海金逸影城（凯德虹口激光IMAX店） 上海",
+          "cache": "hit",
+          "ok": true,
+          "candidateCount": 1,
+          "errorCode": null
+        },
+        {
+          "kind": "device-description-removed",
+          "query": "上海金逸影城 上海",
+          "cache": "hit",
+          "ok": true,
+          "candidateCount": 5,
+          "errorCode": null
+        },
+        {
+          "kind": "project-brand",
+          "query": "凯德虹口 金逸影城 上海",
+          "cache": "hit",
+          "ok": true,
+          "candidateCount": 1,
+          "errorCode": null
+        }
+      ],
+      "selected": {
+        "poiId": "B00156EK4W",
+        "name": "金逸影城(上海龙之梦IMAX店)",
+        "address": "西江湾路388号凯德虹口商业中心B座L6层",
+        "typecode": "080601",
+        "positionType": "cinema-poi",
+        "locationGranularity": "cinema",
+        "score": 0.92,
+        "automaticDecision": "accepted-high",
+        "confidence": "high",
+        "locationConfidence": "high",
+        "identityConfidence": "high",
+        "geocodeSource": "amap:poi-search",
+        "adminMatch": {
+          "provinceMatch": true,
+          "prefectureMatch": true,
+          "countyMatch": null,
+          "targetLevel": "municipality",
+          "compatible": true,
+          "targetProvince": "上海",
+          "targetPrefecture": "上海",
+          "targetCounty": null,
+          "providerProvince": "上海",
+          "providerPrefecture": "上海",
+          "providerCounty": "虹口",
+          "mappingSource": "municipality-rule"
+        },
+        "formatCompatibility": {
+          "compatible": true,
+          "exactFormatMatch": true,
+          "conflicts": []
+        },
+        "provider": {
+          "providerCrs": "GCJ-02",
+          "providerLat": 31.271164,
+          "providerLng": 121.477286
+        },
+        "map": {
+          "mapCrs": "WGS84",
+          "lat": 31.2730981,
+          "lng": 121.4727713
+        },
+        "reviewedOverride": null
+      },
+      "topCandidate": null,
+      "hardRejectSummary": {
+        "candidateCount": 5,
+        "rejectedCandidateCount": 4,
+        "reasons": {
+          "project-mismatch": 3,
+          "non-cinema-poi": 1
+        }
+      },
+      "ambiguity": {
+        "evaluatedCandidates": 1,
+        "ignoredHardRejected": 4,
+        "trueAmbiguity": false
+      },
+      "overrideUsed": false,
+      "reviewedOverride": null
+    },
+    {
+      "sourceRow": 30,
+      "sourceName": "上海百丽宫影城（博荟广场店）",
+      "city": "上海",
+      "province": "上海",
+      "status": "unknown",
+      "projection": {
+        "raw": "IMAX Commercial Laser\n12声道音响系统  ",
+        "system": "Commercial Laser",
+        "technology": "laser",
+        "dome": false,
+        "audioChannels": 12
+      },
+      "sourceCategory": "commercial-cinema",
+      "countyLevelCity": false,
+      "queryVariants": [
+        {
+          "kind": "current-name-city",
+          "query": "上海百丽宫影城（博荟广场店） 上海",
+          "cache": "hit",
+          "ok": true,
+          "candidateCount": 1,
+          "errorCode": null
+        },
+        {
+          "kind": "project-brand",
+          "query": "博荟广场 百丽宫 上海",
+          "cache": "hit",
+          "ok": true,
+          "candidateCount": 3,
+          "errorCode": null
+        }
+      ],
+      "selected": {
+        "poiId": "B0FFI2O92B",
+        "name": "百丽宫影城(博荟广场ONE EAST店)",
+        "address": "中山南一路788号博荟广场ONE EAST B2层",
+        "typecode": "080601",
+        "positionType": "cinema-poi",
+        "locationGranularity": "cinema",
+        "score": 0.9608,
+        "automaticDecision": "accepted-high",
+        "confidence": "high",
+        "locationConfidence": "high",
+        "identityConfidence": "high",
+        "geocodeSource": "amap:poi-search",
+        "adminMatch": {
+          "provinceMatch": true,
+          "prefectureMatch": true,
+          "countyMatch": null,
+          "targetLevel": "municipality",
+          "compatible": true,
+          "targetProvince": "上海",
+          "targetPrefecture": "上海",
+          "targetCounty": null,
+          "providerProvince": "上海",
+          "providerPrefecture": "上海",
+          "providerCounty": "黄浦",
+          "mappingSource": "municipality-rule"
+        },
+        "formatCompatibility": {
+          "compatible": true,
+          "exactFormatMatch": false,
+          "conflicts": []
+        },
+        "provider": {
+          "providerCrs": "GCJ-02",
+          "providerLat": 31.196828,
+          "providerLng": 121.480113
+        },
+        "map": {
+          "mapCrs": "WGS84",
+          "lat": 31.1988041,
+          "lng": 121.4756142
+        },
+        "reviewedOverride": null
+      },
+      "topCandidate": null,
+      "hardRejectSummary": {
+        "candidateCount": 3,
+        "rejectedCandidateCount": 2,
+        "reasons": {
+          "brand-mismatch": 1,
+          "non-cinema-poi": 1
+        }
+      },
+      "ambiguity": {
+        "evaluatedCandidates": 1,
+        "ignoredHardRejected": 2,
+        "trueAmbiguity": false
+      },
+      "overrideUsed": false,
+      "reviewedOverride": null
+    },
+    {
+      "sourceRow": 31,
+      "sourceName": "上海万达影城（金山万达广场店）",
+      "city": "上海",
+      "province": "上海",
+      "status": "unknown",
+      "projection": {
+        "raw": "IMAX Laser XT",
+        "system": "Laser XT",
+        "technology": "laser",
+        "dome": false,
+        "audioChannels": null
+      },
+      "sourceCategory": "commercial-cinema",
+      "countyLevelCity": false,
+      "queryVariants": [
+        {
+          "kind": "current-name-city",
+          "query": "上海万达影城（金山万达广场店） 上海",
+          "cache": "hit",
+          "ok": true,
+          "candidateCount": 2,
+          "errorCode": null
+        },
+        {
+          "kind": "project-brand",
+          "query": "金山万达广场 万达影城 上海",
+          "cache": "hit",
+          "ok": true,
+          "candidateCount": 1,
+          "errorCode": null
+        }
+      ],
+      "selected": null,
+      "topCandidate": {
+        "poiId": "B0FFJN6XLK",
+        "name": "万达影城",
+        "address": "龙皓路1088号万达广场(上海金山店)4F层",
+        "typecode": "080601",
+        "positionType": "cinema-poi",
+        "locationGranularity": "cinema",
+        "score": 0.816226,
+        "automaticDecision": "rejected",
+        "confidence": "unknown",
+        "locationConfidence": "unknown",
+        "identityConfidence": "unknown",
+        "geocodeSource": "amap:poi-search",
+        "adminMatch": {
+          "provinceMatch": true,
+          "prefectureMatch": true,
+          "countyMatch": null,
+          "targetLevel": "municipality",
+          "compatible": true,
+          "targetProvince": "上海",
+          "targetPrefecture": "上海",
+          "targetCounty": null,
+          "providerProvince": "上海",
+          "providerPrefecture": "上海",
+          "providerCounty": "金山",
+          "mappingSource": "municipality-rule"
+        },
+        "formatCompatibility": {
+          "compatible": true,
+          "exactFormatMatch": false,
+          "conflicts": []
+        },
+        "provider": {
+          "providerCrs": "GCJ-02",
+          "providerLat": 30.754667,
+          "providerLng": 121.336035
+        },
+        "map": {
+          "mapCrs": "WGS84",
+          "lat": 30.7568444,
+          "lng": 121.3315146
+        },
+        "reviewedOverride": null
+      },
+      "hardRejectSummary": {
+        "candidateCount": 2,
+        "rejectedCandidateCount": 2,
+        "reasons": {
+          "project-mismatch": 1,
+          "mall-fallback-not-qualified": 1
+        }
+      },
+      "ambiguity": {
+        "evaluatedCandidates": 0,
+        "ignoredHardRejected": 2,
+        "trueAmbiguity": false
+      },
+      "overrideUsed": false,
+      "reviewedOverride": null
+    },
+    {
+      "sourceRow": 32,
+      "sourceName": "上海寰映影城（太阳宫店）",
+      "city": "上海",
+      "province": "上海",
+      "status": "unknown",
+      "projection": {
+        "raw": "IMAX Commercial Laser\n12声道音响系统",
+        "system": "Commercial Laser",
+        "technology": "laser",
+        "dome": false,
+        "audioChannels": 12
+      },
+      "sourceCategory": "commercial-cinema",
+      "countyLevelCity": false,
+      "queryVariants": [
+        {
+          "kind": "current-name-city",
+          "query": "上海寰映影城（太阳宫店） 上海",
+          "cache": "hit",
+          "ok": true,
+          "candidateCount": 2,
+          "errorCode": null
+        },
+        {
+          "kind": "project-brand",
+          "query": "太阳宫 寰映 上海",
+          "cache": "hit",
+          "ok": true,
+          "candidateCount": 2,
+          "errorCode": null
+        }
+      ],
+      "selected": {
+        "poiId": "B0H13UMBMB",
+        "name": "寰映影城(瑞虹新天地太阳宫)",
+        "address": "瑞虹路181号瑞虹新天地太阳宫L4层",
+        "typecode": "080601",
+        "positionType": "cinema-poi",
+        "locationGranularity": "cinema",
+        "score": 0.92,
+        "automaticDecision": "accepted-high",
+        "confidence": "high",
+        "locationConfidence": "high",
+        "identityConfidence": "high",
+        "geocodeSource": "amap:poi-search",
+        "adminMatch": {
+          "provinceMatch": true,
+          "prefectureMatch": true,
+          "countyMatch": null,
+          "targetLevel": "municipality",
+          "compatible": true,
+          "targetProvince": "上海",
+          "targetPrefecture": "上海",
+          "targetCounty": null,
+          "providerProvince": "上海",
+          "providerPrefecture": "上海",
+          "providerCounty": "虹口",
+          "mappingSource": "municipality-rule"
+        },
+        "formatCompatibility": {
+          "compatible": true,
+          "exactFormatMatch": false,
+          "conflicts": []
+        },
+        "provider": {
+          "providerCrs": "GCJ-02",
+          "providerLat": 31.262469,
+          "providerLng": 121.501212
+        },
+        "map": {
+          "mapCrs": "WGS84",
+          "lat": 31.2644772,
+          "lng": 121.4967824
+        },
+        "reviewedOverride": null
+      },
+      "topCandidate": null,
+      "hardRejectSummary": {
+        "candidateCount": 2,
+        "rejectedCandidateCount": 1,
+        "reasons": {
+          "non-cinema-poi": 1
+        }
+      },
+      "ambiguity": {
+        "evaluatedCandidates": 1,
+        "ignoredHardRejected": 1,
+        "trueAmbiguity": false
+      },
+      "overrideUsed": false,
+      "reviewedOverride": null
+    },
+    {
+      "sourceRow": 33,
+      "sourceName": "上海MOViE MOViE影城（前滩太古里店）",
+      "city": "上海",
+      "province": "上海",
+      "status": "unknown",
+      "projection": {
+        "raw": "IMAX Commercial Laser\n12声道音响系统",
+        "system": "Commercial Laser",
+        "technology": "laser",
+        "dome": false,
+        "audioChannels": 12
+      },
+      "sourceCategory": "commercial-cinema",
+      "countyLevelCity": false,
+      "queryVariants": [
+        {
+          "kind": "current-name-city",
+          "query": "上海MOViE MOViE影城（前滩太古里店） 上海",
+          "cache": "hit",
+          "ok": true,
+          "candidateCount": 1,
+          "errorCode": null
+        }
+      ],
+      "selected": {
+        "poiId": "B0HKH7BRX4",
+        "name": "MOViE MOViE IMAX影城(前滩太古里店)",
+        "address": "东育路500弄1-9号前滩太古里L3层",
+        "typecode": "080601",
+        "positionType": "cinema-poi",
+        "locationGranularity": "cinema",
+        "score": 1,
+        "automaticDecision": "accepted-high",
+        "confidence": "high",
+        "locationConfidence": "high",
+        "identityConfidence": "high",
+        "geocodeSource": "amap:poi-search",
+        "adminMatch": {
+          "provinceMatch": true,
+          "prefectureMatch": true,
+          "countyMatch": null,
+          "targetLevel": "municipality",
+          "compatible": true,
+          "targetProvince": "上海",
+          "targetPrefecture": "上海",
+          "targetCounty": null,
+          "providerProvince": "上海",
+          "providerPrefecture": "上海",
+          "providerCounty": "浦东新",
+          "mappingSource": "municipality-rule"
+        },
+        "formatCompatibility": {
+          "compatible": true,
+          "exactFormatMatch": true,
+          "conflicts": []
+        },
+        "provider": {
+          "providerCrs": "GCJ-02",
+          "providerLat": 31.152158,
+          "providerLng": 121.482592
+        },
+        "map": {
+          "mapCrs": "WGS84",
+          "lat": 31.154164,
+          "lng": 121.4781055
+        },
+        "reviewedOverride": null
+      },
+      "topCandidate": null,
+      "hardRejectSummary": {
+        "candidateCount": 1,
+        "rejectedCandidateCount": 0,
+        "reasons": {}
+      },
+      "ambiguity": {
+        "evaluatedCandidates": 1,
+        "ignoredHardRejected": 0,
+        "trueAmbiguity": false
+      },
+      "overrideUsed": false,
+      "reviewedOverride": null
+    },
+    {
+      "sourceRow": 34,
+      "sourceName": "上海万达影城（临港万达广场店)",
+      "city": "上海",
+      "province": "上海",
+      "status": "unknown",
+      "projection": {
+        "raw": "IMAX Laser XT",
+        "system": "Laser XT",
+        "technology": "laser",
+        "dome": false,
+        "audioChannels": null
+      },
+      "sourceCategory": "commercial-cinema",
+      "countyLevelCity": false,
+      "queryVariants": [
+        {
+          "kind": "current-name-city",
+          "query": "上海万达影城（临港万达广场店) 上海",
+          "cache": "hit",
+          "ok": true,
+          "candidateCount": 3,
+          "errorCode": null
+        },
+        {
+          "kind": "project-brand",
+          "query": "临港万达广场 万达影城 上海",
+          "cache": "hit",
+          "ok": true,
+          "candidateCount": 4,
+          "errorCode": null
+        }
+      ],
+      "selected": {
+        "poiId": "B0HKXRRZLE",
+        "name": "万达影城(临港万达广场店)",
+        "address": "鸿音路2555号临港万达广场4楼",
+        "typecode": "080601",
+        "positionType": "cinema-poi",
+        "locationGranularity": "cinema",
+        "score": 1,
+        "automaticDecision": "accepted-high",
+        "confidence": "high",
+        "locationConfidence": "high",
+        "identityConfidence": "high",
+        "geocodeSource": "amap:poi-search",
+        "adminMatch": {
+          "provinceMatch": true,
+          "prefectureMatch": true,
+          "countyMatch": null,
+          "targetLevel": "municipality",
+          "compatible": true,
+          "targetProvince": "上海",
+          "targetPrefecture": "上海",
+          "targetCounty": null,
+          "providerProvince": "上海",
+          "providerPrefecture": "上海",
+          "providerCounty": "浦东新",
+          "mappingSource": "municipality-rule"
+        },
+        "formatCompatibility": {
+          "compatible": true,
+          "exactFormatMatch": false,
+          "conflicts": []
+        },
+        "provider": {
+          "providerCrs": "GCJ-02",
+          "providerLat": 30.892006,
+          "providerLng": 121.814866
+        },
+        "map": {
+          "mapCrs": "WGS84",
+          "lat": 30.8942781,
+          "lng": 121.8106202
+        },
+        "reviewedOverride": null
+      },
+      "topCandidate": null,
+      "hardRejectSummary": {
+        "candidateCount": 5,
+        "rejectedCandidateCount": 3,
+        "reasons": {
+          "non-cinema-poi": 2,
+          "brand-mismatch": 1,
+          "project-mismatch": 1
+        }
+      },
+      "ambiguity": {
+        "evaluatedCandidates": 2,
+        "ignoredHardRejected": 3,
+        "trueAmbiguity": false
+      },
+      "overrideUsed": false,
+      "reviewedOverride": null
+    },
+    {
+      "sourceRow": 35,
+      "sourceName": "上海寰映影城（大宁久光店）",
+      "city": "上海",
+      "province": "上海",
+      "status": "open",
+      "projection": {
+        "raw": "IMAX Commercial Laser\n12声道音响系统",
+        "system": "Commercial Laser",
+        "technology": "laser",
+        "dome": false,
+        "audioChannels": 12
+      },
+      "sourceCategory": "commercial-cinema",
+      "countyLevelCity": false,
+      "queryVariants": [
+        {
+          "kind": "current-name-city",
+          "query": "上海寰映影城（大宁久光店） 上海",
+          "cache": "hit",
+          "ok": true,
+          "candidateCount": 3,
+          "errorCode": null
+        },
+        {
+          "kind": "project-brand",
+          "query": "大宁久光 寰映 上海",
+          "cache": "hit",
+          "ok": true,
+          "candidateCount": 25,
+          "errorCode": null
+        }
+      ],
+      "selected": {
+        "poiId": "B0IGNU6WPR",
+        "name": "寰映影城(上海大宁久光店)",
+        "address": "共和新路2188号上海久光中心L5",
+        "typecode": "080601",
+        "positionType": "cinema-poi",
+        "locationGranularity": "cinema",
+        "score": 0.92,
+        "automaticDecision": "accepted-high",
+        "confidence": "high",
+        "locationConfidence": "high",
+        "identityConfidence": "high",
+        "geocodeSource": "amap:poi-search",
+        "adminMatch": {
+          "provinceMatch": true,
+          "prefectureMatch": true,
+          "countyMatch": null,
+          "targetLevel": "municipality",
+          "compatible": true,
+          "targetProvince": "上海",
+          "targetPrefecture": "上海",
+          "targetCounty": null,
+          "providerProvince": "上海",
+          "providerPrefecture": "上海",
+          "providerCounty": "静安",
+          "mappingSource": "municipality-rule"
+        },
+        "formatCompatibility": {
+          "compatible": true,
+          "exactFormatMatch": false,
+          "conflicts": []
+        },
+        "provider": {
+          "providerCrs": "GCJ-02",
+          "providerLat": 31.276255,
+          "providerLng": 121.451774
+        },
+        "map": {
+          "mapCrs": "WGS84",
+          "lat": 31.2781236,
+          "lng": 121.4471831
+        },
+        "reviewedOverride": null
+      },
+      "topCandidate": null,
+      "hardRejectSummary": {
+        "candidateCount": 26,
+        "rejectedCandidateCount": 25,
+        "reasons": {
+          "non-cinema-poi": 24,
+          "mall-fallback-not-qualified": 1
+        }
+      },
+      "ambiguity": {
+        "evaluatedCandidates": 1,
+        "ignoredHardRejected": 25,
+        "trueAmbiguity": false
+      },
+      "overrideUsed": false,
+      "reviewedOverride": null
+    },
+    {
+      "sourceRow": 36,
+      "sourceName": "上海CGV影城（天空万科广场店）",
+      "city": "上海",
+      "province": "上海",
+      "status": "unknown",
+      "projection": {
+        "raw": "IMAX Commercial Laser\n12声道音响系统",
+        "system": "Commercial Laser",
+        "technology": "laser",
+        "dome": false,
+        "audioChannels": 12
+      },
+      "sourceCategory": "commercial-cinema",
+      "countyLevelCity": false,
+      "queryVariants": [
+        {
+          "kind": "current-name-city",
+          "query": "上海CGV影城（天空万科广场店） 上海",
+          "cache": "hit",
+          "ok": true,
+          "candidateCount": 20,
+          "errorCode": null
+        },
+        {
+          "kind": "project-brand",
+          "query": "天空万科广场 cgv 上海",
+          "cache": "hit",
+          "ok": true,
+          "candidateCount": 25,
+          "errorCode": null
+        }
+      ],
+      "selected": null,
+      "topCandidate": {
+        "poiId": "B0L1CG5OOH",
+        "name": "CGV",
+        "address": "通虹路与申虹路交叉口西南120米",
+        "typecode": "080601",
+        "positionType": "cinema-poi",
+        "locationGranularity": "cinema",
+        "score": 0.747733,
+        "automaticDecision": "rejected",
+        "confidence": "unknown",
+        "locationConfidence": "unknown",
+        "identityConfidence": "unknown",
+        "geocodeSource": "amap:poi-search",
+        "adminMatch": {
+          "provinceMatch": true,
+          "prefectureMatch": true,
+          "countyMatch": null,
+          "targetLevel": "municipality",
+          "compatible": true,
+          "targetProvince": "上海",
+          "targetPrefecture": "上海",
+          "targetCounty": null,
+          "providerProvince": "上海",
+          "providerPrefecture": "上海",
+          "providerCounty": "闵行",
+          "mappingSource": "municipality-rule"
+        },
+        "formatCompatibility": {
+          "compatible": true,
+          "exactFormatMatch": false,
+          "conflicts": []
+        },
+        "provider": {
+          "providerCrs": "GCJ-02",
+          "providerLat": 31.198775,
+          "providerLng": 121.315225
+        },
+        "map": {
+          "mapCrs": "WGS84",
+          "lat": 31.2007416,
+          "lng": 121.3107137
+        },
+        "reviewedOverride": null
+      },
+      "hardRejectSummary": {
+        "candidateCount": 44,
+        "rejectedCandidateCount": 44,
+        "reasons": {
+          "project-mismatch": 15,
+          "non-cinema-poi": 28,
+          "mall-fallback-not-qualified": 1
+        }
+      },
+      "ambiguity": {
+        "evaluatedCandidates": 0,
+        "ignoredHardRejected": 44,
+        "trueAmbiguity": false
+      },
+      "overrideUsed": false,
+      "reviewedOverride": null
+    },
+    {
+      "sourceRow": 37,
+      "sourceName": "上海百丽宫影城（环贸iapm店）",
+      "city": "上海",
+      "province": "上海",
+      "status": "unknown",
+      "projection": {
+        "raw": "IMAX Commercial Laser\n12声道音响系统",
+        "system": "Commercial Laser",
+        "technology": "laser",
+        "dome": false,
+        "audioChannels": 12
+      },
+      "sourceCategory": "commercial-cinema",
+      "countyLevelCity": false,
+      "queryVariants": [
+        {
+          "kind": "current-name-city",
+          "query": "上海百丽宫影城（环贸iapm店） 上海",
+          "cache": "hit",
+          "ok": true,
+          "candidateCount": 1,
+          "errorCode": null
+        },
+        {
+          "kind": "project-brand",
+          "query": "环贸iapm 百丽宫 上海",
+          "cache": "hit",
+          "ok": true,
+          "candidateCount": 2,
+          "errorCode": null
+        }
+      ],
+      "selected": {
+        "poiId": "B00157A5JJ",
+        "name": "百丽宫影城(上海环贸店)",
+        "address": "淮海中路999号环贸iapm商场L6层L6-601",
+        "typecode": "080601",
+        "positionType": "cinema-poi",
+        "locationGranularity": "cinema",
+        "score": 0.92,
+        "automaticDecision": "accepted-high",
+        "confidence": "high",
+        "locationConfidence": "high",
+        "identityConfidence": "high",
+        "geocodeSource": "amap:poi-search",
+        "adminMatch": {
+          "provinceMatch": true,
+          "prefectureMatch": true,
+          "countyMatch": null,
+          "targetLevel": "municipality",
+          "compatible": true,
+          "targetProvince": "上海",
+          "targetPrefecture": "上海",
+          "targetCounty": null,
+          "providerProvince": "上海",
+          "providerPrefecture": "上海",
+          "providerCounty": "徐汇",
+          "mappingSource": "municipality-rule"
+        },
+        "formatCompatibility": {
+          "compatible": true,
+          "exactFormatMatch": false,
+          "conflicts": []
+        },
+        "provider": {
+          "providerCrs": "GCJ-02",
+          "providerLat": 31.215838,
+          "providerLng": 121.457763
+        },
+        "map": {
+          "mapCrs": "WGS84",
+          "lat": 31.2177468,
+          "lng": 121.4531931
+        },
+        "reviewedOverride": null
+      },
+      "topCandidate": null,
+      "hardRejectSummary": {
+        "candidateCount": 2,
+        "rejectedCandidateCount": 1,
+        "reasons": {
+          "brand-mismatch": 1
+        }
+      },
+      "ambiguity": {
+        "evaluatedCandidates": 1,
+        "ignoredHardRejected": 1,
+        "trueAmbiguity": false
+      },
+      "overrideUsed": false,
+      "reviewedOverride": null
+    },
+    {
+      "sourceRow": 38,
+      "sourceName": "上海UME影城（虹桥天地店)",
+      "city": "上海",
+      "province": "上海",
+      "status": "unknown",
+      "projection": {
+        "raw": "IMAX 氙灯",
+        "system": "Xenon",
+        "technology": "xenon",
+        "dome": false,
+        "audioChannels": null
+      },
+      "sourceCategory": "commercial-cinema",
+      "countyLevelCity": false,
+      "queryVariants": [
+        {
+          "kind": "current-name-city",
+          "query": "上海UME影城（虹桥天地店) 上海",
+          "cache": "hit",
+          "ok": true,
+          "candidateCount": 1,
+          "errorCode": null
+        },
+        {
+          "kind": "project-brand",
+          "query": "虹桥天地 ume 上海",
+          "cache": "hit",
+          "ok": true,
+          "candidateCount": 25,
+          "errorCode": null
+        }
+      ],
+      "selected": {
+        "poiId": "B0JDGBV4H2",
+        "name": "UME影城(虹桥新天地购物中心)",
+        "address": "申长路688号虹桥天地购物中心L6层L6-01",
+        "typecode": "080601",
+        "positionType": "cinema-poi",
+        "locationGranularity": "cinema",
+        "score": 0.92,
+        "automaticDecision": "accepted-high",
+        "confidence": "high",
+        "locationConfidence": "high",
+        "identityConfidence": "high",
+        "geocodeSource": "amap:poi-search",
+        "adminMatch": {
+          "provinceMatch": true,
+          "prefectureMatch": true,
+          "countyMatch": null,
+          "targetLevel": "municipality",
+          "compatible": true,
+          "targetProvince": "上海",
+          "targetPrefecture": "上海",
+          "targetCounty": null,
+          "providerProvince": "上海",
+          "providerPrefecture": "上海",
+          "providerCounty": "闵行",
+          "mappingSource": "municipality-rule"
+        },
+        "formatCompatibility": {
+          "compatible": true,
+          "exactFormatMatch": false,
+          "conflicts": []
+        },
+        "provider": {
+          "providerCrs": "GCJ-02",
+          "providerLat": 31.19226,
+          "providerLng": 121.31603
+        },
+        "map": {
+          "mapCrs": "WGS84",
+          "lat": 31.1942283,
+          "lng": 121.3115175
+        },
+        "reviewedOverride": null
+      },
+      "topCandidate": null,
+      "hardRejectSummary": {
+        "candidateCount": 25,
+        "rejectedCandidateCount": 23,
+        "reasons": {
+          "non-cinema-poi": 22,
+          "mall-fallback-not-qualified": 1
+        }
+      },
+      "ambiguity": {
+        "evaluatedCandidates": 2,
+        "ignoredHardRejected": 23,
+        "trueAmbiguity": false
+      },
+      "overrideUsed": false,
+      "reviewedOverride": null
+    },
+    {
+      "sourceRow": 39,
+      "sourceName": "上海博悦汇影城（环宇城IMAX店)",
+      "city": "上海",
+      "province": "上海",
+      "status": "unknown",
+      "projection": {
+        "raw": "IMAX Laser XT",
+        "system": "Laser XT",
+        "technology": "laser",
+        "dome": false,
+        "audioChannels": null
+      },
+      "sourceCategory": "commercial-cinema",
+      "countyLevelCity": false,
+      "queryVariants": [
+        {
+          "kind": "current-name-city",
+          "query": "上海博悦汇影城（环宇城IMAX店) 上海",
+          "cache": "hit",
+          "ok": true,
+          "candidateCount": 1,
+          "errorCode": null
+        },
+        {
+          "kind": "device-description-removed",
+          "query": "上海博悦汇影城 上海",
+          "cache": "hit",
+          "ok": true,
+          "candidateCount": 3,
+          "errorCode": null
+        }
+      ],
+      "selected": {
+        "poiId": "B0JKT6WZ41",
+        "name": "博悦汇影城IMAX",
+        "address": "铜川路699弄1号上海中海环宇城MAX L5层",
+        "typecode": "080601|080300",
+        "positionType": "cinema-poi",
+        "locationGranularity": "cinema",
+        "score": 0.958737,
+        "automaticDecision": "accepted-high",
+        "confidence": "high",
+        "locationConfidence": "high",
+        "identityConfidence": "high",
+        "geocodeSource": "amap:poi-search",
+        "adminMatch": {
+          "provinceMatch": true,
+          "prefectureMatch": true,
+          "countyMatch": null,
+          "targetLevel": "municipality",
+          "compatible": true,
+          "targetProvince": "上海",
+          "targetPrefecture": "上海",
+          "targetCounty": null,
+          "providerProvince": "上海",
+          "providerPrefecture": "上海",
+          "providerCounty": "普陀",
+          "mappingSource": "municipality-rule"
+        },
+        "formatCompatibility": {
+          "compatible": true,
+          "exactFormatMatch": true,
+          "conflicts": []
+        },
+        "provider": {
+          "providerCrs": "GCJ-02",
+          "providerLat": 31.250622,
+          "providerLng": 121.410388
+        },
+        "map": {
+          "mapCrs": "WGS84",
+          "lat": 31.2524494,
+          "lng": 121.4057366
+        },
+        "reviewedOverride": null
+      },
+      "topCandidate": null,
+      "hardRejectSummary": {
+        "candidateCount": 3,
+        "rejectedCandidateCount": 2,
+        "reasons": {
+          "project-mismatch": 1,
+          "non-cinema-poi": 1
+        }
+      },
+      "ambiguity": {
+        "evaluatedCandidates": 1,
+        "ignoredHardRejected": 2,
+        "trueAmbiguity": false
+      },
+      "overrideUsed": false,
+      "reviewedOverride": null
+    },
+    {
+      "sourceRow": 40,
+      "sourceName": "上海SFC上影影城（港汇永华IMAX激光店)",
+      "city": "上海",
+      "province": "上海",
+      "status": "open",
+      "projection": {
+        "raw": "IMAX Commercial Laser",
+        "system": "Commercial Laser",
+        "technology": "laser",
+        "dome": false,
+        "audioChannels": null
+      },
+      "sourceCategory": "commercial-cinema",
+      "countyLevelCity": false,
+      "queryVariants": [
+        {
+          "kind": "current-name-city",
+          "query": "上海SFC上影影城（港汇永华IMAX激光店) 上海",
+          "cache": "hit",
+          "ok": true,
+          "candidateCount": 1,
+          "errorCode": null
+        },
+        {
+          "kind": "device-description-removed",
+          "query": "上海SFC上影影城 上海",
+          "cache": "hit",
+          "ok": true,
+          "candidateCount": 25,
+          "errorCode": null
+        }
+      ],
+      "selected": {
+        "poiId": "B00155LAQL",
+        "name": "SFC上影影城(港汇永华IMAX激光店)",
+        "address": "虹桥路1号港汇恒隆广场6层",
+        "typecode": "080601",
+        "positionType": "cinema-poi",
+        "locationGranularity": "cinema",
+        "score": 1,
+        "automaticDecision": "accepted-high",
+        "confidence": "high",
+        "locationConfidence": "high",
+        "identityConfidence": "high",
+        "geocodeSource": "amap:poi-search",
+        "adminMatch": {
+          "provinceMatch": true,
+          "prefectureMatch": true,
+          "countyMatch": null,
+          "targetLevel": "municipality",
+          "compatible": true,
+          "targetProvince": "上海",
+          "targetPrefecture": "上海",
+          "targetCounty": null,
+          "providerProvince": "上海",
+          "providerPrefecture": "上海",
+          "providerCounty": "徐汇",
+          "mappingSource": "municipality-rule"
+        },
+        "formatCompatibility": {
+          "compatible": true,
+          "exactFormatMatch": true,
+          "conflicts": []
+        },
+        "provider": {
+          "providerCrs": "GCJ-02",
+          "providerLat": 31.194985,
+          "providerLng": 121.436656
+        },
+        "map": {
+          "mapCrs": "WGS84",
+          "lat": 31.1968633,
+          "lng": 121.4320393
+        },
+        "reviewedOverride": null
+      },
+      "topCandidate": null,
+      "hardRejectSummary": {
+        "candidateCount": 25,
+        "rejectedCandidateCount": 24,
+        "reasons": {
+          "project-mismatch": 24
+        }
+      },
+      "ambiguity": {
+        "evaluatedCandidates": 1,
+        "ignoredHardRejected": 24,
+        "trueAmbiguity": false
+      },
+      "overrideUsed": false,
+      "reviewedOverride": null
+    },
+    {
+      "sourceRow": 41,
+      "sourceName": "上海万达影城（周浦万达广场店）",
+      "city": "上海",
+      "province": "上海",
+      "status": "open",
+      "projection": {
+        "raw": "IMAX Laser XT",
+        "system": "Laser XT",
+        "technology": "laser",
+        "dome": false,
+        "audioChannels": null
+      },
+      "sourceCategory": "commercial-cinema",
+      "countyLevelCity": false,
+      "queryVariants": [
+        {
+          "kind": "current-name-city",
+          "query": "上海万达影城（周浦万达广场店） 上海",
+          "cache": "hit",
+          "ok": true,
+          "candidateCount": 8,
+          "errorCode": null
+        },
+        {
+          "kind": "project-brand",
+          "query": "周浦万达广场 万达影城 上海",
+          "cache": "hit",
+          "ok": true,
+          "candidateCount": 2,
+          "errorCode": null
+        }
+      ],
+      "selected": {
+        "poiId": "B00155Q6TY",
+        "name": "万达影城IMAX(周浦万达广场店)",
+        "address": "周浦镇年家浜路518号万达广场C座4层",
+        "typecode": "080601",
+        "positionType": "cinema-poi",
+        "locationGranularity": "cinema",
+        "score": 1,
+        "automaticDecision": "accepted-high",
+        "confidence": "high",
+        "locationConfidence": "high",
+        "identityConfidence": "high",
+        "geocodeSource": "amap:poi-search",
+        "adminMatch": {
+          "provinceMatch": true,
+          "prefectureMatch": true,
+          "countyMatch": null,
+          "targetLevel": "municipality",
+          "compatible": true,
+          "targetProvince": "上海",
+          "targetPrefecture": "上海",
+          "targetCounty": null,
+          "providerProvince": "上海",
+          "providerPrefecture": "上海",
+          "providerCounty": "浦东新",
+          "mappingSource": "municipality-rule"
+        },
+        "formatCompatibility": {
+          "compatible": true,
+          "exactFormatMatch": true,
+          "conflicts": []
+        },
+        "provider": {
+          "providerCrs": "GCJ-02",
+          "providerLat": 31.114247,
+          "providerLng": 121.570434
+        },
+        "map": {
+          "mapCrs": "WGS84",
+          "lat": 31.1164921,
+          "lng": 121.5662176
+        },
+        "reviewedOverride": null
+      },
+      "topCandidate": null,
+      "hardRejectSummary": {
+        "candidateCount": 8,
+        "rejectedCandidateCount": 7,
+        "reasons": {
+          "non-cinema-poi": 6,
+          "mall-fallback-not-qualified": 1
+        }
+      },
+      "ambiguity": {
+        "evaluatedCandidates": 1,
+        "ignoredHardRejected": 7,
+        "trueAmbiguity": false
+      },
+      "overrideUsed": false,
+      "reviewedOverride": null
+    },
+    {
+      "sourceRow": 42,
+      "sourceName": "上海寰映影城（荟聚店）",
+      "city": "上海",
+      "province": "上海",
+      "status": "unknown",
+      "projection": {
+        "raw": "IMAX Commercial Laser\n12声道音响系统",
+        "system": "Commercial Laser",
+        "technology": "laser",
+        "dome": false,
+        "audioChannels": 12
+      },
+      "sourceCategory": "commercial-cinema",
+      "countyLevelCity": false,
+      "queryVariants": [
+        {
+          "kind": "current-name-city",
+          "query": "上海寰映影城（荟聚店） 上海",
+          "cache": "hit",
+          "ok": true,
+          "candidateCount": 1,
+          "errorCode": null
+        },
+        {
+          "kind": "project-brand",
+          "query": "荟聚 寰映 上海",
+          "cache": "hit",
+          "ok": true,
+          "candidateCount": 1,
+          "errorCode": null
+        }
+      ],
+      "selected": {
+        "poiId": "B0K2OU286E",
+        "name": "HOYTS寰映影城(荟聚店)",
+        "address": "金钟路788号上海荟聚Livat F4层",
+        "typecode": "080601",
+        "positionType": "cinema-poi",
+        "locationGranularity": "cinema",
+        "score": 0.95891,
+        "automaticDecision": "accepted-high",
+        "confidence": "high",
+        "locationConfidence": "high",
+        "identityConfidence": "high",
+        "geocodeSource": "amap:poi-search",
+        "adminMatch": {
+          "provinceMatch": true,
+          "prefectureMatch": true,
+          "countyMatch": null,
+          "targetLevel": "municipality",
+          "compatible": true,
+          "targetProvince": "上海",
+          "targetPrefecture": "上海",
+          "targetCounty": null,
+          "providerProvince": "上海",
+          "providerPrefecture": "上海",
+          "providerCounty": "长宁",
+          "mappingSource": "municipality-rule"
+        },
+        "formatCompatibility": {
+          "compatible": true,
+          "exactFormatMatch": false,
+          "conflicts": []
+        },
+        "provider": {
+          "providerCrs": "GCJ-02",
+          "providerLat": 31.221756,
+          "providerLng": 121.356609
+        },
+        "map": {
+          "mapCrs": "WGS84",
+          "lat": 31.2236357,
+          "lng": 121.3520056
+        },
+        "reviewedOverride": null
+      },
+      "topCandidate": null,
+      "hardRejectSummary": {
+        "candidateCount": 1,
+        "rejectedCandidateCount": 0,
+        "reasons": {}
+      },
+      "ambiguity": {
+        "evaluatedCandidates": 1,
+        "ignoredHardRejected": 0,
+        "trueAmbiguity": false
+      },
+      "overrideUsed": false,
+      "reviewedOverride": null
+    },
+    {
+      "sourceRow": 43,
+      "sourceName": "上海万达影城（江桥万达广场店）",
+      "city": "上海",
+      "province": "上海",
+      "status": "unknown",
+      "projection": {
+        "raw": "IMAX Laser XT",
+        "system": "Laser XT",
+        "technology": "laser",
+        "dome": false,
+        "audioChannels": null
+      },
+      "sourceCategory": "commercial-cinema",
+      "countyLevelCity": false,
+      "queryVariants": [
+        {
+          "kind": "current-name-city",
+          "query": "上海万达影城（江桥万达广场店） 上海",
+          "cache": "hit",
+          "ok": true,
+          "candidateCount": 12,
+          "errorCode": null
+        },
+        {
+          "kind": "project-brand",
+          "query": "江桥万达广场 万达影城 上海",
+          "cache": "hit",
+          "ok": true,
+          "candidateCount": 7,
+          "errorCode": null
+        }
+      ],
+      "selected": {
+        "poiId": "B00155QYJ6",
+        "name": "万达影城(江桥万达广场店)",
+        "address": "金沙江西路1051号万达广场(江桥店)F3层",
+        "typecode": "080601",
+        "positionType": "cinema-poi",
+        "locationGranularity": "cinema",
+        "score": 1,
+        "automaticDecision": "accepted-high",
+        "confidence": "high",
+        "locationConfidence": "high",
+        "identityConfidence": "high",
+        "geocodeSource": "amap:poi-search",
+        "adminMatch": {
+          "provinceMatch": true,
+          "prefectureMatch": true,
+          "countyMatch": null,
+          "targetLevel": "municipality",
+          "compatible": true,
+          "targetProvince": "上海",
+          "targetPrefecture": "上海",
+          "targetCounty": null,
+          "providerProvince": "上海",
+          "providerPrefecture": "上海",
+          "providerCounty": "嘉定",
+          "mappingSource": "municipality-rule"
+        },
+        "formatCompatibility": {
+          "compatible": true,
+          "exactFormatMatch": false,
+          "conflicts": []
+        },
+        "provider": {
+          "providerCrs": "GCJ-02",
+          "providerLat": 31.239178,
+          "providerLng": 121.321448
+        },
+        "map": {
+          "mapCrs": "WGS84",
+          "lat": 31.2411139,
+          "lng": 121.3169193
+        },
+        "reviewedOverride": null
+      },
+      "topCandidate": null,
+      "hardRejectSummary": {
+        "candidateCount": 12,
+        "rejectedCandidateCount": 11,
+        "reasons": {
+          "non-cinema-poi": 9,
+          "mall-fallback-not-qualified": 1,
+          "non-target-business-name": 1,
+          "brand-mismatch": 1,
+          "project-mismatch": 1
+        }
+      },
+      "ambiguity": {
+        "evaluatedCandidates": 1,
+        "ignoredHardRejected": 11,
+        "trueAmbiguity": false
+      },
+      "overrideUsed": false,
+      "reviewedOverride": null
+    },
+    {
+      "sourceRow": 44,
+      "sourceName": "上海万达影城（五角场万达广场店）",
+      "city": "上海",
+      "province": "上海",
+      "status": "open",
+      "projection": {
+        "raw": "IMAX Commercial Laser\n12声道音响系统",
+        "system": "Commercial Laser",
+        "technology": "laser",
+        "dome": false,
+        "audioChannels": 12
+      },
+      "sourceCategory": "commercial-cinema",
+      "countyLevelCity": false,
+      "queryVariants": [
+        {
+          "kind": "current-name-city",
+          "query": "上海万达影城（五角场万达广场店） 上海",
+          "cache": "hit",
+          "ok": true,
+          "candidateCount": 8,
+          "errorCode": null
+        },
+        {
+          "kind": "project-brand",
+          "query": "五角场万达广场 万达影城 上海",
+          "cache": "hit",
+          "ok": true,
+          "candidateCount": 1,
+          "errorCode": null
+        }
+      ],
+      "selected": {
+        "poiId": "B00155F1K6",
+        "name": "万达影城(五角场万达广场激光IMAX店)",
+        "address": "国宾路58号万达广场B栋3层",
+        "typecode": "080601",
+        "positionType": "cinema-poi",
+        "locationGranularity": "cinema",
+        "score": 1,
+        "automaticDecision": "accepted-high",
+        "confidence": "high",
+        "locationConfidence": "high",
+        "identityConfidence": "high",
+        "geocodeSource": "amap:poi-search",
+        "adminMatch": {
+          "provinceMatch": true,
+          "prefectureMatch": true,
+          "countyMatch": null,
+          "targetLevel": "municipality",
+          "compatible": true,
+          "targetProvince": "上海",
+          "targetPrefecture": "上海",
+          "targetCounty": null,
+          "providerProvince": "上海",
+          "providerPrefecture": "上海",
+          "providerCounty": "杨浦",
+          "mappingSource": "municipality-rule"
+        },
+        "formatCompatibility": {
+          "compatible": true,
+          "exactFormatMatch": true,
+          "conflicts": []
+        },
+        "provider": {
+          "providerCrs": "GCJ-02",
+          "providerLat": 31.300903,
+          "providerLng": 121.512913
+        },
+        "map": {
+          "mapCrs": "WGS84",
+          "lat": 31.3029302,
+          "lng": 121.5085222
+        },
+        "reviewedOverride": null
+      },
+      "topCandidate": null,
+      "hardRejectSummary": {
+        "candidateCount": 8,
+        "rejectedCandidateCount": 7,
+        "reasons": {
+          "non-cinema-poi": 5,
+          "mall-fallback-not-qualified": 2
+        }
+      },
+      "ambiguity": {
+        "evaluatedCandidates": 1,
+        "ignoredHardRejected": 7,
+        "trueAmbiguity": false
+      },
+      "overrideUsed": false,
+      "reviewedOverride": null
+    },
+    {
+      "sourceRow": 45,
+      "sourceName": "上海沃美影城（宝山经纬汇激光IMAX店）",
+      "city": "上海",
+      "province": "上海",
+      "status": "open",
+      "projection": {
+        "raw": "IMAX Laser XT",
+        "system": "Laser XT",
+        "technology": "laser",
+        "dome": false,
+        "audioChannels": null
+      },
+      "sourceCategory": "commercial-cinema",
+      "countyLevelCity": false,
+      "queryVariants": [
+        {
+          "kind": "current-name-city",
+          "query": "上海沃美影城（宝山经纬汇激光IMAX店） 上海",
+          "cache": "hit",
+          "ok": true,
+          "candidateCount": 1,
+          "errorCode": null
+        },
+        {
+          "kind": "device-description-removed",
+          "query": "上海沃美影城 上海",
+          "cache": "hit",
+          "ok": true,
+          "candidateCount": 1,
+          "errorCode": null
+        }
+      ],
+      "selected": {
+        "poiId": "B0LURM2UMX",
+        "name": "沃美影城(上海宝山经纬汇激光IMAX店)",
+        "address": "经纬汇6座3层(入口在超盒算超市正上方)",
+        "typecode": "080601",
+        "positionType": "cinema-poi",
+        "locationGranularity": "cinema",
+        "score": 0.910112,
+        "automaticDecision": "accepted-high",
+        "confidence": "high",
+        "locationConfidence": "high",
+        "identityConfidence": "high",
+        "geocodeSource": "amap:poi-search",
+        "adminMatch": {
+          "provinceMatch": true,
+          "prefectureMatch": true,
+          "countyMatch": null,
+          "targetLevel": "municipality",
+          "compatible": true,
+          "targetProvince": "上海",
+          "targetPrefecture": "上海",
+          "targetCounty": null,
+          "providerProvince": "上海",
+          "providerPrefecture": "上海",
+          "providerCounty": "宝山",
+          "mappingSource": "municipality-rule"
+        },
+        "formatCompatibility": {
+          "compatible": true,
+          "exactFormatMatch": true,
+          "conflicts": []
+        },
+        "provider": {
+          "providerCrs": "GCJ-02",
+          "providerLat": 31.323347,
+          "providerLng": 121.398821
+        },
+        "map": {
+          "mapCrs": "WGS84",
+          "lat": 31.3251437,
+          "lng": 121.3941617
+        },
+        "reviewedOverride": null
+      },
+      "topCandidate": null,
+      "hardRejectSummary": {
+        "candidateCount": 1,
+        "rejectedCandidateCount": 0,
+        "reasons": {}
+      },
+      "ambiguity": {
+        "evaluatedCandidates": 1,
+        "ignoredHardRejected": 0,
+        "trueAmbiguity": false
+      },
+      "overrideUsed": false,
+      "reviewedOverride": null
+    },
+    {
+      "sourceRow": 46,
+      "sourceName": "上海寰映影城（陆悦天地店）",
+      "city": "上海",
+      "province": "上海",
+      "status": "open",
+      "projection": {
+        "raw": "IMAX Laser XT",
+        "system": "Laser XT",
+        "technology": "laser",
+        "dome": false,
+        "audioChannels": null
+      },
+      "sourceCategory": "commercial-cinema",
+      "countyLevelCity": false,
+      "queryVariants": [
+        {
+          "kind": "current-name-city",
+          "query": "上海寰映影城（陆悦天地店） 上海",
+          "cache": "hit",
+          "ok": true,
+          "candidateCount": 1,
+          "errorCode": null
+        },
+        {
+          "kind": "project-brand",
+          "query": "陆悦天地 寰映 上海",
+          "cache": "hit",
+          "ok": true,
+          "candidateCount": 1,
+          "errorCode": null
+        }
+      ],
+      "selected": {
+        "poiId": "B0LKPC04G0",
+        "name": "寰映影城(张江陆悦天地店)",
+        "address": "中科路1600号陆悦天地F5层",
+        "typecode": "080601",
+        "positionType": "cinema-poi",
+        "locationGranularity": "cinema",
+        "score": 0.92,
+        "automaticDecision": "accepted-high",
+        "confidence": "high",
+        "locationConfidence": "high",
+        "identityConfidence": "high",
+        "geocodeSource": "amap:poi-search",
+        "adminMatch": {
+          "provinceMatch": true,
+          "prefectureMatch": true,
+          "countyMatch": null,
+          "targetLevel": "municipality",
+          "compatible": true,
+          "targetProvince": "上海",
+          "targetPrefecture": "上海",
+          "targetCounty": null,
+          "providerProvince": "上海",
+          "providerPrefecture": "上海",
+          "providerCounty": "浦东新",
+          "mappingSource": "municipality-rule"
+        },
+        "formatCompatibility": {
+          "compatible": true,
+          "exactFormatMatch": false,
+          "conflicts": []
+        },
+        "provider": {
+          "providerCrs": "GCJ-02",
+          "providerLat": 31.183193,
+          "providerLng": 121.615375
+        },
+        "map": {
+          "mapCrs": "WGS84",
+          "lat": 31.1854117,
+          "lng": 121.6111737
+        },
+        "reviewedOverride": null
+      },
+      "topCandidate": null,
+      "hardRejectSummary": {
+        "candidateCount": 1,
+        "rejectedCandidateCount": 0,
+        "reasons": {}
+      },
+      "ambiguity": {
+        "evaluatedCandidates": 1,
+        "ignoredHardRejected": 0,
+        "trueAmbiguity": false
+      },
+      "overrideUsed": false,
+      "reviewedOverride": null
+    }
+  ]
+}

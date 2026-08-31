@@ -1,0 +1,130 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <meta name="color-scheme" content="light dark" />
+  <meta name="robots" content="noindex,nofollow,noarchive" />
+  <link rel="icon" href="data:," />
+  <link rel="stylesheet" href="./styles.css" />
+  <title>中国 IMAX 银幕地图 · 私有高德版</title>
+</head>
+<body>
+  <div id="map" aria-label="中国 IMAX 影院高德地图"></div>
+
+  <section class="panel" aria-label="地图筛选面板">
+    <header class="panel-header">
+      <div class="brand-lockup">
+        <span class="brand-mark" aria-hidden="true">IMAX</span>
+        <div>
+          <div class="eyebrow">THEATRE ATLAS · CHINA</div>
+          <h1>中国 IMAX 银幕地图</h1>
+        </div>
+      </div>
+      <span class="version" title="AMap JS API 2.0">私有高德</span>
+    </header>
+
+    <div class="panel-body">
+      <div class="private-warning"><span>PRIVATE</span> 私有访问 · 坐标包不进入公开 Git</div>
+      <div class="data-banner" id="dataBanner">正在加载私有高德坐标层…</div>
+
+      <div class="lifecycle-block">
+        <div class="section-heading">
+          <span>时间视图</span>
+          <small>默认只看现有，历史前身单独保留</small>
+        </div>
+        <div class="lifecycle-switch" id="lifecycleFilters" role="group" aria-label="现有或历史 IMAX">
+          <button class="active" data-lifecycle="current" type="button" aria-pressed="true">
+            <span>现有 IMAX</span><strong id="currentLifecycleCount">—</strong>
+          </button>
+          <button data-lifecycle="history" type="button" aria-pressed="false">
+            <span>历史 IMAX</span><strong id="historyLifecycleCount">—</strong>
+          </button>
+        </div>
+      </div>
+
+      <div class="search-wrap">
+        <input id="search" type="search" placeholder="搜索影院、曾用名、城市、商场或场馆" autocomplete="off" />
+      </div>
+      <div class="nearby-actions" aria-label="附近 IMAX 操作">
+        <button class="nearby-button" id="nearbyButton" type="button"><span aria-hidden="true">⌖</span> 我的位置</button>
+        <button class="nearby-exit" id="exitNearbyButton" type="button" hidden>× 退出附近</button>
+      </div>
+      <div class="nearby-status" id="nearbyStatus" role="status" aria-live="polite" hidden></div>
+      <div class="nearby-toolbar" id="nearbyToolbar" hidden>
+        <div class="nearby-scope" id="nearbyScope"></div>
+        <div class="nearby-sort" id="nearbySortFilters" aria-label="附近排序">
+          <button class="active" data-nearby-sort="distance" type="button">距离</button>
+          <button data-nearby-sort="screen" type="button">银幕大小</button>
+          <button data-nearby-sort="spec" type="button">综合规格</button>
+        </div>
+        <button class="nearby-expand" id="expandNearbyButton" type="button" hidden>扩大范围</button>
+      </div>
+
+      <details class="filter-details">
+        <summary><span>高级筛选</span><small>投影 · 地区 · 营业状态</small></summary>
+        <div class="filter-content">
+      <div class="filter-label">投影系统</div>
+      <div class="filters" id="systemFilters" aria-label="放映系统筛选">
+        <button class="active" data-system="ALL">全部</button>
+        <button data-system="GT Laser">GT Laser</button>
+        <button data-system="Commercial Laser">Commercial Laser</button>
+        <button data-system="Laser XT">Laser XT</button>
+        <button data-system="Xenon">Xenon</button>
+        <button data-dome="true">Dome</button>
+        <button data-system="unknown">Unknown</button>
+      </div>
+
+      <div class="filter-label">地区</div>
+      <div class="filters" id="regionFilters" aria-label="地区筛选">
+        <button class="active" data-region="ALL">全部地区</button>
+        <button data-region="中国大陆">中国大陆</button>
+        <button data-region="香港">香港</button>
+        <button data-region="澳门">澳门</button>
+        <button data-region="台湾">台湾</button>
+      </div>
+
+      <div class="filter-label">状态与声道</div>
+      <div class="filters" id="statusFilters" aria-label="营业状态筛选">
+        <button class="active" data-status="ALL">全部状态</button>
+        <button data-status="open">营业</button>
+        <button data-status="closed">已关闭</button>
+        <button data-status="temporarily_closed">暂时停业</button>
+        <button data-status="unknown">状态待核</button>
+        <button data-audio="12">12声道</button>
+      </div>
+        </div>
+    </details>
+
+    <div class="meta-row">
+      <div class="status" id="status">加载中…</div>
+      <div class="coverage">GCJ‑02 · 无中心补点</div>
+    </div>
+    <div class="record-list" id="recordList" aria-label="筛选后的影院记录"></div>
+    </div>
+
+    <footer class="panel-footer">
+      <div class="legend" aria-label="图例">
+        <span><i class="dot gt-bg"></i>GT</span>
+        <span><i class="dot cola-bg"></i>CoLa</span>
+        <span><i class="dot xt-bg"></i>XT</span>
+        <span><i class="dot xenon-bg"></i>Xenon</span>
+        <span><i class="dot dome-bg"></i>Dome</span>
+      </div>
+      <p class="source-line">
+        数据：<a href="https://weibo.com/6729835778" target="_blank" rel="noopener">@ArvinTingcn</a>
+        《<a href="https://docs.qq.com/sheet/DQ3FEUUZJdklNSWJP?tab=BB08J2" target="_blank" rel="noopener">全球 IMAX 及特效影厅分布</a>》 · 已获地图可视化授权
+      </p>
+    </footer>
+  </section>
+
+  <aside class="detail-panel" id="detailPanel" aria-label="影院详情" hidden>
+    <button class="detail-close" id="detailClose" aria-label="关闭影院详情">×</button>
+    <div id="detailContent"></div>
+  </aside>
+
+  <div class="map-error" id="mapError" role="status" aria-live="polite" hidden></div>
+  <script src="./runtime-config.js"></script>
+  <script type="module" src="./app.mjs"></script>
+</body>
+</html>

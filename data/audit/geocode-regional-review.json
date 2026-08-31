@@ -1,0 +1,320 @@
+{
+  "schemaVersion": 1,
+  "generatedAt": "2026-08-21T02:00:00.425Z",
+  "status": "isolated-no-new-requests",
+  "scope": "hong-kong-macau-taiwan",
+  "counts": {
+    "total": 20,
+    "hongKong": 7,
+    "macau": 1,
+    "taiwan": 12
+  },
+  "requestPolicy": {
+    "networkRequests": 0,
+    "newAmapRequests": 0,
+    "consumesMainlandAmapBudget": false,
+    "cacheFirst": true
+  },
+  "records": [
+    {
+      "sourceRow": 2,
+      "sourceName": "香港MY CINEMA YOHO MALL",
+      "region": "香港",
+      "province": "香港",
+      "city": "香港",
+      "status": "unknown",
+      "projection": {
+        "system": "Xenon",
+        "dome": false,
+        "audioChannels": null
+      },
+      "decision": "unresolved-no-regional-provider-result",
+      "reason": "No new regional provider request was made in this run; do not infer a coordinate."
+    },
+    {
+      "sourceRow": 3,
+      "sourceName": "香港英皇戲院（尖沙咀iSQUARE）",
+      "region": "香港",
+      "province": "香港",
+      "city": "香港",
+      "status": "open",
+      "projection": {
+        "system": "Commercial Laser",
+        "dome": false,
+        "audioChannels": 12
+      },
+      "decision": "unresolved-no-regional-provider-result",
+      "reason": "No new regional provider request was made in this run; do not infer a coordinate."
+    },
+    {
+      "sourceRow": 4,
+      "sourceName": "香港MCL CINEMAS（K11 Art House）",
+      "region": "香港",
+      "province": "香港",
+      "city": "香港",
+      "status": "closed",
+      "projection": {
+        "system": "Commercial Laser",
+        "dome": false,
+        "audioChannels": 12
+      },
+      "decision": "unresolved-no-regional-provider-result",
+      "reason": "No new regional provider request was made in this run; do not infer a coordinate."
+    },
+    {
+      "sourceRow": 5,
+      "sourceName": "香港B+ cinema MOKO (旺角東)",
+      "region": "香港",
+      "province": "香港",
+      "city": "香港",
+      "status": "closed",
+      "projection": {
+        "system": "Xenon",
+        "dome": false,
+        "audioChannels": null
+      },
+      "decision": "unresolved-no-regional-provider-result",
+      "reason": "No new regional provider request was made in this run; do not infer a coordinate."
+    },
+    {
+      "sourceRow": 6,
+      "sourceName": "香港影藝戲院(MegaBox)",
+      "region": "香港",
+      "province": "香港",
+      "city": "香港",
+      "status": "open",
+      "projection": {
+        "system": "Commercial Laser",
+        "dome": false,
+        "audioChannels": 12
+      },
+      "decision": "unresolved-no-regional-provider-result",
+      "reason": "No new regional provider request was made in this run; do not infer a coordinate."
+    },
+    {
+      "sourceRow": 69,
+      "sourceName": "台北美麗華大直影城",
+      "region": "台湾",
+      "province": "台湾",
+      "city": "台北",
+      "status": "open",
+      "projection": {
+        "system": "GT Laser",
+        "dome": false,
+        "audioChannels": 12
+      },
+      "decision": "unresolved-no-regional-provider-result",
+      "reason": "No new regional provider request was made in this run; do not infer a coordinate."
+    },
+    {
+      "sourceRow": 70,
+      "sourceName": "台中老虎城威秀影城",
+      "region": "台湾",
+      "province": "台湾",
+      "city": "台中",
+      "status": "unknown",
+      "projection": {
+        "system": "Xenon",
+        "dome": false,
+        "audioChannels": null
+      },
+      "decision": "unresolved-no-regional-provider-result",
+      "reason": "No new regional provider request was made in this run; do not infer a coordinate."
+    },
+    {
+      "sourceRow": 71,
+      "sourceName": "台中大遠百威秀影城",
+      "region": "台湾",
+      "province": "台湾",
+      "city": "台中",
+      "status": "unknown",
+      "projection": {
+        "system": "Xenon",
+        "dome": false,
+        "audioChannels": null
+      },
+      "decision": "unresolved-no-regional-provider-result",
+      "reason": "No new regional provider request was made in this run; do not infer a coordinate."
+    },
+    {
+      "sourceRow": 72,
+      "sourceName": "新竹巨城威秀影城",
+      "region": "台湾",
+      "province": "台湾",
+      "city": "新竹",
+      "status": "unknown",
+      "projection": {
+        "system": "Xenon",
+        "dome": false,
+        "audioChannels": null
+      },
+      "decision": "unresolved-no-regional-provider-result",
+      "reason": "No new regional provider request was made in this run; do not infer a coordinate."
+    },
+    {
+      "sourceRow": 73,
+      "sourceName": "台南南紡威秀影城",
+      "region": "台湾",
+      "province": "台湾",
+      "city": "台南",
+      "status": "unknown",
+      "projection": {
+        "system": "Xenon",
+        "dome": false,
+        "audioChannels": null
+      },
+      "decision": "unresolved-no-regional-provider-result",
+      "reason": "No new regional provider request was made in this run; do not infer a coordinate."
+    },
+    {
+      "sourceRow": 74,
+      "sourceName": "桃園美麗新台茂影城",
+      "region": "台湾",
+      "province": "台湾",
+      "city": "桃园",
+      "status": "unknown",
+      "projection": {
+        "system": "Xenon",
+        "dome": false,
+        "audioChannels": null
+      },
+      "decision": "unresolved-no-regional-provider-result",
+      "reason": "No new regional provider request was made in this run; do not infer a coordinate."
+    },
+    {
+      "sourceRow": 75,
+      "sourceName": "花蓮新天堂樂園威秀影城",
+      "region": "台湾",
+      "province": "台湾",
+      "city": "花莲",
+      "status": "unknown",
+      "projection": {
+        "system": "Commercial Laser",
+        "dome": false,
+        "audioChannels": 12
+      },
+      "decision": "unresolved-no-regional-provider-result",
+      "reason": "No new regional provider request was made in this run; do not infer a coordinate."
+    },
+    {
+      "sourceRow": 76,
+      "sourceName": "嘉義In89豪華影城",
+      "region": "台湾",
+      "province": "台湾",
+      "city": "嘉义",
+      "status": "unknown",
+      "projection": {
+        "system": "Commercial Laser",
+        "dome": false,
+        "audioChannels": 12
+      },
+      "decision": "unresolved-no-regional-provider-result",
+      "reason": "No new regional provider request was made in this run; do not infer a coordinate."
+    },
+    {
+      "sourceRow": 77,
+      "sourceName": "高雄大遠百威秀影城",
+      "region": "台湾",
+      "province": "台湾",
+      "city": "高雄",
+      "status": "unknown",
+      "projection": {
+        "system": "Laser XT",
+        "dome": false,
+        "audioChannels": null
+      },
+      "decision": "unresolved-no-regional-provider-result",
+      "reason": "No new regional provider request was made in this run; do not infer a coordinate."
+    },
+    {
+      "sourceRow": 78,
+      "sourceName": "新北板橋大遠百威秀影城",
+      "region": "台湾",
+      "province": "台湾",
+      "city": "新北",
+      "status": "unknown",
+      "projection": {
+        "system": "Laser XT",
+        "dome": false,
+        "audioChannels": null
+      },
+      "decision": "unresolved-no-regional-provider-result",
+      "reason": "No new regional provider request was made in this run; do not infer a coordinate."
+    },
+    {
+      "sourceRow": 79,
+      "sourceName": "新北新店裕隆城威秀影城",
+      "region": "台湾",
+      "province": "台湾",
+      "city": "新北",
+      "status": "unknown",
+      "projection": {
+        "system": "Laser XT",
+        "dome": false,
+        "audioChannels": null
+      },
+      "decision": "unresolved-no-regional-provider-result",
+      "reason": "No new regional provider request was made in this run; do not infer a coordinate."
+    },
+    {
+      "sourceRow": 791,
+      "sourceName": "澳门英皇戲院（澳門葡京人）",
+      "region": "澳门",
+      "province": "澳门",
+      "city": "澳门",
+      "status": "unknown",
+      "projection": {
+        "system": "Commercial Laser",
+        "dome": false,
+        "audioChannels": 12
+      },
+      "decision": "unresolved-no-regional-provider-result",
+      "reason": "No new regional provider request was made in this run; do not infer a coordinate."
+    },
+    {
+      "sourceRow": 891,
+      "sourceName": "基隆國立海洋科技博物館",
+      "region": "台湾",
+      "province": "台湾",
+      "city": "基隆",
+      "status": "unknown",
+      "projection": {
+        "system": "Xenon",
+        "dome": false,
+        "audioChannels": null
+      },
+      "decision": "unresolved-no-regional-provider-result",
+      "reason": "No new regional provider request was made in this run; do not infer a coordinate."
+    },
+    {
+      "sourceRow": 894,
+      "sourceName": "香港機場UA IMAX影院",
+      "region": "香港",
+      "province": "香港",
+      "city": "香港",
+      "status": "unknown",
+      "projection": {
+        "system": "Xenon",
+        "dome": false,
+        "audioChannels": null
+      },
+      "decision": "unresolved-no-regional-provider-result",
+      "reason": "No new regional provider request was made in this run; do not infer a coordinate."
+    },
+    {
+      "sourceRow": 895,
+      "sourceName": "香港香港太空館",
+      "region": "香港",
+      "province": "香港",
+      "city": "香港",
+      "status": "unknown",
+      "projection": {
+        "system": "Xenon",
+        "dome": true,
+        "audioChannels": null
+      },
+      "decision": "unresolved-no-regional-provider-result",
+      "reason": "No new regional provider request was made in this run; do not infer a coordinate."
+    }
+  ]
+}

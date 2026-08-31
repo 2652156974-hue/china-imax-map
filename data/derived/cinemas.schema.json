@@ -31,13 +31,14 @@
     "nullableNumber": { "type": ["number", "null"] },
     "cinema": {
       "type": "object",
-      "required": ["id", "sourceRow", "name", "formerNames", "region", "province", "city", "projection", "screen", "seats", "seatsRaw", "status", "historySummary", "location", "source"],
+      "required": ["id", "sourceRow", "name", "nameRaw", "formerNames", "unparsedNameLines", "region", "province", "city", "projection", "screen", "seats", "seatsRaw", "status", "historySummary", "location", "source"],
       "properties": {
         "id": { "type": "string", "minLength": 1 },
         "sourceRow": { "type": "integer", "minimum": 2, "maximum": 902 },
         "name": { "type": "string" },
         "nameRaw": { "type": "string" },
         "formerNames": { "type": "array", "items": { "type": "string" } },
+        "unparsedNameLines": { "type": "array", "items": { "type": "string" } },
         "region": { "type": "string" },
         "province": { "type": ["string", "null"] },
         "city": { "type": ["string", "null"] },
@@ -80,6 +81,14 @@
           "properties": {
             "lat": { "$ref": "#/$defs/nullableNumber" },
             "lng": { "$ref": "#/$defs/nullableNumber" },
+            "providerLat": { "$ref": "#/$defs/nullableNumber" },
+            "providerLng": { "$ref": "#/$defs/nullableNumber" },
+            "providerCrs": { "type": ["string", "null"], "enum": ["GCJ-02", "WGS84", null] },
+            "mapCrs": { "type": ["string", "null"], "enum": ["WGS84", null] },
+            "positionType": { "type": ["string", "null"], "enum": ["cinema-poi", "venue-poi", "mall-fallback", null] },
+            "locationGranularity": { "type": ["string", "null"], "enum": ["auditorium", "cinema", "venue", "mall", null] },
+            "locationConfidence": { "enum": ["high", "medium", "low", "unknown"] },
+            "identityConfidence": { "enum": ["high", "medium", "low", "unknown"] },
             "address": { "type": "string" },
             "geocodeConfidence": { "enum": ["high", "medium", "low", "unknown"] },
             "geocodeSource": { "type": "string" }

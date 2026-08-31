@@ -1,0 +1,71 @@
+{
+  "schemaVersion": 1,
+  "verifiedAt": "2026-08-20",
+  "description": "Auditable administrative hierarchy used to validate AMap pname/cityname/adname without accepting same-province or same-prefecture siblings.",
+  "provenance": [
+    {
+      "source": "project-city-derivation",
+      "path": "scripts/derive-cinemas.mjs",
+      "note": "The source city vocabulary comes from MAINLAND_CITIES; this file separates lower-level divisions from prefecture-level cities."
+    },
+    {
+      "source": "National Bureau of Statistics of China",
+      "url": "https://www.stats.gov.cn/sj/tjbz/gjtjbz/202302/t20230213_1902741.html",
+      "note": "Administrative codes at county level and above follow the national administrative-division code standard."
+    },
+    {
+      "source": "AMap Web Service POI response schema",
+      "url": "https://lbs.amap.com/api/webservice/guide/api/search/",
+      "note": "Runtime validation uses provider fields pname, cityname and adname; POI name tokens are not administrative evidence."
+    }
+  ],
+  "municipalities": ["北京", "上海", "天津", "重庆"],
+  "prefectureAliases": {
+    "西双版纳": ["西双版纳", "西双版纳傣族自治州"],
+    "大理": ["大理", "大理白族自治州"],
+    "红河": ["红河", "红河哈尼族彝族自治州"]
+  },
+  "countyLevelDivisions": [
+    { "name": "延吉", "province": "吉林", "prefecture": "延边", "prefectureAliases": ["延边", "延边朝鲜族自治州"], "level": "county-level-city" },
+    { "name": "满洲里", "province": "内蒙古", "prefecture": "呼伦贝尔", "level": "county-level-city" },
+
+    { "name": "太仓", "province": "江苏", "prefecture": "苏州", "level": "county-level-city" },
+    { "name": "昆山", "province": "江苏", "prefecture": "苏州", "level": "county-level-city" },
+    { "name": "张家港", "province": "江苏", "prefecture": "苏州", "level": "county-level-city" },
+    { "name": "常熟", "province": "江苏", "prefecture": "苏州", "level": "county-level-city" },
+    { "name": "金坛", "province": "江苏", "prefecture": "常州", "level": "county-level-district" },
+    { "name": "宜兴", "province": "江苏", "prefecture": "无锡", "level": "county-level-city" },
+    { "name": "江阴", "province": "江苏", "prefecture": "无锡", "level": "county-level-city" },
+    { "name": "丹阳", "province": "江苏", "prefecture": "镇江", "level": "county-level-city" },
+    { "name": "海门", "province": "江苏", "prefecture": "南通", "level": "county-level-district" },
+    { "name": "东台", "province": "江苏", "prefecture": "盐城", "level": "county-level-city" },
+    { "name": "沭阳", "province": "江苏", "prefecture": "宿迁", "level": "county" },
+    { "name": "靖江", "province": "江苏", "prefecture": "泰州", "level": "county-level-city" },
+    { "name": "启东", "province": "江苏", "prefecture": "南通", "level": "county-level-city" },
+    { "name": "如皋", "province": "江苏", "prefecture": "南通", "level": "county-level-city" },
+
+    { "name": "余姚", "province": "浙江", "prefecture": "宁波", "level": "county-level-city" },
+    { "name": "慈溪", "province": "浙江", "prefecture": "宁波", "level": "county-level-city" },
+    { "name": "诸暨", "province": "浙江", "prefecture": "绍兴", "level": "county-level-city" },
+    { "name": "嵊州", "province": "浙江", "prefecture": "绍兴", "level": "county-level-city" },
+    { "name": "义乌", "province": "浙江", "prefecture": "金华", "level": "county-level-city" },
+    { "name": "桐乡", "province": "浙江", "prefecture": "嘉兴", "level": "county-level-city" },
+    { "name": "海宁", "province": "浙江", "prefecture": "嘉兴", "level": "county-level-city" },
+    { "name": "乐清", "province": "浙江", "prefecture": "温州", "level": "county-level-city" },
+    { "name": "温岭", "province": "浙江", "prefecture": "台州", "level": "county-level-city" },
+    { "name": "东阳", "province": "浙江", "prefecture": "金华", "level": "county-level-city" },
+
+    { "name": "巢湖", "province": "安徽", "prefecture": "合肥", "level": "county-level-city" },
+
+    { "name": "石狮", "province": "福建", "prefecture": "泉州", "level": "county-level-city" },
+    { "name": "安溪", "province": "福建", "prefecture": "泉州", "level": "county" },
+    { "name": "晋江", "province": "福建", "prefecture": "泉州", "level": "county-level-city" },
+    { "name": "福清", "province": "福建", "prefecture": "福州", "level": "county-level-city" },
+
+    { "name": "武穴", "province": "湖北", "prefecture": "黄冈", "level": "county-level-city" },
+    { "name": "仙桃", "province": "湖北", "prefecture": "仙桃", "prefectureAliases": ["仙桃", "仙桃市"], "level": "province-administered-county-level-city" },
+
+    { "name": "宁乡", "province": "湖南", "prefecture": "长沙", "level": "county-level-city" },
+    { "name": "高州", "province": "广东", "prefecture": "茂名", "level": "county-level-city" }
+  ]
+}

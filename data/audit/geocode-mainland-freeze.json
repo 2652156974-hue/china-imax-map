@@ -1,0 +1,84 @@
+{
+  "schemaVersion": 1,
+  "generatedAt": "2026-08-20T09:53:33.847Z",
+  "status": "frozen-baseline-for-human-quality-acceptance",
+  "scope": "mainland",
+  "totalMainland": 881,
+  "hashes": {
+    "algorithm": "SHA-256",
+    "matcherSha256": "a8b4edf9465594c7f2592861e1ba6a5692dece6c702104d98d6a1069c9787037",
+    "matcherLockFile": "data/audit/geocode-blind-50-matcher-lock.json",
+    "matcherLockSchemaVersion": 3,
+    "querySha256": {
+      "path": "scripts/geocode/query.mjs",
+      "exists": true,
+      "value": "d5f8f68a32d130cdc5edc6ec0a56b6e871efb36f5a96ea55739b5c030d9c97bd"
+    },
+    "crsSha256": {
+      "path": "scripts/geocode/crs.mjs",
+      "exists": true,
+      "value": "384ddc429f8143379eea54e71280fc390e76e525882a19d55541385a4849508c"
+    },
+    "adminMappingSha256": {
+      "path": "data/geocode/mainland-admin-hierarchy.json",
+      "exists": true,
+      "value": "2f35b9121ddf32ec5678c964f31f972721e9a1b7419cbaafb296a7c06c549926"
+    },
+    "fullAuditSha256": {
+      "path": "data/audit/geocode-mainland-full.json",
+      "exists": true,
+      "value": "7e49f019b40b1b85387f95ee308c95ae9ddbf7ec3da5191523debfec5b83bd71"
+    },
+    "providerCacheSha256": {
+      "path": "data/geocode/provider-cache/amap.json",
+      "exists": true,
+      "value": "8d6a95dac859540a79244b742ff08a1210c6274758224ebd44d0d0fa94ee1cc2"
+    }
+  },
+  "currentRegressionResult": {
+    "command": "node --test scripts\\geocode\\admin-divisions.test.mjs scripts\\geocode\\blind-validation.test.mjs scripts\\geocode\\mainland-runner.test.mjs scripts\\geocode\\scoring.test.mjs",
+    "testFiles": [
+      "scripts\\geocode\\admin-divisions.test.mjs",
+      "scripts\\geocode\\blind-validation.test.mjs",
+      "scripts\\geocode\\mainland-runner.test.mjs",
+      "scripts\\geocode\\scoring.test.mjs"
+    ],
+    "exitCode": 0,
+    "tests": 34,
+    "passed": 34,
+    "failed": 0,
+    "cancelled": 0,
+    "skipped": 0,
+    "todo": 0,
+    "networkRequests": 0,
+    "status": "passed"
+  },
+  "baselineSummary": {
+    "automaticHigh": 574,
+    "automaticMedium": 109,
+    "reviewedOverrideHigh": 4,
+    "unresolved": 194
+  },
+  "derivedCoordinateState": {
+    "bothNull": 901,
+    "populated": 0,
+    "invalid": 0
+  },
+  "humanAuditArtifacts": {
+    "highSample150": "data/audit/geocode-high-audit-150.json",
+    "riskReview": "data/audit/geocode-risk-review.json",
+    "unresolvedPriority": "data/audit/geocode-unresolved-priority.json",
+    "riskReviewUniqueSourceRows": 219,
+    "unresolvedPriorityRecords": 194
+  },
+  "networkPolicy": {
+    "networkRequests": 0,
+    "apiCallsAllowed": false,
+    "matcherChangesAllowed": false,
+    "scoringChangesAllowed": false,
+    "queryChangesAllowed": false,
+    "crsChangesAllowed": false,
+    "newOverridesAllowed": false,
+    "applyCoordinatesAllowed": false
+  }
+}

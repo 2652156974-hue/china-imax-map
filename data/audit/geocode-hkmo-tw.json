@@ -1,0 +1,1030 @@
+{
+  "schemaVersion": 1,
+  "generatedAt": "2026-08-21T02:44:03.530Z",
+  "status": "completed-regional-audit",
+  "scope": "hong-kong-macau-taiwan",
+  "provider": {
+    "available": true,
+    "provider": "nominatim",
+    "scope": "regional",
+    "providerCrs": "WGS84",
+    "rateLimit": "single-threaded, no more than one request per second",
+    "attribution": "© OpenStreetMap contributors, ODbL"
+  },
+  "requestPolicy": {
+    "cacheFirst": true,
+    "networkEnabled": true,
+    "networkRequests": 20,
+    "cacheHits": 0,
+    "errors": 20,
+    "maxNewRequests": 20,
+    "consumesMainlandAmapBudget": false,
+    "amapRequests": 0,
+    "coordinatesAppliedToDerived": 0
+  },
+  "coordinatePolicy": {
+    "providerCrs": "WGS84",
+    "mapCrs": "WGS84",
+    "conversion": "none; Nominatim coordinates are already WGS84",
+    "cityCenterFallback": false
+  },
+  "attribution": {
+    "provider": "© OpenStreetMap contributors",
+    "license": "ODbL",
+    "sourceDataset": "@ArvinTingcn authorized source remains separately attributed"
+  },
+  "summary": {
+    "total": 20,
+    "exact": 0,
+    "locationOnly": 0,
+    "unresolved": 20,
+    "byDecision": {
+      "unresolved": 20
+    },
+    "byRegion": {
+      "香港": {
+        "total": 7,
+        "exact": 0,
+        "locationOnly": 0,
+        "unresolved": 7
+      },
+      "台湾": {
+        "total": 12,
+        "exact": 0,
+        "locationOnly": 0,
+        "unresolved": 12
+      },
+      "澳门": {
+        "total": 1,
+        "exact": 0,
+        "locationOnly": 0,
+        "unresolved": 1
+      }
+    },
+    "byProvider": {
+      "nominatim": 20
+    }
+  },
+  "records": [
+    {
+      "sourceRow": 2,
+      "sourceName": "香港MY CINEMA YOHO MALL",
+      "region": "香港",
+      "province": "香港",
+      "city": "香港",
+      "status": "unknown",
+      "projection": {
+        "raw": "IMAX 氙灯  ",
+        "system": "Xenon",
+        "dome": false,
+        "audioChannels": null
+      },
+      "queryVariants": [
+        {
+          "kind": "current-name-city",
+          "query": "香港MY CINEMA YOHO MALL 香港",
+          "cache": "miss-requested",
+          "ok": false,
+          "candidateCount": 0,
+          "errorCode": "network-error"
+        }
+      ],
+      "decision": "unresolved",
+      "automaticDecision": "unresolved",
+      "overrideUsed": false,
+      "selected": null,
+      "topCandidate": null,
+      "ambiguity": {
+        "evaluatedCandidates": 0,
+        "ignoredHardRejected": 0,
+        "trueAmbiguity": false
+      },
+      "hardRejectSummary": {
+        "candidateCount": 0,
+        "rejectedCandidateCount": 0,
+        "reasons": {}
+      },
+      "provenance": {
+        "provider": "Nominatim",
+        "geocodeSource": "nominatim:search",
+        "providerCrs": "WGS84",
+        "mapCrs": "WGS84",
+        "attribution": "© OpenStreetMap contributors",
+        "license": "ODbL",
+        "retrievedAt": "2026-08-21T02:44:03.530Z"
+      }
+    },
+    {
+      "sourceRow": 3,
+      "sourceName": "香港英皇戲院（尖沙咀iSQUARE）",
+      "region": "香港",
+      "province": "香港",
+      "city": "香港",
+      "status": "open",
+      "projection": {
+        "raw": "IMAX Commercial Laser\n12聲道音響系統",
+        "system": "Commercial Laser",
+        "dome": false,
+        "audioChannels": 12
+      },
+      "queryVariants": [
+        {
+          "kind": "current-name-city",
+          "query": "香港英皇戲院（尖沙咀iSQUARE） 香港",
+          "cache": "miss-requested",
+          "ok": false,
+          "candidateCount": 0,
+          "errorCode": "network-error"
+        }
+      ],
+      "decision": "unresolved",
+      "automaticDecision": "unresolved",
+      "overrideUsed": false,
+      "selected": null,
+      "topCandidate": null,
+      "ambiguity": {
+        "evaluatedCandidates": 0,
+        "ignoredHardRejected": 0,
+        "trueAmbiguity": false
+      },
+      "hardRejectSummary": {
+        "candidateCount": 0,
+        "rejectedCandidateCount": 0,
+        "reasons": {}
+      },
+      "provenance": {
+        "provider": "Nominatim",
+        "geocodeSource": "nominatim:search",
+        "providerCrs": "WGS84",
+        "mapCrs": "WGS84",
+        "attribution": "© OpenStreetMap contributors",
+        "license": "ODbL",
+        "retrievedAt": "2026-08-21T02:44:03.530Z"
+      }
+    },
+    {
+      "sourceRow": 4,
+      "sourceName": "香港MCL CINEMAS（K11 Art House）",
+      "region": "香港",
+      "province": "香港",
+      "city": "香港",
+      "status": "closed",
+      "projection": {
+        "raw": "IMAX Commercial Laser\n12聲道音響系統",
+        "system": "Commercial Laser",
+        "dome": false,
+        "audioChannels": 12
+      },
+      "queryVariants": [
+        {
+          "kind": "current-name-city",
+          "query": "香港MCL CINEMAS（K11 Art House） 香港",
+          "cache": "miss-requested",
+          "ok": false,
+          "candidateCount": 0,
+          "errorCode": "network-error"
+        }
+      ],
+      "decision": "unresolved",
+      "automaticDecision": "unresolved",
+      "overrideUsed": false,
+      "selected": null,
+      "topCandidate": null,
+      "ambiguity": {
+        "evaluatedCandidates": 0,
+        "ignoredHardRejected": 0,
+        "trueAmbiguity": false
+      },
+      "hardRejectSummary": {
+        "candidateCount": 0,
+        "rejectedCandidateCount": 0,
+        "reasons": {}
+      },
+      "provenance": {
+        "provider": "Nominatim",
+        "geocodeSource": "nominatim:search",
+        "providerCrs": "WGS84",
+        "mapCrs": "WGS84",
+        "attribution": "© OpenStreetMap contributors",
+        "license": "ODbL",
+        "retrievedAt": "2026-08-21T02:44:03.530Z"
+      }
+    },
+    {
+      "sourceRow": 5,
+      "sourceName": "香港B+ cinema MOKO (旺角東)",
+      "region": "香港",
+      "province": "香港",
+      "city": "香港",
+      "status": "closed",
+      "projection": {
+        "raw": "IMAX 氙灯 ",
+        "system": "Xenon",
+        "dome": false,
+        "audioChannels": null
+      },
+      "queryVariants": [
+        {
+          "kind": "current-name-city",
+          "query": "香港B+ cinema MOKO (旺角東) 香港",
+          "cache": "miss-requested",
+          "ok": false,
+          "candidateCount": 0,
+          "errorCode": "network-error"
+        }
+      ],
+      "decision": "unresolved",
+      "automaticDecision": "unresolved",
+      "overrideUsed": false,
+      "selected": null,
+      "topCandidate": null,
+      "ambiguity": {
+        "evaluatedCandidates": 0,
+        "ignoredHardRejected": 0,
+        "trueAmbiguity": false
+      },
+      "hardRejectSummary": {
+        "candidateCount": 0,
+        "rejectedCandidateCount": 0,
+        "reasons": {}
+      },
+      "provenance": {
+        "provider": "Nominatim",
+        "geocodeSource": "nominatim:search",
+        "providerCrs": "WGS84",
+        "mapCrs": "WGS84",
+        "attribution": "© OpenStreetMap contributors",
+        "license": "ODbL",
+        "retrievedAt": "2026-08-21T02:44:03.530Z"
+      }
+    },
+    {
+      "sourceRow": 6,
+      "sourceName": "香港影藝戲院(MegaBox)",
+      "region": "香港",
+      "province": "香港",
+      "city": "香港",
+      "status": "open",
+      "projection": {
+        "raw": "IMAX Commercial Laser\n12聲道音響系統",
+        "system": "Commercial Laser",
+        "dome": false,
+        "audioChannels": 12
+      },
+      "queryVariants": [
+        {
+          "kind": "current-name-city",
+          "query": "香港影藝戲院(MegaBox) 香港",
+          "cache": "miss-requested",
+          "ok": false,
+          "candidateCount": 0,
+          "errorCode": "network-error"
+        }
+      ],
+      "decision": "unresolved",
+      "automaticDecision": "unresolved",
+      "overrideUsed": false,
+      "selected": null,
+      "topCandidate": null,
+      "ambiguity": {
+        "evaluatedCandidates": 0,
+        "ignoredHardRejected": 0,
+        "trueAmbiguity": false
+      },
+      "hardRejectSummary": {
+        "candidateCount": 0,
+        "rejectedCandidateCount": 0,
+        "reasons": {}
+      },
+      "provenance": {
+        "provider": "Nominatim",
+        "geocodeSource": "nominatim:search",
+        "providerCrs": "WGS84",
+        "mapCrs": "WGS84",
+        "attribution": "© OpenStreetMap contributors",
+        "license": "ODbL",
+        "retrievedAt": "2026-08-21T02:44:03.530Z"
+      }
+    },
+    {
+      "sourceRow": 69,
+      "sourceName": "台北美麗華大直影城",
+      "region": "台湾",
+      "province": "台湾",
+      "city": "台北",
+      "status": "open",
+      "projection": {
+        "raw": "IMAX Laser GT 3D\n12聲道音響系統",
+        "system": "GT Laser",
+        "dome": false,
+        "audioChannels": 12
+      },
+      "queryVariants": [
+        {
+          "kind": "current-name-city",
+          "query": "台北美麗華大直影城 台北",
+          "cache": "miss-requested",
+          "ok": false,
+          "candidateCount": 0,
+          "errorCode": "network-error"
+        }
+      ],
+      "decision": "unresolved",
+      "automaticDecision": "unresolved",
+      "overrideUsed": false,
+      "selected": null,
+      "topCandidate": null,
+      "ambiguity": {
+        "evaluatedCandidates": 0,
+        "ignoredHardRejected": 0,
+        "trueAmbiguity": false
+      },
+      "hardRejectSummary": {
+        "candidateCount": 0,
+        "rejectedCandidateCount": 0,
+        "reasons": {}
+      },
+      "provenance": {
+        "provider": "Nominatim",
+        "geocodeSource": "nominatim:search",
+        "providerCrs": "WGS84",
+        "mapCrs": "WGS84",
+        "attribution": "© OpenStreetMap contributors",
+        "license": "ODbL",
+        "retrievedAt": "2026-08-21T02:44:03.530Z"
+      }
+    },
+    {
+      "sourceRow": 70,
+      "sourceName": "台中老虎城威秀影城",
+      "region": "台湾",
+      "province": "台湾",
+      "city": "台中",
+      "status": "unknown",
+      "projection": {
+        "raw": "IMAX 氙灯",
+        "system": "Xenon",
+        "dome": false,
+        "audioChannels": null
+      },
+      "queryVariants": [
+        {
+          "kind": "current-name-city",
+          "query": "台中老虎城威秀影城 台中",
+          "cache": "miss-requested",
+          "ok": false,
+          "candidateCount": 0,
+          "errorCode": "network-error"
+        }
+      ],
+      "decision": "unresolved",
+      "automaticDecision": "unresolved",
+      "overrideUsed": false,
+      "selected": null,
+      "topCandidate": null,
+      "ambiguity": {
+        "evaluatedCandidates": 0,
+        "ignoredHardRejected": 0,
+        "trueAmbiguity": false
+      },
+      "hardRejectSummary": {
+        "candidateCount": 0,
+        "rejectedCandidateCount": 0,
+        "reasons": {}
+      },
+      "provenance": {
+        "provider": "Nominatim",
+        "geocodeSource": "nominatim:search",
+        "providerCrs": "WGS84",
+        "mapCrs": "WGS84",
+        "attribution": "© OpenStreetMap contributors",
+        "license": "ODbL",
+        "retrievedAt": "2026-08-21T02:44:03.530Z"
+      }
+    },
+    {
+      "sourceRow": 71,
+      "sourceName": "台中大遠百威秀影城",
+      "region": "台湾",
+      "province": "台湾",
+      "city": "台中",
+      "status": "unknown",
+      "projection": {
+        "raw": "IMAX 氙灯",
+        "system": "Xenon",
+        "dome": false,
+        "audioChannels": null
+      },
+      "queryVariants": [
+        {
+          "kind": "current-name-city",
+          "query": "台中大遠百威秀影城 台中",
+          "cache": "miss-requested",
+          "ok": false,
+          "candidateCount": 0,
+          "errorCode": "network-error"
+        }
+      ],
+      "decision": "unresolved",
+      "automaticDecision": "unresolved",
+      "overrideUsed": false,
+      "selected": null,
+      "topCandidate": null,
+      "ambiguity": {
+        "evaluatedCandidates": 0,
+        "ignoredHardRejected": 0,
+        "trueAmbiguity": false
+      },
+      "hardRejectSummary": {
+        "candidateCount": 0,
+        "rejectedCandidateCount": 0,
+        "reasons": {}
+      },
+      "provenance": {
+        "provider": "Nominatim",
+        "geocodeSource": "nominatim:search",
+        "providerCrs": "WGS84",
+        "mapCrs": "WGS84",
+        "attribution": "© OpenStreetMap contributors",
+        "license": "ODbL",
+        "retrievedAt": "2026-08-21T02:44:03.530Z"
+      }
+    },
+    {
+      "sourceRow": 72,
+      "sourceName": "新竹巨城威秀影城",
+      "region": "台湾",
+      "province": "台湾",
+      "city": "新竹",
+      "status": "unknown",
+      "projection": {
+        "raw": "IMAX 氙灯",
+        "system": "Xenon",
+        "dome": false,
+        "audioChannels": null
+      },
+      "queryVariants": [
+        {
+          "kind": "current-name-city",
+          "query": "新竹巨城威秀影城 新竹",
+          "cache": "miss-requested",
+          "ok": false,
+          "candidateCount": 0,
+          "errorCode": "network-error"
+        }
+      ],
+      "decision": "unresolved",
+      "automaticDecision": "unresolved",
+      "overrideUsed": false,
+      "selected": null,
+      "topCandidate": null,
+      "ambiguity": {
+        "evaluatedCandidates": 0,
+        "ignoredHardRejected": 0,
+        "trueAmbiguity": false
+      },
+      "hardRejectSummary": {
+        "candidateCount": 0,
+        "rejectedCandidateCount": 0,
+        "reasons": {}
+      },
+      "provenance": {
+        "provider": "Nominatim",
+        "geocodeSource": "nominatim:search",
+        "providerCrs": "WGS84",
+        "mapCrs": "WGS84",
+        "attribution": "© OpenStreetMap contributors",
+        "license": "ODbL",
+        "retrievedAt": "2026-08-21T02:44:03.530Z"
+      }
+    },
+    {
+      "sourceRow": 73,
+      "sourceName": "台南南紡威秀影城",
+      "region": "台湾",
+      "province": "台湾",
+      "city": "台南",
+      "status": "unknown",
+      "projection": {
+        "raw": "IMAX 氙灯",
+        "system": "Xenon",
+        "dome": false,
+        "audioChannels": null
+      },
+      "queryVariants": [
+        {
+          "kind": "current-name-city",
+          "query": "台南南紡威秀影城 台南",
+          "cache": "miss-requested",
+          "ok": false,
+          "candidateCount": 0,
+          "errorCode": "network-error"
+        }
+      ],
+      "decision": "unresolved",
+      "automaticDecision": "unresolved",
+      "overrideUsed": false,
+      "selected": null,
+      "topCandidate": null,
+      "ambiguity": {
+        "evaluatedCandidates": 0,
+        "ignoredHardRejected": 0,
+        "trueAmbiguity": false
+      },
+      "hardRejectSummary": {
+        "candidateCount": 0,
+        "rejectedCandidateCount": 0,
+        "reasons": {}
+      },
+      "provenance": {
+        "provider": "Nominatim",
+        "geocodeSource": "nominatim:search",
+        "providerCrs": "WGS84",
+        "mapCrs": "WGS84",
+        "attribution": "© OpenStreetMap contributors",
+        "license": "ODbL",
+        "retrievedAt": "2026-08-21T02:44:03.530Z"
+      }
+    },
+    {
+      "sourceRow": 74,
+      "sourceName": "桃園美麗新台茂影城",
+      "region": "台湾",
+      "province": "台湾",
+      "city": "桃园",
+      "status": "unknown",
+      "projection": {
+        "raw": "IMAX 氙灯",
+        "system": "Xenon",
+        "dome": false,
+        "audioChannels": null
+      },
+      "queryVariants": [
+        {
+          "kind": "current-name-city",
+          "query": "桃園美麗新台茂影城 桃园",
+          "cache": "miss-requested",
+          "ok": false,
+          "candidateCount": 0,
+          "errorCode": "network-error"
+        }
+      ],
+      "decision": "unresolved",
+      "automaticDecision": "unresolved",
+      "overrideUsed": false,
+      "selected": null,
+      "topCandidate": null,
+      "ambiguity": {
+        "evaluatedCandidates": 0,
+        "ignoredHardRejected": 0,
+        "trueAmbiguity": false
+      },
+      "hardRejectSummary": {
+        "candidateCount": 0,
+        "rejectedCandidateCount": 0,
+        "reasons": {}
+      },
+      "provenance": {
+        "provider": "Nominatim",
+        "geocodeSource": "nominatim:search",
+        "providerCrs": "WGS84",
+        "mapCrs": "WGS84",
+        "attribution": "© OpenStreetMap contributors",
+        "license": "ODbL",
+        "retrievedAt": "2026-08-21T02:44:03.530Z"
+      }
+    },
+    {
+      "sourceRow": 75,
+      "sourceName": "花蓮新天堂樂園威秀影城",
+      "region": "台湾",
+      "province": "台湾",
+      "city": "花莲",
+      "status": "unknown",
+      "projection": {
+        "raw": "IMAX Commercial Laser\n12聲道音響系統",
+        "system": "Commercial Laser",
+        "dome": false,
+        "audioChannels": 12
+      },
+      "queryVariants": [
+        {
+          "kind": "current-name-city",
+          "query": "花蓮新天堂樂園威秀影城 花莲",
+          "cache": "miss-requested",
+          "ok": false,
+          "candidateCount": 0,
+          "errorCode": "network-error"
+        }
+      ],
+      "decision": "unresolved",
+      "automaticDecision": "unresolved",
+      "overrideUsed": false,
+      "selected": null,
+      "topCandidate": null,
+      "ambiguity": {
+        "evaluatedCandidates": 0,
+        "ignoredHardRejected": 0,
+        "trueAmbiguity": false
+      },
+      "hardRejectSummary": {
+        "candidateCount": 0,
+        "rejectedCandidateCount": 0,
+        "reasons": {}
+      },
+      "provenance": {
+        "provider": "Nominatim",
+        "geocodeSource": "nominatim:search",
+        "providerCrs": "WGS84",
+        "mapCrs": "WGS84",
+        "attribution": "© OpenStreetMap contributors",
+        "license": "ODbL",
+        "retrievedAt": "2026-08-21T02:44:03.530Z"
+      }
+    },
+    {
+      "sourceRow": 76,
+      "sourceName": "嘉義In89豪華影城",
+      "region": "台湾",
+      "province": "台湾",
+      "city": "嘉义",
+      "status": "unknown",
+      "projection": {
+        "raw": "IMAX Commercial Laser\n12聲道音響系統",
+        "system": "Commercial Laser",
+        "dome": false,
+        "audioChannels": 12
+      },
+      "queryVariants": [
+        {
+          "kind": "current-name-city",
+          "query": "嘉義In89豪華影城 嘉义",
+          "cache": "miss-requested",
+          "ok": false,
+          "candidateCount": 0,
+          "errorCode": "network-error"
+        }
+      ],
+      "decision": "unresolved",
+      "automaticDecision": "unresolved",
+      "overrideUsed": false,
+      "selected": null,
+      "topCandidate": null,
+      "ambiguity": {
+        "evaluatedCandidates": 0,
+        "ignoredHardRejected": 0,
+        "trueAmbiguity": false
+      },
+      "hardRejectSummary": {
+        "candidateCount": 0,
+        "rejectedCandidateCount": 0,
+        "reasons": {}
+      },
+      "provenance": {
+        "provider": "Nominatim",
+        "geocodeSource": "nominatim:search",
+        "providerCrs": "WGS84",
+        "mapCrs": "WGS84",
+        "attribution": "© OpenStreetMap contributors",
+        "license": "ODbL",
+        "retrievedAt": "2026-08-21T02:44:03.530Z"
+      }
+    },
+    {
+      "sourceRow": 77,
+      "sourceName": "高雄大遠百威秀影城",
+      "region": "台湾",
+      "province": "台湾",
+      "city": "高雄",
+      "status": "unknown",
+      "projection": {
+        "raw": "IMAX Laser XT",
+        "system": "Laser XT",
+        "dome": false,
+        "audioChannels": null
+      },
+      "queryVariants": [
+        {
+          "kind": "current-name-city",
+          "query": "高雄大遠百威秀影城 高雄",
+          "cache": "miss-requested",
+          "ok": false,
+          "candidateCount": 0,
+          "errorCode": "network-error"
+        }
+      ],
+      "decision": "unresolved",
+      "automaticDecision": "unresolved",
+      "overrideUsed": false,
+      "selected": null,
+      "topCandidate": null,
+      "ambiguity": {
+        "evaluatedCandidates": 0,
+        "ignoredHardRejected": 0,
+        "trueAmbiguity": false
+      },
+      "hardRejectSummary": {
+        "candidateCount": 0,
+        "rejectedCandidateCount": 0,
+        "reasons": {}
+      },
+      "provenance": {
+        "provider": "Nominatim",
+        "geocodeSource": "nominatim:search",
+        "providerCrs": "WGS84",
+        "mapCrs": "WGS84",
+        "attribution": "© OpenStreetMap contributors",
+        "license": "ODbL",
+        "retrievedAt": "2026-08-21T02:44:03.530Z"
+      }
+    },
+    {
+      "sourceRow": 78,
+      "sourceName": "新北板橋大遠百威秀影城",
+      "region": "台湾",
+      "province": "台湾",
+      "city": "新北",
+      "status": "unknown",
+      "projection": {
+        "raw": "IMAX Laser XT",
+        "system": "Laser XT",
+        "dome": false,
+        "audioChannels": null
+      },
+      "queryVariants": [
+        {
+          "kind": "current-name-city",
+          "query": "新北板橋大遠百威秀影城 新北",
+          "cache": "miss-requested",
+          "ok": false,
+          "candidateCount": 0,
+          "errorCode": "network-error"
+        }
+      ],
+      "decision": "unresolved",
+      "automaticDecision": "unresolved",
+      "overrideUsed": false,
+      "selected": null,
+      "topCandidate": null,
+      "ambiguity": {
+        "evaluatedCandidates": 0,
+        "ignoredHardRejected": 0,
+        "trueAmbiguity": false
+      },
+      "hardRejectSummary": {
+        "candidateCount": 0,
+        "rejectedCandidateCount": 0,
+        "reasons": {}
+      },
+      "provenance": {
+        "provider": "Nominatim",
+        "geocodeSource": "nominatim:search",
+        "providerCrs": "WGS84",
+        "mapCrs": "WGS84",
+        "attribution": "© OpenStreetMap contributors",
+        "license": "ODbL",
+        "retrievedAt": "2026-08-21T02:44:03.530Z"
+      }
+    },
+    {
+      "sourceRow": 79,
+      "sourceName": "新北新店裕隆城威秀影城",
+      "region": "台湾",
+      "province": "台湾",
+      "city": "新北",
+      "status": "unknown",
+      "projection": {
+        "raw": "IMAX Laser XT",
+        "system": "Laser XT",
+        "dome": false,
+        "audioChannels": null
+      },
+      "queryVariants": [
+        {
+          "kind": "current-name-city",
+          "query": "新北新店裕隆城威秀影城 新北",
+          "cache": "miss-requested",
+          "ok": false,
+          "candidateCount": 0,
+          "errorCode": "network-error"
+        }
+      ],
+      "decision": "unresolved",
+      "automaticDecision": "unresolved",
+      "overrideUsed": false,
+      "selected": null,
+      "topCandidate": null,
+      "ambiguity": {
+        "evaluatedCandidates": 0,
+        "ignoredHardRejected": 0,
+        "trueAmbiguity": false
+      },
+      "hardRejectSummary": {
+        "candidateCount": 0,
+        "rejectedCandidateCount": 0,
+        "reasons": {}
+      },
+      "provenance": {
+        "provider": "Nominatim",
+        "geocodeSource": "nominatim:search",
+        "providerCrs": "WGS84",
+        "mapCrs": "WGS84",
+        "attribution": "© OpenStreetMap contributors",
+        "license": "ODbL",
+        "retrievedAt": "2026-08-21T02:44:03.530Z"
+      }
+    },
+    {
+      "sourceRow": 791,
+      "sourceName": "澳门英皇戲院（澳門葡京人）",
+      "region": "澳门",
+      "province": "澳门",
+      "city": "澳门",
+      "status": "unknown",
+      "projection": {
+        "raw": "IMAX Commercial Laser\n12聲道音響系統",
+        "system": "Commercial Laser",
+        "dome": false,
+        "audioChannels": 12
+      },
+      "queryVariants": [
+        {
+          "kind": "current-name-city",
+          "query": "澳门英皇戲院（澳門葡京人） 澳门",
+          "cache": "miss-requested",
+          "ok": false,
+          "candidateCount": 0,
+          "errorCode": "network-error"
+        }
+      ],
+      "decision": "unresolved",
+      "automaticDecision": "unresolved",
+      "overrideUsed": false,
+      "selected": null,
+      "topCandidate": null,
+      "ambiguity": {
+        "evaluatedCandidates": 0,
+        "ignoredHardRejected": 0,
+        "trueAmbiguity": false
+      },
+      "hardRejectSummary": {
+        "candidateCount": 0,
+        "rejectedCandidateCount": 0,
+        "reasons": {}
+      },
+      "provenance": {
+        "provider": "Nominatim",
+        "geocodeSource": "nominatim:search",
+        "providerCrs": "WGS84",
+        "mapCrs": "WGS84",
+        "attribution": "© OpenStreetMap contributors",
+        "license": "ODbL",
+        "retrievedAt": "2026-08-21T02:44:03.530Z"
+      }
+    },
+    {
+      "sourceRow": 891,
+      "sourceName": "基隆國立海洋科技博物館",
+      "region": "台湾",
+      "province": "台湾",
+      "city": "基隆",
+      "status": "unknown",
+      "projection": {
+        "raw": "IMAX氙灯GT",
+        "system": "Xenon",
+        "dome": false,
+        "audioChannels": null
+      },
+      "queryVariants": [
+        {
+          "kind": "current-name-city",
+          "query": "基隆國立海洋科技博物館 基隆",
+          "cache": "miss-requested",
+          "ok": false,
+          "candidateCount": 0,
+          "errorCode": "network-error"
+        }
+      ],
+      "decision": "unresolved",
+      "automaticDecision": "unresolved",
+      "overrideUsed": false,
+      "selected": null,
+      "topCandidate": null,
+      "ambiguity": {
+        "evaluatedCandidates": 0,
+        "ignoredHardRejected": 0,
+        "trueAmbiguity": false
+      },
+      "hardRejectSummary": {
+        "candidateCount": 0,
+        "rejectedCandidateCount": 0,
+        "reasons": {}
+      },
+      "provenance": {
+        "provider": "Nominatim",
+        "geocodeSource": "nominatim:search",
+        "providerCrs": "WGS84",
+        "mapCrs": "WGS84",
+        "attribution": "© OpenStreetMap contributors",
+        "license": "ODbL",
+        "retrievedAt": "2026-08-21T02:44:03.530Z"
+      }
+    },
+    {
+      "sourceRow": 894,
+      "sourceName": "香港機場UA IMAX影院",
+      "region": "香港",
+      "province": "香港",
+      "city": "香港",
+      "status": "unknown",
+      "projection": {
+        "raw": "IMAX 氙灯",
+        "system": "Xenon",
+        "dome": false,
+        "audioChannels": null
+      },
+      "queryVariants": [
+        {
+          "kind": "current-name-city",
+          "query": "香港機場UA IMAX影院 香港",
+          "cache": "miss-requested",
+          "ok": false,
+          "candidateCount": 0,
+          "errorCode": "network-error"
+        }
+      ],
+      "decision": "unresolved",
+      "automaticDecision": "unresolved",
+      "overrideUsed": false,
+      "selected": null,
+      "topCandidate": null,
+      "ambiguity": {
+        "evaluatedCandidates": 0,
+        "ignoredHardRejected": 0,
+        "trueAmbiguity": false
+      },
+      "hardRejectSummary": {
+        "candidateCount": 0,
+        "rejectedCandidateCount": 0,
+        "reasons": {}
+      },
+      "provenance": {
+        "provider": "Nominatim",
+        "geocodeSource": "nominatim:search",
+        "providerCrs": "WGS84",
+        "mapCrs": "WGS84",
+        "attribution": "© OpenStreetMap contributors",
+        "license": "ODbL",
+        "retrievedAt": "2026-08-21T02:44:03.530Z"
+      }
+    },
+    {
+      "sourceRow": 895,
+      "sourceName": "香港香港太空館",
+      "region": "香港",
+      "province": "香港",
+      "city": "香港",
+      "status": "unknown",
+      "projection": {
+        "raw": "IMAX氙灯GT Dome",
+        "system": "Xenon",
+        "dome": true,
+        "audioChannels": null
+      },
+      "queryVariants": [
+        {
+          "kind": "current-name-city",
+          "query": "香港香港太空館 香港",
+          "cache": "miss-requested",
+          "ok": false,
+          "candidateCount": 0,
+          "errorCode": "network-error"
+        }
+      ],
+      "decision": "unresolved",
+      "automaticDecision": "unresolved",
+      "overrideUsed": false,
+      "selected": null,
+      "topCandidate": null,
+      "ambiguity": {
+        "evaluatedCandidates": 0,
+        "ignoredHardRejected": 0,
+        "trueAmbiguity": false
+      },
+      "hardRejectSummary": {
+        "candidateCount": 0,
+        "rejectedCandidateCount": 0,
+        "reasons": {}
+      },
+      "provenance": {
+        "provider": "Nominatim",
+        "geocodeSource": "nominatim:search",
+        "providerCrs": "WGS84",
+        "mapCrs": "WGS84",
+        "attribution": "© OpenStreetMap contributors",
+        "license": "ODbL",
+        "retrievedAt": "2026-08-21T02:44:03.530Z"
+      }
+    }
+  ]
+}

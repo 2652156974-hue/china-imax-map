@@ -1,0 +1,74 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-08-25T04:51:31.692Z",
+  "status": "passed",
+  "executionMode": "playwright-cli-real",
+  "runtimeProvider": "official AMap JS API 2.0",
+  "url": "http://127.0.0.1:8766/",
+  "dataset": {
+    "totalRecords": 901,
+    "locatedRecords": 901,
+    "pendingReviewRecords": 0,
+    "unresolvedRecords": 0,
+    "unlocatedRecords": 0,
+    "markerPoints": 901,
+    "releaseInvariant": "accepted 901 + unlocated 0 = 901; markerCount 901 = accepted; pendingReview 0"
+  },
+  "desktop": {
+    "viewport": { "width": 1440, "height": 900 },
+    "status": "passed",
+    "banner": "私人地图 · 已定位 901 / 901 · 待核 0 · 未定位 0；高德 GCJ‑02，不做二次转换。",
+    "clusterPoints": 901,
+    "clusterRendered": true,
+    "officialSdkLoaded": true,
+    "markerClusterLoaded": true,
+    "mapCanvasPresent": true,
+    "amapLogoVisible": true,
+    "amapCopyrightVisible": true,
+    "horizontalOverflow": false
+  },
+  "mobile": {
+    "viewport": { "width": 390, "height": 844 },
+    "status": "passed",
+    "documentClientWidth": 390,
+    "documentScrollWidth": 390,
+    "panelWidth": 374,
+    "horizontalOverflow": false,
+    "mapError": ""
+  },
+  "interactions": {
+    "searchMuseum": { "sourceRow": 309, "results": 1, "popup": true },
+    "pendingReviewFilter": { "results": 0, "statusText": "筛选 0 / 901 · 已定位 0 · 待核 0 · 未定位 0" },
+    "unresolvedFilter": { "results": 0, "statusText": "筛选 0 / 901 · 已定位 0 · 待核 0 · 未定位 0" },
+    "locationOnlyDetail": { "sourceRow": 4, "results": 1, "detail": true, "providerCrs": "GCJ-02", "screenSeatFields": true },
+    "cluster": { "pointsAfterAllFilter": 901, "clusterCount": 1 },
+    "attributionVisible": true,
+    "sourceLinkVisible": true
+  },
+  "fieldRegression": {
+    "singleValue": { "sourceRow": 2, "seatValueVisible": "409", "rawVisible": false, "rawVisibleByDefault": false, "dataNotesVisible": false },
+    "multiValue": { "sourceRow": 309, "label": "待核", "rawVisible": false, "rawVisibleByDefault": false, "dataNotesAvailable": true, "dataNotesOpenByDefault": false, "rawFieldCount": 4 },
+    "blank": { "sourceRow": 50, "label": "暂无", "rawVisible": false, "dataNotesVisible": false, "rawFieldsRetainedInDataset": true },
+    "nbsp": { "sourceRow": 54, "label": "暂无", "rawVisible": false, "dataNotesVisible": false, "rawFieldsRetainedInDataset": true, "rawFieldCount": 4 },
+    "abnormal": { "sourceRow": 119, "label": "待核", "rawVisible": false, "rawVisibleByDefault": false, "dataNotesAvailable": true, "dataNotesOpenByDefault": false, "formattedWidth": "20.741 m", "formattedHeight": "11.244 m", "rawFieldCount": 1 }
+  },
+  "consoleErrors": [],
+  "network": {
+    "datasetRequestPerLoad": 1,
+    "externalAmapRequests": 0,
+    "providerPoiRequests": 0
+  },
+  "securityProxy": {
+    "status": "passed",
+    "reason": "Official SDK loaded through the same-origin runtime path; the security code was not present as a browser DOM literal."
+  },
+  "realSdkSmoke": {
+    "status": "passed",
+    "sdk": "official AMap JS API 2.0",
+    "markerClusterLoaded": true,
+    "mapCanvasPresent": true,
+    "amapLogoVisible": true,
+    "amapCopyrightVisible": true,
+    "securityCodeInBrowser": false
+  }
+}

@@ -1,0 +1,2086 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-08-20T08:58:00.492Z",
+  "mode": "cache-only-matcher-repair-audit",
+  "provider": "amap",
+  "source": {
+    "derivedFile": "data/derived/cinemas.json",
+    "totalRecords": 901,
+    "mainlandRecords": 881
+  },
+  "selection": {
+    "actualRecords": 20,
+    "sourceRows": [
+      309,
+      311,
+      314,
+      21,
+      30,
+      37,
+      198,
+      200,
+      224,
+      228,
+      593,
+      699,
+      59,
+      51,
+      155,
+      305,
+      610,
+      233,
+      538,
+      843
+    ]
+  },
+  "requestPolicy": {
+    "cacheOnly": true,
+    "environmentKeyRead": false,
+    "currentRunNetworkRequests": 0,
+    "cacheEntries": 140,
+    "cacheEntriesUsed": 42,
+    "fullRunEnabled": false,
+    "applyEnabled": false
+  },
+  "coordinatePolicy": {
+    "provider": "AMap",
+    "providerCrs": "GCJ-02",
+    "mapCrs": "WGS84",
+    "providerCoordinatesPreserved": true,
+    "conversion": "GCJ-02 to WGS84 before future apply"
+  },
+  "summary": {
+    "evaluated": 20,
+    "automaticHigh": 15,
+    "automaticMedium": 0,
+    "reviewedOverrideHigh": 4,
+    "reviewedOverrideMedium": 0,
+    "unresolved": 1,
+    "candidateCount": 369,
+    "rejectedCandidateCount": 325,
+    "rejectedReasons": {
+      "venue-not-qualified": 3,
+      "non-cinema-poi": 265,
+      "mall-fallback-not-qualified": 13,
+      "non-target-business-name": 3,
+      "brand-mismatch": 31,
+      "project-mismatch": 40,
+      "auditorium-format-conflict": 2
+    },
+    "cacheEntriesAvailable": 140,
+    "cacheEntriesUsed": 42,
+    "networkRequests": 0
+  },
+  "regression": {
+    "currentRunNetworkRequests": 0,
+    "invalidMallFallbackCount": 0,
+    "invalidMallFallbacks": [],
+    "nonCinemaTypePromotedToCinemaCount": 0,
+    "jiuyuanMalformedHistoryQueryCount": 0,
+    "jiuyuanQueries": [
+      "包头万达影城（九原万达广场店) 包头",
+      "九原万达广场 万达影城 包头"
+    ],
+    "longgangDecision": "accepted-high",
+    "longgangHardRejectedDistractors": [
+      {
+        "poiId": "B0K2ZD5LFA",
+        "name": "云逸宝摇杆游戏机(万达影城深圳龙岗万达广场IMAX激光店)",
+        "reasons": [
+          "non-cinema-poi"
+        ]
+      },
+      {
+        "poiId": "B0L3YRK5LQ",
+        "name": "飞越中国·裸眼9D球幕悬空飞行影院(龙岗万达店)",
+        "reasons": [
+          "non-cinema-poi",
+          "auditorium-format-conflict"
+        ]
+      }
+    ],
+    "longgangTrueAmbiguity": false,
+    "focusRows": {
+      "51": {
+        "decision": "accepted-high",
+        "poiId": "B01C302873",
+        "poiName": "黑龙江省科学技术馆",
+        "positionType": "venue-poi"
+      },
+      "155": {
+        "decision": "accepted-high",
+        "poiId": "B0FFFDTAL6",
+        "poiName": "幸福蓝海国际影城(扬州IMAX店)",
+        "positionType": "cinema-poi"
+      },
+      "309": {
+        "decision": "accepted-high",
+        "poiId": "B0HBXCQO2P",
+        "poiName": "中国电影博物馆-IMAX GT巨幕影厅",
+        "positionType": "cinema-poi"
+      },
+      "538": {
+        "decision": "accepted-high",
+        "poiId": "B023B14BCH",
+        "poiName": "浙影时代影城(西湖文化广场店)",
+        "positionType": "cinema-poi"
+      },
+      "843": {
+        "decision": "unresolved",
+        "poiId": null,
+        "poiName": null,
+        "positionType": null
+      }
+    },
+    "crsFieldsCompleteForSelected": true,
+    "convertedCoordinatesWithinRange": true,
+    "providerCoordinatesPreservedSeparately": true,
+    "selectedCoordinateCount": 19,
+    "sourceRecordCount": 20
+  },
+  "records": [
+    {
+      "sourceRow": 309,
+      "id": "imax-cn-0309",
+      "name": "北京中国电影博物馆",
+      "city": "北京",
+      "status": "open",
+      "projectionSystem": "GT Laser",
+      "plannedQueries": [
+        {
+          "kind": "current-name-city",
+          "query": "北京中国电影博物馆 北京"
+        }
+      ],
+      "cachedQueriesUsed": [
+        {
+          "query": "北京中国电影博物馆 北京",
+          "city": "北京",
+          "cache": "hit-linked-by-sourceRow",
+          "ok": true,
+          "candidateCount": 25,
+          "isCurrentPlannedQuery": true
+        }
+      ],
+      "candidateCount": 25,
+      "rejectedCandidateCount": 22,
+      "rejectedReasons": {
+        "venue-not-qualified": 1,
+        "non-cinema-poi": 21
+      },
+      "ambiguity": {
+        "evaluatedCandidates": 3,
+        "ignoredHardRejected": 22,
+        "trueAmbiguity": true,
+        "competingPoiId": "B0HBXCQO2P"
+      },
+      "overrideUsed": true,
+      "reviewedOverride": {
+        "sourceRow": 309,
+        "status": "approved-cached-poi",
+        "provider": "amap",
+        "poiId": "B0HBXCQO2P",
+        "confidence": "high",
+        "positionType": "cinema-poi",
+        "evidence": "External manual verification supplied by the project owner: China Film Museum has an IMAX GT auditorium; the exact cached AMap IMAX GT POI is selected.",
+        "provenance": "user-supplied review, 2026-08-20",
+        "applied": true
+      },
+      "selectedCandidate": {
+        "poiId": "B0HBXCQO2P",
+        "name": "中国电影博物馆-IMAX GT巨幕影厅",
+        "address": "南影路5号",
+        "typecode": "080601",
+        "positionType": "cinema-poi",
+        "locationGranularity": "auditorium",
+        "score": 1,
+        "decision": "accepted-high",
+        "confidence": "high",
+        "locationConfidence": "high",
+        "identityConfidence": "high",
+        "adminMatch": {
+          "provinceMatch": true,
+          "prefectureMatch": true,
+          "countyMatch": null,
+          "targetLevel": "municipality",
+          "compatible": true,
+          "targetProvince": "北京",
+          "targetPrefecture": "北京",
+          "targetCounty": null,
+          "providerProvince": "北京",
+          "providerPrefecture": "北京",
+          "providerCounty": "朝阳",
+          "mappingSource": "municipality-rule"
+        },
+        "formatCompatibility": {
+          "compatible": true,
+          "exactFormatMatch": true,
+          "conflicts": []
+        },
+        "geocodeSource": "amap:poi-search",
+        "provider": {
+          "providerCrs": "GCJ-02",
+          "providerLat": 39.995864,
+          "providerLng": 116.520564
+        },
+        "map": {
+          "mapCrs": "WGS84",
+          "lat": 39.9946995,
+          "lng": 116.5146229
+        }
+      },
+      "topCandidate": null
+    },
+    {
+      "sourceRow": 311,
+      "id": "imax-cn-0311",
+      "name": "北京万达影城（石景山万达广场店）",
+      "city": "北京",
+      "status": "open",
+      "projectionSystem": "Commercial Laser",
+      "plannedQueries": [
+        {
+          "kind": "current-name-city",
+          "query": "北京万达影城（石景山万达广场店） 北京"
+        },
+        {
+          "kind": "project-brand",
+          "query": "石景山万达广场 万达影城 北京"
+        }
+      ],
+      "cachedQueriesUsed": [
+        {
+          "query": "北京万达影城（石景山万达广场店） 北京",
+          "city": "北京",
+          "cache": "hit-linked-by-sourceRow",
+          "ok": true,
+          "candidateCount": 9,
+          "isCurrentPlannedQuery": true
+        },
+        {
+          "query": "石景山万达广场 石景 景山 万达 北京",
+          "city": "北京",
+          "cache": "hit-linked-by-sourceRow",
+          "ok": true,
+          "candidateCount": 25,
+          "isCurrentPlannedQuery": false
+        }
+      ],
+      "candidateCount": 31,
+      "rejectedCandidateCount": 30,
+      "rejectedReasons": {
+        "non-cinema-poi": 28,
+        "mall-fallback-not-qualified": 1,
+        "non-target-business-name": 1,
+        "brand-mismatch": 1,
+        "project-mismatch": 1
+      },
+      "ambiguity": {
+        "evaluatedCandidates": 1,
+        "ignoredHardRejected": 30,
+        "trueAmbiguity": false
+      },
+      "overrideUsed": false,
+      "reviewedOverride": null,
+      "selectedCandidate": {
+        "poiId": "B000A81BZM",
+        "name": "万达影城(石景山万达广场店)",
+        "address": "石景山路乙18号万达广场3层",
+        "typecode": "080601",
+        "positionType": "cinema-poi",
+        "locationGranularity": "cinema",
+        "score": 1,
+        "decision": "accepted-high",
+        "confidence": "high",
+        "locationConfidence": "high",
+        "identityConfidence": "high",
+        "adminMatch": {
+          "provinceMatch": true,
+          "prefectureMatch": true,
+          "countyMatch": null,
+          "targetLevel": "municipality",
+          "compatible": true,
+          "targetProvince": "北京",
+          "targetPrefecture": "北京",
+          "targetCounty": null,
+          "providerProvince": "北京",
+          "providerPrefecture": "北京",
+          "providerCounty": "石景山",
+          "mappingSource": "municipality-rule"
+        },
+        "formatCompatibility": {
+          "compatible": true,
+          "exactFormatMatch": false,
+          "conflicts": []
+        },
+        "geocodeSource": "amap:poi-search",
+        "provider": {
+          "providerCrs": "GCJ-02",
+          "providerLat": 39.905935,
+          "providerLng": 116.225678
+        },
+        "map": {
+          "mapCrs": "WGS84",
+          "lat": 39.904709,
+          "lng": 116.2196274
+        }
+      },
+      "topCandidate": null
+    },
+    {
+      "sourceRow": 314,
+      "id": "imax-cn-0314",
+      "name": "北京环球城市大道电影院",
+      "city": "北京",
+      "status": "unknown",
+      "projectionSystem": "Commercial Laser",
+      "plannedQueries": [
+        {
+          "kind": "current-name-city",
+          "query": "北京环球城市大道电影院 北京"
+        }
+      ],
+      "cachedQueriesUsed": [
+        {
+          "query": "北京环球城市大道电影院 北京",
+          "city": "北京",
+          "cache": "hit-linked-by-sourceRow",
+          "ok": true,
+          "candidateCount": 2,
+          "isCurrentPlannedQuery": true
+        }
+      ],
+      "candidateCount": 2,
+      "rejectedCandidateCount": 1,
+      "rejectedReasons": {
+        "non-cinema-poi": 1
+      },
+      "ambiguity": {
+        "evaluatedCandidates": 1,
+        "ignoredHardRejected": 1,
+        "trueAmbiguity": false
+      },
+      "overrideUsed": false,
+      "reviewedOverride": null,
+      "selectedCandidate": {
+        "poiId": "B0G0TAEIJV",
+        "name": "环球城市大道电影院",
+        "address": "北京环球度假区",
+        "typecode": "220104|080601",
+        "positionType": "cinema-poi",
+        "locationGranularity": "cinema",
+        "score": 1,
+        "decision": "accepted-high",
+        "confidence": "high",
+        "locationConfidence": "high",
+        "identityConfidence": "high",
+        "adminMatch": {
+          "provinceMatch": true,
+          "prefectureMatch": true,
+          "countyMatch": null,
+          "targetLevel": "municipality",
+          "compatible": true,
+          "targetProvince": "北京",
+          "targetPrefecture": "北京",
+          "targetCounty": null,
+          "providerProvince": "北京",
+          "providerPrefecture": "北京",
+          "providerCounty": "通州",
+          "mappingSource": "municipality-rule"
+        },
+        "formatCompatibility": {
+          "compatible": true,
+          "exactFormatMatch": false,
+          "conflicts": []
+        },
+        "geocodeSource": "amap:poi-search",
+        "provider": {
+          "providerCrs": "GCJ-02",
+          "providerLat": 39.850734,
+          "providerLng": 116.676813
+        },
+        "map": {
+          "mapCrs": "WGS84",
+          "lat": 39.8495963,
+          "lng": 116.6708784
+        }
+      },
+      "topCandidate": null
+    },
+    {
+      "sourceRow": 21,
+      "id": "imax-cn-0021",
+      "name": "上海百丽宫影城（LCM置汇旭辉广场店）",
+      "city": "上海",
+      "status": "unknown",
+      "projectionSystem": "Xenon",
+      "plannedQueries": [
+        {
+          "kind": "current-name-city",
+          "query": "上海百丽宫影城（LCM置汇旭辉广场店） 上海"
+        },
+        {
+          "kind": "project-brand",
+          "query": "lcm置汇旭辉广场 百丽宫 上海"
+        }
+      ],
+      "cachedQueriesUsed": [
+        {
+          "query": "上海百丽宫影城（LCM置汇旭辉广场店） 上海",
+          "city": "上海",
+          "cache": "hit-linked-by-sourceRow",
+          "ok": true,
+          "candidateCount": 1,
+          "isCurrentPlannedQuery": true
+        },
+        {
+          "query": "置汇旭辉广场 lcm 置汇 百丽宫 上海",
+          "city": "上海",
+          "cache": "hit-linked-by-sourceRow",
+          "ok": true,
+          "candidateCount": 25,
+          "isCurrentPlannedQuery": false
+        }
+      ],
+      "candidateCount": 25,
+      "rejectedCandidateCount": 23,
+      "rejectedReasons": {
+        "non-cinema-poi": 23
+      },
+      "ambiguity": {
+        "evaluatedCandidates": 2,
+        "ignoredHardRejected": 23,
+        "trueAmbiguity": false
+      },
+      "overrideUsed": false,
+      "reviewedOverride": null,
+      "selectedCandidate": {
+        "poiId": "B0FFJL4VPL",
+        "name": "上海百丽宫影城(LCM置汇旭辉广场店)",
+        "address": "张杨路2389弄2号LCM置汇旭辉广场4层",
+        "typecode": "080601",
+        "positionType": "cinema-poi",
+        "locationGranularity": "cinema",
+        "score": 1,
+        "decision": "accepted-high",
+        "confidence": "high",
+        "locationConfidence": "high",
+        "identityConfidence": "high",
+        "adminMatch": {
+          "provinceMatch": true,
+          "prefectureMatch": true,
+          "countyMatch": null,
+          "targetLevel": "municipality",
+          "compatible": true,
+          "targetProvince": "上海",
+          "targetPrefecture": "上海",
+          "targetCounty": null,
+          "providerProvince": "上海",
+          "providerPrefecture": "上海",
+          "providerCounty": "浦东新",
+          "mappingSource": "municipality-rule"
+        },
+        "formatCompatibility": {
+          "compatible": true,
+          "exactFormatMatch": false,
+          "conflicts": []
+        },
+        "geocodeSource": "amap:poi-search",
+        "provider": {
+          "providerCrs": "GCJ-02",
+          "providerLat": 31.242873,
+          "providerLng": 121.55552
+        },
+        "map": {
+          "mapCrs": "WGS84",
+          "lat": 31.2450305,
+          "lng": 121.5512637
+        }
+      },
+      "topCandidate": null
+    },
+    {
+      "sourceRow": 30,
+      "id": "imax-cn-0030",
+      "name": "上海百丽宫影城（博荟广场店）",
+      "city": "上海",
+      "status": "unknown",
+      "projectionSystem": "Commercial Laser",
+      "plannedQueries": [
+        {
+          "kind": "current-name-city",
+          "query": "上海百丽宫影城（博荟广场店） 上海"
+        },
+        {
+          "kind": "project-brand",
+          "query": "博荟广场 百丽宫 上海"
+        }
+      ],
+      "cachedQueriesUsed": [
+        {
+          "query": "上海百丽宫影城（博荟广场店） 上海",
+          "city": "上海",
+          "cache": "hit-linked-by-sourceRow",
+          "ok": true,
+          "candidateCount": 1,
+          "isCurrentPlannedQuery": true
+        },
+        {
+          "query": "博荟广场 博荟 荟广 百丽宫 上海",
+          "city": "上海",
+          "cache": "hit-linked-by-sourceRow",
+          "ok": true,
+          "candidateCount": 2,
+          "isCurrentPlannedQuery": false
+        }
+      ],
+      "candidateCount": 2,
+      "rejectedCandidateCount": 1,
+      "rejectedReasons": {
+        "brand-mismatch": 1
+      },
+      "ambiguity": {
+        "evaluatedCandidates": 1,
+        "ignoredHardRejected": 1,
+        "trueAmbiguity": false
+      },
+      "overrideUsed": false,
+      "reviewedOverride": null,
+      "selectedCandidate": {
+        "poiId": "B0FFI2O92B",
+        "name": "百丽宫影城(博荟广场ONE EAST店)",
+        "address": "中山南一路788号博荟广场ONE EAST B2层",
+        "typecode": "080601",
+        "positionType": "cinema-poi",
+        "locationGranularity": "cinema",
+        "score": 0.9608,
+        "decision": "accepted-high",
+        "confidence": "high",
+        "locationConfidence": "high",
+        "identityConfidence": "high",
+        "adminMatch": {
+          "provinceMatch": true,
+          "prefectureMatch": true,
+          "countyMatch": null,
+          "targetLevel": "municipality",
+          "compatible": true,
+          "targetProvince": "上海",
+          "targetPrefecture": "上海",
+          "targetCounty": null,
+          "providerProvince": "上海",
+          "providerPrefecture": "上海",
+          "providerCounty": "黄浦",
+          "mappingSource": "municipality-rule"
+        },
+        "formatCompatibility": {
+          "compatible": true,
+          "exactFormatMatch": false,
+          "conflicts": []
+        },
+        "geocodeSource": "amap:poi-search",
+        "provider": {
+          "providerCrs": "GCJ-02",
+          "providerLat": 31.196828,
+          "providerLng": 121.480113
+        },
+        "map": {
+          "mapCrs": "WGS84",
+          "lat": 31.1988041,
+          "lng": 121.4756142
+        }
+      },
+      "topCandidate": null
+    },
+    {
+      "sourceRow": 37,
+      "id": "imax-cn-0037",
+      "name": "上海百丽宫影城（环贸iapm店）",
+      "city": "上海",
+      "status": "unknown",
+      "projectionSystem": "Commercial Laser",
+      "plannedQueries": [
+        {
+          "kind": "current-name-city",
+          "query": "上海百丽宫影城（环贸iapm店） 上海"
+        },
+        {
+          "kind": "project-brand",
+          "query": "环贸iapm 百丽宫 上海"
+        }
+      ],
+      "cachedQueriesUsed": [
+        {
+          "query": "上海百丽宫影城（环贸iapm店） 上海",
+          "city": "上海",
+          "cache": "hit-linked-by-sourceRow",
+          "ok": true,
+          "candidateCount": 1,
+          "isCurrentPlannedQuery": true
+        },
+        {
+          "query": "环贸 iapm 百丽 百丽宫 上海",
+          "city": "上海",
+          "cache": "hit-linked-by-sourceRow",
+          "ok": true,
+          "candidateCount": 2,
+          "isCurrentPlannedQuery": false
+        }
+      ],
+      "candidateCount": 2,
+      "rejectedCandidateCount": 1,
+      "rejectedReasons": {
+        "brand-mismatch": 1
+      },
+      "ambiguity": {
+        "evaluatedCandidates": 1,
+        "ignoredHardRejected": 1,
+        "trueAmbiguity": false
+      },
+      "overrideUsed": false,
+      "reviewedOverride": null,
+      "selectedCandidate": {
+        "poiId": "B00157A5JJ",
+        "name": "百丽宫影城(上海环贸店)",
+        "address": "淮海中路999号环贸iapm商场L6层L6-601",
+        "typecode": "080601",
+        "positionType": "cinema-poi",
+        "locationGranularity": "cinema",
+        "score": 0.92,
+        "decision": "accepted-high",
+        "confidence": "high",
+        "locationConfidence": "high",
+        "identityConfidence": "high",
+        "adminMatch": {
+          "provinceMatch": true,
+          "prefectureMatch": true,
+          "countyMatch": null,
+          "targetLevel": "municipality",
+          "compatible": true,
+          "targetProvince": "上海",
+          "targetPrefecture": "上海",
+          "targetCounty": null,
+          "providerProvince": "上海",
+          "providerPrefecture": "上海",
+          "providerCounty": "徐汇",
+          "mappingSource": "municipality-rule"
+        },
+        "formatCompatibility": {
+          "compatible": true,
+          "exactFormatMatch": false,
+          "conflicts": []
+        },
+        "geocodeSource": "amap:poi-search",
+        "provider": {
+          "providerCrs": "GCJ-02",
+          "providerLat": 31.215838,
+          "providerLng": 121.457763
+        },
+        "map": {
+          "mapCrs": "WGS84",
+          "lat": 31.2177468,
+          "lng": 121.4531931
+        }
+      },
+      "topCandidate": null
+    },
+    {
+      "sourceRow": 198,
+      "id": "imax-cn-0198",
+      "name": "广州美亚影城（云门店）",
+      "city": "广州",
+      "status": "unknown",
+      "projectionSystem": "Commercial Laser",
+      "plannedQueries": [
+        {
+          "kind": "current-name-city",
+          "query": "广州美亚影城（云门店） 广州"
+        },
+        {
+          "kind": "project-brand",
+          "query": "云门 美亚 广州"
+        }
+      ],
+      "cachedQueriesUsed": [
+        {
+          "query": "广州美亚影城（云门店） 广州",
+          "city": "广州",
+          "cache": "hit-linked-by-sourceRow",
+          "ok": true,
+          "candidateCount": 1,
+          "isCurrentPlannedQuery": true
+        },
+        {
+          "query": "云门 美亚 广州",
+          "city": "广州",
+          "cache": "hit-linked-by-sourceRow",
+          "ok": true,
+          "candidateCount": 1,
+          "isCurrentPlannedQuery": true
+        }
+      ],
+      "candidateCount": 1,
+      "rejectedCandidateCount": 0,
+      "rejectedReasons": {},
+      "ambiguity": {
+        "evaluatedCandidates": 1,
+        "ignoredHardRejected": 0,
+        "trueAmbiguity": false
+      },
+      "overrideUsed": false,
+      "reviewedOverride": null,
+      "selectedCandidate": {
+        "poiId": "B0FFKBGXY0",
+        "name": "美亚IMAX激光影城(云门店)",
+        "address": "百顺北路1号新世界云门Newpark3楼",
+        "typecode": "080601",
+        "positionType": "cinema-poi",
+        "locationGranularity": "cinema",
+        "score": 1,
+        "decision": "accepted-high",
+        "confidence": "high",
+        "locationConfidence": "high",
+        "identityConfidence": "high",
+        "adminMatch": {
+          "provinceMatch": true,
+          "prefectureMatch": true,
+          "countyMatch": null,
+          "targetLevel": "prefecture",
+          "compatible": true,
+          "targetProvince": "广东",
+          "targetPrefecture": "广州",
+          "targetCounty": null,
+          "providerProvince": "广东",
+          "providerPrefecture": "广州",
+          "providerCounty": "白云",
+          "mappingSource": "prefecture-rule"
+        },
+        "formatCompatibility": {
+          "compatible": true,
+          "exactFormatMatch": true,
+          "conflicts": []
+        },
+        "geocodeSource": "amap:poi-search",
+        "provider": {
+          "providerCrs": "GCJ-02",
+          "providerLat": 23.237795,
+          "providerLng": 113.292003
+        },
+        "map": {
+          "mapCrs": "WGS84",
+          "lat": 23.2404036,
+          "lng": 113.2866342
+        }
+      },
+      "topCandidate": null
+    },
+    {
+      "sourceRow": 200,
+      "id": "imax-cn-0200",
+      "name": "广州飞扬影城（IMAX激光乐峰店）",
+      "city": "广州",
+      "status": "unknown",
+      "projectionSystem": "Commercial Laser",
+      "plannedQueries": [
+        {
+          "kind": "current-name-city",
+          "query": "广州飞扬影城（IMAX激光乐峰店） 广州"
+        },
+        {
+          "kind": "device-description-removed",
+          "query": "广州飞扬影城 广州"
+        },
+        {
+          "kind": "project-brand",
+          "query": "乐峰 飞扬 广州"
+        }
+      ],
+      "cachedQueriesUsed": [
+        {
+          "query": "广州飞扬影城（IMAX激光乐峰店） 广州",
+          "city": "广州",
+          "cache": "hit-linked-by-sourceRow",
+          "ok": true,
+          "candidateCount": 1,
+          "isCurrentPlannedQuery": true
+        },
+        {
+          "query": "广州飞扬影城 广州",
+          "city": "广州",
+          "cache": "hit-linked-by-sourceRow",
+          "ok": true,
+          "candidateCount": 5,
+          "isCurrentPlannedQuery": true
+        },
+        {
+          "query": "乐峰 飞扬 广州",
+          "city": "广州",
+          "cache": "hit-linked-by-sourceRow",
+          "ok": true,
+          "candidateCount": 1,
+          "isCurrentPlannedQuery": true
+        }
+      ],
+      "candidateCount": 5,
+      "rejectedCandidateCount": 4,
+      "rejectedReasons": {
+        "project-mismatch": 4
+      },
+      "ambiguity": {
+        "evaluatedCandidates": 1,
+        "ignoredHardRejected": 4,
+        "trueAmbiguity": false
+      },
+      "overrideUsed": false,
+      "reviewedOverride": null,
+      "selectedCandidate": {
+        "poiId": "B00141SC0V",
+        "name": "飞扬影城(乐峰广场店)",
+        "address": "工业大道北106-108号乐峰广场2层L2",
+        "typecode": "080601",
+        "positionType": "cinema-poi",
+        "locationGranularity": "cinema",
+        "score": 0.973867,
+        "decision": "accepted-high",
+        "confidence": "high",
+        "locationConfidence": "high",
+        "identityConfidence": "high",
+        "adminMatch": {
+          "provinceMatch": true,
+          "prefectureMatch": true,
+          "countyMatch": null,
+          "targetLevel": "prefecture",
+          "compatible": true,
+          "targetProvince": "广东",
+          "targetPrefecture": "广州",
+          "targetCounty": null,
+          "providerProvince": "广东",
+          "providerPrefecture": "广州",
+          "providerCounty": "海珠",
+          "mappingSource": "prefecture-rule"
+        },
+        "formatCompatibility": {
+          "compatible": true,
+          "exactFormatMatch": false,
+          "conflicts": []
+        },
+        "geocodeSource": "amap:poi-search",
+        "provider": {
+          "providerCrs": "GCJ-02",
+          "providerLat": 23.088015,
+          "providerLng": 113.258847
+        },
+        "map": {
+          "mapCrs": "WGS84",
+          "lat": 23.090711,
+          "lng": 113.2535233
+        }
+      },
+      "topCandidate": null
+    },
+    {
+      "sourceRow": 224,
+      "id": "imax-cn-0224",
+      "name": "深圳英皇电影城（平安金融中心店)",
+      "city": "深圳",
+      "status": "unknown",
+      "projectionSystem": "Commercial Laser",
+      "plannedQueries": [
+        {
+          "kind": "current-name-city",
+          "query": "深圳英皇电影城（平安金融中心店) 深圳"
+        },
+        {
+          "kind": "project-brand",
+          "query": "平安金融中心 英皇电影城 深圳"
+        }
+      ],
+      "cachedQueriesUsed": [
+        {
+          "query": "深圳英皇电影城（平安金融中心店) 深圳",
+          "city": "深圳",
+          "cache": "hit-linked-by-sourceRow",
+          "ok": true,
+          "candidateCount": 3,
+          "isCurrentPlannedQuery": true
+        },
+        {
+          "query": "平安金融中心 平安 安金 英皇 深圳",
+          "city": "深圳",
+          "cache": "hit-linked-by-sourceRow",
+          "ok": true,
+          "candidateCount": 3,
+          "isCurrentPlannedQuery": false
+        }
+      ],
+      "candidateCount": 3,
+      "rejectedCandidateCount": 2,
+      "rejectedReasons": {
+        "non-cinema-poi": 2
+      },
+      "ambiguity": {
+        "evaluatedCandidates": 1,
+        "ignoredHardRejected": 2,
+        "trueAmbiguity": false
+      },
+      "overrideUsed": false,
+      "reviewedOverride": null,
+      "selectedCandidate": {
+        "poiId": "B0FFLKPC8C",
+        "name": "英皇电影城(PA MALL平安金融中心商场)",
+        "address": "益田路5023号平安金融中心商场PA MALL南塔L4层S607",
+        "typecode": "080601",
+        "positionType": "cinema-poi",
+        "locationGranularity": "cinema",
+        "score": 0.92,
+        "decision": "accepted-high",
+        "confidence": "high",
+        "locationConfidence": "high",
+        "identityConfidence": "high",
+        "adminMatch": {
+          "provinceMatch": true,
+          "prefectureMatch": true,
+          "countyMatch": null,
+          "targetLevel": "prefecture",
+          "compatible": true,
+          "targetProvince": "广东",
+          "targetPrefecture": "深圳",
+          "targetCounty": null,
+          "providerProvince": "广东",
+          "providerPrefecture": "深圳",
+          "providerCounty": "福田",
+          "mappingSource": "prefecture-rule"
+        },
+        "formatCompatibility": {
+          "compatible": true,
+          "exactFormatMatch": false,
+          "conflicts": []
+        },
+        "geocodeSource": "amap:poi-search",
+        "provider": {
+          "providerCrs": "GCJ-02",
+          "providerLat": 22.532049,
+          "providerLng": 114.055559
+        },
+        "map": {
+          "mapCrs": "WGS84",
+          "lat": 22.5347711,
+          "lng": 114.0504486
+        }
+      },
+      "topCandidate": null
+    },
+    {
+      "sourceRow": 228,
+      "id": "imax-cn-0228",
+      "name": "深圳万达影城（龙岗万达广场店）",
+      "city": "深圳",
+      "status": "unknown",
+      "projectionSystem": "Commercial Laser",
+      "plannedQueries": [
+        {
+          "kind": "current-name-city",
+          "query": "深圳万达影城（龙岗万达广场店） 深圳"
+        },
+        {
+          "kind": "project-brand",
+          "query": "龙岗万达广场 万达影城 深圳"
+        }
+      ],
+      "cachedQueriesUsed": [
+        {
+          "query": "深圳万达影城（龙岗万达广场店） 深圳",
+          "city": "深圳",
+          "cache": "hit-linked-by-sourceRow",
+          "ok": true,
+          "candidateCount": 7,
+          "isCurrentPlannedQuery": true
+        },
+        {
+          "query": "龙岗万达广场 龙岗 岗万 万达 深圳",
+          "city": "深圳",
+          "cache": "hit-linked-by-sourceRow",
+          "ok": true,
+          "candidateCount": 25,
+          "isCurrentPlannedQuery": false
+        }
+      ],
+      "candidateCount": 30,
+      "rejectedCandidateCount": 28,
+      "rejectedReasons": {
+        "non-cinema-poi": 27,
+        "project-mismatch": 1,
+        "auditorium-format-conflict": 1
+      },
+      "ambiguity": {
+        "evaluatedCandidates": 2,
+        "ignoredHardRejected": 28,
+        "trueAmbiguity": false
+      },
+      "overrideUsed": false,
+      "reviewedOverride": null,
+      "selectedCandidate": {
+        "poiId": "B0HRK5AY2M",
+        "name": "万达影城(龙岗万达广场店)",
+        "address": "平湖街道禾花社区华南二道1号深圳龙岗万达广场6F层6F-B",
+        "typecode": "080601",
+        "positionType": "cinema-poi",
+        "locationGranularity": "cinema",
+        "score": 1,
+        "decision": "accepted-high",
+        "confidence": "high",
+        "locationConfidence": "high",
+        "identityConfidence": "high",
+        "adminMatch": {
+          "provinceMatch": true,
+          "prefectureMatch": true,
+          "countyMatch": null,
+          "targetLevel": "prefecture",
+          "compatible": true,
+          "targetProvince": "广东",
+          "targetPrefecture": "深圳",
+          "targetCounty": null,
+          "providerProvince": "广东",
+          "providerPrefecture": "深圳",
+          "providerCounty": "龙岗",
+          "mappingSource": "prefecture-rule"
+        },
+        "formatCompatibility": {
+          "compatible": true,
+          "exactFormatMatch": false,
+          "conflicts": []
+        },
+        "geocodeSource": "amap:poi-search",
+        "provider": {
+          "providerCrs": "GCJ-02",
+          "providerLat": 22.673271,
+          "providerLng": 114.130825
+        },
+        "map": {
+          "mapCrs": "WGS84",
+          "lat": 22.6759542,
+          "lng": 114.1257394
+        }
+      },
+      "topCandidate": null
+    },
+    {
+      "sourceRow": 593,
+      "id": "imax-cn-0593",
+      "name": "西安寰映影城（荟聚店）",
+      "city": "西安",
+      "status": "open",
+      "projectionSystem": "Commercial Laser",
+      "plannedQueries": [
+        {
+          "kind": "current-name-city",
+          "query": "西安寰映影城（荟聚店） 西安"
+        },
+        {
+          "kind": "project-brand",
+          "query": "荟聚 寰映 西安"
+        }
+      ],
+      "cachedQueriesUsed": [
+        {
+          "query": "西安寰映影城（荟聚店） 西安",
+          "city": "西安",
+          "cache": "hit-linked-by-sourceRow",
+          "ok": true,
+          "candidateCount": 2,
+          "isCurrentPlannedQuery": true
+        },
+        {
+          "query": "荟聚 寰映 西安",
+          "city": "西安",
+          "cache": "hit-linked-by-sourceRow",
+          "ok": true,
+          "candidateCount": 2,
+          "isCurrentPlannedQuery": true
+        }
+      ],
+      "candidateCount": 2,
+      "rejectedCandidateCount": 1,
+      "rejectedReasons": {
+        "non-cinema-poi": 1
+      },
+      "ambiguity": {
+        "evaluatedCandidates": 1,
+        "ignoredHardRejected": 1,
+        "trueAmbiguity": false
+      },
+      "overrideUsed": false,
+      "reviewedOverride": null,
+      "selectedCandidate": {
+        "poiId": "B0KG251QBL",
+        "name": "寰映影城(西安荟聚激光IMAX店)",
+        "address": "沈家桥一路西安荟聚4号门L3层",
+        "typecode": "080601",
+        "positionType": "cinema-poi",
+        "locationGranularity": "cinema",
+        "score": 0.92,
+        "decision": "accepted-high",
+        "confidence": "high",
+        "locationConfidence": "high",
+        "identityConfidence": "high",
+        "adminMatch": {
+          "provinceMatch": true,
+          "prefectureMatch": true,
+          "countyMatch": null,
+          "targetLevel": "prefecture",
+          "compatible": true,
+          "targetProvince": "陕西",
+          "targetPrefecture": "西安",
+          "targetCounty": null,
+          "providerProvince": "陕西",
+          "providerPrefecture": "西安",
+          "providerCounty": "雁塔",
+          "mappingSource": "prefecture-rule"
+        },
+        "formatCompatibility": {
+          "compatible": true,
+          "exactFormatMatch": true,
+          "conflicts": []
+        },
+        "geocodeSource": "amap:poi-search",
+        "provider": {
+          "providerCrs": "GCJ-02",
+          "providerLat": 34.172933,
+          "providerLng": 108.899638
+        },
+        "map": {
+          "mapCrs": "WGS84",
+          "lat": 34.1745878,
+          "lng": 108.8950598
+        }
+      },
+      "topCandidate": null
+    },
+    {
+      "sourceRow": 699,
+      "id": "imax-cn-0699",
+      "name": "成都中影紫荆国际影城4K激光IMAX（环球中心旗舰店）",
+      "city": "成都",
+      "status": "unknown",
+      "projectionSystem": "Commercial Laser",
+      "plannedQueries": [
+        {
+          "kind": "current-name-city",
+          "query": "成都中影紫荆国际影城4K激光IMAX（环球中心旗舰店） 成都"
+        },
+        {
+          "kind": "former-name",
+          "query": "成都博纳院线环球中心旗舰店IMAX 成都"
+        },
+        {
+          "kind": "former-name",
+          "query": "成都星美国际影商城（环球IMAX店 成都"
+        },
+        {
+          "kind": "project-brand",
+          "query": "环球中心 中影紫荆 成都"
+        }
+      ],
+      "cachedQueriesUsed": [
+        {
+          "query": "成都中影紫荆国际影城4K激光IMAX（环球中心旗舰店） 成都",
+          "city": "成都",
+          "cache": "hit-linked-by-sourceRow",
+          "ok": true,
+          "candidateCount": 1,
+          "isCurrentPlannedQuery": true
+        },
+        {
+          "query": "成都博纳院线环球中心旗舰店IMAX 成都",
+          "city": "成都",
+          "cache": "hit-linked-by-sourceRow",
+          "ok": true,
+          "candidateCount": 25,
+          "isCurrentPlannedQuery": true
+        },
+        {
+          "query": "成都星美国际影商城（环球IMAX店 成都",
+          "city": "成都",
+          "cache": "hit-linked-by-sourceRow",
+          "ok": true,
+          "candidateCount": 25,
+          "isCurrentPlannedQuery": true
+        },
+        {
+          "query": "环球中心旗舰 环球 球中 中影 成都",
+          "city": "成都",
+          "cache": "hit-linked-by-sourceRow",
+          "ok": true,
+          "candidateCount": 1,
+          "isCurrentPlannedQuery": false
+        }
+      ],
+      "candidateCount": 47,
+      "rejectedCandidateCount": 45,
+      "rejectedReasons": {
+        "non-cinema-poi": 26,
+        "mall-fallback-not-qualified": 8,
+        "brand-mismatch": 11,
+        "project-mismatch": 11
+      },
+      "ambiguity": {
+        "evaluatedCandidates": 2,
+        "ignoredHardRejected": 45,
+        "trueAmbiguity": false
+      },
+      "overrideUsed": false,
+      "reviewedOverride": null,
+      "selectedCandidate": {
+        "poiId": "B0K0XSTSXF",
+        "name": "中影紫荆国际影城4K激光IMAX环球中心旗舰店",
+        "address": "天府大道北段1700号新世纪环球中心4F层",
+        "typecode": "080601",
+        "positionType": "cinema-poi",
+        "locationGranularity": "cinema",
+        "score": 1,
+        "decision": "accepted-high",
+        "confidence": "high",
+        "locationConfidence": "high",
+        "identityConfidence": "high",
+        "adminMatch": {
+          "provinceMatch": true,
+          "prefectureMatch": true,
+          "countyMatch": null,
+          "targetLevel": "prefecture",
+          "compatible": true,
+          "targetProvince": "四川",
+          "targetPrefecture": "成都",
+          "targetCounty": null,
+          "providerProvince": "四川",
+          "providerPrefecture": "成都",
+          "providerCounty": "武侯",
+          "mappingSource": "prefecture-rule"
+        },
+        "formatCompatibility": {
+          "compatible": true,
+          "exactFormatMatch": true,
+          "conflicts": []
+        },
+        "geocodeSource": "amap:poi-search",
+        "provider": {
+          "providerCrs": "GCJ-02",
+          "providerLat": 30.56963,
+          "providerLng": 104.064278
+        },
+        "map": {
+          "mapCrs": "WGS84",
+          "lat": 30.5720887,
+          "lng": 104.0617774
+        }
+      },
+      "topCandidate": null
+    },
+    {
+      "sourceRow": 59,
+      "id": "imax-cn-0059",
+      "name": "哈尔滨儒意影城（哈东万达广场店）",
+      "city": "哈尔滨",
+      "status": "closed",
+      "projectionSystem": "GT Laser",
+      "plannedQueries": [
+        {
+          "kind": "current-name-city",
+          "query": "哈尔滨儒意影城（哈东万达广场店） 哈尔滨"
+        },
+        {
+          "kind": "former-name",
+          "query": "万达影城 哈尔滨"
+        },
+        {
+          "kind": "former-name",
+          "query": "万达影城（哈东万达IMAXGT双激光店 哈尔滨"
+        },
+        {
+          "kind": "former-name",
+          "query": "哈尔滨泰莱时代影城 哈尔滨"
+        }
+      ],
+      "cachedQueriesUsed": [
+        {
+          "query": "哈尔滨儒意影城（哈东万达广场店） 哈尔滨",
+          "city": "哈尔滨",
+          "cache": "hit-linked-by-sourceRow",
+          "ok": true,
+          "candidateCount": 1,
+          "isCurrentPlannedQuery": true
+        },
+        {
+          "query": "万达影城 哈尔滨",
+          "city": "哈尔滨",
+          "cache": "hit-linked-by-sourceRow",
+          "ok": true,
+          "candidateCount": 9,
+          "isCurrentPlannedQuery": true
+        },
+        {
+          "query": "万达影城（哈东万达IMAXGT双激光店 哈尔滨",
+          "city": "哈尔滨",
+          "cache": "hit-linked-by-sourceRow",
+          "ok": true,
+          "candidateCount": 25,
+          "isCurrentPlannedQuery": true
+        },
+        {
+          "query": "哈尔滨泰莱时代影城 哈尔滨",
+          "city": "哈尔滨",
+          "cache": "hit-linked-by-sourceRow",
+          "ok": true,
+          "candidateCount": 17,
+          "isCurrentPlannedQuery": true
+        }
+      ],
+      "candidateCount": 43,
+      "rejectedCandidateCount": 40,
+      "rejectedReasons": {
+        "non-cinema-poi": 24,
+        "mall-fallback-not-qualified": 2,
+        "brand-mismatch": 14,
+        "project-mismatch": 14
+      },
+      "ambiguity": {
+        "evaluatedCandidates": 1,
+        "ignoredHardRejected": 42,
+        "trueAmbiguity": false
+      },
+      "overrideUsed": false,
+      "reviewedOverride": null,
+      "selectedCandidate": {
+        "poiId": "B0HBOZL908",
+        "name": "儒意影城(哈东万达广场店)",
+        "address": "幸福镇香福路52号哈东万达广场5层",
+        "typecode": "080601",
+        "positionType": "cinema-poi",
+        "locationGranularity": "cinema",
+        "score": 1,
+        "decision": "accepted-high",
+        "confidence": "high",
+        "locationConfidence": "high",
+        "identityConfidence": "high",
+        "adminMatch": {
+          "provinceMatch": true,
+          "prefectureMatch": true,
+          "countyMatch": null,
+          "targetLevel": "prefecture",
+          "compatible": true,
+          "targetProvince": "黑龙江",
+          "targetPrefecture": "哈尔滨",
+          "targetCounty": null,
+          "providerProvince": "黑龙江",
+          "providerPrefecture": "哈尔滨",
+          "providerCounty": "香坊",
+          "mappingSource": "prefecture-rule"
+        },
+        "formatCompatibility": {
+          "compatible": true,
+          "exactFormatMatch": false,
+          "conflicts": []
+        },
+        "geocodeSource": "amap:poi-search",
+        "provider": {
+          "providerCrs": "GCJ-02",
+          "providerLat": 45.717757,
+          "providerLng": 126.760438
+        },
+        "map": {
+          "mapCrs": "WGS84",
+          "lat": 45.715648,
+          "lng": 126.7542402
+        }
+      },
+      "topCandidate": null
+    },
+    {
+      "sourceRow": 51,
+      "id": "imax-cn-0051",
+      "name": "哈尔滨黑龙江省科学技术馆",
+      "city": "哈尔滨",
+      "status": "unknown",
+      "projectionSystem": "unknown",
+      "plannedQueries": [
+        {
+          "kind": "current-name-city",
+          "query": "哈尔滨黑龙江省科学技术馆 哈尔滨"
+        }
+      ],
+      "cachedQueriesUsed": [
+        {
+          "query": "哈尔滨黑龙江省科学技术馆 哈尔滨",
+          "city": "哈尔滨",
+          "cache": "hit-linked-by-sourceRow",
+          "ok": true,
+          "candidateCount": 25,
+          "isCurrentPlannedQuery": true
+        }
+      ],
+      "candidateCount": 25,
+      "rejectedCandidateCount": 24,
+      "rejectedReasons": {
+        "non-cinema-poi": 21,
+        "venue-not-qualified": 2,
+        "non-target-business-name": 1,
+        "auditorium-format-conflict": 1
+      },
+      "ambiguity": {
+        "evaluatedCandidates": 1,
+        "ignoredHardRejected": 24,
+        "trueAmbiguity": false
+      },
+      "overrideUsed": true,
+      "reviewedOverride": {
+        "sourceRow": 51,
+        "status": "approved-cached-poi",
+        "provider": "amap",
+        "poiId": "B01C302873",
+        "confidence": "high",
+        "positionType": "venue-poi",
+        "evidence": "External manual verification supplied by the project owner: the official science museum site confirms an IMAX dome; select the museum venue, not its 4D cinema POI.",
+        "provenance": "user-supplied review, 2026-08-20",
+        "applied": true
+      },
+      "selectedCandidate": {
+        "poiId": "B01C302873",
+        "name": "黑龙江省科学技术馆",
+        "address": "太阳大道1458号",
+        "typecode": "140800",
+        "positionType": "venue-poi",
+        "locationGranularity": "venue",
+        "score": 0.990625,
+        "decision": "accepted-high",
+        "confidence": "high",
+        "locationConfidence": "high",
+        "identityConfidence": "medium",
+        "adminMatch": {
+          "provinceMatch": true,
+          "prefectureMatch": true,
+          "countyMatch": null,
+          "targetLevel": "prefecture",
+          "compatible": true,
+          "targetProvince": "黑龙江",
+          "targetPrefecture": "哈尔滨",
+          "targetCounty": null,
+          "providerProvince": "黑龙江",
+          "providerPrefecture": "哈尔滨",
+          "providerCounty": "松北",
+          "mappingSource": "prefecture-rule"
+        },
+        "formatCompatibility": {
+          "compatible": true,
+          "exactFormatMatch": false,
+          "conflicts": []
+        },
+        "geocodeSource": "amap:venue-poi",
+        "provider": {
+          "providerCrs": "GCJ-02",
+          "providerLat": 45.776439,
+          "providerLng": 126.575982
+        },
+        "map": {
+          "mapCrs": "WGS84",
+          "lat": 45.7745226,
+          "lng": 126.5700532
+        }
+      },
+      "topCandidate": null
+    },
+    {
+      "sourceRow": 155,
+      "id": "imax-cn-0155",
+      "name": "扬州幸福蓝海国际影城（IMAX店）",
+      "city": "扬州",
+      "status": "closed",
+      "projectionSystem": "Xenon",
+      "plannedQueries": [
+        {
+          "kind": "current-name-city",
+          "query": "扬州幸福蓝海国际影城（IMAX店） 扬州"
+        },
+        {
+          "kind": "device-description-removed",
+          "query": "扬州幸福蓝海国际影城 扬州"
+        }
+      ],
+      "cachedQueriesUsed": [
+        {
+          "query": "扬州幸福蓝海国际影城（IMAX店） 扬州",
+          "city": "扬州",
+          "cache": "hit-linked-by-sourceRow",
+          "ok": true,
+          "candidateCount": 3,
+          "isCurrentPlannedQuery": true
+        },
+        {
+          "query": "扬州幸福蓝海国际影城 扬州",
+          "city": "扬州",
+          "cache": "hit-linked-by-sourceRow",
+          "ok": true,
+          "candidateCount": 23,
+          "isCurrentPlannedQuery": true
+        }
+      ],
+      "candidateCount": 23,
+      "rejectedCandidateCount": 7,
+      "rejectedReasons": {
+        "non-cinema-poi": 7
+      },
+      "ambiguity": {
+        "evaluatedCandidates": 16,
+        "ignoredHardRejected": 7,
+        "trueAmbiguity": true,
+        "competingPoiId": "B0FFIXZUEK"
+      },
+      "overrideUsed": true,
+      "reviewedOverride": {
+        "sourceRow": 155,
+        "status": "approved-cached-poi",
+        "provider": "amap",
+        "poiId": "B0FFFDTAL6",
+        "confidence": "high",
+        "positionType": "cinema-poi",
+        "evidence": "External manual verification supplied by the project owner: exact Yangzhou IMAX cinema POI at Sansheng International Plaza level 3.",
+        "provenance": "user-supplied review, 2026-08-20",
+        "applied": true
+      },
+      "selectedCandidate": {
+        "poiId": "B0FFFDTAL6",
+        "name": "幸福蓝海国际影城(扬州IMAX店)",
+        "address": "邗江中路358号三盛国际广场3层",
+        "typecode": "080601",
+        "positionType": "cinema-poi",
+        "locationGranularity": "cinema",
+        "score": 0.976941,
+        "decision": "accepted-high",
+        "confidence": "high",
+        "locationConfidence": "high",
+        "identityConfidence": "high",
+        "adminMatch": {
+          "provinceMatch": true,
+          "prefectureMatch": true,
+          "countyMatch": null,
+          "targetLevel": "prefecture",
+          "compatible": true,
+          "targetProvince": "江苏",
+          "targetPrefecture": "扬州",
+          "targetCounty": null,
+          "providerProvince": "江苏",
+          "providerPrefecture": "扬州",
+          "providerCounty": "邗江",
+          "mappingSource": "prefecture-rule"
+        },
+        "formatCompatibility": {
+          "compatible": true,
+          "exactFormatMatch": true,
+          "conflicts": []
+        },
+        "geocodeSource": "amap:poi-search",
+        "provider": {
+          "providerCrs": "GCJ-02",
+          "providerLat": 32.380286,
+          "providerLng": 119.396986
+        },
+        "map": {
+          "mapCrs": "WGS84",
+          "lat": 32.3821646,
+          "lng": 119.3915002
+        }
+      },
+      "topCandidate": null
+    },
+    {
+      "sourceRow": 305,
+      "id": "imax-cn-0305",
+      "name": "北京万达影城（怀柔万达广场店）",
+      "city": "北京",
+      "status": "unknown",
+      "projectionSystem": "Xenon",
+      "plannedQueries": [
+        {
+          "kind": "current-name-city",
+          "query": "北京万达影城（怀柔万达广场店） 北京"
+        },
+        {
+          "kind": "project-brand",
+          "query": "怀柔万达广场 万达影城 北京"
+        }
+      ],
+      "cachedQueriesUsed": [
+        {
+          "query": "北京万达影城（怀柔万达广场店） 北京",
+          "city": "北京",
+          "cache": "hit-linked-by-sourceRow",
+          "ok": true,
+          "candidateCount": 2,
+          "isCurrentPlannedQuery": true
+        },
+        {
+          "query": "怀柔万达广场 怀柔 柔万 万达 北京",
+          "city": "北京",
+          "cache": "hit-linked-by-sourceRow",
+          "ok": true,
+          "candidateCount": 25,
+          "isCurrentPlannedQuery": false
+        }
+      ],
+      "candidateCount": 25,
+      "rejectedCandidateCount": 24,
+      "rejectedReasons": {
+        "non-cinema-poi": 23,
+        "mall-fallback-not-qualified": 1
+      },
+      "ambiguity": {
+        "evaluatedCandidates": 1,
+        "ignoredHardRejected": 24,
+        "trueAmbiguity": false
+      },
+      "overrideUsed": false,
+      "reviewedOverride": null,
+      "selectedCandidate": {
+        "poiId": "B0FFIQ193L",
+        "name": "万达影城(怀柔万达广场IMAX店)",
+        "address": "青春路怀柔青春万达广场7层",
+        "typecode": "080601",
+        "positionType": "cinema-poi",
+        "locationGranularity": "cinema",
+        "score": 1,
+        "decision": "accepted-high",
+        "confidence": "high",
+        "locationConfidence": "high",
+        "identityConfidence": "high",
+        "adminMatch": {
+          "provinceMatch": true,
+          "prefectureMatch": true,
+          "countyMatch": null,
+          "targetLevel": "municipality",
+          "compatible": true,
+          "targetProvince": "北京",
+          "targetPrefecture": "北京",
+          "targetCounty": null,
+          "providerProvince": "北京",
+          "providerPrefecture": "北京",
+          "providerCounty": "怀柔",
+          "mappingSource": "municipality-rule"
+        },
+        "formatCompatibility": {
+          "compatible": true,
+          "exactFormatMatch": true,
+          "conflicts": []
+        },
+        "geocodeSource": "amap:poi-search",
+        "provider": {
+          "providerCrs": "GCJ-02",
+          "providerLat": 40.317019,
+          "providerLng": 116.630005
+        },
+        "map": {
+          "mapCrs": "WGS84",
+          "lat": 40.3159154,
+          "lng": 116.6241328
+        }
+      },
+      "topCandidate": null
+    },
+    {
+      "sourceRow": 610,
+      "id": "imax-cn-0610",
+      "name": "包头万达影城（九原万达广场店)",
+      "city": "包头",
+      "status": "unknown",
+      "projectionSystem": "Xenon",
+      "plannedQueries": [
+        {
+          "kind": "current-name-city",
+          "query": "包头万达影城（九原万达广场店) 包头"
+        },
+        {
+          "kind": "project-brand",
+          "query": "九原万达广场 万达影城 包头"
+        }
+      ],
+      "cachedQueriesUsed": [
+        {
+          "query": "包头万达影城（九原万达广场店) 包头",
+          "city": "包头",
+          "cache": "hit-linked-by-sourceRow",
+          "ok": true,
+          "candidateCount": 1,
+          "isCurrentPlannedQuery": true
+        },
+        {
+          "query": "九原万达广场 九原 原万 万达 包头",
+          "city": "包头",
+          "cache": "hit-linked-by-sourceRow",
+          "ok": true,
+          "candidateCount": 25,
+          "isCurrentPlannedQuery": false
+        },
+        {
+          "query": "包头万达影城（九 包头",
+          "city": "包头",
+          "cache": "hit-linked-by-sourceRow",
+          "ok": true,
+          "candidateCount": 5,
+          "isCurrentPlannedQuery": false
+        }
+      ],
+      "candidateCount": 28,
+      "rejectedCandidateCount": 26,
+      "rejectedReasons": {
+        "non-cinema-poi": 22,
+        "project-mismatch": 3,
+        "mall-fallback-not-qualified": 1
+      },
+      "ambiguity": {
+        "evaluatedCandidates": 2,
+        "ignoredHardRejected": 26,
+        "trueAmbiguity": false
+      },
+      "overrideUsed": false,
+      "reviewedOverride": null,
+      "selectedCandidate": {
+        "poiId": "B0FFJEI1H1",
+        "name": "万达影城(九原万达广场店)",
+        "address": "210国道与沙河西街交叉路口西北角万达广场F4",
+        "typecode": "080601",
+        "positionType": "cinema-poi",
+        "locationGranularity": "cinema",
+        "score": 1,
+        "decision": "accepted-high",
+        "confidence": "high",
+        "locationConfidence": "high",
+        "identityConfidence": "high",
+        "adminMatch": {
+          "provinceMatch": true,
+          "prefectureMatch": true,
+          "countyMatch": null,
+          "targetLevel": "prefecture",
+          "compatible": true,
+          "targetProvince": "内蒙古",
+          "targetPrefecture": "包头",
+          "targetCounty": null,
+          "providerProvince": "内蒙古",
+          "providerPrefecture": "包头",
+          "providerCounty": "九原",
+          "mappingSource": "prefecture-rule"
+        },
+        "formatCompatibility": {
+          "compatible": true,
+          "exactFormatMatch": false,
+          "conflicts": []
+        },
+        "geocodeSource": "amap:poi-search",
+        "provider": {
+          "providerCrs": "GCJ-02",
+          "providerLat": 40.606437,
+          "providerLng": 109.951089
+        },
+        "map": {
+          "mapCrs": "WGS84",
+          "lat": 40.6053332,
+          "lng": 109.9454103
+        }
+      },
+      "topCandidate": null
+    },
+    {
+      "sourceRow": 233,
+      "id": "imax-cn-0233",
+      "name": "深圳寰映影城（深圳湾睿印店）",
+      "city": "深圳",
+      "status": "unknown",
+      "projectionSystem": "Laser XT",
+      "plannedQueries": [
+        {
+          "kind": "current-name-city",
+          "query": "深圳寰映影城（深圳湾睿印店） 深圳"
+        },
+        {
+          "kind": "project-brand",
+          "query": "深圳湾睿印 寰映 深圳"
+        }
+      ],
+      "cachedQueriesUsed": [
+        {
+          "query": "深圳寰映影城（深圳湾睿印店） 深圳",
+          "city": "深圳",
+          "cache": "hit-linked-by-sourceRow",
+          "ok": true,
+          "candidateCount": 4,
+          "isCurrentPlannedQuery": true
+        },
+        {
+          "query": "湾睿印 湾睿 睿印 寰映 深圳",
+          "city": "深圳",
+          "cache": "hit-linked-by-sourceRow",
+          "ok": true,
+          "candidateCount": 25,
+          "isCurrentPlannedQuery": false
+        }
+      ],
+      "candidateCount": 27,
+      "rejectedCandidateCount": 25,
+      "rejectedReasons": {
+        "non-target-business-name": 1,
+        "non-cinema-poi": 24
+      },
+      "ambiguity": {
+        "evaluatedCandidates": 2,
+        "ignoredHardRejected": 25,
+        "trueAmbiguity": false
+      },
+      "overrideUsed": false,
+      "reviewedOverride": null,
+      "selectedCandidate": {
+        "poiId": "B0JAAH8R2L",
+        "name": "寰映影城(深圳湾睿印RAIL IN店)",
+        "address": "白石三道与深湾二路交汇处深湾睿云中心深圳湾睿印RAIL INL4层",
+        "typecode": "080601",
+        "positionType": "cinema-poi",
+        "locationGranularity": "cinema",
+        "score": 0.965864,
+        "decision": "accepted-high",
+        "confidence": "high",
+        "locationConfidence": "high",
+        "identityConfidence": "high",
+        "adminMatch": {
+          "provinceMatch": true,
+          "prefectureMatch": true,
+          "countyMatch": null,
+          "targetLevel": "prefecture",
+          "compatible": true,
+          "targetProvince": "广东",
+          "targetPrefecture": "深圳",
+          "targetCounty": null,
+          "providerProvince": "广东",
+          "providerPrefecture": "深圳",
+          "providerCounty": "南山",
+          "mappingSource": "prefecture-rule"
+        },
+        "formatCompatibility": {
+          "compatible": true,
+          "exactFormatMatch": false,
+          "conflicts": []
+        },
+        "geocodeSource": "amap:poi-search",
+        "provider": {
+          "providerCrs": "GCJ-02",
+          "providerLat": 22.523833,
+          "providerLng": 113.969738
+        },
+        "map": {
+          "mapCrs": "WGS84",
+          "lat": 22.5267893,
+          "lng": 113.9648171
+        }
+      },
+      "topCandidate": null
+    },
+    {
+      "sourceRow": 538,
+      "id": "imax-cn-0538",
+      "name": "杭州浙影时代影城•西湖文化广场店",
+      "city": "杭州",
+      "status": "open",
+      "projectionSystem": "Commercial Laser",
+      "plannedQueries": [
+        {
+          "kind": "current-name-city",
+          "query": "杭州浙影时代影城•西湖文化广场店 杭州"
+        },
+        {
+          "kind": "former-name",
+          "query": "新远国际影城 杭州"
+        },
+        {
+          "kind": "project-brand",
+          "query": "西湖文化广场 浙影时代 杭州"
+        }
+      ],
+      "cachedQueriesUsed": [
+        {
+          "query": "杭州浙影时代影城•西湖文化广场店 杭州",
+          "city": "杭州",
+          "cache": "hit-linked-by-sourceRow",
+          "ok": true,
+          "candidateCount": 13,
+          "isCurrentPlannedQuery": true
+        },
+        {
+          "query": "新远国际影城 杭州",
+          "city": "杭州",
+          "cache": "hit-linked-by-sourceRow",
+          "ok": true,
+          "candidateCount": 8,
+          "isCurrentPlannedQuery": true
+        }
+      ],
+      "candidateCount": 18,
+      "rejectedCandidateCount": 16,
+      "rejectedReasons": {
+        "non-cinema-poi": 13,
+        "brand-mismatch": 3,
+        "project-mismatch": 3
+      },
+      "ambiguity": {
+        "evaluatedCandidates": 1,
+        "ignoredHardRejected": 17,
+        "trueAmbiguity": false
+      },
+      "overrideUsed": true,
+      "reviewedOverride": {
+        "sourceRow": 538,
+        "status": "approved-cached-poi",
+        "provider": "amap",
+        "poiId": "B023B14BCH",
+        "confidence": "high",
+        "positionType": "cinema-poi",
+        "evidence": "External manual verification supplied by the project owner: exact Zheying Times Cinema West Lake Cultural Square POI.",
+        "provenance": "user-supplied review, 2026-08-20",
+        "applied": true
+      },
+      "selectedCandidate": {
+        "poiId": "B023B14BCH",
+        "name": "浙影时代影城(西湖文化广场店)",
+        "address": "朝晖街道中山北路581号西湖文化广场c区浙影时代影城5楼",
+        "typecode": "080601",
+        "positionType": "cinema-poi",
+        "locationGranularity": "cinema",
+        "score": 1,
+        "decision": "accepted-high",
+        "confidence": "high",
+        "locationConfidence": "high",
+        "identityConfidence": "high",
+        "adminMatch": {
+          "provinceMatch": true,
+          "prefectureMatch": true,
+          "countyMatch": null,
+          "targetLevel": "prefecture",
+          "compatible": true,
+          "targetProvince": "浙江",
+          "targetPrefecture": "杭州",
+          "targetCounty": null,
+          "providerProvince": "浙江",
+          "providerPrefecture": "杭州",
+          "providerCounty": "拱墅",
+          "mappingSource": "prefecture-rule"
+        },
+        "formatCompatibility": {
+          "compatible": true,
+          "exactFormatMatch": false,
+          "conflicts": []
+        },
+        "geocodeSource": "amap:poi-search",
+        "provider": {
+          "providerCrs": "GCJ-02",
+          "providerLat": 30.277497,
+          "providerLng": 120.164647
+        },
+        "map": {
+          "mapCrs": "WGS84",
+          "lat": 30.2798429,
+          "lng": 120.1599803
+        }
+      },
+      "topCandidate": null
+    },
+    {
+      "sourceRow": 843,
+      "id": "imax-cn-0843",
+      "name": "贵阳星美国际影城（花果园店）",
+      "city": "贵阳",
+      "status": "unknown",
+      "projectionSystem": "Xenon",
+      "plannedQueries": [
+        {
+          "kind": "current-name-city",
+          "query": "贵阳星美国际影城（花果园店） 贵阳"
+        },
+        {
+          "kind": "project-brand",
+          "query": "花果园 星美 贵阳"
+        }
+      ],
+      "cachedQueriesUsed": [
+        {
+          "query": "贵阳星美国际影城（花果园店） 贵阳",
+          "city": "贵阳",
+          "cache": "hit-linked-by-sourceRow",
+          "ok": true,
+          "candidateCount": 5,
+          "isCurrentPlannedQuery": true
+        }
+      ],
+      "candidateCount": 5,
+      "rejectedCandidateCount": 5,
+      "rejectedReasons": {
+        "project-mismatch": 3,
+        "non-cinema-poi": 2
+      },
+      "ambiguity": {
+        "evaluatedCandidates": 0,
+        "ignoredHardRejected": 5,
+        "trueAmbiguity": false
+      },
+      "overrideUsed": false,
+      "reviewedOverride": {
+        "sourceRow": 843,
+        "status": "reviewed-target-not-cached",
+        "provider": "amap",
+        "poiId": null,
+        "confidence": "medium",
+        "positionType": "mall-fallback",
+        "targetName": "花果园购物中心",
+        "evidence": "External manual verification supplied by the project owner: historical cinema may use Huaguoyuan Shopping Center as a historical mall fallback. No matching mall POI is present in the existing 42-request cache, so no coordinate is selected.",
+        "provenance": "user-supplied review, 2026-08-20",
+        "applied": false,
+        "reason": "reviewed-target-not-present-in-cache"
+      },
+      "selectedCandidate": null,
+      "topCandidate": {
+        "poiId": "B0FFI5N4JN",
+        "name": "星美国际影商城(鸿通城店)",
+        "address": "解放路100号鸿通城购物中心2层",
+        "typecode": "080601",
+        "positionType": "cinema-poi",
+        "locationGranularity": "cinema",
+        "score": 0.632,
+        "decision": "rejected",
+        "confidence": "unknown",
+        "locationConfidence": "unknown",
+        "identityConfidence": "unknown",
+        "adminMatch": {
+          "provinceMatch": true,
+          "prefectureMatch": true,
+          "countyMatch": null,
+          "targetLevel": "prefecture",
+          "compatible": true,
+          "targetProvince": "贵州",
+          "targetPrefecture": "贵阳",
+          "targetCounty": null,
+          "providerProvince": "贵州",
+          "providerPrefecture": "贵阳",
+          "providerCounty": "南明",
+          "mappingSource": "prefecture-rule"
+        },
+        "formatCompatibility": {
+          "compatible": true,
+          "exactFormatMatch": false,
+          "conflicts": []
+        },
+        "geocodeSource": "amap:poi-search",
+        "provider": {
+          "providerCrs": "GCJ-02",
+          "providerLat": 26.557108,
+          "providerLng": 106.707385
+        },
+        "map": {
+          "mapCrs": "WGS84",
+          "lat": 26.5606353,
+          "lng": 106.7036272
+        }
+      }
+    }
+  ]
+}

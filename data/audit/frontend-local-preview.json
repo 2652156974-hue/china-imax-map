@@ -1,0 +1,36 @@
+{
+  "schemaVersion": 1,
+  "generatedAt": "2026-08-21T03:32:06.4203402Z",
+  "status": "passed-local-only",
+  "mode": "local-preview",
+  "url": "http://127.0.0.1:8765/index.html?preview=local",
+  "warningObserved": "LOCAL PREVIEW · NOT FOR PUBLICATION",
+  "dataset": {
+    "records": 901,
+    "coordinates": 578,
+    "nullCoordinates": 323,
+    "exactIdentity": 577,
+    "locationOnly": 1
+  },
+  "desktop": {
+    "status": "passed",
+    "mapErrors": 0,
+    "amapRequests": 0,
+    "geocoderRequests": 0,
+    "dataSource": "./data/local/cinemas-preview.json"
+  },
+  "mobile": {
+    "status": "passed",
+    "viewport": { "width": 390, "height": 844 },
+    "documentScrollWidth": 390,
+    "bodyScrollWidth": 390,
+    "noHorizontalOverflow": true
+  },
+  "coordinatePolicy": {
+    "frontendConversion": false,
+    "mapCrs": "WGS84",
+    "providerRequests": 0,
+    "usesCityCenterFallback": false
+  },
+  "note": "This audit records local QA only. The ignored data/local preview file is not a public dataset and must not be committed or deployed."
+}

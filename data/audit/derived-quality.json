@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-08-20T06:50:55.725Z",
+  "generatedAt": "2026-08-31T04:19:55.047Z",
   "source": {
     "maintainer": "@ArvinTingcn",
     "document": "全球IMAX及特效影厅分布20260820",
@@ -12,9 +12,9 @@
   "counts": {
     "generatedRecords": 901,
     "status": {
-      "unknown": 793,
-      "open": 98,
-      "closed": 9,
+      "unknown": 803,
+      "open": 89,
+      "closed": 8,
       "temporarily_closed": 1
     },
     "projectionPrimarySystem": {
@@ -43,7 +43,7 @@
       "multiValueSuccessful": 0,
       "multiValueNeedsReview": 298,
       "abnormalData": 4,
-      "anyScreenReview": 466,
+      "anyScreenReview": 465,
       "fieldClasses": {
         "width": {
           "multi-value": 298,
@@ -71,16 +71,16 @@
     },
     "reviewNeeded": 901,
     "reviewReasonCounts": {
-      "screen-multivalue": 298,
-      "status-unknown": 793,
+      "screen-multivalue": 297,
+      "status-unknown": 803,
       "geocode-pending": 901,
-      "seats-multivalue": 38,
+      "seats-multivalue": 37,
       "screen-missing": 163,
       "seats-missing": 8,
       "projection-unrecognized": 6,
       "screen-abnormal-text": 4,
       "screen-area-mismatch": 2,
-      "name-history-ambiguous": 2,
+      "name-history-ambiguous": 3,
       "projection-planned-upgrade": 8
     }
   },
@@ -90,7 +90,7 @@
     "uniqueIds": 901,
     "continuousSourceRows": true,
     "invalidLatLng": 0,
-    "nullValues": 8481,
+    "nullValues": 8475,
     "nanValues": 0
   },
   "manualSamples": [
@@ -1011,7 +1011,7 @@
       "system": "GT Laser",
       "dome": false,
       "audioChannels": 12,
-      "status": "closed",
+      "status": "open",
       "screenSelectionConfidence": "unknown",
       "lat": null,
       "lng": null

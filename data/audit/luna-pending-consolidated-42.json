@@ -1,0 +1,1713 @@
+{
+  "schemaVersion": 1,
+  "generatedAt": "2026-08-24T03:54:11.685Z",
+  "status": "materialized-pending-review-zero",
+  "materializationAuthorized": true,
+  "scope": {
+    "totalPendingReviewRows": 42,
+    "sourceRowsSorted": [
+      50,
+      146,
+      160,
+      164,
+      205,
+      262,
+      291,
+      326,
+      478,
+      486,
+      544,
+      714,
+      729,
+      746,
+      747,
+      757,
+      773,
+      785,
+      789,
+      792,
+      793,
+      798,
+      801,
+      803,
+      804,
+      810,
+      814,
+      815,
+      816,
+      823,
+      828,
+      829,
+      832,
+      839,
+      857,
+      863,
+      869,
+      876,
+      880,
+      885,
+      888,
+      897
+    ],
+    "existingExplicitRows": [
+      50,
+      146,
+      160,
+      164,
+      205,
+      262,
+      291,
+      326,
+      478,
+      486,
+      544,
+      792,
+      793,
+      801,
+      803,
+      804,
+      815,
+      816,
+      829,
+      832,
+      869,
+      885
+    ],
+    "newlyReviewedRows": [
+      714,
+      729,
+      746,
+      747,
+      757,
+      773,
+      785,
+      789,
+      798,
+      810,
+      814,
+      823,
+      828,
+      839,
+      857,
+      863,
+      876,
+      880,
+      888,
+      897
+    ]
+  },
+  "formalLayerBefore": {
+    "total": 901,
+    "accepted": 644,
+    "markerCount": 644,
+    "located": 644,
+    "pendingReview": 42,
+    "unresolved": 215,
+    "unlocated": 257,
+    "screenSeatFieldsAttached": 901
+  },
+  "formalLayerAfter": {
+    "total": 901,
+    "accepted": 659,
+    "markerCount": 659,
+    "located": 659,
+    "pendingReview": 0,
+    "unresolved": 242,
+    "unlocated": 242,
+    "screenSeatFieldsAttached": 901
+  },
+  "counts": {
+    "total": 42,
+    "acceptExact": 8,
+    "acceptLocationOnly": 7,
+    "needsMoreEvidence": 26,
+    "rejectWrongPoi": 1,
+    "verdicts": {
+      "accept-exact": 8,
+      "accept-location-only": 7,
+      "needs-more-evidence": 26,
+      "reject-wrong-poi": 1
+    }
+  },
+  "strictValidation": {
+    "total": 323,
+    "explicitVerdicts": 109,
+    "acceptedCoordinates": 82,
+    "autoFilledNeedsMoreEvidence": 214,
+    "downgradedFromInvalidAccept": 0
+  },
+  "evidencePolicy": "Independent non-provider HTTP(S) evidence is required for each accepted review; cache candidate is sourceRow-bound and remains internal.",
+  "cacheSha256Before": "6C0F97ECBE41A5A0F3A00190D5CA6768692B117D04F99CFF3A0630FC0D5D8D20",
+  "cacheSha256After": "6C0F97ECBE41A5A0F3A00190D5CA6768692B117D04F99CFF3A0630FC0D5D8D20",
+  "network": {
+    "newAmapRequests": 0,
+    "networkRequests": 0,
+    "providerRunnerStarted": false
+  },
+  "rows": [
+    {
+      "sourceRow": 50,
+      "id": "imax-cn-0050",
+      "sourceName": "上海儒意影城（长泰广场店）",
+      "region": "中国大陆",
+      "province": "上海",
+      "city": "上海",
+      "verdict": "needs-more-evidence",
+      "explicitVerdict": true,
+      "reviewSource": "explicit-row-review",
+      "acceptedPoiId": null,
+      "acceptedCandidate": null,
+      "consideredCandidate": {
+        "poiId": "B0FFFR0R00",
+        "name": "旖彩城(长泰国际商业广场店)",
+        "address": "张江镇祖冲之路1239弄7号长泰广场B1层",
+        "typecode": "060102",
+        "providerCoordinate": {
+          "crs": "GCJ-02",
+          "lat": 31.205534,
+          "lng": 121.602129
+        },
+        "sourceRowBoundCache": true
+      },
+      "selectedCandidatePoiId": "B0FFFR0R00",
+      "evidenceUrls": [
+        "https://zh.wikipedia.org/wiki/%E9%95%BF%E泰%E5%B9%BF%E5%9C%BA"
+      ],
+      "independentEvidenceUrlCount": 1,
+      "notes": "仅有长泰广场/商场层面的独立信息，尚未找到上海儒意影城与该 mall POI 的独立影院绑定证据；保持 needs-more-evidence，不物化坐标。",
+      "validationErrors": []
+    },
+    {
+      "sourceRow": 146,
+      "id": "imax-cn-0146",
+      "sourceName": "海门幸福蓝海影城IMAX",
+      "region": "中国大陆",
+      "province": "江苏",
+      "city": "海门",
+      "verdict": "needs-more-evidence",
+      "explicitVerdict": true,
+      "reviewSource": "explicit-row-review",
+      "acceptedPoiId": null,
+      "acceptedCandidate": null,
+      "consideredCandidate": {
+        "poiId": "B0G1352A8Y",
+        "name": "幸福蓝海国际影城(海门余东店)",
+        "address": "余东镇人民南路369号2楼",
+        "typecode": "080601",
+        "providerCoordinate": {
+          "crs": "GCJ-02",
+          "lat": 32.006373,
+          "lng": 121.358779
+        },
+        "sourceRowBoundCache": true
+      },
+      "selectedCandidatePoiId": "B0G1352A8Y",
+      "evidenceUrls": [
+        "https://cinema.gaoliang.me/cinema/%E6%B5%B7%E9%97%A8%E5%B9%B8%E7%A6%8F%E8%93%9D%E6%B5%B7%E5%BD%B1%E5%9F%8EIMAX_IMAX",
+        "https://m.zhipin.com/companys/db9600ebc5ffe95a03x-2d24FFI~.html",
+        "https://www.nsi.edu.cn/_upload/article/files/1c/f7/f00d849c49c5b462e1e7a058a428/bb2a0eac-3198-4301-baad-59576caac662.pdf"
+      ],
+      "independentEvidenceUrlCount": 3,
+      "notes": "独立页面确认候选为海门余东店，但 sourceRow 名称未指定余东且存在 competingPoiId；当前证据不足以在海门同品牌候选间排除串店，保持 needs-more-evidence。",
+      "validationErrors": []
+    },
+    {
+      "sourceRow": 160,
+      "id": "imax-cn-0160",
+      "sourceName": "宿迁幸福蓝海国际影城（中央IMAX店）",
+      "region": "中国大陆",
+      "province": "江苏",
+      "city": "宿迁",
+      "verdict": "needs-more-evidence",
+      "explicitVerdict": true,
+      "reviewSource": "explicit-row-review",
+      "acceptedPoiId": null,
+      "acceptedCandidate": null,
+      "consideredCandidate": {
+        "poiId": "B0FFHJY16B",
+        "name": "幸福蓝海国际影城(泗阳中央店)",
+        "address": "众兴镇人民路中央商场5层",
+        "typecode": "080601",
+        "providerCoordinate": {
+          "crs": "GCJ-02",
+          "lat": 33.721148,
+          "lng": 118.684201
+        },
+        "sourceRowBoundCache": true
+      },
+      "selectedCandidatePoiId": "B0FFHJY16B",
+      "evidenceUrls": [
+        "https://www.cls.cn/detail/xk/67f5d37573c21c26d8fe64a7",
+        "https://m.taizhou.bendibao.com/news/13545.shtm",
+        "https://www.chahaoba.com/0527-81985567"
+      ],
+      "independentEvidenceUrlCount": 3,
+      "notes": "独立公开信息将源店指向宿城区幸福南路92号中央商场6楼；当前 AMap 候选为泗阳县众兴镇人民路中央商场5楼，是同品牌同地级市的不同门店，撤销接受，保持 needs-more-evidence。",
+      "validationErrors": []
+    },
+    {
+      "sourceRow": 164,
+      "id": "imax-cn-0164",
+      "sourceName": "淮安幸福蓝海影城（IMAX激光店）",
+      "region": "中国大陆",
+      "province": "江苏",
+      "city": "淮安",
+      "verdict": "needs-more-evidence",
+      "explicitVerdict": true,
+      "reviewSource": "explicit-row-review",
+      "acceptedPoiId": null,
+      "acceptedCandidate": null,
+      "consideredCandidate": {
+        "poiId": "B0MG2N04BF",
+        "name": "幸福蓝海影城(北大街店)",
+        "address": "工业大道与北大街交叉口西南40米",
+        "typecode": "080601",
+        "providerCoordinate": {
+          "crs": "GCJ-02",
+          "lat": 32.875975,
+          "lng": 118.520025
+        },
+        "sourceRowBoundCache": true
+      },
+      "selectedCandidatePoiId": "B0MG2N04BF",
+      "evidenceUrls": [
+        "https://maps.apple.com/place?auid=1118819580013813&lsp=57879",
+        "https://movie.douban.com/cinema/search/huaian/"
+      ],
+      "independentEvidenceUrlCount": 2,
+      "notes": "现有缓存候选 B0MG2N04BF 为盱眙北大街店；独立目录仅能提示同品牌北大街店的异地/分店歧义，尚无可靠证据把它绑定到源记录的淮安 IMAX 激光店，暂不接受或物化。",
+      "validationErrors": []
+    },
+    {
+      "sourceRow": 205,
+      "id": "imax-cn-0205",
+      "sourceName": "广州金逸影城（海珠城激光IMAX店）",
+      "region": "中国大陆",
+      "province": "广东",
+      "city": "广州",
+      "verdict": "needs-more-evidence",
+      "explicitVerdict": true,
+      "reviewSource": "explicit-row-review",
+      "acceptedPoiId": null,
+      "acceptedCandidate": null,
+      "consideredCandidate": {
+        "poiId": "B0FFL93XOD",
+        "name": "金逸影城(海珠城光荟广场店)",
+        "address": "瑞宝街道东晓南路1290号海珠城光荟广场4楼",
+        "typecode": "080601",
+        "providerCoordinate": {
+          "crs": "GCJ-02",
+          "lat": 23.072266,
+          "lng": 113.292939
+        },
+        "sourceRowBoundCache": true
+      },
+      "selectedCandidatePoiId": "B0FFL93XOD",
+      "evidenceUrls": [
+        "https://www.mvhere.com/Cinema.jy/detail?id=99611",
+        "https://cinema.gaoliang.me/cinema/%E5%B9%BF%E5%B7%9E%E9%87%91%E9%80%B8%E5%BD%B1%E5%9F%8E%EF%BC%88%E6%B5%B7%E7%8F%A0%E5%9F%8E%E6%BF%80%E5%85%89IMAX%E5%BA%97%EF%BC%89_IMAX",
+        "https://locatecinemas.com/cinemas/china/guangzhou/"
+      ],
+      "independentEvidenceUrlCount": 3,
+      "notes": "独立证据将源记录绑定到 competingPoiId B0FFGJGE9F（江南大道中180号富力海珠城B区7层703号）；当前 selected B0FFL93XOD 位于东晓南路1290号，是另一家门店，禁止接受或物化。",
+      "validationErrors": []
+    },
+    {
+      "sourceRow": 262,
+      "id": "imax-cn-0262",
+      "sourceName": "汕头万达影院（金平万达广场店)",
+      "region": "中国大陆",
+      "province": "广东",
+      "city": "汕头",
+      "verdict": "needs-more-evidence",
+      "explicitVerdict": true,
+      "reviewSource": "explicit-row-review",
+      "acceptedPoiId": null,
+      "acceptedCandidate": null,
+      "consideredCandidate": {
+        "poiId": "B0FFKT8INA",
+        "name": "万达影城(汕头金平万达广场店)",
+        "address": "潮汕路61号汕头金平万达广场F4层",
+        "typecode": "080601",
+        "providerCoordinate": {
+          "crs": "GCJ-02",
+          "lat": 23.381178,
+          "lng": 116.683431
+        },
+        "sourceRowBoundCache": true
+      },
+      "selectedCandidatePoiId": "B0FFKT8INA",
+      "evidenceUrls": [
+        "https://cinema.gaoliang.me/cinema/%E6%B1%95%E5%A4%B4%E4%B8%87%E8%BE%BE%E5%BD%B1%E9%99%A2%EF%BC%88%E9%87%91%E5%B9%B3%E4%B8%87%E8%BE%BE%E5%B9%BF%E5%9C%BA%E5%BA%97%EF%BC%89_IMAX",
+        "https://m.st.bendibao.com/gouwu/7317.shtm",
+        "https://www.sohu.com/a/316473965_174490"
+      ],
+      "independentEvidenceUrlCount": 3,
+      "notes": "独立影院页、汕头本地信息与项目报道均将源记录绑定到潮汕路61号汕头金平万达广场F4层的万达影城；竞争候选未被接受，当前候选与 sourceRow 的项目和城市一致。",
+      "validationErrors": []
+    },
+    {
+      "sourceRow": 291,
+      "id": "imax-cn-0291",
+      "sourceName": "重庆八一影城（解放碑店）",
+      "region": "中国大陆",
+      "province": "重庆",
+      "city": "重庆",
+      "verdict": "needs-more-evidence",
+      "explicitVerdict": true,
+      "reviewSource": "explicit-row-review",
+      "acceptedPoiId": null,
+      "acceptedCandidate": null,
+      "consideredCandidate": {
+        "poiId": "B0FFIFYDLY",
+        "name": "苏宁影城(重庆解放碑店)",
+        "address": "八一路177号6楼(临江门地铁站出入口步行350米)",
+        "typecode": "080601",
+        "providerCoordinate": {
+          "crs": "GCJ-02",
+          "lat": 29.556488,
+          "lng": 106.57813
+        },
+        "sourceRowBoundCache": true
+      },
+      "selectedCandidatePoiId": "B0FFIFYDLY",
+      "evidenceUrls": [
+        "https://locatecinemas.com/cinemas/china/hechuan/theater-5e0759cc/",
+        "https://mois.suning.com/seo/9331.html"
+      ],
+      "independentEvidenceUrlCount": 2,
+      "notes": "独立目录与苏宁官方页只能确认八一路177号6楼当前存在苏宁影城；尚无可靠公开证据把源记录的旧名八一影城与该现名建立连续绑定，暂不接受或物化。",
+      "validationErrors": []
+    },
+    {
+      "sourceRow": 326,
+      "id": "imax-cn-0326",
+      "sourceName": "北京UME影城（融科IMAX店)",
+      "region": "中国大陆",
+      "province": "北京",
+      "city": "北京",
+      "verdict": "needs-more-evidence",
+      "explicitVerdict": true,
+      "reviewSource": "explicit-row-review",
+      "acceptedPoiId": null,
+      "acceptedCandidate": null,
+      "consideredCandidate": {
+        "poiId": "B0FFIIYL1J",
+        "name": "融科天地",
+        "address": "科翔路与中关村南三街交叉口西100米",
+        "typecode": "060101",
+        "providerCoordinate": {
+          "crs": "GCJ-02",
+          "lat": 39.984088,
+          "lng": 116.326166
+        },
+        "sourceRowBoundCache": true
+      },
+      "selectedCandidatePoiId": "B0FFIIYL1J",
+      "evidenceUrls": [
+        "https://locatecinemas.com/cinemas/china/beijing/",
+        "https://www.maoyan.com/cinemas?brandId=316970&districtId=14&districtid=2180"
+      ],
+      "independentEvidenceUrlCount": 2,
+      "notes": "独立检索未找到 UME 融科 IMAX 店与融科天地 mall POI 的明确影院绑定；当前仅有 mall fallback B0FFIIYL1J，暂不接受或物化。",
+      "validationErrors": []
+    },
+    {
+      "sourceRow": 478,
+      "id": "imax-cn-0478",
+      "sourceName": "烟台幸福蓝海国际影城（IMAX店）",
+      "region": "中国大陆",
+      "province": "山东",
+      "city": "烟台",
+      "verdict": "needs-more-evidence",
+      "explicitVerdict": true,
+      "reviewSource": "explicit-row-review",
+      "acceptedPoiId": null,
+      "acceptedCandidate": null,
+      "consideredCandidate": {
+        "poiId": "B0FFHK2J48",
+        "name": "幸福蓝海国际影城(嘉禾乐天店)",
+        "address": "福山区衡山路33号嘉禾乐天国际家居3楼(商场入口B电梯直达)",
+        "typecode": "080601",
+        "providerCoordinate": {
+          "crs": "GCJ-02",
+          "lat": 37.539062,
+          "lng": 121.254944
+        },
+        "sourceRowBoundCache": true
+      },
+      "selectedCandidatePoiId": "B0FFHK2J48",
+      "evidenceUrls": [
+        "https://cinema.gaoliang.me/cinema/%E7%83%9F%E5%8F%B0%E5%B9%B8%E7%A6%8F%E8%93%9D%E6%B5%B7%E5%9B%BD%E9%99%85%E5%BD%B1%E5%9F%8E%EF%BC%88IMAX%E5%BA%97%EF%BC%89_IMAX",
+        "https://www.cls.cn/detail/xk/67f5d37573c21c26d8fe64a7",
+        "https://www.maigoo.com/citiao/1049563.html"
+      ],
+      "independentEvidenceUrlCount": 3,
+      "notes": "独立影院页面、幸福蓝海公开门店表与烟台影院资料均将源店绑定到芝罘区北马路150号大悦城4层；缓存当前候选是福山区衡山路33号嘉禾乐天店，属于同品牌另一门店，缓存中没有大悦城精确 POI，故保持 branch-mismatch/needs-more-evidence，不物化。",
+      "validationErrors": []
+    },
+    {
+      "sourceRow": 486,
+      "id": "imax-cn-0486",
+      "sourceName": "枣庄万达影城（万达广场店）",
+      "region": "中国大陆",
+      "province": "山东",
+      "city": "枣庄",
+      "verdict": "needs-more-evidence",
+      "explicitVerdict": true,
+      "reviewSource": "explicit-row-review",
+      "acceptedPoiId": null,
+      "acceptedCandidate": null,
+      "consideredCandidate": {
+        "poiId": "B0KGKNWFPE",
+        "name": "万达影城(薛城万达广场IMAX店)",
+        "address": "永兴路126号万达广场薛城店F4层",
+        "typecode": "080601",
+        "providerCoordinate": {
+          "crs": "GCJ-02",
+          "lat": 34.792978,
+          "lng": 117.26742
+        },
+        "sourceRowBoundCache": true
+      },
+      "selectedCandidatePoiId": "B0KGKNWFPE",
+      "evidenceUrls": [
+        "https://www.maigoo.com/citiao/1065989.html",
+        "https://www.maigoo.com/news/683643.html"
+      ],
+      "independentEvidenceUrlCount": 2,
+      "notes": "独立资料将薛城万达广场及万达影城定位到永兴路126号，但源行只写“枣庄”且缓存还存在同地级市滕州万达竞争分店；严格 sourceRow 行政粒度 validator 无法证明源行就是薛城分店，故保持 needs-more-evidence，不物化。",
+      "validationErrors": []
+    },
+    {
+      "sourceRow": 544,
+      "id": "imax-cn-0544",
+      "sourceName": "杭州寰映影城（龙湖店）",
+      "region": "中国大陆",
+      "province": "浙江",
+      "city": "杭州",
+      "verdict": "needs-more-evidence",
+      "explicitVerdict": true,
+      "reviewSource": "explicit-row-review",
+      "acceptedPoiId": null,
+      "acceptedCandidate": null,
+      "consideredCandidate": {
+        "poiId": "B0HBKMNPIH",
+        "name": "龙湖杭州丁桥天街",
+        "address": "丁桥大农港路与丁城路交叉口",
+        "typecode": "060101",
+        "providerCoordinate": {
+          "crs": "GCJ-02",
+          "lat": 30.350712,
+          "lng": 120.215812
+        },
+        "sourceRowBoundCache": true
+      },
+      "selectedCandidatePoiId": "B0HBKMNPIH",
+      "evidenceUrls": [
+        "https://www.bonafilm.cn/cinema_del/26.html",
+        "https://www.longfor.com/detail/220_685dea5db8a8293b7f8656179c55a7f6.html"
+      ],
+      "independentEvidenceUrlCount": 2,
+      "notes": "博纳官方页面和龙湖公开资料均将丁桥天街绑定到博纳影城丁桥龙湖IMAX店；当前缓存只是龙湖杭州丁桥天街 mall fallback，独立资料没有把杭州寰映影城龙湖店绑定到该 mall，保持 needs-more-evidence，不物化。",
+      "validationErrors": []
+    },
+    {
+      "sourceRow": 714,
+      "id": "imax-cn-0714",
+      "sourceName": "内江万达影城（万达广场店）",
+      "region": "中国大陆",
+      "province": "四川",
+      "city": "内江",
+      "verdict": "accept-exact",
+      "explicitVerdict": true,
+      "reviewSource": "validated-row-review",
+      "acceptedPoiId": "B0FFG4Y0LT",
+      "acceptedCandidate": {
+        "provider": "amap",
+        "poiId": "B0FFG4Y0LT",
+        "providerCrs": "GCJ-02",
+        "providerLat": 29.604334,
+        "providerLng": 105.041181,
+        "positionType": "cinema-poi",
+        "locationGranularity": "cinema",
+        "locationConfidence": "high",
+        "identityConfidence": "high"
+      },
+      "consideredCandidate": {
+        "poiId": "B0FFG4Y0LT",
+        "name": "万达影城(内江万达广场店)",
+        "address": "汉安大道西段万达广场4层",
+        "typecode": "080601",
+        "providerCoordinate": {
+          "crs": "GCJ-02",
+          "lat": 29.604334,
+          "lng": 105.041181
+        },
+        "sourceRowBoundCache": true
+      },
+      "selectedCandidatePoiId": "B0FFG4Y0LT",
+      "evidenceUrls": [
+        "https://www.wandaplazas.com/2015/company_0706/1191.html",
+        "https://www.ruyifilm.com/gywm/yclb/xndq/scs/0deeb9fc965d11e982dc005056835733.html"
+      ],
+      "independentEvidenceUrlCount": 2,
+      "notes": "独立万达广场开业记录与儒意影院目录均指向内江万达广场店；源日期与项目一致。仅使用 sourceRow=714 的缓存影院 POI B0FFG4Y0LT，accept-exact；不请求 AMap。",
+      "validationErrors": []
+    },
+    {
+      "sourceRow": 729,
+      "id": "imax-cn-0729",
+      "sourceName": "宜宾万达影城（万达广场店）",
+      "region": "中国大陆",
+      "province": "四川",
+      "city": "宜宾",
+      "verdict": "needs-more-evidence",
+      "explicitVerdict": true,
+      "reviewSource": "explicit-row-review",
+      "acceptedPoiId": null,
+      "acceptedCandidate": null,
+      "consideredCandidate": {
+        "poiId": "B0FFK1O8QE",
+        "name": "万达影城(宜宾万达广场店)",
+        "address": "航天路南段5号",
+        "typecode": "080601",
+        "providerCoordinate": {
+          "crs": "GCJ-02",
+          "lat": 28.749568,
+          "lng": 104.649405
+        },
+        "sourceRowBoundCache": true
+      },
+      "selectedCandidatePoiId": "B0FFK1O8QE",
+      "evidenceUrls": [
+        "https://www.wanda.cn/2018/2018_1220/39695.html",
+        "https://www.wanda.cn/mobile/magazine/mobile/104/2896_info.html?icon=4&id=2896",
+        "https://www.sohu.com/a/872339272_122063683"
+      ],
+      "independentEvidenceUrlCount": 3,
+      "notes": "独立证据确认宜宾万达广场及万达影城 IMAX，但公开地址写作航天路南段7号，当前 sourceRow 缓存候选地址为航天路南段5号；地址尚未闭合，保持 needs-more-evidence，不物化。",
+      "validationErrors": []
+    },
+    {
+      "sourceRow": 746,
+      "id": "imax-cn-0746",
+      "sourceName": "九江万达影城（万达广场店）",
+      "region": "中国大陆",
+      "province": "江西",
+      "city": "九江",
+      "verdict": "accept-exact",
+      "explicitVerdict": true,
+      "reviewSource": "validated-row-review",
+      "acceptedPoiId": "B0FFHO46HI",
+      "acceptedCandidate": {
+        "provider": "amap",
+        "poiId": "B0FFHO46HI",
+        "providerCrs": "GCJ-02",
+        "providerLat": 29.69369,
+        "providerLng": 116.014374,
+        "positionType": "cinema-poi",
+        "locationGranularity": "cinema",
+        "locationConfidence": "high",
+        "identityConfidence": "high"
+      },
+      "consideredCandidate": {
+        "poiId": "B0FFHO46HI",
+        "name": "万达影城(万达广场九江濂溪店)",
+        "address": "万达广场",
+        "typecode": "080601",
+        "providerCoordinate": {
+          "crs": "GCJ-02",
+          "lat": 29.69369,
+          "lng": 116.014374
+        },
+        "sourceRowBoundCache": true
+      },
+      "selectedCandidatePoiId": "B0FFHO46HI",
+      "evidenceUrls": [
+        "https://www.wanda.cn/2017/2017latest_0710/36232.html",
+        "https://www.sohu.com/a/152320884_721596",
+        "https://cinema.gaoliang.me/cinema/%E4%B9%9D%E6%B1%9F%E4%B8%87%E8%BE%BE%E5%BD%B1%E5%9F%8E%EF%BC%88%E4%B8%87%E8%BE%BE%E5%B9%BF%E5%9C%BA%E5%BA%97%EF%BC%89_IMAX"
+      ],
+      "independentEvidenceUrlCount": 3,
+      "notes": "万达官方开业信息、九江本地报道及独立影院规格页共同指向九江濂溪万达影城；仅使用 sourceRow=746 的缓存影院 POI B0FFHO46HI，accept-exact；不请求 AMap。",
+      "validationErrors": []
+    },
+    {
+      "sourceRow": 747,
+      "id": "imax-cn-0747",
+      "sourceName": "九江横店电影城（IMAX快乐城店）",
+      "region": "中国大陆",
+      "province": "江西",
+      "city": "九江",
+      "verdict": "accept-exact",
+      "explicitVerdict": true,
+      "reviewSource": "validated-row-review",
+      "acceptedPoiId": "B0FFGUA5XD",
+      "acceptedCandidate": {
+        "provider": "amap",
+        "poiId": "B0FFGUA5XD",
+        "providerCrs": "GCJ-02",
+        "providerLat": 29.701843,
+        "providerLng": 115.969593,
+        "positionType": "cinema-poi",
+        "locationGranularity": "cinema",
+        "locationConfidence": "high",
+        "identityConfidence": "high"
+      },
+      "consideredCandidate": {
+        "poiId": "B0FFGUA5XD",
+        "name": "横店电影城(九江快乐城店)",
+        "address": "京九路9号联盛快乐城4层",
+        "typecode": "080601",
+        "providerCoordinate": {
+          "crs": "GCJ-02",
+          "lat": 29.701843,
+          "lng": 115.969593
+        },
+        "sourceRowBoundCache": true
+      },
+      "selectedCandidatePoiId": "B0FFGUA5XD",
+      "evidenceUrls": [
+        "https://www.hengdianfilm.com/index_9.aspx",
+        "https://www.peoplepower.net.cn/2019/06/29/533/",
+        "https://jx.cnr.cn/2011jxfw/xwtt/20200918/t20200918_525266467.shtml"
+      ],
+      "independentEvidenceUrlCount": 3,
+      "notes": "横店影视官方门店目录给出九江横店电影城及京九路9号联盛快乐城4楼；人民能量名录与央广网独立报道再次绑定该影院/地址。仅使用 sourceRow=747 的缓存影院 POI B0FFGUA5XD，accept-exact；不请求 AMap。",
+      "validationErrors": []
+    },
+    {
+      "sourceRow": 757,
+      "id": "imax-cn-0757",
+      "sourceName": "贵阳越界影城（未来方舟店） ",
+      "region": "中国大陆",
+      "province": "贵州",
+      "city": "贵阳",
+      "verdict": "accept-exact",
+      "explicitVerdict": true,
+      "reviewSource": "validated-row-review",
+      "acceptedPoiId": "B0FFI0DG5O",
+      "acceptedCandidate": {
+        "provider": "amap",
+        "poiId": "B0FFI0DG5O",
+        "providerCrs": "GCJ-02",
+        "providerLat": 26.600429,
+        "providerLng": 106.75395,
+        "positionType": "cinema-poi",
+        "locationGranularity": "cinema",
+        "locationConfidence": "high",
+        "identityConfidence": "high"
+      },
+      "consideredCandidate": {
+        "poiId": "B0FFI0DG5O",
+        "name": "越界影城IMAX(贵阳未来方舟店)",
+        "address": "尚礼路中天未来方舟F2组团1栋",
+        "typecode": "080601",
+        "providerCoordinate": {
+          "crs": "GCJ-02",
+          "lat": 26.600429,
+          "lng": 106.75395
+        },
+        "sourceRowBoundCache": true
+      },
+      "selectedCandidatePoiId": "B0FFI0DG5O",
+      "evidenceUrls": [
+        "https://www.maigoo.com/citiao/1049114.html",
+        "https://www.sohu.com/a/254836677_398083",
+        "https://jt.guizhou.gov.cn/xwzx1/hydt/202502/t20250225_86949926.html",
+        "https://cinema.gaoliang.me/cinema/%E8%B4%B5%E9%98%B3%E8%B6%8A%E7%95%8C%E5%BD%B1%E5%9F%8E%EF%BC%88%E6%9C%AA%E6%9D%A5%E6%96%B9%E8%88%9F%E5%BA%97%EF%BC%89_IMAX"
+      ],
+      "independentEvidenceUrlCount": 4,
+      "notes": "猫头鹰/本地公开资料、贵州交通公开报道及影院资料均指向贵阳未来方舟越界影城，名称、项目与历史指纹吻合；已撤销的广州候选不得恢复。仅使用 sourceRow=757 缓存 POI B0FFI0DG5O，accept-exact；不请求 AMap。",
+      "validationErrors": []
+    },
+    {
+      "sourceRow": 773,
+      "id": "imax-cn-0773",
+      "sourceName": "玉林万达影城（万达广场店)",
+      "region": "中国大陆",
+      "province": "广西",
+      "city": "玉林",
+      "verdict": "accept-exact",
+      "explicitVerdict": true,
+      "reviewSource": "validated-row-review",
+      "acceptedPoiId": "B0FFKPHEB7",
+      "acceptedCandidate": {
+        "provider": "amap",
+        "poiId": "B0FFKPHEB7",
+        "providerCrs": "GCJ-02",
+        "providerLat": 22.634649,
+        "providerLng": 110.180345,
+        "positionType": "cinema-poi",
+        "locationGranularity": "cinema",
+        "locationConfidence": "high",
+        "identityConfidence": "high"
+      },
+      "consideredCandidate": {
+        "poiId": "B0FFKPHEB7",
+        "name": "万达影城(玉林玉州万达广场店)",
+        "address": "金玉路338号万达广场玉林店F4层",
+        "typecode": "080601",
+        "providerCoordinate": {
+          "crs": "GCJ-02",
+          "lat": 22.634649,
+          "lng": 110.180345
+        },
+        "sourceRowBoundCache": true
+      },
+      "selectedCandidatePoiId": "B0FFKPHEB7",
+      "evidenceUrls": [
+        "https://www.maigoo.com/citiao/1073185.html",
+        "https://www.wanda.cn/2019/2019latest_0327/40026.html",
+        "https://www.sohu.com/a/709240158_121106875"
+      ],
+      "independentEvidenceUrlCount": 3,
+      "notes": "玉林万达项目资料确认金玉路338号、万达影城及玉州万达项目；仅使用 sourceRow=773 的缓存影院 POI B0FFKPHEB7，accept-exact；不请求 AMap。",
+      "validationErrors": []
+    },
+    {
+      "sourceRow": 785,
+      "id": "imax-cn-0785",
+      "sourceName": "乌鲁木齐万达影城（万达广场店）",
+      "region": "中国大陆",
+      "province": "新疆",
+      "city": "乌鲁木齐",
+      "verdict": "needs-more-evidence",
+      "explicitVerdict": true,
+      "reviewSource": "explicit-row-review",
+      "acceptedPoiId": null,
+      "acceptedCandidate": null,
+      "consideredCandidate": {
+        "poiId": "B0FFITAJRU",
+        "name": "万达影城(德汇万达广场店)",
+        "address": "奇台路688号德汇万达广场E栋5-6层",
+        "typecode": "080601",
+        "providerCoordinate": {
+          "crs": "GCJ-02",
+          "lat": 43.787411,
+          "lng": 87.584975
+        },
+        "sourceRowBoundCache": true
+      },
+      "selectedCandidatePoiId": "B0FFITAJRU",
+      "evidenceUrls": [
+        "https://www.wanda.cn/2018/2018latest_0130/37785.html",
+        "https://www.wlmq.gov.cn/wlmqs/c119313/202506/c00d6cbb753643978d8c7a0fcc61ee94/files/%E4%B9%8C%E9%B2%81%E6%9C%A8%E9%BD%90%E5%B8%822025%E5%B9%B4%E7%AC%AC%E4%B8%80%E5%AD%A3%E5%BA%A6%E6%B6%88%E9%98%B2%E5%AE%89%E5%85%A8%E9%87%8D%E7%82%B9%E5%8D%95%E4%BD%8D%E5%90%8D%E5%86%8C.pdf"
+      ],
+      "independentEvidenceUrlCount": 2,
+      "notes": "独立资料确认德汇万达及其影城位于奇台路688号，但德汇万达公开开业信息为2018年，而源记录日期为2016-08-12；时间指纹未闭合，保持 needs-more-evidence，不物化。",
+      "validationErrors": []
+    },
+    {
+      "sourceRow": 789,
+      "id": "imax-cn-0789",
+      "sourceName": "拉萨万达影城（万达广场店）",
+      "region": "中国大陆",
+      "province": "西藏",
+      "city": "拉萨",
+      "verdict": "needs-more-evidence",
+      "explicitVerdict": true,
+      "reviewSource": "explicit-row-review",
+      "acceptedPoiId": null,
+      "acceptedCandidate": null,
+      "consideredCandidate": {
+        "poiId": "B0H13SK4OY",
+        "name": "万达影城(拉萨柳梧万达广场店)",
+        "address": "顿珠路1号拉萨柳梧万达广场",
+        "typecode": "080601",
+        "providerCoordinate": {
+          "crs": "GCJ-02",
+          "lat": 29.637692,
+          "lng": 91.103811
+        },
+        "sourceRowBoundCache": true
+      },
+      "selectedCandidatePoiId": "B0H13SK4OY",
+      "evidenceUrls": [
+        "https://www.wanda.cn/mobile/magazine/pc/123/3430_info.html",
+        "https://www.wanda.cn/mobile/2021/company_0830/22804.html",
+        "https://www.xzxw.com/shxf/2021/08/27/content_4841361.html"
+      ],
+      "independentEvidenceUrlCount": 3,
+      "notes": "独立资料显示拉萨城关万达影城对应2020年开业，而柳梧万达广场及其影院为2021年开业；当前缓存候选是柳梧店，与源记录2020-08-10存在分店/时间冲突，保持 needs-more-evidence，不物化。",
+      "validationErrors": []
+    },
+    {
+      "sourceRow": 792,
+      "id": "imax-cn-0792",
+      "sourceName": "济南金逸影城（汇隆广场IMAX店）",
+      "region": "中国大陆",
+      "province": "山东",
+      "city": "济南",
+      "verdict": "needs-more-evidence",
+      "explicitVerdict": true,
+      "reviewSource": "explicit-row-review",
+      "acceptedPoiId": null,
+      "acceptedCandidate": null,
+      "consideredCandidate": {
+        "poiId": "B0FFK3LHN5",
+        "name": "汇隆广场",
+        "address": "华能路38号",
+        "typecode": "060101",
+        "providerCoordinate": {
+          "crs": "GCJ-02",
+          "lat": 36.684244,
+          "lng": 117.09156
+        },
+        "sourceRowBoundCache": true
+      },
+      "selectedCandidatePoiId": "B0FFK3LHN5",
+      "evidenceUrls": [
+        "https://m.jn.bendibao.com/cyfw/48165.shtm",
+        "https://m.winshang.com/xm26538.html"
+      ],
+      "independentEvidenceUrlCount": 2,
+      "notes": "Independent evidence confirms a historical/current cinema or mall relationship, but the existing cache has no source-bound exact cinema POI sufficient for safe acceptance; do not materialize.",
+      "validationErrors": []
+    },
+    {
+      "sourceRow": 793,
+      "id": "imax-cn-0793",
+      "sourceName": "烟台CGV影城（长江路店）",
+      "region": "中国大陆",
+      "province": "山东",
+      "city": "烟台",
+      "verdict": "needs-more-evidence",
+      "explicitVerdict": true,
+      "reviewSource": "explicit-row-review",
+      "acceptedPoiId": null,
+      "acceptedCandidate": null,
+      "consideredCandidate": {
+        "poiId": "B021703Z7A",
+        "name": "彩云城(长江路)",
+        "address": "长江路18号",
+        "typecode": "060102",
+        "providerCoordinate": {
+          "crs": "GCJ-02",
+          "lat": 37.562164,
+          "lng": 121.26594
+        },
+        "sourceRowBoundCache": true
+      },
+      "selectedCandidatePoiId": "B021703Z7A",
+      "evidenceUrls": [
+        "https://mt.sohu.com/20160421/n445475678.shtml",
+        "https://www.peoplepower.net.cn/2019/06/29/533/"
+      ],
+      "independentEvidenceUrlCount": 2,
+      "notes": "Independent evidence confirms a historical/current cinema or mall relationship, but the existing cache has no source-bound exact cinema POI sufficient for safe acceptance; do not materialize.",
+      "validationErrors": []
+    },
+    {
+      "sourceRow": 798,
+      "id": "imax-cn-0798",
+      "sourceName": "无锡橙天嘉禾影城（万象城店)",
+      "region": "中国大陆",
+      "province": "江苏",
+      "city": "无锡",
+      "verdict": "accept-location-only",
+      "explicitVerdict": true,
+      "reviewSource": "validated-row-review",
+      "acceptedPoiId": "B0FFFA4Y89",
+      "acceptedCandidate": {
+        "provider": "amap",
+        "poiId": "B0FFFA4Y89",
+        "providerCrs": "GCJ-02",
+        "providerLat": 31.513827,
+        "providerLng": 120.282559,
+        "positionType": "mall-fallback",
+        "locationGranularity": "mall",
+        "locationConfidence": "high",
+        "identityConfidence": "medium"
+      },
+      "consideredCandidate": {
+        "poiId": "B0LDYU2L4Z",
+        "name": "无锡万象城·西区",
+        "address": "金石路188号",
+        "typecode": "060100",
+        "providerCoordinate": {
+          "crs": "GCJ-02",
+          "lat": 31.511991,
+          "lng": 120.278678
+        },
+        "sourceRowBoundCache": true
+      },
+      "selectedCandidatePoiId": "B0LDYU2L4Z",
+      "evidenceUrls": [
+        "https://www.nsi.edu.cn/_upload/article/files/1c/f7/f00d849c49c5b462e1e7a058a428/bb2a0eac-3198-4301-baad-59576caac662.pdf",
+        "https://nvtongzhisheng.org/corp/20141217/125752.shtml"
+      ],
+      "independentEvidenceUrlCount": 2,
+      "notes": "独立影院清单明确列出2014—2022年橙天嘉禾影城IMAX万象城店及原无锡万象城金石路88号；2026年新开的金石路188号西区 B0LDYU2L4Z 是另一项目。现显式使用 sourceRow=798 缓存 alternate B0FFFA4Y89，并禁止 B0LDYU2L4Z；仅 accept-location-only，不声称影院级精确 POI。",
+      "validationErrors": []
+    },
+    {
+      "sourceRow": 801,
+      "id": "imax-cn-0801",
+      "sourceName": "南通万达影城（星光耀广场店）",
+      "region": "中国大陆",
+      "province": "江苏",
+      "city": "南通",
+      "verdict": "needs-more-evidence",
+      "explicitVerdict": true,
+      "reviewSource": "explicit-row-review",
+      "acceptedPoiId": null,
+      "acceptedCandidate": null,
+      "consideredCandidate": {
+        "poiId": "B0FFI6O0DJ",
+        "name": "星光耀广场4号楼",
+        "address": "狼山镇街道桃园路星光耀广场4号楼",
+        "typecode": "060102",
+        "providerCoordinate": {
+          "crs": "GCJ-02",
+          "lat": 31.965803,
+          "lng": 120.89074
+        },
+        "sourceRowBoundCache": true
+      },
+      "selectedCandidatePoiId": "B0FFI6O0DJ",
+      "evidenceUrls": [
+        "https://www.maigoo.com/news/665297.html",
+        "https://m.wandacinemas.com/memberrights"
+      ],
+      "independentEvidenceUrlCount": 2,
+      "notes": "Independent evidence is insufficient to safely bind an exact sourceRow candidate from the existing cache; do not materialize.",
+      "validationErrors": []
+    },
+    {
+      "sourceRow": 803,
+      "id": "imax-cn-0803",
+      "sourceName": "重庆越界影城（江北嘴店）",
+      "region": "中国大陆",
+      "province": "重庆",
+      "city": "重庆",
+      "verdict": "needs-more-evidence",
+      "explicitVerdict": true,
+      "reviewSource": "explicit-row-review",
+      "acceptedPoiId": null,
+      "acceptedCandidate": null,
+      "consideredCandidate": {
+        "poiId": "B0H2RM2N5B",
+        "name": "完美世界影城(江北嘴店)",
+        "address": "金沙门路56号财信广场3层",
+        "typecode": "080601",
+        "providerCoordinate": {
+          "crs": "GCJ-02",
+          "lat": 29.571487,
+          "lng": 106.571822
+        },
+        "sourceRowBoundCache": true
+      },
+      "selectedCandidatePoiId": "B0H2RM2N5B",
+      "evidenceUrls": [
+        "https://www.cityhui.com/shop/20583.html",
+        "https://www.amap.com/place/B0H2RM2N5B"
+      ],
+      "independentEvidenceUrlCount": 1,
+      "notes": "Independent evidence is insufficient to safely bind an exact sourceRow candidate from the existing cache; do not materialize.",
+      "validationErrors": []
+    },
+    {
+      "sourceRow": 804,
+      "id": "imax-cn-0804",
+      "sourceName": "重庆金逸影城（星光时代店)",
+      "region": "中国大陆",
+      "province": "重庆",
+      "city": "重庆",
+      "verdict": "needs-more-evidence",
+      "explicitVerdict": true,
+      "reviewSource": "explicit-row-review",
+      "acceptedPoiId": null,
+      "acceptedCandidate": null,
+      "consideredCandidate": {
+        "poiId": "B00178VT6V",
+        "name": "协信星光时代广场(南坪店)",
+        "address": "江南大道28号",
+        "typecode": "060101",
+        "providerCoordinate": {
+          "crs": "GCJ-02",
+          "lat": 29.522692,
+          "lng": 106.571531
+        },
+        "sourceRowBoundCache": true
+      },
+      "selectedCandidatePoiId": "B00178VT6V",
+      "evidenceUrls": [
+        "https://m.dongfangfuli.com/cinema/detail/1476?city=177",
+        "https://creditcard.ecitic.com/h5/youhui/9yuan/jy.html"
+      ],
+      "independentEvidenceUrlCount": 2,
+      "notes": "Independent evidence is insufficient to safely bind an exact sourceRow candidate from the existing cache; do not materialize.",
+      "validationErrors": []
+    },
+    {
+      "sourceRow": 810,
+      "id": "imax-cn-0810",
+      "sourceName": "沈阳CGV影城（金融中心店）",
+      "region": "中国大陆",
+      "province": "辽宁",
+      "city": "沈阳",
+      "verdict": "accept-location-only",
+      "explicitVerdict": true,
+      "reviewSource": "validated-row-review",
+      "acceptedPoiId": "B0L1ZSM7A1",
+      "acceptedCandidate": {
+        "provider": "amap",
+        "poiId": "B0L1ZSM7A1",
+        "providerCrs": "GCJ-02",
+        "providerLat": 41.811924,
+        "providerLng": 123.435606,
+        "positionType": "mall-fallback",
+        "locationGranularity": "mall",
+        "locationConfidence": "high",
+        "identityConfidence": "medium"
+      },
+      "consideredCandidate": {
+        "poiId": "B0L1ZSM7A1",
+        "name": "金融中心购物广场(沈阳金融中心大悦城店)",
+        "address": "哈尔滨路168号沈阳金融中心大悦城",
+        "typecode": "060101|060102|061100",
+        "providerCoordinate": {
+          "crs": "GCJ-02",
+          "lat": 41.811924,
+          "lng": 123.435606
+        },
+        "sourceRowBoundCache": true
+      },
+      "selectedCandidatePoiId": "B0L1ZSM7A1",
+      "evidenceUrls": [
+        "https://sy.bendibao.com/cyfw/2014824/fw40584_2.shtm",
+        "https://static.sse.com.cn/stock/disclosure/announcement/c/201906/000021_20190603_24BG.pdf"
+      ],
+      "independentEvidenceUrlCount": 2,
+      "notes": "本地宝与证券披露材料均将 CGV金融中心店绑定到沈阳市沈河区哈尔滨路168号金融中心购物广场；缓存候选是同址商场 POI B0L1ZSM7A1，因此仅 accept-location-only，不声称影院级精确 POI。",
+      "validationErrors": []
+    },
+    {
+      "sourceRow": 814,
+      "id": "imax-cn-0814",
+      "sourceName": "深圳橙天嘉禾影城（观澜湖店）",
+      "region": "中国大陆",
+      "province": "广东",
+      "city": "深圳",
+      "verdict": "accept-location-only",
+      "explicitVerdict": true,
+      "reviewSource": "validated-row-review",
+      "acceptedPoiId": "B0FFFDNINF",
+      "acceptedCandidate": {
+        "provider": "amap",
+        "poiId": "B0FFFDNINF",
+        "providerCrs": "GCJ-02",
+        "providerLat": 22.722588,
+        "providerLng": 114.075847,
+        "positionType": "mall-fallback",
+        "locationGranularity": "mall",
+        "locationConfidence": "high",
+        "identityConfidence": "medium"
+      },
+      "consideredCandidate": {
+        "poiId": "B0FFFDNINF",
+        "name": "观澜湖新城MH MALL",
+        "address": "观澜街道高尔夫大道8号(观澜湖地铁站C口旁)",
+        "typecode": "060101",
+        "providerCoordinate": {
+          "crs": "GCJ-02",
+          "lat": 22.722588,
+          "lng": 114.075847
+        },
+        "sourceRowBoundCache": true
+      },
+      "selectedCandidatePoiId": "B0FFFDNINF",
+      "evidenceUrls": [
+        "https://mhcentreville.com/shenzhenmhmall/zh-cn/shops/index/1",
+        "https://jt.dushiquan.net/shenzhen/station_3874/zb/7.html",
+        "https://ent.sina.com.cn/m/c/2016-02-02/doc-ifxnzanh0590130.shtml"
+      ],
+      "independentEvidenceUrlCount": 3,
+      "notes": "观澜湖官方商场页、深圳本地地址目录及开业报道共同绑定橙天嘉禾与观澜湖 MH MALL；缓存只有商场 POI B0FFFDNINF，因此仅 accept-location-only，不声称影院级精确 POI。",
+      "validationErrors": []
+    },
+    {
+      "sourceRow": 815,
+      "id": "imax-cn-0815",
+      "sourceName": "深圳星美国际影商城（京基店）",
+      "region": "中国大陆",
+      "province": "广东",
+      "city": "深圳",
+      "verdict": "needs-more-evidence",
+      "explicitVerdict": true,
+      "reviewSource": "explicit-row-review",
+      "acceptedPoiId": null,
+      "acceptedCandidate": null,
+      "consideredCandidate": {
+        "poiId": "B02F37UIZK",
+        "name": "京基百纳广场(南山店)",
+        "address": "沙河街道深圳湾二路与白石路交汇处御景东方花园裙楼123",
+        "typecode": "060101",
+        "providerCoordinate": {
+          "crs": "GCJ-02",
+          "lat": 22.530691,
+          "lng": 113.969345
+        },
+        "sourceRowBoundCache": true
+      },
+      "selectedCandidatePoiId": "B02F37UIZK",
+      "evidenceUrls": [
+        "https://m.dongfangfuli.com/cinema/detail/3520?city=3",
+        "https://www.szns.gov.cn/attachment/1/1297/1297961/9489600.pdf"
+      ],
+      "independentEvidenceUrlCount": 2,
+      "notes": "Independent evidence is insufficient to safely bind an exact sourceRow candidate from the existing cache; do not materialize.",
+      "validationErrors": []
+    },
+    {
+      "sourceRow": 816,
+      "id": "imax-cn-0816",
+      "sourceName": "深圳博纳国际影城（海航城IMAX店）",
+      "region": "中国大陆",
+      "province": "广东",
+      "city": "深圳",
+      "verdict": "needs-more-evidence",
+      "explicitVerdict": true,
+      "reviewSource": "explicit-row-review",
+      "acceptedPoiId": null,
+      "acceptedCandidate": null,
+      "consideredCandidate": {
+        "poiId": "B0FFJ6WPIK",
+        "name": "海航城商业广场",
+        "address": "海航城6001号(南联地铁站C1口步行120米)",
+        "typecode": "060100",
+        "providerCoordinate": {
+          "crs": "GCJ-02",
+          "lat": 22.723958,
+          "lng": 114.266438
+        },
+        "sourceRowBoundCache": true
+      },
+      "selectedCandidatePoiId": "B0FFJ6WPIK",
+      "evidenceUrls": [
+        "https://www.bonafilm.cn/cinema_del/1024268512616083456.html",
+        "https://www.amap.com/place/B0FFLIR8NW"
+      ],
+      "independentEvidenceUrlCount": 1,
+      "notes": "Independent evidence is insufficient to safely bind an exact sourceRow candidate from the existing cache; do not materialize.",
+      "validationErrors": []
+    },
+    {
+      "sourceRow": 823,
+      "id": "imax-cn-0823",
+      "sourceName": "佛山CGV星星影城（星耀101店） ",
+      "region": "中国大陆",
+      "province": "广东",
+      "city": "佛山",
+      "verdict": "accept-location-only",
+      "explicitVerdict": true,
+      "reviewSource": "validated-row-review",
+      "acceptedPoiId": "B0G0ARWNS6",
+      "acceptedCandidate": {
+        "provider": "amap",
+        "poiId": "B0G0ARWNS6",
+        "providerCrs": "GCJ-02",
+        "providerLat": 22.966005,
+        "providerLng": 113.115506,
+        "positionType": "mall-fallback",
+        "locationGranularity": "mall",
+        "locationConfidence": "high",
+        "identityConfidence": "medium"
+      },
+      "consideredCandidate": {
+        "poiId": "B0G0ARWNS6",
+        "name": "星耀101",
+        "address": "新城裕和路141号(世纪莲地铁站出入口步行70米)",
+        "typecode": "060101",
+        "providerCoordinate": {
+          "crs": "GCJ-02",
+          "lat": 22.966005,
+          "lng": 113.115506
+        },
+        "sourceRowBoundCache": true
+      },
+      "selectedCandidatePoiId": "B0G0ARWNS6",
+      "evidenceUrls": [
+        "https://www.polyfilm.cn/productinfo/1914853.html?templateId=1133605",
+        "https://maps.apple.com/place?auid=1118368622951487&lsp=57879"
+      ],
+      "independentEvidenceUrlCount": 2,
+      "notes": "保利电影官方页面与独立地图页共同绑定 CGV星星影城佛山星耀101及新城裕和路141号；缓存只有项目 POI B0G0ARWNS6，因此仅 accept-location-only。",
+      "validationErrors": []
+    },
+    {
+      "sourceRow": 828,
+      "id": "imax-cn-0828",
+      "sourceName": "武汉CGV影城（江腾店）",
+      "region": "中国大陆",
+      "province": "湖北",
+      "city": "武汉",
+      "verdict": "needs-more-evidence",
+      "explicitVerdict": true,
+      "reviewSource": "explicit-row-review",
+      "acceptedPoiId": null,
+      "acceptedCandidate": null,
+      "consideredCandidate": {
+        "poiId": "B001B19IYO",
+        "name": "江腾广场",
+        "address": "马鹦路117号",
+        "typecode": "060101",
+        "providerCoordinate": {
+          "crs": "GCJ-02",
+          "lat": 30.536987,
+          "lng": 114.25583
+        },
+        "sourceRowBoundCache": true
+      },
+      "selectedCandidatePoiId": "B001B19IYO",
+      "evidenceUrls": [
+        "https://www.peoplepower.net.cn/2019/06/29/533/",
+        "https://m.wuhan.com/xinwen/135811.html"
+      ],
+      "independentEvidenceUrlCount": 2,
+      "notes": "独立门店目录与武汉公开闭店信息均指向马鹦路117号江腾广场，但当前缓存 POI 名称为江腾广场，而源记录为江腾店，严格名称/项目绑定仍未闭合；保持 needs-more-evidence，不物化。",
+      "validationErrors": []
+    },
+    {
+      "sourceRow": 829,
+      "id": "imax-cn-0829",
+      "sourceName": "武汉博纳国际影城（银泰店）",
+      "region": "中国大陆",
+      "province": "湖北",
+      "city": "武汉",
+      "verdict": "needs-more-evidence",
+      "explicitVerdict": true,
+      "reviewSource": "explicit-row-review",
+      "acceptedPoiId": null,
+      "acceptedCandidate": null,
+      "consideredCandidate": {
+        "poiId": "B0FFHF1JEF",
+        "name": "银泰创意城",
+        "address": "珞喻路35号(街道口地铁站出入口旁)",
+        "typecode": "060102",
+        "providerCoordinate": {
+          "crs": "GCJ-02",
+          "lat": 30.526436,
+          "lng": 114.356574
+        },
+        "sourceRowBoundCache": true
+      },
+      "selectedCandidatePoiId": "B0FFHF1JEF",
+      "evidenceUrls": [
+        "https://www.maoyan.com/cinema/15184",
+        "https://www.sohu.com/a/898718869_121123674"
+      ],
+      "independentEvidenceUrlCount": 2,
+      "notes": "Independent evidence is insufficient to safely bind an exact sourceRow candidate from the existing cache; do not materialize.",
+      "validationErrors": []
+    },
+    {
+      "sourceRow": 832,
+      "id": "imax-cn-0832",
+      "sourceName": "长沙金逸影城（福晟IMAX店）",
+      "region": "中国大陆",
+      "province": "湖南",
+      "city": "长沙",
+      "verdict": "needs-more-evidence",
+      "explicitVerdict": true,
+      "reviewSource": "explicit-row-review",
+      "acceptedPoiId": null,
+      "acceptedCandidate": null,
+      "consideredCandidate": {
+        "poiId": "B0HBR56I6I",
+        "name": "福晟MALL",
+        "address": "芙蓉北路与兴联路交叉口",
+        "typecode": "060102",
+        "providerCoordinate": {
+          "crs": "GCJ-02",
+          "lat": 28.29681,
+          "lng": 112.97034
+        },
+        "sourceRowBoundCache": true
+      },
+      "selectedCandidatePoiId": "B0HBR56I6I",
+      "evidenceUrls": [
+        "https://www.maigoo.com/news/665297.html",
+        "https://www.amap.com/place/B02DB0UDSS"
+      ],
+      "independentEvidenceUrlCount": 1,
+      "notes": "Existing cache has no source-bound exact cinema candidate sufficient for safe acceptance; do not materialize.",
+      "validationErrors": []
+    },
+    {
+      "sourceRow": 839,
+      "id": "imax-cn-0839",
+      "sourceName": "宁波星美国际影城（奥特莱斯店）",
+      "region": "中国大陆",
+      "province": "浙江",
+      "city": "宁波",
+      "verdict": "accept-location-only",
+      "explicitVerdict": true,
+      "reviewSource": "validated-row-review",
+      "acceptedPoiId": "B023E0XY1I",
+      "acceptedCandidate": {
+        "provider": "amap",
+        "poiId": "B023E0XY1I",
+        "providerCrs": "GCJ-02",
+        "providerLat": 29.857917,
+        "providerLng": 121.450301,
+        "positionType": "mall-fallback",
+        "locationGranularity": "mall",
+        "locationConfidence": "high",
+        "identityConfidence": "medium"
+      },
+      "consideredCandidate": {
+        "poiId": "B023E0XY1I",
+        "name": "杉井奥特莱斯广场·宁波",
+        "address": "春华路1399号",
+        "typecode": "060101",
+        "providerCoordinate": {
+          "crs": "GCJ-02",
+          "lat": 29.857917,
+          "lng": 121.450301
+        },
+        "sourceRowBoundCache": true
+      },
+      "selectedCandidatePoiId": "B023E0XY1I",
+      "evidenceUrls": [
+        "https://www.mitsuifudosan.co.jp/cn/corporate/news/2015/1222/download/20151222.pdf",
+        "https://www.sohu.com/a/48091865_335444",
+        "https://nb.focus.cn/zixun/915d267d02d0eb96.html"
+      ],
+      "independentEvidenceUrlCount": 3,
+      "notes": "三井官方项目资料、宁波本地公开资料共同绑定星美国际影城与杉井奥特莱斯；缓存只有商场 POI B023E0XY1I，因此仅 accept-location-only。",
+      "validationErrors": []
+    },
+    {
+      "sourceRow": 857,
+      "id": "imax-cn-0857",
+      "sourceName": "西安大明宫IMAX影院",
+      "region": "中国大陆",
+      "province": "陕西",
+      "city": "西安",
+      "verdict": "accept-exact",
+      "explicitVerdict": true,
+      "reviewSource": "validated-row-review",
+      "acceptedPoiId": "B0FFGWXZBB",
+      "acceptedCandidate": {
+        "provider": "amap",
+        "poiId": "B0FFGWXZBB",
+        "providerCrs": "GCJ-02",
+        "providerLat": 34.288984,
+        "providerLng": 108.972556,
+        "positionType": "cinema-poi",
+        "locationGranularity": "cinema",
+        "locationConfidence": "high",
+        "identityConfidence": "high"
+      },
+      "consideredCandidate": {
+        "poiId": "B0FFGWXZBB",
+        "name": "太平洋影城(西安大明宫店)",
+        "address": "太华南路141号家豪大厦3层",
+        "typecode": "080601",
+        "providerCoordinate": {
+          "crs": "GCJ-02",
+          "lat": 34.288984,
+          "lng": 108.972556
+        },
+        "sourceRowBoundCache": true
+      },
+      "selectedCandidatePoiId": "B0FFGWXZBB",
+      "evidenceUrls": [
+        "https://jt.dushiquan.net/xian/station_1389/zb/7.html",
+        "https://m.dongfangfuli.com/cinema/list?city=219&region_id=1841"
+      ],
+      "independentEvidenceUrlCount": 2,
+      "notes": "独立影院地址目录与运营方影院目录均明确太平洋影城西安大明宫店位于太华南路141号家豪大厦3层；仅使用 sourceRow=857 缓存 POI B0FFGWXZBB，accept-exact。",
+      "validationErrors": []
+    },
+    {
+      "sourceRow": 863,
+      "id": "imax-cn-0863",
+      "sourceName": "上海科技館",
+      "region": "中国大陆",
+      "province": "上海",
+      "city": "上海",
+      "verdict": "accept-location-only",
+      "explicitVerdict": true,
+      "reviewSource": "validated-row-review",
+      "acceptedPoiId": "B00150C4B6",
+      "acceptedCandidate": {
+        "provider": "amap",
+        "poiId": "B00150C4B6",
+        "providerCrs": "GCJ-02",
+        "providerLat": 31.218114,
+        "providerLng": 121.541358,
+        "positionType": "venue-poi",
+        "locationGranularity": "venue",
+        "locationConfidence": "high",
+        "identityConfidence": "medium"
+      },
+      "consideredCandidate": {
+        "poiId": "B00150C4B6",
+        "name": "上海科技馆",
+        "address": "世纪大道2000号",
+        "typecode": "140600",
+        "providerCoordinate": {
+          "crs": "GCJ-02",
+          "lat": 31.218114,
+          "lng": 121.541358
+        },
+        "sourceRowBoundCache": true
+      },
+      "selectedCandidatePoiId": "B00150C4B6",
+      "evidenceUrls": [
+        "https://www.sstm.org.cn/index",
+        "https://tw.trip.com/travel-guide/attraction/shanghai/city-79710379/"
+      ],
+      "independentEvidenceUrlCount": 2,
+      "notes": "上海科技馆官方地址与独立公开资料均绑定世纪大道2000号科技馆及馆内 IMAX；当前是 venue POI，不把场馆内部影厅误写成影院级 POI，accept-location-only。",
+      "validationErrors": []
+    },
+    {
+      "sourceRow": 869,
+      "id": "imax-cn-0869",
+      "sourceName": "温州万达影城（南塘店)",
+      "region": "中国大陆",
+      "province": "浙江",
+      "city": "温州",
+      "verdict": "needs-more-evidence",
+      "explicitVerdict": true,
+      "reviewSource": "explicit-row-review",
+      "acceptedPoiId": null,
+      "acceptedCandidate": null,
+      "consideredCandidate": {
+        "poiId": "B0FFHCW8QD",
+        "name": "南塘新天地",
+        "address": "飞霞南路106-108号",
+        "typecode": "060102|120201",
+        "providerCoordinate": {
+          "crs": "GCJ-02",
+          "lat": 27.995509,
+          "lng": 120.665146
+        },
+        "sourceRowBoundCache": true
+      },
+      "selectedCandidatePoiId": "B0FFHCW8QD",
+      "evidenceUrls": [
+        "https://www.wandacinemas.com/",
+        "https://www.amap.com/place/B0FFHLHYLT"
+      ],
+      "independentEvidenceUrlCount": 1,
+      "notes": "Existing cache has no source-bound exact cinema candidate sufficient for safe acceptance; do not materialize.",
+      "validationErrors": []
+    },
+    {
+      "sourceRow": 876,
+      "id": "imax-cn-0876",
+      "sourceName": "中山CGV星星影城（兴中广场店）",
+      "region": "中国大陆",
+      "province": "广东",
+      "city": "中山",
+      "verdict": "accept-location-only",
+      "explicitVerdict": true,
+      "reviewSource": "validated-row-review",
+      "acceptedPoiId": "B0HR6U8297",
+      "acceptedCandidate": {
+        "provider": "amap",
+        "poiId": "B0HR6U8297",
+        "providerCrs": "GCJ-02",
+        "providerLat": 22.523578,
+        "providerLng": 113.366766,
+        "positionType": "mall-fallback",
+        "locationGranularity": "mall",
+        "locationConfidence": "high",
+        "identityConfidence": "medium"
+      },
+      "consideredCandidate": {
+        "poiId": "B0HR6U8297",
+        "name": "兴中广场(长堤路店)",
+        "address": "石岐区街道步行街",
+        "typecode": "060101",
+        "providerCoordinate": {
+          "crs": "GCJ-02",
+          "lat": 22.523578,
+          "lng": 113.366766
+        },
+        "sourceRowBoundCache": true
+      },
+      "selectedCandidatePoiId": "B0HR6U8297",
+      "evidenceUrls": [
+        "https://www.polyfilm.cn/productinfo/1897954.html"
+      ],
+      "independentEvidenceUrlCount": 1,
+      "notes": "保利电影官方页面明确 CGV星星影城中山兴中店位于兴中广场 B2 4F；缓存只有兴中广场项目 POI B0HR6U8297，因此仅 accept-location-only。",
+      "validationErrors": []
+    },
+    {
+      "sourceRow": 880,
+      "id": "imax-cn-0880",
+      "sourceName": "三亚中视国际影城",
+      "region": "中国大陆",
+      "province": "海南",
+      "city": "三亚",
+      "verdict": "accept-exact",
+      "explicitVerdict": true,
+      "reviewSource": "validated-row-review",
+      "acceptedPoiId": "B0FFFEC29K",
+      "acceptedCandidate": {
+        "provider": "amap",
+        "poiId": "B0FFFEC29K",
+        "providerCrs": "GCJ-02",
+        "providerLat": 18.222891,
+        "providerLng": 109.529132,
+        "positionType": "cinema-poi",
+        "locationGranularity": "cinema",
+        "locationConfidence": "high",
+        "identityConfidence": "high"
+      },
+      "consideredCandidate": {
+        "poiId": "B0FFFEC29K",
+        "name": "三亚中视国际影城(巨幕)(港湾城店)",
+        "address": "榆亚路136号1号港湾城4层",
+        "typecode": "080601",
+        "providerCoordinate": {
+          "crs": "GCJ-02",
+          "lat": 18.222891,
+          "lng": 109.529132
+        },
+        "sourceRowBoundCache": true
+      },
+      "selectedCandidatePoiId": "B0FFFEC29K",
+      "evidenceUrls": [
+        "https://www.hnzose.com/kuxiuhuwaishow/?id=2755",
+        "https://www.hnzose.com/yuanxianshow/?id=1534",
+        "https://www.visitsanya.com/zh/%E6%8E%A2%E7%B4%A2%E4%B8%89%E4%BA%9A/%E6%97%B6%E5%B0%9A%E8%B4%AD/%E7%83%AD%E9%97%A8%E8%B4%AD%E7%89%A9%E5%9C%B0%E6%A0%87/%E7%BB%BC%E5%90%88%E8%B4%AD%E7%89%A9%E4%B8%AD%E5%BF%83/1%E5%8F%B7%E6%B8%AF%E6%B9%BE%E5%9F%8E%EF%BC%88%E5%A4%A7%E8%8F%A0%E8%90%9D%E5%95%86%E5%9C%BA%EF%BC%89"
+      ],
+      "independentEvidenceUrlCount": 3,
+      "notes": "运营方页面明确三亚中视国际影城巨幕/港湾城店及榆亚路136号港湾城4层，官方旅游资料也绑定港湾城；“巨幕”是整家影城名称，不是独立影厅 POI，保守降为 cinema 后 accept-exact。",
+      "validationErrors": []
+    },
+    {
+      "sourceRow": 885,
+      "id": "imax-cn-0885",
+      "sourceName": "北海大地影院（宁春城店）",
+      "region": "中国大陆",
+      "province": "广西",
+      "city": "北海",
+      "verdict": "needs-more-evidence",
+      "explicitVerdict": true,
+      "reviewSource": "explicit-row-review",
+      "acceptedPoiId": null,
+      "acceptedCandidate": null,
+      "consideredCandidate": {
+        "poiId": "B0FFG6LDP3",
+        "name": "和安·宁春城",
+        "address": "北京路128号",
+        "typecode": "060102",
+        "providerCoordinate": {
+          "crs": "GCJ-02",
+          "lat": 21.45889,
+          "lng": 109.125151
+        },
+        "sourceRowBoundCache": true
+      },
+      "selectedCandidatePoiId": "B0FFG6LDP3",
+      "evidenceUrls": [
+        "https://www.amap.com/place/B0FFH0CZGQ",
+        "https://www.maoyan.com/"
+      ],
+      "independentEvidenceUrlCount": 1,
+      "notes": "Existing cache has no source-bound exact cinema candidate sufficient for safe acceptance; do not materialize.",
+      "validationErrors": []
+    },
+    {
+      "sourceRow": 888,
+      "id": "imax-cn-0888",
+      "sourceName": "太原时代影城IMAX（华景天地店）\n原太原泰禾影城",
+      "region": "中国大陆",
+      "province": "山西",
+      "city": "太原",
+      "verdict": "accept-exact",
+      "explicitVerdict": true,
+      "reviewSource": "validated-row-review",
+      "acceptedPoiId": "B0HU1AAO65",
+      "acceptedCandidate": {
+        "provider": "amap",
+        "poiId": "B0HU1AAO65",
+        "providerCrs": "GCJ-02",
+        "providerLat": 37.734088,
+        "providerLng": 112.584719,
+        "positionType": "cinema-poi",
+        "locationGranularity": "cinema",
+        "locationConfidence": "high",
+        "identityConfidence": "high"
+      },
+      "consideredCandidate": {
+        "poiId": "B0HU1AAO65",
+        "name": "太原时代影城(华景天地店)",
+        "address": "坞城南路162号华景天地9层9a",
+        "typecode": "080601",
+        "providerCoordinate": {
+          "crs": "GCJ-02",
+          "lat": 37.734088,
+          "lng": 112.584719
+        },
+        "sourceRowBoundCache": true
+      },
+      "selectedCandidatePoiId": "B0HU1AAO65",
+      "evidenceUrls": [
+        "https://locatecinemas.com/cinemas/china/taiyuan/",
+        "https://www.xiaoyuzhoufm.com/episode/660b73c12d9eae5d0a8331ae"
+      ],
+      "independentEvidenceUrlCount": 2,
+      "notes": "独立影院目录与节目资料均指向坞城南路162号华景天地9层时代影城；源记录含“原太原泰禾影城”，名称/地址连续，accept-exact。",
+      "validationErrors": []
+    },
+    {
+      "sourceRow": 897,
+      "id": "imax-cn-0897",
+      "sourceName": "泉州保利万和CFR国际影城（IMAX店）\n原泉州泰禾影城（东海店） ",
+      "region": "中国大陆",
+      "province": "福建",
+      "city": "泉州",
+      "verdict": "reject-wrong-poi",
+      "explicitVerdict": true,
+      "reviewSource": "explicit-row-review",
+      "acceptedPoiId": null,
+      "acceptedCandidate": null,
+      "consideredCandidate": {
+        "poiId": "B0H1D7OSZ5",
+        "name": "保利万和国际影城(晋江店)",
+        "address": "梅岭街道中航城天骏19栋2楼(工人文化宫旁)",
+        "typecode": "080601",
+        "providerCoordinate": {
+          "crs": "GCJ-02",
+          "lat": 24.807788,
+          "lng": 118.561396
+        },
+        "sourceRowBoundCache": true
+      },
+      "selectedCandidatePoiId": "B0H1D7OSZ5",
+      "evidenceUrls": [
+        "https://static.sse.com.cn/stock/disclosure/announcement/c/201906/000021_20190603_24BG.pdf",
+        "https://www.sohu.com/a/193405293_99921446",
+        "https://czt.fujian.gov.cn/zwgk/czzj/202509/P020250905412926999950.pdf"
+      ],
+      "independentEvidenceUrlCount": 3,
+      "notes": "独立材料指向泉州丰泽东海泰禾/保利万和历史门店，而当前缓存候选 B0H1D7OSZ5 是晋江店，属于同地级市不同分店；reject-wrong-poi，不猜正确 POI，不物化。",
+      "validationErrors": []
+    }
+  ],
+  "materialization": {
+    "status": "applied",
+    "finalizedAt": "2026-08-24T03:54:11.685Z",
+    "consolidatedRows": 42,
+    "acceptedRows": 15,
+    "unresolvedRows": 27,
+    "pendingRowsResolved": 42,
+    "newAmapRequests": 0,
+    "networkRequests": 0,
+    "providerCacheSha256": "6C0F97ECBE41A5A0F3A00190D5CA6768692B117D04F99CFF3A0630FC0D5D8D20",
+    "providerCacheChanged": false,
+    "derivedCoordinatesApplied": 15,
+    "targetLayer": "data/local/private-reviewed-geocodes.json"
+  }
+}

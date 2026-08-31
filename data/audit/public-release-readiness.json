@@ -1,0 +1,300 @@
+{
+  "schemaVersion": 1,
+  "generatedAt": "2026-08-26T01:19:08.125Z",
+  "status": "public-runtime-ready",
+  "releaseCandidate": true,
+  "publicationReady": true,
+  "counts": {
+    "total": 901,
+    "accepted": 901,
+    "locationOnly": 100,
+    "unlocated": 0,
+    "acceptedPlusUnlocated": 901,
+    "markerCount": 901
+  },
+  "currentAcceptance": {
+    "accepted": 901,
+    "markerCount": 901,
+    "locationOnly": 100,
+    "unresolved": 0,
+    "unlocated": 0,
+    "acceptedPlusUnlocated": 901
+  },
+  "invariant": {
+    "acceptedPlusUnlocatedEqualsTotal": true,
+    "markerCountEqualsAccepted": true,
+    "sourceRowsValid": true
+  },
+  "staticFactLayer": {
+    "file": "data/public/cinemas.json",
+    "records": 901,
+    "staticCoordinates": 0,
+    "rawFieldMatches": 3604,
+    "rawCandidateFields": 0
+  },
+  "runtimeAmapLayer": {
+    "file": "data/local/public-amap-reviewed-geocodes.json",
+    "coordinateSystem": "GCJ-02",
+    "accepted": 901,
+    "markerCount": 901,
+    "unlocated": 0,
+    "sourceRowAssociation": "sourceRow/id only"
+  },
+  "browserSmoke": {
+    "schemaVersion": 2,
+    "generatedAt": "2026-08-25T04:51:31.620Z",
+    "status": "passed",
+    "executionMode": "playwright-cli-real",
+    "runtimeProvider": "official AMap JS API 2.0",
+    "url": "http://127.0.0.1:4173/",
+    "dataset": {
+      "totalRecords": 901,
+      "locatedRecords": 901,
+      "unlocatedRecords": 0,
+      "markerPoints": 901,
+      "markerCountInvariant": "markerPoints = accepted = 901"
+    },
+    "desktop": {
+      "viewport": {
+        "width": 1440,
+        "height": 900
+      },
+      "status": "passed",
+      "banner": "已加载 901 条公开影院记录；已定位 901 / 901 · 精确身份 801 · 场所级定位 100 · 未定位 0。坐标仅在高德地图应用内运行时使用。",
+      "clusterPoints": 901,
+      "clusterRendered": true,
+      "officialSdkLoaded": true,
+      "markerClusterLoaded": true,
+      "mapCanvasPresent": true,
+      "amapLogoVisible": true,
+      "amapCopyrightVisible": true,
+      "horizontalOverflow": false
+    },
+    "mobile": {
+      "viewport": {
+        "width": 390,
+        "height": 844
+      },
+      "status": "passed",
+      "documentClientWidth": 390,
+      "documentScrollWidth": 390,
+      "panelWidth": 370,
+      "horizontalOverflow": false,
+      "mapError": ""
+    },
+    "interactions": {
+      "searchCinema": {
+        "sourceRow": 192,
+        "results": 1,
+        "popup": true,
+        "providerCrs": "GCJ-02"
+      },
+      "systemFilter": {
+        "filter": "GT Laser",
+        "results": 8
+      },
+      "positionOnlyFilter": {
+        "results": 100,
+        "精确身份": 0,
+        "场所级定位": 100,
+        "未定位": 0
+      },
+      "cluster": {
+        "pointsAfterAllFilter": 901,
+        "clusterCount": 1
+      },
+      "attributionVisible": true,
+      "sourceLinkVisible": true
+    },
+    "fieldRegression": {
+      "singleValue": {
+        "sourceRow": 2,
+        "seatValueVisible": "409",
+        "rawVisible": false,
+        "rawVisibleByDefault": false,
+        "dataNotesVisible": false
+      },
+      "multiValue": {
+        "sourceRow": 309,
+        "label": "待核",
+        "rawVisible": false,
+        "rawVisibleByDefault": false,
+        "dataNotesAvailable": true,
+        "dataNotesOpenByDefault": false,
+        "rawFieldCount": 4
+      },
+      "blank": {
+        "sourceRow": 50,
+        "label": "暂无",
+        "rawVisible": false,
+        "dataNotesVisible": false,
+        "rawFieldsRetainedInDataset": true
+      },
+      "nbsp": {
+        "sourceRow": 54,
+        "label": "暂无",
+        "rawVisible": false,
+        "dataNotesVisible": false,
+        "rawFieldsRetainedInDataset": true,
+        "rawFieldCount": 4
+      },
+      "abnormal": {
+        "sourceRow": 119,
+        "label": "待核",
+        "rawVisible": false,
+        "rawVisibleByDefault": false,
+        "dataNotesAvailable": true,
+        "dataNotesOpenByDefault": false,
+        "formattedWidth": "20.741 m",
+        "formattedHeight": "11.244 m",
+        "rawFieldCount": 1
+      }
+    },
+    "consoleErrors": [],
+    "network": {
+      "publicMarkerRequestPerLoad": 1,
+      "externalAmapRequests": 0,
+      "providerPoiRequests": 0
+    },
+    "securityProxy": {
+      "status": "passed",
+      "reason": "Official SDK loaded through the same-origin runtime path; the security code was not present as a browser DOM literal."
+    },
+    "realSdkSmoke": {
+      "status": "passed",
+      "sdk": "official AMap JS API 2.0",
+      "markerClusterLoaded": true,
+      "mapCanvasPresent": true,
+      "amapLogoVisible": true,
+      "amapCopyrightVisible": true,
+      "securityCodeInBrowser": false
+    }
+  },
+  "realSdkGate": {
+    "public": true,
+    "private": true,
+    "publicProxy": true,
+    "privateProxy": true
+  },
+  "validation": {
+    "derived": {
+      "command": "node scripts/validate-derived.mjs",
+      "exitCode": 0,
+      "ok": true,
+      "report": {
+        "ok": true,
+        "schemaFileLoaded": true,
+        "recordCount": 901,
+        "reviewCount": 901,
+        "uniqueIds": 901,
+        "continuousSourceRows": true,
+        "coordinateCounts": {
+          "bothNull": 901,
+          "reliableOrCached": 0,
+          "invalid": 0
+        },
+        "rawDisplayFieldPreservation": true,
+        "errors": []
+      }
+    },
+    "public": {
+      "command": "node scripts/validate-public.mjs",
+      "exitCode": 0,
+      "ok": true,
+      "report": {
+        "ok": true,
+        "status": "publication-candidate",
+        "mode": "public-amap-runtime",
+        "records": 901,
+        "staticCoordinates": 0,
+        "runtimeMarkerCount": 901,
+        "runtimeLayerAccepted": 901,
+        "uniqueIds": 901,
+        "continuousSourceRows": true,
+        "rawFieldMatches": 3604,
+        "errors": []
+      }
+    },
+    "publicBoundary": {
+      "schemaVersion": 2,
+      "generatedAt": "2026-08-26T01:18:30.555Z",
+      "status": "public-boundary-check-passed",
+      "publicDataset": {
+        "file": "data/public/cinemas.json",
+        "sha256": "09b8aaad108f7d1dc0b3f2eadf67723f508270a473bb92efd2a69d1a829807e3",
+        "mode": "public-amap-runtime",
+        "records": 901,
+        "staticCoordinates": 0,
+        "runtimeMarkerCount": 901,
+        "errors": []
+      },
+      "runtimeLayer": {
+        "file": "data/local/public-amap-reviewed-geocodes.json",
+        "total": 901,
+        "accepted": 901,
+        "unresolved": 0,
+        "markerCount": 901,
+        "coordinateSystem": "GCJ-02"
+      },
+      "security": {
+        "cacheTracked": false,
+        "rawTracked": false,
+        "currentWorkspaceRawTracked": true,
+        "rawMirrorHistoryPresent": false,
+        "rawMirrorHistoryScope": "codex/public-release",
+        "apiKeyPersisted": false,
+        "securityCodeInPublicBundle": false,
+        "staticBulkCoordinateArtifacts": 0,
+        "amapPublicationGate": "removed-from-development-route"
+      },
+      "warnings": [],
+      "cleanBranch": {
+        "currentBranch": "feat/tencent-sheet-import",
+        "publicReleaseBranch": "codex/public-release",
+        "publicReleaseBranchExists": true,
+        "recommendedBase": "fba4dcd (last clean public baseline before the Tencent raw mirror)",
+        "noRemoteHistoryRewrite": true,
+        "noMergePerformed": true,
+        "noDeployPerformed": true,
+        "intentionallyExcluded": [
+          "data/raw/arvin-imax.json",
+          "data/geocode/provider-cache/*.json",
+          "data/local/",
+          "dist-private/",
+          "complete AMap coordinate export"
+        ]
+      }
+    }
+  },
+  "security": {
+    "credentialFindings": 0,
+    "securityCodeInPublicBundle": false,
+    "providerCacheTracked": false,
+    "staticBulkCoordinateArtifacts": 0,
+    "rawSnapshotSha256": "7cf5c979be985fbeef72dcc44228e1ef0501444eee0b5b82f2ffcba231638464"
+  },
+  "gates": [],
+  "historicalReviewSnapshots": {
+    "status": "historical-non-blocking",
+    "reason": "Historical review snapshots are retained for provenance only. Current release readiness is determined by the accepted 901-record canonical layer and its 901-marker/0-unresolved invariants.",
+    "snapshots": [
+      {
+        "file": "data/audit/luna-geocode-review-323-summary.json",
+        "historical": true,
+        "blocking": false,
+        "reviewComplete": false,
+        "needsMoreEvidence": 240
+      },
+      {
+        "file": "data/audit/final-cross-certification-report.json",
+        "historical": true,
+        "blocking": false,
+        "releaseGate": "BLOCKED",
+        "unresolvedCount": 0,
+        "supersededBy": "data/audit/final-internal-materialization-status.json"
+      }
+    ]
+  },
+  "noDeployment": true,
+  "noRemotePushOrDeploy": true
+}

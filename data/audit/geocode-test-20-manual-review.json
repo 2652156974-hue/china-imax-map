@@ -1,0 +1,27 @@
+{
+  "schemaVersion": 1,
+  "reviewedAt": "2026-08-20",
+  "reviewMethod": "候选 POI 名称、城市、地址和影院类型的人工文字核对；不是地图界面视觉核验，也不是坐标写入授权",
+  "records": [
+    { "sourceRow": 309, "status": "externally-reviewed", "note": "项目方提供外部人工核验：中国电影博物馆存在 IMAX GT 巨幕厅；选择缓存中的精确 IMAX GT POI，依据见 reviewed-overrides.json" },
+    { "sourceRow": 311, "status": "textual-confirmed", "note": "已排除同商场私人影院后，万达影城分店名称和石景山万达地址匹配" },
+    { "sourceRow": 314, "status": "textual-confirmed", "note": "环球城市大道电影院名称、北京环球度假区地址和电影院类型匹配" },
+    { "sourceRow": 21, "status": "textual-confirmed", "note": "百丽宫影城 LCM 置汇旭辉广场分店名称和地址匹配" },
+    { "sourceRow": 30, "status": "textual-confirmed", "note": "百丽宫影城博荟广场分店名称和地址匹配" },
+    { "sourceRow": 37, "status": "textual-confirmed", "note": "百丽宫影城环贸店与环贸 iapm 地址匹配" },
+    { "sourceRow": 198, "status": "textual-confirmed", "note": "美亚 IMAX 激光影城云门店名称和云门 Newpark 地址匹配" },
+    { "sourceRow": 200, "status": "textual-confirmed", "note": "飞扬影城乐峰广场店名称和地址匹配" },
+    { "sourceRow": 224, "status": "textual-confirmed", "note": "英皇电影城平安金融中心 PA MALL 名称和地址匹配" },
+    { "sourceRow": 228, "status": "textual-confirmed", "note": "已排除同商场飞行影院后，万达影城龙岗万达分店匹配" },
+    { "sourceRow": 593, "status": "textual-confirmed", "note": "寰映影城西安荟聚店名称和地址匹配" },
+    { "sourceRow": 699, "status": "textual-confirmed", "note": "中影紫荆国际影城环球中心旗舰店名称和地址匹配" },
+    { "sourceRow": 59, "status": "textual-confirmed", "note": "儒意影城哈东万达广场店名称和地址匹配" },
+    { "sourceRow": 51, "status": "externally-reviewed", "note": "项目方提供外部人工核验：科技馆官网确认 IMAX 球幕影院；选择科技馆主体 venue-poi，明确排除 4D 影院" },
+    { "sourceRow": 155, "status": "externally-reviewed", "note": "项目方提供外部人工核验：精确 POI 为三盛国际广场 3 层的扬州 IMAX 店" },
+    { "sourceRow": 305, "status": "textual-confirmed", "note": "万达影城怀柔万达广场分店名称和地址匹配" },
+    { "sourceRow": 610, "status": "textual-confirmed", "note": "万达影城九原万达广场分店名称和地址匹配" },
+    { "sourceRow": 233, "status": "textual-confirmed", "note": "已排除同商场餐饮/游戏 POI 后，寰映影城深圳湾睿印分店匹配" },
+    { "sourceRow": 538, "status": "externally-reviewed", "note": "项目方提供外部人工核验：缓存中的浙影时代西湖文化广场店为精确影院 POI" },
+    { "sourceRow": 843, "status": "reviewed-target-not-cached", "note": "项目方确认历史影院可使用花果园购物中心 historical mall fallback；现有 42 条缓存无该商场 POI，继续 unresolved，不填坐标" }
+  ]
+}

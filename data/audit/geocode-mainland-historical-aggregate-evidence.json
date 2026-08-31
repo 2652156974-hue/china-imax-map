@@ -1,0 +1,15 @@
+{
+  "sourceThread": "01a01e20-6df6-7cc1-9718-acf1f6b4becf",
+  "sourceTurn": "01a01e5e-8c5e-7143-ab82-507db74de840",
+  "recordedAt": "2026-08-20T09:41:48.420Z",
+  "verifiedByThread": "01a02276-b56d-7da1-87a2-c9628cf073e6",
+  "originalFullAuditSha256": "7e49f019b40b1b85387f95ee308c95ae9ddbf7ec3da5191523debfec5b83bd71",
+  "aggregates": {
+    "cacheEntriesAtStart": 140,
+    "cacheEntriesAtEnd": 1848,
+    "sourceSegments": { "commercial": 868, "institutional": 13 },
+    "rejectionCounts": { "format": 23, "city": 28, "project": 2790, "brand": 853, "nonCinema": 6163 }
+  },
+  "evidenceDigest": "1cf69225fb49a604e87c013bfc4c566fcd969613258e415144d07402270fcd37",
+  "provenance": "Independent approval-thread correction; values are retained historical aggregates, not recomputed during recovery."
+}

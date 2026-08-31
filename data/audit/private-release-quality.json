@@ -1,0 +1,46 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-08-25T07:05:27.899Z",
+  "status": "private-reviewed-layer-restored-from-validated-full-artifact",
+  "total": 901,
+  "accepted": 901,
+  "markerCount": 901,
+  "located": 901,
+  "pendingReview": 0,
+  "unresolved": 0,
+  "unlocated": 0,
+  "acceptedPlusUnlocated": 901,
+  "statePartition": true,
+  "releaseInvariant": {
+    "acceptedPlusUnlocated": true,
+    "markerCountEqualsAccepted": true
+  },
+  "states": {
+    "located": 901
+  },
+  "automaticHigh": 573,
+  "reviewedOverrideHigh": 4,
+  "automaticMedium": 0,
+  "unreviewedDefault": 0,
+  "unresolvedDefault": 0,
+  "reviewedRejections": 1,
+  "lunaReviewedExact": 67,
+  "lunaReviewedLocationOnly": 15,
+  "lunaReviewedHistoricalLocation": 0,
+  "verdicts": {
+    "accept-exact": 225,
+    "accept-historical-location": 22,
+    "accept-location-only": 77,
+    "accepted-high-existing": 577
+  },
+  "screenSeatFieldsAttached": 901,
+  "rawCandidateText": false,
+  "apiKeyText": false,
+  "markerCoordinateBoundary": {
+    "providerCrs": "GCJ-02",
+    "providerCoordinates": 901
+  },
+  "sourceRowAssociation": "sourceRow/id only",
+  "recoverySource": "dist-private/data/cinemas.json",
+  "recoveredRecordCount": 901
+}

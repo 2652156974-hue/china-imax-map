@@ -1,0 +1,60 @@
+{
+  "schemaVersion": 1,
+  "generatedAt": "2026-08-21T03:34:52.413Z",
+  "status": "passed",
+  "source": {
+    "raw": "data/raw/arvin-imax.json",
+    "derived": "data/derived/cinemas.json",
+    "rule": "Only explicit former-name grammar is parsed; all other lines remain unparsedNameLines and nameRaw is preserved."
+  },
+  "summary": {
+    "records": 901,
+    "explicitFormerNameRecords": 32,
+    "unparsedNameLineRecords": 3,
+    "suspiciousFormerNameRecords": 0,
+    "parserDerivedMismatches": 0
+  },
+  "knownRegressionChecks": {
+    "ordinaryPlaceNameContainingYuan": [],
+    "row59FormerNames": [
+      "万达影城",
+      "万达影城（哈东万达IMAXGT双激光店）",
+      "哈尔滨泰莱时代影城"
+    ],
+    "row59UnparsedNameLines": []
+  },
+  "suspiciousRecords": [],
+  "unparsedRecords": [
+    {
+      "sourceRow": 192,
+      "sourceName": "广州万达影城（亚运城广场店）",
+      "formerNames": [],
+      "unparsedNameLines": [
+        "商业体装修，暂停营业"
+      ],
+      "suspiciousFormerNames": [],
+      "parserMatchesDerived": true
+    },
+    {
+      "sourceRow": 360,
+      "sourceName": "昆明维斯影城（海乐城IMAX店）",
+      "formerNames": [],
+      "unparsedNameLines": [
+        "（原昆明CGV影城（海伦店)）"
+      ],
+      "suspiciousFormerNames": [],
+      "parserMatchesDerived": true
+    },
+    {
+      "sourceRow": 665,
+      "sourceName": "郑州儒意影城（二七万达广场IMAX激光店）",
+      "formerNames": [],
+      "unparsedNameLines": [
+        "万达影城（二七万达广场IMAX激光店）"
+      ],
+      "suspiciousFormerNames": [],
+      "parserMatchesDerived": true
+    }
+  ],
+  "mismatches": []
+}

@@ -1,0 +1,48 @@
+{
+  "schemaVersion": 1,
+  "generatedAt": "2026-08-31T04:20:09.627Z",
+  "status": "complete-internal-only",
+  "output": "data/derived/cinemas-final-internal.json",
+  "recordCount": 901,
+  "summary": {
+    "total": 901,
+    "located": 901,
+    "pendingReview": 0,
+    "unresolved": 0,
+    "unlocated": 0,
+    "acceptedPlusUnlocated": 901,
+    "statePartition": true,
+    "regionCounts": {
+      "香港": 7,
+      "中国大陆": 881,
+      "台湾": 12,
+      "澳门": 1
+    },
+    "decisionCounts": {
+      "acceptedExact": 225,
+      "acceptedLocationOnly": 77,
+      "located": 599
+    },
+    "granularityCounts": {
+      "cinema": 799,
+      "venue": 80,
+      "mall": 20,
+      "auditorium": 2
+    },
+    "coordinateCount": 901,
+    "identityExactCount": 801,
+    "locationOnlyCount": 100
+  },
+  "accepted": 901,
+  "markerCount": 901,
+  "unlocated": 0,
+  "acceptedPlusUnlocated": 901,
+  "releaseInvariant": {
+    "acceptedPlusUnlocated": true,
+    "markerCountEqualsAccepted": true
+  },
+  "privateReviewedLayer": "data/local/private-reviewed-geocodes.json",
+  "canonicalReviewedGeocodeFactSource": "data/local/private-reviewed-geocodes.json",
+  "canonicalSourcePolicy": "Approved coordinates, review state, verdict and confidence are read from the private reviewed layer; provider cache, public layer, Luna package and derived output are not coordinate fact sources.",
+  "publicPublicationGate": "AMAP_JS_API_2_RUNTIME"
+}

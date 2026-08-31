@@ -1,0 +1,33 @@
+{
+  "schemaVersion": 1,
+  "description": "Compact immutable baseline captured before the matcher repair. Derived from data/audit/geocode-test-20.json.",
+  "summary": {
+    "automaticHigh": 0,
+    "automaticMedium": 15,
+    "reviewedOverrideHigh": 0,
+    "reviewedOverrideMedium": 0,
+    "unresolved": 5
+  },
+  "records": [
+    { "sourceRow": 309, "decision": "unresolved", "score": null, "poiId": null, "poiName": null },
+    { "sourceRow": 311, "decision": "review-required-medium", "score": 0.8, "poiId": "B000A81BZM", "poiName": "万达影城(石景山万达广场店)" },
+    { "sourceRow": 314, "decision": "review-required-medium", "score": 0.8, "poiId": "B0G0TAEIJV", "poiName": "环球城市大道电影院" },
+    { "sourceRow": 21, "decision": "review-required-medium", "score": 0.8, "poiId": "B0FFJL4VPL", "poiName": "上海百丽宫影城(LCM置汇旭辉广场店)" },
+    { "sourceRow": 30, "decision": "review-required-medium", "score": 0.8, "poiId": "B0FFI2O92B", "poiName": "百丽宫影城(博荟广场ONE EAST店)" },
+    { "sourceRow": 37, "decision": "review-required-medium", "score": 0.8, "poiId": "B00157A5JJ", "poiName": "百丽宫影城(上海环贸店)" },
+    { "sourceRow": 198, "decision": "review-required-medium", "score": 0.8, "poiId": "B0FFKBGXY0", "poiName": "美亚IMAX激光影城(云门店)" },
+    { "sourceRow": 200, "decision": "review-required-medium", "score": 0.8, "poiId": "B00141SC0V", "poiName": "飞扬影城(乐峰广场店)" },
+    { "sourceRow": 224, "decision": "review-required-medium", "score": 0.8, "poiId": "B0FFLKPC8C", "poiName": "英皇电影城(PA MALL平安金融中心商场)" },
+    { "sourceRow": 228, "decision": "review-required-ambiguous", "score": 0.86, "poiId": "B0HRK5AY2M", "poiName": "万达影城(龙岗万达广场店)" },
+    { "sourceRow": 593, "decision": "review-required-medium", "score": 0.86, "poiId": "B0KG251QBL", "poiName": "寰映影城(西安荟聚激光IMAX店)" },
+    { "sourceRow": 699, "decision": "review-required-medium", "score": 0.8, "poiId": "B0K0XSTSXF", "poiName": "中影紫荆国际影城4K激光IMAX环球中心旗舰店" },
+    { "sourceRow": 59, "decision": "review-required-medium", "score": 0.8, "poiId": "B0HBOZL908", "poiName": "儒意影城(哈东万达广场店)" },
+    { "sourceRow": 51, "decision": "unresolved", "score": null, "poiId": null, "poiName": null },
+    { "sourceRow": 155, "decision": "unresolved", "score": null, "poiId": null, "poiName": null },
+    { "sourceRow": 305, "decision": "review-required-medium", "score": 0.8, "poiId": "B0FFIQ193L", "poiName": "万达影城(怀柔万达广场IMAX店)" },
+    { "sourceRow": 610, "decision": "review-required-medium", "score": 0.8, "poiId": "B0FFJEI1H1", "poiName": "万达影城(九原万达广场店)" },
+    { "sourceRow": 233, "decision": "review-required-medium", "score": 0.86, "poiId": "B0JAAH8R2L", "poiName": "寰映影城(深圳湾睿印RAIL IN店)" },
+    { "sourceRow": 538, "decision": "unresolved", "score": null, "poiId": null, "poiName": null },
+    { "sourceRow": 843, "decision": "unresolved", "score": null, "poiId": null, "poiName": null }
+  ]
+}

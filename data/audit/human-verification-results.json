@@ -1,0 +1,2427 @@
+[
+  {
+    "id": "imax-cn-0307",
+    "sourceRow": 307,
+    "result": "same entity",
+    "amapProviderPoiId": "B0FFLGQ3YK",
+    "reviewer": "user-human-verification",
+    "confirmationSource": "user-manual-web-review",
+    "notes": "用户人工确认：北京博纳影城门头沟IMAX店与博纳国际影城北京长安天街店为同一影院；门头沟区政府和正规媒体独立资料均支持长安天街分店关系。",
+    "evidence": [
+      {"tier": "Tier 2", "sourceType": "门头沟区政府", "url": "https://www.bjmtg.gov.cn/bjmtg/c102695/202304/bf636415e1ad460999c683c7eb843e21.shtml", "claim": "政府公开记录提到博纳国际影城北京长安天街店。"},
+      {"tier": "Tier 2", "sourceType": "正规媒体", "url": "https://www.jiemian.com/article/3698146_qq.html", "claim": "报道长安天街引入博纳国际影城及IMAX影厅。"}
+    ]
+  },
+  {
+    "id": "imax-cn-0392",
+    "sourceRow": 392,
+    "result": "same entity",
+    "amapProviderPoiId": "B0FFH61Y04",
+    "reviewer": "user-human-verification",
+    "confirmationSource": "user-manual-web-review",
+    "notes": "用户人工确认：孝感金逸影城汉川IMAX店与西正街汉海国际广场金逸为同一影院；网页5楼与AMap4楼属于楼层字段冲突，不否定实体关系。",
+    "evidence": [
+      {"tier": "Tier 2", "sourceType": "大型票务目录", "url": "https://m.dongfangfuli.com/cinema/list?city=76&region_id=696", "claim": "汉川IMAX店位于孝感市汉川市西正街汉海国际广场。"},
+      {"tier": "Tier 3", "sourceType": "公开影院目录", "url": "https://m.city8.com/xg/movie/85i1jc78dyg0b1a8c0", "claim": "金逸影城(IMAX店)位于汉海国际广场，公开资料写5层。"}
+    ]
+  },
+  {
+    "id": "imax-cn-0546",
+    "sourceRow": 546,
+    "result": "same entity",
+    "amapProviderPoiId": "B0FFGPMMZ3",
+    "reviewer": "user-human-verification",
+    "confirmationSource": "user-manual-web-review",
+    "notes": "用户人工确认：宁波CGV鄞州店与天童南路1008号环球银泰城CGV为同一影院；公开名单和本地资料均一致支持。",
+    "evidence": [
+      {"tier": "Tier 2", "sourceType": "公开影院名单", "url": "https://www.peoplepower.net.cn/2019/06/29/533/", "claim": "CGV星聚汇影城鄞州店地址为天童南路1008号银泰环球城4层。"},
+      {"tier": "Tier 2", "sourceType": "商业项目资料", "url": "https://www.kemai.com.cn/News/779.html", "claim": "环球银泰城业态资料包含CGV星聚汇影城。"}
+    ]
+  },
+  {
+    "id": "imax-cn-0580",
+    "sourceRow": 580,
+    "result": "same entity",
+    "amapProviderPoiId": "B0FFLGXLEM",
+    "reviewer": "user-human-verification",
+    "confirmationSource": "user-manual-web-review",
+    "notes": "用户人工确认：台州金逸路桥店与宏达生活广场店为同一影院；历史万嘉广场与当前宏达生活广场均落在路桥区银安街/银安西街9号，属于商业体更名或名称变化。",
+    "evidence": [
+      {"tier": "Tier 2", "sourceType": "大型票务目录", "url": "https://m.dongfangfuli.com/cinema/detail/10807?city=184", "claim": "金逸台州万嘉IMAX店位于路桥区银安西街9号3、4、5层。"},
+      {"tier": "Tier 2", "sourceType": "本地票务信息", "url": "https://m.tz.bendibao.com/jieri/3859.shtm", "claim": "历史页面列出台州万嘉广场IMAX店及银安西街9号地址。"},
+      {"tier": "Tier 3", "sourceType": "本地公开目录", "url": "https://www.tzying.cn/index.php?a=index&c=Lists&m=home&tid=10", "claim": "当前路桥金逸影城页面写明宏达生活广场、银安街9号、F4层。"}
+    ]
+  },
+  {
+    "id": "imax-cn-0886",
+    "sourceRow": 886,
+    "result": "same entity",
+    "amapProviderPoiId": "B0LUUZLIQ3",
+    "reviewer": "user-human-verification",
+    "confirmationSource": "user-manual-web-review",
+    "notes": "用户人工确认：正确实体为CGV星聚汇影城（长沙岳麓店／奥克斯广场店），地址为湖南省长沙市岳麓区岳麓大道57号银盆岭万达广场F5，前身商业体为长沙奥克斯广场。AMap金茂览秀城候选已确认是不同分店并拒绝；本次仅采用同一地址F5的当前影院POI作为位置承载，不把金茂览秀城坐标物化。",
+    "evidence": [
+      {"tier": "Tier 2", "sourceType": "新浪湖南历史开业报道", "url": "https://hunan.sina.com.cn/fashion/wljj/2013-08-07/105064592.html", "claim": "2013年报道CGV长沙岳麓店位于岳麓大道57号奥克斯广场5楼并配有IMAX厅。"},
+      {"tier": "Tier 3", "sourceType": "公开影院技术资料", "url": "https://cinema.gaoliang.me/cinema/%E9%95%BF%E6%B2%99CGV%E5%BD%B1%E5%9F%8E%EF%BC%88%E6%A2%85%E6%BA%AA%E6%B9%96%E5%BA%97%EF%BC%89_IMAX", "claim": "另有长沙CGV梅溪湖店位于梅溪湖环湖路1177号金茂览秀城，证明当前最佳候选是另一分店。"},
+      {"tier": "Tier 3", "sourceType": "长沙公开位置目录", "url": "https://jt.dushiquan.net/changsha/station_5812/zb/7.html", "claim": "公开位置资料同时列出CGV奥克斯广场店和CGV长沙金茂览秀城店。"},
+      {"tier": "Tier 2", "sourceType": "用户人工核验", "url": "https://hunan.sina.com.cn/fashion/wljj/2013-08-07/105064592.html", "claim": "用户确认原始记录应归入岳麓大道57号银盆岭万达F5的岳麓／奥克斯历史分店，金茂览秀城为不同分店。"}
+    ]
+  },
+  {
+    "id": "imax-cn-0146",
+    "sourceRow": 146,
+    "result": "same entity",
+    "amapProviderPoiId": "B0FFJN3EQU",
+    "reviewer": "user-human-verification",
+    "confirmationSource": "user-manual-web-review",
+    "notes": "用户人工确认：海门幸福蓝海影城IMAX对应幸福蓝海国际影城（龙信广场购物中心店），不是AMap第一候选海门余东店。接受指定候选B0FFJN3EQU，地址为长江南路99号龙信广场购物中心F4；余东店B0G1352A8Y作为串店候选拒绝。公开资料同时支持龙信店的IMAX门店身份，并以余东店较小规模的座位/银幕信息构成反证。",
+    "evidence": [
+      {"tier": "Tier 2", "sourceType": "猫眼影院页", "url": "https://www.maoyan.com/cinema/24544?_v_=yes&merCode=1000152&movieId=1432921", "claim": "猫眼将海门幸福蓝海IMAX影城列为龙信广场店，并指向长江南路99号龙信广场购物中心。"},
+      {"tier": "Tier 2", "sourceType": "幸福蓝海上市公司披露", "url": "https://vip.stock.finance.sina.com.cn/corp/view/vCB_AllBulletinDetail.php?id=6561850&stockid=300528", "claim": "上市公司披露的海门余东镇项目为3张银幕、224/261个总座位，与429座IMAX厅的龙信广场候选规模不符。"},
+      {"tier": "Tier 2", "sourceType": "地方媒体", "url": "https://www.ourjiangsu.com/a/20200720/1595226593426.shtml", "claim": "南通电影院复业报道明确列出海门幸福蓝海国际影城（龙信广场店）。"}
+    ]
+  },
+  {
+    "id": "imax-cn-0160",
+    "sourceRow": 160,
+    "result": "same entity",
+    "amapProviderPoiId": "B0HB4H7ZR4",
+    "reviewer": "user-human-verification",
+    "confirmationSource": "user-manual-web-review",
+    "notes": "用户人工确认：宿迁幸福蓝海国际影城（中央IMAX店）对应宿城区幸福南路92号雨润中央商场6层的宿迁中央商场店；同城同名的沭阳、泗阳中央商场门店均为不同分店。接受指定候选B0HB4H7ZR4。",
+    "evidence": [
+      {"tier": "Tier 2", "sourceType": "江苏省委新闻网", "url": "https://www.zgjssw.gov.cn/shixianchuanzhen/suqian/202103/t20210312_7007929.shtml", "claim": "报道明确提到幸福蓝海国际影城宿迁中央商场IMAX旗舰店。"},
+      {"tier": "Tier 2", "sourceType": "江苏媒体", "url": "https://jsnews.jschina.com.cn/sq/a/202307/t20230707_3244709.shtml", "claim": "报道明确提到幸福蓝海国际影城（宿迁中央商场IMAX店）。"},
+      {"tier": "Tier 3", "sourceType": "公开开业报道", "url": "https://www.sohu.com/a/210009862_99936552", "claim": "公开报道将宿迁中央IMAX旗舰店定位于幸福中路中央商场六层。"}
+    ]
+  },
+  {
+    "id": "imax-cn-0205",
+    "sourceRow": 205,
+    "result": "same entity",
+    "amapProviderPoiId": "B0FFGJGE9F",
+    "reviewer": "user-human-verification",
+    "confirmationSource": "user-manual-web-review",
+    "notes": "用户人工确认：广州金逸影城（海珠城激光IMAX店）对应江南大道中180号富力海珠城B区7层703号的广州海珠城IMAX店；东晓南路1290号海珠城光荟广场店为另一分店。接受指定候选B0FFGJGE9F。",
+    "evidence": [
+      {"tier": "Tier 2", "sourceType": "猫眼影院页", "url": "https://m.maoyan.com/mtrade/cinema/cinema?_v_=yes&ci=1&cinemaId=15069&lat=&lng=&merCode=1000152&merCodeSub=&merUser=&movieId=1563473&signMsg=signMsgPlaceholder&timestamp=1778011896985", "claim": "猫眼当前页面名称为金逸影城（广州海珠城激光IMAX店），地址与富力海珠城B区7层703号一致。"},
+      {"tier": "Tier 2", "sourceType": "大型票务目录", "url": "https://m.dongfangfuli.com/cinema/detail/2262?city=2", "claim": "公开票务目录将广州海珠城IMAX店定位在江南大道中180号富力海珠商业广场B区七层703号。"},
+      {"tier": "Tier 3", "sourceType": "公开影院技术资料", "url": "https://cinema.gaoliang.me/cinema/%E5%B9%BF%E5%B7%9E%E9%87%91%E9%80%B8%E5%BD%B1%E5%9F%8E%EF%BC%88%E6%B5%B7%E7%8F%A0%E5%9F%8E%E6%BF%80%E5%85%89IMAX%E5%BA%97%EF%BC%89_IMAX", "claim": "影院名称和富力海珠城B区7层703号地址与AMap指定候选一致。"}
+    ]
+  },
+  {
+    "id": "imax-cn-0262",
+    "sourceRow": 262,
+    "result": "same entity",
+    "amapProviderPoiId": "B0FFKT8INA",
+    "reviewer": "user-human-verification",
+    "confirmationSource": "user-manual-web-review",
+    "notes": "用户人工确认：汕头万达影院（金平万达广场店）对应潮汕路61号汕头金平万达广场F4层的万达影城。接受指定候选B0FFKT8INA；附近商场和其他非影院POI不作为影院实体候选。",
+    "evidence": [
+      {"tier": "Tier 1", "sourceType": "万达官网", "url": "https://www.wanda.cn/2019/2019_0527/40276.html", "claim": "万达官网确认金平万达广场主力店包含万达影城。"},
+      {"tier": "Tier 2", "sourceType": "汕头本地服务信息", "url": "https://m.st.bendibao.com/gouwu/7317.shtm", "claim": "公开页面将影院定位到金平区潮汕路61号汕头金平万达广场4F-A。"},
+      {"tier": "Tier 2", "sourceType": "中国电影报", "url": "https://www.chinafilmnews.cn/UploadFiles/file/20260507/202605070305213092.pdf", "claim": "公开影院名单中出现汕头金平万达影城。"}
+    ]
+  },
+  {
+    "id": "imax-cn-0486",
+    "sourceRow": 486,
+    "result": "same entity",
+    "amapProviderPoiId": "B0KGKNWFPE",
+    "reviewer": "user-human-verification",
+    "confirmationSource": "user-manual-web-review",
+    "notes": "用户人工确认：枣庄万达影城（万达广场店）对应薛城万达广场IMAX店，不是AMap第一候选滕州万达广场店。接受指定候选B0KGKNWFPE，地址为薛城区永兴路126号万达广场薛城店F4；滕州候选B0FFLLBGC4作为串店拒绝。2017年枣庄万达及首家IMAX历史资料先于2019年滕州万达开业，且地址与薛城候选一致。",
+    "evidence": [
+      {"tier": "Tier 1", "sourceType": "万达官网", "url": "https://www.wanda.cn/2017/2017latest_0629/36150.html", "claim": "万达官网报道山东枣庄万达广场开业并包含万达影城。"},
+      {"tier": "Tier 2", "sourceType": "齐鲁晚报", "url": "https://sjb.qlwb.com.cn/qlwb/content/20170627/ArticelZ02005FM.htm", "claim": "报道枣庄首家拥有IMAX影厅的万达影城，语境对应薛城区枣庄万达广场。"},
+      {"tier": "Tier 3", "sourceType": "IMAX挂幕报道", "url": "https://kknews.cc/zh-my/history/val2kx4.html", "claim": "历史报道将影院定位到薛城区永兴路万达广场四楼。"},
+      {"tier": "Tier 2", "sourceType": "商业项目资料", "url": "https://www.maigoo.com/news/683643.html", "claim": "资料显示滕州万达为2019年后开业的另一家枣庄万达项目，不能替代原始枣庄IMAX记录。"}
+    ]
+  },
+  {
+    "id": "imax-cn-0785",
+    "sourceRow": 785,
+    "result": "same entity",
+    "amapProviderPoiId": "B0FFH8LO5B",
+    "reviewer": "user-human-verification",
+    "confirmationSource": "user-manual-web-review",
+    "notes": "用户人工确认：接受指定 AMap 候选 B0FFH8LO5B；该候选与原始乌鲁木齐万达影城记录为同一分店。",
+    "evidence": [
+      {"tier": "Tier 1/2", "sourceType": "万达公司披露 PDF", "url": "https://static.cninfo.com.cn/finalpage/2015-09-17/1201604613.PDF", "claim": "披露列出乌鲁木齐万达广场店及其计划开业信息。"},
+      {"tier": "Tier 2", "sourceType": "乌鲁木齐经开区政府", "url": "https://www.uetd.gov.cn/jjjskfq/c119523/202505/5c6b6760f75749a6b9e4abefde6453a5.shtml", "claim": "政府资料确认经开万达地址及四楼万达影城。"}
+    ]
+  },
+  {
+    "id": "imax-cn-0789",
+    "sourceRow": 789,
+    "result": "same entity",
+    "amapProviderPoiId": "B0G2ZRGW8D",
+    "reviewer": "user-human-verification",
+    "confirmationSource": "user-manual-web-review",
+    "notes": "用户人工确认：原始拉萨万达影城（万达广场店）对应指定 AMap 候选 B0G2ZRGW8D，拒绝同城其他万达分店。",
+    "evidence": [
+      {"tier": "Tier 3", "sourceType": "公开影院技术资料", "url": "https://cinema.gaoliang.me/cinema/%E6%8B%89%E8%90%A8%E4%B8%87%E8%BE%BE%E5%BD%B1%E5%9F%8E%EF%BC%88%E4%B8%87%E8%BE%BE%E5%B9%BF%E5%9C%BA%E5%BA%97%EF%BC%89_IMAX", "claim": "公开资料将拉萨万达影城万达广场店定位到拉萨城关万达广场。"},
+      {"tier": "Tier 1", "sourceType": "万达官网", "url": "https://www.wanda.cn/mobile/magazine/pc/123/3430_info.html", "claim": "万达公开资料支持拉萨万达广场与万达影城的分店关系。"}
+    ]
+  },
+  {
+    "id": "imax-cn-0006",
+    "sourceRow": 6,
+    "result": "same entity",
+    "amapProviderPoiId": "B0MBFC7JN9",
+    "reviewer": "user-human-verification",
+    "confirmationSource": "user-manual-web-review",
+    "notes": "用户人工确认：香港影藝戲院(MegaBox)对应指定 AMap 候选 B0MBFC7JN9。",
+    "evidence": [
+      {"tier": "Tier 1", "sourceType": "MegaBox 官方页面", "url": "https://www.megabox.com.hk/index.php?lang=tchi&mid=30", "claim": "MegaBox官方页面列出影藝戲院并给出九龙湾宏照道38号地址。"},
+      {"tier": "Tier 2", "sourceType": "香港影院目录", "url": "https://m.wmoov.com/cinema?filter=%E5%BD%B1%E8%97%9D%E9%99%A2%E7%B7%9A", "claim": "影院目录将影艺戏院MegaBox定位在企业广场5期MegaBox 11楼。"}
+    ]
+  },
+  {
+    "id": "imax-cn-0291",
+    "sourceRow": 291,
+    "result": "same entity",
+    "amapProviderPoiId": "B0M6CCUYUN",
+    "reviewer": "user-human-verification",
+    "confirmationSource": "user-manual-web-review",
+    "notes": "用户人工确认：重庆八一影城（解放碑店）对应八一影城IMAX(八一广场店) B0M6CCUYUN；该 POI 位于八一路238号八一广场F7。",
+    "evidence": [
+      {"tier": "Tier 1/2", "sourceType": "公司披露 PDF", "url": "https://pdf.dfcfw.com/pdf/H2_AN201906031333512565_1.pdf", "claim": "公开披露确认重庆渝中区八一路影院物业关系。"},
+      {"tier": "Tier 2", "sourceType": "正规媒体影院指南", "url": "https://www.sohu.com/a/617614708_121106884", "claim": "公开观影指南确认解放碑八一路影院位置。"}
+    ]
+  },
+  {
+    "id": "imax-cn-0354",
+    "sourceRow": 354,
+    "result": "same entity",
+    "amapProviderPoiId": "B0FFF6PQ7J",
+    "reviewer": "user-human-verification",
+    "confirmationSource": "user-manual-web-review",
+    "notes": "用户人工确认：昆明万达影城（同德广场店）接受指定 AMap 候选 B0FFF6PQ7J。",
+    "evidence": [
+      {"tier": "Tier 1", "sourceType": "院线官方页面", "url": "https://www.ruyifilm.com/gywm/yclb/xndq/yns/0d77c2df965d11e982dc005056835733.html", "claim": "院线官方影院页确认昆明万达影城同德广场店及IMAX厅。"},
+      {"tier": "Tier 2", "sourceType": "公开影院名单", "url": "https://www.maigoo.com/news/664722.html", "claim": "公开名单将同德广场店定位到盘龙区白云路与北京路交叉口同德昆明广场。"}
+    ]
+  },
+  {
+    "id": "imax-cn-0411",
+    "sourceRow": 411,
+    "result": "same entity",
+    "amapProviderPoiId": "B0FFF36R1H",
+    "reviewer": "user-human-verification",
+    "confirmationSource": "user-manual-web-review",
+    "notes": "用户人工确认：郴州万达影城（生源广场IMAX店）对应指定 AMap 候选 B0FFF36R1H。",
+    "evidence": [
+      {"tier": "Tier 1/2", "sourceType": "万达公司披露 PDF", "url": "https://static.cninfo.com.cn/finalpage/2015-01-06/1200522990.PDF", "claim": "披露将郴州万达电影城定位到苏仙区八一路生源时代广场五楼。"},
+      {"tier": "Tier 2", "sourceType": "银行公开影城名单", "url": "https://pic.bankofchina.com/bocappd/appform_1/201509/P020150924529221572419.pdf", "claim": "公开影城名单给出郴州生源购物中心店及五楼地址。"}
+    ]
+  },
+  {
+    "id": "imax-cn-0545",
+    "sourceRow": 545,
+    "result": "same entity",
+    "amapProviderPoiId": "B023E0XIAK",
+    "reviewer": "user-human-verification",
+    "confirmationSource": "user-manual-web-review",
+    "notes": "用户人工确认：宁波万达影城（江北万达广场店）对应指定 AMap 候选 B023E0XIAK。",
+    "evidence": [
+      {"tier": "Tier 2", "sourceType": "银行公开指定影城名单", "url": "https://pic.bankofchina.com/bocappd/appform_1/201412/P020141231511419593148.pdf", "claim": "名单给出宁波江北店位于江北大道188号江北万达商业广场娱乐楼4层。"},
+      {"tier": "Tier 2", "sourceType": "大型旅行平台", "url": "https://you.ctrip.com/sight/ningbo83/150257794.html", "claim": "公开页面给出江北万达广场IMAX店地址。"}
+    ]
+  },
+  {
+    "id": "imax-cn-0705",
+    "sourceRow": 705,
+    "result": "same entity",
+    "amapProviderPoiId": "B0KUHSFZDH",
+    "reviewer": "user-human-verification",
+    "confirmationSource": "user-manual-web-review",
+    "notes": "用户人工确认：成都寰时影城（光环IMAX店）对应指定 AMap 候选 B0KUHSFZDH；当前寰影名称属于同址品牌/运营名称变化。",
+    "evidence": [
+      {"tier": "Tier 2", "sourceType": "商业行业媒体", "url": "https://m.linkshop.com/article/news/513364", "claim": "成都光环招商资料确认主力店包含寰时影城。"},
+      {"tier": "Tier 2", "sourceType": "大型票务平台", "url": "https://www.maoyan.com/cinema/40005?poi=1569865854", "claim": "当前页面将同一光环购物公园地址列为寰影影城成都光环IMAX店。"}
+    ]
+  },
+  {
+    "id": "imax-cn-0722",
+    "sourceRow": 722,
+    "result": "same entity",
+    "amapProviderPoiId": "B0GKVA2P17",
+    "reviewer": "user-human-verification",
+    "confirmationSource": "user-manual-web-review",
+    "notes": "用户人工确认：德阳金逸影城（五洲广场店）对应指定 AMap 候选 B0GKVA2P17；五洲广场更名为碧乐城不构成串店。",
+    "evidence": [
+      {"tier": "Tier 2", "sourceType": "商业行业媒体", "url": "https://m.winshang.com/news716865.html", "claim": "公开报道确认德阳五洲广场购物中心升级为碧乐城。"},
+      {"tier": "Tier 3", "sourceType": "公开影院技术资料", "url": "https://cinema.gaoliang.me/cinema/%E5%BE%B7%E9%98%B3%E9%87%91%E9%80%B8%E5%BD%B1%E5%9F%8E%EF%BC%88%E4%BA%94%E6%B4%B2%E5%B9%BF%E5%9C%BA%E5%BA%97%EF%BC%89_IMAX", "claim": "影院资料给出泰山南路二段735号碧乐城5层地址。"}
+    ]
+  },
+  {
+    "id": "imax-cn-0803",
+    "sourceRow": 803,
+    "result": "same entity",
+    "amapProviderPoiId": "B0H2RM2N5B",
+    "reviewer": "user-human-verification",
+    "confirmationSource": "user-manual-web-review",
+    "notes": "用户人工确认：重庆越界影城（江北嘴店）对应指定 AMap 候选 B0H2RM2N5B；同址当前运营名称变化不构成串店。",
+    "evidence": [
+      {"tier": "Tier 2", "sourceType": "公开影院目录", "url": "https://www.cityhui.com/shop/20583.html", "claim": "公开目录将越界影城江北嘴店定位到金沙门路56号财信广场3层。"},
+      {"tier": "Tier 3", "sourceType": "公开活动页", "url": "https://www.xiaobaoming.com/event/69d60446b7e0dd42b278d8be", "claim": "同一财信广场3楼当前活动页使用完美世界影城江北嘴店名称。"}
+    ]
+  },
+  {
+    "id": "imax-cn-0821",
+    "sourceRow": 821,
+    "result": "same entity",
+    "amapProviderPoiId": "B0IGMH8T3B",
+    "reviewer": "user-human-verification",
+    "confirmationSource": "user-manual-web-review",
+    "notes": "用户人工确认：佛山CC影城（永旺IMAX店）对应指定 AMap 候选 B0IGMH8T3B；永旺大沥同址当前名称变化不构成串店。",
+    "evidence": [
+      {"tier": "Tier 1", "sourceType": "永旺中国官方页面", "url": "https://www.aeonchina.com.cn/index/2017/operation/%E8%AF%9E%E9%87%8A%E9%83%BD%E5%B8%82%E6%96%B0%E7%94%9F%E6%B4%BB%EF%BC%8C%E6%B0%B8%E6%97%BA%E6%A2%A6%E4%B9%90%E5%9F%8E%E9%A6%96%E6%AC%A1%E8%BF%9B%E9%A9%BB%E5%B9%BF%E4%B8%9C%E4%BD%9B%E5%B1%B1", "claim": "永旺中国官方介绍明确写永旺梦乐城佛山大沥引入拥有IMAX厅的CC影城。"},
+      {"tier": "Tier 1", "sourceType": "永旺集团官方 PDF", "url": "https://www.aeon.info/export/sites/default/common/images/cn/pressroom/imgsrc/171215R_1.pdf", "claim": "官方项目概要给出佛山大沥地址并将CC影城列为店铺。"}
+    ]
+  },
+  {
+    "id": "imax-cn-0831",
+    "sourceRow": 831,
+    "result": "acceptedHistoricalLocation",
+    "reviewer": "user-human-verification",
+    "confirmationSource": "user-manual-web-review",
+    "name": "长沙泰禾影城（开福IMAX店）",
+    "historicalAddress": "湖南省长沙市开福区福元西路508号长沙LIVE广场2-3层",
+    "mallOrVenue": "五矿·长沙LIVE / 长沙LIVE广场",
+    "lat": 28.250491,
+    "lng": 113.014365,
+    "crs": "GCJ-02",
+    "providerPoiId": null,
+    "locationAnchor": "五矿·长沙LIVE",
+    "granularity": "historical-venue",
+    "notes": "用户人工确认：AMap最佳候选 B02DB101H6（长沙万达广场IMAX店，湘江中路589号）为不同影院；历史开业和地址证据独立指向福元西路508号长沙LIVE广场的泰禾影城长沙开福IMAX店。按历史场馆级位置物化，不替换为当前邻近影院。",
+    "evidence": [
+      {"tier": "Tier 2", "sourceType": "开业报道", "url": "https://cs.loupan.com/html/news/201901/3706962.html", "claim": "开业报道将泰禾影视长沙开福IMAX店定位在长沙Live。"},
+      {"tier": "Tier 2", "sourceType": "新浪地方媒体", "url": "https://hunan.sina.cn/hninformation/2020-07-22/detail-iivhvpwx6867324.d.html", "claim": "公开报道给出福元西路与洪山路交汇的长沙Live广场观影地址。"},
+      {"tier": "Tier 3", "sourceType": "公开地址目录", "url": "https://m.city8.com/changsha/movie/850fpr765idpb6421c_address", "claim": "地址目录给出福元西路508号2-3层。"}
+    ]
+  },
+  {
+    "id": "imax-cn-0835",
+    "sourceRow": 835,
+    "result": "acceptedHistoricalLocation",
+    "reviewer": "user-human-verification",
+    "confirmationSource": "user-manual-web-review",
+    "name": "杭州海上明珠国际影城（滨江店） / AMG海上明珠影城（杭州星耀城IMAX店）",
+    "historicalAddress": "浙江省杭州市滨江区西兴街道江陵路1916号星耀城II期3-4楼",
+    "mallOrVenue": "星耀城二期",
+    "lat": 30.212533,
+    "lng": 120.215519,
+    "crs": "GCJ-02",
+    "providerPoiId": "B023B1690U",
+    "providerPoiName": "星耀城",
+    "locationAnchor": "星耀城二期",
+    "granularity": "historical-venue",
+    "notes": "用户人工确认：拒绝现有三个影院候选；独立开业资料指向星耀城II期，2021年资料确认该IMAX影院后续关闭。使用 AMap 星耀城场馆坐标作为历史位置锚点，不替换为其他当前影院POI。",
+    "evidence": [
+      {"tier": "Tier 2", "sourceType": "浙江地方媒体", "url": "https://biz.zgyww.cn/system/2017/06/08/010104292.shtml", "claim": "报道海上明珠国际影城星耀城店于2017年开张，位于星耀城购物中心二期。"},
+      {"tier": "Tier 3", "sourceType": "影院开业报道", "url": "https://www.sohu.com/a/147097358_648424", "claim": "给出江陵路1916号星耀城II期三至四楼。"},
+      {"tier": "Tier 3", "sourceType": "本地影院目录", "url": "https://www.luchovivas.com/art/2018/2/22/art_1486937_20335928.html", "claim": "记录海上明珠国际影城星耀城店地址为江陵路1916号星耀城II期三至四楼。"}
+    ]
+  },
+  {
+    "id": "imax-cn-0729",
+    "sourceRow": 729,
+    "result": "same entity",
+    "amapProviderPoiId": "B0FFK1O8QE",
+    "reviewer": "user-human-verification",
+    "confirmationSource": "user-manual-web-review",
+    "notes": "用户人工确认：选择指定Amap候选。"
+  },
+  {
+    "id": "imax-cn-0003",
+    "sourceRow": 3,
+    "result": "same entity",
+    "amapProviderPoiId": "B0L11DL46K",
+    "reviewer": "user-human-verification",
+    "confirmationSource": "user-manual-web-review",
+    "notes": "用户人工确认：选择指定Amap候选。"
+  },
+  {
+    "id": "imax-cn-0036",
+    "sourceRow": 36,
+    "result": "same entity",
+    "amapProviderPoiId": "B0I2HAXFFU",
+    "reviewer": "user-human-verification",
+    "confirmationSource": "user-manual-web-review",
+    "notes": "用户人工确认：选择指定Amap候选。"
+  },
+  {
+    "id": "imax-cn-0232",
+    "sourceRow": 232,
+    "result": "same entity",
+    "amapProviderPoiId": "B0I07CNNZM",
+    "reviewer": "user-human-verification",
+    "confirmationSource": "user-manual-web-review",
+    "notes": "用户人工确认：选择指定Amap候选。"
+  },
+  {
+    "id": "imax-cn-0237",
+    "sourceRow": 237,
+    "result": "same entity",
+    "amapProviderPoiId": "B0LUBZI8AU",
+    "reviewer": "user-human-verification",
+    "confirmationSource": "user-manual-web-review",
+    "notes": "用户人工确认：选择指定Amap候选。"
+  },
+  {
+    "id": "imax-cn-0266",
+    "sourceRow": 266,
+    "result": "same entity",
+    "amapProviderPoiId": "B0FFLIOQE3",
+    "reviewer": "user-human-verification",
+    "confirmationSource": "user-manual-web-review",
+    "notes": "用户人工确认：选择指定Amap候选。"
+  },
+  {
+    "id": "imax-cn-0294",
+    "sourceRow": 294,
+    "result": "same mall/venue only",
+    "amapProviderPoiId": "B000A83GVH",
+    "address": "北京市朝阳区北辰东路5号",
+    "lat": 40.006023,
+    "lng": 116.398595,
+    "crs": "GCJ-02",
+    "providerPoiName": "中国科学技术馆",
+    "reviewer": "user-human-verification",
+    "confirmationSource": "user-manual-web-review",
+    "notes": "用户人工确认：中国科学技术馆，北辰东路5号。仅确认场馆级位置；具体IMAX/巨幕厅身份及当前放映状态不要推定。"
+  },
+  {
+    "id": "imax-cn-0296",
+    "sourceRow": 296,
+    "result": "same mall/venue only",
+    "amapProviderPoiId": "B000A83G8D",
+    "reviewer": "user-human-verification",
+    "confirmationSource": "user-manual-web-review",
+    "notes": "用户人工确认：中国民航博物馆，机场辅路200号。场馆位置和历史IMAX设施均可确认，但不要根据当前场馆营业反推原始备注中的IMAX厅运营历史。"
+  },
+  {
+    "id": "imax-cn-0427",
+    "sourceRow": 427,
+    "result": "same entity",
+    "amapProviderPoiId": "B0FFIAXGAT",
+    "reviewer": "user-human-verification",
+    "confirmationSource": "user-manual-web-review",
+    "notes": "用户人工确认：选择指定Amap候选。"
+  },
+  {
+    "id": "imax-cn-0447",
+    "sourceRow": 447,
+    "result": "same entity",
+    "amapProviderPoiId": "B01370T6VJ",
+    "reviewer": "user-human-verification",
+    "confirmationSource": "user-manual-web-review",
+    "notes": "用户人工确认：选择指定Amap候选。"
+  },
+  {
+    "id": "imax-cn-0544",
+    "sourceRow": 544,
+    "result": "same mall/venue only",
+    "amapProviderPoiId": "B0GK4SMVT9",
+    "name": "杭州寰映影城（龙湖店）",
+    "mallOrVenue": "龙湖杭州滨康天街",
+    "address": "杭州市滨江区滨康路（滨康路地铁站A口旁）",
+    "lat": 30.183588,
+    "lng": 120.231056,
+    "crs": "GCJ-02",
+    "providerPoiName": "龙湖杭州滨康天街(建设中)",
+    "status": "planned",
+    "reviewer": "user-human-verification",
+    "confirmationSource": "user-manual-web-review",
+    "notes": "2026公开资料明确寰映影城杭州首店为龙湖滨康天街项目；不要绑定金沙天街SFC、丁桥天街或滨江天街CGV。当前只物化建设中滨康天街venue-level。"
+  },
+  {
+    "id": "imax-cn-0695",
+    "sourceRow": 695,
+    "result": "same entity",
+    "amapProviderPoiId": "B0FFKXSX2L",
+    "reviewer": "user-human-verification",
+    "confirmationSource": "user-manual-web-review",
+    "notes": "用户人工确认：选择指定Amap候选。"
+  },
+  {
+    "id": "imax-cn-0799",
+    "sourceRow": 799,
+    "result": "same mall/venue only",
+    "amapProviderPoiId": null,
+    "name": "无锡CGV影城（盛岸店）",
+    "mallOrVenue": "百乐商业广场 / 百乐广场",
+    "address": "江苏省无锡市惠山区盛岸西路331号百乐商业广场4层",
+    "lat": 31.60635,
+    "lng": 120.24287,
+    "crs": "GCJ-02",
+    "reviewer": "user-human-verification",
+    "confirmationSource": "user-manual-web-review",
+    "notes": "CGV盛岸店历史/公开资料均锁定盛岸西路331号百乐商业广场；当前影院运营方信息存在变化，不绑定现存非CGV影院POI，仅按venue-level物化。"
+  },
+  {
+    "id": "imax-cn-0809",
+    "sourceRow": 809,
+    "result": "same mall/venue only",
+    "amapProviderPoiId": "B000A83GVH",
+    "address": "北京市朝阳区北辰东路5号",
+    "lat": 40.006023,
+    "lng": 116.398595,
+    "crs": "GCJ-02",
+    "providerPoiName": "中国科学技术馆",
+    "reviewer": "user-human-verification",
+    "confirmationSource": "user-manual-web-review",
+    "notes": "与294有意落在同一中国科学技术馆场馆。不要使用中国科技馆宿舍，也不要把保利影院POI直接等价为原始具体IMAX影厅。"
+  },
+  {
+    "id": "imax-cn-0825",
+    "sourceRow": 825,
+    "result": "acceptedHistoricalLocation",
+    "name": "武汉万达影城（汉街万达广场店）",
+    "historicalAddress": "湖北省武汉市武昌区烟霞路1号汉街万达广场",
+    "mallOrVenue": "汉街万达广场",
+    "lat": 30.558907,
+    "lng": 114.332275,
+    "crs": "GCJ-02",
+    "providerPoiId": "B0K6JUS8K3",
+    "reviewer": "user-human-verification",
+    "confirmationSource": "user-manual-web-review",
+    "notes": "原汉街万达商业体发生拆除/重整并纳入武汉SKP改造链；按历史地点物化。不要把当前/残留的B0KRFSJADF当成连续营业事实。"
+  },
+  {
+    "id": "imax-cn-0828",
+    "sourceRow": 828,
+    "result": "acceptedHistoricalLocation",
+    "name": "武汉CGV影城（江腾店）",
+    "historicalAddress": "湖北省武汉市汉阳区马鹦路117号江腾广场A座4楼",
+    "mallOrVenue": "江腾广场",
+    "lat": 30.536987,
+    "lng": 114.25583,
+    "crs": "GCJ-02",
+    "providerPoiId": "B001B19IYO",
+    "reviewer": "user-human-verification",
+    "confirmationSource": "user-manual-web-review",
+    "notes": "CGV江腾店已闭店；当前B0KKYBEAEO幕尚银兴影城为同址后续运营方。使用江腾广场作为历史位置锚点，不把新运营方写成CGV。"
+  },
+  {
+    "id": "imax-cn-0838",
+    "sourceRow": 838,
+    "result": "acceptedHistoricalLocation",
+    "name": "宁波CGV影城（文化广场店）",
+    "historicalAddress": "浙江省宁波市鄞州区宁穿路1888号宁波文化广场D区4楼",
+    "mallOrVenue": "宁波文化广场",
+    "lat": 29.859274,
+    "lng": 121.619332,
+    "crs": "GCJ-02",
+    "providerPoiId": "B0L6LZ6YH4",
+    "locationAnchorName": "宁波影都(文化广场店)",
+    "reviewer": "user-human-verification",
+    "confirmationSource": "user-manual-web-review",
+    "notes": "B0L6LZ6YH4仅作为当前同址影院的位置锚点；历史CGV实体与当前宁波影都不能合并为same entity。"
+  },
+  {
+    "id": "imax-cn-0842",
+    "sourceRow": 842,
+    "result": "same mall/venue only",
+    "amapProviderPoiId": "B0IATRV0CS",
+    "name": "石家庄CGV影城（中冶IMAX店）",
+    "mallOrVenue": "中冶盛世广场 / 中冶·和悦汇",
+    "address": "河北省石家庄市裕华区祥泰路66号中冶盛世广场3楼",
+    "reviewer": "user-human-verification",
+    "confirmationSource": "user-manual-web-review",
+    "notes": "网页已锁定CGV中冶店，但当前AMap没有可靠影院POI；使用中冶项目venue-level，不能绑定其他CGV分店。"
+  },
+  {
+    "id": "imax-cn-0851",
+    "sourceRow": 851,
+    "result": "acceptedHistoricalLocation",
+    "name": "福州星美国际影城（王庄店）",
+    "historicalAddress": "福建省福州市晋安区晋连路18号世欧广场A3座4层",
+    "mallOrVenue": "世欧广场",
+    "lat": 26.07112,
+    "lng": 119.32656,
+    "crs": "GCJ-02",
+    "providerPoiId": null,
+    "reviewer": "user-human-verification",
+    "confirmationSource": "user-manual-web-review",
+    "notes": "星美王庄店历史位置已闭环，后由春天国际影城接手同址。不要把春天国际影城写成星美same entity。"
+  },
+  {
+    "id": "imax-cn-0854",
+    "sourceRow": 854,
+    "result": "same mall/venue only",
+    "amapProviderPoiId": "B02320N4JD",
+    "name": "铜陵万达影城（北斗星城广场店）",
+    "address": "铜陵市铜官区政府北路与北京西路交叉口东南40米",
+    "lat": 30.949041,
+    "lng": 117.816511,
+    "crs": "GCJ-02",
+    "providerPoiName": "北斗星城",
+    "mallOrVenue": "北斗星城",
+    "reviewer": "user-human-verification",
+    "confirmationSource": "user-manual-web-review",
+    "notes": "原记录明确指向北斗星城历史/旧分店；拒绝石城大道599号的当前铜陵万达广场店B0FFIKGAM3。因当前运营状态存在资料差异，保守按北斗星城venue-level物化，不误判闭店状态。"
+  },
+  {
+    "id": "imax-cn-0861",
+    "sourceRow": 861,
+    "result": "same entity",
+    "amapProviderPoiId": "B025003LZO",
+    "reviewer": "user-human-verification",
+    "confirmationSource": "user-manual-web-review",
+    "notes": "用户人工确认：选择指定Amap候选。"
+  },
+  {
+    "id": "imax-cn-0862",
+    "sourceRow": 862,
+    "result": "acceptedHistoricalLocation",
+    "name": "宝鸡金逸影城（西建国际IMAX店）",
+    "historicalAddress": "陕西省宝鸡市金台区大庆路西建国际3楼",
+    "mallOrVenue": "西建国际",
+    "lat": 34.363159,
+    "lng": 107.222501,
+    "crs": "GCJ-02",
+    "providerPoiId": "B0KB9C5NIX",
+    "locationAnchorName": "西建巨幕影城",
+    "reviewer": "user-human-verification",
+    "confirmationSource": "user-manual-web-review",
+    "notes": "金逸西建实体已进入破产/管理人接管链，现址为西建巨幕影城。B0KB9C5NIX仅作同址位置锚点，不把后续运营方等同原金逸。"
+  },
+  {
+    "id": "imax-cn-0867",
+    "sourceRow": 867,
+    "result": "same mall/venue only",
+    "amapProviderPoiId": null,
+    "name": "上海幸福蓝海国际影城（香溢花城IMAX店）",
+    "address": "上海市普陀区光新路310号融创精彩天地A区3楼",
+    "mallOrVenue": "融创精彩天地 / 香溢天地",
+    "lat": 31.25538,
+    "lng": 121.43128,
+    "crs": "GCJ-02",
+    "reviewer": "user-human-verification",
+    "confirmationSource": "user-manual-web-review",
+    "notes": "独立政府许可和当前影院资料确认该影院及光新路310号位置；当前AMap缓存未召回正确影院POI，因此按venue-level物化。严禁使用崇明陈家镇店或宝山招商花园城店。"
+  },
+  {
+    "id": "imax-cn-0877",
+    "sourceRow": 877,
+    "result": "same mall/venue only",
+    "amapProviderPoiId": "B0FFF2W3OI",
+    "name": "中山CGV影城（小榄百汇店）",
+    "mallOrVenue": "百汇时代广场",
+    "address": "广东省中山市小榄镇北秀路43号百汇时代广场4楼",
+    "lat": 22.685497,
+    "lng": 113.229408,
+    "crs": "GCJ-02",
+    "providerPoiName": "百汇时代广场",
+    "reviewer": "user-human-verification",
+    "confirmationSource": "user-manual-web-review",
+    "notes": "CGV小榄百汇实体和地址已被独立资料证明；因当前AMap未召回影院POI，以百汇时代广场venue-level物化。"
+  },
+  {
+    "id": "imax-cn-0882",
+    "sourceRow": 882,
+    "result": "same mall/venue only",
+    "amapProviderPoiId": null,
+    "name": "吉林万达影城（华业广场店）",
+    "address": "吉林省吉林市昌邑区嫩江街199号华业城市广场",
+    "mallOrVenue": "华业城市广场",
+    "lat": 43.8605,
+    "lng": 126.57978,
+    "crs": "GCJ-02",
+    "reviewer": "user-human-verification",
+    "confirmationSource": "user-manual-web-review",
+    "notes": "万达官方当前门店名单及吉林市政府资料均证明吉林万达影城华业店是独立分店；严禁绑定B0FFIC7G7I吉林昌邑万达广场店。当前AMap未召回华业店影院POI，因此venue-level物化。"
+  },
+  {
+    "id": "imax-cn-0889",
+    "sourceRow": 889,
+    "result": "same mall/venue only",
+    "amapProviderPoiId": "B01CB0O3J1",
+    "name": "大庆市科学技术馆",
+    "address": "黑龙江省大庆市萨尔图区中宝路66号",
+    "mallOrVenue": "大庆市科学技术馆",
+    "reviewer": "user-human-verification",
+    "confirmationSource": "user-manual-web-review",
+    "notes": "场馆及IMAX球幕设施可确认；只物化科技馆场馆，不虚构独立影院入口POI。"
+  },
+  {
+    "id": "imax-cn-0895",
+    "sourceRow": 895,
+    "result": "same mall/venue only",
+    "amapProviderPoiId": "B073C03VP6",
+    "name": "香港太空馆",
+    "address": "香港九龙尖沙咀梳士巴利道10号",
+    "mallOrVenue": "香港太空馆",
+    "reviewer": "user-human-verification",
+    "confirmationSource": "user-manual-web-review",
+    "notes": "香港太空馆及OMNIMAX/天象厅设施可确认；物化venue-level，不选择同馆Passage商户。"
+  },
+  {
+    "id": "imax-cn-0902",
+    "sourceRow": 902,
+    "result": "same entity",
+    "amapProviderPoiId": "B0FFIQBS6M",
+    "reviewer": "user-human-verification",
+    "confirmationSource": "user-manual-web-review",
+    "notes": "用户人工确认与 AMap 候选为同一影院实体。",
+    "evidence": []
+  },
+  {
+    "id": "imax-cn-0007",
+    "sourceRow": 7,
+    "result": "same entity",
+    "amapProviderPoiId": "B0FFF61106",
+    "reviewer": "user-human-verification",
+    "confirmationSource": "user-manual-web-review",
+    "notes": "用户人工确认与 AMap 候选为同一影院实体。",
+    "evidence": []
+  },
+  {
+    "id": "imax-cn-0031",
+    "sourceRow": 31,
+    "result": "same entity",
+    "amapProviderPoiId": "B0FFJN6XLK",
+    "reviewer": "user-human-verification",
+    "confirmationSource": "user-manual-web-review",
+    "notes": "用户人工确认与 AMap 候选为同一影院实体。",
+    "evidence": []
+  },
+  {
+    "id": "imax-cn-0070",
+    "sourceRow": 70,
+    "result": "same mall/venue only",
+    "amapProviderPoiId": null,
+    "name": "台中老虎城威秀影城",
+    "mallOrVenue": "TIGER CITY购物中心",
+    "address": "台湾台中市西屯区河南路三段120-1号4楼",
+    "lat": 24.16408,
+    "lng": 120.63813,
+    "crs": "WGS84",
+    "providerPoiName": "TIGER CITY购物中心",
+    "locationAnchorName": "TIGER CITY购物中心",
+    "reviewer": "user-human-verification",
+    "confirmationSource": "user-manual-web-review",
+    "notes": "原 T​​IGER CITY 威秀影城于2025年改装为 MUVIE CINEMAS 台中 TIGER CITY，属于同一威秀运营地点的品牌/形态升级。当前影城仍营业，但现配置为 TITAN SCREEN 而非原 IMAX。AMap 缓存未召回可靠影院 POI，因此只按 venue-level 物化，不绑定台中大远百威秀或商场内任意商户 POI。",
+    "evidence": []
+  },
+  {
+    "id": "imax-cn-0072",
+    "sourceRow": 72,
+    "result": "same mall/venue only",
+    "amapProviderPoiId": null,
+    "name": "新竹巨城威秀影城",
+    "mallOrVenue": "Big City远东巨城购物中心",
+    "address": "台湾新竹市民权路176号4楼之3",
+    "lat": 24.8101466,
+    "lng": 120.9776318,
+    "crs": "WGS84",
+    "providerPoiName": "Big City远东巨城购物中心",
+    "locationAnchorName": "Big City远东巨城购物中心",
+    "reviewer": "user-human-verification",
+    "confirmationSource": "user-manual-web-review",
+    "notes": "威秀官方及新竹市政府均确认该影城和 IMAX 厅仍存在。AMap 缓存只召回巨城内商户，没有可靠影院 POI，因此按 venue-level 物化，不用商户 POI 伪装影院。",
+    "evidence": []
+  },
+  {
+    "id": "imax-cn-0078",
+    "sourceRow": 78,
+    "result": "same mall/venue only",
+    "amapProviderPoiId": null,
+    "name": "新北板桥大远百威秀影城",
+    "mallOrVenue": "Mega City板桥大远百",
+    "address": "台湾新北市板桥区新站路28号10楼",
+    "lat": 25.01377,
+    "lng": 121.46697,
+    "crs": "WGS84",
+    "providerPoiName": "Mega City板桥大远百",
+    "locationAnchorName": "Mega City板桥大远百",
+    "reviewer": "user-human-verification",
+    "confirmationSource": "user-manual-web-review",
+    "notes": "威秀官方确认该店当前营业并设 IMAX Laser。现有 AMap 候选全部误召回为江苏常州“新北”相关地点，全部拒绝；按正确台湾新北板桥大远百 venue-level 物化。",
+    "evidence": []
+  },
+  {
+    "id": "imax-cn-0085",
+    "sourceRow": 85,
+    "result": "same entity",
+    "amapProviderPoiId": "B0FFJDS6U1",
+    "reviewer": "user-human-verification",
+    "confirmationSource": "user-manual-web-review",
+    "notes": "用户人工确认与 AMap 候选为同一影院实体。",
+    "evidence": []
+  },
+  {
+    "id": "imax-cn-0086",
+    "sourceRow": 86,
+    "result": "same entity",
+    "amapProviderPoiId": "B0FFJSB8LA",
+    "reviewer": "user-human-verification",
+    "confirmationSource": "user-manual-web-review",
+    "notes": "用户人工确认与 AMap 候选为同一影院实体。",
+    "evidence": []
+  },
+  {
+    "id": "imax-cn-0101",
+    "sourceRow": 101,
+    "result": "same entity",
+    "amapProviderPoiId": "B0FFGE5LIC",
+    "reviewer": "user-human-verification",
+    "confirmationSource": "user-manual-web-review",
+    "notes": "用户人工确认与 AMap 候选为同一影院实体。",
+    "evidence": []
+  },
+  {
+    "id": "imax-cn-0134",
+    "sourceRow": 134,
+    "result": "same entity",
+    "amapProviderPoiId": "B01FE0K63G",
+    "reviewer": "user-human-verification",
+    "confirmationSource": "user-manual-web-review",
+    "notes": "用户人工确认与 AMap 候选为同一影院实体。",
+    "evidence": []
+  },
+  {
+    "id": "imax-cn-0157",
+    "sourceRow": 157,
+    "result": "same entity",
+    "amapProviderPoiId": "B0FFK8U5ZX",
+    "reviewer": "user-human-verification",
+    "confirmationSource": "user-manual-web-review",
+    "notes": "用户人工确认与 AMap 候选为同一影院实体。",
+    "evidence": []
+  },
+  {
+    "id": "imax-cn-0163",
+    "sourceRow": 163,
+    "result": "same entity",
+    "amapProviderPoiId": "B0FFIQEDRA",
+    "reviewer": "user-human-verification",
+    "confirmationSource": "user-manual-web-review",
+    "notes": "用户人工确认与 AMap 候选为同一影院实体。",
+    "evidence": []
+  },
+  {
+    "id": "imax-cn-0191",
+    "sourceRow": 191,
+    "result": "same entity",
+    "amapProviderPoiId": "B0FFFYF4F8",
+    "reviewer": "user-human-verification",
+    "confirmationSource": "user-manual-web-review",
+    "notes": "用户人工确认与 AMap 候选为同一影院实体。",
+    "evidence": []
+  },
+  {
+    "id": "imax-cn-0192",
+    "sourceRow": 192,
+    "result": "same entity",
+    "amapProviderPoiId": "B0FFI8F50Z",
+    "name": "万达影城(亚运城广场店)",
+    "mallOrVenue": "亚运城广场 / 亚运城购物中心",
+    "address": "广东省广州市番禺区石楼镇康体路43号亚运城广场3楼",
+    "lat": 22.94697,
+    "lng": 113.482628,
+    "crs": "WGS84",
+    "providerPoiName": "万达影城(亚运城广场店)",
+    "locationAnchorName": "亚运城广场",
+    "reviewer": "user-human-verification",
+    "confirmationSource": "user-manual-web-review",
+    "notes": "用户人工确认与 AMap 页面候选为同一影院实体；AMap 页面地址为康体路亚运城购物中心，独立影院资料和公开名单将该 IMAX 店定位到康体路43号亚运城广场3楼。",
+    "evidence": [
+      {
+        "tier": "Tier 1",
+        "sourceType": "AMap POI 页面",
+        "url": "https://ditu.amap.com/place/B0FFI8F50Z",
+        "claim": "B0FFI8F50Z 对应万达影城(亚运城广场店)，地址为广州市番禺区康体路亚运城购物中心。"
+      },
+      {
+        "tier": "Tier 3",
+        "sourceType": "公开影院技术资料",
+        "url": "https://cinema.gaoliang.me/cinema/%E5%B9%BF%E5%B7%9E%E4%B8%87%E8%BE%BE%E5%BD%B1%E5%9F%8E%EF%BC%88%E4%BA%9A%E8%BF%90%E5%9F%8E%E5%B9%BF%E5%9C%BA%E5%BA%97%EF%BC%89_IMAX",
+        "claim": "独立影院资料将广州万达影城亚运城广场店定位到康体路亚运城购物中心，并确认其 IMAX 厅。"
+      },
+      {
+        "tier": "Tier 2",
+        "sourceType": "公开广州 IMAX 影院名单",
+        "url": "https://www.maigoo.com/news/683423.html",
+        "claim": "公开名单将广州万达影城亚运城广场店定位到番禺区康体路43号亚运城广场3楼。"
+      }
+    ]
+  },
+  {
+    "id": "imax-cn-0193",
+    "sourceRow": 193,
+    "result": "same entity",
+    "amapProviderPoiId": "B0FFF3B6I7",
+    "reviewer": "user-human-verification",
+    "confirmationSource": "user-manual-web-review",
+    "notes": "用户人工确认与 AMap 候选为同一影院实体。",
+    "evidence": []
+  },
+  {
+    "id": "imax-cn-0206",
+    "sourceRow": 206,
+    "result": "same entity",
+    "amapProviderPoiId": "B0I6JU38R4",
+    "reviewer": "user-human-verification",
+    "confirmationSource": "user-manual-web-review",
+    "notes": "用户人工确认与 AMap 候选为同一影院实体。",
+    "evidence": []
+  },
+  {
+    "id": "imax-cn-0208",
+    "sourceRow": 208,
+    "result": "same entity",
+    "amapProviderPoiId": "B0HR9Z7IBI",
+    "reviewer": "user-human-verification",
+    "confirmationSource": "user-manual-web-review",
+    "notes": "用户人工确认与 AMap 候选为同一影院实体。",
+    "evidence": []
+  },
+  {
+    "id": "imax-cn-0251",
+    "sourceRow": 251,
+    "result": "same entity",
+    "amapProviderPoiId": "B0GRGCPMGY",
+    "reviewer": "user-human-verification",
+    "confirmationSource": "user-manual-web-review",
+    "notes": "用户人工确认与 AMap 候选为同一影院实体。",
+    "evidence": []
+  },
+  {
+    "id": "imax-cn-0282",
+    "sourceRow": 282,
+    "result": "same entity",
+    "amapProviderPoiId": "B0FFK34M33",
+    "reviewer": "user-human-verification",
+    "confirmationSource": "user-manual-web-review",
+    "notes": "用户人工确认与 AMap 候选为同一影院实体。",
+    "evidence": []
+  },
+  {
+    "id": "imax-cn-0304",
+    "sourceRow": 304,
+    "result": "same entity",
+    "amapProviderPoiId": "B0FFITGR2B",
+    "reviewer": "user-human-verification",
+    "confirmationSource": "user-manual-web-review",
+    "notes": "用户人工确认与 AMap 候选为同一影院实体。",
+    "evidence": []
+  },
+  {
+    "id": "imax-cn-0324",
+    "sourceRow": 324,
+    "result": "same entity",
+    "amapProviderPoiId": "B0LGDHGYQA",
+    "reviewer": "user-human-verification",
+    "confirmationSource": "user-manual-web-review",
+    "notes": "用户人工确认与 AMap 候选为同一影院实体。",
+    "evidence": []
+  },
+  {
+    "id": "imax-cn-0327",
+    "sourceRow": 327,
+    "result": "same mall/venue only",
+    "amapProviderPoiId": "B000A8W0JV",
+    "name": "北京英皇电影城（太古坊店）",
+    "mallOrVenue": "北京太古坊 / 颐堤港二期",
+    "address": "北京市朝阳区酒仙桥路18号颐堤港及其二期扩建项目",
+    "lat": 39.969735,
+    "lng": 116.491317,
+    "crs": "GCJ-02",
+    "providerPoiName": "北京太古坊 / 颐堤港二期",
+    "locationAnchorName": "北京太古坊 / 颐堤港二期",
+    "status": "planned",
+    "reviewer": "user-human-verification",
+    "confirmationSource": "user-manual-web-review",
+    "notes": "英皇集团官方确认北京太古坊英皇电影城预计2027年启用，是北京第三店，设新一代激光 IMAX。B000A8W0JV 仅作为北京太古坊/颐堤港项目 venue anchor，不表示影院当前已开业；拒绝三里屯太古里店和英皇集团中心店。",
+    "evidence": []
+  },
+  {
+    "id": "imax-cn-0385",
+    "sourceRow": 385,
+    "result": "same entity",
+    "amapProviderPoiId": "B02CD03X0L",
+    "reviewer": "user-human-verification",
+    "confirmationSource": "user-manual-web-review",
+    "notes": "用户人工确认与 AMap 候选为同一影院实体。",
+    "evidence": []
+  },
+  {
+    "id": "imax-cn-0409",
+    "sourceRow": 409,
+    "result": "same mall/venue only",
+    "amapProviderPoiId": "B0HGMCXUDD",
+    "name": "长沙寰映影城（龙湖新姚天街店）",
+    "mallOrVenue": "龙湖长沙新姚天街",
+    "address": "湖南省长沙市天心区石人村友谊路与新姚路交叉口西长沙新姚天街商场5F-Z01",
+    "lat": 28.125296,
+    "lng": 112.977871,
+    "crs": "GCJ-02",
+    "providerPoiName": "龙湖长沙新姚天街(建设中)",
+    "locationAnchorName": "龙湖长沙新姚天街",
+    "status": "planned",
+    "reviewer": "user-human-verification",
+    "confirmationSource": "user-manual-web-review",
+    "notes": "企业登记已存在寰映影城龙湖新姚天街店，项目预计2026年Q4/11月开业，当前日期下尚未正式开业，因此只能 venue-level 物化。拒绝长沙荟聚寰映影城，它是另一分店。",
+    "evidence": []
+  },
+  {
+    "id": "imax-cn-0423",
+    "sourceRow": 423,
+    "result": "same entity",
+    "amapProviderPoiId": "B01AF0ZDGH",
+    "reviewer": "user-human-verification",
+    "confirmationSource": "user-manual-web-review",
+    "notes": "用户人工确认与 AMap 候选为同一影院实体。",
+    "evidence": []
+  },
+  {
+    "id": "imax-cn-0424",
+    "sourceRow": 424,
+    "result": "same entity",
+    "amapProviderPoiId": "B01AF1489V",
+    "reviewer": "user-human-verification",
+    "confirmationSource": "user-manual-web-review",
+    "notes": "用户人工确认与 AMap 候选为同一影院实体。",
+    "evidence": []
+  },
+  {
+    "id": "imax-cn-0425",
+    "sourceRow": 425,
+    "result": "same entity",
+    "amapProviderPoiId": "B0FFGPWA00",
+    "reviewer": "user-human-verification",
+    "confirmationSource": "user-manual-web-review",
+    "notes": "用户人工确认与指定 AMap 候选为同一影院实体。",
+    "evidence": []
+  },
+  {
+    "id": "imax-cn-0444",
+    "sourceRow": 444,
+    "result": "same entity",
+    "amapProviderPoiId": "B0KKGCDRCK",
+    "reviewer": "user-human-verification",
+    "confirmationSource": "user-manual-web-review",
+    "notes": "用户人工确认与指定 AMap 候选为同一影院实体。",
+    "evidence": []
+  },
+  {
+    "id": "imax-cn-0498",
+    "sourceRow": 498,
+    "result": "same mall/venue only",
+    "amapProviderPoiId": "B0FFK7HTN2",
+    "name": "合肥万达影城（文化旅游城店）",
+    "mallOrVenue": "合肥融创茂 / 原合肥万达文化旅游城",
+    "address": "安徽省合肥市包河区庐州大道800号融创茂",
+    "lat": 31.703175,
+    "lng": 117.304169,
+    "crs": "GCJ-02",
+    "providerPoiName": "融创茂",
+    "locationAnchorName": "合肥融创茂 / 原合肥万达文化旅游城",
+    "reviewer": "user-human-verification",
+    "confirmationSource": "user-manual-web-review",
+    "notes": "独立资料确认文化旅游城万达影城及IMAX，当前位置即原万达文化旅游城商业体；当前可靠AMap候选是融创茂场馆而非影院POI，因此venue-level物化。",
+    "evidence": []
+  },
+  {
+    "id": "imax-cn-0504",
+    "sourceRow": 504,
+    "result": "same entity",
+    "amapProviderPoiId": "B0KAH71K0M",
+    "reviewer": "user-human-verification",
+    "confirmationSource": "user-manual-web-review",
+    "notes": "用户人工确认与指定 AMap 候选为同一影院实体。",
+    "evidence": []
+  },
+  {
+    "id": "imax-cn-0543",
+    "sourceRow": 543,
+    "result": "same entity",
+    "amapProviderPoiId": "B0K16R12RZ",
+    "reviewer": "user-human-verification",
+    "confirmationSource": "user-manual-web-review",
+    "notes": "用户人工确认与指定 AMap 候选为同一影院实体。",
+    "evidence": []
+  },
+  {
+    "id": "imax-cn-0552",
+    "sourceRow": 552,
+    "result": "same entity",
+    "amapProviderPoiId": "B0IKCZLNLX",
+    "reviewer": "user-human-verification",
+    "confirmationSource": "user-manual-web-review",
+    "notes": "用户人工确认与指定 AMap 候选为同一影院实体。",
+    "evidence": []
+  },
+  {
+    "id": "imax-cn-0578",
+    "sourceRow": 578,
+    "result": "same mall/venue only",
+    "amapProviderPoiId": "B0FFF3O2KA",
+    "name": "台州万达影城（台州万达广场店）",
+    "mallOrVenue": "台州万达广场 / 万达广场(台州椒江店)",
+    "address": "浙江省台州市椒江区开发大道799号",
+    "lat": 28.635905,
+    "lng": 121.416959,
+    "crs": "GCJ-02",
+    "providerPoiName": "万达广场(台州椒江店)",
+    "locationAnchorName": "台州万达广场 / 万达广场(台州椒江店)",
+    "reviewer": "user-human-verification",
+    "confirmationSource": "user-manual-web-review",
+    "notes": "万达官方和项目资料均确认开发大道799号台州万达广场及IMAX影院；当前cache可靠的是商场POI，因此venue-level，不绑定其他影院。",
+    "evidence": []
+  },
+  {
+    "id": "imax-cn-0583",
+    "sourceRow": 583,
+    "result": "same entity",
+    "amapProviderPoiId": "B0FFIKMC4D",
+    "reviewer": "user-human-verification",
+    "confirmationSource": "user-manual-web-review",
+    "notes": "用户人工确认与指定 AMap 候选为同一影院实体。",
+    "evidence": []
+  },
+  {
+    "id": "imax-cn-0616",
+    "sourceRow": 616,
+    "result": "same entity",
+    "amapProviderPoiId": "B0FFHW7VC2",
+    "reviewer": "user-human-verification",
+    "confirmationSource": "user-manual-web-review",
+    "notes": "用户人工确认与指定 AMap 候选为同一影院实体。",
+    "evidence": []
+  },
+  {
+    "id": "imax-cn-0647",
+    "sourceRow": 647,
+    "result": "same mall/venue only",
+    "amapProviderPoiId": "B0I0MZ0DVC",
+    "name": "厦门横店电影城（海沧SM广场店）",
+    "mallOrVenue": "SM厦门海沧城市广场",
+    "address": "福建省厦门市海沧区孚莲路1818号",
+    "lat": 24.5394,
+    "lng": 117.956546,
+    "crs": "GCJ-02",
+    "providerPoiName": "SM厦门海沧城市广场",
+    "locationAnchorName": "SM厦门海沧城市广场",
+    "reviewer": "user-human-verification",
+    "confirmationSource": "user-manual-web-review",
+    "notes": "SM官方及厦门官方资料均确认横店影城和IMAX位于此项目；拒绝原cache第一候选RELX悦刻，它只是同商场非影院POI。",
+    "evidence": []
+  },
+  {
+    "id": "imax-cn-0671",
+    "sourceRow": 671,
+    "result": "same entity",
+    "amapProviderPoiId": "B0FFHR6LB1",
+    "reviewer": "user-human-verification",
+    "confirmationSource": "user-manual-web-review",
+    "notes": "正确实体为万达影城(中华路店)，即安阳文峰万达广场4层；拒绝龙安万达店和上亿广场店。",
+    "evidence": []
+  },
+  {
+    "id": "imax-cn-0690",
+    "sourceRow": 690,
+    "result": "same entity",
+    "amapProviderPoiId": "B0KAXCCGAX",
+    "reviewer": "user-human-verification",
+    "confirmationSource": "user-manual-web-review",
+    "notes": "用户人工确认与指定 AMap 候选为同一影院实体。",
+    "evidence": []
+  },
+  {
+    "id": "imax-cn-0738",
+    "sourceRow": 738,
+    "result": "same entity",
+    "amapProviderPoiId": "B0FFFTQ998",
+    "reviewer": "user-human-verification",
+    "confirmationSource": "user-manual-web-review",
+    "notes": "用户人工确认与指定 AMap 候选为同一影院实体。",
+    "evidence": []
+  },
+  {
+    "id": "imax-cn-0794",
+    "sourceRow": 794,
+    "result": "same mall/venue only",
+    "amapProviderPoiId": "B01C30K1GA",
+    "name": "哈尔滨万达影城（群力财富广场店）",
+    "mallOrVenue": "群力财富中心",
+    "address": "黑龙江省哈尔滨市道里区群力大道与兴江路交汇处群力财富中心",
+    "lat": 45.737537,
+    "lng": 126.552429,
+    "crs": "GCJ-02",
+    "providerPoiName": "群力财富中心",
+    "locationAnchorName": "群力财富中心",
+    "reviewer": "user-human-verification",
+    "confirmationSource": "user-manual-web-review",
+    "notes": "原queue建议的B0FFKOU03N名称实际是“街电(万达影城群力财富广场店)”，属于充电设备POI，绝不能作为影院exact。独立资料已确认万达影城群力财富广场店，故改用群力财富中心venue-level锚点。",
+    "evidence": []
+  },
+  {
+    "id": "imax-cn-0796",
+    "sourceRow": 796,
+    "result": "same mall/venue only",
+    "name": "苏州金逸影城（亿象城店）",
+    "mallOrVenue": "亿象城",
+    "address": "江苏省苏州市吴中区友新路1188号亿象城3层",
+    "lat": 31.273127,
+    "lng": 120.603341,
+    "crs": "GCJ-02",
+    "providerPoiName": "云逸宝游戏厅(金逸影城店)",
+    "locationAnchorPoiId": "B0KRLDZSCB",
+    "locationAnchorProvider": "amap",
+    "locationAnchorName": "亿象城",
+    "reviewer": "user-human-verification",
+    "confirmationSource": "user-manual-web-review",
+    "notes": "多份影院资料确认金逸亿象城IMAX店；现有AMap候选B0KRLDZSCB为影院内/同址游戏机POI，不作为acceptedPoiId。providerPoiId保持null，按venue-level物化。",
+    "evidence": []
+  },
+  {
+    "id": "imax-cn-0800",
+    "sourceRow": 800,
+    "result": "same mall/venue only",
+    "name": "南通万达影城（五洲广场店）",
+    "mallOrVenue": "南通五洲国际广场 / 五洲城市广场",
+    "address": "江苏省南通市崇川区钟秀中路98号",
+    "lat": 32.032984,
+    "lng": 120.863694,
+    "crs": "GCJ-02",
+    "providerPoiName": "五洲国际广场",
+    "locationAnchorPoiId": "B0H05OI6RZ",
+    "locationAnchorProvider": "amap",
+    "locationAnchorName": "南通五洲国际广场 / 五洲城市广场",
+    "reviewer": "user-human-verification",
+    "confirmationSource": "user-manual-web-review",
+    "notes": "历史资料及当前万达官方门店资料均能证明“南通万达影城五洲广场店”；现有cache只召回同商场商户和其他万达分店。不要误判闭店，也不要绑定崇川万达广场店或通州店。",
+    "evidence": []
+  },
+  {
+    "id": "imax-cn-0802",
+    "sourceRow": 802,
+    "result": "same mall/venue only",
+    "name": "重庆万象影城（弹子石万象汇IMAX激光店）",
+    "mallOrVenue": "重庆弹子石万象汇",
+    "address": "重庆市南岸区腾龙大道45号附1号弹子石万象汇",
+    "lat": 29.608241,
+    "lng": 106.607131,
+    "crs": "BD-09",
+    "providerPoiName": "汉堡王(弹子石万象汇店)",
+    "locationAnchorPoiId": "49dd09a96b4bf2770b1cc767",
+    "locationAnchorProvider": "baidu",
+    "locationAnchorName": "重庆弹子石万象汇",
+    "reviewer": "user-human-verification",
+    "confirmationSource": "user-manual-web-review",
+    "notes": "公开票务资料直接确认弹子石万象汇IMAX激光店；网页楼层存在3楼/4楼差异，因此只固定到商场venue。拒绝谢家湾重庆万象城店和大渡口万象汇店。",
+    "evidence": []
+  },
+  {
+    "id": "imax-cn-0824",
+    "sourceRow": 824,
+    "result": "same mall/venue only",
+    "name": "江门CGV影城（蓬江店）",
+    "mallOrVenue": "汇悦城 / 汇悦大融城",
+    "address": "广东省江门市蓬江区白石大道166号汇悦城5楼",
+    "lat": 22.61178,
+    "lng": 113.082764,
+    "crs": "GCJ-02",
+    "providerPoiName": "梅林观(汇悦大融城店)",
+    "locationAnchorPoiId": "B0K2PCK6HQ",
+    "locationAnchorProvider": "amap",
+    "locationAnchorName": "汇悦城 / 汇悦大融城",
+    "reviewer": "user-human-verification",
+    "confirmationSource": "user-manual-web-review",
+    "notes": "CGV江门蓬江IMAX店及地址已经独立资料闭环；AMap未召回可靠CGV影院POI，只做venue-level，不用商场其他租户代替影院。",
+    "evidence": []
+  },
+  {
+    "id": "imax-cn-0840",
+    "sourceRow": 840,
+    "result": "same mall/venue only",
+    "amapProviderPoiId": "B00160E4YP",
+    "name": "天津中影国际影城（和平津湾店）",
+    "mallOrVenue": "津湾广场",
+    "address": "天津市和平区解放北路48号津湾广场",
+    "lat": 39.131337,
+    "lng": 117.208008,
+    "crs": "GCJ-02",
+    "providerPoiName": "津湾广场",
+    "locationAnchorName": "津湾广场",
+    "reviewer": "user-human-verification",
+    "confirmationSource": "user-manual-web-review",
+    "notes": "原分店地点可确认，但当前没有足够可靠的影院级AMap POI；B00160E4YP仅作为津湾广场venue anchor。",
+    "evidence": []
+  },
+  {
+    "id": "imax-cn-0845",
+    "sourceRow": 845,
+    "result": "same mall/venue only",
+    "name": "成都万达影城（城中城店）",
+    "mallOrVenue": "泰业城中城",
+    "address": "四川省成都市青羊区青龙巷36号",
+    "lat": 30.671837,
+    "lng": 104.064819,
+    "crs": "GCJ-02",
+    "providerPoiName": "西蜀天际酒店",
+    "locationAnchorPoiId": "B0FFLMCFMA",
+    "locationAnchorProvider": "amap",
+    "locationAnchorName": "泰业城中城",
+    "reviewer": "user-human-verification",
+    "confirmationSource": "user-manual-web-review",
+    "notes": "独立资料将城中城万达影城锁定在青龙巷36号泰业城中城；queue中的金牛、温江、蜀都万达均为不同分店，全部拒绝。",
+    "evidence": []
+  },
+  {
+    "id": "imax-cn-0853",
+    "sourceRow": 853,
+    "result": "same mall/venue only",
+    "name": "芜湖万达影城（华强广场店）",
+    "mallOrVenue": "华强广场",
+    "address": "安徽省芜湖市镜湖区长江中路与银湖南路交叉口华强广场4层",
+    "lat": 31.3396,
+    "lng": 118.363795,
+    "crs": "GCJ-02",
+    "providerPoiName": "库迪咖啡(华强吾悦店)",
+    "locationAnchorPoiId": "B0JUG7BAAJ",
+    "locationAnchorProvider": "amap",
+    "locationAnchorName": "华强广场",
+    "reviewer": "user-human-verification",
+    "confirmationSource": "user-manual-web-review",
+    "notes": "儒意电影运营方页面及公开资料确认芜湖华强店；当前企业登记状态与运营方网页之间存在状态差异，因此不武断标closed，也不绑定镜湖万达/弋江万达，按venue-level保存原分店位置。",
+    "evidence": []
+  },
+  {
+    "id": "imax-cn-0855",
+    "sourceRow": 855,
+    "result": "same mall/venue only",
+    "name": "安庆SFC上影影城（百联店）",
+    "mallOrVenue": "安庆百联购物中心",
+    "address": "安徽省安庆市大观区德宽路277号百联购物中心5楼",
+    "lat": 30.517874,
+    "lng": 117.039246,
+    "crs": "BD-09",
+    "providerPoiName": "JLAONL WAYNE(百联安庆购物中心店)",
+    "locationAnchorPoiId": "b953da9fafd12093bca82293",
+    "locationAnchorProvider": "baidu",
+    "locationAnchorName": "安庆百联购物中心",
+    "reviewer": "user-human-verification",
+    "confirmationSource": "user-manual-web-review",
+    "notes": "公开影院资料确认SFC上影影城百联安庆IMAX店及该地址；AMap没有可靠影院POI，按venue-level物化。",
+    "evidence": []
+  },
+  {
+    "id": "imax-cn-0860",
+    "sourceRow": 860,
+    "result": "acceptedHistoricalLocation",
+    "name": "临汾万达影城（新百汇广场店）",
+    "historicalAddress": "山西省临汾市尧都区迎宾大道1号新百汇商业广场5区3层",
+    "mallOrVenue": "新百汇商业广场",
+    "locationAnchor": "新百汇商业广场",
+    "locationAnchorPoiId": "B0FFFRUPKW",
+    "locationAnchorProvider": "amap",
+    "lat": 36.061462,
+    "lng": 111.4918,
+    "crs": "GCJ-02",
+    "status": "closed",
+    "reviewer": "user-human-verification",
+    "confirmationSource": "user-manual-web-review",
+    "notes": "历史开业资料和企业登记资料共同锁定新百汇旧店，公开闭店信息确认2020-09-16起停止营业。B0FFFRUPKW作为历史商场位置锚点；严禁绑定当前尧都万达广场店。",
+    "evidence": []
+  },
+  {
+    "id": "imax-cn-0894",
+    "sourceRow": 894,
+    "result": "acceptedHistoricalLocation",
+    "name": "香港機場UA IMAX影院",
+    "historicalAddress": "香港国际机场旧二号客运大楼SkyPlaza",
+    "mallOrVenue": "Hong Kong International Airport Terminal 2 / SkyPlaza",
+    "locationAnchor": "Hong Kong International Airport Terminal 2 / SkyPlaza",
+    "locationAnchorPoiId": "B073C02XX4",
+    "locationAnchorProvider": "amap",
+    "lat": 22.309761,
+    "lng": 113.920541,
+    "crs": "GCJ-02",
+    "status": "closed",
+    "reviewer": "user-human-verification",
+    "confirmationSource": "user-manual-web-review",
+    "notes": "UA机场IMAX于2012年在旧T2 SkyPlaza开业，随T2扩建于2019-09-29结业。2026重新启用的T2是重建后的航站楼，不能据此推定UA影院恢复。B073C02XX4仅作为香港国际机场locationAnchor，不是历史影院POI。",
+    "evidence": []
+  },
+  {
+    "id": "imax-cn-0806",
+    "sourceRow": 806,
+    "result": "same mall/venue only",
+    "name": "重庆市少年宮影院",
+    "mallOrVenue": "重庆市少年宫",
+    "address": "重庆市渝中区中山二路134号",
+    "lat": 29.555506,
+    "lng": 106.55547,
+    "crs": "GCJ-02",
+    "providerPoiName": "重庆市少年宫停车场",
+    "locationAnchorPoiId": "B00179AZ69",
+    "locationAnchorProvider": "amap",
+    "locationAnchorName": "重庆市少年宫",
+    "reviewer": "user-human-verification",
+    "confirmationSource": "user-manual-web-review",
+    "notes": "政府资料持续确认重庆市少年宫旧址/场馆在中山二路134号；历史报道明确少年宫内曾有IMAX球幕影院。B00179AZ69实际是少年宫停车场，只作同址locationAnchor，绝不能作为影院acceptedPoiId。拒绝福康路/新南路的B0MA25QA79候选。",
+    "evidence": []
+  },
+  {
+    "id": "imax-cn-0834",
+    "sourceRow": 834,
+    "result": "same mall/venue only",
+    "amapProviderPoiId": "B023B14KJH",
+    "name": "杭州佳映国际影城（五洲国际广场店）",
+    "mallOrVenue": "五洲国际广场",
+    "address": "浙江省杭州市西湖区余杭塘路799号五洲国际广场",
+    "lat": 30.294155,
+    "lng": 120.096304,
+    "crs": "GCJ-02",
+    "providerPoiName": "五洲国际广场",
+    "locationAnchorName": "五洲国际广场",
+    "reviewer": "user-human-verification",
+    "confirmationSource": "user-manual-web-review",
+    "notes": "浙江大学等公开活动资料将佳映国际影城五洲国际广场店定位到古墩路/余杭塘路五洲国际广场2楼；B023B14KJH为正确五洲国际广场venue anchor。",
+    "evidence": []
+  },
+  {
+    "id": "imax-cn-0331",
+    "sourceRow": 331,
+    "result": "same mall/venue only",
+    "name": "沈阳万达影城（辽宁省科技馆—万达影城IMAXGT双激光）",
+    "mallOrVenue": "辽宁省科学技术馆",
+    "address": "辽宁省沈阳市浑南区智慧三街159号辽宁省科学技术馆",
+    "lat": 41.674882,
+    "lng": 123.459675,
+    "crs": "GCJ-02",
+    "providerPoiName": "辽宁省科技馆特效影院(辽宁省科学技术馆店)",
+    "locationAnchorPoiId": "B0FFHDMD9O",
+    "locationAnchorProvider": "amap",
+    "locationAnchorName": "辽宁省科学技术馆",
+    "reviewer": "codex-browser-review",
+    "confirmationSource": "codex-browser-independent-review",
+    "notes": "网页端独立复核确认辽宁省科学技术馆智慧三街159号内存在IMAX GT影厅，并由万达影城按商业放映手续运营；AMap的塔湾街40号科技馆和其他万达分店均为错误地点。具体影厅/运营入口身份不再升级，按venue-level物化。",
+    "evidence": [
+      {"tier":"Tier 2","url":"https://whly.ln.gov.cn/whly/wlzt/lnwhsczhzf/2025031711433824142/index.shtml","claim":"辽宁省文化和旅游厅资料确认辽宁省科技馆IMAX GT巨幕影厅及万达影城放映运营关系。"},
+      {"tier":"Tier 2","url":"https://cinema.gaoliang.me/en/cinema/%E6%B2%88%E9%98%B3%E4%B8%87%E8%BE%BE%E5%BD%B1%E5%9F%8E%EF%BC%88%E8%BE%BD%E5%AE%81%E7%9C%81%E7%A7%91%E6%8A%80%E9%A6%86%E2%80%94%E4%B8%87%E8%BE%BE%E5%BD%B1%E5%9F%8EIMAX%20GT%E5%8F%8C%E6%BF%80%E5%85%89%EF%BC%89_IMAX","claim":"公开影院资料将该影厅定位在智慧三街159号辽宁省科学技术馆内。"}
+    ]
+  },
+  {
+    "id": "imax-cn-0826",
+    "sourceRow": 826,
+    "result": "same mall/venue only",
+    "name": "武汉UA新民众乐园电影城",
+    "mallOrVenue": "新民众乐园 / 民众乐园",
+    "address": "湖北省武汉市江汉区中山大道608号新民众乐园4楼",
+    "lat": 30.575981,
+    "lng": 114.287773,
+    "crs": "GCJ-02",
+    "providerPoiName": "民众乐园",
+    "locationAnchorPoiId": "B001B1BP5V",
+    "locationAnchorProvider": "amap",
+    "locationAnchorName": "新民众乐园",
+    "reviewer": "codex-browser-review",
+    "confirmationSource": "codex-browser-independent-review",
+    "notes": "票务目录确认武汉UA新民众乐园电影城位于中山大道608号新民众乐园4楼，并标注原环艺影城及IMAX厅；独立资料确认旧名改为UA。AMap仅有商场锚点，按venue-level保存，不把民众乐园商场POI升级为影院POI，也不额外推断当前营业状态。",
+    "evidence": [
+      {"tier":"Tier 2","url":"https://m.dongfangfuli.com/cinema/detail/586?city=67","claim":"页面列出武汉UA新民众乐园电影城、中山大道608号新民众乐园4楼、原环艺影城及IMAX厅。"},
+      {"tier":"Tier 3","url":"https://blog.zengrong.net/post/watch-tenet-in-cinema/","claim":"独立影院资料记载武汉环艺新民众乐园影城更名为武汉UA新民众乐园电影城。"}
+    ]
+  },
+  {
+    "id": "imax-cn-0069",
+    "sourceRow": 69,
+    "result": "same mall/venue only",
+    "name": "台北美麗華大直影城",
+    "mallOrVenue": "美麗華百樂園 / 大直美麗華",
+    "address": "台湾台北市中山区敬业三路22号美丽华大直影城6楼",
+    "lat": 25.080647,
+    "lng": 121.560858,
+    "crs": "GCJ-02",
+    "providerPoiName": "Chicco直营店大直美丽华店",
+    "locationAnchorPoiId": "B0L02LO6JW",
+    "locationAnchorProvider": "amap",
+    "locationAnchorName": "大直美麗華22號館",
+    "reviewer": "codex-browser-review",
+    "confirmationSource": "codex-browser-independent-review",
+    "notes": "美麗華官方页面确认大直影城IMAX及敬業三路22號6樓；Taipei Times确认原華納威秀分店更名为Miramar Cinemas并保留IMAX。AMap的20号Dolby厅不是指定22号馆入口，因此只使用22号馆venue anchor。",
+    "evidence": [
+      {"tier":"Tier 1","url":"https://www.miramarcinemas.tw/Home/aboutus","claim":"美麗華影城官方页面确认美麗華大直影城IMAX及敬業三路22號6樓地址。"},
+      {"tier":"Tier 2","url":"https://www.taipeitimes.com/News/biz/archives/2006/02/28/2003295075","claim":"报道确认位于美麗華娛樂公園的華納威秀分店更名为Miramar Cinemas并保留IMAX。"}
+    ]
+  },
+  {
+    "id": "imax-cn-0790",
+    "sourceRow": 790,
+    "result": "same mall/venue only",
+    "name": "拉萨SFC上影IMAX影城",
+    "mallOrVenue": "天海国际广场",
+    "address": "西藏自治区拉萨市城关区天海路30号天海国际广场3楼",
+    "lat": 29.657625,
+    "lng": 91.104025,
+    "crs": "WGS84",
+    "providerPoiName": "SFC上影国际IMAX影城",
+    "locationAnchorPoiId": "B0MROSG9K0",
+    "locationAnchorProvider": "amap",
+    "locationAnchorName": "天海国际广场",
+    "reviewer": "codex-browser-review",
+    "confirmationSource": "codex-browser-independent-review",
+    "notes": "公开AMap详情与独立影院资料共同确认原天海万达影城/SFC上影IMAX影城位于天海国际广场3楼；当前队列的纳金东路54号城关万达广场和柳梧万达均为不同商业体。只物化天海国际广场venue-level。",
+    "evidence": [
+      {"tier":"Tier 2","url":"https://www.amap.com/place/B0MROSG9K0","claim":"公开AMap详情列出SFC上影国际IMAX影城、天海国际广场3楼及坐标29.657625,91.104025。"},
+      {"tier":"Tier 2","url":"https://cinema.gaoliang.me/en/city/%E8%A5%BF%E8%97%8F/%E6%8B%89%E8%90%A8","claim":"拉萨IMAX列表明确将该影院标为拉萨SFC上影IMAX影城、原天海万达影城。"}
+    ]
+  },
+  {
+    "id": "imax-cn-0897",
+    "sourceRow": 897,
+    "result": "same entity",
+    "amapProviderPoiId": "B0IKMUN6W7",
+    "reviewer": "codex-browser-review",
+    "confirmationSource": "codex-browser-independent-review",
+    "notes": "独立网页资料确认泉州丰泽东海泰禾广场17幢L601为保利万和IMAX店；AMap缓存中的B0IKMUN6W7正是该地址的保利万和泰禾店，拒绝晋江、南安等同地级市其他分店。",
+    "evidence": [
+      {"tier":"Tier 2","url":"https://m.maigoo.com/news/686296.html","claim":"泉州电影院名单列出保利万和影城东海泰禾IMAX店，地址为丰泽区大兴街1466号东海泰禾广场17幢L601号。"},
+      {"tier":"Tier 1","url":"https://www.qzfz.gov.cn/zwgk/yatabf/zxta/202409/t20240902_3077573.htm","claim":"泉州市丰泽区政府答复确认东海泰禾商圈引入保利万和影城。"}
+    ]
+  },
+  {
+    "id": "imax-cn-0731",
+    "sourceRow": 731,
+    "result": "same entity",
+    "amapProviderPoiId": "B0FFMHT0CS",
+    "reviewer": "codex-browser-review",
+    "confirmationSource": "codex-browser-independent-review",
+    "notes": "公开票务页把原保利广场店和当前临江万达IMAX店锁定到南充高坪区同一地址；AMap候选B0FFMHT0CS为南充高坪万达广场店，接受该分店，不接受其他南充万达。",
+    "evidence": [
+      {"tier":"Tier 2","url":"https://www.kangou.cn/search-cinema.shtml?searchid=201005&searchsubmit=yes&kw=%E4%BF%9D%E5%88%A9","claim":"页面列出南充万达影城保利广场店，地址为南充市高坪区江东中路四段金融广场商业街二号楼Z401号。"},
+      {"tier":"Tier 2","url":"https://www.maoyan.com/cinema/28753","claim":"当前条目将南充万达影城临江万达广场IMAX店定位在同一高坪区地址。"}
+    ]
+  },
+  {
+    "id": "imax-cn-0893",
+    "sourceRow": 893,
+    "result": "acceptedHistoricalLocation",
+    "name": "常州幸福蓝海国际影城（嘉禾店）",
+    "historicalAddress": "江苏省常州市钟楼区延陵西路123号吾悦国际广场A座6层",
+    "mallOrVenue": "常州吾悦国际广场 / 吾悦广场(常州钟楼店)",
+    "locationAnchor": "常州吾悦国际广场",
+    "locationAnchorPoiId": "B020705ML5",
+    "locationAnchorProvider": "amap",
+    "lat": 31.7811165,
+    "lng": 119.9479141,
+    "crs": "WGS84",
+    "providerPoiName": "吾悦广场(常州钟楼店)",
+    "granularity": "historical-venue",
+    "status": "closed",
+    "reviewer": "codex-browser-review",
+    "confirmationSource": "codex-browser-independent-review",
+    "notes": "独立票务、企业资料和闭店公告共同确认原橙天嘉禾/嘉禾店在延陵西路123号吾悦国际广场A座6层；公开地图确认该商场venue坐标31.7811165,119.9479141。2025年闭店，不绑定常州歌林、万象城或春江等其他幸福蓝海分店。",
+    "evidence": [
+      {"tier":"Tier 2","url":"https://m.dongfangfuli.com/cinema/list?city=104&region_id=874","claim":"页面列出常州幸福蓝海橙天嘉禾影城，地址为常州市钟楼区延陵西路123号吾悦国际广场A座608。"},
+      {"tier":"Tier 3","url":"https://top.qcc.com/tc/7c9a44db1c65.html","claim":"企业资料支持橙天嘉禾影院名称和延陵西路123号经营地址。"},
+      {"tier":"Tier 2","url":"https://www.google.com/maps/place/%E5%90%BE%E6%82%A6%E5%9B%BD%E9%99%85%E5%B9%BF%E5%9C%BA/data=!4m7!3m6!1s0x35b412cb2869a7a7:0x175f7017a66af3ca!8m2!3d31.7811165!4d119.9479141","claim":"公开地图将吾悦国际广场定位到31.7811165,119.9479141。"}
+    ]
+  },
+  {
+    "id": "imax-cn-0896",
+    "sourceRow": 896,
+    "result": "acceptedHistoricalLocation",
+    "name": "昆明云南昆明摩天激光IMAX影院",
+    "historicalAddress": "云南省昆明市官渡区彩云北路3567号大都摩天购物中心6层",
+    "mallOrVenue": "大都摩天购物中心",
+    "locationAnchor": "大都摩天购物中心",
+    "locationAnchorPoiId": "B0I1NRBI2C",
+    "locationAnchorProvider": "amap",
+    "lat": 24.969295,
+    "lng": 102.768772,
+    "crs": "GCJ-02",
+    "providerPoiName": "大都光魔激光影院",
+    "granularity": "historical-venue",
+    "status": "closed",
+    "reviewer": "codex-browser-review",
+    "confirmationSource": "codex-browser-independent-review",
+    "notes": "IMAX公开资料确认原昆明大都LCC光魔雷射影院位于大都摩天购物中心并设363座激光IMAX；公开AMap同址候选为大都光魔激光影院。按历史地点物化，不把现有/后续大都影院运营状态写成原影院仍营业。",
+    "evidence": [
+      {"tier":"Tier 2","url":"https://zh.wikipedia.org/wiki/IMAX","claim":"公开IMAX资料列出该影院及原昆明大都LCC光魔雷射影院名称、2016年开幕和363座。"},
+      {"tier":"Tier 2","url":"https://www.amap.com/place/B0I1NRBI2C","claim":"AMap详情列出大都光魔激光影院，地址为彩云北路3567号大都摩天购物中心6层。"},
+      {"tier":"Tier 2","url":"https://m.dongfangfuli.com/cinema/detail/3890?city=23","claim":"票务页面确认大都激光IMAX影院位于同一大都摩天购物中心并设363座激光IMAX厅。"}
+    ]
+  },
+  {
+    "id": "imax-cn-0859",
+    "sourceRow": 859,
+    "result": "acceptedHistoricalLocation",
+    "name": "呼和浩特CGV影城（中山店）",
+    "historicalAddress": "内蒙古自治区呼和浩特市新城区中山东路金翡丽广场5层",
+    "mallOrVenue": "金翡丽广场",
+    "locationAnchor": "金翡丽广场",
+    "locationAnchorPoiId": "B0IRUC6G4S",
+    "locationAnchorProvider": "amap",
+    "lat": 40.816145,
+    "lng": 111.67101,
+    "crs": "GCJ-02",
+    "providerPoiName": "横店电影城(金翡丽店)",
+    "granularity": "historical-venue",
+    "status": "closed",
+    "reviewer": "codex-browser-review",
+    "confirmationSource": "codex-browser-independent-review",
+    "notes": "公开报道、2015年报道及影院目录共同确认CGV呼和浩特中山店在金翡丽广场五层，并记录2021年停止营业；横店电影城(金翡丽店)仅作同址后续运营锚点，不等同CGV实体。",
+    "evidence": [
+      {"tier":"Tier 2","url":"https://zx.sina.cn/kxlib/2021-03-02/zx-ikftpnnz0664073.d.html?cre=wappage&loc=4&mod=r&r=0&rfunc=11&tj=wap_news_relate","claim":"报道确认CGV呼和浩特中山店位于金翡丽广场五层，并记录2021年3月31日起停止营业。"},
+      {"tier":"Tier 2","url":"https://news.cnr.cn/native/gd/20150314/t20150314_518003372.shtml","claim":"2015年报道确认CGV星聚汇影城呼和浩特中山路店在运营。"},
+      {"tier":"Tier 2","url":"https://movie.douban.com/cinema/search/huhehaote/","claim":"影院目录将CGV星聚汇影城呼和浩特中山店列在中山东路42号金翡丽广场五层。"}
+    ]
+  },
+  {
+    "id": "imax-cn-0887",
+    "sourceRow": 887,
+    "result": "acceptedHistoricalLocation",
+    "name": "汕头星城影院（正大卜蜂中心店）",
+    "historicalAddress": "广东省汕头市金平区东厦北路175号星汇国际广场/卜蜂中心4-5楼",
+    "mallOrVenue": "星汇国际广场 / 正大卜蜂中心",
+    "locationAnchor": "正大卜蜂中心",
+    "locationAnchorPoiId": "B0M6M7V88S",
+    "locationAnchorProvider": "amap",
+    "lat": 23.387125,
+    "lng": 116.712975,
+    "crs": "GCJ-02",
+    "providerPoiName": "雅黛琳(卜蜂中心店)",
+    "granularity": "historical-venue",
+    "status": "closed",
+    "reviewer": "codex-browser-review",
+    "confirmationSource": "codex-browser-independent-review",
+    "notes": "独立票务目录确认汕头星城影院位于东厦北路175号南信星汇国际商城卜蜂中心4-5楼并设IMAX；卜蜂中心官方资料确认该商业体配置国际IMAX影院。AMap租户POI仅作历史场馆锚点，不作为影院POI。",
+    "evidence": [
+      {"tier":"Tier 2","url":"https://m.dongfangfuli.com/cinema/detail/2446?city=22","claim":"页面列出汕头星城影院、东厦路175号南信星汇国际商城卜蜂中心4-5楼及IMAX厅。"},
+      {"tier":"Tier 1","url":"https://m.cpgroup.cn/index.php?a=show&c=index&catid=27&id=10&m=content","claim":"卜蜂中心官方介绍确认该商业体配置国际IMAX影院及娱乐业态。"}
+    ]
+  },
+  {
+    "id": "imax-cn-0005",
+    "sourceRow": 5,
+    "result": "same mall/venue only",
+    "name": "香港B+ cinema MOKO (旺角東)",
+    "mallOrVenue": "MOKO新世纪广场",
+    "address": "香港九龙旺角太子道西193号新世纪广场L4",
+    "lat": 22.3242839,
+    "lng": 114.1733005,
+    "crs": "WGS84",
+    "providerPoiName": "B+ cinema MOKO",
+    "locationAnchorName": "MOKO新世纪广场",
+    "status": "open",
+    "reviewer": "codex-browser-review",
+    "confirmationSource": "codex-browser-independent-review",
+    "notes": "MOKO官方商场页与香港影院官方页确认B+ cinema MOKO位于新世纪广场4楼并设IMAX；公开地图确认同址坐标。当前官方页面显示影院仍在运营，因此不按队列旧的闭店信号写成历史地点；AMap未召回可靠影院POI，保守按venue-level物化。",
+    "evidence": [
+      {"tier":"Tier 1","url":"https://www.moko.com.hk/about-moko/information/","claim":"MOKO官方页面确认新世纪广场地址及配备IMAX的B+ cinema MOKO。"},
+      {"tier":"Tier 1","url":"https://www.cinema.com.hk/en/cinema/5/imax","claim":"香港影院官方页面确认B+ cinema MOKO位于MOKO 4/F并列出IMAX。"},
+      {"tier":"Tier 2","url":"https://www.google.com/maps/place/B%2B+cinema+MOKO/@22.3242839,114.1733005,17z","claim":"公开地图将B+ cinema MOKO定位到香港九龙旺角太子道西193号新世纪广场L4及22.3242839,114.1733005。"}
+    ]
+  },
+  {
+    "id": "imax-cn-0900",
+    "sourceRow": 900,
+    "result": "acceptedHistoricalLocation",
+    "name": "北京华谊兄弟影院（洋桥店）",
+    "historicalAddress": "北京市丰台区马家堡东路101号院10号楼银泰百货大红门店6层",
+    "mallOrVenue": "银泰百货大红门店",
+    "locationAnchor": "银泰百货大红门店",
+    "locationAnchorPoiId": "B0FFF00QR4",
+    "locationAnchorProvider": "amap",
+    "lat": 39.844636,
+    "lng": 116.385808,
+    "crs": "GCJ-02",
+    "providerPoiName": "华谊兄弟影院(大红门银泰百货店)(暂停营业)",
+    "granularity": "historical-venue",
+    "status": "closed",
+    "reviewer": "codex-browser-review",
+    "confirmationSource": "codex-browser-independent-review",
+    "notes": "北京电影节资料、影院历史页和票务页面共同确认洋桥店位于马家堡东路101号院银泰百货大红门店6层；当前AMap暂停营业POI仅作历史位置锚点，不把其他华谊分店作为替代。",
+    "evidence": [
+      {"tier":"Tier 1","url":"https://www.bjiff.com/","claim":"公开影院资料将北京华谊兄弟影院洋桥店列在马家堡东路101号院10号楼银泰百货6层。"},
+      {"tier":"Tier 2","url":"https://cinema.gaoliang.me/cinema/%E5%8C%97%E4%BA%AC%E5%8D%8E%E8%B0%8A%E5%85%84%E5%BC%9F%E5%BD%B1%E9%99%A2%EF%BC%88%E6%B4%8B%E6%A1%A5%E5%BA%97%EF%BC%89_IMAX","claim":"页面确认北京华谊兄弟影院洋桥店地址、IMAX数字氙灯及影院历史信息。"},
+      {"tier":"Tier 2","url":"https://h5.imanm.com/moviev3/cinamermoviedetails/779/2435","claim":"页面列出华谊兄弟影院IMAX洋桥店及马家堡东路101号院10号银泰百货6层。"}
+    ]
+  },
+  {
+    "id": "imax-cn-0004",
+    "sourceRow": 4,
+    "result": "same mall/venue only",
+    "name": "香港MCL CINEMAS（K11 Art House）",
+    "mallOrVenue": "K11 MUSEA / K11 Art House",
+    "address": "香港九龙尖沙咀梳士巴利道18号K11 MUSEA 4楼",
+    "lat": 22.2943715,
+    "lng": 114.1744016,
+    "crs": "WGS84",
+    "providerPoiName": "K11 Art House(Cinema)",
+    "locationAnchorName": "K11 MUSEA",
+    "status": "open",
+    "reviewer": "codex-browser-review",
+    "confirmationSource": "codex-browser-independent-review",
+    "notes": "MCL官方页和K11 MUSEA官方页确认K11 Art House位于K11 MUSEA 4楼并设IMAX；公开地图显示当前影院仍在运营。AMap仅召回泛化K11场馆候选，按venue-level物化，不伪造影院POI。",
+    "evidence": [
+      {"tier":"Tier 1","url":"https://m.mclcinema.com/Ticketing/Cinema?cinemaCode=017&language=zh-TW","claim":"MCL官方页面确认K11 ART HOUSE位于九龙尖沙咀梳士巴利道18号K11 MUSEA L4。"},
+      {"tier":"Tier 1","url":"https://www.k11musea.com/en/shop/k11-art-house/","claim":"K11 MUSEA官方页面确认K11 Art House by MCL及其IMAX影厅。"},
+      {"tier":"Tier 2","url":"https://www.google.com/maps/place/K11+Art+House(Cinema)/@22.2943715,114.1744016,17z","claim":"公开地图将K11 Art House定位到Level 4, K11 MUSEA, 18 Salisbury Road及22.2943715,114.1744016。"}
+    ]
+  },
+  {
+    "id": "imax-cn-0846",
+    "sourceRow": 846,
+    "result": "same entity",
+    "amapProviderPoiId": "B0FFIRWG1F",
+    "reviewer": "codex-browser-review",
+    "confirmationSource": "codex-browser-independent-review",
+    "notes": "东方福利网独立列出中视国际影城IMAX铁建店，地址为成都市成华区东华二路38号中国铁建广场4号楼四层；与AMap候选城市、铁建商业体、楼层和IMAX分店关系一致。",
+    "evidence": [
+      {"tier":"Tier 2","url":"https://m.dongfangfuli.com/cinema/detail/8558?city=57","claim":"东方福利网列出中视国际影城IMAX（铁建店），地址为成都市成华区东华二路38号中国铁建广场4号楼四层，并注明IMAX厅。"}
+    ]
+  },
+  {
+    "id": "imax-cn-0892",
+    "sourceRow": 892,
+    "result": "same entity",
+    "amapProviderPoiId": "B0L6UCU99Y",
+    "reviewer": "codex-browser-review",
+    "confirmationSource": "codex-browser-independent-review",
+    "notes": "独立影院名单、上影资料和上市公司招股书均把百年港湾店锁定到大连西岗区百年港湾奥特莱斯A2区二楼；SFC上影旧称与AMap当前上影国际影城名称为同一分店关系。",
+    "evidence": [
+      {"tier":"Tier 2","url":"https://m.sohu.com/a/222412953_99959616","claim":"上影学生卡资料列出SFC上影影城（大连百年港湾店）及辽宁省大连市西岗区香二坊134号百年港湾奥特莱斯A2区2楼。"},
+      {"tier":"Tier 2","url":"https://www.dl-library.net.cn/wenxian/dlnet/content.php?id=442039","claim":"大连图书馆资料将SFC上影影城百年港湾店列为大连艺联影院。"},
+      {"tier":"Tier 1","url":"https://static.cninfo.com.cn/finalpage/2016-08-04/1202535713.PDF","claim":"上海电影股份有限公司招股书列出大连影城租赁地址为百年港湾奥特莱斯项目A2区二楼。"}
+    ]
+  },
+  {
+    "id": "imax-cn-0164",
+    "sourceRow": 164,
+    "result": "same entity",
+    "amapProviderPoiId": "B0IK5UXK29",
+    "reviewer": "codex-browser-review",
+    "confirmationSource": "codex-browser-independent-review",
+    "notes": "独立影院指南和影院名单均将淮安IMAX激光店定位在清江浦区师专路1号花漾城二期华信MALL 6层/6-7层；排除了淮安同城其他幸福蓝海分店。",
+    "evidence": [
+      {"tier":"Tier 2","url":"https://cinema.gaoliang.me/cinema/%E6%B7%AE%E5%AE%89%E5%B9%B8%E7%A6%8F%E8%93%9D%E6%B5%B7%E5%BD%B1%E5%9F%8E%EF%BC%88%E6%BF%80%E5%85%89IMAX%E5%BA%97%EF%BC%89_IMAX","claim":"公开影院指南列出淮安幸福蓝海影城·激光IMAX店，地址为师专路1号花漾城二期华信MALL 6层，并注明开业时间和IMAX规格。"},
+      {"tier":"Tier 2","url":"https://m.thejie.com/writing/14812","claim":"公开影院名单将淮安幸福蓝海国际影城淮安IMAX激光店列在清江浦区师专路1号花漾城二期商业综合体6-7楼。"}
+    ]
+  },
+  {
+    "id": "imax-cn-0002",
+    "sourceRow": 2,
+    "result": "same entity",
+    "amapProviderPoiId": "B0J29104RG",
+    "reviewer": "codex-browser-review",
+    "confirmationSource": "codex-browser-independent-review",
+    "notes": "YOHO MALL官方商户页和百老汇院线官方售票页均确认MY CINEMA位于YOHO MALL I一楼1021号铺；AMap候选的元朗形点商场地址与官方地址一致。",
+    "evidence": [
+      {"tier":"Tier 1","url":"https://www.yohomall.hk/zh-hk/shopping/3790/My%20Cinema","claim":"YOHO MALL官方商户页确认My Cinema位于YOHO MALL I L1 1021。"},
+      {"tier":"Tier 1","url":"https://www2.cinema.com.hk/en/cinema/10","claim":"百老汇院线官方页面确认MY CINEMA YOHO MALL地址为Shop 1021, Level 1, YOHO MALL I, 9 Long Yat Road, Yuen Long。"}
+    ]
+  },
+  {
+    "id": "imax-cn-0010",
+    "sourceRow": 10,
+    "result": "same entity",
+    "amapProviderPoiId": "B0FFH8FDJC",
+    "name": "SFC上影影城（天山缤谷广场IMAX店）",
+    "address": "上海市长宁区天山路345号缤谷广场2期5层",
+    "mallOrVenue": "缤谷广场",
+    "lat": 31.213940,
+    "lng": 121.389345,
+    "crs": "GCJ-02",
+    "reviewer": "codex-browser-review",
+    "confirmationSource": "codex-browser-independent-review",
+    "notes": "AMap原候选前三条均为其他分店，但同一已有AMap缓存中存在缤谷广场影院POI B0FFH8FDJC。猫眼和独立影院目录均把天山缤谷IMAX店定位到天山路345号缤谷广场2期5层，因此人工选择该缓存候选，拒绝大上海、宝山和七宝分店。",
+    "evidence": [
+      {"tier":"Tier 2","url":"https://www.maoyan.com/cinema/16051?_v_=yes&merCode=1000152","claim":"猫眼页面列出SFC上影影城（天山缤谷广场IMAX店）。"},
+      {"tier":"Tier 2","url":"https://locatecinemas.com/cinemas/china/shanghai/","claim":"独立影院目录列出SFC上影影城（天山缤谷广场IMAX店），地址为长宁区天山路345号缤谷文化休闲广场东区5层。"}
+    ]
+  },
+  {
+    "id": "imax-cn-0017",
+    "sourceRow": 17,
+    "result": "same entity",
+    "amapProviderPoiId": "B0FFIBNOL2",
+    "reviewer": "codex-browser-review",
+    "confirmationSource": "codex-browser-independent-review",
+    "notes": "独立影院指南、票务资料和宝山区复业报道均把宝山龙湖IMAX店定位到丹霞山路50弄1号龙湖上海宝山天街4层，排除崇明陈家镇和宝山北城时代候选。",
+    "evidence": [
+      {"tier":"Tier 2","url":"https://cinema.gaoliang.me/cinema/%E4%B8%8A%E6%B5%B7%E5%B9%B8%E7%A6%8F%E8%93%9D%E6%B5%B7%E5%9B%BD%E9%99%85%E5%BD%B1%E5%9F%8E%EF%BC%88%E9%BE%99%E6%B9%96%E5%AE%9D%E5%B1%B1%E5%A4%A9%E8%A1%97IMAX%E5%BA%97%EF%BC%89_IMAX","claim":"公开影院指南列出上海幸福蓝海国际影城·龙湖宝山天街IMAX店，地址为丹霞山路50弄1号龙湖上海宝山天街4F层。"},
+      {"tier":"Tier 2","url":"https://m.thepaper.cn/newsDetail_forward_8372558","claim":"澎湃新闻宝山区复业报道列出幸福蓝海国际影城（宝山龙湖天街IMAX店）及丹霞山路50弄1号4F-Z01地址。"}
+    ]
+  },
+  {
+    "id": "imax-cn-0047",
+    "sourceRow": 47,
+    "result": "same entity",
+    "amapProviderPoiId": "B0LKSLK7VQ",
+    "reviewer": "codex-browser-review",
+    "confirmationSource": "codex-browser-independent-review",
+    "notes": "上海市政府开业报道和上海媒体均确认前湾印象城MEGA内的寰映影城及IMAX影厅；地址为闵行区联友路388号，楼层为L4，与AMap候选完全对应。",
+    "evidence": [
+      {"tier":"Tier 2","url":"https://www.shanghai.gov.cn/nw15343/20251224/e6ee803e34b6419daf86b97d90afa9a6.html","claim":"上海市政府报道寰映影城前湾MEGA在虹桥前湾印象城MEGA开业并带来闵行首家IMAX激光影厅。"},
+      {"tier":"Tier 2","url":"https://www.jfdaily.com/sgh/detail?id=1709731","claim":"上观新闻确认寰映影城MEGA位于虹桥前湾印象城4楼并设IMAX激光厅。"}
+    ]
+  },
+  {
+    "id": "imax-cn-0054",
+    "sourceRow": 54,
+    "result": "same entity",
+    "amapProviderPoiId": "B0FFKOGF9Y",
+    "reviewer": "codex-browser-review",
+    "confirmationSource": "codex-browser-independent-review",
+    "notes": "东方福利网和哈尔滨万达影院名单均将五常店定位到五常市金街时代购物广场，支持AMap的时代广场候选；不是哈尔滨市区其他万达分店。",
+    "evidence": [
+      {"tier":"Tier 2","url":"https://m.dongfangfuli.com/cinema/list?city=151&region_id=1281","claim":"东方福利网列出哈尔滨万达影城五常金街时代广场店，地址为五常市运输路西侧葵花大街北侧金街。"},
+      {"tier":"Tier 2","url":"https://www.maigoo.com/news/664895.html","claim":"公开万达影院名单列出哈尔滨万达影城五常店，位于五常镇葵花大街金街时代购物广场3层。"}
+    ]
+  },
+  {
+    "id": "imax-cn-0061",
+    "sourceRow": 61,
+    "result": "same entity",
+    "amapProviderPoiId": "B0FFIDCSPF",
+    "reviewer": "codex-browser-review",
+    "confirmationSource": "codex-browser-independent-review",
+    "notes": "万达影城公开开业报道明确写出松雷店位于哈尔滨市南岗区东大直街329号松雷商厦7层并设IMAX，独立影院名单再次确认该分店，排除乐松和香坊候选。",
+    "evidence": [
+      {"tier":"Tier 2","url":"https://www.sohu.com/a/191517764_99960412","claim":"万达影城松雷店开业报道明确列出哈尔滨市南岗区东大直街329号松雷商厦7层及IMAX影厅。"},
+      {"tier":"Tier 2","url":"https://www.maigoo.com/news/664895.html","claim":"公开哈尔滨万达影院名单列出南岗松雷广场店及东大直街329号松雷商厦7层地址。"}
+    ]
+  },
+  {
+    "id": "imax-cn-0071",
+    "sourceRow": 71,
+    "result": "same entity",
+    "amapProviderPoiId": "B0K2NC487F",
+    "reviewer": "codex-browser-review",
+    "confirmationSource": "codex-browser-independent-review",
+    "notes": "威秀影城官方页面直接确认台中大遠百威秀影城位于台中市西屯区台湾大道三段251号13楼，并列出数字IMAX及381座影厅。",
+    "evidence": [
+      {"tier":"Tier 1","url":"https://www.vscinemas.com.tw/theater/detail.aspx?id=11","claim":"威秀影城官方页面确认台中大遠百威秀影城地址为台中市西屯区台湾大道三段251号13楼（台中大遠百），并列出数字IMAX影厅。"}
+    ]
+  },
+  {
+    "id": "imax-cn-0073",
+    "sourceRow": 73,
+    "result": "same entity",
+    "amapProviderPoiId": "B0K2NCAAEH",
+    "reviewer": "codex-browser-review",
+    "confirmationSource": "codex-browser-independent-review",
+    "notes": "威秀官方和台南市政府资料均确认台南南紡威秀影城位于中华东路一段366号5楼；同城不同楼层写法属于楼层字段差异，不影响影院实体。",
+    "evidence": [
+      {"tier":"Tier 1","url":"https://www.vscinemas.com.tw/brand/theater.aspx?A=3&B=16","claim":"威秀影城官方据点页确认台南南紡威秀影城位于台南市东区中华东路一段366号5楼。"},
+      {"tier":"Tier 2","url":"https://data.tainan.gov.tw/Resource/b688f1f6-fb23-45d7-960d-a18b395263a3","claim":"台南市政府开放资料列出台南南紡威秀影城及中华东路一段366号5楼地址。"}
+    ]
+  },
+  {
+    "id": "imax-cn-0075",
+    "sourceRow": 75,
+    "result": "same entity",
+    "amapProviderPoiId": "B0K2NC36TG",
+    "reviewer": "codex-browser-review",
+    "confirmationSource": "codex-browser-independent-review",
+    "notes": "威秀官方页面和独立影院资料均确认花莲新天堂乐园店位于吉安乡南滨路一段503号，并设IMAX；城市和商场关系闭环。",
+    "evidence": [
+      {"tier":"Tier 1","url":"https://www.vscinemas.com.tw/theater/detail.aspx?id=21","claim":"威秀影城官方页面列出花蓮新天堂樂園威秀影城及其IMAX场次。"},
+      {"tier":"Tier 2","url":"https://moviego.funorange.com.tw/theater/104","claim":"公开影院资料确认花莲县吉安乡南滨路一段503号3楼的花蓮新天堂樂園威秀影城并设IMAX雷射影厅。"}
+    ]
+  },
+  {
+    "id": "imax-cn-0077",
+    "sourceRow": 77,
+    "result": "same entity",
+    "amapProviderPoiId": "B0LKXZKPSS",
+    "reviewer": "codex-browser-review",
+    "confirmationSource": "codex-browser-independent-review",
+    "notes": "威秀影城官方页面确认高雄大遠百威秀影城覆盖高雄大遠百13至16楼；官方公开资料和影院资料均支持三多四路21号13楼候选。",
+    "evidence": [
+      {"tier":"Tier 1","url":"https://www.vscinemas.com.tw/theater/detail.aspx?id=18","claim":"威秀影城官方页面确认高雄威秀影城位于高雄大遠百13至16楼。"},
+      {"tier":"Tier 2","url":"https://moviego.funorange.com.tw/theater/102","claim":"公开影院资料列出高雄大遠百威秀影城地址为高雄市苓雅区三多四路21号13楼。"}
+    ]
+  },
+  {
+    "id": "imax-cn-0082",
+    "sourceRow": 82,
+    "result": "same entity",
+    "amapProviderPoiId": "B0FFHH3CUQ",
+    "reviewer": "codex-browser-review",
+    "confirmationSource": "codex-browser-independent-review",
+    "notes": "公开影院指南和南京金逸影院名单均将光美江宁弘阳IMAX店定位到胜太路弘阳家居2号门2F/4F；AMap名称中的弘阳家居店是同一商场别名。",
+    "evidence": [
+      {"tier":"Tier 2","url":"https://cinema.gaoliang.me/cinema/%E5%8D%97%E4%BA%AC%E9%87%91%E9%80%B8%E5%BD%B1%E5%9F%8E%EF%BC%88%E5%85%89%E7%BE%8E%E6%B1%9F%E5%AE%81%E5%BC%98%E9%98%B3IMAX%E5%BA%97%EF%BC%89_IMAX","claim":"公开影院指南列出南京金逸影城·光美江宁弘阳IMAX店，位置为弘阳家居2号门2F、4F。"},
+      {"tier":"Tier 2","url":"https://www.maigoo.com/news/665459.html","claim":"南京金逸影院名单列出金逸影城光美江宁弘阳IMAX店及江苏省南京市江宁区胜太路弘阳家居2号门2F/4F。"}
+    ]
+  },
+  {
+    "id": "imax-cn-0087",
+    "sourceRow": 87,
+    "result": "same entity",
+    "amapProviderPoiId": "B0FFKLVVIM",
+    "reviewer": "codex-browser-review",
+    "confirmationSource": "codex-browser-independent-review",
+    "notes": "独立影院指南、幸福蓝海公司披露和招商花园城项目资料均确认燕子矶招商花园城4层的幸福蓝海IMAX影城，排除玄武花园城等同城分店。",
+    "evidence": [
+      {"tier":"Tier 2","url":"https://cinema.gaoliang.me/cinema/%E5%8D%97%E4%BA%AC%E5%B9%B8%E7%A6%8F%E8%93%9D%E6%B5%B7%E5%9B%BD%E9%99%85%E5%BD%B1%E5%9F%8E%EF%BC%88%E7%87%95%E5%AD%90%E7%9F%B6%E6%8B%9B%E5%95%86%E8%8A%B1%E5%9B%AD%E5%9F%8EIMAX%E5%BA%97%EF%BC%89_IMAX","claim":"公开影院指南列出南京幸福蓝海国际影城燕子矶招商花园城IMAX店，地址为燕城大道1号招商花园城4层。"},
+      {"tier":"Tier 2","url":"https://www.nsi.edu.cn/_upload/article/files/1c/f7/f00d849c49c5b462e1e7a058a428/bb2a0eac-3198-4301-baad-59576caac662.pdf","claim":"公开影院名录列出南京蓝海燕子矶影城及南京市栖霞区迈皋桥街道燕城大道1号招商花园城4楼。"},
+      {"tier":"Tier 2","url":"https://www.archina.com/index.php?a=show&g=works&id=5240&m=index","claim":"招商花园城项目资料确认4层设置8厅电影院并含IMAX影院。"}
+    ]
+  },
+  {
+    "id": "imax-cn-0093",
+    "sourceRow": 93,
+    "result": "same entity",
+    "amapProviderPoiId": "B0G03RGUYZ",
+    "reviewer": "codex-browser-review",
+    "confirmationSource": "codex-browser-independent-review",
+    "notes": "独立影院指南、东方福利网和影院名单均将雨花吾悦广场店定位到古雄大道211号吾悦广场F7层，并注明IMAX；AMap候选与网页证据一致。",
+    "evidence": [
+      {"tier":"Tier 2","url":"https://cinema.gaoliang.me/cinema/%E5%8D%97%E4%BA%AC%E6%98%9F%E8%BD%B6IMAX%E5%BD%B1%E5%9F%8E%EF%BC%88%E9%9B%A8%E8%8A%B1%E5%90%BE%E6%82%A6%E5%B9%BF%E5%9C%BA%E5%BA%97%EF%BC%89_IMAX","claim":"公开影院指南列出南京星轶IMAX影城雨花吾悦广场店，地址为古雄大道211号吾悦广场F7层。"},
+      {"tier":"Tier 2","url":"https://m.dongfangfuli.com/cinema/detail/13365?city=100","claim":"东方福利网列出星轶IMAX影城雨花吾悦广场旗舰店，地址为古雄大道211号吾悦广场7F并注明IMAX厅。"}
+    ]
+  },
+  {
+    "id": "imax-cn-0094",
+    "sourceRow": 94,
+    "result": "same entity",
+    "amapProviderPoiId": "B0H6XNSOAX",
+    "reviewer": "codex-browser-review",
+    "confirmationSource": "codex-browser-independent-review",
+    "notes": "独立影院指南、南京高校公开影院名录和南京万达影院名单均确认浦口白马店在江浦街道狮山路5-1号白马生活广场4层，排除南京其他万达分店。",
+    "evidence": [
+      {"tier":"Tier 2","url":"https://cinema.gaoliang.me/cinema/%E5%8D%97%E4%BA%AC%E4%B8%87%E8%BE%BE%E5%BD%B1%E5%9F%8E%EF%BC%88%E6%B5%A6%E5%8F%A3%E7%99%BD%E9%A9%AC%E5%BA%97%EF%BC%89_IMAX","claim":"公开影院指南列出南京万达影城浦口白马店，地址为江浦街道狮山路5-1号白马生活广场四楼。"},
+      {"tier":"Tier 2","url":"https://www.nsi.edu.cn/_upload/article/files/1c/f7/f00d849c49c5b462e1e7a058a428/bb2a0eac-3198-4301-baad-59576caac662.pdf","claim":"公开影院名录列出南京万达影城浦口白马店及南京市浦口区狮山路5-1号白马生活广场。"},
+      {"tier":"Tier 2","url":"https://www.maigoo.com/news/664688.html","claim":"南京万达影院名单列出浦口白马广场店位于狮山路5-1号白马生活广场四楼。"}
+    ]
+  },
+  {
+    "id": "imax-cn-0109",
+    "sourceRow": 109,
+    "result": "same entity",
+    "amapProviderPoiId": "B0KU7UMPIU",
+    "reviewer": "codex-browser-review",
+    "confirmationSource": "codex-browser-independent-review",
+    "notes": "独立影院指南和相城区公开报道均确认星光嘉映影城IMAX龙湖苏州相城天街店位于相城大道1399号龙湖相城天街F6层。",
+    "evidence": [
+      {"tier":"Tier 2","url":"https://cinema.gaoliang.me/cinema/%E8%8B%8F%E5%B7%9E%E6%98%9F%E5%85%89%E5%98%89%E6%98%A0%E5%BD%B1%E5%9F%8E%EF%BC%88IMAX%E9%BE%99%E6%B9%96%E8%8B%8F%E5%B7%9E%E7%9B%B8%E5%9F%8E%E5%A4%A9%E8%A1%97%E5%BA%97%EF%BC%89_IMAX","claim":"公开影院指南列出苏州星光嘉映影城IMAX龙湖苏州相城天街店，地址为相城大道1399号龙湖苏州相城天街F6层。"},
+      {"tier":"Tier 2","url":"https://www.jsxc.gov.cn/llsk/xcpp/dzxt/202506/P020250717544383554688.pdf","claim":"相城区公开资料报道龙湖苏州相城天街的星光嘉映影城IMAX店及其开业运营情况。"}
+    ]
+  },
+  {
+    "id": "imax-cn-0123",
+    "sourceRow": 123,
+    "result": "same entity",
+    "amapProviderPoiId": "B0FFI2YT88",
+    "reviewer": "codex-browser-review",
+    "confirmationSource": "codex-browser-independent-review",
+    "notes": "幸福蓝海公司披露、溧阳市政府活动页面和独立影院资料均确认溧阳上河城店在平陵中路369号上河城3层3305，排除埭头等其他溧阳分店。",
+    "evidence": [
+      {"tier":"Tier 1","url":"https://static.sse.com.cn/stock/disclosure/announcement/c/201906/000021_20190603_24BG.pdf","claim":"公开披露列出江苏幸福蓝海影院发展有限责任公司溧阳分公司地址为平陵中路369号上河城三层3305号商铺幸福蓝海IMAX影城。"},
+      {"tier":"Tier 2","url":"https://www.liyang.gov.cn/html/czly/2026/IQKAQDDQ_0429/237610.html","claim":"溧阳市政府页面称观影活动选址于溧阳上河城幸福蓝海国际影城。"},
+      {"tier":"Tier 2","url":"https://www.sina.cn/news/detail/5048439740834347.html","claim":"公开IMAX清单列出幸福蓝海国际影城溧阳上河城IMAX店及平陵中路369号上河城3层地址。"}
+    ]
+  },
+  {
+    "id": "imax-cn-0139",
+    "sourceRow": 139,
+    "result": "same entity",
+    "amapProviderPoiId": "B0FFIAO0L7",
+    "reviewer": "codex-browser-review",
+    "confirmationSource": "codex-browser-independent-review",
+    "notes": "独立影院指南和猫眼均确认镇江星轶IMAX影城丁卯吾悦广场旗舰店位于丁卯桥路与经五路交汇处新城吾悦广场4层4021。",
+    "evidence": [
+      {"tier":"Tier 2","url":"https://cinema.gaoliang.me/cinema/%E9%95%87%E6%B1%9F%E6%98%9F%E8%BD%B6IMAX%E5%BD%B1%E5%9F%8E%EF%BC%88%E4%B8%81%E5%8D%AF%E5%90%BE%E6%82%A6%E5%B9%BF%E5%9C%BA%E6%97%97%E8%89%A6%E5%BA%97%EF%BC%89_IMAX","claim":"公开影院指南列出镇江星轶IMAX影城丁卯吾悦广场旗舰店及4层4021地址、IMAX规格。"},
+      {"tier":"Tier 2","url":"https://www.maoyan.com/cinema/23979?_v_=yes&merCode=1000152","claim":"猫眼页面列出星轶IMAX影城（丁卯吾悦广场旗舰店）并有当前排片。"}
+    ]
+  },
+  {
+    "id": "imax-cn-0145",
+    "sourceRow": 145,
+    "result": "same entity",
+    "amapProviderPoiId": "B0FFGDRBMJ",
+    "reviewer": "codex-browser-review",
+    "confirmationSource": "codex-browser-independent-review",
+    "notes": "南通万达影院名单和公开影院名录均把港闸万达广场店定位到深南路9号万达广场4层；港闸旧行政称呼与当前崇川名称为同一地点变更。",
+    "evidence": [
+      {"tier":"Tier 2","url":"https://www.maigoo.com/news/665297.html","claim":"公开南通万达影院名单列出万达影城港闸万达广场IMAX店，地址为南通市崇川区深南路9号万达广场4楼。"},
+      {"tier":"Tier 2","url":"https://www.nsi.edu.cn/_upload/article/files/1c/f7/f00d849c49c5b462e1e7a058a428/bb2a0eac-3198-4301-baad-59576caac662.pdf","claim":"公开影院名录列出南通港闸万达广场店及南通市崇川区深南路9号万达广场4楼。"}
+    ]
+  },
+  {
+    "id": "imax-cn-0175",
+    "sourceRow": 175,
+    "result": "same entity",
+    "amapProviderPoiId": "B0FFGBIL2X",
+    "reviewer": "codex-browser-review",
+    "confirmationSource": "codex-browser-independent-review",
+    "notes": "万达官网IMAX挂幕报道、儒意电影资料和独立影院名单均确认厚街店在康乐北路6号厚街万达广场4层，排除厚街万科城市广场店。",
+    "evidence": [
+      {"tier":"Tier 1","url":"https://www.wanda.cn/2015/2015latest_1016/32111.html","claim":"万达官网报道东莞区域厚街万达影城举行IMAX挂幕仪式，并确认厚街店。"},
+      {"tier":"Tier 2","url":"https://www.ruyifilm.com/gywm/yclb/hndq/gds/0df29c4e965d11e982dc005056835733.html","claim":"儒意电影资料确认东莞万达影城厚街万达广场店位于厚街万达广场项目并设IMAX厅。"},
+      {"tier":"Tier 2","url":"https://www.maigoo.com/news/683445.html","claim":"东莞IMAX影院名单列出厚街万达广场店，地址为康乐北路6号万达广场四层。"}
+    ]
+  },
+  {
+    "id": "imax-cn-0186",
+    "sourceRow": 186,
+    "result": "same entity",
+    "amapProviderPoiId": "B0FFJN6SLC",
+    "reviewer": "codex-browser-review",
+    "confirmationSource": "codex-browser-independent-review",
+    "notes": "百老汇影展公开页面、商场资料和独立影院指南均确认猎德igc店位于兴民路222号天汇广场igc四层416；天环店是另一分店，已排除。",
+    "evidence": [
+      {"tier":"Tier 2","url":"https://www.sohu.com/a/1003074983_121123774","claim":"百丽宫IMAX影展公开页面将广州百丽宫影城猎德igc店定位到广州市天河区兴民路222号天汇广场igc四楼416铺，并与天环店分别列出。"},
+      {"tier":"Tier 2","url":"https://www.yga.cn/mall/67.html","claim":"天汇广场igc资料确认商场位于兴民路222号并设百丽宫影城旗舰店。"},
+      {"tier":"Tier 2","url":"https://cinema.gaoliang.me/cinema/%E5%B9%BF%E5%B7%9E%E7%99%BE%E4%B8%BD%E5%AE%AB%E5%BD%B1%E5%9F%8E%EF%BC%88IMAX%E7%8C%8E%E5%BE%B7igc%E5%BA%97%EF%BC%89_IMAX","claim":"独立影院指南列出广州百丽宫影城IMAX猎德igc店及4层416地址。"}
+    ]
+  },
+  {
+    "id": "imax-cn-0188",
+    "sourceRow": 188,
+    "result": "same entity",
+    "amapProviderPoiId": "B0FFF36R1W",
+    "reviewer": "codex-browser-review",
+    "confirmationSource": "codex-browser-independent-review",
+    "notes": "IMAX中国官方新闻稿和独立影院指南均确认广州金逸光美沙湾IMAX店/番禺沙湾IMAX店位于荔园新天地3层C15；公开票务资料偶有1502号与AMap 1520号门牌差异，但分店名称、商场、楼层和IMAX厅完全一致，采用AMap分店坐标。",
+    "evidence": [
+      {"tier":"Tier 1","url":"https://media.corporate-ir.net/media_files/IROL/25/254079/2016/%E6%96%B0%E9%97%BB%E7%A8%BF-IMAX%E4%B8%AD%E5%9B%BD%E6%90%BA%E6%89%8B%E9%87%91%E逸步%E5%85%A5400%E5%B9%95%E6%97%B6%E4%BB%A3%20%E5%B0%86%E5%8A%A9%E5%8D%8E%E5%8D%97%E8%99%8E%E5%93%81%E7%89%8C%E5%8D%87%E7%BA%A7.pdf","claim":"IMAX中国新闻稿确认第400块银幕在广州金逸加盟影城番禺沙湾IMAX店落成。"},
+      {"tier":"Tier 2","url":"https://cinema.gaoliang.me/cinema/%E5%B9%BF%E5%B7%9E%E9%87%91%E9%80%B8%E5%BD%B1%E5%9F%8E%EF%BC%88%E5%85%89%E7%BE%8E%E6%B2%99%E6%B9%BEIMAX%E5%BA%97%EF%BC%89_IMAX","claim":"独立影院指南确认广州金逸影城光美沙湾IMAX店位于番禺区西环路1520号荔园新天地3F层C15。"},
+      {"tier":"Tier 2","url":"https://www.maigoo.com/news/665446.html","claim":"广州金逸影院名单列出广州光美番禺沙湾店及荔园新天地广场3楼地址。"}
+    ]
+  },
+  {
+    "id": "imax-cn-0199",
+    "sourceRow": 199,
+    "result": "same entity",
+    "amapProviderPoiId": "B0FFKOJTTS",
+    "reviewer": "codex-browser-review",
+    "confirmationSource": "codex-browser-independent-review",
+    "notes": "独立影院售票页、广州融创茂项目资料和万达公司披露均确认花都融创茂店位于凤凰北路63号融创茂购物中心3层并设IMAX。",
+    "evidence": [
+      {"tier":"Tier 2","url":"https://www.yingcai520.com/MobileToPages.jy/toCinemaDetail?cinemaId=116762","claim":"影院页面列出万达影城（广州花都融创茂店），地址为凤凰北路63号融创茂购物中心3楼并注明IMAX厅。"},
+      {"tier":"Tier 2","url":"https://gz.esf.fang.com/loupan/shop/2811209728/housedetail.htm","claim":"融创茂项目资料确认商场主力店包含万达影城及花都首家IMAX影厅。"},
+      {"tier":"Tier 1","url":"https://crm.htsc.com.cn/pdf_finchina/CNSESZ_STOCK/2019/2019-10/2019-10-25/5701576.pdf","claim":"万达电影公司披露列出广州万达影城花都融创店并标记已开业。"}
+    ]
+  },
+  {
+    "id": "imax-cn-0210",
+    "sourceRow": 210,
+    "result": "same entity",
+    "amapProviderPoiId": "B0J2XCRVNY",
+    "reviewer": "codex-browser-review",
+    "confirmationSource": "codex-browser-independent-review",
+    "notes": "从化区政府审批公示、独立影院指南和影院票务页面均确认金逸从化远达汇聚IMAX店在从城大道107号远达汇聚4层，排除海乐荟和海珠城候选。",
+    "evidence": [
+      {"tier":"Tier 2","url":"https://www.conghua.gov.cn/zwgk/zwwgk/fwgk/content/post_9916899.html","claim":"从化区文化广电旅游体育局公示将金逸从化远达汇聚IMAX影城IMAX厅定位在从城大道107号自编402号商铺。"},
+      {"tier":"Tier 2","url":"https://cinema.gaoliang.me/cinema/%E5%B9%BF%E5%B7%9E%E9%87%91%E9%80%B8%E5%BD%B1%E5%9F%8E%EF%BC%88%E4%BB%8E%E5%8C%96%E8%BF%9C%E8%BE%BE%E6%B1%87%E8%81%9AIMAX%E5%BA%97%EF%BC%89_IMAX","claim":"公开影院指南列出广州金逸影城从化远达汇聚IMAX店及从城大道107号远达汇聚4楼。"},
+      {"tier":"Tier 2","url":"https://www.maigoo.com/news/665446.html","claim":"广州金逸影院名单列出从化远达汇聚IMAX店及远达汇聚广场四楼402铺地址。"}
+    ]
+  },
+  {
+    "id": "imax-cn-0221",
+    "sourceRow": 221,
+    "result": "same entity",
+    "amapProviderPoiId": "B0HB4A729S",
+    "reviewer": "codex-browser-review",
+    "confirmationSource": "codex-browser-independent-review",
+    "notes": "独立影院指南和万科商业项目资料共同确认盐田壹海城/壹海城·ONE MALL内万达影城位于海景二路万科ONEMALL 3层；壹海城品牌名与当前AMap项目名为同一商业体。",
+    "evidence": [
+      {"tier":"Tier 2","url":"https://cinema.gaoliang.me/cinema/%E6%B7%B1%E5%9C%B3%E4%B8%87%E8%BE%BE%E5%BD%B1%E5%9F%8E%EF%BC%88%E7%9B%90%E7%94%B0%E5%A3%B9%E6%B5%B7%E5%9F%8E%E5%BA%97%EF%BC%89_IMAX","claim":"独立影院指南列出深圳万达影城盐田壹海城店，地址为海景二路万科ONEMALL 3层并设IMAX。"},
+      {"tier":"Tier 2","url":"https://www.guandian.cn/article/20181121/210564.html","claim":"万科商业资料确认壹海城·ONE MALL位于深圳盐田CBD并有万达影城进驻。"}
+    ]
+  },
+  {
+    "id": "imax-cn-0236",
+    "sourceRow": 236,
+    "result": "same entity",
+    "amapProviderPoiId": "B02F38M8JR",
+    "reviewer": "codex-browser-review",
+    "confirmationSource": "codex-browser-independent-review",
+    "notes": "万达官网历史报道、深圳市卫生许可名录和万达官方门店页共同确认海雅广场店位于建安一路99号海雅广场/海雅缤纷城4层；海雅广场与海雅缤纷城是同一商业体的旧称/现名。拒绝坪山、光明等候选。",
+    "evidence": [
+      {"tier":"Tier 1","url":"https://www.wanda.cn/2013/2013latest_1121/25788.html","claim":"万达官网报道深圳万达影城海雅广场店员工活动，确认海雅广场店实体。"},
+      {"tier":"Tier 2","url":"https://wjw.sz.gov.cn/attachment/1/1708/1708618/12756247.pdf","claim":"深圳市卫生信誉度名单列出深圳万达电影城有限公司，地址为新安湖社区建安一路99号海雅广场4层L462。"},
+      {"tier":"Tier 1","url":"https://m.wandacinemas.com/memberrights","claim":"万达官方门店页面仍列出深圳万达影城海雅广场店。"}
+    ]
+  },
+  {
+    "id": "imax-cn-0248",
+    "sourceRow": 248,
+    "result": "same entity",
+    "amapProviderPoiId": "B0FFHHU1B2",
+    "reviewer": "codex-browser-review",
+    "confirmationSource": "codex-browser-independent-review",
+    "notes": "Apple Maps独立地点页确认佛山万达影城悦汇广场店在南海大道北81号悦汇广场南海A区5层；与AMap候选完全一致，排除佛山南海万达和南海万科广场分店。",
+    "evidence": [
+      {"tier":"Tier 2","url":"https://maps.apple.com/place?auid=1118368695428894&lsp=57879","claim":"Apple Maps列出万达影城（悦汇广场店），地址为南海大道北81号悦汇广场南海A区5层。"}
+    ]
+  }
+  ,{
+    "id":"imax-cn-0264","sourceRow":264,"result":"same entity","amapProviderPoiId":"B0FFHK3UX9","reviewer":"codex-browser-review","confirmationSource":"codex-browser-independent-review",
+    "notes":"清城区政府资料确认清远清城万达广场引进万达影城；公开地图候选的湖西路89号、清城区与原始清城万达广场店一致。",
+    "evidence":[{"tier":"Tier 1","url":"https://www.qingcheng.gov.cn/qyqcwgdltj/attachment/0/10/10458/1167235.pdf","claim":"清城区政府旅游资料确认清远万达广场位于清城区并引进万达影城。"}]
+  },
+  {
+    "id":"imax-cn-0274","sourceRow":274,"result":"same entity","amapProviderPoiId":"B0FFHLH18U","reviewer":"codex-browser-review","confirmationSource":"codex-browser-independent-review",
+    "notes":"公开影院资料将重庆万达影城巴南店锁定在渝南大道297号巴南万达广场4层，与AMap候选、城市和原始分店名完全一致。",
+    "evidence":[{"tier":"Tier 2","url":"https://www.maigoo.com/citiao/985903.html","claim":"影院资料列出重庆万达影城巴南店，地址为巴南区渝南大道297号万达广场4层。"},{"tier":"Tier 2","url":"https://creditcard.ecitic.com/source/zh/userpage/youhui/120401/sh/dq.pdf","claim":"公开商户资料再次列出重庆巴南万达商业体及渝南大道297号地址。"}]
+  },
+  {
+    "id":"imax-cn-0300","sourceRow":300,"result":"same entity","amapProviderPoiId":"B0FFHDSR3W","reviewer":"codex-browser-review","confirmationSource":"codex-browser-independent-review",
+    "notes":"Apple Maps和影院票务资料均将北京六里桥恒业影城定位在丰台区万丰路68号银座和谐广场5层；与AMap候选一致。",
+    "evidence":[{"tier":"Tier 2","url":"https://maps.apple.com/place?_provider=57879&address=Wanfeng+Road+No.68+Courtyard+INZONE+Harmony+Floor+5F+501%2C+Fengtai%2C+Beijing+China&coordinate=39.882569%2C116.296522&name=Hengye+International+Studios+%28Beijing+Liuliqiao+IMAX+Branch%29&place-id=H2710I3F926806A393C","claim":"Apple Maps列出恒业国际影城银座和谐广场店，地址为万丰路68号院银座和谐广场5层。"},{"tier":"Tier 2","url":"https://m.dongfangfuli.com/cinema/detail/4745?city=222","claim":"东方福利网列出恒业国际影城北京六里桥IMAX店，地址为万丰路68号银座和谐广场购物中心5层。"}]
+  },
+  {
+    "id":"imax-cn-0318","sourceRow":318,"result":"same entity","amapProviderPoiId":"B0JALC5PIG","reviewer":"codex-browser-review","confirmationSource":"codex-browser-independent-review",
+    "notes":"独立影院指南把历史/原始名“朝阳北苑店”对应到北苑东路19号龙湖北京北苑天街5层；龙湖商业资料也确认该项目引进博纳国际影城。拒绝太阳宫和悠唐等其他北京分店。",
+    "evidence":[{"tier":"Tier 2","url":"https://cinema.gaoliang.me/cinema/%E5%8C%97%E4%BA%AC%E5%8D%9A%E7%BA%B3%E5%9B%BD%E9%99%85%E5%BD%B1%E5%9F%8E%EF%BC%88%E6%9C%9D%E9%98%B3%E5%8C%97%E8%8B%91%E5%BA%97%EF%BC%89_IMAX","claim":"影院指南明确列出北京博纳国际影城朝阳北苑店，地址为北苑东路19号龙湖北京北苑天街5层。"},{"tier":"Tier 2","url":"https://m.winshang.com/news715140.html","claim":"龙湖商业项目报道确认北苑天街引入博纳国际影城巨幕电影乐园定制店。"}]
+  },
+  {
+    "id":"imax-cn-0319","sourceRow":319,"result":"same entity","amapProviderPoiId":"B0J1MMTH3K","reviewer":"codex-browser-review","confirmationSource":"codex-browser-independent-review",
+    "notes":"北京日报、IMAX公开报道和影院指南均确认北京超极合生汇B2层为寰映影城昌平合生汇店；AMap候选名称与地址一致。",
+    "evidence":[{"tier":"Tier 1","url":"https://www.sina.cn/news/detail/5028169936011787.html","claim":"IMAX官方微博转发的开业报道明确写明北京昌平超极合生汇寰映影城位于北清路1号院超极合生汇B2层。"},{"tier":"Tier 2","url":"https://cinema.gaoliang.me/cinema/%E5%8C%97%E4%BA%AC%E5%AF%B0%E6%98%A0%E5%BD%B1%E5%9F%8E%EF%BC%88%E6%98%8C%E5%B9%B3%E5%90%88%E7%94%9F%E6%B1%87%E5%BA%97%EF%BC%89_CINITY_cinity-8","claim":"影院指南列出北京寰映影城昌平合生汇店，地址为北京超极合生汇B2层。"}]
+  },
+  {
+    "id":"imax-cn-0321","sourceRow":321,"result":"same entity","amapProviderPoiId":"B0FFGKC1NZ","reviewer":"codex-browser-review","confirmationSource":"codex-browser-independent-review",
+    "notes":"金逸官方及公开影院资料均确认朝阳北路101号朝阳大悦城8层的金逸影城朝阳大悦城店，并设IMAX；AMap坐标和地址一致。",
+    "evidence":[{"tier":"Tier 1","url":"https://jinyiyingshi.com.cn/","claim":"金逸影视公开影城查询列出北京朝阳大悦城店，地址为朝阳北路101号朝阳大悦城8层并标注IMAX厅。"},{"tier":"Tier 2","url":"https://bj.bendibao.com/news/2020723/277883.shtm","claim":"北京本地宝列出北京金逸影城朝阳大悦城IMAX店及朝阳北路101号朝阳大悦城8层地址。"}]
+  },
+  {
+    "id":"imax-cn-0332","sourceRow":332,"result":"same entity","amapProviderPoiId":"B001819PVO","reviewer":"codex-browser-review","confirmationSource":"codex-browser-independent-review",
+    "notes":"万达公开影院名录和儒意影城资料共同确认沈阳北一路店位于北一中路1号万达广场4层并设IMAX；排除沈北、铁西中心等其他分店。",
+    "evidence":[{"tier":"Tier 2","url":"https://www.ruyifilm.com/gywm/yclb/dbdq/lns/0d834485965d11e982dc005056835733.html","claim":"影城资料列出沈阳万达影城北一路店并确认其设有IMAX厅。"},{"tier":"Tier 2","url":"https://pic.bankofchina.com/bocappd/appform_1/201412/P020141231511419593148.pdf","claim":"公开万达影城名录列出沈阳北一路店，地址为北一中路1号万达广场。"}]
+  },
+  {
+    "id":"imax-cn-0334","sourceRow":334,"result":"same entity","amapProviderPoiId":"B0FFIQB9KY","reviewer":"codex-browser-review","confirmationSource":"codex-browser-independent-review",
+    "notes":"万达官方开业资料确认普兰店万达广场独家引进万达影城；影院指南和影院购票页将其对应到普兰店万达广场3层。",
+    "evidence":[{"tier":"Tier 1","url":"https://www.wandaplazas.com/2017/company_0731/1617.html","claim":"万达官方报道确认普兰店万达广场包含独家引进的万达影城。"},{"tier":"Tier 2","url":"https://cinema.gaoliang.me/cinema/%E5%A4%A7%E8%BF%9E%E4%B8%87%E8%BE%BE%E5%BD%B1%E5%9F%8E%EF%BC%88%E6%99%AE%E5%85%B0%E5%BA%97%E4%B8%87%E8%BE%BE%E5%B9%BF%E5%9C%BA%E5%BA%97%EF%BC%89_IMAX","claim":"影院指南列出大连万达影城普兰店万达广场店，地址为万达广场3层。"}]
+  },
+  {
+    "id":"imax-cn-0335","sourceRow":335,"result":"same entity","amapProviderPoiId":"B0FFI9D9O7","reviewer":"codex-browser-review","confirmationSource":"codex-browser-independent-review",
+    "notes":"影院指南、万达影城名录和庄河市政府资料均把庄河店定位在延安路南段918号庄河万达广场3层，排除大连其他万达分店。",
+    "evidence":[{"tier":"Tier 2","url":"https://cinema.gaoliang.me/cinema/%E5%A4%A7%E8%BF%9E%E4%B8%87%E8%BE%BE%E5%BD%B1%E5%9F%8E%EF%BC%88%E5%BA%84%E6%B2%B3%E4%B8%87%E8%BE%BE%E5%B9%BF%E5%9C%BA%E5%BA%97%EF%BC%89_IMAX","claim":"影院指南列出大连万达影城庄河万达广场店。"},{"tier":"Tier 2","url":"https://m.maigoo.com/news/665300.html","claim":"大连万达影城名录列出庄河万达广场店，地址为庄河市延安路与新华路交叉口万达广场3楼。"},{"tier":"Tier 2","url":"https://www.dlzh.gov.cn/html/newsShow.html?cid=669&id=32932","claim":"庄河市政府报道明确在庄河万达影城组织观影。"}]
+  },
+  {
+    "id":"imax-cn-0347","sourceRow":347,"result":"same entity","amapProviderPoiId":"B0FFHFYUR7","reviewer":"codex-browser-review","confirmationSource":"codex-browser-independent-review",
+    "notes":"万达官方开业报道和商场资料共同确认鲅鱼圈万达广场四层为万达影城，地址为蝴蝶泉路45号；与候选一致。",
+    "evidence":[{"tier":"Tier 1","url":"https://www.wanda.cn/2016/2016latest_1120/34044.html","claim":"万达官方报道确认营口鲅鱼圈万达广场及其影院业态。"},{"tier":"Tier 2","url":"https://www.maigoo.com/citiao/1073379.html","claim":"商场资料列出鲅鱼圈万达广场地址为蝴蝶泉路45号，并明确四层为万达影城。"}]
+  }
+  ,{
+    "id":"imax-cn-0364","sourceRow":364,"result":"same entity","amapProviderPoiId":"B0FFIKA3FF","reviewer":"codex-browser-review","confirmationSource":"codex-browser-independent-review",
+    "notes":"影院指南和万达官方门店页均确认曲靖经开万达广场店位于学府路361号曲靖万达广场；选择经开店而非218广场或白泥坡候选。",
+    "evidence":[{"tier":"Tier 2","url":"https://cinema.gaoliang.me/cinema/%E6%9B%B2%E9%9D%96%E4%B8%87%E8%BE%BE%E5%BD%B1%E5%9F%8E%EF%BC%88%E7%BB%8F%E5%BC%80%E4%B8%87%E8%BE%BE%E5%B9%BF%E5%9C%BA%E5%BA%97%EF%BC%89_IMAX","claim":"影院指南明确列出曲靖万达影城经开万达广场店及学府路361号地址。"},{"tier":"Tier 1","url":"https://m.wandacinemas.com/memberrights","claim":"万达官方门店页列出曲靖经开万达广场店。"}]
+  },
+  {
+    "id":"imax-cn-0367","sourceRow":367,"result":"same entity","amapProviderPoiId":"B0FFHEC0LZ","reviewer":"codex-browser-review","confirmationSource":"codex-browser-independent-review",
+    "notes":"荟聚官方项目页确认主力商户包含金逸影城；东方福利网把光美荟聚IMAX店锁定在荟聚购物中心4层，名称差异是门店简称。",
+    "evidence":[{"tier":"Tier 1","url":"https://www.livat.cn/zh-cn/wuhan","claim":"武汉荟聚官方页面列出金逸影城为主力商户。"},{"tier":"Tier 2","url":"https://m.dongfangfuli.com/cinema/detail/2436?city=67","claim":"东方福利网列出金逸影城光美荟聚IMAX店，地址为荟聚购物中心4层。"}]
+  },
+  {
+    "id":"imax-cn-0396","sourceRow":396,"result":"same entity","amapProviderPoiId":"B02DB101H6","reviewer":"codex-browser-review","confirmationSource":"codex-browser-independent-review",
+    "notes":"长沙开福万达影城的公开影院指南、儒意影城资料和影院目录均确认湘江中路589号开福万达广场5层并设IMAX；此处与886的CGV串店问题无关。",
+    "evidence":[{"tier":"Tier 2","url":"https://cinema.gaoliang.me/cinema/%E9%95%BF%E6%B2%99%E4%B8%87%E8%BE%BE%E5%BD%B1%E5%9F%8E%EF%BC%88%E5%BC%80%E7%A6%8F%E4%B8%87%E8%BE%BE%E5%B9%BF%E5%9C%BAIMAX%E5%BA%97%EF%BC%89_IMAX","claim":"影院指南列出长沙万达影城开福万达广场IMAX店，地址为湘江中路589号万达广场5层。"},{"tier":"Tier 2","url":"https://www.ruyifilm.com/gywm/yclb/hzdq/huns/0d644812965d11e982dc005056835733.html","claim":"影城资料确认长沙开福万达影城位于开福万达广场5楼并设IMAX厅。"}]
+  },
+  {
+    "id":"imax-cn-0398","sourceRow":398,"result":"same entity","amapProviderPoiId":"B02DB0UWAR","reviewer":"codex-browser-review","confirmationSource":"codex-browser-independent-review",
+    "notes":"公开影院名录和城市影院目录均将长沙梅溪湖步步高IMAX店对应到金星中路428号步步高商业广场9层；拒绝开福万达和步步高梅溪新天地候选。",
+    "evidence":[{"tier":"Tier 2","url":"https://zhengxin-pub.cdn.bcebos.com/tender/61728290c4aa0be3437aebb1d7fe1d09/%EF%BC%88%E5%B7%B2%E5%8E%8B%E7%BC%A9%EF%BC%89%E5%B8%B8%E5%BE%B7%E6%B4%A5%E5%B8%82.pdf","claim":"公开影院名单列出万达影城长沙步步高广场店，地址为岳麓区金星中路428号步步高商业广场9楼。"},{"tier":"Tier 2","url":"https://jt.dushiquan.net/changsha/station_5812/zb/7.html","claim":"长沙影院目录列出万达影城长沙步步高商业广场店及金星中路428号9层地址。"}]
+  },
+  {
+    "id":"imax-cn-0422","sourceRow":422,"result":"same entity","amapProviderPoiId":"B01AF0C5F7","reviewer":"codex-browser-review","confirmationSource":"codex-browser-independent-review",
+    "notes":"长春万达历史影院名录和中国吉林网均确认欧亚大卖场店位于开运街5178号欧亚卖场20号门/4层；15号门是同一卖场入口字段差异。",
+    "evidence":[{"tier":"Tier 2","url":"https://zhuanti.cnjiwang.com/dyxw/dyxw_tplm/ztlm_dyxw_wzxhccdyy/201801/2571883.html","claim":"中国吉林网列出长春万达影城欧亚店，地址为朝阳区开运街5178号欧亚卖场20号门。"},{"tier":"Tier 2","url":"https://www.maigoo.com/news/664914.html","claim":"长春万达影城名录列出欧亚大卖场店，地址为开运街5178号欧亚卖场20号门4楼。"}]
+  },
+  {
+    "id":"imax-cn-0428","sourceRow":428,"result":"same entity","amapProviderPoiId":"B0FFH0LIQ9","reviewer":"codex-browser-review","confirmationSource":"codex-browser-independent-review",
+    "notes":"长春电影节公开影城名单明确列出栖乐荟广场店及博文路与学府街交汇处栖乐荟购物广场3楼；万达官方门店页也列出该分店。",
+    "evidence":[{"tier":"Tier 2","url":"https://jl.ifeng.com/c/8BvyxsSCHSs","claim":"长春文旅来源的影城名单列出栖乐荟广场店及博文路与学府街交汇处栖乐荟购物广场3楼。"},{"tier":"Tier 1","url":"https://m.wandacinemas.com/memberrights","claim":"万达官方门店页列出长春万达影城栖乐荟广场店。"}]
+  },
+  {
+    "id":"imax-cn-0430","sourceRow":430,"result":"same entity","amapProviderPoiId":"B0HA373S69","reviewer":"codex-browser-review","confirmationSource":"codex-browser-independent-review",
+    "notes":"长春电影节影城名单确认钜城华億广场店及华惠路与泰兴街交汇处位置；独立公共目录也列出该影院，和AMap候选同一商业体。",
+    "evidence":[{"tier":"Tier 2","url":"https://jl.ifeng.com/c/8BvyxsSCHSs","claim":"长春影城名单列出钜城华億广场店，并将钜城华亿购物广场定位在南关区华惠路与泰兴街交叉口。"},{"tier":"Tier 2","url":"https://cc.bendibao.com/wangdian/canyinmeishi/list83.htm","claim":"长春本地公共目录列出万达影城长春钜城华亿广场IMAX店。"}]
+  },
+  {
+    "id":"imax-cn-0435","sourceRow":435,"result":"same entity","amapProviderPoiId":"B0FFKKS11G","reviewer":"codex-browser-review","confirmationSource":"codex-browser-independent-review",
+    "notes":"主动拒绝AMap第一候选四平万达广场店。东方福利网明确把“颐高产业园店”写为志城中央广场三楼，正对应B0FFKKS11G；这是同城分店纠偏，不是四平万达广场店。",
+    "evidence":[{"tier":"Tier 2","url":"https://m.dongfangfuli.com/cinema/detail/11790?city=242","claim":"东方福利网明确列出四平万达影城颐高产业园店，地址为铁西区师院西街与师院北街志诚中央广场三楼。"},{"tier":"Tier 1","url":"https://m.wandacinemas.com/memberrights","claim":"万达官方门店页列出四平万达影城门店体系；与东方福利网给出的志城中央广场地址共同完成分店识别。"}]
+  },
+  {
+    "id":"imax-cn-0469","sourceRow":469,"result":"same entity","amapProviderPoiId":"B0FFIFP79S","reviewer":"codex-browser-review","confirmationSource":"codex-browser-independent-review",
+    "notes":"Apple Maps与青岛公共资料均确认吾悦广场旗舰店位于滨海大道2888号新城吾悦广场6层；AMap候选完全一致。",
+    "evidence":[{"tier":"Tier 2","url":"https://maps.apple.com/place?auid=1118368752310288&lsp=57879","claim":"Apple Maps列出青岛星轶IMAX影城吾悦广场旗舰店，地址为滨海大道2888号吾悦广场6层6016。"},{"tier":"Tier 2","url":"https://qingdao.dzwww.com/qingdaonews/202008/t20200815_6420169.htm","claim":"青岛公共资料列出星轶IMAX国际影城吾悦广场旗舰店及滨海大道2888号6楼地址。"}]
+  },
+  {
+    "id":"imax-cn-0478","sourceRow":478,"result":"same entity","amapProviderPoiId":"B0FFFVRBYS","reviewer":"codex-browser-review","confirmationSource":"codex-browser-independent-review",
+    "notes":"公开影院指南和烟台影院资料均确认幸福蓝海烟台IMAX店就是大悦城店，位于芝罘区北马路150号大悦城4层；排除嘉禾乐天和龙口候选。",
+    "evidence":[{"tier":"Tier 2","url":"https://cinema.gaoliang.me/cinema/%E7%83%9F%E5%8F%B0%E5%B9%B8%E7%A6%8F%E8%93%9D%E6%B5%B7%E5%9B%BD%E9%99%85%E5%BD%B1%E5%9F%8E%EF%BC%88IMAX%E5%BA%97%EF%BC%89_IMAX","claim":"影院指南列出烟台幸福蓝海国际影城IMAX店，地址为北马路150号大悦城4层。"},{"tier":"Tier 2","url":"https://www.maigoo.com/citiao/1049563.html","claim":"烟台影院资料将幸福蓝海国际影城烟台大悦城IMAX店定位在北马路150号大悦城4层。"}]
+  },
+  {
+    "id":"imax-cn-0527","sourceRow":527,"result":"same entity","amapProviderPoiId":"B0FFHCE2A3","reviewer":"codex-browser-review","confirmationSource":"codex-browser-independent-review",
+    "notes":"公开票务资料直接把“杭州下沙IMAX店”定位到金沙大道560号龙湖杭州金沙天街5层；AMap当前名称为上影影城龙湖杭州金沙天街，拒绝余之城和高德置地候选。",
+    "evidence":[{"tier":"Tier 2","url":"https://m.dongfangfuli.com/cinema/detail/1479?city=178","claim":"东方福利网直接列出SFC上影影城杭州下沙IMAX店，地址为金沙大道560号龙湖杭州金沙天街5F-28。"},{"tier":"Tier 2","url":"https://www.maigoo.com/news/665720.html","claim":"杭州上影影院名录列出SFC上影影城杭州下沙IMAX店，地址为钱塘区金沙大道560号龙湖杭州金沙天街5楼。"}]
+  },
+  {
+    "id":"imax-cn-0548","sourceRow":548,"result":"same entity","amapProviderPoiId":"B0FFIMEMYM","reviewer":"codex-browser-review","confirmationSource":"codex-browser-independent-review",
+    "notes":"东方福利网锁定宁波吾悦广场旗舰店为永茂西路999号新城吾悦广场4010，政府开业资料也确认该项目引进星轶IMAX影城；与AMap候选一致。",
+    "evidence":[{"tier":"Tier 2","url":"https://m.dongfangfuli.com/cinema/detail/8253?city=179","claim":"东方福利网列出星轶IMAX影城宁波吾悦广场旗舰店，地址为镇海区永茂西路999号宁波新城吾悦广场4010。"},{"tier":"Tier 1","url":"https://zjjcmspublic.oss-cn-hangzhou-zwynet-d01-a.internet.cloud.zj.gov.cn/jcms_files/jcms1/web3428/site/attach/0/P020171117363004559817.pdf","claim":"政府公开的吾悦广场开业资料确认项目包含星轶影城IMAX。"}]
+  },
+  {
+    "id":"imax-cn-0577","sourceRow":577,"result":"same entity","amapProviderPoiId":"B0FFKOF6QH","reviewer":"codex-browser-review","confirmationSource":"codex-browser-independent-review",
+    "notes":"东方福利网明确列出神画影城IMAX虹桥店，地址为乐清市虹桥镇飞虹南路555号天元广场4F；与AMap候选分店、商场和地址一致。",
+    "evidence":[{"tier":"Tier 2","url":"https://m.dongfangfuli.com/cinema/detail/11212?city=234","claim":"东方福利网列出神画影城IMAX虹桥店，地址为飞虹南路555号天元广场4F，并设IMAX厅。"}]
+  },
+  {
+    "id":"imax-cn-0579","sourceRow":579,"result":"same entity","amapProviderPoiId":"B0FFHDX05B","reviewer":"codex-browser-review","confirmationSource":"codex-browser-independent-review",
+    "notes":"影院指南和儒意影城资料均确认台州万达影城中盛广场店位于路桥区中盛城市广场、银座街488号，并设IMAX；排除黄岩天佑城和玉环候选。",
+    "evidence":[{"tier":"Tier 2","url":"https://cinema.gaoliang.me/cinema/%E5%8F%B0%E5%B7%9E%E4%B8%87%E8%BE%BE%E5%BD%B1%E5%9F%8E%EF%BC%88%E4%B8%AD%E7%9B%9B%E5%B9%BF%E5%9C%BA%E5%BA%97%EF%BC%89_IMAX","claim":"影院指南列出台州万达影城中盛广场店，地址为中盛城市广场银座街488号A-701。"},{"tier":"Tier 2","url":"https://www.ruyifilm.com/gywm/yclb/hddq/zjs/0e2af826965d11e982dc005056835733.html","claim":"儒意影城资料确认台州万达影城路桥中盛广场店及其IMAX厅。"}]
+  },
+  {
+    "id":"imax-cn-0582","sourceRow":582,"result":"same entity","amapProviderPoiId":"B0FFKSV9JG","reviewer":"codex-browser-review","confirmationSource":"codex-browser-independent-review",
+    "notes":"吾悦广场开业报道和商业资料均确认衢州新城吾悦广场引进星轶国际影城IMAX，地址为白云中大道99号；AMap候选为同一旗舰店。",
+    "evidence":[{"tier":"Tier 2","url":"https://m.linkshop.com/article/news/380130","claim":"商业开业报道确认衢州新城吾悦广场引进星轶国际影城IMAX。"},{"tier":"Tier 2","url":"https://www.maigoo.com/citiao/1087314.html","claim":"衢州吾悦广场资料确认项目地址为白云中大道99号并引进星轶国际影城。"}]
+  },
+  {
+    "id":"imax-cn-0584","sourceRow":584,"result":"same entity","amapProviderPoiId":"B0FFLACK0H","reviewer":"codex-browser-review","confirmationSource":"codex-browser-independent-review",
+    "notes":"保利官方影城页和猫眼均保留“舟山绿城长峙IMAX店”历史名称；AMap当前“绿城·梧桐园店”位于同一长峙岛如心广场818号，属于同一保利影院地点的商业/项目名称更新，不是停车场候选。",
+    "evidence":[{"tier":"Tier 1","url":"https://www.polyfilm.cn/ProductInfoCategory?PageInfoId=0&categoryId=808476","claim":"保利影城官方影城分布页列出舟山绿城长峙IMAX店。"},{"tier":"Tier 2","url":"https://www.maoyan.com/cinema/27767","claim":"猫眼当前页面保留保利国际影城舟山绿城长峙IMAX店及其放映信息。"},{"tier":"Tier 2","url":"https://m.dongfangfuli.com/cinema/list?city=187","claim":"东方福利网列出保利国际影城舟山绿城长峙IMAX店，地址为如心广场818号201。"}]
+  },
+  {
+    "id":"imax-cn-0586","sourceRow":586,"result":"same entity","amapProviderPoiId":"B0FFHGVBWC","reviewer":"codex-browser-review","confirmationSource":"codex-browser-independent-review",
+    "notes":"Apple Maps、公开地址目录和老城根项目资料均确认开顿IMAX影城位于星火路22号老城根G PARK商业街3层；AMap候选名称是同一门店的简称变体。",
+    "evidence":[{"tier":"Tier 2","url":"https://maps.apple.com/place?_provider=57879&place-id=H2710I3F92680B8F1FC","claim":"Apple Maps列出开顿IMAX国际影城老城根G PARK店，地址为星火路22号G Park商业街3F-17。"},{"tier":"Tier 2","url":"https://www.chahaoba.com/029-68294999","claim":"公开电话目录列出开顿IMAX国际影城光美老城根店，地址为星火路22号老城根G PARK商业街西侧3F-17。"}]
+  },
+  {
+    "id":"imax-cn-0608","sourceRow":608,"result":"same entity","amapProviderPoiId":"B0HBBZ23TY","reviewer":"codex-browser-review","confirmationSource":"codex-browser-independent-review",
+    "notes":"东方福利网直接使用原始“凯德诺和木勒店”名称并给出鄂尔多斯大街金宇新天地A座凯德广场诺和木勒6层；凯德官方确认该商业项目。",
+    "evidence":[{"tier":"Tier 2","url":"https://m.dongfangfuli.com/cinema/detail/13455?city=214","claim":"东方福利网列出呼和浩特万达影城凯德诺和木勒店及完整地址。"},{"tier":"Tier 1","url":"https://www.capitaland.com/cn/zh/shop/malls-listing/yuquan-mall.html","claim":"凯德官网确认凯德广场·诺和木勒位于呼和浩特玉泉区鄂尔多斯大街。"}]
+  },
+  {
+    "id":"imax-cn-0609","sourceRow":609,"result":"same entity","amapProviderPoiId":"B01D80OWDA","reviewer":"codex-browser-review","confirmationSource":"codex-browser-independent-review",
+    "notes":"影院指南和公开万达影院名录均确认包头青山店位于青年路26号万达广场4层；排除九原万达和正翔湾分店。",
+    "evidence":[{"tier":"Tier 2","url":"https://cinema.gaoliang.me/cinema/%E5%8C%85%E5%A4%B4%E4%B8%87%E8%BE%BE%E5%BD%B1%E5%9F%8E%EF%BC%88%E9%9D%92%E5%B1%B1%E4%B8%87%E8%BE%BE%E5%B9%BF%E5%9C%BA%E5%BA%97%EF%BC%89_IMAX","claim":"影院指南列出包头万达影城青山万达广场店，地址为青年路26号万达广场4层。"},{"tier":"Tier 2","url":"https://pic.bankofchina.com/bocappd/appform_1/201509/P020150924529221572419.pdf","claim":"公开万达影城名录列出包头青山万达广场店，地址为包头市青年路26号万达广场娱乐楼4楼。"}]
+  },
+  {
+    "id":"imax-cn-0618","sourceRow":618,"result":"same entity","amapProviderPoiId":"B0G0TGDL1R","reviewer":"codex-browser-review","confirmationSource":"codex-browser-independent-review",
+    "notes":"中海环宇城项目资料确认兰州安宁中海环宇城地址及万达影城业态；AMap候选给出同一蓝科路8号商业体F4影院。城市、区县、品牌和商场关系闭环。",
+    "evidence":[{"tier":"Tier 2","url":"https://www.maigoo.com/citiao/1222774.html","claim":"商业项目资料确认兰州中海环宇城地址并列出万达影院入驻。"},{"tier":"Tier 2","url":"https://www.amap.com/place/B0G0TGDL1R","claim":"AMap候选为万达影城(兰州中海环宇城店)，地址为蓝科路8号兰州中海环宇城F4层。"}]
+  },
+  {
+    "id":"imax-cn-0639","sourceRow":639,"result":"same entity","amapProviderPoiId":"B0FFH565JM","reviewer":"codex-browser-review","confirmationSource":"codex-browser-independent-review",
+    "notes":"世茂官方项目页确认演武西路182号厦门世茂国际广场裙楼5-6层的万达海景影城；与原始世茂海峡广场旧称、城市和思明区位置一致。",
+    "evidence":[{"tier":"Tier 1","url":"https://www.shimaogroup.com/smlist/wap_view.php?aid=255","claim":"世茂官方资料确认厦门世茂国际广场地址、5-6层影院及万达海景影城。"}]
+  },
+  {
+    "id":"imax-cn-0655","sourceRow":655,"result":"same entity","amapProviderPoiId":"B0FFHO2743","reviewer":"codex-browser-review","confirmationSource":"codex-browser-independent-review",
+    "notes":"影院指南和福建省公开电影场所资料均将台商区万达店定位到角美万达广场4层；AMap候选为同一台商万达店。",
+    "evidence":[{"tier":"Tier 2","url":"https://cinema.gaoliang.me/cinema/%E6%BC%B3%E5%B7%9E%E4%B8%87%E8%BE%BE%E5%BD%B1%E5%9F%8E%EF%BC%88%E5%8F%B0%E5%95%86%E5%8C%BA%E4%B8%87%E8%BE%BE%E5%B9%BF%E5%9C%BA%E5%BA%97%EF%BC%89_IMAX","claim":"影院指南列出台商区万达影城及角美万达广场4层地址。"},{"tier":"Tier 1","url":"https://czt.fujian.gov.cn/zwgk/czzj/202409/P020240920655618142177.pdf","claim":"福建省公开资料列出台商区万达影城场所。"}]
+  },
+  {
+    "id":"imax-cn-0682","sourceRow":682,"result":"same entity","amapProviderPoiId":"B001C8O5XD","reviewer":"codex-browser-review","confirmationSource":"codex-browser-independent-review",
+    "notes":"东方福利网和成都公共影院目录均确认影立方773IMAX位于建设南支路4号东郊记忆/原东区音乐公园；AMap候选名称与地址一致。",
+    "evidence":[{"tier":"Tier 2","url":"https://m.dongfangfuli.com/cinema/detail/879?city=57&date=2021-04-09&movie_id=2670","claim":"东方福利网列出影立方773IMAX影城东郊记忆店及建设南支路4号地址。"},{"tier":"Tier 2","url":"https://jt.dushiquan.net/chengdu/station_2978/zb/7.html","claim":"成都公共影院目录再次列出影立方773IMAX东郊记忆店。"}]
+  },
+  {
+    "id":"imax-cn-0693","sourceRow":693,"result":"same entity","amapProviderPoiId":"B0FFKCEIVA","reviewer":"codex-browser-review","confirmationSource":"codex-browser-independent-review",
+    "notes":"成都万达影城名录及成都市公开放映名单均确认四六八广场店位于喜树街35号伊藤广场6层；AMap候选虽使用大融城项目名，但地址和同一商业体关系一致。",
+    "evidence":[{"tier":"Tier 2","url":"https://www.maigoo.com/news/664673.html","claim":"成都万达影城名录列出四六八广场店及喜树街35号伊藤广场6楼。"},{"tier":"Tier 2","url":"https://m.cd.bendibao.com/xiuxian/117867.shtm","claim":"成都公开放映名单再次列出万达影城四六八广场店和喜树街35号伊藤广场6F。"}]
+  },
+  {
+    "id":"imax-cn-0696","sourceRow":696,"result":"same entity","amapProviderPoiId":"B0HA7SZ1OJ","reviewer":"codex-browser-review","confirmationSource":"codex-browser-independent-review",
+    "notes":"世茂官方资料确认成都世茂广场位于龙泉驿区并引入寰映影城；AMap候选明确为成都世茂广场店、驿都西路3338号F5，独立影院目录也给出同一分店。",
+    "evidence":[{"tier":"Tier 1","url":"https://www.shimaogroup.com/smlist/wap_view.php?aid=2517","claim":"世茂官方资料确认成都世茂广场及其引入的寰映影城。"},{"tier":"Tier 2","url":"https://jt.dushiquan.net/chengdu/station_2802/zb/7.html","claim":"成都公共影院目录列出寰映影城成都世茂广场店。"}]
+  },
+  {
+    "id":"imax-cn-0698","sourceRow":698,"result":"same entity","amapProviderPoiId":"B0I3RSVQVX","reviewer":"codex-browser-review","confirmationSource":"codex-browser-independent-review",
+    "notes":"影院指南和商业资料均将成都寰映大魔方广场店定位到天府大道北段1777号成都大魔方招商花园城B馆6层；AMap候选一致。",
+    "evidence":[{"tier":"Tier 2","url":"https://cinema.gaoliang.me/cinema/%E6%88%90%E9%83%BD%E5%AF%B0%E6%98%A0%E5%BD%B1%E5%9F%8E%EF%BC%88%E5%A4%A7%E9%AD%94%E6%96%B9%E5%B9%BF%E5%9C%BA%E5%BA%97%EF%BC%89_IMAX","claim":"影院指南列出成都寰映影城大魔方广场店及B馆6层地址。"},{"tier":"Tier 2","url":"https://m.maigoo.com/news/681984.html","claim":"成都IMAX影院资料列出寰映影城招商大魔方店。"}]
+  },
+  {
+    "id":"imax-cn-0709","sourceRow":709,"result":"same mall/venue only","amapProviderPoiId":null,"name":"成都中影紫荆国际影城IMAX（锦宸天街店）","mallOrVenue":"龙湖成都锦宸天街","address":"四川省成都市新都区大丰街道大天路699号龙湖成都锦宸天街购物中心A馆","lat":30.759483,"lng":104.073905,"crs":"GCJ-02","reviewer":"codex-browser-review","confirmationSource":"codex-browser-independent-review",
+    "notes":"公开资料确认中影紫荆IMAX进入龙湖成都锦宸天街项目，但未提供可安全绑定的当前影院POI；仅物化锦宸天街venue-level。坐标作为商业体位置锚点，不推定当前影院营业状态，不绑定同址其他影院。",
+    "evidence":[{"tier":"Tier 1","url":"https://www.sina.cn/news/detail/5323486667212580.html","claim":"公开报道确认中影紫荆国际影城IMAX入驻龙湖成都锦宸天街项目。"},{"tier":"Tier 2","url":"https://www.amap.com/place/B0HUTU007C","claim":"AMap公开页面确认龙湖锦宸天街4F为同一商业体影院位置；不将该当前影院POI等同于原始中影紫荆实体。"}]
+  },
+  {
+    "id":"imax-cn-0720","sourceRow":720,"result":"same entity","amapProviderPoiId":"B0JR3MAQRT","reviewer":"codex-browser-review","confirmationSource":"codex-browser-independent-review",
+    "notes":"猫眼/影院公开资料均将资阳万达影城定位到娇子大道120号万达广场资阳店F4；AMap候选为同一分店。",
+    "evidence":[{"tier":"Tier 2","url":"https://www.maoyan.com/cinema/15857","claim":"猫眼公开页面列出资阳万达影城IMAX及万达广场地址。"},{"tier":"Tier 2","url":"https://www.sohu.com/a/872339272_122063683","claim":"公开影院资料列出资阳万达影城和娇子大道120号地址。"}]
+  },
+  {
+    "id":"imax-cn-0732","sourceRow":732,"result":"same entity","amapProviderPoiId":"B0FFGSXFLN","reviewer":"codex-browser-review","confirmationSource":"codex-browser-independent-review",
+    "notes":"南昌万达影院名录和公开放映资料均确认八一大道333号万达广场4层的八一店；AMap候选一致。",
+    "evidence":[{"tier":"Tier 2","url":"https://www.maigoo.com/news/664892.html","claim":"南昌万达影城名录列出八一店及八一大道333号万达广场地址。"},{"tier":"Tier 2","url":"https://www.sohu.com/a/359158966_374785","claim":"公开资料再次列出南昌八一万达店。"}]
+  },
+  {
+    "id":"imax-cn-0733","sourceRow":733,"result":"same entity","amapProviderPoiId":"B0FFGY0MQP","reviewer":"codex-browser-review","confirmationSource":"codex-browser-independent-review",
+    "notes":"南昌万达名录和文旅项目资料确认原万达文化旅游城店对应融创茂、九龙湖南龙蟠街666号；AMap候选融创茂店是同一商业体更名后的影院。",
+    "evidence":[{"tier":"Tier 2","url":"https://www.maigoo.com/news/664892.html","claim":"南昌万达影城资料列出融创茂店及九龙湖南龙蟠街666号地址。"},{"tier":"Tier 2","url":"https://you.ctrip.com/sight/nanchang175/4643023.html","claim":"公开文旅资料确认南昌融创文旅城包含融创茂商业体。"}]
+  },
+  {
+    "id":"imax-cn-0734","sourceRow":734,"result":"same entity","amapProviderPoiId":"B0FFHDSTK2","reviewer":"codex-browser-review","confirmationSource":"codex-browser-independent-review",
+    "notes":"东方福利网和南昌高新区政府公开资料均确认星轶IMAX青山湖吾悦广场店位于京东大道与东元路交汇处吾悦广场4层；AMap候选一致。",
+    "evidence":[{"tier":"Tier 2","url":"https://m.dongfangfuli.com/cinema/detail/6401?city=30","claim":"东方福利网列出南昌星轶IMAX青山湖店及吾悦广场4层地址。"},{"tier":"Tier 1","url":"https://nchdz.nc.gov.cn/ncgxq/xxyl/202206/eb85e803ce4f4ccda7af1bd287e87187.shtml","claim":"南昌高新区政府资料列出南昌星轶IMAX影城。"}]
+  },
+  {
+    "id":"imax-cn-0740","sourceRow":740,"result":"same entity","amapProviderPoiId":"B0FFJ0RQLW","reviewer":"codex-browser-review","confirmationSource":"codex-browser-independent-review",
+    "notes":"赣州商业项目资料确认原巨亿广场改名为巨亿万达并引入万达影城；与原始经开万达店及AMap八一四大道巨亿万达候选一致。",
+    "evidence":[{"tier":"Tier 2","url":"https://m.sohu.com/a/915015682_121123915","claim":"公开商业资料确认赣州巨亿广场更名巨亿万达，商业体内设万达影城。"}]
+  },
+  {
+    "id":"imax-cn-0765","sourceRow":765,"result":"same entity","amapProviderPoiId":"B0FFG87M3H","reviewer":"codex-browser-review","confirmationSource":"codex-browser-independent-review",
+    "notes":"桂林影院资料将七星万达店定位到穿山东路43号高新万达广场5层；AMap候选名称为桂林高新万达广场店，城市、区县和商业体一致。",
+    "evidence":[{"tier":"Tier 2","url":"https://www.maigoo.com/citiao/986038.html","claim":"桂林影院资料列出万达影城七星/高新万达广场店及穿山东路43号地址。"},{"tier":"Tier 2","url":"https://www.amap.com/place/B0FFG7HGEX","claim":"AMap公开页面确认桂林高新万达广场项目地址。"}]
+  },
+  {
+    "id":"imax-cn-0776","sourceRow":776,"result":"same entity","amapProviderPoiId":"B0FFHC6AEC","reviewer":"codex-browser-review","confirmationSource":"codex-browser-independent-review",
+    "notes":"影院指南、猫眼和东方福利网均确认海口星轶IMAX吾悦广场旗舰店；AMap候选地址为吾悦广场2号门4楼。",
+    "evidence":[{"tier":"Tier 2","url":"https://cinema.gaoliang.me/cinema/%E6%B5%B7%E5%8F%A3%E6%98%9F%E8%BD%B6IMAX%E5%BD%B1%E5%9F%8E%EF%BC%88%E9%BE%99%E5%8D%8E%E5%90%BE%E6%82%A6%E5%B9%BF%E5%9C%BA%E6%97%97%E8%88%B0%E5%BA%97%EF%BC%89_IMAX","claim":"影院指南列出海口星轶IMAX龙华吾悦广场旗舰店。"},{"tier":"Tier 2","url":"https://www.maoyan.com/cinema/16387","claim":"猫眼公开页面列出海口吾悦广场星轶影城。"}]
+  },
+  {
+    "id":"imax-cn-0811","sourceRow":811,"result":"acceptedHistoricalLocation","name":"沈阳金逸影城（龙之梦店）","historicalAddress":"辽宁省沈阳市大东区滂江街26号龙之梦小商品大世界7层","mallOrVenue":"龙之梦小商品大世界 / 龙之梦","lat":41.806907,"lng":123.484439,"crs":"GCJ-02","providerPoiId":"B0H1RS8WJZ","providerPoiName":"鑫逸影城(龙之梦小商品大世界店)","locationAnchor":"龙之梦小商品大世界","granularity":"historical-venue","reviewer":"codex-browser-review","confirmationSource":"codex-browser-independent-review",
+    "notes":"历史资料将金逸龙之梦店锁定在滂江街26号龙之梦小商品大世界7层；当前鑫逸影城仅作为同址位置锚点，不等同原金逸实体。拒绝滂江街22号龙之梦海之心影城。",
+    "evidence":[{"tier":"Tier 2","url":"https://sy.bendibao.com/xiuxian/2016418/46827.shtm","claim":"沈阳公开资料列出金逸龙之梦店位于滂江街26号小商品大世界7层。"},{"tier":"Tier 2","url":"https://news.cntv.cn/20120428/125514.shtml","claim":"历史开业报道确认金逸龙之梦影院的原始地址。"},{"tier":"Tier 2","url":"https://m.dongfangfuli.com/cinema/detail/1505?city=194","claim":"当前鑫逸影城给出同一龙之梦小商品大世界地址，作为位置锚点。"}]
+  },
+  {
+    "id":"imax-cn-0812","sourceRow":812,"result":"acceptedHistoricalLocation","name":"广州泛洋国际影城","historicalAddress":"广东省广州市番禺区清河东路203号汇珑新天地（现华丰汇）5楼","mallOrVenue":"汇珑新天地 / 华丰汇","lat":22.937723,"lng":113.377415,"crs":"GCJ-02","providerPoiId":"B0FFGO9RKH","providerPoiName":"金逸院线星空巨幕影城(番禺华丰汇购物中心店)","locationAnchor":"华丰汇","granularity":"historical-venue","reviewer":"codex-browser-review","confirmationSource":"codex-browser-independent-review",
+    "notes":"独立旧影院名录和企业资料共同确认泛洋国际影城位于德兴路80号/清河东路203号汇珑新天地5楼；现华丰汇同址影院仅作为位置锚点，不等同泛洋实体。拒绝星寰、北京路和新塘候选。",
+    "evidence":[{"tier":"Tier 2","url":"https://www.zjfae.com/html/yx.pdf","claim":"旧影院名录列出广州泛洋国际影城及德兴路80号汇珑新天地5楼。"},{"tier":"Tier 2","url":"https://www.job5156.com/comp/1232004","claim":"企业公开资料给出清河东路203号汇珑新天地5-7层地址。"},{"tier":"Tier 2","url":"https://www.amap.com/place/B0FFGO9RKH","claim":"AMap公开页面确认现华丰汇位于清河东路203号，同址影院作为位置锚点。"}]
+  },
+  {
+    "id":"imax-cn-0820","sourceRow":820,"result":"same mall/venue only","amapProviderPoiId":null,"name":"佛山越界思哲影城（三水新动力店）","mallOrVenue":"新动力广场","address":"广东省佛山市三水区西青大道8号新动力广场3楼","lat":23.172665,"lng":112.867355,"crs":"GCJ-02","reviewer":"codex-browser-review","confirmationSource":"codex-browser-independent-review",
+    "notes":"东方福利网、南方日报系资料和开业资料均锁定历史越界思哲影城在新动力广场3楼；当前新动力影城只提供同址建筑位置参考，不绑定其影院POI，不把后续运营方写成原越界。",
+    "evidence":[{"tier":"Tier 2","url":"https://m.dongfangfuli.com/cinema/detail/6988?city=5","claim":"东方福利网列出越界思哲影城IMAX（三水店）及西青大道8号新动力广场3F。"},{"tier":"Tier 2","url":"https://pc.nfnews.com/5026/3800148.html","claim":"公开报道确认三水新动力广场越界思哲影院。"},{"tier":"Tier 2","url":"https://www.amap.com/place/B0IBO7ISIV","claim":"AMap公开页面确认西青大道8号新动力广场同址位置；不将当前新动力影城等同原实体。"}]
+  },
+  {
+    "id":"imax-cn-0833","sourceRow":833,"result":"acceptedHistoricalLocation","name":"长沙CGV影城（星沙店）","historicalAddress":"湖南省长沙市长沙县星沙大道178号凤凰城四期万象汇3楼","mallOrVenue":"凤凰城四期万象汇","lat":28.249193,"lng":113.08654,"crs":"GCJ-02","providerPoiId":"B0J6MDFAFP","providerPoiName":"幸福蓝海国际影城(长沙星沙万象汇店)","locationAnchor":"万象汇","granularity":"historical-venue","reviewer":"codex-browser-review","confirmationSource":"codex-browser-independent-review",
+    "notes":"历史媒体和影院资料明确CGV星沙店位于凤凰城四期万象汇3楼；当前幸福蓝海是同址后续运营方，仅作为位置锚点，AMap候选不接受为CGV same entity。",
+    "evidence":[{"tier":"Tier 2","url":"https://www.peoplepower.net.cn/2019/06/29/533/","claim":"公开影院名单列出CGV星聚汇影城长沙星沙店及凤凰城四期万象汇3楼。"},{"tier":"Tier 2","url":"https://xingshashibao.icswb.com/h/101691/20200722/638975.html","claim":"地方媒体确认星沙CGV影城地址及IMAX设施。"},{"tier":"Tier 2","url":"https://www.amap.com/place/B0J6MDFAFP","claim":"AMap公开页面确认当前幸福蓝海位于同一星沙万象汇位置。"}]
+  },
+  {
+    "id":"imax-cn-0841","sourceRow":841,"result":"same entity","amapProviderPoiId":"B001612U2K","name":"天津农垦博纳国际影城（津奥广场店）","address":"天津市南开区宾水西道体育中心B馆津奥广场2层","mallOrVenue":"津奥广场","lat":39.077768,"lng":117.179938,"crs":"GCJ-02","reviewer":"codex-browser-review","confirmationSource":"codex-browser-independent-review",
+    "notes":"主动纠正队列第一候选凯德MALL天津湾。AMap公开页面直接给出正确的天津农垦博纳津奥广场店；旧影院名录也将农垦博纳定位在天津体育中心B馆，完成城市、场馆和分店闭环。",
+    "evidence":[{"tier":"Tier 2","url":"https://www.amap.com/place/B001612U2K","claim":"AMap公开页面列出天津农垦博纳国际影城(津奥广场店)及宾水西道体育中心B馆地址。"},{"tier":"Tier 2","url":"https://www.zjfae.com/html/yx.pdf","claim":"旧影院名录列出天津农垦博纳位于南开区宾水西道天津体育中心B馆。"}]
+  },
+  {
+    "id":"imax-cn-0843","sourceRow":843,"result":"acceptedHistoricalLocation","name":"贵阳星美国际影城（花果园店）","historicalAddress":"贵州省贵阳市南明区花果园大道花果园购物中心一层","mallOrVenue":"花果园购物中心","lat":26.568394,"lng":106.689877,"crs":"GCJ-02","providerPoiId":"B03530QB54","providerPoiName":"花果园购物中心","locationAnchor":"花果园购物中心","granularity":"historical-venue","reviewer":"codex-browser-review","confirmationSource":"codex-browser-independent-review",
+    "notes":"星美官方/行业资料将花果园店定位在花果园购物中心一层；公开报道确认2019年合同终止、2021年由中影南方接替。使用购物中心作为历史位置锚点，不绑定鸿通城、世纪新天地或砂之船分店，也不把后续运营方写成星美。",
+    "evidence":[{"tier":"Tier 2","url":"https://www.gffunds.com.cn/html/mail/dyy.html","claim":"公开影院资料列出星美贵阳花果园店及花果园购物中心一层。"},{"tier":"Tier 2","url":"https://m.focus.cn/gy/zixun/290eb70f4c2c3bf9.html","claim":"公开报道确认星美花果园合同终止及后续影院接替事实。"},{"tier":"Tier 2","url":"https://ditu.amap.com/place/B03530QB54","claim":"AMap公开页面提供花果园购物中心位置锚点。"}]
+  },
+  {
+    "id":"imax-cn-0847","sourceRow":847,"result":"same mall/venue only","amapProviderPoiId":null,"name":"成都CGV影城（龙泉驿店）","mallOrVenue":"驿都汇","address":"四川省成都市龙泉驿区驿都中路898号驿都汇F4","lat":30.569255,"lng":104.234352,"crs":"GCJ-02","reviewer":"codex-browser-review","confirmationSource":"codex-browser-independent-review",
+    "notes":"独立影院目录、活动资料和项目资料共同确认CGV龙泉店在驿都汇、驿都中路898号F4；当前AMap未召回可靠CGV影院POI。仅物化驿都汇venue-level，坐标作同址建筑锚点，不写入同址非影院租户POI，也不推定当前运营方。",
+    "evidence":[{"tier":"Tier 2","url":"https://jt.dushiquan.net/chengdu/station_2807/zb/7.html","claim":"成都公共影院目录列出CGV影城龙泉店及驿都中路898号驿都汇F4。"},{"tier":"Tier 2","url":"https://www.10100.com/article/21929915","claim":"公开资料确认CGV龙泉IMAX位于驿都汇。"},{"tier":"Tier 2","url":"https://www.scrzhc.com/page91?article_id=3672","claim":"项目/规划资料确认驿都汇引入CGV及IMAX影城。"}]
+  },
+  {
+    "id":"imax-cn-0850","sourceRow":850,"result":"same mall/venue only","amapProviderPoiId":"B0FFF90RJO","providerPoiName":"正弘·高新数码港","name":"郑州CGV影城（高新店）","mallOrVenue":"正弘·高新数码港","address":"河南省郑州市高新技术开发区金梭路33号郑州高新数码港（二期）4层","lat":34.806407,"lng":113.56457,"crs":"GCJ-02","locationAnchor":"正弘·高新数码港","reviewer":"codex-browser-review","confirmationSource":"codex-browser-independent-review",
+    "notes":"中国建设银行公开CGV合作影城资料明确高新店地址为金梭路33号高新数码港二期4层；当前AMap没有可靠影院POI，使用高新数码港项目venue-level，不绑定大卫城、正弘城或信万广场分店。",
+    "evidence":[{"tier":"Tier 1","url":"https://www.ccb.com/cn/html1/branch/js/subject/17/0824lzf/list_cgv.html","claim":"中国建设银行公开资料列出郑州CGV高新店及金梭路33号高新数码港二期4层地址。"},{"tier":"Tier 2","url":"https://www.amap.com/place/B0FFF90RJO","claim":"AMap公开页面确认正弘·高新数码港项目位置。"}]
+  },
+  {
+    "id":"imax-cn-0865","sourceRow":865,"result":"same mall/venue only","amapProviderPoiId":null,"name":"上海上影虹桥临空国际影城","mallOrVenue":"天会广场 / 凌空SOHO","address":"上海市长宁区金钟路968号天会广场B1","lat":31.222392,"lng":121.352288,"crs":"GCJ-02","reviewer":"codex-browser-review","confirmationSource":"codex-browser-independent-review",
+    "notes":"政府资料和影院页面共同确认上影虹桥临空国际影城在金钟路968号天会广场B1并设IMAX。AMap最佳候选B0FFGHFXVC是同一综合体15号楼的天山电影院，属于不同影院，拒绝其影院身份；这里只物化天会广场venue-level，坐标作项目锚点。",
+    "evidence":[{"tier":"Tier 1","url":"https://www.shhqcbd.gov.cn/ywdt/mtjj/496046832840773.html","claim":"长宁区公开资料确认上影虹桥临空国际影城位于金钟路968号天会广场B1并拥有IMAX厅。"},{"tier":"Tier 2","url":"https://m.dongfangfuli.com/cinema/detail/3630?city=145","claim":"东方福利网确认上影虹桥临空国际影城的金钟路968号地址和IMAX信息。"}]
+  },
+  {
+    "id":"imax-cn-0866","sourceRow":866,"result":"same entity","amapProviderPoiId":"B001506036","reviewer":"codex-browser-review","confirmationSource":"codex-browser-independent-review",
+    "notes":"和平影都官方/公开影院页面均确认西藏中路290号来福士广场2-6层；接受位置实体，不对原始“改成普通影厅”备注之外的当前放映状态作额外推断。",
+    "evidence":[{"tier":"Tier 2","url":"https://ditu.amap.com/place/B001506036","claim":"AMap公开页面列出和平影都(来福士广场)，地址为西藏中路290号2L-6L。"},{"tier":"Tier 2","url":"https://m.dongfangfuli.com/cinema/detail/185?city=145","claim":"东方福利网列出上海和平影都及同一地址。"}]
+  },
+  {
+    "id":"imax-cn-0875","sourceRow":875,"result":"acceptedHistoricalLocation","name":"南宁万达影城（嘉佑城店）","historicalAddress":"广西壮族自治区南宁市兴宁区明秀东路178号江宇世纪城一期四楼","mallOrVenue":"嘉佑城 / 江宇世纪城","lat":22.843825,"lng":108.406525,"crs":"GCJ-02","providerPoiId":"B0M6XHPGAX","providerPoiName":"万达影城","locationAnchor":"嘉佑城 / 江宇世纪城","granularity":"historical-venue","reviewer":"codex-browser-review","confirmationSource":"codex-browser-independent-review",
+    "notes":"公开资料将嘉佑城店锁定到明秀东路178号江宇世纪城一期四楼，并确认江宇世纪城更名嘉佑城；2026-07-31公开报道确认该店闭店。AMap候选仅作为历史位置锚点，不表示当前连续营业。",
+    "evidence":[{"tier":"Tier 2","url":"https://m.maigoo.com/news/664836.html","claim":"公开资料列出南宁万达影城嘉佑城IMAX及明秀东路178号江宇世纪城一期四楼。"},{"tier":"Tier 2","url":"https://www.sina.cn/news/detail/5326806951662498.html","claim":"公开报道确认该万达影城于2026年7月31日闭店。"},{"tier":"Tier 2","url":"https://nn.zp365.com/News/Info/514080","claim":"地方资料说明江宇世纪城已更名嘉佑城及其影院位置关系。"}]
+  },
+  {
+    "id":"imax-cn-0901","sourceRow":901,"result":"same entity","amapProviderPoiId":"B0FFICVND1","reviewer":"codex-browser-review","confirmationSource":"codex-browser-independent-review","notes":"公开影院资料、华谊兄弟年度披露和AMap均将晋中华谊兄弟影院奥莱店锁定到榆次区龙湖街1055号天美杉杉奥特莱斯3层；接受该精确影院候选。","evidence":[{"tier":"Tier 2","url":"https://cinema.gaoliang.me/cinema/%E6%99%8B%E4%B8%AD%E5%8D%8E%E8%B0%8A%E5%85%84%E5%BC%9F%E5%BD%B1%E9%99%A2%EF%BC%88%E5%A5%A5%E8%8E%B1%E5%BA%97%EF%BC%89_IMAX","claim":"公开影院资料列出晋中华谊兄弟影院奥莱店及龙湖街1055号天美杉杉奥特莱斯3层。"},{"tier":"Tier 2","url":"https://money.finance.sina.com.cn/corp/view/vCB_AllBulletinDetail.php?id=12271294&stockid=300027","claim":"华谊兄弟年度披露列出晋中天美杉杉奥特莱斯影院项目。"},{"tier":"Tier 2","url":"https://ditu.amap.com/place/B0FFICVND1","claim":"AMap公开页面列出华谊兄弟影院(晋中天美杉杉奥特莱斯店)及同一地址。"}]
+  },
+  {
+    "id":"imax-cn-0079","sourceRow":79,"result":"same mall/venue only","amapProviderPoiId":null,"name":"新北新店裕隆城威秀影城","mallOrVenue":"裕隆城","address":"新北市新店區中興路三段70號7樓（裕隆城）","lat":24.9780833,"lng":121.5467222,"crs":"WGS84","reviewer":"codex-browser-review","confirmationSource":"codex-browser-independent-review","notes":"威秀官方确认新店裕隆城店及IMAX Laser，独立项目资料给出裕隆城基准坐标。现有AMap候选是江苏常州无关餐饮POI，拒绝；只物化裕隆城venue-level，不伪造影院POI。","evidence":[{"tier":"Tier 1","url":"https://www.vscinemas.com.tw/theater/detail.aspx?id=28","claim":"威秀官方确认新店裕隆城影城、IMAX Laser和新北市新店區中興路三段70號7樓地址。"},{"tier":"Tier 1","url":"https://www.vscinemas.com.tw/brand/theaterList.aspx?A=2","claim":"威秀官方门店列表列出新店裕隆城威秀。"},{"tier":"Tier 2","url":"https://www.chunglin.com.tw/index.php?f=content&mn=1&module=product&tid=233628","claim":"裕隆城项目资料给出项目位置坐标，可作为场馆级位置锚点。"}]
+  },
+  {
+    "id":"imax-cn-0283","sourceRow":283,"result":"same entity","amapProviderPoiId":"B0FFKLCM2M","reviewer":"codex-browser-review","confirmationSource":"codex-browser-independent-review","notes":"HMC华茂中心官方招商资料及公开影院名单均确认永川昌州大道东段789号华茂国际中心C馆影院；AMap候选名称和地址完全对应，虽分类被误标为一般场所，仍接受精确影院实体。","evidence":[{"tier":"Tier 2","url":"https://m.winshang.com/xm29407.html","claim":"HMC华茂中心项目资料确认昌州大道东段789号及万达IMAX影院入驻。"},{"tier":"Tier 2","url":"https://www.maigoo.com/news/663911.html","claim":"公开万达影院名单列出重庆万达影城华茂店及HMC华茂国际中心C馆第5层。"},{"tier":"Tier 2","url":"https://ditu.amap.com/place/B0FFKLCM2M","claim":"AMap公开页面列出万达影城(HMC华茂中心店)及昌州大道东段789号地址。"}]
+  },
+  {
+    "id":"imax-cn-0299","sourceRow":299,"result":"same entity","amapProviderPoiId":"B0FFHTNUFN","reviewer":"codex-browser-review","confirmationSource":"codex-browser-independent-review","notes":"北京电影行政资料以SFC上影北京大兴龙湖店列出该影院，影院指南给出永兴路7号院1号楼龙湖北京大兴天街L3层Z2；接受AMap对应的现行影院POI。","evidence":[{"tier":"Tier 2","url":"https://cinema.gaoliang.me/cinema/%E5%8C%97%E4%BAACSFC%E4%B8%8A%E5%BD%B1%E5%BD%B1%E5%9F%8E%EF%BC%88%E5%A4%A7%E5%85%B4%E9%BE%99%E6%B9%96%E5%BA%97%EF%BC%89_IMAX","claim":"公开影院资料列出北京SFC上影影城大兴龙湖店及龙湖北京大兴天街L3层Z2。"},{"tier":"Tier 2","url":"https://www.bjdyj.gov.cn/zwxx/tzgg/654391b25f4646179bafdfb917b96c5f/461d8cedc35c447e86193b133cee479c.pdf","claim":"北京市电影行政资料列出北京市大兴区SFC上影北京大兴龙湖店。"},{"tier":"Tier 2","url":"https://pdf.dfcfw.com/pdf/H2_AN201608030016905484_1.pdf","claim":"北京影龙影城登记资料给出永兴路7号院1号楼3F-Z2、4F-Z2及电影放映业务。"}]
+  },
+  {
+    "id":"imax-cn-0372","sourceRow":372,"result":"same entity","amapProviderPoiId":"B0G2NR3HJ7","reviewer":"codex-browser-review","confirmationSource":"codex-browser-independent-review","notes":"独立武汉IMAX影院名单将金银湖万达店锁定到金山大道1239号万达广场4层；AMap候选名称、城市、分店和地址对应，仅分类字段异常，接受精确影院实体。","evidence":[{"tier":"Tier 2","url":"https://www.maigoo.com/news/683432.html","claim":"武汉IMAX影院名单列出武汉万达影城金银湖万达广场店及金山大道1239号地址。"},{"tier":"Tier 2","url":"https://ditu.amap.com/place/B0G2NR3HJ7","claim":"AMap公开页面列出万达影城(武汉金银湖万达广场店)及同一地址。"}]
+  },
+  {
+    "id":"imax-cn-0383","sourceRow":383,"result":"same mall/venue only","amapProviderPoiId":null,"name":"武汉金逸影城（销品茂IMAX店）","mallOrVenue":"销品茂 / 中商世界里智慧生活MALL","address":"湖北省武汉市武昌区徐东大街18号销品茂5楼","lat":30.587625,"lng":114.342225,"crs":"GCJ-02","locationAnchorName":"销品茂","reviewer":"codex-browser-review","confirmationSource":"codex-browser-independent-review","notes":"公开影院指南、东方福利网和武汉IMAX名单均确认销品茂5楼金逸IMAX。当前AMap只召回同一大厅内的共享台球租户，未将租户POI写成影院；坐标仅作销品茂venue-level锚点。","evidence":[{"tier":"Tier 2","url":"https://cinema.gaoliang.me/cinema/%E6%AD%A6%E6%B1%89%E9%87%91%E9%80%B8%E5%BD%B1%E5%9F%8E%EF%BC%88%E9%94%80%E5%93%81%E8%8C%82IMAX%E5%BA%97%EF%BC%89_IMAX","claim":"公开影院资料确认武汉金逸销品茂IMAX店位于徐东大街18号中商世界里智慧生活MALL5层。"},{"tier":"Tier 2","url":"https://m.dongfangfuli.com/cinema/detail/1334?city=67","claim":"东方福利网确认销品茂IMAX店、同一地址及IMAX厅。"},{"tier":"Tier 2","url":"https://www.maigoo.com/news/683432.html","claim":"武汉IMAX名单确认徐东大街18号销品茂5楼金逸IMAX。"}]
+  },
+  {
+    "id":"imax-cn-0418","sourceRow":418,"result":"same entity","amapProviderPoiId":"B0LURH46DZ","reviewer":"codex-browser-review","confirmationSource":"codex-browser-independent-review","notes":"衡阳本地公开资料和影院目录均确认中心城金逸位于解放大道21号华新步步高广场4楼并设IMAX；AMap候选名称和地址精确对应，分类字段异常不影响实体识别。","evidence":[{"tier":"Tier 2","url":"https://m.hy.bendibao.com/xiuxian/1743.shtm","claim":"衡阳本地宝确认步步高电影院即金逸影城衡阳中心城店，并设IMAX。"},{"tier":"Tier 2","url":"https://movie.douban.com/cinema/search/hengyang/","claim":"豆瓣影院目录列出衡阳金逸影城中心城店及步步高四楼地址。"},{"tier":"Tier 2","url":"https://www.amap.com/place/B0LURH46DZ","claim":"AMap公开页面列出金逸IMAX影城(衡阳中心城店)及解放大道21号华新步步高广场4楼。"}]
+  },
+  {
+    "id":"imax-cn-0537","sourceRow":537,"result":"same entity","amapProviderPoiId":"B0H397TCRC","reviewer":"codex-browser-review","confirmationSource":"codex-browser-independent-review","notes":"博纳官网确认杭州丁桥龙湖IMAX店位于丁城路515号龙湖天街5楼；AMap候选为同一分店，接受精确影院实体。","evidence":[{"tier":"Tier 1","url":"https://www.bonafilm.cn/cinema_del/26.html","claim":"博纳官网确认博纳国际影城丁桥龙湖IMAX店及丁城路515号龙湖天街5楼地址。"},{"tier":"Tier 2","url":"https://ditu.amap.com/place/B0H397TCRC","claim":"AMap公开页面列出博纳国际影城(龙湖杭州丁桥天街店)及对应地址。"}]
+  },
+  {
+    "id":"imax-cn-0624","sourceRow":624,"result":"same entity","amapProviderPoiId":"B0FFG5AN0M","reviewer":"codex-browser-review","confirmationSource":"codex-browser-independent-review","notes":"太原本地公开影院目录确认太原龙湖万达影城位于解放北路175号万达广场4层；AMap候选名称和地址一致，接受精确影院实体。","evidence":[{"tier":"Tier 2","url":"https://m.ty.bendibao.com/wangdian/dian/5887888.shtm","claim":"太原本地宝列出太原龙湖万达影城及解放路175号万达广场4F层。"},{"tier":"Tier 2","url":"https://ranks.amap.com/ranking/3D%E5%BD%B1%E9%99%A2/%E5%A4%AA%E5%8E%9F%E5%B8%82%E7%AC%AC%E5%8D%81%E4%BA%8C%E4%B8%AD%E5%AD%A6/%E7%99%BD%E9%A2%86","claim":"公开高德榜单列出万达影城(太原龙湖万达店)及解放北路175号万达广场4层。"},{"tier":"Tier 2","url":"https://ditu.amap.com/place/B0FFG5AN0M","claim":"AMap公开页面列出万达影城(太原龙湖万达店)及同一地址。"}]
+  },
+  {
+    "id":"imax-cn-0754","sourceRow":754,"result":"same entity","amapProviderPoiId":"B0FFM6UHJ6","reviewer":"codex-browser-review","confirmationSource":"codex-browser-independent-review","notes":"云岩万达项目资料锁定新添大道南段302号，公开地图目录列出该地址4F影院；AMap候选名称和地址对应，接受精确分店。","evidence":[{"tier":"Tier 2","url":"https://m.map.360.cn/?city=%E8%B4%B5%E9%98%B3&k=%E8%B4%B5%E5%B7%9E%E7%9C%81%E8%B4%B5%E9%98%B3%E5%B8%82%E4%BA%91%E5%B2%A9%E5%8C%BA%E9%BB%94%E7%81%B5%E9%95%87%E6%96%B0%E6%B7%BB%E5%A4%A7%E9%81%93%E5%8D%97%E6%AE%B5302%E5%8F%B7%E4%B8%87%E8%BE%BE%E5%B9%BF%E5%9C%BA4F&src=bendibao&t=map","claim":"公开地图目录列出万达影城(贵阳云岩万达广场店)在新添大道南段302号云岩万达广场4层。"},{"tier":"Tier 2","url":"https://m.winshang.com/xm54141.html","claim":"云岩万达项目资料确认项目地址为贵阳云岩区新添大道南段302号。"},{"tier":"Tier 2","url":"https://ditu.amap.com/place/B0FFM6UHJ6","claim":"AMap公开页面列出万达影城(云岩万达广场店)及新添大道南段302号万达广场F4层。"}]
+  },
+  {
+    "id":"imax-cn-0755","sourceRow":755,"result":"same entity","amapProviderPoiId":"B0G0APS4F3","reviewer":"codex-browser-review","confirmationSource":"codex-browser-independent-review","notes":"公开票务目录和地方开业资料均确认贵阳数博万达影城位于北京西路66号数博万达F6；AMap候选同名同址，接受精确影院实体。","evidence":[{"tier":"Tier 2","url":"https://m.dongfangfuli.com/cinema/detail/13473?city=188","claim":"东方福利网列出贵阳数博万达影城及北京西路66号数博万达广场6层地址。"},{"tier":"Tier 2","url":"https://k.sina.cn/article_3740356007_def14da70200224ey.html","claim":"公开地方资料确认数博万达项目开业及万达影城入驻。"},{"tier":"Tier 2","url":"https://www.maigoo.com/news/664880.html","claim":"贵阳万达影院名单列出数博万达店及F6地址。"}]
+  },
+  {
+    "id":"imax-cn-0788","sourceRow":788,"result":"same entity","amapProviderPoiId":"B0LURU4ZDG","reviewer":"codex-browser-review","confirmationSource":"codex-browser-independent-review","notes":"IMAX官方微博转发和影院指南均确认乌鲁木齐中影美美MM3店位于西环北路989号美美3购物中心8楼；AMap候选名称、地址精确对应，分类字段被误标为医疗场所，接受精确影院实体。","evidence":[{"tier":"Tier 1","url":"https://www.sina.cn/news/detail/5183991080026505.html","claim":"IMAX官方微博转发资料确认中影美美影城MM3店及西环北路989号美美3购物中心8楼。"},{"tier":"Tier 2","url":"https://cinema.gaoliang.me/cinema/%E4%B9%8C%E9%B2%81%E6%9C%A8%E9%BD%90%E4%B8%AD%E5%BD%B1%E7%BE%8E%E7%BE%8E%E5%BD%B1%E5%9F%8E%EF%BC%88MM3%E5%BA%97%EF%BC%89_CINITY_cinity-led","claim":"公开影院指南确认乌鲁木齐中影美美影城MM3店及MM3购物中心8层地址。"},{"tier":"Tier 2","url":"https://www.amap.com/place/B0LURU4ZDG","claim":"AMap公开页面列出中影美美影城(MM3店)及西环北路MM3美美购物中心8楼。"}]
+  },
+  {
+    "id":"imax-cn-0791","sourceRow":791,"result":"same entity","amapProviderPoiId":"B0I647TJZS","reviewer":"codex-browser-review","confirmationSource":"codex-browser-independent-review","notes":"英皇集团官方资料确认澳门葡京人引入澳门首家IMAX影院；AMap候选为英皇戏院澳门葡京人店、地址在葡京人2楼，接受精确影院实体。","evidence":[{"tier":"Tier 1","url":"https://www.emperorgroup.com/cn/about_us/milestones/","claim":"英皇集团官方里程碑确认英皇戏院(澳门葡京人)及澳门首家IMAX影院。"},{"tier":"Tier 2","url":"https://www.amap.com/place/B0I647TJZS","claim":"AMap公开页面列出英皇戏院(澳门葡京人店)及澳门葡京人2楼地址。"}]
+  },
+  {
+    "id":"imax-cn-0197","sourceRow":197,"result":"same entity","amapProviderPoiId":"B0HB4A9FMR","reviewer":"codex-browser-review","confirmationSource":"codex-browser-independent-review","notes":"广州影院公开目录列出广州万达影城天河智慧城广百广场店IMAX；AMap候选为同名同址影院，接受精确实体。","evidence":[{"tier":"Tier 2","url":"https://yinmuxy.com/cities/guangzhou","claim":"广州影院目录列出广州万达影城(天河智慧城广百广场店)及IMAX信息。"},{"tier":"Tier 2","url":"https://www.amap.com/place/B0HB4A9FMR","claim":"AMap公开页面列出万达影院(广百广场广州天河店)及华观路1932号智慧城广百广场4层。"}]
+  },
+  {
+    "id":"imax-cn-0432","sourceRow":432,"result":"same mall/venue only","amapProviderPoiId":null,"name":"吉林万达影城（欧亚广场店）","mallOrVenue":"欧亚商都综合体 / 吉林欧亚城","address":"吉林省吉林市丰满区吉林大街1-2号欧亚城市综合体4层","lat":43.78773,"lng":126.54813,"crs":"WGS84","locationAnchorName":"吉林欧亚城","reviewer":"codex-browser-review","confirmationSource":"codex-browser-independent-review","notes":"万达官方门店权益页和银行官方旧影院名单均确认吉林欧亚店在吉林大街1-2号欧亚城市综合体；现有AMap候选全部是吉林昌邑万达或长春分店，全部拒绝。使用欧亚项目的venue-level坐标，不绑定无关影院POI。","evidence":[{"tier":"Tier 1","url":"https://m.wandacinemas.com/memberrights","claim":"万达官方门店权益页列出吉林欧亚店。"},{"tier":"Tier 2","url":"https://pic.bankofchina.com/bocappd/appform_1/201509/P020150924529221572419.pdf","claim":"银行官方影院合作名单列出吉林市吉林大街1-2号欧亚城市综合体4层万达影城。"},{"tier":"Tier 2","url":"https://mapcarta.com/W1418367056","claim":"公开地图资料确认吉林欧亚城项目位置并提供WGS84坐标。"}]
+  },
+  {
+    "id":"imax-cn-0052","sourceRow":52,"result":"same mall/venue only","amapProviderPoiId":null,"name":"哈尔滨万达影城（悦荟广场店）","mallOrVenue":"哈尔滨悦荟广场 / 原万达商业广场","address":"黑龙江省哈尔滨市道里区中央大街232号哈尔滨悦荟广场A座3层","lat":45.779833,"lng":126.616031,"crs":"GCJ-02","locationAnchorName":"哈尔滨悦荟广场","reviewer":"codex-browser-review","confirmationSource":"codex-browser-independent-review","notes":"万达官方、如意影城资料和银行官方旧名单均确认中央大街232号悦荟/原万达商业广场3层影院。当前AMap只召回同一商场内的游戏租户，未将其POI写成影院；坐标仅作悦荟广场venue-level锚点。","evidence":[{"tier":"Tier 1","url":"https://m.wandacinemas.com/memberrights","claim":"万达官方门店权益页列出哈尔滨万达影城悦荟广场店。"},{"tier":"Tier 2","url":"https://www.ruyifilm.com/gywm/yclb/dbdq/hljs/0d73518a965d11e982dc005056835733.html","claim":"如意影城资料列出哈尔滨万达影城中央大街悦荟广场店。"},{"tier":"Tier 2","url":"https://pic.bankofchina.com/bocappd/appform_1/201509/P020150924529221572419.pdf","claim":"银行官方旧名单列出哈尔滨中央大街悦荟广场店及中央大街232号万达商业广场3层。"},{"tier":"Tier 2","url":"https://m.city8.com/haerbin/shopping/8idcku87gue3bae7f4","claim":"公开地点资料确认中央大街232号哈尔滨悦荟广场A座地址。"}]
+  },
+  {
+    "id":"imax-cn-0074","sourceRow":74,"result":"same mall/venue only","amapProviderPoiId":null,"name":"桃園美麗新台茂影城","mallOrVenue":"台茂購物中心","address":"桃園市蘆竹區南崁路一段112號7樓","lat":25.05344,"lng":121.28842,"crs":"WGS84","locationAnchorName":"台茂購物中心","reviewer":"codex-browser-review","confirmationSource":"codex-browser-independent-review","notes":"美麗新官方确认台茂影城位于南崁路一段112號7樓，桃園官方开放资料确认台茂项目坐标。AMap候选均为大陆无关地点，按台茂venue-level物化，不绑定商场内其他商户。","evidence":[{"tier":"Tier 1","url":"https://www.miranewcinemas.com/AboutUs/Index?type=taimall_royal","claim":"美麗新官方确认台茂皇家影城地址为桃園市蘆竹區南崁路一段112號7樓。"},{"tier":"Tier 1","url":"https://media.taiwan.net.tw/zh-tw/portal/travel/details/attraction_376430000a_000186","claim":"台湾官方开放资料确认台茂購物中心地址及WGS84坐标。"},{"tier":"Tier 2","url":"https://travel.tycg.gov.tw/zh-tw/consume/detail/1853","claim":"桃園市旅游资料确认台茂购物中心设有电影院。"}]
+  },
+  {
+    "id":"imax-cn-0098","sourceRow":98,"result":"same mall/venue only","amapProviderPoiId":"B0FFGK62W9","amapProviderPoiName":"雨花客厅","name":"南京海上明珠国际影城（雨花客厅店）","mallOrVenue":"雨花客厅 E-PARK","address":"江苏省南京市雨花台区软件大道109号雨花客厅E-PARK北区3层","lat":31.978904,"lng":118.764440,"crs":"GCJ-02","locationAnchorName":"雨花客厅 E-PARK","reviewer":"codex-browser-review","confirmationSource":"codex-browser-independent-review","notes":"海上明珠官方和独立影院资料确认雨花客厅E-PARK北区3层的影院位置；AMap只召回同一项目内游戏租户及其他分店，拒绝这些影院身份。B0FFGK62W9仅作为雨花客厅项目venue anchor，不升级为影院POI。","evidence":[{"tier":"Tier 1","url":"https://www.hsmz.com/introduce/show-12.html","claim":"海上明珠官方确认南京雨花客厅IMAX影城位于雨花客厅E-PARK。"},{"tier":"Tier 2","url":"https://www.maigoo.com/citiao/1082197.html","claim":"公开影院资料列出南京海上明珠雨花客厅店及软件大道109号雨花客厅E-PARK北区3层。"},{"tier":"Tier 2","url":"https://ditu.amap.com/place/B0FFGK62W9","claim":"AMap公开页面列出软件大道109号雨花客厅项目及坐标，作为场馆级锚点。"}]
+  },
+  {
+    "id":"imax-cn-0250","sourceRow":250,"result":"same entity","amapProviderPoiId":"B0G306FKYP","reviewer":"codex-browser-review","confirmationSource":"codex-browser-independent-review","notes":"AMap公开页面给出万达影城北滘美的悦然广场店的精确名称、地址和影院类型；独立项目资料确认美的悦然广场引入万达影城，接受该精确影院候选。","evidence":[{"tier":"Tier 2","url":"https://ditu.amap.com/place/B0G306FKYP","claim":"AMap公开页面列出万达影城(北滘美的悦然广场店)及诚德路1号悦然广场3层3015号。"},{"tier":"Tier 2","url":"https://m.focus.cn/fcg/zixun/599605b7759a92b6.html","claim":"北滘项目资料确认美的悦然广场引入万达影城。"}]
+  },
+  {
+    "id":"imax-cn-0338","sourceRow":338,"result":"same entity","amapProviderPoiId":"B0FFITUVMH","reviewer":"codex-browser-review","confirmationSource":"codex-browser-independent-review","notes":"公开资料将历史金州瑞栢中心与现栢都荟购物广场确认在胜利路180-184号同一商业体；影院目录锁定万达金州瑞柏/栢都荟店，接受AMap当前同址影院实体。","evidence":[{"tier":"Tier 2","url":"https://cinema.gaoliang.me/cinema/%E5%A4%A7%E8%BF%9E%E4%B8%87%E8%BE%BE%E5%BD%B1%E5%9F%8E%EF%BC%88%E9%87%91%E5%B7%9E%E7%91%9E%E6%A0%A2%E4%B8%AD%E5%BF%83%E5%BA%97%EF%BC%89_IMAX","claim":"公开影院资料列出大连万达影城金州瑞栢中心店。"},{"tier":"Tier 2","url":"https://m.dongfangfuli.com/cinema/list?city=195&region_id=1657","claim":"东方福利网列出大连万达影城金州瑞柏中心店及栢都荟4层地址。"},{"tier":"Tier 2","url":"https://www.sohu.com/a/354233615_99965640","claim":"公开资料说明瑞栢中心与栢都荟购物广场为同一商业体/项目关系。"}]
+  },
+  {
+    "id":"imax-cn-0501","sourceRow":501,"result":"same mall/venue only","amapProviderPoiId":"B0FFIK5ZFY","amapProviderPoiName":"龙湖合肥瑶海天街","name":"合肥博纳国际影城（龙湖天街店）","mallOrVenue":"龙湖合肥瑶海天街","address":"安徽省合肥市瑶海区长江东路与王岗路交口龙湖天街商业中心5层","lat":31.867351,"lng":117.391245,"crs":"GCJ-02","locationAnchorName":"龙湖合肥瑶海天街","reviewer":"codex-browser-review","confirmationSource":"codex-browser-independent-review","notes":"博纳官网和商业项目资料均确认瑶海龙湖天街5层博纳IMAX。当前AMap候选没有可靠影院POI，B0FFIK5ZFY只作为龙湖合肥瑶海天街venue anchor，不把同址酒店、瑜伽或棋牌租户提升为影院。","evidence":[{"tier":"Tier 1","url":"https://www.bonafilm.cn/cinema_del/34.html","claim":"博纳官网确认博纳国际影城合肥瑶海龙湖店位于长江东路与王岗路交口龙湖天街商业中心5层并设IMAX。"},{"tier":"Tier 2","url":"https://crrchina.cc/a/bigcompany/2020/0513/339.html","claim":"商业资料确认龙湖合肥瑶海天街引入博纳影院。"},{"tier":"Tier 2","url":"https://ditu.amap.com/place/B0FFIK5ZFY","claim":"AMap公开页面列出龙湖合肥瑶海天街项目及坐标，作为场馆级锚点。"}]
+  },
+  {
+    "id":"imax-cn-0560","sourceRow":560,"result":"same entity","amapProviderPoiId":"B0FFIKI9SG","reviewer":"codex-browser-review","confirmationSource":"codex-browser-independent-review","notes":"公开IMAX影院指南将绍兴星轶嵊州吾悦广场旗舰店锁定到兴盛街668号嵊州市吾悦广场4F层4019、5001；AMap候选名称和地址对应，分类字段为泛娱乐类别但不构成位置冲突，接受精确影院实体。","evidence":[{"tier":"Tier 2","url":"https://cinema.gaoliang.me/cinema/%E7%BB%8D%E5%85%B4%E6%98%9F%E8%BD%B6IMAX%E5%BD%B1%E5%9F%8E%EF%BC%88%E5%B5%8A%E5%B7%9E%E5%90%BE%E6%82%A6%E5%B9%BF%E5%9C%BA%E6%97%97%E9%9D%97%E5%BA%97%EF%BC%89_IMAX","claim":"公开影院资料确认嵊州星轶IMAX影城位于兴盛街668号嵊州市吾悦广场4F层。"},{"tier":"Tier 2","url":"https://www.amap.com/place/B0FFIKI9SG","claim":"AMap公开页面列出嵊州星轶影城店及同一吾悦广场地址。"}]
+  },
+  {
+    "id":"imax-cn-0594","sourceRow":594,"result":"same entity","amapProviderPoiId":"B001D09I0Z","reviewer":"codex-browser-review","confirmationSource":"codex-browser-independent-review","notes":"独立影院目录、票务资料和公开旧名单均确认西安民乐园万达店在解放路111号万达广场4层；AMap候选对应同一分店，接受精确影院实体。","evidence":[{"tier":"Tier 2","url":"https://m.dongfangfuli.com/cinema/detail/11888?city=219","claim":"东方福利网确认西安民乐园万达影城位于解放路111号万达广场4层。"},{"tier":"Tier 2","url":"https://www.dushengyi.com/m/store/shop/introduce/id/6257.html","claim":"公开影院目录列出西安民乐园万达店及解放路111号万达广场4层。"},{"tier":"Tier 2","url":"https://www.maigoo.com/news/664707.html","claim":"公开资料列出西安民乐园万达影城及同一地址。"}]
+  },
+  {
+    "id":"imax-cn-0651","sourceRow":651,"result":"same entity","amapProviderPoiId":"B0FFH9CLNK","reviewer":"codex-browser-review","confirmationSource":"codex-browser-independent-review","notes":"世茂官方资料确认石狮世茂摩天城/国际商业广场引入万达影城；公开名称差异属于同一商业体的项目称呼差异，AMap候选为同址影院，接受精确实体。","evidence":[{"tier":"Tier 1","url":"https://www.shimaoco.com/mobile/business.aspx?id=445&type=11","claim":"世茂项目官方资料确认石狮世茂摩天城包含万达影城。"},{"tier":"Tier 1","url":"https://club.shimaogroup.com/pub/newsdetails.aspx?ChannelID=119&MetaDataId=299396","claim":"世茂资料确认石狮世茂项目落地万达IMAX影城。"},{"tier":"Tier 2","url":"https://www.amap.com/place/B0FFH9CLNK","claim":"AMap公开页面列出石狮万达影城国际广场店及世茂国际商业广场2层地址。"}]
+  },
+  {
+    "id":"imax-cn-0667","sourceRow":667,"result":"same entity","amapProviderPoiId":"B0FFL886MK","reviewer":"codex-browser-review","confirmationSource":"codex-browser-independent-review","notes":"东方福利网和公开开业资料均将郑州高新大学城IMAX店定位到朗悦新悦荟/长椿路216号新悦荟4层；AMap候选是同城同品牌正确分店，接受精确影院实体。","evidence":[{"tier":"Tier 2","url":"https://m.dongfangfuli.com/cinema/detail/12258?city=131","claim":"东方福利网列出郑州金逸影城高新大学城IMAX店。"},{"tier":"Tier 2","url":"https://www.sohu.com/a/323828451_726350","claim":"公开资料确认郑州金逸高新大学城IMAX店及其影厅配置。"},{"tier":"Tier 2","url":"https://www.amap.com/place/B0FFL886MK","claim":"AMap公开页面列出金逸影城朗悦新悦荟店及长椿路216号新悦荟购物中心4层。"}]
+  },
+  {
+    "id":"imax-cn-0778","sourceRow":778,"result":"same entity","amapProviderPoiId":"B0FFHE21W9","reviewer":"codex-browser-review","confirmationSource":"codex-browser-independent-review","notes":"万达官方资料、海南公开报道和影院名单均确认海口日月广场店；AMap候选为国兴大道日月广场水瓶座店，接受精确影院实体。","evidence":[{"tier":"Tier 1","url":"https://www.wandafilm.com/xwzx/gdkx/3ee510d492231f259505db4efaf114ab.html","claim":"万达官方公开资料确认海口日月广场店。"},{"tier":"Tier 2","url":"https://news.hndaily.cn/h5/html5/2016-10/21/content_18_3.htm","claim":"海南公开报道确认海口日月广场万达影城开业。"},{"tier":"Tier 2","url":"https://www.amap.com/place/B0FFHE21W9","claim":"AMap公开页面列出万达影城(日月广场店)及国兴大道日月广场水瓶座C门4-5层。"}]
+  },
+  {
+    "id":"imax-cn-0827","sourceRow":827,"result":"acceptedHistoricalLocation","name":"武汉CGV影城（光谷店）","historicalAddress":"湖北省武汉市洪山区光谷街23号光谷步行街4期德国风情街F地块8号楼3-6层","mallOrVenue":"世界城光谷步行街 / 光谷德国风情街","lat":30.50535,"lng":114.402711,"crs":"GCJ-02","providerPoiId":null,"locationAnchor":"世界城光谷步行街","granularity":"historical-venue","reviewer":"codex-browser-review","confirmationSource":"codex-browser-independent-review","notes":"高校公开影院兑换资料和武汉本地宝均把CGV光谷店锁定到光谷步行街4期德国风情街8号楼；公开闭店信息确认该店于2023年停止营业。当前AMap的中影天河店是另一运营方/另一影院，拒绝合并；坐标仅作历史venue-level锚点。","evidence":[{"tier":"Tier 2","url":"https://xgh.cug.edu.cn/info/1044/1046.htm","claim":"中国地质大学公开资料列出CGV星聚汇影城光谷店及德国风情街8号楼3F地址。"},{"tier":"Tier 2","url":"https://wh.bendibao.com/xiuxian/2015713/71124.shtm","claim":"武汉本地宝列出CGV星聚汇影城武汉光谷店及光谷街23号德国步行街F地块8号楼3-6层。"},{"tier":"Tier 3","url":"https://www.guanggu.org/forum.php?extra=page%3D1&mod=viewthread&ordertype=1&page=2&tid=7677","claim":"公开本地信息确认CGV影城武汉光谷店于2023年停止营业。"}]
+  },
+  {
+    "id":"imax-cn-0891","sourceRow":891,"result":"same mall/venue only","amapProviderPoiId":null,"name":"基隆國立海洋科技博物館","mallOrVenue":"國立海洋科技博物館 / IMAX 3D海洋劇場","address":"台灣基隆市中正區北寧路367號","lat":25.140044,"lng":121.79883,"crs":"WGS84","locationAnchorName":"國立海洋科技博物館","reviewer":"codex-browser-review","confirmationSource":"codex-browser-independent-review","notes":"台湾官方观光资料确认国立海洋科技博物馆地址和坐标，馆方资料确认IMAX 3D海洋剧场。现有AMap无可用候选，只物化场馆级位置，不虚构独立影院入口POI。","evidence":[{"tier":"Tier 1","url":"https://www.tad.gov.tw/m1.aspx?id=A12-00221&sNo=0001105","claim":"台湾官方观光资料确认国立海洋科技博物馆位于基隆市中正区北宁路367号并提供坐标。"},{"tier":"Tier 1","url":"https://www.nmmst.gov.tw/chhtml/content/29/1190","claim":"馆方资料确认IMAX 3D海洋剧场。"},{"tier":"Tier 1","url":"https://www.nmmst.gov.tw/chhtml/content/29/4870","claim":"馆方资料确认3D IMAX海洋剧场设施。"}]
+  },
+  {
+    "id":"imax-cn-0805","sourceRow":805,"result":"acceptedHistoricalLocation","name":"重庆越界影城（大学城店）","historicalAddress":"重庆市沙坪坝区大学城中路9号台北城生活广场4楼","mallOrVenue":"台北城生活广场 / 旭阳台北城","lat":29.586057,"lng":106.306618,"crs":"WGS84","providerPoiId":null,"locationAnchor":"台北城生活广场","granularity":"historical-venue","reviewer":"codex-browser-review","confirmationSource":"codex-browser-independent-review","notes":"独立历史影院资料和企业登记资料共同将越界大学城IMAX锁定在大学城中路9号台北城生活广场4楼；Google地图仅提供台北城生活广场的场馆级WGS84位置锚点。拒绝AMap最佳候选B0FFIBSMOM（荣昌区越界·金太郎电影城），不把当前或其他越界分店写成同一影院。","evidence":[{"tier":"Tier 2","url":"https://m.dongfangfuli.com/cinema/list?city=177&region_id=1492","claim":"公开影院目录列出越界影城IMAX大学城店及旭阳台北城/大学城中路9号附近4楼地址。"},{"tier":"Tier 2","url":"https://qccdata.qichacha.com/ReportData/PDF/fe5e22ba32ed0ac74009e15be3b66e13.pdf","claim":"企业公开资料将重庆越界合创影院有限公司地址列为大学城中路9号台北城生活广场4楼。"},{"tier":"Tier 3","url":"https://www.google.com/maps/place/%E5%8F%B0%E5%8C%97%E5%9F%8E%E7%94%9F%E6%B4%BB%E5%B9%BF%E5%9C%BA/@29.586057,106.306618,17z/data=!3m1!4b1!4m6!3m5!1s0x36ecc6649349df5b:0xd1a35cbefd661453!8m2!3d29.586057!4d106.306618!16s%2Fg%2F11cm1mnz3w?entry=ttu","claim":"Google地图公开地点页将台北城生活广场定位为29.586057,106.306618，并显示该商场历史评价提及越界影院；仅作为场馆坐标锚点。"}]
+  },
+  {
+    "id":"imax-cn-0883","sourceRow":883,"result":"acceptedHistoricalLocation","name":"淮北金逸影城（IMAX店）","historicalAddress":"安徽省淮北市相山区南黎路138号海容商业广场第三层","mallOrVenue":"海容商业广场 / 海容广场","lat":33.94002,"lng":116.8024,"crs":"WGS84","providerPoiId":null,"locationAnchor":"海容广场","granularity":"historical-venue","reviewer":"codex-browser-review","confirmationSource":"codex-browser-independent-review","notes":"金逸影视公开披露和历史IMAX资料共同将淮北金逸锁定在相山路与南黎路交汇处海容商业广场第三层；Google地图公开地点页确认南黎路138号海容广场位置锚点。拒绝AMap候选B0FFJMAOHB（国购影城）及淮北万达分店，不把其他影院或后续运营方写成金逸same entity。","evidence":[{"tier":"Tier 2","url":"https://static.cninfo.com.cn/finalpage/2017-09-20/1203987558.PDF","claim":"金逸影视公开租赁资料列出淮北金逸及相山路与南黎路交汇处海容商业广场第三层。"},{"tier":"Tier 2","url":"https://www.sohu.com/a/244691238_771734","claim":"历史IMAX公开资料明确给出淮北金逸影城IMAX店位于海容广场3楼。"},{"tier":"Tier 3","url":"https://www.google.com/maps/place/%E6%B5%B7%E5%AE%B9%E5%B9%BF%E5%9C%BA/@33.94002,116.8024,17z/data=!3m1!4b1!4m6!3m5!1s0x35cf41de7e17df0f:0x14fc751d153ff8a7!8m2!3d33.94002!4d116.8024!16s%2Fg%2F11swtghzbl?entry=ttu","claim":"Google地图公开地点页确认海容广场地址为南黎路138号并定位为33.940020,116.802400；仅作为历史场馆坐标锚点。"}]
+  }
+]

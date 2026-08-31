@@ -1,0 +1,32 @@
+{
+  "schemaVersion": 1,
+  "summary": {
+    "automaticHigh": 15,
+    "automaticMedium": 0,
+    "reviewedOverrideHigh": 4,
+    "reviewedOverrideMedium": 0,
+    "unresolved": 1
+  },
+  "records": [
+    { "sourceRow": 309, "decision": "accepted-high", "poiId": "B0HBXCQO2P", "overrideUsed": true },
+    { "sourceRow": 311, "decision": "accepted-high", "poiId": "B000A81BZM", "overrideUsed": false },
+    { "sourceRow": 314, "decision": "accepted-high", "poiId": "B0G0TAEIJV", "overrideUsed": false },
+    { "sourceRow": 21, "decision": "accepted-high", "poiId": "B0FFJL4VPL", "overrideUsed": false },
+    { "sourceRow": 30, "decision": "accepted-high", "poiId": "B0FFI2O92B", "overrideUsed": false },
+    { "sourceRow": 37, "decision": "accepted-high", "poiId": "B00157A5JJ", "overrideUsed": false },
+    { "sourceRow": 198, "decision": "accepted-high", "poiId": "B0FFKBGXY0", "overrideUsed": false },
+    { "sourceRow": 200, "decision": "accepted-high", "poiId": "B00141SC0V", "overrideUsed": false },
+    { "sourceRow": 224, "decision": "accepted-high", "poiId": "B0FFLKPC8C", "overrideUsed": false },
+    { "sourceRow": 228, "decision": "accepted-high", "poiId": "B0HRK5AY2M", "overrideUsed": false },
+    { "sourceRow": 593, "decision": "accepted-high", "poiId": "B0KG251QBL", "overrideUsed": false },
+    { "sourceRow": 699, "decision": "accepted-high", "poiId": "B0K0XSTSXF", "overrideUsed": false },
+    { "sourceRow": 59, "decision": "accepted-high", "poiId": "B0HBOZL908", "overrideUsed": false },
+    { "sourceRow": 51, "decision": "accepted-high", "poiId": "B01C302873", "overrideUsed": true },
+    { "sourceRow": 155, "decision": "accepted-high", "poiId": "B0FFFDTAL6", "overrideUsed": true },
+    { "sourceRow": 305, "decision": "accepted-high", "poiId": "B0FFIQ193L", "overrideUsed": false },
+    { "sourceRow": 610, "decision": "accepted-high", "poiId": "B0FFJEI1H1", "overrideUsed": false },
+    { "sourceRow": 233, "decision": "accepted-high", "poiId": "B0JAAH8R2L", "overrideUsed": false },
+    { "sourceRow": 538, "decision": "accepted-high", "poiId": "B023B14BCH", "overrideUsed": true },
+    { "sourceRow": 843, "decision": "unresolved", "poiId": null, "overrideUsed": false }
+  ]
+}

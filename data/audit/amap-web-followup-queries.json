@@ -1,0 +1,31 @@
+{
+  "schemaVersion": 1,
+  "scope": {
+    "total": 901,
+    "startingLocated": 672,
+    "startingUnresolved": 229,
+    "pendingReview": 0,
+    "purpose": "Use public-web location clues to make a bounded AMap candidate follow-up; never materialize facts."
+  },
+  "queries": [
+    {"sourceRow": 3, "city": "香港", "query": "英皇戲院尖沙咀iSQUARE 香港"},
+    {"sourceRow": 36, "city": "上海", "query": "上海CGV影城 天空万科广场 崧泽大道2229号"},
+    {"sourceRow": 232, "city": "深圳", "query": "寰映影城 中洲湾 C Future City 滨河大道9283号"},
+    {"sourceRow": 266, "city": "茂名", "query": "茂名万达影城 电白万达广场 迎宾大道66号"},
+    {"sourceRow": 294, "city": "北京", "query": "中国科学技术馆 IMAX 特效影院 北京"},
+    {"sourceRow": 427, "city": "长春", "query": "万达影城 长春车城店 腾飞大路 西湖大路"},
+    {"sourceRow": 695, "city": "成都", "query": "成都CGV影城 新都七一广场 金光路2号"},
+    {"sourceRow": 828, "city": "武汉", "query": "幕尚银兴影城 武汉江腾店 马鹦路117号"},
+    {"sourceRow": 838, "city": "宁波", "query": "CGV 宁波文化广场 宁穿路1888号"},
+    {"sourceRow": 825, "city": "武汉", "query": "万达影城 汉街万达店 烟霞路1号 历史"},
+    {"sourceRow": 237, "city": "深圳", "query": "寰映影城 宝安大悦城 前进一路77号"},
+    {"sourceRow": 447, "city": "石家庄", "query": "石家庄万达影城 裕华万达广场 槐安东路123号"},
+    {"sourceRow": 809, "city": "北京", "query": "中国科技馆影院 北辰东路5号"},
+    {"sourceRow": 854, "city": "铜陵", "query": "铜陵万达影城 北斗星城广场 北京西路"},
+    {"sourceRow": 861, "city": "厦门", "query": "金逸影城 厦门明发 IMAX 莲坂381号"},
+    {"sourceRow": 862, "city": "宝鸡", "query": "金逸影城 西建国际 宝鸡 大庆路10号"},
+    {"sourceRow": 889, "city": "大庆", "query": "大庆市科技馆 IMAX球幕 中宝路"},
+    {"sourceRow": 895, "city": "香港", "query": "香港太空馆 OMNIMAX 梳士巴利道10号"},
+    {"sourceRow": 902, "city": "廊坊", "query": "华谊兄弟影城 燕郊天洋城 天洋广场4层"}
+  ]
+}

@@ -1,0 +1,257 @@
+{
+  "schemaVersion": 1,
+  "generatedAt": "2026-08-20T08:58:03.669Z",
+  "mode": "blind-50-existing-cache-only-admin-hierarchy-rescore",
+  "networkRequests": 0,
+  "matcher": {
+    "algorithm": "SHA-256",
+    "files": [
+      "scripts/geocode/scoring.mjs",
+      "scripts/geocode/admin-divisions.mjs",
+      "scripts/geocode/query.mjs",
+      "scripts/geocode/crs.mjs",
+      "data/geocode/mainland-admin-hierarchy.json"
+    ],
+    "value": "a8b4edf9465594c7f2592861e1ba6a5692dece6c702104d98d6a1069c9787037"
+  },
+  "before": {
+    "evaluated": 50,
+    "automaticHigh": 18,
+    "automaticMedium": 12,
+    "reviewedOverrideHigh": 0,
+    "reviewedOverrideMedium": 0,
+    "unresolved": 20,
+    "coverage": 0.6,
+    "automaticHighRate": 0.36
+  },
+  "after": {
+    "evaluated": 50,
+    "automaticHigh": 19,
+    "automaticMedium": 12,
+    "reviewedOverrideHigh": 0,
+    "reviewedOverrideMedium": 0,
+    "unresolved": 19,
+    "coverage": 0.62,
+    "automaticHighRate": 0.38
+  },
+  "focusRows": {
+    "555": {
+      "before": null,
+      "after": {
+        "poiId": "B023E13P3Q",
+        "name": "万达影城(余姚万达广场店)",
+        "address": "四明西路875号万达广场4层",
+        "typecode": "080601",
+        "positionType": "cinema-poi",
+        "locationGranularity": "cinema",
+        "score": 0.92,
+        "automaticDecision": "accepted-high",
+        "locationConfidence": "high",
+        "identityConfidence": "high",
+        "adminMatch": {
+          "provinceMatch": true,
+          "prefectureMatch": true,
+          "countyMatch": true,
+          "targetLevel": "county-level-city",
+          "compatible": true,
+          "targetProvince": "浙江",
+          "targetPrefecture": "宁波",
+          "targetCounty": "余姚",
+          "providerProvince": "浙江",
+          "providerPrefecture": "宁波",
+          "providerCounty": "余姚",
+          "mappingSource": "data/geocode/mainland-admin-hierarchy.json"
+        },
+        "formatCompatibility": {
+          "compatible": true,
+          "exactFormatMatch": false,
+          "conflicts": [],
+          "source": {
+            "imax": true,
+            "gt": false,
+            "dome": false,
+            "fourD": false,
+            "xd": false,
+            "explicitlyNonDome": true
+          },
+          "candidate": {
+            "imax": false,
+            "gt": false,
+            "dome": false,
+            "giantScreen": false,
+            "fourD": false,
+            "xd": false,
+            "ordinaryImax": false,
+            "explicitAuditorium": false
+          }
+        },
+        "provider": {
+          "providerCrs": "GCJ-02",
+          "providerLat": 30.028299,
+          "providerLng": 121.132535
+        },
+        "map": {
+          "mapCrs": "WGS84",
+          "lat": 30.0305877,
+          "lng": 121.1280415
+        }
+      },
+      "afterTopCandidate": null,
+      "hardRejectSummary": {
+        "candidateCount": 3,
+        "rejectedCandidateCount": 1,
+        "reasons": {
+          "non-cinema-poi": 1
+        }
+      }
+    },
+    "577": {
+      "before": null,
+      "after": null,
+      "afterTopCandidate": {
+        "poiId": "B0FFKOF6QH",
+        "name": "神画影城IMAX(虹桥天元广场店)",
+        "address": "飞虹南路555号华都·天元广场F4层",
+        "typecode": "080601",
+        "positionType": "cinema-poi",
+        "locationGranularity": "cinema",
+        "score": 0.756522,
+        "automaticDecision": "unresolved",
+        "locationConfidence": "unknown",
+        "identityConfidence": "unknown",
+        "adminMatch": {
+          "provinceMatch": true,
+          "prefectureMatch": true,
+          "countyMatch": true,
+          "targetLevel": "county-level-city",
+          "compatible": true,
+          "targetProvince": "浙江",
+          "targetPrefecture": "温州",
+          "targetCounty": "乐清",
+          "providerProvince": "浙江",
+          "providerPrefecture": "温州",
+          "providerCounty": "乐清",
+          "mappingSource": "data/geocode/mainland-admin-hierarchy.json"
+        },
+        "formatCompatibility": {
+          "compatible": true,
+          "exactFormatMatch": true,
+          "conflicts": [],
+          "source": {
+            "imax": true,
+            "gt": false,
+            "dome": false,
+            "fourD": false,
+            "xd": false,
+            "explicitlyNonDome": true
+          },
+          "candidate": {
+            "imax": true,
+            "gt": false,
+            "dome": false,
+            "giantScreen": false,
+            "fourD": false,
+            "xd": false,
+            "ordinaryImax": true,
+            "explicitAuditorium": false
+          }
+        },
+        "provider": {
+          "providerCrs": "GCJ-02",
+          "providerLat": 28.206725,
+          "providerLng": 121.043625
+        },
+        "map": {
+          "mapCrs": "WGS84",
+          "lat": 28.2098578,
+          "lng": 121.0393382
+        }
+      },
+      "hardRejectSummary": {
+        "candidateCount": 1,
+        "rejectedCandidateCount": 0,
+        "reasons": {}
+      }
+    }
+  },
+  "decisionChanges": [
+    {
+      "sourceRow": 555,
+      "sourceName": "余姚万达影城（万达广场店）",
+      "before": {
+        "decision": "unresolved",
+        "poiId": null,
+        "name": null,
+        "positionType": null
+      },
+      "after": {
+        "decision": "accepted-high",
+        "poiId": "B023E13P3Q",
+        "name": "万达影城(余姚万达广场店)",
+        "positionType": "cinema-poi",
+        "locationGranularity": "cinema",
+        "locationConfidence": "high",
+        "identityConfidence": "high"
+      }
+    }
+  ],
+  "formatAudit": {
+    "candidateConflictCount": 3,
+    "affectedSourceRows": [
+      731,
+      872,
+      464
+    ],
+    "conflicts": [
+      {
+        "sourceRow": 731,
+        "sourceName": "南充万达影城（临江万达广场店）",
+        "poiId": "B0L6BZX13O",
+        "name": "幻见蓝影9D球幕飞行影院(南充万达店)",
+        "locationGranularity": "auditorium",
+        "conflicts": [
+          "non-dome-vs-dome-auditorium"
+        ],
+        "hardRejected": true
+      },
+      {
+        "sourceRow": 872,
+        "sourceName": "南京科技館",
+        "poiId": "B0MBBSVOD1",
+        "name": "南京科技馆4D影院",
+        "locationGranularity": "auditorium",
+        "conflicts": [
+          "imax-vs-4d-xd-sibling"
+        ],
+        "hardRejected": true
+      },
+      {
+        "sourceRow": 464,
+        "sourceName": "济南山东省科技馆（新馆）",
+        "poiId": "B0J6N7NXBQ",
+        "name": "山东省科技馆新馆球幕影院",
+        "locationGranularity": "auditorium",
+        "conflicts": [
+          "non-dome-vs-dome-auditorium"
+        ],
+        "hardRejected": true
+      }
+    ],
+    "priorHighFormatConflictCount": 1,
+    "priorHighFormatConflicts": [
+      {
+        "sourceRow": 464,
+        "sourceName": "济南山东省科技馆（新馆）",
+        "poiId": "B0J6N7NXBQ",
+        "name": "山东省科技馆新馆球幕影院",
+        "locationGranularity": "auditorium",
+        "conflicts": [
+          "non-dome-vs-dome-auditorium"
+        ],
+        "hardRejected": true
+      }
+    ],
+    "currentHighFormatConflictCount": 0,
+    "currentHighFormatConflicts": []
+  }
+}

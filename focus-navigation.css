@@ -1,0 +1,87 @@
+.focus-navigation {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr) auto;
+  align-items: center;
+  gap: 8px;
+  margin-top: 10px;
+  padding: 7px 8px;
+  border: 1px solid color-mix(in srgb, var(--accent) 20%, var(--line));
+  border-radius: 12px;
+  background:
+    linear-gradient(135deg, color-mix(in srgb, var(--accent-soft) 72%, transparent), transparent 68%),
+    color-mix(in srgb, var(--panel-raised) 78%, transparent);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, .42), 0 4px 14px rgba(15, 28, 52, .06);
+}
+
+.focus-navigation[hidden] { display: none; }
+
+.focus-back,
+.focus-crumb {
+  appearance: none;
+  border: 0;
+  background: transparent;
+  cursor: pointer;
+  font: inherit;
+}
+
+.focus-back {
+  min-height: 27px;
+  padding: 0 8px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: color-mix(in srgb, var(--panel-raised) 88%, transparent);
+  color: var(--accent-strong);
+  font-size: 9px;
+  font-weight: 820;
+  white-space: nowrap;
+  transition: border-color .15s ease, background .15s ease, transform .15s ease;
+}
+
+.focus-back:hover { border-color: var(--line-strong); background: var(--panel-raised); transform: translateX(-1px); }
+.focus-back:focus-visible,
+.focus-crumb:focus-visible { outline: 2px solid color-mix(in srgb, var(--accent) 44%, transparent); outline-offset: 2px; }
+
+.focus-breadcrumbs {
+  display: flex;
+  min-width: 0;
+  align-items: center;
+  gap: 4px;
+  overflow: hidden;
+  white-space: nowrap;
+}
+
+.focus-crumb {
+  min-width: 0;
+  overflow: hidden;
+  padding: 3px 1px;
+  color: var(--muted);
+  font-size: 10px;
+  font-weight: 760;
+  line-height: 1.2;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.focus-crumb:hover { color: var(--text); }
+.focus-crumb.current { color: var(--text-strong); cursor: default; font-weight: 840; }
+.focus-separator { flex: 0 0 auto; color: var(--muted); font-size: 9px; opacity: .55; }
+
+.focus-scope-note {
+  min-width: 39px;
+  padding: 4px 6px;
+  border-radius: 7px;
+  background: color-mix(in srgb, var(--accent) 10%, transparent);
+  color: var(--accent-strong);
+  font-size: 8px;
+  font-variant-numeric: tabular-nums;
+  font-weight: 820;
+  text-align: center;
+  white-space: nowrap;
+}
+
+@media (max-width: 640px) {
+  .focus-navigation { gap: 6px; padding: 6px; }
+  .focus-scope-note { display: none; }
+  .focus-back { padding: 0 7px; }
+  .focus-crumb { max-width: 88px; }
+}

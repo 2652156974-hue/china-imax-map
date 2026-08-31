@@ -1,0 +1,100 @@
+{
+  "schemaVersion": 1,
+  "generatedAt": "2026-08-25T03:27:39.227Z",
+  "status": "safe-name-reconciled-crs-choice-required",
+  "inputs": {
+    "webAudit": "C:/Users/wuhan/Downloads/web-verified-127-audited.csv",
+    "resolution": "C:/Users/wuhan/Downloads/audit-unresolved-14-resolved.csv",
+    "canonical": "data/local/private-reviewed-geocodes.json",
+    "frontend": "app.mjs"
+  },
+  "nameBackfill": {
+    "rows": 127,
+    "blankNamesBefore": 93,
+    "blankNamesAfter": 0,
+    "filledFromCanonical": 93,
+    "missingCanonical": [],
+    "nameMismatches": [
+      {
+        "id": "imax-cn-0887",
+        "sourceRow": "887",
+        "auditName": "汕头星城影院（正大卜蜂中心店）",
+        "canonicalName": "汕头星城影院（正大卜蜂中心店)"
+      },
+      {
+        "id": "imax-cn-0010",
+        "sourceRow": "10",
+        "auditName": "SFC上影影城（天山缤谷广场IMAX店）",
+        "canonicalName": "上海SFC上影影城（天山缤谷IMAX店）"
+      },
+      {
+        "id": "imax-cn-0709",
+        "sourceRow": "709",
+        "auditName": "成都中影紫荆国际影城IMAX（锦宸天街店）",
+        "canonicalName": "成都中影紫荆国际影城IMAX（锦宸天街店)"
+      },
+      {
+        "id": "imax-cn-0820",
+        "sourceRow": "820",
+        "auditName": "佛山越界思哲影城（三水新动力店）",
+        "canonicalName": "佛山越界思哲影城（三水新动力店)"
+      },
+      {
+        "id": "imax-cn-0841",
+        "sourceRow": "841",
+        "auditName": "天津农垦博纳国际影城（津奥广场店）",
+        "canonicalName": "天津农垦博纳国际影城"
+      },
+      {
+        "id": "imax-cn-0847",
+        "sourceRow": "847",
+        "auditName": "成都CGV影城（龙泉驿店）",
+        "canonicalName": "成都CGV影城（龙泉驿店)"
+      },
+      {
+        "id": "imax-cn-0098",
+        "sourceRow": "98",
+        "auditName": "南京海上明珠国际影城（雨花客厅店）",
+        "canonicalName": "南京海上明珠国际影城（雨花客厅店）没钱秘钥被停"
+      },
+      {
+        "id": "imax-cn-0501",
+        "sourceRow": "501",
+        "auditName": "合肥博纳国际影城（龙湖天街店）",
+        "canonicalName": "合肥博纳国际影城（龙湖天街店)"
+      }
+    ]
+  },
+  "resolutionInput": {
+    "rows": 14,
+    "canonicalMatches": 14,
+    "resolutionMissingCanonical": [],
+    "decisionMapping": {
+      "acceptExact": "same entity",
+      "acceptLocationOnly": "same mall/venue only",
+      "acceptHistoricalLocation": "acceptedHistoricalLocation"
+    },
+    "directGcjToWgs84": [
+      {
+        "id": "imax-cn-0192",
+        "sourceRow": 192,
+        "resolvedLat": "22.9496580",
+        "resolvedLng": "113.4772548"
+      },
+      {
+        "id": "imax-cn-0790",
+        "sourceRow": 790,
+        "resolvedLat": "29.6603226",
+        "resolvedLng": "91.1024568"
+      }
+    ]
+  },
+  "currentFrontend": {
+    "renderer": "AMap JS API 2.0",
+    "mapCrs": "GCJ-02",
+    "coordinateGuard": "GCJ-02",
+    "markerGuard": "GCJ-02",
+    "source": "app.mjs"
+  },
+  "crsDecision": "BLOCKED_CONFLICT: handoff requests WGS84 rendering, but current app/marker guards require AMap GCJ-02. Do not rewrite canonical or markers until frontend target is chosen."
+}

@@ -1,0 +1,2672 @@
+{
+  "schemaVersion": 1,
+  "generatedAt": "2026-08-31T04:20:05.644Z",
+  "project": "china-imax-map",
+  "root": ".",
+  "exclusions": [
+    ".git/",
+    ".playwright-cli/",
+    "tmp/",
+    "node_modules/"
+  ],
+  "summary": {
+    "files": 327,
+    "bytes": 91214445,
+    "byGitState": {
+      "ignored": 77,
+      "tracked": 16,
+      "untracked": 234
+    },
+    "byRole": {
+      "coordinate-audit": 28,
+      "data-audit": 45,
+      "derived-data": 6,
+      "documentation": 13,
+      "environment-template": 1,
+      "generated-private-runtime": 7,
+      "geocode-configuration": 2,
+      "legacy-demo-data": 1,
+      "local-review-or-preview": 26,
+      "private-map-source": 4,
+      "project-configuration": 2,
+      "project-file": 37,
+      "project-launcher": 2,
+      "project-tooling": 112,
+      "provider-cache": 34,
+      "public-dataset": 1,
+      "public-map-source": 1,
+      "source-snapshot": 1,
+      "test-fixture": 4
+    },
+    "byPublicationClass": {
+      "internal-derived": 6,
+      "internal-never-public": 1,
+      "internal-review-before-publication": 28,
+      "private-never-public": 67,
+      "public-legacy": 1,
+      "public-safe-output": 1,
+      "public-source": 137,
+      "public-source-no-data": 4,
+      "public-summary-after-review": 45,
+      "review": 37
+    }
+  },
+  "files": [
+    {
+      "path": ".env.example",
+      "bytes": 701,
+      "sha256": "ea4684f46e4840aeac3b0353fbb45426d9181bb7d24dd2857db56e2b69bdfc46",
+      "gitState": "untracked",
+      "role": "environment-template",
+      "publicationClass": "public-source"
+    },
+    {
+      "path": ".gitignore",
+      "bytes": 738,
+      "sha256": "935c4ad68b1bb464821b20f534275b2a61d4cf052fcbd7c6cd88b2265afb1177",
+      "gitState": "untracked",
+      "role": "project-configuration",
+      "publicationClass": "public-source"
+    },
+    {
+      "path": ".wrangler/cache/wrangler-account.json",
+      "bytes": 110,
+      "sha256": "e8896726c10c5e2c9f7374950522559865d07cf4e1282787ce74fd7cff3f6698",
+      "gitState": "ignored",
+      "role": "project-file",
+      "publicationClass": "review"
+    },
+    {
+      "path": "admin-clusters.mjs",
+      "bytes": 26280,
+      "sha256": "ec475640cd2dedd719f80a8079534ca0a99574ea1242a750099e53bf0ff17e7a",
+      "gitState": "untracked",
+      "role": "project-file",
+      "publicationClass": "review"
+    },
+    {
+      "path": "app.mjs",
+      "bytes": 45560,
+      "sha256": "1556c91df05d5b2687202db99797ca4ce8dfd89e943f406f632e8ec2f3ff73dc",
+      "gitState": "untracked",
+      "role": "project-file",
+      "publicationClass": "review"
+    },
+    {
+      "path": "cinema-lifecycle.mjs",
+      "bytes": 7818,
+      "sha256": "f90d13d2c0a3e0ef58f9dbfb055899efe03230ba910a75cd7156582b1393dc21",
+      "gitState": "untracked",
+      "role": "project-file",
+      "publicationClass": "review"
+    },
+    {
+      "path": "data/audit/amap-14-resolution-materialization.json",
+      "bytes": 7686,
+      "sha256": "946c84381811ce253e37702bfe48f358cda38609641525ac379a6de1ba02ce55",
+      "gitState": "untracked",
+      "role": "coordinate-audit",
+      "publicationClass": "internal-review-before-publication"
+    },
+    {
+      "path": "data/audit/amap-quota-guard.json",
+      "bytes": 1066,
+      "sha256": "89c4ff8f686e05dcaca0ed60db3abd1f72b6767cda4dd560ce6e5d9b6e875109",
+      "gitState": "untracked",
+      "role": "coordinate-audit",
+      "publicationClass": "internal-review-before-publication"
+    },
+    {
+      "path": "data/audit/amap-web-followup-queries.json",
+      "bytes": 2227,
+      "sha256": "2f84dd737545e9b86f77dfd1ad6f398235fdaed6f699303f66e8f090bd521776",
+      "gitState": "untracked",
+      "role": "coordinate-audit",
+      "publicationClass": "internal-review-before-publication"
+    },
+    {
+      "path": "data/audit/arvin-imax-20260820-row-hashes.json",
+      "bytes": 170970,
+      "sha256": "5d7a94c3b5378991214e30c5e07030bcf336598577a55d393e4926ccd76188ab",
+      "gitState": "tracked",
+      "role": "data-audit",
+      "publicationClass": "public-summary-after-review"
+    },
+    {
+      "path": "data/audit/arvin-imax-20260820.json",
+      "bytes": 71563,
+      "sha256": "efb50f54a400b8d880b18199ea38796cec3ee400d78c88201274472ce3e30804",
+      "gitState": "tracked",
+      "role": "data-audit",
+      "publicationClass": "public-summary-after-review"
+    },
+    {
+      "path": "data/audit/audit-unresolved-14-resolved-gcj02.csv",
+      "bytes": 11703,
+      "sha256": "fb7ebe3bb07895db2df5b12561dbdcfbedcb3b07c63c13f76548384e209f4de7",
+      "gitState": "untracked",
+      "role": "data-audit",
+      "publicationClass": "public-summary-after-review"
+    },
+    {
+      "path": "data/audit/audit-unresolved-14.csv",
+      "bytes": 5726,
+      "sha256": "4a9151cc4b5bf9a164ee703a170dbb92407412e18b75a277637a3293daf9e285",
+      "gitState": "untracked",
+      "role": "data-audit",
+      "publicationClass": "public-summary-after-review"
+    },
+    {
+      "path": "data/audit/derived-quality.json",
+      "bytes": 35450,
+      "sha256": "17b018bc982634c6098b31aafcc29e72ddf4e0caf743dd4efb15beced2ff8ba6",
+      "gitState": "tracked",
+      "role": "data-audit",
+      "publicationClass": "public-summary-after-review"
+    },
+    {
+      "path": "data/audit/final-canonical-recovery.json",
+      "bytes": 11309,
+      "sha256": "4e3fbb1f89b23de3424eb60acabb72c391569dea43b8a5cc968ef0e44bc0a504",
+      "gitState": "untracked",
+      "role": "data-audit",
+      "publicationClass": "public-summary-after-review"
+    },
+    {
+      "path": "data/audit/final-cross-certification-report.json",
+      "bytes": 883931,
+      "sha256": "4853c02ef41fd424b29fd7aca1eddfafc16026c26a1ea515d0a1910256b475cd",
+      "gitState": "untracked",
+      "role": "data-audit",
+      "publicationClass": "public-summary-after-review"
+    },
+    {
+      "path": "data/audit/final-internal-materialization-status.json",
+      "bytes": 1427,
+      "sha256": "0eb264649333effa49b26403cf063c8458d005a905abb07a5acdcb614b2c78ff",
+      "gitState": "untracked",
+      "role": "data-audit",
+      "publicationClass": "public-summary-after-review"
+    },
+    {
+      "path": "data/audit/frontend-local-preview.json",
+      "bytes": 1041,
+      "sha256": "e13b702e0a0461707f4f02a8ce4978a81353b78eb60e79ba9708c73fc54bf050",
+      "gitState": "untracked",
+      "role": "data-audit",
+      "publicationClass": "public-summary-after-review"
+    },
+    {
+      "path": "data/audit/frontend-smoke.json",
+      "bytes": 1378,
+      "sha256": "4a9b453e59559fad6e37d25bb418d3e263f0675b9850f73ef54e2e516691770f",
+      "gitState": "untracked",
+      "role": "data-audit",
+      "publicationClass": "public-summary-after-review"
+    },
+    {
+      "path": "data/audit/geocode-blind-50-admin-diff.json",
+      "bytes": 7284,
+      "sha256": "e3c57865cd956d0e6d639cc2aba72a4cc20f03761f358668aba95893a01b5807",
+      "gitState": "untracked",
+      "role": "coordinate-audit",
+      "publicationClass": "internal-review-before-publication"
+    },
+    {
+      "path": "data/audit/geocode-blind-50-before-admin-hierarchy.json",
+      "bytes": 135290,
+      "sha256": "a44e8c7e4ba14bb92b3e41f9387ec0ac02536459cabe15e648b43426666b48b4",
+      "gitState": "untracked",
+      "role": "coordinate-audit",
+      "publicationClass": "internal-review-before-publication"
+    },
+    {
+      "path": "data/audit/geocode-blind-50-before-format-compatibility.json",
+      "bytes": 92381,
+      "sha256": "0ce20d6b5c7dee60360ab2f625ea563732b46ae9a28be13dff80a01a6af18faf",
+      "gitState": "untracked",
+      "role": "coordinate-audit",
+      "publicationClass": "internal-review-before-publication"
+    },
+    {
+      "path": "data/audit/geocode-blind-50-format-diff.json",
+      "bytes": 4756,
+      "sha256": "7074a262943bf5cb105e18b17627d7bab572b0c0509d42bff8d6ef8dce956e21",
+      "gitState": "untracked",
+      "role": "coordinate-audit",
+      "publicationClass": "internal-review-before-publication"
+    },
+    {
+      "path": "data/audit/geocode-blind-50-matcher-lock.json",
+      "bytes": 1008,
+      "sha256": "40c3c8422d8b0ba96b8f2bfc2a953e0e9defdb70f3aeddb36b865ccfac9d6e70",
+      "gitState": "untracked",
+      "role": "coordinate-audit",
+      "publicationClass": "internal-review-before-publication"
+    },
+    {
+      "path": "data/audit/geocode-blind-50.json",
+      "bytes": 159363,
+      "sha256": "d0b4b450246816b85d0482bd4760b9f0b844ef2e073a02a6d3b437d413657353",
+      "gitState": "untracked",
+      "role": "coordinate-audit",
+      "publicationClass": "internal-review-before-publication"
+    },
+    {
+      "path": "data/audit/geocode-high-audit-150.json",
+      "bytes": 361316,
+      "sha256": "bb8bc3803057780cb92fe2a3c067d1e1fff9c20b3e0bc29737e10e475ab21c50",
+      "gitState": "untracked",
+      "role": "coordinate-audit",
+      "publicationClass": "internal-review-before-publication"
+    },
+    {
+      "path": "data/audit/geocode-hkmo-tw.json",
+      "bytes": 28437,
+      "sha256": "4872b66f3ad8c121666691a0058be3a165f9604d56537e299cee9e38ba66f3c2",
+      "gitState": "untracked",
+      "role": "coordinate-audit",
+      "publicationClass": "internal-review-before-publication"
+    },
+    {
+      "path": "data/audit/geocode-mainland-evidence-review.json",
+      "bytes": 5114,
+      "sha256": "0fb13f6976b7aea41e6ab59da18a8e51a11f8baadf7eaaebfece264f910cab54",
+      "gitState": "untracked",
+      "role": "coordinate-audit",
+      "publicationClass": "internal-review-before-publication"
+    },
+    {
+      "path": "data/audit/geocode-mainland-final-review.json",
+      "bytes": 367683,
+      "sha256": "540ce485f335f3d7aad6eee6dbd19ea007dbf6481006ae7746181aa24aa072d1",
+      "gitState": "untracked",
+      "role": "coordinate-audit",
+      "publicationClass": "internal-review-before-publication"
+    },
+    {
+      "path": "data/audit/geocode-mainland-freeze.json",
+      "bytes": 2800,
+      "sha256": "25b57e8bf0c68c1a284a109d3dc093caac94363b7eadad5de37bdc1c9e2f4cad",
+      "gitState": "untracked",
+      "role": "coordinate-audit",
+      "publicationClass": "internal-review-before-publication"
+    },
+    {
+      "path": "data/audit/geocode-mainland-full.json",
+      "bytes": 1647006,
+      "sha256": "f5ed20ced1e4765923e507276a5cebb643042269e6bcbe445d4c6264a85dbf7a",
+      "gitState": "untracked",
+      "role": "coordinate-audit",
+      "publicationClass": "internal-review-before-publication"
+    },
+    {
+      "path": "data/audit/geocode-mainland-historical-aggregate-evidence.json",
+      "bytes": 796,
+      "sha256": "54bc06ce2d2b7494ae0fa07f54a856ba94994a00388428cc8b1b81ba629d8ea9",
+      "gitState": "untracked",
+      "role": "coordinate-audit",
+      "publicationClass": "internal-review-before-publication"
+    },
+    {
+      "path": "data/audit/geocode-mainland-quality.json",
+      "bytes": 764404,
+      "sha256": "15fc4d554194e95e3229762d62c1a4d9c38e703b38561c14dcdfba1deb65ff59",
+      "gitState": "untracked",
+      "role": "coordinate-audit",
+      "publicationClass": "internal-review-before-publication"
+    },
+    {
+      "path": "data/audit/geocode-mainland-recovery-manifest.json",
+      "bytes": 2283,
+      "sha256": "fc7aaf81368ab42814d8cff5c4fa3db7025888e612dab1c0bc1ef8431a049e23",
+      "gitState": "untracked",
+      "role": "coordinate-audit",
+      "publicationClass": "internal-review-before-publication"
+    },
+    {
+      "path": "data/audit/geocode-matcher-diff.json",
+      "bytes": 18794,
+      "sha256": "97df54ee2ada2b9373aa3ce649b497aaebf4bf0b65f05549d7526ca3fd628e29",
+      "gitState": "untracked",
+      "role": "coordinate-audit",
+      "publicationClass": "internal-review-before-publication"
+    },
+    {
+      "path": "data/audit/geocode-materialization-status.json",
+      "bytes": 1116,
+      "sha256": "a74041fdc14c3fef96300084d08a58f49cdbde13f9a164187d7be9c035182e9e",
+      "gitState": "untracked",
+      "role": "coordinate-audit",
+      "publicationClass": "internal-review-before-publication"
+    },
+    {
+      "path": "data/audit/geocode-quality.json",
+      "bytes": 2547,
+      "sha256": "d7af353e8473d265af77c6b2c1b392519b5d17f16db9ec86773c25c53b327371",
+      "gitState": "untracked",
+      "role": "coordinate-audit",
+      "publicationClass": "internal-review-before-publication"
+    },
+    {
+      "path": "data/audit/geocode-regional-review.json",
+      "bytes": 9749,
+      "sha256": "970531c3f43fec55b22c9e3dad1f93f81f170321e4dae7575fc0a82952b015e0",
+      "gitState": "untracked",
+      "role": "coordinate-audit",
+      "publicationClass": "internal-review-before-publication"
+    },
+    {
+      "path": "data/audit/geocode-risk-review.json",
+      "bytes": 567537,
+      "sha256": "89ad3febeef6d540953b732afe6e4de2ac81a90060d0f21a073dc7e0b15c99b9",
+      "gitState": "untracked",
+      "role": "coordinate-audit",
+      "publicationClass": "internal-review-before-publication"
+    },
+    {
+      "path": "data/audit/geocode-test-20-before-matcher-fix.json",
+      "bytes": 3137,
+      "sha256": "041e9bbcee6ac748ba5ea5bc64fdc67a8f12cd610c7a3ad48237b242bb775623",
+      "gitState": "untracked",
+      "role": "coordinate-audit",
+      "publicationClass": "internal-review-before-publication"
+    },
+    {
+      "path": "data/audit/geocode-test-20-manual-review.json",
+      "bytes": 3221,
+      "sha256": "66c5ee597e1c690de2071893619c3bb7ac747b552fffa1d64dc37f7554449065",
+      "gitState": "untracked",
+      "role": "coordinate-audit",
+      "publicationClass": "internal-review-before-publication"
+    },
+    {
+      "path": "data/audit/geocode-test-20-matcher-baseline.json",
+      "bytes": 2199,
+      "sha256": "034d902fc270f338fcefe112e7da9060e3e0b3acd141d33b36238337f7490672",
+      "gitState": "untracked",
+      "role": "coordinate-audit",
+      "publicationClass": "internal-review-before-publication"
+    },
+    {
+      "path": "data/audit/geocode-test-20.json",
+      "bytes": 63260,
+      "sha256": "eb1099cc7fff3e5bc26d72ec28eaaf84aae4e3650a020ae2b7a910a92cf2ea06",
+      "gitState": "untracked",
+      "role": "coordinate-audit",
+      "publicationClass": "internal-review-before-publication"
+    },
+    {
+      "path": "data/audit/geocode-unresolved-priority.json",
+      "bytes": 483229,
+      "sha256": "b764499fe94d70e9555fc110dbde8de51b2aefb8b0c3c657516940e1d2b9180c",
+      "gitState": "untracked",
+      "role": "coordinate-audit",
+      "publicationClass": "internal-review-before-publication"
+    },
+    {
+      "path": "data/audit/human-verification-progress-report.json",
+      "bytes": 1514,
+      "sha256": "3f2037fef64c2c18bea2c4db3ec0a18ae38fa9cd364b4dd02992b8c6dcdd747f",
+      "gitState": "untracked",
+      "role": "data-audit",
+      "publicationClass": "public-summary-after-review"
+    },
+    {
+      "path": "data/audit/human-verification-queue.json",
+      "bytes": 2845,
+      "sha256": "84d03c17d0b6a221ead88764deafe7af589dcd0ed5ccd0c02bb385a1684a16ba",
+      "gitState": "untracked",
+      "role": "data-audit",
+      "publicationClass": "public-summary-after-review"
+    },
+    {
+      "path": "data/audit/human-verification-results.json",
+      "bytes": 195713,
+      "sha256": "40f6bd8a95746208d1da8bbdf9f90006bbb8e49de05bc01f66937b5f0710242c",
+      "gitState": "untracked",
+      "role": "data-audit",
+      "publicationClass": "public-summary-after-review"
+    },
+    {
+      "path": "data/audit/incidents/geocode-mainland-cache-only-incident.json",
+      "bytes": 1408,
+      "sha256": "68c3b79051db0221810c787236dd96b819294110b4c9e49645a467a28ef152c3",
+      "gitState": "untracked",
+      "role": "data-audit",
+      "publicationClass": "public-summary-after-review"
+    },
+    {
+      "path": "data/audit/incidents/geocode-mainland-full-cache-only-partial-20260821.json",
+      "bytes": 113713,
+      "sha256": "2a5a72d249461c5681911ed5425577df6de81522f3bfe384df180dcd79b12e5b",
+      "gitState": "untracked",
+      "role": "data-audit",
+      "publicationClass": "public-summary-after-review"
+    },
+    {
+      "path": "data/audit/incidents/geocode-mainland-quality-cache-only-partial-20260821.json",
+      "bytes": 23835,
+      "sha256": "167ca9cb7c1088d431fb340dc0bb0ed4ed9449424194c354f6d436764b3a200f",
+      "gitState": "untracked",
+      "role": "data-audit",
+      "publicationClass": "public-summary-after-review"
+    },
+    {
+      "path": "data/audit/luna-dual-release-baseline.json",
+      "bytes": 7468,
+      "sha256": "a5770b648bc2d56da757a884cc2b10fc2fcd3767897ecb1316d7922370196d31",
+      "gitState": "untracked",
+      "role": "data-audit",
+      "publicationClass": "public-summary-after-review"
+    },
+    {
+      "path": "data/audit/luna-dual-release-final.json",
+      "bytes": 24501,
+      "sha256": "a511d94c8740c1c01803cd6b8ad818203d7a32b33d61843bbf8a6f5dbcf41368",
+      "gitState": "untracked",
+      "role": "data-audit",
+      "publicationClass": "public-summary-after-review"
+    },
+    {
+      "path": "data/audit/luna-geocode-review-323-summary.json",
+      "bytes": 1535,
+      "sha256": "d18633707077f8d9e5ca1cff047cb01fd39cf724f4208cb3e0aaff7ed337951d",
+      "gitState": "untracked",
+      "role": "data-audit",
+      "publicationClass": "public-summary-after-review"
+    },
+    {
+      "path": "data/audit/luna-handoff-reconciliation.json",
+      "bytes": 3308,
+      "sha256": "2ca1cf6173254ffcf358f71023920972ed7de18199fde8b11a214861befb46cc",
+      "gitState": "untracked",
+      "role": "data-audit",
+      "publicationClass": "public-summary-after-review"
+    },
+    {
+      "path": "data/audit/luna-pending-consolidated-42.json",
+      "bytes": 62642,
+      "sha256": "b0e595e97d87dfb09ccc0be91b45dee4b7c445b4261d079dd8cbc94786bcee0a",
+      "gitState": "untracked",
+      "role": "data-audit",
+      "publicationClass": "public-summary-after-review"
+    },
+    {
+      "path": "data/audit/name-history.json",
+      "bytes": 1703,
+      "sha256": "6bc3074c658c605063042ad9e1c93979579b92f06dba3aaa5617e5b22f1093c3",
+      "gitState": "untracked",
+      "role": "data-audit",
+      "publicationClass": "public-summary-after-review"
+    },
+    {
+      "path": "data/audit/private-amap-browser-smoke.json",
+      "bytes": 3256,
+      "sha256": "da504165eaff391d0e4e03bcf2eecf38de2ca898a5cc987843403e4f53dce45a",
+      "gitState": "untracked",
+      "role": "data-audit",
+      "publicationClass": "public-summary-after-review"
+    },
+    {
+      "path": "data/audit/private-amap-release.json",
+      "bytes": 1381,
+      "sha256": "185b7d63e7e6b016eb041f5874bb03470261ee4ebb38f0cb3517e13de6ad1de5",
+      "gitState": "untracked",
+      "role": "data-audit",
+      "publicationClass": "public-summary-after-review"
+    },
+    {
+      "path": "data/audit/private-release-quality.json",
+      "bytes": 1200,
+      "sha256": "2346e8914301c42330188470de06ab01126519182af44113f909b770db285f69",
+      "gitState": "untracked",
+      "role": "data-audit",
+      "publicationClass": "public-summary-after-review"
+    },
+    {
+      "path": "data/audit/project-integrity.json",
+      "bytes": 6084,
+      "sha256": "d106132f6dbe970f5c43f4eee3581b0e36f547a2370f05a620bc1c6b20f12844",
+      "gitState": "untracked",
+      "role": "data-audit",
+      "publicationClass": "public-summary-after-review"
+    },
+    {
+      "path": "data/audit/projection-vocabulary.json",
+      "bytes": 17312,
+      "sha256": "3b2fafc2ce71bffbd158f93ebfd0a6d83a194d57862fd67346730e1d1de26bcc",
+      "gitState": "tracked",
+      "role": "data-audit",
+      "publicationClass": "public-summary-after-review"
+    },
+    {
+      "path": "data/audit/public-amap-browser-smoke.json",
+      "bytes": 3051,
+      "sha256": "d8c6d0361822ead442b8fc6fd717ea4c796fa9d614b61f367bdcbe1d601f6760",
+      "gitState": "untracked",
+      "role": "data-audit",
+      "publicationClass": "public-summary-after-review"
+    },
+    {
+      "path": "data/audit/public-amap-quality.json",
+      "bytes": 1409,
+      "sha256": "2f58cd3e8d510e7f95dcd991bef7530c088cfa2004f54225198f41ff01533611",
+      "gitState": "untracked",
+      "role": "data-audit",
+      "publicationClass": "public-summary-after-review"
+    },
+    {
+      "path": "data/audit/public-amap-unresolved.json",
+      "bytes": 151,
+      "sha256": "d99a30ed0317d02236cbe23bcb9c950d6e7794e6c7f654fb73215f605069beb4",
+      "gitState": "untracked",
+      "role": "data-audit",
+      "publicationClass": "public-summary-after-review"
+    },
+    {
+      "path": "data/audit/public-boundary.json",
+      "bytes": 1542,
+      "sha256": "b367a07617c3c43f012ac63d7d7e5b4c6361012f4521a872a0779e35ff280cba",
+      "gitState": "untracked",
+      "role": "data-audit",
+      "publicationClass": "public-summary-after-review"
+    },
+    {
+      "path": "data/audit/public-geocode-quality.json",
+      "bytes": 3369,
+      "sha256": "4e2bbb982ff25cbf1bf00d8ed2228f233233c885aca293fb3f0328d1b9889324",
+      "gitState": "untracked",
+      "role": "data-audit",
+      "publicationClass": "public-summary-after-review"
+    },
+    {
+      "path": "data/audit/public-geocode-unresolved.json",
+      "bytes": 204285,
+      "sha256": "afa42279b23a5623beaff02451f5b6f71f479c27d3754964a7ee97e2385247de",
+      "gitState": "untracked",
+      "role": "data-audit",
+      "publicationClass": "public-summary-after-review"
+    },
+    {
+      "path": "data/audit/public-release-manifest.json",
+      "bytes": 8701,
+      "sha256": "8b64594173dfabc4cb79a5528e9e8866586923fce493998b6c96586d99ab0057",
+      "gitState": "untracked",
+      "role": "data-audit",
+      "publicationClass": "public-summary-after-review"
+    },
+    {
+      "path": "data/audit/public-release-readiness.json",
+      "bytes": 8722,
+      "sha256": "f6734c4ce2fea7cd335e76fe065ff34d920bacdcc6a9b2c6ae0110eda173b7d4",
+      "gitState": "untracked",
+      "role": "data-audit",
+      "publicationClass": "public-summary-after-review"
+    },
+    {
+      "path": "data/audit/public-web-evidence-pass.json",
+      "bytes": 153370,
+      "sha256": "e81ff5ca52669507000eae5fed621654bb546bc70a7eaf7db16e9fe09c8798f0",
+      "gitState": "untracked",
+      "role": "data-audit",
+      "publicationClass": "public-summary-after-review"
+    },
+    {
+      "path": "data/audit/release-readiness.json",
+      "bytes": 33880,
+      "sha256": "5799c815d77e60e095a6b31cf074631595eafd260c26cf7a199396b79c20a491",
+      "gitState": "untracked",
+      "role": "data-audit",
+      "publicationClass": "public-summary-after-review"
+    },
+    {
+      "path": "data/audit/screen-seat-web-review-decisions.json",
+      "bytes": 354590,
+      "sha256": "f554774af4a37a7f8d657228f4809a64741ce513ba931cdf10a5125428c0b24a",
+      "gitState": "untracked",
+      "role": "data-audit",
+      "publicationClass": "public-summary-after-review"
+    },
+    {
+      "path": "data/audit/screen-seat-web-review.json",
+      "bytes": 1192408,
+      "sha256": "2a8fa427aaf65c63d84b23b1ffa65e678e58dfc99f3b130e2114359711e79b79",
+      "gitState": "untracked",
+      "role": "data-audit",
+      "publicationClass": "public-summary-after-review"
+    },
+    {
+      "path": "data/audit/status-parsing.json",
+      "bytes": 385894,
+      "sha256": "92f601863f781dc6409682a00afc4f0c36e6e1f5af06f9209f42ff27e37baafa",
+      "gitState": "tracked",
+      "role": "data-audit",
+      "publicationClass": "public-summary-after-review"
+    },
+    {
+      "path": "data/audit/unresolved-cross-certification.json",
+      "bytes": 1952447,
+      "sha256": "15670647910963d015714ef045b1c8d09f5e71eac06e0be670f7fa801a1d41e5",
+      "gitState": "untracked",
+      "role": "data-audit",
+      "publicationClass": "public-summary-after-review"
+    },
+    {
+      "path": "data/audit/unresolved-reconciliation.json",
+      "bytes": 517151,
+      "sha256": "9481422d35e215508d6718ed3177773eb790f6cc27edcc0f19674cc8317e6079",
+      "gitState": "untracked",
+      "role": "data-audit",
+      "publicationClass": "public-summary-after-review"
+    },
+    {
+      "path": "data/audit/web-verified-127-audited-final.csv",
+      "bytes": 89637,
+      "sha256": "2937a489ac2882476581738857dbf0fd8a6cfb4998a28bb50bf3fef8588b2dcf",
+      "gitState": "untracked",
+      "role": "data-audit",
+      "publicationClass": "public-summary-after-review"
+    },
+    {
+      "path": "data/audit/web-verified-127.csv",
+      "bytes": 62008,
+      "sha256": "6df497c174ae88cebea64b0e6072991c1eaf23163a1448b7698b0fa989c6214a",
+      "gitState": "untracked",
+      "role": "data-audit",
+      "publicationClass": "public-summary-after-review"
+    },
+    {
+      "path": "data/audit/web-verified-and-unresolved.json",
+      "bytes": 104960,
+      "sha256": "f7e8f833d955cc60497a56354298f8c2c5d787cf4b335755cad6fb191e24e3cb",
+      "gitState": "untracked",
+      "role": "data-audit",
+      "publicationClass": "public-summary-after-review"
+    },
+    {
+      "path": "data/cinemas.json",
+      "bytes": 1603,
+      "sha256": "acc0fc63e08ddd23dd740b9eee9b8ddc618d7b77f51fea58277dfb24e262982d",
+      "gitState": "tracked",
+      "role": "legacy-demo-data",
+      "publicationClass": "public-legacy"
+    },
+    {
+      "path": "data/derived/cinemas-final-internal.json",
+      "bytes": 4168132,
+      "sha256": "56e946f2732442464390bf1d77b1dffd38f31dc9d4022385d2357758d46eedde",
+      "gitState": "untracked",
+      "role": "derived-data",
+      "publicationClass": "internal-derived"
+    },
+    {
+      "path": "data/derived/cinemas.json",
+      "bytes": 1391077,
+      "sha256": "5a854df17cfe53813c32b3b0fbada811ff9b06a5402db599c8593a1404bfb977",
+      "gitState": "tracked",
+      "role": "derived-data",
+      "publicationClass": "internal-derived"
+    },
+    {
+      "path": "data/derived/cinemas.schema.json",
+      "bytes": 4843,
+      "sha256": "540525ddf18450da9ba98dad588d2cfb96c332aede93dc412a0643453375d30e",
+      "gitState": "tracked",
+      "role": "derived-data",
+      "publicationClass": "internal-derived"
+    },
+    {
+      "path": "data/derived/geocode-cache.json",
+      "bytes": 2734,
+      "sha256": "d4bff61d297426076f72e6e3b384fac1432e0763016a870e67695c32dcde9337",
+      "gitState": "tracked",
+      "role": "derived-data",
+      "publicationClass": "internal-derived"
+    },
+    {
+      "path": "data/derived/review-needed.json",
+      "bytes": 886551,
+      "sha256": "29d278992d3bfca984a77820ec675f1d117edbb4261f7d740f35d7976bdb4345",
+      "gitState": "tracked",
+      "role": "derived-data",
+      "publicationClass": "internal-derived"
+    },
+    {
+      "path": "data/derived/screen-seat-columns.csv",
+      "bytes": 81849,
+      "sha256": "5c6c9a14894ab985927a58de83c88dcc40cc24ecec1f807823471ed320cd91ae",
+      "gitState": "untracked",
+      "role": "derived-data",
+      "publicationClass": "internal-derived"
+    },
+    {
+      "path": "data/geocode/mainland-admin-hierarchy.json",
+      "bytes": 5040,
+      "sha256": "2f35b9121ddf32ec5678c964f31f972721e9a1b7419cbaafb296a7c06c549926",
+      "gitState": "untracked",
+      "role": "geocode-configuration",
+      "publicationClass": "public-source"
+    },
+    {
+      "path": "data/geocode/provider-cache/amap.json",
+      "bytes": 32934077,
+      "sha256": "e8792902406749041493d91f1ce632221e6164e31e14e35b8e1d760e976d121f",
+      "gitState": "ignored",
+      "role": "provider-cache",
+      "publicationClass": "private-never-public"
+    },
+    {
+      "path": "data/geocode/provider-cache/baidu.json",
+      "bytes": 7336299,
+      "sha256": "7146a8e9286edd6b77d03498ec9f15709a5e7fb059f53e00a9d60221ae18de38",
+      "gitState": "ignored",
+      "role": "provider-cache",
+      "publicationClass": "private-never-public"
+    },
+    {
+      "path": "data/geocode/provider-cache/nominatim-public-priority-17.json",
+      "bytes": 445,
+      "sha256": "5c4c13acb6e811cef8fd3609c8a9438f1b8439adc6139e63571736014b8c38bf",
+      "gitState": "ignored",
+      "role": "provider-cache",
+      "publicationClass": "private-never-public"
+    },
+    {
+      "path": "data/geocode/provider-cache/nominatim-public-priority-171.json",
+      "bytes": 1184,
+      "sha256": "96d5b68253d2d3b635f1eba977ce3295d0a365e97b0dd53afcf28147f3da5934",
+      "gitState": "ignored",
+      "role": "provider-cache",
+      "publicationClass": "private-never-public"
+    },
+    {
+      "path": "data/geocode/provider-cache/nominatim-public-priority-172.json",
+      "bytes": 421,
+      "sha256": "99739dcd00ec4bea0ab30b29043637c8e91367461459d164e18d9fa3a8e50234",
+      "gitState": "ignored",
+      "role": "provider-cache",
+      "publicationClass": "private-never-public"
+    },
+    {
+      "path": "data/geocode/provider-cache/nominatim-public-priority-19.json",
+      "bytes": 377,
+      "sha256": "84c22e72195f140c2e8eea9b72ec71d2f30e1323b521c481ca6941c91b34ccae",
+      "gitState": "ignored",
+      "role": "provider-cache",
+      "publicationClass": "private-never-public"
+    },
+    {
+      "path": "data/geocode/provider-cache/nominatim-public-priority-22.json",
+      "bytes": 413,
+      "sha256": "f498e62ab79b56820d7d946c0ce8a5befc0113efc29ae0a5ee9e4d4f3cd4f23c",
+      "gitState": "ignored",
+      "role": "provider-cache",
+      "publicationClass": "private-never-public"
+    },
+    {
+      "path": "data/geocode/provider-cache/nominatim-public-priority-29.json",
+      "bytes": 421,
+      "sha256": "33c96e448a56a657486d58937622506180ce70319faf73f9a4e73defdf6baa49",
+      "gitState": "ignored",
+      "role": "provider-cache",
+      "publicationClass": "private-never-public"
+    },
+    {
+      "path": "data/geocode/provider-cache/nominatim-public-priority-294.json",
+      "bytes": 521,
+      "sha256": "a3e6a3e65b379cf742221fd92e16acc05067b4e2fd737515bd23bf257facd196",
+      "gitState": "ignored",
+      "role": "provider-cache",
+      "publicationClass": "private-never-public"
+    },
+    {
+      "path": "data/geocode/provider-cache/nominatim-public-priority-3.json",
+      "bytes": 379,
+      "sha256": "8f1cefa3d38028413f1407825fc1ac9d8090b5591b07368f33430b31371715d2",
+      "gitState": "ignored",
+      "role": "provider-cache",
+      "publicationClass": "private-never-public"
+    },
+    {
+      "path": "data/geocode/provider-cache/nominatim-public-priority-30.json",
+      "bytes": 401,
+      "sha256": "2446a4c349b2187c8a2d6fbaa92a444b3b1d0425f36eb3f211f02c69c571a601",
+      "gitState": "ignored",
+      "role": "provider-cache",
+      "publicationClass": "private-never-public"
+    },
+    {
+      "path": "data/geocode/provider-cache/nominatim-public-priority-309.json",
+      "bytes": 1725,
+      "sha256": "cf6aa303fa634ae8f413c44c0a61ab87d9207c9041ace7aefb9b59536cb75307",
+      "gitState": "ignored",
+      "role": "provider-cache",
+      "publicationClass": "private-never-public"
+    },
+    {
+      "path": "data/geocode/provider-cache/nominatim-public-priority-32.json",
+      "bytes": 377,
+      "sha256": "619008328e4b8ce2ff75886e829ecd3a0afb5ef46caa29e923b158899e8b47d1",
+      "gitState": "ignored",
+      "role": "provider-cache",
+      "publicationClass": "private-never-public"
+    },
+    {
+      "path": "data/geocode/provider-cache/nominatim-public-priority-33.json",
+      "bytes": 401,
+      "sha256": "b20229b45a0ef44ec8e5126a7690363d2af5783245350e6687e59517c0c25a55",
+      "gitState": "ignored",
+      "role": "provider-cache",
+      "publicationClass": "private-never-public"
+    },
+    {
+      "path": "data/geocode/provider-cache/nominatim-public-priority-331.json",
+      "bytes": 509,
+      "sha256": "b01ccf48eb51517556f0b8631d36d07f51ede098b7b606fbedf2f164e5f8c5a8",
+      "gitState": "ignored",
+      "role": "provider-cache",
+      "publicationClass": "private-never-public"
+    },
+    {
+      "path": "data/geocode/provider-cache/nominatim-public-priority-35.json",
+      "bytes": 389,
+      "sha256": "ab3e3479b1eeec8de858e5418cbbbf9fe5665e448f0ad095083fddeeadaf8dd1",
+      "gitState": "ignored",
+      "role": "provider-cache",
+      "publicationClass": "private-never-public"
+    },
+    {
+      "path": "data/geocode/provider-cache/nominatim-public-priority-36.json",
+      "bytes": 395,
+      "sha256": "b910386d2de091e4da985d81510b248fc64611fbb02ff7f21920fb900e02e5f1",
+      "gitState": "ignored",
+      "role": "provider-cache",
+      "publicationClass": "private-never-public"
+    },
+    {
+      "path": "data/geocode/provider-cache/nominatim-public-priority-4.json",
+      "bytes": 335,
+      "sha256": "18faf400a3c5ab3cea3946546224738fa0110e061c8fc19a06d1be5c45b2ef18",
+      "gitState": "ignored",
+      "role": "provider-cache",
+      "publicationClass": "private-never-public"
+    },
+    {
+      "path": "data/geocode/provider-cache/nominatim-public-priority-464.json",
+      "bytes": 1107,
+      "sha256": "8bbeacdf88a9976031f40f33e9d264bf1ed9bc8ec07189b1d2c91f0619ff5508",
+      "gitState": "ignored",
+      "role": "provider-cache",
+      "publicationClass": "private-never-public"
+    },
+    {
+      "path": "data/geocode/provider-cache/nominatim-public-priority-51.json",
+      "bytes": 1951,
+      "sha256": "f366537adb552a77f2c45b57869247d820fc3d1370b63a9e14d405dd0c79f8f5",
+      "gitState": "ignored",
+      "role": "provider-cache",
+      "publicationClass": "private-never-public"
+    },
+    {
+      "path": "data/geocode/provider-cache/nominatim-public-priority-59.json",
+      "bytes": 437,
+      "sha256": "27bd0447163cc5a26774beae3f3ad35e4de3ea340f443be327b4cfcb6754cefd",
+      "gitState": "ignored",
+      "role": "provider-cache",
+      "publicationClass": "private-never-public"
+    },
+    {
+      "path": "data/geocode/provider-cache/nominatim-public-priority-6.json",
+      "bytes": 323,
+      "sha256": "93ae4bafb937d57ccf5521f4a7e51a258c1e37eec2c9d561f536130e6d6d784d",
+      "gitState": "ignored",
+      "role": "provider-cache",
+      "publicationClass": "private-never-public"
+    },
+    {
+      "path": "data/geocode/provider-cache/nominatim-public-priority-69.json",
+      "bytes": 341,
+      "sha256": "84d93ed4ed85bf2ca061f24013fe4827a6ee7b8b4f8871ff2f41b960ad6906cc",
+      "gitState": "ignored",
+      "role": "provider-cache",
+      "publicationClass": "private-never-public"
+    },
+    {
+      "path": "data/geocode/provider-cache/nominatim-public-priority-757.json",
+      "bytes": 389,
+      "sha256": "c84e89b75d897756f2e83ab59f9aaff1f358451bb7949a7157647a5caed88416",
+      "gitState": "ignored",
+      "role": "provider-cache",
+      "publicationClass": "private-never-public"
+    },
+    {
+      "path": "data/geocode/provider-cache/nominatim-public-priority-806.json",
+      "bytes": 329,
+      "sha256": "469395a5593575a4168a3666de081469d994d595d04f1a1e3a3a83fcaf4d8336",
+      "gitState": "ignored",
+      "role": "provider-cache",
+      "publicationClass": "private-never-public"
+    },
+    {
+      "path": "data/geocode/provider-cache/nominatim-public-priority-863.json",
+      "bytes": 3966,
+      "sha256": "9c4a0c587ad15e98f65fa81ada5e26917bb7df4416842a1081235fc18062ce59",
+      "gitState": "ignored",
+      "role": "provider-cache",
+      "publicationClass": "private-never-public"
+    },
+    {
+      "path": "data/geocode/provider-cache/nominatim-public-priority-872.json",
+      "bytes": 1690,
+      "sha256": "d526880a9ec3475dca5005b9640efe2e7aad580ea078cd80071fe9458abcad05",
+      "gitState": "ignored",
+      "role": "provider-cache",
+      "publicationClass": "private-never-public"
+    },
+    {
+      "path": "data/geocode/provider-cache/nominatim-public-priority-889.json",
+      "bytes": 2704,
+      "sha256": "64e58ee4d46623119abe912d0e6d587afed397f1abba64cef5b8bf3ad586789a",
+      "gitState": "ignored",
+      "role": "provider-cache",
+      "publicationClass": "private-never-public"
+    },
+    {
+      "path": "data/geocode/provider-cache/nominatim-public-priority-895.json",
+      "bytes": 1034,
+      "sha256": "e38bcce972fa6d340c700b46f902622cbfc2ef91380364ecfce080fff60615cb",
+      "gitState": "ignored",
+      "role": "provider-cache",
+      "publicationClass": "private-never-public"
+    },
+    {
+      "path": "data/geocode/provider-cache/nominatim-public-priority-896.json",
+      "bytes": 385,
+      "sha256": "b366ba0486059586d8c51128847aa4d3838e81bdf4506de2ac16f784e2841d1a",
+      "gitState": "ignored",
+      "role": "provider-cache",
+      "publicationClass": "private-never-public"
+    },
+    {
+      "path": "data/geocode/provider-cache/nominatim.json",
+      "bytes": 9417,
+      "sha256": "9d03e4c9c525a008ffb8687502805c12f3efb41fa3ad2e25e27a0eda82d84963",
+      "gitState": "ignored",
+      "role": "provider-cache",
+      "publicationClass": "private-never-public"
+    },
+    {
+      "path": "data/geocode/provider-cache/osm-overpass-mainland-east-north.json",
+      "bytes": 374365,
+      "sha256": "d93b437163539a971619fb62480ffa59e0b4ea641a31d114649c81dfd3d7cbf5",
+      "gitState": "ignored",
+      "role": "provider-cache",
+      "publicationClass": "private-never-public"
+    },
+    {
+      "path": "data/geocode/provider-cache/osm-overpass-mainland-east-south.json",
+      "bytes": 669056,
+      "sha256": "c0f55a41683a72f4d01b2093e67c4ca1b33ea4a6dbb47c4c67f54e8571a9a9d1",
+      "gitState": "ignored",
+      "role": "provider-cache",
+      "publicationClass": "private-never-public"
+    },
+    {
+      "path": "data/geocode/provider-cache/tencent.json",
+      "bytes": 108,
+      "sha256": "1cd937f06165169eac07667ac94134b7571a580e028d703bfaf9edf3f9d469af",
+      "gitState": "ignored",
+      "role": "provider-cache",
+      "publicationClass": "private-never-public"
+    },
+    {
+      "path": "data/geocode/reviewed-overrides.json",
+      "bytes": 3474,
+      "sha256": "71cb318e36761876562f080c4949af1c00ae34808b42bf66c3996386fc767ae8",
+      "gitState": "untracked",
+      "role": "geocode-configuration",
+      "publicationClass": "public-source"
+    },
+    {
+      "path": "data/local/cinemas-preview.json",
+      "bytes": 1677313,
+      "sha256": "daf7632ab7f1d7fe1aead7f350d4ec6ccc8285d1adafdc36144c2750877baa58",
+      "gitState": "ignored",
+      "role": "local-review-or-preview",
+      "publicationClass": "private-never-public"
+    },
+    {
+      "path": "data/local/LUNA_REVIEW_PROMPT.md",
+      "bytes": 2205,
+      "sha256": "a5f09e4daf5d59a5c95a998962206e82b633c8f5ad09974e59c78b276a32b4d4",
+      "gitState": "ignored",
+      "role": "local-review-or-preview",
+      "publicationClass": "private-never-public"
+    },
+    {
+      "path": "data/local/luna-geocode-review-323.completed.json",
+      "bytes": 1359162,
+      "sha256": "eed592867bdac7880a2721baa9d74c4853b423f8d1dd9879575c043e17b88c88",
+      "gitState": "ignored",
+      "role": "local-review-or-preview",
+      "publicationClass": "private-never-public"
+    },
+    {
+      "path": "data/local/luna-geocode-review-323.json",
+      "bytes": 1358858,
+      "sha256": "549bf56350b1907462d889ad38121a41cfca08ffa92cecb3664da7e560fb2410",
+      "gitState": "ignored",
+      "role": "local-review-or-preview",
+      "publicationClass": "private-never-public"
+    },
+    {
+      "path": "data/local/luna-geocode-review-323.json.batch-005-before-18184.bak",
+      "bytes": 1302446,
+      "sha256": "6ff921ad72f0b5eddd001925632a8bc3d00d7e27946dac7d768ce9b1c98603ce",
+      "gitState": "ignored",
+      "role": "local-review-or-preview",
+      "publicationClass": "private-never-public"
+    },
+    {
+      "path": "data/local/luna-geocode-review-323.json.batch-005-before-29520.bak",
+      "bytes": 1307707,
+      "sha256": "554957c016bd120a396ef1546f99d55a1a38c754551790e023b7803c9c8f5535",
+      "gitState": "ignored",
+      "role": "local-review-or-preview",
+      "publicationClass": "private-never-public"
+    },
+    {
+      "path": "data/local/luna-geocode-review-323.json.invalid-recovery-25312.bak",
+      "bytes": 1297586,
+      "sha256": "0910e02ddc08553618440191f6ca4b87b5aa7fd3979a9e9429d3b182c2643660",
+      "gitState": "ignored",
+      "role": "local-review-or-preview",
+      "publicationClass": "private-never-public"
+    },
+    {
+      "path": "data/local/luna-geocode-review-323.json.invalid-recovery-28236.bak",
+      "bytes": 1302548,
+      "sha256": "887721b68532f14853ae85222be8124797adf4fff5c9125eb82639d6e721f416",
+      "gitState": "ignored",
+      "role": "local-review-or-preview",
+      "publicationClass": "private-never-public"
+    },
+    {
+      "path": "data/local/luna-geocode-review-323.json.invalid-recovery-3420.bak",
+      "bytes": 1293244,
+      "sha256": "2405546ad49e5587faa01831ee9820fbe5526459da9aaccda0292be15c926163",
+      "gitState": "ignored",
+      "role": "local-review-or-preview",
+      "publicationClass": "private-never-public"
+    },
+    {
+      "path": "data/local/luna-geocode-review-323.json.invalid-recovery-35876.bak",
+      "bytes": 1302512,
+      "sha256": "9c8fd0a1a2d07ae568542463434b760041228278fc0d153c0fab80f1cb0aff3b",
+      "gitState": "ignored",
+      "role": "local-review-or-preview",
+      "publicationClass": "private-never-public"
+    },
+    {
+      "path": "data/local/private-map-server.stderr.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "gitState": "ignored",
+      "role": "local-review-or-preview",
+      "publicationClass": "private-never-public"
+    },
+    {
+      "path": "data/local/private-map-server.stdout.log",
+      "bytes": 235,
+      "sha256": "9cc0058ce1f86515c686bd7222c7ca6ce9c20a5632c0da2f953188bdc41b8395",
+      "gitState": "ignored",
+      "role": "local-review-or-preview",
+      "publicationClass": "private-never-public"
+    },
+    {
+      "path": "data/local/private-mock-smoke.stderr.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "gitState": "ignored",
+      "role": "local-review-or-preview",
+      "publicationClass": "private-never-public"
+    },
+    {
+      "path": "data/local/private-mock-smoke.stdout.log",
+      "bytes": 235,
+      "sha256": "9cc0058ce1f86515c686bd7222c7ca6ce9c20a5632c0da2f953188bdc41b8395",
+      "gitState": "ignored",
+      "role": "local-review-or-preview",
+      "publicationClass": "private-never-public"
+    },
+    {
+      "path": "data/local/private-release-manifest.json",
+      "bytes": 4956,
+      "sha256": "938758b4f5bd375cc9782ff75f2141c9c6c4a494f09d97140b9d4a79f383b278",
+      "gitState": "ignored",
+      "role": "local-review-or-preview",
+      "publicationClass": "private-never-public"
+    },
+    {
+      "path": "data/local/private-reviewed-geocodes.json",
+      "bytes": 2867851,
+      "sha256": "cb5757b27b8a4b2860205b44d7146b0cc7ce3158ee2b31cb5bc4621e13d89df5",
+      "gitState": "ignored",
+      "role": "local-review-or-preview",
+      "publicationClass": "private-never-public"
+    },
+    {
+      "path": "data/local/private-smoke.stderr.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "gitState": "ignored",
+      "role": "local-review-or-preview",
+      "publicationClass": "private-never-public"
+    },
+    {
+      "path": "data/local/private-smoke.stdout.log",
+      "bytes": 235,
+      "sha256": "9cc0058ce1f86515c686bd7222c7ca6ce9c20a5632c0da2f953188bdc41b8395",
+      "gitState": "ignored",
+      "role": "local-review-or-preview",
+      "publicationClass": "private-never-public"
+    },
+    {
+      "path": "data/local/public-amap-reviewed-geocodes.json",
+      "bytes": 822316,
+      "sha256": "ea8e80754b774ffaaa849afb32676caf88b1479213a33af487f2e9f8583220d8",
+      "gitState": "ignored",
+      "role": "local-review-or-preview",
+      "publicationClass": "private-never-public"
+    },
+    {
+      "path": "data/local/public-map-server.json",
+      "bytes": 297,
+      "sha256": "bc3c513fcec798913137084d46acb2feebeef22e34623e3e15773949879b0399",
+      "gitState": "ignored",
+      "role": "local-review-or-preview",
+      "publicationClass": "private-never-public"
+    },
+    {
+      "path": "data/local/public-map-server.stderr.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "gitState": "ignored",
+      "role": "local-review-or-preview",
+      "publicationClass": "private-never-public"
+    },
+    {
+      "path": "data/local/public-map-server.stdout.log",
+      "bytes": 275,
+      "sha256": "9bdc9a42ad9f459156a9d3d1ddd2062047bd7d468eda4b28077bb6ef66a83740",
+      "gitState": "ignored",
+      "role": "local-review-or-preview",
+      "publicationClass": "private-never-public"
+    },
+    {
+      "path": "data/local/public-mock-smoke.stderr.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "gitState": "ignored",
+      "role": "local-review-or-preview",
+      "publicationClass": "private-never-public"
+    },
+    {
+      "path": "data/local/public-mock-smoke.stdout.log",
+      "bytes": 275,
+      "sha256": "f6e8bd2aaa5b07dc8f3f603b1828b862f0791da476c8f6899c29f7ae8004cecc",
+      "gitState": "ignored",
+      "role": "local-review-or-preview",
+      "publicationClass": "private-never-public"
+    },
+    {
+      "path": "data/local/public-smoke.stderr.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "gitState": "ignored",
+      "role": "local-review-or-preview",
+      "publicationClass": "private-never-public"
+    },
+    {
+      "path": "data/local/public-smoke.stdout.log",
+      "bytes": 275,
+      "sha256": "ce354069aa03fae16bdb9a6d33ede6786ce7a863a12c7eae8d6f56a6f47347b6",
+      "gitState": "ignored",
+      "role": "local-review-or-preview",
+      "publicationClass": "private-never-public"
+    },
+    {
+      "path": "data/public/cinemas.json",
+      "bytes": 1283776,
+      "sha256": "f2695af2779b033d81080a0e86b318bb89455eb7a0cbaa7164a780e452bab16f",
+      "gitState": "untracked",
+      "role": "public-dataset",
+      "publicationClass": "public-safe-output"
+    },
+    {
+      "path": "data/raw/arvin-imax.json",
+      "bytes": 4211761,
+      "sha256": "7cf5c979be985fbeef72dcc44228e1ef0501444eee0b5b82f2ffcba231638464",
+      "gitState": "tracked",
+      "role": "source-snapshot",
+      "publicationClass": "internal-never-public"
+    },
+    {
+      "path": "data/README.md",
+      "bytes": 1940,
+      "sha256": "cf1d69bb9111d5b94ef2a45d9b7fe0cf9f4bcb1d13ff46af0d15808b3452825c",
+      "gitState": "untracked",
+      "role": "documentation",
+      "publicationClass": "public-source"
+    },
+    {
+      "path": "data/reviewed/public-geocodes.json",
+      "bytes": 623434,
+      "sha256": "9f29ccca76e1bcb16617db0c842cd73da9697ec7d1a382a326f315e8d2199440",
+      "gitState": "untracked",
+      "role": "project-file",
+      "publicationClass": "review"
+    },
+    {
+      "path": "dist-private/admin-clusters.mjs",
+      "bytes": 24856,
+      "sha256": "fc106d33e77dbe74d61838dd9515de22b758d873bec0549143e8f4fa19f0947d",
+      "gitState": "ignored",
+      "role": "generated-private-runtime",
+      "publicationClass": "private-never-public"
+    },
+    {
+      "path": "dist-private/app.mjs",
+      "bytes": 35331,
+      "sha256": "a8b472de88432d473217e9f9b821b5560ffdc1630946cc28b8a58ce936f9ee33",
+      "gitState": "ignored",
+      "role": "generated-private-runtime",
+      "publicationClass": "private-never-public"
+    },
+    {
+      "path": "dist-private/cinema-lifecycle.mjs",
+      "bytes": 7818,
+      "sha256": "f90d13d2c0a3e0ef58f9dbfb055899efe03230ba910a75cd7156582b1393dc21",
+      "gitState": "ignored",
+      "role": "generated-private-runtime",
+      "publicationClass": "private-never-public"
+    },
+    {
+      "path": "dist-private/data/cinemas.json",
+      "bytes": 2623788,
+      "sha256": "85430bae7f06c35e9b10dac774ae122457ae83b92a272cc073f0428089b5c8ad",
+      "gitState": "ignored",
+      "role": "generated-private-runtime",
+      "publicationClass": "private-never-public"
+    },
+    {
+      "path": "dist-private/index.html",
+      "bytes": 6108,
+      "sha256": "b1bc4c364249f1aa8fbd5f4dc701e38d5eed1036e9d56383698c09ef252af078",
+      "gitState": "ignored",
+      "role": "generated-private-runtime",
+      "publicationClass": "private-never-public"
+    },
+    {
+      "path": "dist-private/nearby.mjs",
+      "bytes": 10663,
+      "sha256": "2079ef457f7d19948ddc44fc717523155818e757c176ec025d7b1a0dcf341650",
+      "gitState": "ignored",
+      "role": "generated-private-runtime",
+      "publicationClass": "private-never-public"
+    },
+    {
+      "path": "dist-private/styles.css",
+      "bytes": 24983,
+      "sha256": "50596ec269886bb7a409c7c1509437ed71c0ff023220eb7d625e6839385a0e4b",
+      "gitState": "ignored",
+      "role": "generated-private-runtime",
+      "publicationClass": "private-never-public"
+    },
+    {
+      "path": "dist-public/admin-clusters.mjs",
+      "bytes": 26280,
+      "sha256": "ec475640cd2dedd719f80a8079534ca0a99574ea1242a750099e53bf0ff17e7a",
+      "gitState": "ignored",
+      "role": "project-file",
+      "publicationClass": "review"
+    },
+    {
+      "path": "dist-public/app.mjs",
+      "bytes": 45560,
+      "sha256": "1556c91df05d5b2687202db99797ca4ce8dfd89e943f406f632e8ec2f3ff73dc",
+      "gitState": "ignored",
+      "role": "project-file",
+      "publicationClass": "review"
+    },
+    {
+      "path": "dist-public/cinema-lifecycle.mjs",
+      "bytes": 7818,
+      "sha256": "f90d13d2c0a3e0ef58f9dbfb055899efe03230ba910a75cd7156582b1393dc21",
+      "gitState": "ignored",
+      "role": "project-file",
+      "publicationClass": "review"
+    },
+    {
+      "path": "dist-public/data/cinemas.json",
+      "bytes": 1283776,
+      "sha256": "f2695af2779b033d81080a0e86b318bb89455eb7a0cbaa7164a780e452bab16f",
+      "gitState": "ignored",
+      "role": "project-file",
+      "publicationClass": "review"
+    },
+    {
+      "path": "dist-public/focus-navigation.css",
+      "bytes": 2374,
+      "sha256": "128e03f31448315ae790988c3c00727f822b7d630ceaa2827eb0715fad622d6f",
+      "gitState": "ignored",
+      "role": "project-file",
+      "publicationClass": "review"
+    },
+    {
+      "path": "dist-public/focus-navigation.mjs",
+      "bytes": 3448,
+      "sha256": "0d7e6bb45e0f4a9137d8a072e421f332129fae83721b98cd6d247eaefd44cb54",
+      "gitState": "ignored",
+      "role": "project-file",
+      "publicationClass": "review"
+    },
+    {
+      "path": "dist-public/index.html",
+      "bytes": 5982,
+      "sha256": "9b605687ba014d120a12179f10357123e0af19b99f5c8729727fba8db14eb73c",
+      "gitState": "ignored",
+      "role": "project-file",
+      "publicationClass": "review"
+    },
+    {
+      "path": "dist-public/nearby.mjs",
+      "bytes": 10663,
+      "sha256": "2079ef457f7d19948ddc44fc717523155818e757c176ec025d7b1a0dcf341650",
+      "gitState": "ignored",
+      "role": "project-file",
+      "publicationClass": "review"
+    },
+    {
+      "path": "dist-public/styles.css",
+      "bytes": 24983,
+      "sha256": "50596ec269886bb7a409c7c1509437ed71c0ff023220eb7d625e6839385a0e4b",
+      "gitState": "ignored",
+      "role": "project-file",
+      "publicationClass": "review"
+    },
+    {
+      "path": "docs/AMAP_PRIVATE_RELEASE.md",
+      "bytes": 4583,
+      "sha256": "a3747d949d3d3481d524b5d3e804413015a792cb8204e19ae77e8814a87de36c",
+      "gitState": "untracked",
+      "role": "documentation",
+      "publicationClass": "public-source"
+    },
+    {
+      "path": "docs/AMAP-PERMISSION-REQUEST.md",
+      "bytes": 1953,
+      "sha256": "04a4a38933daf6ed32ecdec1dd21d2bc61016ce579c4160d5e463c9164a803d9",
+      "gitState": "untracked",
+      "role": "documentation",
+      "publicationClass": "public-source"
+    },
+    {
+      "path": "docs/DATA_PIPELINE.md",
+      "bytes": 3867,
+      "sha256": "7bd8dd7dfa62f43a52134292442f92f8591707a953bf012301e6d78f322728f6",
+      "gitState": "untracked",
+      "role": "documentation",
+      "publicationClass": "public-source"
+    },
+    {
+      "path": "docs/DATA-LICENSING.md",
+      "bytes": 4313,
+      "sha256": "e06aacb7b20e0d3fc18c64c9ea76afe96f3a24e0ee0a417fa8305632d2228c60",
+      "gitState": "untracked",
+      "role": "documentation",
+      "publicationClass": "public-source"
+    },
+    {
+      "path": "docs/GEOCODING.md",
+      "bytes": 3147,
+      "sha256": "c86d84c5de19f55773ed75f65e0f0c7967523cbfa395de60a0446fc1712bfb90",
+      "gitState": "untracked",
+      "role": "documentation",
+      "publicationClass": "public-source"
+    },
+    {
+      "path": "docs/MAP_FRONTEND.md",
+      "bytes": 7009,
+      "sha256": "138c64672913d87af4240efde466f0342524e9648964b5804cfc31b38b0e5529",
+      "gitState": "untracked",
+      "role": "documentation",
+      "publicationClass": "public-source"
+    },
+    {
+      "path": "docs/PROJECT_STRUCTURE.md",
+      "bytes": 4307,
+      "sha256": "dea4d43b3af780d8a462247664b0b115a834fa09f70b15a56e1de83275c6580f",
+      "gitState": "untracked",
+      "role": "documentation",
+      "publicationClass": "public-source"
+    },
+    {
+      "path": "docs/QUALITY-AUDIT.md",
+      "bytes": 2467,
+      "sha256": "0758658a891c508e4f5973ab0f6b4f51a9b091c1ccd11a53170391e9257ffb0e",
+      "gitState": "untracked",
+      "role": "documentation",
+      "publicationClass": "public-source"
+    },
+    {
+      "path": "docs/README.md",
+      "bytes": 1149,
+      "sha256": "31c4479c6c14fef9eb8e1a72c39d3348db108b480d3a5608825874cd6aa1a8b4",
+      "gitState": "untracked",
+      "role": "documentation",
+      "publicationClass": "public-source"
+    },
+    {
+      "path": "focus-navigation.css",
+      "bytes": 2374,
+      "sha256": "128e03f31448315ae790988c3c00727f822b7d630ceaa2827eb0715fad622d6f",
+      "gitState": "untracked",
+      "role": "project-file",
+      "publicationClass": "review"
+    },
+    {
+      "path": "focus-navigation.mjs",
+      "bytes": 3448,
+      "sha256": "0d7e6bb45e0f4a9137d8a072e421f332129fae83721b98cd6d247eaefd44cb54",
+      "gitState": "untracked",
+      "role": "project-file",
+      "publicationClass": "review"
+    },
+    {
+      "path": "index.html",
+      "bytes": 5982,
+      "sha256": "9b605687ba014d120a12179f10357123e0af19b99f5c8729727fba8db14eb73c",
+      "gitState": "tracked",
+      "role": "public-map-source",
+      "publicationClass": "public-source"
+    },
+    {
+      "path": "LUNA_DUAL_RELEASE_GOAL.md",
+      "bytes": 35247,
+      "sha256": "914ec0c33ab74710c069c0e8f7653df3814b9599753fa44ac0cf584b457afaf2",
+      "gitState": "untracked",
+      "role": "documentation",
+      "publicationClass": "public-source"
+    },
+    {
+      "path": "nearby.mjs",
+      "bytes": 10663,
+      "sha256": "2079ef457f7d19948ddc44fc717523155818e757c176ec025d7b1a0dcf341650",
+      "gitState": "untracked",
+      "role": "project-file",
+      "publicationClass": "review"
+    },
+    {
+      "path": "output/playwright/admin-clusters-county-final.png",
+      "bytes": 270853,
+      "sha256": "76cd2546d5ca73f02157965d17159f72d41cc9bf916d888fb51abe32f63de227",
+      "gitState": "untracked",
+      "role": "project-file",
+      "publicationClass": "review"
+    },
+    {
+      "path": "output/playwright/admin-clusters-county-visual.png",
+      "bytes": 289118,
+      "sha256": "2d5eb75e71d15def2e2f0fd8013c7bac5aa00f5ee4c3c907b1253ab7afe813c8",
+      "gitState": "untracked",
+      "role": "project-file",
+      "publicationClass": "review"
+    },
+    {
+      "path": "output/playwright/admin-clusters-county.png",
+      "bytes": 105511,
+      "sha256": "68df1b085a04bdb27656e838c73e15d0a0dca41ba75251a0a2990341988d8140",
+      "gitState": "untracked",
+      "role": "project-file",
+      "publicationClass": "review"
+    },
+    {
+      "path": "output/playwright/admin-clusters-drill-individual.png",
+      "bytes": 84692,
+      "sha256": "2a9280cf5a471e7a9d5d75db88e12b94254d5a55f763261be62d18af186a8679",
+      "gitState": "untracked",
+      "role": "project-file",
+      "publicationClass": "review"
+    },
+    {
+      "path": "output/playwright/admin-clusters-mobile-final.png",
+      "bytes": 78070,
+      "sha256": "51098cbca4104dc6c9b3d6bf1610a53560cbdc5dd88b1629a7e4e776a4b0e0ff",
+      "gitState": "untracked",
+      "role": "project-file",
+      "publicationClass": "review"
+    },
+    {
+      "path": "output/playwright/admin-clusters-mobile-national.png",
+      "bytes": 124385,
+      "sha256": "77993d74f036ee2a3bd9d82b5ae25e1a0f7bd644a4f987cbd95f44704948858a",
+      "gitState": "untracked",
+      "role": "project-file",
+      "publicationClass": "review"
+    },
+    {
+      "path": "output/playwright/admin-clusters-national-visual.png",
+      "bytes": 175480,
+      "sha256": "527eca10b792a313a7cbbb0b823f169b64024941e92d3cc4482f4a5ed6f7b264",
+      "gitState": "untracked",
+      "role": "project-file",
+      "publicationClass": "review"
+    },
+    {
+      "path": "output/playwright/admin-clusters-national.png",
+      "bytes": 110816,
+      "sha256": "b879c7d03193a1689cfbe4a34633f9ef89b2b64034c366d37aba92f44fc0d74e",
+      "gitState": "untracked",
+      "role": "project-file",
+      "publicationClass": "review"
+    },
+    {
+      "path": "output/playwright/admin-clusters-prefecture-visual.png",
+      "bytes": 415709,
+      "sha256": "6db192fa6cb7a25d1da73c2b8bd9a73f1982e46763a8bb3913c2edff41d0214c",
+      "gitState": "untracked",
+      "role": "project-file",
+      "publicationClass": "review"
+    },
+    {
+      "path": "output/playwright/admin-clusters-prefecture.png",
+      "bytes": 114420,
+      "sha256": "95049fce9d2f862e766d480ed353bb46757d02c23608db3dd61329ab7e41a81c",
+      "gitState": "untracked",
+      "role": "project-file",
+      "publicationClass": "review"
+    },
+    {
+      "path": "output/playwright/imax-current-mobile.png",
+      "bytes": 133123,
+      "sha256": "64e6f8a5562ad5781dc2d4dfee524ef60f804c90c5183af5b13122069c625adc",
+      "gitState": "untracked",
+      "role": "project-file",
+      "publicationClass": "review"
+    },
+    {
+      "path": "output/playwright/imax-current-national.png",
+      "bytes": 472656,
+      "sha256": "c5e9f3d4a1527ac77c4e56c3b0f16d38b8f8b316e509add037f8547dfd0be0be",
+      "gitState": "untracked",
+      "role": "project-file",
+      "publicationClass": "review"
+    },
+    {
+      "path": "output/playwright/imax-history-han-street.png",
+      "bytes": 286934,
+      "sha256": "24655e1f3f26b0ff71c4739ca00d30f015e664d9a9ed5d5eea8a9af6531458fe",
+      "gitState": "untracked",
+      "role": "project-file",
+      "publicationClass": "review"
+    },
+    {
+      "path": "output/playwright/imax-live-han-history.png",
+      "bytes": 516166,
+      "sha256": "81f3112f05b7f4ec99e153d6292c48bd7eb4518ff0c1f08bcc01736cab3b9f05",
+      "gitState": "untracked",
+      "role": "project-file",
+      "publicationClass": "review"
+    },
+    {
+      "path": "output/playwright/imax-real-amap-current.png",
+      "bytes": 529660,
+      "sha256": "70e33db1e69060beaa2763d163f722932e00841605cb282a051f39829097ed8a",
+      "gitState": "untracked",
+      "role": "project-file",
+      "publicationClass": "review"
+    },
+    {
+      "path": "output/playwright/imax-real-amap-han-current.png",
+      "bytes": 125723,
+      "sha256": "9e53a82f634f1cc6c204f08bc10fcd88851c614bea49f6ee9c2fe93137047cdf",
+      "gitState": "untracked",
+      "role": "project-file",
+      "publicationClass": "review"
+    },
+    {
+      "path": "output/playwright/imax-real-amap-han-history.png",
+      "bytes": 518523,
+      "sha256": "8a794c899e3c4c5509c55e41d8b581d967ef888375ab57811f5bb16fe3bb67a7",
+      "gitState": "untracked",
+      "role": "project-file",
+      "publicationClass": "review"
+    },
+    {
+      "path": "package.json",
+      "bytes": 2428,
+      "sha256": "3a151971120ef375054acdd3e406677750e95caba57ae00efe8bafebd4704758",
+      "gitState": "untracked",
+      "role": "project-configuration",
+      "publicationClass": "public-source"
+    },
+    {
+      "path": "private-amap/app.mjs",
+      "bytes": 35473,
+      "sha256": "be55d415bc11a1133f17affa382db151ea41075f784b8ca3bbef67acb88134da",
+      "gitState": "untracked",
+      "role": "private-map-source",
+      "publicationClass": "public-source-no-data"
+    },
+    {
+      "path": "private-amap/index.html",
+      "bytes": 6108,
+      "sha256": "b1bc4c364249f1aa8fbd5f4dc701e38d5eed1036e9d56383698c09ef252af078",
+      "gitState": "untracked",
+      "role": "private-map-source",
+      "publicationClass": "public-source-no-data"
+    },
+    {
+      "path": "private-amap/nearby.mjs",
+      "bytes": 31,
+      "sha256": "4f1e141fea4e86dc3471b4de80d26f8c7b993b92946db0fc97f64991b4b18a60",
+      "gitState": "untracked",
+      "role": "private-map-source",
+      "publicationClass": "public-source-no-data"
+    },
+    {
+      "path": "private-amap/styles.css",
+      "bytes": 24983,
+      "sha256": "50596ec269886bb7a409c7c1509437ed71c0ff023220eb7d625e6839385a0e4b",
+      "gitState": "untracked",
+      "role": "private-map-source",
+      "publicationClass": "public-source-no-data"
+    },
+    {
+      "path": "PROJECT_STATUS.md",
+      "bytes": 4017,
+      "sha256": "dd2d6df35eec1301051afd6bc2b539807ce4764f88a0a0a9e333d9f54beb7a84",
+      "gitState": "untracked",
+      "role": "documentation",
+      "publicationClass": "public-source"
+    },
+    {
+      "path": "README.md",
+      "bytes": 17167,
+      "sha256": "0c66516937b0a1c0e08ce7cc04a7a067fa9d500786424df691d2db94c63c67b4",
+      "gitState": "tracked",
+      "role": "documentation",
+      "publicationClass": "public-source"
+    },
+    {
+      "path": "scripts/admin-cluster-bindings.mjs",
+      "bytes": 16215,
+      "sha256": "a96f985c4a378966ffc0f9c9daa618e16ee02097ed99e4576de1d32224b0849f",
+      "gitState": "untracked",
+      "role": "project-tooling",
+      "publicationClass": "public-source"
+    },
+    {
+      "path": "scripts/admin-cluster-bindings.test.mjs",
+      "bytes": 7253,
+      "sha256": "733c244460ca301c2b0992b2d667edef0e4f6ffb69bef93d33caba8776c9946f",
+      "gitState": "untracked",
+      "role": "project-tooling",
+      "publicationClass": "public-source"
+    },
+    {
+      "path": "scripts/admin-clusters.test.mjs",
+      "bytes": 16928,
+      "sha256": "d87b8b25b6b8ee53864288edf50f3a0d98ddd6dca89cec967d9baf6a1dfeb1c6",
+      "gitState": "untracked",
+      "role": "project-tooling",
+      "publicationClass": "public-source"
+    },
+    {
+      "path": "scripts/audit-name-history.mjs",
+      "bytes": 3258,
+      "sha256": "96c749b53ed6f6ee6040d60425f9ddcc03fcf9840bb0659764e027a9956fd93f",
+      "gitState": "untracked",
+      "role": "project-tooling",
+      "publicationClass": "public-source"
+    },
+    {
+      "path": "scripts/batch006-evidence-regression.test.mjs",
+      "bytes": 1955,
+      "sha256": "e70a97d0df18cebd302737037e49249d58eaec24db951c9ff35704745b43a47d",
+      "gitState": "untracked",
+      "role": "project-tooling",
+      "publicationClass": "public-source"
+    },
+    {
+      "path": "scripts/bind-batch006-row769.mjs",
+      "bytes": 942,
+      "sha256": "18b6acbe29280f8c6cb8558f78abc9816176f0456fb4e0c0051fa5cfd1aad9f0",
+      "gitState": "untracked",
+      "role": "project-tooling",
+      "publicationClass": "public-source"
+    },
+    {
+      "path": "scripts/bind-batch007-venue-candidates.mjs",
+      "bytes": 1506,
+      "sha256": "dc281bc34f80ba7824a86271f00a85ea9db6f70fc2ec083809c97295829c7249",
+      "gitState": "untracked",
+      "role": "project-tooling",
+      "publicationClass": "public-source"
+    },
+    {
+      "path": "scripts/build-final-audits.mjs",
+      "bytes": 14597,
+      "sha256": "641e51ecb52a3e089dc029b88973e19b6b959f59d8ccf9324e038a881d4f759b",
+      "gitState": "untracked",
+      "role": "project-tooling",
+      "publicationClass": "public-source"
+    },
+    {
+      "path": "scripts/build-final-cross-certification-report.mjs",
+      "bytes": 11288,
+      "sha256": "b7facd4adce0e060d8f38ae7892e43bc18a7b1ddaa926bffb37187ae2f6458fd",
+      "gitState": "untracked",
+      "role": "project-tooling",
+      "publicationClass": "public-source"
+    },
+    {
+      "path": "scripts/build-final-internal.mjs",
+      "bytes": 11108,
+      "sha256": "33b93bbcf979ec31c4d5a38d49402a4b34d7256672e2f0499e019117bfa94b7c",
+      "gitState": "untracked",
+      "role": "project-tooling",
+      "publicationClass": "public-source"
+    },
+    {
+      "path": "scripts/build-geocode-final-review.mjs",
+      "bytes": 5976,
+      "sha256": "1e4a5b3fe35a2d09caf4f624609bfe8a80170e40d16b580be3513e5cbc7840ef",
+      "gitState": "untracked",
+      "role": "project-tooling",
+      "publicationClass": "public-source"
+    },
+    {
+      "path": "scripts/build-human-verification-progress-report.mjs",
+      "bytes": 7266,
+      "sha256": "82089b09206ccbbda1f55d77b33a061f441278855c79f184dbc7b440c129ce19",
+      "gitState": "untracked",
+      "role": "project-tooling",
+      "publicationClass": "public-source"
+    },
+    {
+      "path": "scripts/build-human-verification-queue.mjs",
+      "bytes": 16763,
+      "sha256": "7825ab901d22901105b3e1ac8ef1ace228977bf500eadf92a2b48f4265d74edf",
+      "gitState": "untracked",
+      "role": "project-tooling",
+      "publicationClass": "public-source"
+    },
+    {
+      "path": "scripts/build-local-preview.mjs",
+      "bytes": 1126,
+      "sha256": "8d730289fdd8065cac5937041747569085cf59caca24017d0b3528e91a8b9b01",
+      "gitState": "untracked",
+      "role": "project-tooling",
+      "publicationClass": "public-source"
+    },
+    {
+      "path": "scripts/build-luna-geocode-review.mjs",
+      "bytes": 12717,
+      "sha256": "b1ccd3894bfa0802bff2050fbd605c73b482c72c7efb7723824d8202226052d8",
+      "gitState": "untracked",
+      "role": "project-tooling",
+      "publicationClass": "public-source"
+    },
+    {
+      "path": "scripts/build-private-amap-release.mjs",
+      "bytes": 10550,
+      "sha256": "2f46896637ec2b59f8bf5e5716fa202274926042b07c1364ee9c9d3c78147653",
+      "gitState": "untracked",
+      "role": "project-tooling",
+      "publicationClass": "public-source"
+    },
+    {
+      "path": "scripts/build-private-reviewed-layer.mjs",
+      "bytes": 15082,
+      "sha256": "e127cf2b3fb797d7a33c28f265d0c49d3ab74962173d70f9ea47900f98f5cb0f",
+      "gitState": "untracked",
+      "role": "project-tooling",
+      "publicationClass": "public-source"
+    },
+    {
+      "path": "scripts/build-project-manifest.mjs",
+      "bytes": 5518,
+      "sha256": "751e4630a183d99fd189280cceae8dc8b733a8cbbe459065b9860e83ea33d909",
+      "gitState": "untracked",
+      "role": "project-tooling",
+      "publicationClass": "public-source"
+    },
+    {
+      "path": "scripts/build-public-amap-layer.mjs",
+      "bytes": 12510,
+      "sha256": "a2c4dfeb4bda23b46d6638ccc961c721947e25020f9483bf9a793832631b7113",
+      "gitState": "untracked",
+      "role": "project-tooling",
+      "publicationClass": "public-source"
+    },
+    {
+      "path": "scripts/build-public-dataset.mjs",
+      "bytes": 5805,
+      "sha256": "a3c3dda7641cf5286155158c5765c32475d6446b8f3fc673c8f900785c2ec409",
+      "gitState": "untracked",
+      "role": "project-tooling",
+      "publicationClass": "public-source"
+    },
+    {
+      "path": "scripts/build-public-release.mjs",
+      "bytes": 2585,
+      "sha256": "2eda035dd55bf1ce1147ed07a92a12d5a33896d1499680ad74cccdb39da8fe47",
+      "gitState": "untracked",
+      "role": "project-tooling",
+      "publicationClass": "public-source"
+    },
+    {
+      "path": "scripts/build-release-manifests.mjs",
+      "bytes": 8592,
+      "sha256": "4896fd3a9b9200ea5ec27f2d356cfd362e931806bccb7dd756baf4a8f37a3d57",
+      "gitState": "untracked",
+      "role": "project-tooling",
+      "publicationClass": "public-source"
+    },
+    {
+      "path": "scripts/build-release-readiness.mjs",
+      "bytes": 25812,
+      "sha256": "1dc2a9ce1d0eba9bdc471d03b732737350428f05e17b37129d7e05d315e647b1",
+      "gitState": "untracked",
+      "role": "project-tooling",
+      "publicationClass": "public-source"
+    },
+    {
+      "path": "scripts/build-unresolved-reconciliation.mjs",
+      "bytes": 20335,
+      "sha256": "501b43a8618cd075f3dd8a4a46d3c4c383854d9b3af6a1924b1289d9aaf5a569",
+      "gitState": "untracked",
+      "role": "project-tooling",
+      "publicationClass": "public-source"
+    },
+    {
+      "path": "scripts/cinema-lifecycle.test.mjs",
+      "bytes": 2692,
+      "sha256": "1528c24e65db5f485a43a4fd2f69ceee7f2ffdac1086a6155584b9f90ac36fdb",
+      "gitState": "untracked",
+      "role": "project-tooling",
+      "publicationClass": "public-source"
+    },
+    {
+      "path": "scripts/complete-luna-review.mjs",
+      "bytes": 23893,
+      "sha256": "95a0869dd26cadaae2a59f4f09d5eb90249ba2854fa344055a01156e0ddac78a",
+      "gitState": "untracked",
+      "role": "project-tooling",
+      "publicationClass": "public-source"
+    },
+    {
+      "path": "scripts/derive-cinemas.mjs",
+      "bytes": 37273,
+      "sha256": "b2850cdc07fcdc29fe4a48f41eec293c1b67e9278172eec307d4ddeebbd5a021",
+      "gitState": "tracked",
+      "role": "project-tooling",
+      "publicationClass": "public-source"
+    },
+    {
+      "path": "scripts/dynamic-materialization.test.mjs",
+      "bytes": 9952,
+      "sha256": "ab726ad8d4cf4c948af32ff7b28747acbd8c9ec37a4c1d9417d95d5dc112fca7",
+      "gitState": "untracked",
+      "role": "project-tooling",
+      "publicationClass": "public-source"
+    },
+    {
+      "path": "scripts/evidence-review.test.mjs",
+      "bytes": 1086,
+      "sha256": "83bb36f503c4480157c0848f505ce900f9ccf77782c1d700c904c959a1fa20ef",
+      "gitState": "untracked",
+      "role": "project-tooling",
+      "publicationClass": "public-source"
+    },
+    {
+      "path": "scripts/export-web-and-unresolved.mjs",
+      "bytes": 4992,
+      "sha256": "9415d5f65c478f17f991513967d9db227c362c3ad02643073d97048ce293821d",
+      "gitState": "untracked",
+      "role": "project-tooling",
+      "publicationClass": "public-source"
+    },
+    {
+      "path": "scripts/extract-screen-seat.mjs",
+      "bytes": 1607,
+      "sha256": "d358b3756f5158d54a68364425f5dc7a22239617e740c8535c5e2415b5369210",
+      "gitState": "untracked",
+      "role": "project-tooling",
+      "publicationClass": "public-source"
+    },
+    {
+      "path": "scripts/final-internal.test.mjs",
+      "bytes": 2382,
+      "sha256": "2c117482c4dabf76970e285c57b95f0582ac894a9a7772c73be659e9512cbf73",
+      "gitState": "untracked",
+      "role": "project-tooling",
+      "publicationClass": "public-source"
+    },
+    {
+      "path": "scripts/fixtures/amap-js-sdk.mock.js",
+      "bytes": 6018,
+      "sha256": "2b4627df16231f06dd94cd5679773f9a5214428daccea7447af5c0d06f43f50a",
+      "gitState": "untracked",
+      "role": "test-fixture",
+      "publicationClass": "public-source"
+    },
+    {
+      "path": "scripts/fixtures/amap-private-real-interaction.playwright.js",
+      "bytes": 1054,
+      "sha256": "743312ad6887b004854036bdec130346f0526bf9d3d752ab7340b67ff64d209b",
+      "gitState": "untracked",
+      "role": "test-fixture",
+      "publicationClass": "public-source"
+    },
+    {
+      "path": "scripts/fixtures/amap-private-real-smoke.playwright.js",
+      "bytes": 1324,
+      "sha256": "5495b31bf7e7dd83dbe0053a91eb135df362befc021b17e733bc8d8f8bde0dde",
+      "gitState": "untracked",
+      "role": "test-fixture",
+      "publicationClass": "public-source"
+    },
+    {
+      "path": "scripts/fixtures/amap-private-smoke.playwright.js",
+      "bytes": 1010,
+      "sha256": "0cfa5db8eff8757a96c80f7467ba7ed8bc3a70d32cd7ac2aaa1af2539f95fbfe",
+      "gitState": "untracked",
+      "role": "test-fixture",
+      "publicationClass": "public-source"
+    },
+    {
+      "path": "scripts/focus-navigation.test.mjs",
+      "bytes": 3842,
+      "sha256": "649471d91954c899888ce77d144d9c3089ca99398a628263a2fe839aa45975ce",
+      "gitState": "untracked",
+      "role": "project-tooling",
+      "publicationClass": "public-source"
+    },
+    {
+      "path": "scripts/geocode-blind-50.mjs",
+      "bytes": 17719,
+      "sha256": "60e594819af5e899c478778c531e825915525d0675e59049c1bfaf47eb4b94b2",
+      "gitState": "untracked",
+      "role": "project-tooling",
+      "publicationClass": "public-source"
+    },
+    {
+      "path": "scripts/geocode-human-audit.mjs",
+      "bytes": 24895,
+      "sha256": "b023ea276ed15634a338c4e919e02210c548a4e163eee6a62f4e58f050b4b609",
+      "gitState": "untracked",
+      "role": "project-tooling",
+      "publicationClass": "public-source"
+    },
+    {
+      "path": "scripts/geocode-mainland.mjs",
+      "bytes": 20291,
+      "sha256": "1d11deb1c43edcf748e5c466844201f662e28969eb873ddc4eb0382ea2b0c350",
+      "gitState": "untracked",
+      "role": "project-tooling",
+      "publicationClass": "public-source"
+    },
+    {
+      "path": "scripts/geocode-poi.mjs",
+      "bytes": 18155,
+      "sha256": "42a83a3b91f11e50a0e49270e6ca6d568ed04a638acd7c57a07f15c617050200",
+      "gitState": "untracked",
+      "role": "project-tooling",
+      "publicationClass": "public-source"
+    },
+    {
+      "path": "scripts/geocode-regional.mjs",
+      "bytes": 7057,
+      "sha256": "f40de0da02b0882645cf3622e1942a10c036bdb98e0f2443aa0cfbc39e775436",
+      "gitState": "untracked",
+      "role": "project-tooling",
+      "publicationClass": "public-source"
+    },
+    {
+      "path": "scripts/geocode-sample.mjs",
+      "bytes": 8019,
+      "sha256": "27a50571da67cf981ec7be314535e580b7f482389704ad897741ee5820385efb",
+      "gitState": "tracked",
+      "role": "project-tooling",
+      "publicationClass": "public-source"
+    },
+    {
+      "path": "scripts/geocode-unresolved.mjs",
+      "bytes": 8229,
+      "sha256": "5a62c0914e42e5923ce7510d9856e8b81da2beedbd2b64dcfe91709f61a5b2b8",
+      "gitState": "untracked",
+      "role": "project-tooling",
+      "publicationClass": "public-source"
+    },
+    {
+      "path": "scripts/geocode/admin-divisions.mjs",
+      "bytes": 5318,
+      "sha256": "cc5f4a402bda94887b92eb0af33106e8751ac899ec1db9a56697b511fb867e82",
+      "gitState": "untracked",
+      "role": "project-tooling",
+      "publicationClass": "public-source"
+    },
+    {
+      "path": "scripts/geocode/admin-divisions.test.mjs",
+      "bytes": 3826,
+      "sha256": "5e765792c1c59244e3a0bea506b72672f312a7df96c93e49615e73755c153802",
+      "gitState": "untracked",
+      "role": "project-tooling",
+      "publicationClass": "public-source"
+    },
+    {
+      "path": "scripts/geocode/amap-human-utils.mjs",
+      "bytes": 16589,
+      "sha256": "f348c6c10115930775a710dea6299ea2c4871ba3d67358950893c26adf9a6bc7",
+      "gitState": "untracked",
+      "role": "project-tooling",
+      "publicationClass": "public-source"
+    },
+    {
+      "path": "scripts/geocode/blind-selection.mjs",
+      "bytes": 6631,
+      "sha256": "f1fd73710e39e8b7ef1823b5548780daacbf3cf0462953647b99d48f7501b2a9",
+      "gitState": "untracked",
+      "role": "project-tooling",
+      "publicationClass": "public-source"
+    },
+    {
+      "path": "scripts/geocode/blind-validation.test.mjs",
+      "bytes": 9433,
+      "sha256": "2a063f6d40db2dd94d372efd4e151efbf7fc81f658bcd55eda4639c4728bf463",
+      "gitState": "untracked",
+      "role": "project-tooling",
+      "publicationClass": "public-source"
+    },
+    {
+      "path": "scripts/geocode/cache.mjs",
+      "bytes": 2333,
+      "sha256": "69f23cb8a9224b757f4588a77cf91424d0ab7bdb1143b0b6d1acec8b645e7e2b",
+      "gitState": "untracked",
+      "role": "project-tooling",
+      "publicationClass": "public-source"
+    },
+    {
+      "path": "scripts/geocode/crs.mjs",
+      "bytes": 2278,
+      "sha256": "384ddc429f8143379eea54e71280fc390e76e525882a19d55541385a4849508c",
+      "gitState": "untracked",
+      "role": "project-tooling",
+      "publicationClass": "public-source"
+    },
+    {
+      "path": "scripts/geocode/mainland-runner.test.mjs",
+      "bytes": 4746,
+      "sha256": "d0ac739152825f70315007f7ae73499dda5ef4afc06d2a9283413e2878a5e759",
+      "gitState": "untracked",
+      "role": "project-tooling",
+      "publicationClass": "public-source"
+    },
+    {
+      "path": "scripts/geocode/overrides.mjs",
+      "bytes": 1909,
+      "sha256": "fd19ac921fbf017de902c08c5b3c3bd22598e57e369885d7e8548f7a406f01f2",
+      "gitState": "untracked",
+      "role": "project-tooling",
+      "publicationClass": "public-source"
+    },
+    {
+      "path": "scripts/geocode/providers/amap.mjs",
+      "bytes": 3464,
+      "sha256": "f62be999c13df4a4b6c1848c84cb4116ca8bab15d26e428bbb838772c5714d68",
+      "gitState": "untracked",
+      "role": "project-tooling",
+      "publicationClass": "public-source"
+    },
+    {
+      "path": "scripts/geocode/providers/nominatim.mjs",
+      "bytes": 3208,
+      "sha256": "35acea904ae70bce6b5328ad28001d2fd031b5d27ca26e208bbb9c960742ceb6",
+      "gitState": "untracked",
+      "role": "project-tooling",
+      "publicationClass": "public-source"
+    },
+    {
+      "path": "scripts/geocode/providers/tencent.mjs",
+      "bytes": 452,
+      "sha256": "92d8f70495974eecd9f7b7ae0186d089cc5d1351382ee003ea3dff5811fef46e",
+      "gitState": "untracked",
+      "role": "project-tooling",
+      "publicationClass": "public-source"
+    },
+    {
+      "path": "scripts/geocode/query.mjs",
+      "bytes": 2874,
+      "sha256": "d5f8f68a32d130cdc5edc6ec0a56b6e871efb36f5a96ea55739b5c030d9c97bd",
+      "gitState": "untracked",
+      "role": "project-tooling",
+      "publicationClass": "public-source"
+    },
+    {
+      "path": "scripts/geocode/recovery-audit.test.mjs",
+      "bytes": 5098,
+      "sha256": "4a2d71538760295cb49fc71ad67240a2c51ae5e426885201cace36a37e682d89",
+      "gitState": "untracked",
+      "role": "project-tooling",
+      "publicationClass": "public-source"
+    },
+    {
+      "path": "scripts/geocode/refine-amap-unresolved.mjs",
+      "bytes": 6434,
+      "sha256": "67cc676d20507530e7b0b427d573a8e9db2b9b9e368c7d321d91a5d73fda8d8a",
+      "gitState": "untracked",
+      "role": "project-tooling",
+      "publicationClass": "public-source"
+    },
+    {
+      "path": "scripts/geocode/refine-amap-web-followup.mjs",
+      "bytes": 4928,
+      "sha256": "c85d816bcb48bce9efae1920a1a868b5e5bf5bca576d5509f8f84768b5db6602",
+      "gitState": "untracked",
+      "role": "project-tooling",
+      "publicationClass": "public-source"
+    },
+    {
+      "path": "scripts/geocode/regional-matcher.mjs",
+      "bytes": 10463,
+      "sha256": "0507db94b097596063d40256277e0c5584238eb083b9724d3cee71c35495aaec",
+      "gitState": "untracked",
+      "role": "project-tooling",
+      "publicationClass": "public-source"
+    },
+    {
+      "path": "scripts/geocode/regional-matcher.test.mjs",
+      "bytes": 3639,
+      "sha256": "da93f12276e78d990fa11461e2f0d7ee24845e2e9a891f9189b2f565a25b20d1",
+      "gitState": "untracked",
+      "role": "project-tooling",
+      "publicationClass": "public-source"
+    },
+    {
+      "path": "scripts/geocode/scoring.mjs",
+      "bytes": 21428,
+      "sha256": "a16eebcded14cb15b57a926826bfb5b18a4a613dadafd9608fae5c1c378e5237",
+      "gitState": "untracked",
+      "role": "project-tooling",
+      "publicationClass": "public-source"
+    },
+    {
+      "path": "scripts/geocode/scoring.test.mjs",
+      "bytes": 11664,
+      "sha256": "62dc141012be25973cd7131b1eece5cf0113bb061b635bd73233b75198a42fec",
+      "gitState": "untracked",
+      "role": "project-tooling",
+      "publicationClass": "public-source"
+    },
+    {
+      "path": "scripts/local-preview.mjs",
+      "bytes": 6118,
+      "sha256": "4b8cf6fe378521675028754c9efb7e29b10615d34e8d8c592039484dea13b078",
+      "gitState": "untracked",
+      "role": "project-tooling",
+      "publicationClass": "public-source"
+    },
+    {
+      "path": "scripts/local-preview.test.mjs",
+      "bytes": 2425,
+      "sha256": "00465f8bf8755c46868c78ed4f149a0288160f8c8ceb641d2af6f96b6cb202ce",
+      "gitState": "untracked",
+      "role": "project-tooling",
+      "publicationClass": "public-source"
+    },
+    {
+      "path": "scripts/luna-dual-release-baseline.mjs",
+      "bytes": 10673,
+      "sha256": "8ca310862e8ede3d3d410a74200833bd001fc5b3ec227015ef1d98a922d464d8",
+      "gitState": "untracked",
+      "role": "project-tooling",
+      "publicationClass": "public-source"
+    },
+    {
+      "path": "scripts/luna-review-context.test.mjs",
+      "bytes": 14665,
+      "sha256": "f8b2068db0f7f14205ba1594683754692e56f700bbfdf0a0f9205715cbbc0662",
+      "gitState": "untracked",
+      "role": "project-tooling",
+      "publicationClass": "public-source"
+    },
+    {
+      "path": "scripts/luna-review.test.mjs",
+      "bytes": 2712,
+      "sha256": "7970dd66fb07659a0b82164b29c74619232ce2ec07696a8699c86d113a860915",
+      "gitState": "untracked",
+      "role": "project-tooling",
+      "publicationClass": "public-source"
+    },
+    {
+      "path": "scripts/map-data-adapter.mjs",
+      "bytes": 3688,
+      "sha256": "30e520ca86564f42cd07166a783980ea60c44aa83d04513173756257db587c53",
+      "gitState": "untracked",
+      "role": "project-tooling",
+      "publicationClass": "public-source"
+    },
+    {
+      "path": "scripts/map-data-adapter.test.mjs",
+      "bytes": 3051,
+      "sha256": "955cddd05212430ce018afa67f2e95c1684ba6940ec4ab113a21ed6484941fe8",
+      "gitState": "untracked",
+      "role": "project-tooling",
+      "publicationClass": "public-source"
+    },
+    {
+      "path": "scripts/map-frontend.test.mjs",
+      "bytes": 11251,
+      "sha256": "6d8c8b00860f6ea2fd10114fe43b1d6593519693816ff4be543d834c5c8a40ff",
+      "gitState": "untracked",
+      "role": "project-tooling",
+      "publicationClass": "public-source"
+    },
+    {
+      "path": "scripts/materialize-amap-14-resolution.mjs",
+      "bytes": 18544,
+      "sha256": "4cdadf94e1120cb18d2e3dfe2dd3629952a6df504243d4eb28431f43bbc1fbe0",
+      "gitState": "untracked",
+      "role": "project-tooling",
+      "publicationClass": "public-source"
+    },
+    {
+      "path": "scripts/materialize-geocode-reviewed.mjs",
+      "bytes": 13348,
+      "sha256": "7def07addbc9d6da807320e8e435aee1ea8198ec0e7af939aae46b452bf46b1d",
+      "gitState": "untracked",
+      "role": "project-tooling",
+      "publicationClass": "public-source"
+    },
+    {
+      "path": "scripts/materialize-human-verification.mjs",
+      "bytes": 25725,
+      "sha256": "e301b6a63779a25bee6ff2d5127885068276956d347edcb6b4f76b90e074bd8b",
+      "gitState": "untracked",
+      "role": "project-tooling",
+      "publicationClass": "public-source"
+    },
+    {
+      "path": "scripts/materialize-unresolved-final-verdict.mjs",
+      "bytes": 14009,
+      "sha256": "775e13867cac46c04529e4f56205252a79726989469332a818164b42d5dfca20",
+      "gitState": "untracked",
+      "role": "project-tooling",
+      "publicationClass": "public-source"
+    },
+    {
+      "path": "scripts/name-history.mjs",
+      "bytes": 1824,
+      "sha256": "60671421f0fb24ac82af482261bf704e762328350c48e6a53892e317960510b7",
+      "gitState": "untracked",
+      "role": "project-tooling",
+      "publicationClass": "public-source"
+    },
+    {
+      "path": "scripts/name-history.test.mjs",
+      "bytes": 1607,
+      "sha256": "a93a435a8d365bfbae8ea1eb21f341ba698b287337a8e92b47420cae381a6a41",
+      "gitState": "untracked",
+      "role": "project-tooling",
+      "publicationClass": "public-source"
+    },
+    {
+      "path": "scripts/nearby.test.mjs",
+      "bytes": 7794,
+      "sha256": "00f95afcb5d51bc4c031bd7d39e92cda7d93bc6e9300fadf5a480c24499cb8d1",
+      "gitState": "untracked",
+      "role": "project-tooling",
+      "publicationClass": "public-source"
+    },
+    {
+      "path": "scripts/normalize-batch006-review-shape.mjs",
+      "bytes": 401,
+      "sha256": "1abf0a3a6394940fe0f4135236802c5851b2cf2318d3e7f9d997a11dace541b3",
+      "gitState": "untracked",
+      "role": "project-tooling",
+      "publicationClass": "public-source"
+    },
+    {
+      "path": "scripts/patch-batch006-evidence.mjs",
+      "bytes": 1806,
+      "sha256": "db403474e84ac74b9129bb835307ab40fcb9df2914ef788ac000477841de1d63",
+      "gitState": "untracked",
+      "role": "project-tooling",
+      "publicationClass": "public-source"
+    },
+    {
+      "path": "scripts/prepare-luna-batch-006.mjs",
+      "bytes": 1990,
+      "sha256": "e830278d4ad6ff5f0719cf60c5cd9d07b023f16e2896afb332422263d0048d97",
+      "gitState": "untracked",
+      "role": "project-tooling",
+      "publicationClass": "public-source"
+    },
+    {
+      "path": "scripts/prepare-luna-batch-007.mjs",
+      "bytes": 3621,
+      "sha256": "48a5194153dd6cd27bc8c84c8a9c2d3da9a1c01ed4b88279bc384456eccb7388",
+      "gitState": "untracked",
+      "role": "project-tooling",
+      "publicationClass": "public-source"
+    },
+    {
+      "path": "scripts/prepare-luna-batch-008.mjs",
+      "bytes": 4729,
+      "sha256": "b3ea739a04319b93a9dddc9ffc898c02c66815eec2aab55ba0ea0636aeeb7de9",
+      "gitState": "untracked",
+      "role": "project-tooling",
+      "publicationClass": "public-source"
+    },
+    {
+      "path": "scripts/prepare-luna-batch-009.mjs",
+      "bytes": 11554,
+      "sha256": "746c54c3492f88081c7a8311f219b242b440b4672037e1889feef4b5cfd03251",
+      "gitState": "untracked",
+      "role": "project-tooling",
+      "publicationClass": "public-source"
+    },
+    {
+      "path": "scripts/prepare-luna-pending-consolidated.mjs",
+      "bytes": 34581,
+      "sha256": "c3baeb6177a6f639187c2b9dcc0bde84cb91d6edaa98fc78a019b1060ee00ffe",
+      "gitState": "untracked",
+      "role": "project-tooling",
+      "publicationClass": "public-source"
+    },
+    {
+      "path": "scripts/private-amap-release.test.mjs",
+      "bytes": 11768,
+      "sha256": "57b912ed27aace7f7699e2728bd3748afd8f6266d4633244e36ae7de78a1a5f9",
+      "gitState": "untracked",
+      "role": "project-tooling",
+      "publicationClass": "public-source"
+    },
+    {
+      "path": "scripts/private-amap-server.mjs",
+      "bytes": 10112,
+      "sha256": "2fb588f80a33a2dffb50e2085f1bce46a9eb10e7d08368bdb61e3e6b1617588e",
+      "gitState": "untracked",
+      "role": "project-tooling",
+      "publicationClass": "public-source"
+    },
+    {
+      "path": "scripts/private-reviewed-layer.test.mjs",
+      "bytes": 4014,
+      "sha256": "1f9673b76d876a45bd997aa76d216c026b0e6463b3ed8efea9da53b1be51299b",
+      "gitState": "untracked",
+      "role": "project-tooling",
+      "publicationClass": "public-source"
+    },
+    {
+      "path": "scripts/project-check.mjs",
+      "bytes": 16461,
+      "sha256": "329d411b37cce97d66d49dc0abb9e1f5658cca1f63f234f4236e4cf0c5418442",
+      "gitState": "untracked",
+      "role": "project-tooling",
+      "publicationClass": "public-source"
+    },
+    {
+      "path": "scripts/public-amap-server.mjs",
+      "bytes": 14400,
+      "sha256": "7019c2b14fd752329743e63b1c1ee1a703e4cd6a82ebb0df109d2e7971a63fcd",
+      "gitState": "untracked",
+      "role": "project-tooling",
+      "publicationClass": "public-source"
+    },
+    {
+      "path": "scripts/public-amap-server.test.mjs",
+      "bytes": 3144,
+      "sha256": "b97fa9c768c076094ba56333d642876abc9f5d096dede32c24f93058dfdba734",
+      "gitState": "untracked",
+      "role": "project-tooling",
+      "publicationClass": "public-source"
+    },
+    {
+      "path": "scripts/public-boundary.test.mjs",
+      "bytes": 1812,
+      "sha256": "c33f57ca9dad27d7bb1926caac25dec85eb8d0613065058af3482eefe6f80982",
+      "gitState": "untracked",
+      "role": "project-tooling",
+      "publicationClass": "public-source"
+    },
+    {
+      "path": "scripts/public-data.test.mjs",
+      "bytes": 10856,
+      "sha256": "f53b25c179011d55577a481ddcf7f3db4e0838896fc13f13260d46c33c7451bc",
+      "gitState": "untracked",
+      "role": "project-tooling",
+      "publicationClass": "public-source"
+    },
+    {
+      "path": "scripts/public-geocode-osm.mjs",
+      "bytes": 23949,
+      "sha256": "c0839bfbcc440c0d362fe1a6bd7d00aa8631b85b24a5e37d0b069142e989f96b",
+      "gitState": "untracked",
+      "role": "project-tooling",
+      "publicationClass": "public-source"
+    },
+    {
+      "path": "scripts/README.md",
+      "bytes": 2315,
+      "sha256": "f9e50318e5aa00fc4f96a4e8fd82c1368423a8c0cc5ae42bbec5062ea07a6394",
+      "gitState": "untracked",
+      "role": "project-tooling",
+      "publicationClass": "public-source"
+    },
+    {
+      "path": "scripts/reconcile-luna-release-handoff.mjs",
+      "bytes": 5799,
+      "sha256": "78d147e6f17d569ff7fae50ac7d49501764a3156e32505c9287107cab507526c",
+      "gitState": "untracked",
+      "role": "project-tooling",
+      "publicationClass": "public-source"
+    },
+    {
+      "path": "scripts/recover-batch-003-input.mjs",
+      "bytes": 16289,
+      "sha256": "e9295e9f3a1f125bd32563f3906a0db7fdea623501d8e56231a7896bfb168cac",
+      "gitState": "untracked",
+      "role": "project-tooling",
+      "publicationClass": "public-source"
+    },
+    {
+      "path": "scripts/recover-final-canonical.mjs",
+      "bytes": 34285,
+      "sha256": "0f9cc6e70475c15ec3bfdffad5da4cf0a83e740dc307f956863e01a373ef1640",
+      "gitState": "untracked",
+      "role": "project-tooling",
+      "publicationClass": "public-source"
+    },
+    {
+      "path": "scripts/recover-final-canonical.test.mjs",
+      "bytes": 2044,
+      "sha256": "1059831aa4eecb3d521db460d658fe6818e55ebad4e98d3068c6184be120d733",
+      "gitState": "untracked",
+      "role": "project-tooling",
+      "publicationClass": "public-source"
+    },
+    {
+      "path": "scripts/recover-mainland-audit-from-existing-artifacts.mjs",
+      "bytes": 26009,
+      "sha256": "eacc3fe5d7f8a9a198b32e5869d191cdb7578b4e5a3b4d07db800681e194c3f2",
+      "gitState": "untracked",
+      "role": "project-tooling",
+      "publicationClass": "public-source"
+    },
+    {
+      "path": "scripts/release-manifest.test.mjs",
+      "bytes": 2806,
+      "sha256": "e3b6d0ae69594c618045bf6cadfeee370ca946c57d25c62d5d14460d2d575a4e",
+      "gitState": "untracked",
+      "role": "project-tooling",
+      "publicationClass": "public-source"
+    },
+    {
+      "path": "scripts/repair-reconstructed-mainland-audit.mjs",
+      "bytes": 6977,
+      "sha256": "258c1a8a14bd9e5ff0fc80756655753d08c5a960edfac373bb1298b42e02e09e",
+      "gitState": "untracked",
+      "role": "project-tooling",
+      "publicationClass": "public-source"
+    },
+    {
+      "path": "scripts/run-all-tests.mjs",
+      "bytes": 960,
+      "sha256": "6914a5bca0fea728718802f5fa674828485dabf7a0dae071afee5553ab97035f",
+      "gitState": "untracked",
+      "role": "project-tooling",
+      "publicationClass": "public-source"
+    },
+    {
+      "path": "scripts/screen-seat-web-review.mjs",
+      "bytes": 17977,
+      "sha256": "f954ace0f83cc3de9cbbaf2e6a17dd09684aaf83984ec4a3829c252cc108e787",
+      "gitState": "untracked",
+      "role": "project-tooling",
+      "publicationClass": "public-source"
+    },
+    {
+      "path": "scripts/screen-seat-web-review.test.mjs",
+      "bytes": 6178,
+      "sha256": "277e58410d084750de6aaabe402cd78a49d72c58c77d2a3b6fb67623d89e6228",
+      "gitState": "untracked",
+      "role": "project-tooling",
+      "publicationClass": "public-source"
+    },
+    {
+      "path": "scripts/setup-private-amap-secrets.ps1",
+      "bytes": 2306,
+      "sha256": "c914e3a7a85d2791f35ad88d369813f3d7af8c25630291ea250774c037bed9c0",
+      "gitState": "untracked",
+      "role": "project-tooling",
+      "publicationClass": "public-source"
+    },
+    {
+      "path": "scripts/start-private-map.ps1",
+      "bytes": 5241,
+      "sha256": "4f46a2d2f3c26a9d58896970481c759b642a3f12b1ba36d25ca1e7ea19025bb3",
+      "gitState": "untracked",
+      "role": "project-tooling",
+      "publicationClass": "public-source"
+    },
+    {
+      "path": "scripts/start-public-map.ps1",
+      "bytes": 4555,
+      "sha256": "eba44c3b3705f6359904db3e1da5c49d537654e0c4f340c873c974cfb3fa26f9",
+      "gitState": "untracked",
+      "role": "project-tooling",
+      "publicationClass": "public-source"
+    },
+    {
+      "path": "scripts/status-parser.mjs",
+      "bytes": 7050,
+      "sha256": "962bccd27bae55fa8b22cb660175fd02645c4b1a2b1a7da251138bcba312a53d",
+      "gitState": "untracked",
+      "role": "project-tooling",
+      "publicationClass": "public-source"
+    },
+    {
+      "path": "scripts/status-parser.test.mjs",
+      "bytes": 4864,
+      "sha256": "d5245974c49417c1355c3eeea0723125a8f1c3635c58412828dd39bb5f730e06",
+      "gitState": "untracked",
+      "role": "project-tooling",
+      "publicationClass": "public-source"
+    },
+    {
+      "path": "scripts/stop-private-map.ps1",
+      "bytes": 1338,
+      "sha256": "ee04f67b64fff12021c93aa5a77be3bc9062d98dc10fbae36c3769c3304f814d",
+      "gitState": "untracked",
+      "role": "project-tooling",
+      "publicationClass": "public-source"
+    },
+    {
+      "path": "scripts/stop-public-map.ps1",
+      "bytes": 1341,
+      "sha256": "6d014b6b6207ec6dd5ee4563a9559f9f9af7638231e567f0247151cfe2d82d37",
+      "gitState": "untracked",
+      "role": "project-tooling",
+      "publicationClass": "public-source"
+    },
+    {
+      "path": "scripts/validate-derived.mjs",
+      "bytes": 7002,
+      "sha256": "6d805c54cafa490716b4421d5f86f59be936a87eb1f58b9d547b4af71fecbf23",
+      "gitState": "tracked",
+      "role": "project-tooling",
+      "publicationClass": "public-source"
+    },
+    {
+      "path": "scripts/validate-public-boundary.mjs",
+      "bytes": 8582,
+      "sha256": "4bceb7978c3a1c4cfff8e243406e880d186c4a70992491d15278affa5ae959ac",
+      "gitState": "untracked",
+      "role": "project-tooling",
+      "publicationClass": "public-source"
+    },
+    {
+      "path": "scripts/validate-public.mjs",
+      "bytes": 9347,
+      "sha256": "f92e8bc0f67844705309060ad3a932a2029957e1cf6baa7cfb047252f161d6a4",
+      "gitState": "untracked",
+      "role": "project-tooling",
+      "publicationClass": "public-source"
+    },
+    {
+      "path": "START_PRIVATE_MAP.cmd",
+      "bytes": 223,
+      "sha256": "12cf3f70ad00a1c1bfd6cbad177cb5b39cf6d76e86d7601aff313473bfa7328f",
+      "gitState": "untracked",
+      "role": "project-launcher",
+      "publicationClass": "public-source"
+    },
+    {
+      "path": "START_PUBLIC_MAP.cmd",
+      "bytes": 221,
+      "sha256": "2f96f2629e6e7da54d6602ce82483ab3e1feff423db8705d5299b30d441bff90",
+      "gitState": "untracked",
+      "role": "project-file",
+      "publicationClass": "review"
+    },
+    {
+      "path": "STOP_PRIVATE_MAP.cmd",
+      "bytes": 221,
+      "sha256": "d7d19037186a38670f554c45492d43c30426da6e4ad0713b3b71fd85becad55f",
+      "gitState": "untracked",
+      "role": "project-launcher",
+      "publicationClass": "public-source"
+    },
+    {
+      "path": "STOP_PUBLIC_MAP.cmd",
+      "bytes": 219,
+      "sha256": "38d0d384ffee8ef01233bc78411eefecf749ca30b6e9194176bca9b8723f6ed7",
+      "gitState": "untracked",
+      "role": "project-file",
+      "publicationClass": "review"
+    },
+    {
+      "path": "styles.css",
+      "bytes": 24983,
+      "sha256": "50596ec269886bb7a409c7c1509437ed71c0ff023220eb7d625e6839385a0e4b",
+      "gitState": "untracked",
+      "role": "project-file",
+      "publicationClass": "review"
+    }
+  ]
+}

@@ -1,0 +1,140 @@
+{
+  "schemaVersion": 1,
+  "generatedAt": "2026-08-21T07:40:09.701Z",
+  "status": "baseline-captured-before-luna-dual-release-materialization",
+  "git": {
+    "branch": "feat/tencent-sheet-import",
+    "head": "68fb04546293e475a512cb8ee0fbdc9dba29910f",
+    "statusShort": "M README.md\n M data/audit/derived-quality.json\n M data/audit/projection-vocabulary.json\n M data/audit/status-parsing.json\n M data/derived/cinemas.json\n M data/derived/cinemas.schema.json\n M data/derived/review-needed.json\n M index.html\n M scripts/derive-cinemas.mjs\n M scripts/validate-derived.mjs\n?? .env.example\n?? .gitignore\n?? LUNA_DUAL_RELEASE_GOAL.md\n?? PROJECT_STATUS.md\n?? START_PRIVATE_MAP.cmd\n?? STOP_PRIVATE_MAP.cmd\n?? data/README.md\n?? data/audit/amap-quota-guard.json\n?? data/audit/final-internal-materialization-status.json\n?? data/audit/frontend-local-preview.json\n?? data/audit/frontend-smoke.json\n?? data/audit/geocode-blind-50-admin-diff.json\n?? data/audit/geocode-blind-50-before-admin-hierarchy.json\n?? data/audit/geocode-blind-50-before-format-compatibility.json\n?? data/audit/geocode-blind-50-format-diff.json\n?? data/audit/geocode-blind-50-matcher-lock.json\n?? data/audit/geocode-blind-50.json\n?? data/audit/geocode-high-audit-150.json\n?? data/audit/geocode-hkmo-tw.json\n?? data/audit/geocode-mainland-evidence-review.json\n?? data/audit/geocode-mainland-final-review.json\n?? data/audit/geocode-mainland-freeze.json\n?? data/audit/geocode-mainland-full.json\n?? data/audit/geocode-mainland-quality.json\n?? data/audit/geocode-matcher-diff.json\n?? data/audit/geocode-materialization-status.json\n?? data/audit/geocode-quality.json\n?? data/audit/geocode-regional-review.json\n?? data/audit/geocode-risk-review.json\n?? data/audit/geocode-test-20-before-matcher-fix.json\n?? data/audit/geocode-test-20-manual-review.json\n?? data/audit/geocode-test-20-matcher-baseline.json\n?? data/audit/geocode-test-20.json\n?? data/audit/geocode-unresolved-priority.json\n?? data/audit/luna-dual-release-baseline.json\n?? data/audit/name-history.json\n?? data/audit/private-amap-release.json\n?? data/audit/project-integrity.json\n?? data/audit/project-manifest.json\n?? data/audit/public-boundary.json\n?? data/audit/release-readiness.json\n?? data/derived/screen-seat-columns.csv\n?? data/geocode/\n?? data/public/\n?? docs/\n?? package.json\n?? private-amap/\n?? scripts/README.md\n?? scripts/audit-name-history.mjs\n?? scripts/build-final-internal.mjs\n?? scripts/build-geocode-final-review.mjs\n?? scripts/build-local-preview.mjs\n?? scripts/build-luna-geocode-review.mjs\n?? scripts/build-private-amap-release.mjs\n?? scripts/build-project-manifest.mjs\n?? scripts/build-public-dataset.mjs\n?? scripts/build-release-readiness.mjs\n?? scripts/evidence-review.test.mjs\n?? scripts/extract-screen-seat.mjs\n?? scripts/final-internal.test.mjs\n?? scripts/fixtures/\n?? scripts/geocode-blind-50.mjs\n?? scripts/geocode-human-audit.mjs\n?? scripts/geocode-mainland.mjs\n?? scripts/geocode-poi.mjs\n?? scripts/geocode-regional.mjs\n?? scripts/geocode/\n?? scripts/local-preview.mjs\n?? scripts/local-preview.test.mjs\n?? scripts/luna-dual-release-baseline.mjs\n?? scripts/map-data-adapter.mjs\n?? scripts/map-data-adapter.test.mjs\n?? scripts/map-frontend.test.mjs\n?? scripts/materialize-geocode-reviewed.mjs\n?? scripts/name-history.mjs\n?? scripts/name-history.test.mjs\n?? scripts/private-amap-release.test.mjs\n?? scripts/private-amap-server.mjs\n?? scripts/project-check.mjs\n?? scripts/public-boundary.test.mjs\n?? scripts/public-data.test.mjs\n?? scripts/run-all-tests.mjs\n?? scripts/setup-private-amap-secrets.ps1\n?? scripts/start-private-map.ps1\n?? scripts/status-parser.mjs\n?? scripts/status-parser.test.mjs\n?? scripts/stop-private-map.ps1\n?? scripts/validate-public-boundary.mjs\n?? scripts/validate-public.mjs",
+    "dirty": true
+  },
+  "counts": {
+    "rawDataRows": 901,
+    "derivedRecords": 901,
+    "publicRecords": 901,
+    "localPreviewRecords": 901,
+    "privateRecords": 901,
+    "publicCoordinates": 0,
+    "localPreviewCoordinates": 578,
+    "privateProviderCoordinates": 578
+  },
+  "screenSeatAcceptance": {
+    "csvDataRows": 901,
+    "csvSha256": "5c6c9a14894ab985927a58de83c88dcc40cc24ecec1f807823471ed320cd91ae",
+    "expectedCsvSha256": "5c6c9a14894ab985927a58de83c88dcc40cc24ecec1f807823471ed320cd91ae",
+    "csvFrozenHashMatches": true,
+    "csvFieldsMatch4505": true,
+    "expectedDisplayValues": 4505,
+    "derivedRawFieldsMatched": true,
+    "publicRawFieldsMatched": false,
+    "privateRawFieldsMatched": false,
+    "rawFieldsPerLayer": 3604,
+    "rawFieldComparisonsAcrossLayers": 10812
+  },
+  "layerChecks": {
+    "derived": {
+      "present": true,
+      "records": 901,
+      "rawFieldsMatched": true,
+      "compared": 3604,
+      "mismatches": [],
+      "mismatchCount": 0
+    },
+    "public": {
+      "present": true,
+      "records": 901,
+      "rawFieldsMatched": false,
+      "compared": 3604,
+      "mismatches": [
+        "2.seatsRaw",
+        "3.seatsRaw",
+        "4.seatsRaw",
+        "5.seatsRaw",
+        "6.seatsRaw",
+        "7.seatsRaw",
+        "8.seatsRaw",
+        "9.seatsRaw",
+        "10.seatsRaw",
+        "11.name",
+        "11.seatsRaw",
+        "12.seatsRaw",
+        "13.seatsRaw",
+        "14.seatsRaw",
+        "15.seatsRaw",
+        "16.seatsRaw",
+        "17.seatsRaw",
+        "18.seatsRaw",
+        "19.seatsRaw",
+        "20.seatsRaw"
+      ],
+      "mismatchCount": 1008
+    },
+    "private": {
+      "present": true,
+      "records": 901,
+      "rawFieldsMatched": false,
+      "compared": 3604,
+      "mismatches": [
+        "2.seatsRaw",
+        "3.seatsRaw",
+        "4.seatsRaw",
+        "5.seatsRaw",
+        "6.seatsRaw",
+        "7.seatsRaw",
+        "8.seatsRaw",
+        "9.seatsRaw",
+        "10.seatsRaw",
+        "11.name",
+        "11.seatsRaw",
+        "12.seatsRaw",
+        "13.seatsRaw",
+        "14.seatsRaw",
+        "15.seatsRaw",
+        "16.seatsRaw",
+        "17.seatsRaw",
+        "18.seatsRaw",
+        "19.seatsRaw",
+        "20.seatsRaw"
+      ],
+      "mismatchCount": 1008
+    }
+  },
+  "hashes": {
+    "data/raw/arvin-imax.json": "7cf5c979be985fbeef72dcc44228e1ef0501444eee0b5b82f2ffcba231638464",
+    "data/derived/cinemas.json": "ef6c4d6750d292c5fdca59c1262ebc9724bc8fc2a60383d37f1988365011720d",
+    "data/public/cinemas.json": "f5ae0fa86cf0e62615d1f5793d7a7bf750b47af096d01d62d1e40af89b3fba33",
+    "data/local/cinemas-preview.json": "2f5542b35be14c857771b86e8298214aea5b606edb28b5ba54fe07cb27d533bf",
+    "dist-private/data/cinemas.json": "0b990aa5ef9fb46c0834586f06ff9677371bd5a62968353faf0e1ca7b4203c2f",
+    "data/derived/screen-seat-columns.csv": "5c6c9a14894ab985927a58de83c88dcc40cc24ecec1f807823471ed320cd91ae"
+  },
+  "quota": {
+    "maxNewAmapRequests": 600,
+    "newAmapRequests": 0,
+    "cacheHits": 0,
+    "providerErrors": 0,
+    "networkRequests": 0,
+    "budgetRemaining": 600
+  },
+  "publicBoundary": {
+    "publicationGate": "BLOCKED_PENDING_PERMISSION",
+    "coordinates": 0,
+    "providerCoordinates": 0,
+    "amapProvenance": 0,
+    "rawCandidateText": false,
+    "credentialLikeText": false,
+    "rawNameField": 0
+  },
+  "privateBoundary": {
+    "present": true,
+    "coordinateSystem": "GCJ-02",
+    "providerCoordinates": 578,
+    "invalidProviderCoordinates": 0,
+    "rawCandidateText": true
+  },
+  "networkRequestCounters": {
+    "amap": 0,
+    "newAmapRequests": 0,
+    "cacheHits": 0,
+    "providerErrors": 0
+  }
+}

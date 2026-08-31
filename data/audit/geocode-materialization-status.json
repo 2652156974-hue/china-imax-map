@@ -1,0 +1,29 @@
+{
+  "schemaVersion": 1,
+  "generatedAt": "2026-08-21T02:00:00.592Z",
+  "status": "blocked-missing-row-level-human-review-file",
+  "expectedHumanReviewFile": "data/audit/geocode-risk-human-review-219.json",
+  "humanReviewFilePresent": false,
+  "aggregateClaimsAreNotMaterialized": true,
+  "inputs": {
+    "derivedRecords": 901,
+    "mainlandAuditRecords": 881,
+    "riskReviewRecords": 219,
+    "existingOverrideRecords": 5,
+    "derivedSha256": "ef6c4d6750d292c5fdca59c1262ebc9724bc8fc2a60383d37f1988365011720d",
+    "mainlandAuditSha256": "7e49f019b40b1b85387f95ee308c95ae9ddbf7ec3da5191523debfec5b83bd71",
+    "riskReviewSha256": "89ad3febeef6d540953b732afe6e4de2ac81a90060d0f21a073dc7e0b15c99b9"
+  },
+  "expectedExternalSummary": {
+    "highSample": "150/150",
+    "riskReview": "219 rows; aggregate claim not used without row-level file",
+    "projectedMainlandLocated": "754/881; not reproduced locally"
+  },
+  "safeBaselineMaterialization": {
+    "automaticHigh": 574,
+    "reviewedOverrideHigh": 4,
+    "automaticMediumHeld": 109,
+    "unresolvedHeld": 194,
+    "coordinatesAppliedToExistingDerived": 0
+  }
+}

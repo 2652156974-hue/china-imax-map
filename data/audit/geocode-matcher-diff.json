@@ -1,0 +1,641 @@
+{
+  "schemaVersion": 1,
+  "generatedAt": "2026-08-20T08:58:00.492Z",
+  "mode": "existing-cache-only",
+  "networkRequests": 0,
+  "before": {
+    "automaticHigh": 0,
+    "automaticMedium": 15,
+    "reviewedOverrideHigh": 0,
+    "reviewedOverrideMedium": 0,
+    "unresolved": 5
+  },
+  "after": {
+    "automaticHigh": 15,
+    "automaticMedium": 0,
+    "reviewedOverrideHigh": 4,
+    "reviewedOverrideMedium": 0,
+    "unresolved": 1
+  },
+  "records": [
+    {
+      "sourceRow": 309,
+      "name": "北京中国电影博物馆",
+      "before": {
+        "decision": "unresolved",
+        "score": null,
+        "poiId": null,
+        "poiName": null
+      },
+      "after": {
+        "decision": "accepted-high",
+        "score": 1,
+        "poiId": "B0HBXCQO2P",
+        "poiName": "中国电影博物馆-IMAX GT巨幕影厅",
+        "positionType": "cinema-poi",
+        "locationGranularity": "auditorium",
+        "locationConfidence": "high",
+        "identityConfidence": "high",
+        "confidence": "high",
+        "overrideApplied": true
+      }
+    },
+    {
+      "sourceRow": 311,
+      "name": "北京万达影城（石景山万达广场店）",
+      "before": {
+        "decision": "review-required-medium",
+        "score": 0.8,
+        "poiId": "B000A81BZM",
+        "poiName": "万达影城(石景山万达广场店)"
+      },
+      "after": {
+        "decision": "accepted-high",
+        "score": 1,
+        "poiId": "B000A81BZM",
+        "poiName": "万达影城(石景山万达广场店)",
+        "positionType": "cinema-poi",
+        "locationGranularity": "cinema",
+        "locationConfidence": "high",
+        "identityConfidence": "high",
+        "confidence": "high",
+        "overrideApplied": false
+      }
+    },
+    {
+      "sourceRow": 314,
+      "name": "北京环球城市大道电影院",
+      "before": {
+        "decision": "review-required-medium",
+        "score": 0.8,
+        "poiId": "B0G0TAEIJV",
+        "poiName": "环球城市大道电影院"
+      },
+      "after": {
+        "decision": "accepted-high",
+        "score": 1,
+        "poiId": "B0G0TAEIJV",
+        "poiName": "环球城市大道电影院",
+        "positionType": "cinema-poi",
+        "locationGranularity": "cinema",
+        "locationConfidence": "high",
+        "identityConfidence": "high",
+        "confidence": "high",
+        "overrideApplied": false
+      }
+    },
+    {
+      "sourceRow": 21,
+      "name": "上海百丽宫影城（LCM置汇旭辉广场店）",
+      "before": {
+        "decision": "review-required-medium",
+        "score": 0.8,
+        "poiId": "B0FFJL4VPL",
+        "poiName": "上海百丽宫影城(LCM置汇旭辉广场店)"
+      },
+      "after": {
+        "decision": "accepted-high",
+        "score": 1,
+        "poiId": "B0FFJL4VPL",
+        "poiName": "上海百丽宫影城(LCM置汇旭辉广场店)",
+        "positionType": "cinema-poi",
+        "locationGranularity": "cinema",
+        "locationConfidence": "high",
+        "identityConfidence": "high",
+        "confidence": "high",
+        "overrideApplied": false
+      }
+    },
+    {
+      "sourceRow": 30,
+      "name": "上海百丽宫影城（博荟广场店）",
+      "before": {
+        "decision": "review-required-medium",
+        "score": 0.8,
+        "poiId": "B0FFI2O92B",
+        "poiName": "百丽宫影城(博荟广场ONE EAST店)"
+      },
+      "after": {
+        "decision": "accepted-high",
+        "score": 0.9608,
+        "poiId": "B0FFI2O92B",
+        "poiName": "百丽宫影城(博荟广场ONE EAST店)",
+        "positionType": "cinema-poi",
+        "locationGranularity": "cinema",
+        "locationConfidence": "high",
+        "identityConfidence": "high",
+        "confidence": "high",
+        "overrideApplied": false
+      }
+    },
+    {
+      "sourceRow": 37,
+      "name": "上海百丽宫影城（环贸iapm店）",
+      "before": {
+        "decision": "review-required-medium",
+        "score": 0.8,
+        "poiId": "B00157A5JJ",
+        "poiName": "百丽宫影城(上海环贸店)"
+      },
+      "after": {
+        "decision": "accepted-high",
+        "score": 0.92,
+        "poiId": "B00157A5JJ",
+        "poiName": "百丽宫影城(上海环贸店)",
+        "positionType": "cinema-poi",
+        "locationGranularity": "cinema",
+        "locationConfidence": "high",
+        "identityConfidence": "high",
+        "confidence": "high",
+        "overrideApplied": false
+      }
+    },
+    {
+      "sourceRow": 198,
+      "name": "广州美亚影城（云门店）",
+      "before": {
+        "decision": "review-required-medium",
+        "score": 0.8,
+        "poiId": "B0FFKBGXY0",
+        "poiName": "美亚IMAX激光影城(云门店)"
+      },
+      "after": {
+        "decision": "accepted-high",
+        "score": 1,
+        "poiId": "B0FFKBGXY0",
+        "poiName": "美亚IMAX激光影城(云门店)",
+        "positionType": "cinema-poi",
+        "locationGranularity": "cinema",
+        "locationConfidence": "high",
+        "identityConfidence": "high",
+        "confidence": "high",
+        "overrideApplied": false
+      }
+    },
+    {
+      "sourceRow": 200,
+      "name": "广州飞扬影城（IMAX激光乐峰店）",
+      "before": {
+        "decision": "review-required-medium",
+        "score": 0.8,
+        "poiId": "B00141SC0V",
+        "poiName": "飞扬影城(乐峰广场店)"
+      },
+      "after": {
+        "decision": "accepted-high",
+        "score": 0.973867,
+        "poiId": "B00141SC0V",
+        "poiName": "飞扬影城(乐峰广场店)",
+        "positionType": "cinema-poi",
+        "locationGranularity": "cinema",
+        "locationConfidence": "high",
+        "identityConfidence": "high",
+        "confidence": "high",
+        "overrideApplied": false
+      }
+    },
+    {
+      "sourceRow": 224,
+      "name": "深圳英皇电影城（平安金融中心店)",
+      "before": {
+        "decision": "review-required-medium",
+        "score": 0.8,
+        "poiId": "B0FFLKPC8C",
+        "poiName": "英皇电影城(PA MALL平安金融中心商场)"
+      },
+      "after": {
+        "decision": "accepted-high",
+        "score": 0.92,
+        "poiId": "B0FFLKPC8C",
+        "poiName": "英皇电影城(PA MALL平安金融中心商场)",
+        "positionType": "cinema-poi",
+        "locationGranularity": "cinema",
+        "locationConfidence": "high",
+        "identityConfidence": "high",
+        "confidence": "high",
+        "overrideApplied": false
+      }
+    },
+    {
+      "sourceRow": 228,
+      "name": "深圳万达影城（龙岗万达广场店）",
+      "before": {
+        "decision": "review-required-ambiguous",
+        "score": 0.86,
+        "poiId": "B0HRK5AY2M",
+        "poiName": "万达影城(龙岗万达广场店)"
+      },
+      "after": {
+        "decision": "accepted-high",
+        "score": 1,
+        "poiId": "B0HRK5AY2M",
+        "poiName": "万达影城(龙岗万达广场店)",
+        "positionType": "cinema-poi",
+        "locationGranularity": "cinema",
+        "locationConfidence": "high",
+        "identityConfidence": "high",
+        "confidence": "high",
+        "overrideApplied": false
+      }
+    },
+    {
+      "sourceRow": 593,
+      "name": "西安寰映影城（荟聚店）",
+      "before": {
+        "decision": "review-required-medium",
+        "score": 0.86,
+        "poiId": "B0KG251QBL",
+        "poiName": "寰映影城(西安荟聚激光IMAX店)"
+      },
+      "after": {
+        "decision": "accepted-high",
+        "score": 0.92,
+        "poiId": "B0KG251QBL",
+        "poiName": "寰映影城(西安荟聚激光IMAX店)",
+        "positionType": "cinema-poi",
+        "locationGranularity": "cinema",
+        "locationConfidence": "high",
+        "identityConfidence": "high",
+        "confidence": "high",
+        "overrideApplied": false
+      }
+    },
+    {
+      "sourceRow": 699,
+      "name": "成都中影紫荆国际影城4K激光IMAX（环球中心旗舰店）",
+      "before": {
+        "decision": "review-required-medium",
+        "score": 0.8,
+        "poiId": "B0K0XSTSXF",
+        "poiName": "中影紫荆国际影城4K激光IMAX环球中心旗舰店"
+      },
+      "after": {
+        "decision": "accepted-high",
+        "score": 1,
+        "poiId": "B0K0XSTSXF",
+        "poiName": "中影紫荆国际影城4K激光IMAX环球中心旗舰店",
+        "positionType": "cinema-poi",
+        "locationGranularity": "cinema",
+        "locationConfidence": "high",
+        "identityConfidence": "high",
+        "confidence": "high",
+        "overrideApplied": false
+      }
+    },
+    {
+      "sourceRow": 59,
+      "name": "哈尔滨儒意影城（哈东万达广场店）",
+      "before": {
+        "decision": "review-required-medium",
+        "score": 0.8,
+        "poiId": "B0HBOZL908",
+        "poiName": "儒意影城(哈东万达广场店)"
+      },
+      "after": {
+        "decision": "accepted-high",
+        "score": 1,
+        "poiId": "B0HBOZL908",
+        "poiName": "儒意影城(哈东万达广场店)",
+        "positionType": "cinema-poi",
+        "locationGranularity": "cinema",
+        "locationConfidence": "high",
+        "identityConfidence": "high",
+        "confidence": "high",
+        "overrideApplied": false
+      }
+    },
+    {
+      "sourceRow": 51,
+      "name": "哈尔滨黑龙江省科学技术馆",
+      "before": {
+        "decision": "unresolved",
+        "score": null,
+        "poiId": null,
+        "poiName": null
+      },
+      "after": {
+        "decision": "accepted-high",
+        "score": 0.990625,
+        "poiId": "B01C302873",
+        "poiName": "黑龙江省科学技术馆",
+        "positionType": "venue-poi",
+        "locationGranularity": "venue",
+        "locationConfidence": "high",
+        "identityConfidence": "medium",
+        "confidence": "high",
+        "overrideApplied": true
+      }
+    },
+    {
+      "sourceRow": 155,
+      "name": "扬州幸福蓝海国际影城（IMAX店）",
+      "before": {
+        "decision": "unresolved",
+        "score": null,
+        "poiId": null,
+        "poiName": null
+      },
+      "after": {
+        "decision": "accepted-high",
+        "score": 0.976941,
+        "poiId": "B0FFFDTAL6",
+        "poiName": "幸福蓝海国际影城(扬州IMAX店)",
+        "positionType": "cinema-poi",
+        "locationGranularity": "cinema",
+        "locationConfidence": "high",
+        "identityConfidence": "high",
+        "confidence": "high",
+        "overrideApplied": true
+      }
+    },
+    {
+      "sourceRow": 305,
+      "name": "北京万达影城（怀柔万达广场店）",
+      "before": {
+        "decision": "review-required-medium",
+        "score": 0.8,
+        "poiId": "B0FFIQ193L",
+        "poiName": "万达影城(怀柔万达广场IMAX店)"
+      },
+      "after": {
+        "decision": "accepted-high",
+        "score": 1,
+        "poiId": "B0FFIQ193L",
+        "poiName": "万达影城(怀柔万达广场IMAX店)",
+        "positionType": "cinema-poi",
+        "locationGranularity": "cinema",
+        "locationConfidence": "high",
+        "identityConfidence": "high",
+        "confidence": "high",
+        "overrideApplied": false
+      }
+    },
+    {
+      "sourceRow": 610,
+      "name": "包头万达影城（九原万达广场店)",
+      "before": {
+        "decision": "review-required-medium",
+        "score": 0.8,
+        "poiId": "B0FFJEI1H1",
+        "poiName": "万达影城(九原万达广场店)"
+      },
+      "after": {
+        "decision": "accepted-high",
+        "score": 1,
+        "poiId": "B0FFJEI1H1",
+        "poiName": "万达影城(九原万达广场店)",
+        "positionType": "cinema-poi",
+        "locationGranularity": "cinema",
+        "locationConfidence": "high",
+        "identityConfidence": "high",
+        "confidence": "high",
+        "overrideApplied": false
+      }
+    },
+    {
+      "sourceRow": 233,
+      "name": "深圳寰映影城（深圳湾睿印店）",
+      "before": {
+        "decision": "review-required-medium",
+        "score": 0.86,
+        "poiId": "B0JAAH8R2L",
+        "poiName": "寰映影城(深圳湾睿印RAIL IN店)"
+      },
+      "after": {
+        "decision": "accepted-high",
+        "score": 0.965864,
+        "poiId": "B0JAAH8R2L",
+        "poiName": "寰映影城(深圳湾睿印RAIL IN店)",
+        "positionType": "cinema-poi",
+        "locationGranularity": "cinema",
+        "locationConfidence": "high",
+        "identityConfidence": "high",
+        "confidence": "high",
+        "overrideApplied": false
+      }
+    },
+    {
+      "sourceRow": 538,
+      "name": "杭州浙影时代影城•西湖文化广场店",
+      "before": {
+        "decision": "unresolved",
+        "score": null,
+        "poiId": null,
+        "poiName": null
+      },
+      "after": {
+        "decision": "accepted-high",
+        "score": 1,
+        "poiId": "B023B14BCH",
+        "poiName": "浙影时代影城(西湖文化广场店)",
+        "positionType": "cinema-poi",
+        "locationGranularity": "cinema",
+        "locationConfidence": "high",
+        "identityConfidence": "high",
+        "confidence": "high",
+        "overrideApplied": true
+      }
+    },
+    {
+      "sourceRow": 843,
+      "name": "贵阳星美国际影城（花果园店）",
+      "before": {
+        "decision": "unresolved",
+        "score": null,
+        "poiId": null,
+        "poiName": null
+      },
+      "after": {
+        "decision": "unresolved",
+        "score": null,
+        "poiId": null,
+        "poiName": null,
+        "positionType": null,
+        "locationGranularity": null,
+        "locationConfidence": "unknown",
+        "identityConfidence": "unknown",
+        "confidence": "unknown",
+        "overrideApplied": false
+      }
+    }
+  ],
+  "formerlyUnresolved": [
+    {
+      "sourceRow": 309,
+      "name": "北京中国电影博物馆",
+      "before": {
+        "decision": "unresolved",
+        "score": null,
+        "poiId": null,
+        "poiName": null
+      },
+      "after": {
+        "decision": "accepted-high",
+        "score": 1,
+        "poiId": "B0HBXCQO2P",
+        "poiName": "中国电影博物馆-IMAX GT巨幕影厅",
+        "positionType": "cinema-poi",
+        "locationGranularity": "auditorium",
+        "locationConfidence": "high",
+        "identityConfidence": "high",
+        "confidence": "high",
+        "overrideApplied": true
+      }
+    },
+    {
+      "sourceRow": 51,
+      "name": "哈尔滨黑龙江省科学技术馆",
+      "before": {
+        "decision": "unresolved",
+        "score": null,
+        "poiId": null,
+        "poiName": null
+      },
+      "after": {
+        "decision": "accepted-high",
+        "score": 0.990625,
+        "poiId": "B01C302873",
+        "poiName": "黑龙江省科学技术馆",
+        "positionType": "venue-poi",
+        "locationGranularity": "venue",
+        "locationConfidence": "high",
+        "identityConfidence": "medium",
+        "confidence": "high",
+        "overrideApplied": true
+      }
+    },
+    {
+      "sourceRow": 155,
+      "name": "扬州幸福蓝海国际影城（IMAX店）",
+      "before": {
+        "decision": "unresolved",
+        "score": null,
+        "poiId": null,
+        "poiName": null
+      },
+      "after": {
+        "decision": "accepted-high",
+        "score": 0.976941,
+        "poiId": "B0FFFDTAL6",
+        "poiName": "幸福蓝海国际影城(扬州IMAX店)",
+        "positionType": "cinema-poi",
+        "locationGranularity": "cinema",
+        "locationConfidence": "high",
+        "identityConfidence": "high",
+        "confidence": "high",
+        "overrideApplied": true
+      }
+    },
+    {
+      "sourceRow": 538,
+      "name": "杭州浙影时代影城•西湖文化广场店",
+      "before": {
+        "decision": "unresolved",
+        "score": null,
+        "poiId": null,
+        "poiName": null
+      },
+      "after": {
+        "decision": "accepted-high",
+        "score": 1,
+        "poiId": "B023B14BCH",
+        "poiName": "浙影时代影城(西湖文化广场店)",
+        "positionType": "cinema-poi",
+        "locationGranularity": "cinema",
+        "locationConfidence": "high",
+        "identityConfidence": "high",
+        "confidence": "high",
+        "overrideApplied": true
+      }
+    },
+    {
+      "sourceRow": 843,
+      "name": "贵阳星美国际影城（花果园店）",
+      "before": {
+        "decision": "unresolved",
+        "score": null,
+        "poiId": null,
+        "poiName": null
+      },
+      "after": {
+        "decision": "unresolved",
+        "score": null,
+        "poiId": null,
+        "poiName": null,
+        "positionType": null,
+        "locationGranularity": null,
+        "locationConfidence": "unknown",
+        "identityConfidence": "unknown",
+        "confidence": "unknown",
+        "overrideApplied": false
+      }
+    }
+  ],
+  "regression": {
+    "currentRunNetworkRequests": 0,
+    "invalidMallFallbackCount": 0,
+    "invalidMallFallbacks": [],
+    "nonCinemaTypePromotedToCinemaCount": 0,
+    "jiuyuanMalformedHistoryQueryCount": 0,
+    "jiuyuanQueries": [
+      "包头万达影城（九原万达广场店) 包头",
+      "九原万达广场 万达影城 包头"
+    ],
+    "longgangDecision": "accepted-high",
+    "longgangHardRejectedDistractors": [
+      {
+        "poiId": "B0K2ZD5LFA",
+        "name": "云逸宝摇杆游戏机(万达影城深圳龙岗万达广场IMAX激光店)",
+        "reasons": [
+          "non-cinema-poi"
+        ]
+      },
+      {
+        "poiId": "B0L3YRK5LQ",
+        "name": "飞越中国·裸眼9D球幕悬空飞行影院(龙岗万达店)",
+        "reasons": [
+          "non-cinema-poi",
+          "auditorium-format-conflict"
+        ]
+      }
+    ],
+    "longgangTrueAmbiguity": false,
+    "focusRows": {
+      "51": {
+        "decision": "accepted-high",
+        "poiId": "B01C302873",
+        "poiName": "黑龙江省科学技术馆",
+        "positionType": "venue-poi"
+      },
+      "155": {
+        "decision": "accepted-high",
+        "poiId": "B0FFFDTAL6",
+        "poiName": "幸福蓝海国际影城(扬州IMAX店)",
+        "positionType": "cinema-poi"
+      },
+      "309": {
+        "decision": "accepted-high",
+        "poiId": "B0HBXCQO2P",
+        "poiName": "中国电影博物馆-IMAX GT巨幕影厅",
+        "positionType": "cinema-poi"
+      },
+      "538": {
+        "decision": "accepted-high",
+        "poiId": "B023B14BCH",
+        "poiName": "浙影时代影城(西湖文化广场店)",
+        "positionType": "cinema-poi"
+      },
+      "843": {
+        "decision": "unresolved",
+        "poiId": null,
+        "poiName": null,
+        "positionType": null
+      }
+    },
+    "crsFieldsCompleteForSelected": true,
+    "convertedCoordinatesWithinRange": true,
+    "providerCoordinatesPreservedSeparately": true,
+    "selectedCoordinateCount": 19,
+    "sourceRecordCount": 20
+  }
+}

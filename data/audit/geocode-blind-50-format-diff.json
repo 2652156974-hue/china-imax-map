@@ -1,0 +1,172 @@
+{
+  "schemaVersion": 1,
+  "generatedAt": "2026-08-20T08:44:52.655Z",
+  "mode": "blind-50-existing-cache-only-format-compatibility-rescore",
+  "networkRequests": 0,
+  "matcher": {
+    "algorithm": "SHA-256",
+    "files": [
+      "scripts/geocode/scoring.mjs",
+      "scripts/geocode/query.mjs",
+      "scripts/geocode/crs.mjs"
+    ],
+    "value": "1496f10f92eab9d86e7f70434212c639943c0b6d544b71941a3b538f76f8a855"
+  },
+  "before": {
+    "evaluated": 50,
+    "automaticHigh": 21,
+    "automaticMedium": 9,
+    "reviewedOverrideHigh": 0,
+    "reviewedOverrideMedium": 0,
+    "unresolved": 20,
+    "coverage": 0.6,
+    "automaticHighRate": 0.42
+  },
+  "after": {
+    "evaluated": 50,
+    "automaticHigh": 18,
+    "automaticMedium": 12,
+    "reviewedOverrideHigh": 0,
+    "reviewedOverrideMedium": 0,
+    "unresolved": 20,
+    "coverage": 0.6,
+    "automaticHighRate": 0.36
+  },
+  "row464": {
+    "sourceRow": 464,
+    "sourceName": "济南山东省科技馆（新馆）",
+    "before": {
+      "decision": "accepted-high",
+      "poiId": "B0J6N7NXBQ",
+      "name": "山东省科技馆新馆球幕影院",
+      "positionType": "cinema-poi"
+    },
+    "after": {
+      "decision": "review-required-medium",
+      "poiId": "B0FFH1LFNB",
+      "name": "山东省科技馆",
+      "positionType": "venue-poi",
+      "locationGranularity": "venue",
+      "locationConfidence": "high",
+      "identityConfidence": "medium"
+    }
+  },
+  "decisionChanges": [
+    {
+      "sourceRow": 872,
+      "sourceName": "南京科技館",
+      "before": {
+        "decision": "accepted-high",
+        "poiId": "B0019097N2",
+        "name": "南京科技馆",
+        "positionType": "venue-poi"
+      },
+      "after": {
+        "decision": "review-required-medium",
+        "poiId": "B0019097N2",
+        "name": "南京科技馆",
+        "positionType": "venue-poi",
+        "locationGranularity": "venue",
+        "locationConfidence": "high",
+        "identityConfidence": "medium"
+      }
+    },
+    {
+      "sourceRow": 464,
+      "sourceName": "济南山东省科技馆（新馆）",
+      "before": {
+        "decision": "accepted-high",
+        "poiId": "B0J6N7NXBQ",
+        "name": "山东省科技馆新馆球幕影院",
+        "positionType": "cinema-poi"
+      },
+      "after": {
+        "decision": "review-required-medium",
+        "poiId": "B0FFH1LFNB",
+        "name": "山东省科技馆",
+        "positionType": "venue-poi",
+        "locationGranularity": "venue",
+        "locationConfidence": "high",
+        "identityConfidence": "medium"
+      }
+    },
+    {
+      "sourceRow": 807,
+      "sourceName": "重庆科技馆",
+      "before": {
+        "decision": "accepted-high",
+        "poiId": "B0FFFOLF1H",
+        "name": "重庆科技馆A区",
+        "positionType": "venue-poi"
+      },
+      "after": {
+        "decision": "review-required-medium",
+        "poiId": "B0FFFOLF1H",
+        "name": "重庆科技馆A区",
+        "positionType": "venue-poi",
+        "locationGranularity": "venue",
+        "locationConfidence": "medium",
+        "identityConfidence": "medium"
+      }
+    }
+  ],
+  "formatAudit": {
+    "candidateConflictCount": 3,
+    "affectedSourceRows": [
+      731,
+      872,
+      464
+    ],
+    "conflicts": [
+      {
+        "sourceRow": 731,
+        "sourceName": "南充万达影城（临江万达广场店）",
+        "poiId": "B0L6BZX13O",
+        "name": "幻见蓝影9D球幕飞行影院(南充万达店)",
+        "locationGranularity": "auditorium",
+        "conflicts": [
+          "non-dome-vs-dome-auditorium"
+        ],
+        "hardRejected": true
+      },
+      {
+        "sourceRow": 872,
+        "sourceName": "南京科技館",
+        "poiId": "B0MBBSVOD1",
+        "name": "南京科技馆4D影院",
+        "locationGranularity": "auditorium",
+        "conflicts": [
+          "imax-vs-4d-xd-sibling"
+        ],
+        "hardRejected": true
+      },
+      {
+        "sourceRow": 464,
+        "sourceName": "济南山东省科技馆（新馆）",
+        "poiId": "B0J6N7NXBQ",
+        "name": "山东省科技馆新馆球幕影院",
+        "locationGranularity": "auditorium",
+        "conflicts": [
+          "non-dome-vs-dome-auditorium"
+        ],
+        "hardRejected": true
+      }
+    ],
+    "priorHighFormatConflictCount": 1,
+    "priorHighFormatConflicts": [
+      {
+        "sourceRow": 464,
+        "sourceName": "济南山东省科技馆（新馆）",
+        "poiId": "B0J6N7NXBQ",
+        "name": "山东省科技馆新馆球幕影院",
+        "locationGranularity": "auditorium",
+        "conflicts": [
+          "non-dome-vs-dome-auditorium"
+        ],
+        "hardRejected": true
+      }
+    ],
+    "currentHighFormatConflictCount": 0,
+    "currentHighFormatConflicts": []
+  }
+}

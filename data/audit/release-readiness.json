@@ -1,0 +1,1003 @@
+{
+  "schemaVersion": 1,
+  "generatedAt": "2026-08-25T07:06:50.532Z",
+  "status": "ready-for-publication",
+  "publicationReady": true,
+  "developmentStatus": "complete",
+  "developmentBlockers": [],
+  "materializationGates": [],
+  "publicationGates": [],
+  "releaseGates": [],
+  "releaseBranch": {
+    "name": "codex/public-release",
+    "exists": true,
+    "ready": true,
+    "currentWorkspaceBranch": "feat/tencent-sheet-import",
+    "base": "fba4dcd"
+  },
+  "currentAcceptance": {
+    "total": 901,
+    "accepted": 901,
+    "markerCount": 901,
+    "locationOnly": 100,
+    "unresolved": 0,
+    "unlocated": 0,
+    "acceptedPlusUnlocated": 901
+  },
+  "data": {
+    "totalRecords": 901,
+    "regionCounts": {
+      "mainland": 881,
+      "hongKong": 7,
+      "macau": 1,
+      "taiwan": 12
+    },
+    "sourceTab": "IMAX中国",
+    "cityPresent": 901,
+    "coordinatePopulated": 0,
+    "invalidCoordinates": 0,
+    "statusCounts": {
+      "unknown": 803,
+      "open": 89,
+      "closed": 8,
+      "temporarily_closed": 1
+    },
+    "derivedSha256": "6eb063b2f641762bb4059ffe6cca6d4dae95d7ec5bf6e5266fd896797fc07ca3"
+  },
+  "geocode": {
+    "freezeSha256": "25b57e8bf0c68c1a284a109d3dc093caac94363b7eadad5de37bdc1c9e2f4cad",
+    "baselineSummary": {
+      "automaticHigh": 574,
+      "automaticMedium": 109,
+      "reviewedOverrideHigh": 4,
+      "unresolved": 194
+    },
+    "humanReviewArtifactPresent": true,
+    "humanReviewStatus": "validated-with-unreviewed-rows",
+    "humanReviewStatusFile": "data/audit/luna-geocode-review-323-summary.json",
+    "internalDatasetPresent": true,
+    "mainlandFinalReviewFile": "data/audit/geocode-mainland-final-review.json",
+    "mainlandFinalReviewRemaining": 303,
+    "regionalReviewFile": "data/audit/geocode-regional-review.json",
+    "regionalReviewRemaining": 20,
+    "regionalAuditFile": "data/audit/geocode-hkmo-tw.json",
+    "regionalAuditPresent": true,
+    "regionalAuditStatus": "completed-regional-audit",
+    "regionalAuditSummary": {
+      "total": 20,
+      "exact": 0,
+      "locationOnly": 0,
+      "unresolved": 20,
+      "byDecision": {
+        "unresolved": 20
+      },
+      "byRegion": {
+        "香港": {
+          "total": 7,
+          "exact": 0,
+          "locationOnly": 0,
+          "unresolved": 7
+        },
+        "台湾": {
+          "total": 12,
+          "exact": 0,
+          "locationOnly": 0,
+          "unresolved": 12
+        },
+        "澳门": {
+          "total": 1,
+          "exact": 0,
+          "locationOnly": 0,
+          "unresolved": 1
+        }
+      },
+      "byProvider": {
+        "nominatim": 20
+      }
+    },
+    "regionalRequestPolicy": {
+      "cacheFirst": true,
+      "networkEnabled": true,
+      "networkRequests": 20,
+      "cacheHits": 0,
+      "errors": 20,
+      "maxNewRequests": 20,
+      "consumesMainlandAmapBudget": false,
+      "amapRequests": 0,
+      "coordinatesAppliedToDerived": 0
+    },
+    "finalInternalDatasetFile": "data/derived/cinemas-final-internal.json",
+    "finalInternalMaterializationStatusFile": "data/audit/final-internal-materialization-status.json",
+    "finalInternalMaterializationStatus": "complete-internal-only",
+    "privateReviewedLayerFile": "data/local/private-reviewed-geocodes.json",
+    "privateReviewedLayerSummary": {
+      "total": 901,
+      "accepted": 901,
+      "markerCount": 901,
+      "located": 901,
+      "pendingReview": 0,
+      "unresolved": 0,
+      "unlocated": 0,
+      "acceptedPlusUnlocated": 901,
+      "statePartition": true
+    },
+    "localPreview": {
+      "builder": "scripts/build-local-preview.mjs",
+      "dataset": "data/local/cinemas-preview.json",
+      "status": "local-only-gitignored",
+      "publicationSafe": false,
+      "note": "Uses accepted-high existing audit evidence only; not a reviewed or public layer."
+    },
+    "advisoryEvidenceReviewFile": "data/audit/geocode-mainland-evidence-review.json",
+    "advisoryEvidenceReview": {
+      "status": "evidence-collected-not-materialized",
+      "summary": {
+        "records": 5,
+        "evidenceSupportedVenueOrCapability": 5,
+        "coordinatesApplied": 0,
+        "reviewedOverridesAdded": 0,
+        "additionalExactLocations": 0,
+        "additionalLocationOnly": 0,
+        "remainingNull": 5
+      }
+    },
+    "baselineBuckets": {
+      "automaticExact": 574,
+      "automaticMedium": 109,
+      "reviewedExact": 4,
+      "reviewedMedium": 0,
+      "unresolved": 194
+    },
+    "finalReviewedLayer": {
+      "status": "901 accepted markers; 0 unlocated",
+      "accepted": 901,
+      "markerCount": 901,
+      "unlocated": 0,
+      "automaticExact": 799,
+      "reviewedExact": 84,
+      "locationOnly": 100,
+      "unresolved": 0,
+      "acceptedPlusUnlocated": 901,
+      "percentages": null,
+      "externalProjectionLocallyReproduced": true
+    },
+    "publicRuntimeMarkerLayer": {
+      "schemaVersion": 1,
+      "generatedAt": "2026-08-25T07:06:40.270Z",
+      "status": "public-amap-runtime-layer-ready",
+      "dataset": "data/local/public-amap-reviewed-geocodes.json",
+      "total": 901,
+      "accepted": 901,
+      "unresolvedPublic": 0,
+      "unlocated": 0,
+      "acceptedPlusUnlocated": 901,
+      "statePartition": true,
+      "releaseInvariant": {
+        "acceptedPlusUnlocated": true,
+        "markerCountEqualsAccepted": true
+      },
+      "automaticHigh": 799,
+      "reviewedOverrideHigh": 4,
+      "automaticMedium": 0,
+      "unreviewedDefault": 0,
+      "unresolvedDefault": 0,
+      "reviewedRejections": 0,
+      "lunaReviewedExact": 80,
+      "lunaReviewedLocationOnly": 16,
+      "lunaReviewedHistoricalLocation": 2,
+      "canonicalIdentityExact": 801,
+      "canonicalLocationOnly": 100,
+      "granularity": {
+        "auditorium": 2,
+        "cinema": 799,
+        "mall": 20,
+        "venue": 80
+      },
+      "regions": {
+        "中国大陆": 881,
+        "台湾": 12,
+        "澳门": 1,
+        "香港": 7
+      },
+      "systems": {
+        "Commercial Laser": 105,
+        "GT Laser": 8,
+        "Laser XT": 113,
+        "Xenon": 669,
+        "unknown": 6
+      },
+      "duplicateProviderPoiIdGroups": [
+        {
+          "providerPoiId": "B000A83GVH",
+          "count": 2
+        },
+        {
+          "providerPoiId": "B00150C4B6",
+          "count": 2
+        }
+      ],
+      "staticBulkCoordinateArtifactsExposed": 0,
+      "securityCodeFindings": 0,
+      "markerCount": 901,
+      "markerCoordinateSystem": "GCJ-02",
+      "sourceRowAssociation": "sourceRow/id only"
+    },
+    "perRegionCurrentPublicCoordinates": {
+      "中国大陆": 881,
+      "台湾": 12,
+      "澳门": 1,
+      "香港": 7
+    },
+    "gtLaser": {
+      "total": 7,
+      "locatedInAudit": 5,
+      "coverageInAudit": 0.714286,
+      "automaticHigh": 2,
+      "automaticMedium": 2,
+      "reviewedOverrideHigh": 1,
+      "reviewedOverrideMedium": 0,
+      "unresolved": 2
+    },
+    "dome": {
+      "total": 7,
+      "locatedInAudit": 4,
+      "coverageInAudit": 0.571429,
+      "automaticHigh": 0,
+      "automaticMedium": 3,
+      "reviewedOverrideHigh": 1,
+      "reviewedOverrideMedium": 0,
+      "unresolved": 3
+    },
+    "automaticHighPrecisionGate": {
+      "status": "PASS-dynamic-marker-invariant",
+      "sampleSize": null,
+      "matched": null,
+      "overrideUsedFalse": null,
+      "all574MathematicallyGuaranteed": false,
+      "rowLevelEvidenceFilePresent": true
+    },
+    "amapPublicationGate": "AMAP_JS_API_2_RUNTIME",
+    "quotaGuard": {
+      "newRequests": 0,
+      "cacheHits": 0,
+      "budget": 600,
+      "estimatedMonthlyRemaining": 3500
+    }
+  },
+  "statusAndHistory": {
+    "row59Status": "open",
+    "parserAudit": "data/audit/status-parsing.json",
+    "nameHistoryAudit": "data/audit/name-history.json",
+    "nameHistory": {
+      "schemaVersion": 1,
+      "generatedAt": "2026-08-21T03:34:52.413Z",
+      "status": "passed",
+      "source": {
+        "raw": "data/raw/arvin-imax.json",
+        "derived": "data/derived/cinemas.json",
+        "rule": "Only explicit former-name grammar is parsed; all other lines remain unparsedNameLines and nameRaw is preserved."
+      },
+      "summary": {
+        "records": 901,
+        "explicitFormerNameRecords": 32,
+        "unparsedNameLineRecords": 3,
+        "suspiciousFormerNameRecords": 0,
+        "parserDerivedMismatches": 0
+      },
+      "knownRegressionChecks": {
+        "ordinaryPlaceNameContainingYuan": [],
+        "row59FormerNames": [
+          "万达影城",
+          "万达影城（哈东万达IMAXGT双激光店）",
+          "哈尔滨泰莱时代影城"
+        ],
+        "row59UnparsedNameLines": []
+      },
+      "suspiciousRecords": [],
+      "unparsedRecords": [
+        {
+          "sourceRow": 192,
+          "sourceName": "广州万达影城（亚运城广场店）",
+          "formerNames": [],
+          "unparsedNameLines": [
+            "商业体装修，暂停营业"
+          ],
+          "suspiciousFormerNames": [],
+          "parserMatchesDerived": true
+        },
+        {
+          "sourceRow": 360,
+          "sourceName": "昆明维斯影城（海乐城IMAX店）",
+          "formerNames": [],
+          "unparsedNameLines": [
+            "（原昆明CGV影城（海伦店)）"
+          ],
+          "suspiciousFormerNames": [],
+          "parserMatchesDerived": true
+        },
+        {
+          "sourceRow": 665,
+          "sourceName": "郑州儒意影城（二七万达广场IMAX激光店）",
+          "formerNames": [],
+          "unparsedNameLines": [
+            "万达影城（二七万达广场IMAX激光店）"
+          ],
+          "suspiciousFormerNames": [],
+          "parserMatchesDerived": true
+        }
+      ],
+      "mismatches": []
+    }
+  },
+  "historicalReviewSnapshots": {
+    "status": "historical-non-blocking",
+    "reason": "The 323-row review snapshot predates the accepted 901/901 canonical layer and is retained only for provenance; its needsMoreEvidence/reviewComplete fields do not gate the current public release.",
+    "snapshots": [
+      {
+        "file": "data/audit/luna-geocode-review-323-summary.json",
+        "historical": true,
+        "blocking": false,
+        "reviewComplete": false,
+        "needsMoreEvidence": 240
+      },
+      {
+        "file": "data/audit/final-cross-certification-report.json",
+        "historical": true,
+        "blocking": false,
+        "releaseGate": "BLOCKED",
+        "supersededBy": "data/audit/final-internal-materialization-status.json"
+      }
+    ]
+  },
+  "quality": {
+    "derivedQuality": "data/audit/derived-quality.json",
+    "geocodeQuality": {
+      "evaluated": 881,
+      "automaticHigh": 574,
+      "automaticMedium": 109,
+      "reviewedOverrideHigh": 4,
+      "reviewedOverrideMedium": 0,
+      "unresolved": 194,
+      "coverage": 0.779796
+    },
+    "tests": {
+      "command": "node --test scripts\\geocode\\admin-divisions.test.mjs scripts\\geocode\\blind-validation.test.mjs scripts\\geocode\\mainland-runner.test.mjs scripts\\geocode\\recovery-audit.test.mjs scripts\\geocode\\regional-matcher.test.mjs scripts\\geocode\\scoring.test.mjs scripts/status-parser.test.mjs scripts/name-history.test.mjs scripts/public-data.test.mjs scripts/map-data-adapter.test.mjs scripts/local-preview.test.mjs scripts/final-internal.test.mjs scripts/evidence-review.test.mjs scripts/public-boundary.test.mjs scripts/map-frontend.test.mjs",
+      "exitCode": 0,
+      "ok": true,
+      "outputTail": "ℹ suites 0\nℹ pass 81\nℹ fail 0\nℹ cancelled 0\nℹ skipped 0\nℹ todo 0\nℹ duration_ms 2940.4715\n"
+    },
+    "schemaValidation": {
+      "derived": {
+        "command": "node scripts/validate-derived.mjs",
+        "exitCode": 0,
+        "ok": true,
+        "report": {
+          "ok": true,
+          "schemaFileLoaded": true,
+          "recordCount": 901,
+          "reviewCount": 901,
+          "uniqueIds": 901,
+          "continuousSourceRows": true,
+          "coordinateCounts": {
+            "bothNull": 901,
+            "reliableOrCached": 0,
+            "invalid": 0
+          },
+          "rawDisplayFieldPreservation": true,
+          "errors": []
+        },
+        "outputTail": "    \"bothNull\": 901,\n    \"reliableOrCached\": 0,\n    \"invalid\": 0\n  },\n  \"rawDisplayFieldPreservation\": true,\n  \"errors\": []\n}\n"
+      },
+      "public": {
+        "command": "node scripts/validate-public.mjs",
+        "exitCode": 0,
+        "ok": true,
+        "report": {
+          "ok": true,
+          "status": "publication-candidate",
+          "mode": "public-amap-runtime",
+          "records": 901,
+          "staticCoordinates": 0,
+          "runtimeMarkerCount": 901,
+          "runtimeLayerAccepted": 901,
+          "uniqueIds": 901,
+          "continuousSourceRows": true,
+          "rawFieldMatches": 3604,
+          "errors": []
+        },
+        "outputTail": "  \"runtimeMarkerCount\": 901,\n  \"runtimeLayerAccepted\": 901,\n  \"uniqueIds\": 901,\n  \"continuousSourceRows\": true,\n  \"rawFieldMatches\": 3604,\n  \"errors\": []\n}\n"
+      },
+      "publicBoundary": {
+        "command": "node scripts/validate-public-boundary.mjs",
+        "exitCode": 0,
+        "ok": true,
+        "report": {
+          "ok": true,
+          "output": "data/audit/public-boundary.json",
+          "status": "public-boundary-check-passed",
+          "errors": [],
+          "warnings": []
+        },
+        "outputTail": "{\n  \"ok\": true,\n  \"output\": \"data/audit/public-boundary.json\",\n  \"status\": \"public-boundary-check-passed\",\n  \"errors\": [],\n  \"warnings\": []\n}\n"
+      }
+    },
+    "invalidCoordinates": 0,
+    "duplicatePoiGroups": [
+      {
+        "poiId": "B0FFITAJRU",
+        "records": [
+          {
+            "sourceRow": 786,
+            "sourceName": "乌鲁木齐万达影城（德汇万达广场店）",
+            "city": "乌鲁木齐",
+            "decision": "automaticHigh",
+            "selectedName": "万达影城(德汇万达广场店)"
+          },
+          {
+            "sourceRow": 785,
+            "sourceName": "乌鲁木齐万达影城（万达广场店）",
+            "city": "乌鲁木齐",
+            "decision": "automaticMedium",
+            "selectedName": "万达影城(德汇万达广场店)"
+          }
+        ]
+      },
+      {
+        "poiId": "B0KRFSJADF",
+        "records": [
+          {
+            "sourceRow": 380,
+            "sourceName": "武汉万达影城（汉街万达广场IMAX激光店）",
+            "city": "武汉",
+            "decision": "automaticMedium",
+            "selectedName": "万达影城(汉街万达店)"
+          },
+          {
+            "sourceRow": 825,
+            "sourceName": "武汉万达影城（汉街万达广场店） 原有商业综合体拆除",
+            "city": "武汉",
+            "decision": "automaticHigh",
+            "selectedName": "万达影城(汉街万达店)"
+          }
+        ]
+      }
+    ],
+    "urumqiDistinction": {
+      "sourceRowsKeptSeparate": true,
+      "sourceRows": [
+        785,
+        786
+      ],
+      "currentFrozenAuditDuplicateGroup": true
+    }
+  },
+  "statusSummary": {
+    "counts": {
+      "unknown": 803,
+      "open": 89,
+      "closed": 8,
+      "temporarily_closed": 1
+    },
+    "parserRegression": {
+      "testsIncluded": 6,
+      "status": "passed"
+    },
+    "row59": {
+      "status": "open",
+      "reasoning": "dated 2024-07-26 reopen/open signal supersedes the dated 2021-02-10 closure"
+    }
+  },
+  "security": {
+    "secretsDetected": false,
+    "apiKeyPersisted": false,
+    "apiKeyFindings": {
+      "runtimeKeyPresent": true,
+      "publicArtifactContainsRuntimeKey": false,
+      "publicArtifactContainsApiKeyVariableName": false
+    },
+    "providerCacheTracked": false,
+    "providerCachePolicy": ".gitignore data/geocode/provider-cache/*.json",
+    "publicRawCandidateData": false,
+    "privateProviderCachePresent": true,
+    "rawMirrorHistoryCommits": 0,
+    "rawMirrorHistoryPresent": false,
+    "rawMirrorHistoryScope": "codex/public-release"
+  },
+  "licensing": {
+    "sourceAttribution": "@ArvinTingcn attribution required",
+    "arvinAuthorizationProvenanceDocumented": true,
+    "amapPublicationGate": "AMAP_JS_API_2_RUNTIME",
+    "amapPermissionRequestDocument": true,
+    "osmAttributionRequired": false,
+    "osmBackupAuditPoints": 2,
+    "osmLicenseDocumented": true
+  },
+  "git": {
+    "branch": "feat/tencent-sheet-import",
+    "head": "68fb04546293e475a512cb8ee0fbdc9dba29910f",
+    "commitsPrepared": false,
+    "dirtyFileCount": 183,
+    "dirtyFiles": [
+      "README.md",
+      "data/audit/derived-quality.json",
+      "data/audit/projection-vocabulary.json",
+      "data/audit/status-parsing.json",
+      "data/derived/cinemas.json",
+      "data/derived/cinemas.schema.json",
+      "data/derived/review-needed.json",
+      "index.html",
+      "scripts/derive-cinemas.mjs",
+      "scripts/validate-derived.mjs",
+      ".env.example",
+      ".gitignore",
+      "LUNA_DUAL_RELEASE_GOAL.md",
+      "PROJECT_STATUS.md",
+      "START_PRIVATE_MAP.cmd",
+      "START_PUBLIC_MAP.cmd",
+      "STOP_PRIVATE_MAP.cmd",
+      "STOP_PUBLIC_MAP.cmd",
+      "app.mjs",
+      "data/README.md",
+      "data/audit/amap-14-resolution-materialization.json",
+      "data/audit/amap-quota-guard.json",
+      "data/audit/amap-web-followup-queries.json",
+      "data/audit/audit-unresolved-14-resolved-gcj02.csv",
+      "data/audit/audit-unresolved-14.csv",
+      "data/audit/final-canonical-recovery.json",
+      "data/audit/final-cross-certification-report.json",
+      "data/audit/final-internal-materialization-status.json",
+      "data/audit/frontend-local-preview.json",
+      "data/audit/frontend-smoke.json",
+      "data/audit/geocode-blind-50-admin-diff.json",
+      "data/audit/geocode-blind-50-before-admin-hierarchy.json",
+      "data/audit/geocode-blind-50-before-format-compatibility.json",
+      "data/audit/geocode-blind-50-format-diff.json",
+      "data/audit/geocode-blind-50-matcher-lock.json",
+      "data/audit/geocode-blind-50.json",
+      "data/audit/geocode-high-audit-150.json",
+      "data/audit/geocode-hkmo-tw.json",
+      "data/audit/geocode-mainland-evidence-review.json",
+      "data/audit/geocode-mainland-final-review.json",
+      "data/audit/geocode-mainland-freeze.json",
+      "data/audit/geocode-mainland-full.json",
+      "data/audit/geocode-mainland-historical-aggregate-evidence.json",
+      "data/audit/geocode-mainland-quality.json",
+      "data/audit/geocode-mainland-recovery-manifest.json",
+      "data/audit/geocode-matcher-diff.json",
+      "data/audit/geocode-materialization-status.json",
+      "data/audit/geocode-quality.json",
+      "data/audit/geocode-regional-review.json",
+      "data/audit/geocode-risk-review.json",
+      "data/audit/geocode-test-20-before-matcher-fix.json",
+      "data/audit/geocode-test-20-manual-review.json",
+      "data/audit/geocode-test-20-matcher-baseline.json",
+      "data/audit/geocode-test-20.json",
+      "data/audit/geocode-unresolved-priority.json",
+      "data/audit/human-verification-progress-report.json",
+      "data/audit/human-verification-queue.json",
+      "data/audit/human-verification-results.json",
+      "data/audit/incidents/",
+      "data/audit/luna-dual-release-baseline.json",
+      "data/audit/luna-dual-release-final.json",
+      "data/audit/luna-geocode-review-323-summary.json",
+      "data/audit/luna-handoff-reconciliation.json",
+      "data/audit/luna-pending-consolidated-42.json",
+      "data/audit/name-history.json",
+      "data/audit/private-amap-browser-smoke.json",
+      "data/audit/private-amap-release.json",
+      "data/audit/private-release-quality.json",
+      "data/audit/project-integrity.json",
+      "data/audit/project-manifest.json",
+      "data/audit/public-amap-browser-smoke.json",
+      "data/audit/public-amap-quality.json",
+      "data/audit/public-amap-unresolved.json",
+      "data/audit/public-boundary.json",
+      "data/audit/public-geocode-quality.json",
+      "data/audit/public-geocode-unresolved.json",
+      "data/audit/public-release-manifest.json",
+      "data/audit/public-release-readiness.json",
+      "data/audit/public-web-evidence-pass.json",
+      "data/audit/release-readiness.json",
+      "data/audit/screen-seat-web-review-decisions.json",
+      "data/audit/screen-seat-web-review.json",
+      "data/audit/unresolved-cross-certification.json",
+      "data/audit/unresolved-reconciliation.json",
+      "data/audit/web-verified-127-audited-final.csv",
+      "data/audit/web-verified-127.csv",
+      "data/audit/web-verified-and-unresolved.json",
+      "data/derived/cinemas-final-internal.json",
+      "data/derived/screen-seat-columns.csv",
+      "data/geocode/",
+      "data/public/",
+      "data/reviewed/",
+      "docs/",
+      "nearby.mjs",
+      "package.json",
+      "private-amap/",
+      "scripts/README.md",
+      "scripts/audit-name-history.mjs",
+      "scripts/batch006-evidence-regression.test.mjs",
+      "scripts/bind-batch006-row769.mjs",
+      "scripts/bind-batch007-venue-candidates.mjs",
+      "scripts/build-final-audits.mjs",
+      "scripts/build-final-cross-certification-report.mjs",
+      "scripts/build-final-internal.mjs",
+      "scripts/build-geocode-final-review.mjs",
+      "scripts/build-human-verification-progress-report.mjs",
+      "scripts/build-human-verification-queue.mjs",
+      "scripts/build-local-preview.mjs",
+      "scripts/build-luna-geocode-review.mjs",
+      "scripts/build-private-amap-release.mjs",
+      "scripts/build-private-reviewed-layer.mjs",
+      "scripts/build-project-manifest.mjs",
+      "scripts/build-public-amap-layer.mjs",
+      "scripts/build-public-dataset.mjs",
+      "scripts/build-public-release.mjs",
+      "scripts/build-release-manifests.mjs",
+      "scripts/build-release-readiness.mjs",
+      "scripts/build-unresolved-reconciliation.mjs",
+      "scripts/complete-luna-review.mjs",
+      "scripts/dynamic-materialization.test.mjs",
+      "scripts/evidence-review.test.mjs",
+      "scripts/export-web-and-unresolved.mjs",
+      "scripts/extract-screen-seat.mjs",
+      "scripts/final-internal.test.mjs",
+      "scripts/fixtures/",
+      "scripts/geocode-blind-50.mjs",
+      "scripts/geocode-human-audit.mjs",
+      "scripts/geocode-mainland.mjs",
+      "scripts/geocode-poi.mjs",
+      "scripts/geocode-regional.mjs",
+      "scripts/geocode-unresolved.mjs",
+      "scripts/geocode/",
+      "scripts/local-preview.mjs",
+      "scripts/local-preview.test.mjs",
+      "scripts/luna-dual-release-baseline.mjs",
+      "scripts/luna-review-context.test.mjs",
+      "scripts/luna-review.test.mjs",
+      "scripts/map-data-adapter.mjs",
+      "scripts/map-data-adapter.test.mjs",
+      "scripts/map-frontend.test.mjs",
+      "scripts/materialize-amap-14-resolution.mjs",
+      "scripts/materialize-geocode-reviewed.mjs",
+      "scripts/materialize-human-verification.mjs",
+      "scripts/materialize-unresolved-final-verdict.mjs",
+      "scripts/name-history.mjs",
+      "scripts/name-history.test.mjs",
+      "scripts/nearby.test.mjs",
+      "scripts/normalize-batch006-review-shape.mjs",
+      "scripts/patch-batch006-evidence.mjs",
+      "scripts/prepare-luna-batch-006.mjs",
+      "scripts/prepare-luna-batch-007.mjs",
+      "scripts/prepare-luna-batch-008.mjs",
+      "scripts/prepare-luna-batch-009.mjs",
+      "scripts/prepare-luna-pending-consolidated.mjs",
+      "scripts/private-amap-release.test.mjs",
+      "scripts/private-amap-server.mjs",
+      "scripts/private-reviewed-layer.test.mjs",
+      "scripts/project-check.mjs",
+      "scripts/public-amap-server.mjs",
+      "scripts/public-amap-server.test.mjs",
+      "scripts/public-boundary.test.mjs",
+      "scripts/public-data.test.mjs",
+      "scripts/public-geocode-osm.mjs",
+      "scripts/reconcile-luna-release-handoff.mjs",
+      "scripts/recover-batch-003-input.mjs",
+      "scripts/recover-final-canonical.mjs",
+      "scripts/recover-final-canonical.test.mjs",
+      "scripts/recover-mainland-audit-from-existing-artifacts.mjs",
+      "scripts/release-manifest.test.mjs",
+      "scripts/repair-reconstructed-mainland-audit.mjs",
+      "scripts/run-all-tests.mjs",
+      "scripts/screen-seat-web-review.mjs",
+      "scripts/screen-seat-web-review.test.mjs",
+      "scripts/setup-private-amap-secrets.ps1",
+      "scripts/start-private-map.ps1",
+      "scripts/start-public-map.ps1",
+      "scripts/status-parser.mjs",
+      "scripts/status-parser.test.mjs",
+      "scripts/stop-private-map.ps1",
+      "scripts/stop-public-map.ps1",
+      "scripts/validate-public-boundary.mjs",
+      "scripts/validate-public.mjs",
+      "styles.css"
+    ],
+    "currentDraftPr": "Draft PR #2 remains unmerged; no remote update in this run",
+    "rawMirrorHistoryPresent": false,
+    "intentionallyExcluded": [
+      "data/raw/arvin-imax.json from the clean public branch",
+      "data/geocode/provider-cache/*.json",
+      "AMap API keys and credentials",
+      "rawCandidates/rankedCandidates from public artifacts"
+    ],
+    "publicBoundaryAuditFile": "data/audit/public-boundary.json"
+  },
+  "frontend": {
+    "sourceFile": "index.html",
+    "smokeAuditFile": "data/audit/public-amap-browser-smoke.json",
+    "privateSmokeAuditFile": "data/audit/private-amap-browser-smoke.json",
+    "currentlyReads": "data/public/cinemas.json for static facts, then POST /api/public/markers for the minimal 901-point AMap GCJ-02 runtime layer",
+    "publicationDatasetPresent": true,
+    "publicationDatasetStatus": "publication-candidate",
+    "buildResult": "static HTML; no bundler build step",
+    "markerCountByRegion": {
+      "中国大陆": 881,
+      "台湾": 12,
+      "澳门": 1,
+      "香港": 7
+    },
+    "markerCountFromCurrentDerived": 901,
+    "browserSmoke": {
+      "schemaVersion": 2,
+      "generatedAt": "2026-08-25T04:51:31.620Z",
+      "status": "passed",
+      "executionMode": "playwright-cli-real",
+      "runtimeProvider": "official AMap JS API 2.0",
+      "url": "http://127.0.0.1:4173/",
+      "dataset": {
+        "totalRecords": 901,
+        "locatedRecords": 901,
+        "unlocatedRecords": 0,
+        "markerPoints": 901,
+        "markerCountInvariant": "markerPoints = accepted = 901"
+      },
+      "desktop": {
+        "viewport": {
+          "width": 1440,
+          "height": 900
+        },
+        "status": "passed",
+        "banner": "已加载 901 条公开影院记录；已定位 901 / 901 · 精确身份 801 · 场所级定位 100 · 未定位 0。坐标仅在高德地图应用内运行时使用。",
+        "clusterPoints": 901,
+        "clusterRendered": true,
+        "officialSdkLoaded": true,
+        "markerClusterLoaded": true,
+        "mapCanvasPresent": true,
+        "amapLogoVisible": true,
+        "amapCopyrightVisible": true,
+        "horizontalOverflow": false
+      },
+      "mobile": {
+        "viewport": {
+          "width": 390,
+          "height": 844
+        },
+        "status": "passed",
+        "documentClientWidth": 390,
+        "documentScrollWidth": 390,
+        "panelWidth": 370,
+        "horizontalOverflow": false,
+        "mapError": ""
+      },
+      "interactions": {
+        "searchCinema": {
+          "sourceRow": 192,
+          "results": 1,
+          "popup": true,
+          "providerCrs": "GCJ-02"
+        },
+        "systemFilter": {
+          "filter": "GT Laser",
+          "results": 8
+        },
+        "positionOnlyFilter": {
+          "results": 100,
+          "精确身份": 0,
+          "场所级定位": 100,
+          "未定位": 0
+        },
+        "cluster": {
+          "pointsAfterAllFilter": 901,
+          "clusterCount": 1
+        },
+        "attributionVisible": true,
+        "sourceLinkVisible": true
+      },
+      "fieldRegression": {
+        "singleValue": {
+          "sourceRow": 2,
+          "seatValueVisible": "409",
+          "rawVisible": false,
+          "rawVisibleByDefault": false,
+          "dataNotesVisible": false
+        },
+        "multiValue": {
+          "sourceRow": 309,
+          "label": "待核",
+          "rawVisible": false,
+          "rawVisibleByDefault": false,
+          "dataNotesAvailable": true,
+          "dataNotesOpenByDefault": false,
+          "rawFieldCount": 4
+        },
+        "blank": {
+          "sourceRow": 50,
+          "label": "暂无",
+          "rawVisible": false,
+          "dataNotesVisible": false,
+          "rawFieldsRetainedInDataset": true
+        },
+        "nbsp": {
+          "sourceRow": 54,
+          "label": "暂无",
+          "rawVisible": false,
+          "dataNotesVisible": false,
+          "rawFieldsRetainedInDataset": true,
+          "rawFieldCount": 4
+        },
+        "abnormal": {
+          "sourceRow": 119,
+          "label": "待核",
+          "rawVisible": false,
+          "rawVisibleByDefault": false,
+          "dataNotesAvailable": true,
+          "dataNotesOpenByDefault": false,
+          "formattedWidth": "20.741 m",
+          "formattedHeight": "11.244 m",
+          "rawFieldCount": 1
+        }
+      },
+      "consoleErrors": [],
+      "network": {
+        "publicMarkerRequestPerLoad": 1,
+        "externalAmapRequests": 0,
+        "providerPoiRequests": 0
+      },
+      "securityProxy": {
+        "status": "passed",
+        "reason": "Official SDK loaded through the same-origin runtime path; the security code was not present as a browser DOM literal."
+      },
+      "realSdkSmoke": {
+        "status": "passed",
+        "sdk": "official AMap JS API 2.0",
+        "markerClusterLoaded": true,
+        "mapCanvasPresent": true,
+        "amapLogoVisible": true,
+        "amapCopyrightVisible": true,
+        "securityCodeInBrowser": false
+      }
+    },
+    "privateBrowserSmoke": {
+      "schemaVersion": 2,
+      "generatedAt": "2026-08-25T04:51:31.692Z",
+      "status": "passed",
+      "executionMode": "playwright-cli-real",
+      "runtimeProvider": "official AMap JS API 2.0",
+      "url": "http://127.0.0.1:8766/",
+      "dataset": {
+        "totalRecords": 901,
+        "locatedRecords": 901,
+        "pendingReviewRecords": 0,
+        "unresolvedRecords": 0,
+        "unlocatedRecords": 0,
+        "markerPoints": 901,
+        "releaseInvariant": "accepted 901 + unlocated 0 = 901; markerCount 901 = accepted; pendingReview 0"
+      },
+      "desktop": {
+        "viewport": {
+          "width": 1440,
+          "height": 900
+        },
+        "status": "passed",
+        "banner": "私人地图 · 已定位 901 / 901 · 待核 0 · 未定位 0；高德 GCJ‑02，不做二次转换。",
+        "clusterPoints": 901,
+        "clusterRendered": true,
+        "officialSdkLoaded": true,
+        "markerClusterLoaded": true,
+        "mapCanvasPresent": true,
+        "amapLogoVisible": true,
+        "amapCopyrightVisible": true,
+        "horizontalOverflow": false
+      },
+      "mobile": {
+        "viewport": {
+          "width": 390,
+          "height": 844
+        },
+        "status": "passed",
+        "documentClientWidth": 390,
+        "documentScrollWidth": 390,
+        "panelWidth": 374,
+        "horizontalOverflow": false,
+        "mapError": ""
+      },
+      "interactions": {
+        "searchMuseum": {
+          "sourceRow": 309,
+          "results": 1,
+          "popup": true
+        },
+        "pendingReviewFilter": {
+          "results": 0,
+          "statusText": "筛选 0 / 901 · 已定位 0 · 待核 0 · 未定位 0"
+        },
+        "unresolvedFilter": {
+          "results": 0,
+          "statusText": "筛选 0 / 901 · 已定位 0 · 待核 0 · 未定位 0"
+        },
+        "locationOnlyDetail": {
+          "sourceRow": 4,
+          "results": 1,
+          "detail": true,
+          "providerCrs": "GCJ-02",
+          "screenSeatFields": true
+        },
+        "cluster": {
+          "pointsAfterAllFilter": 901,
+          "clusterCount": 1
+        },
+        "attributionVisible": true,
+        "sourceLinkVisible": true
+      },
+      "fieldRegression": {
+        "singleValue": {
+          "sourceRow": 2,
+          "seatValueVisible": "409",
+          "rawVisible": false,
+          "rawVisibleByDefault": false,
+          "dataNotesVisible": false
+        },
+        "multiValue": {
+          "sourceRow": 309,
+          "label": "待核",
+          "rawVisible": false,
+          "rawVisibleByDefault": false,
+          "dataNotesAvailable": true,
+          "dataNotesOpenByDefault": false,
+          "rawFieldCount": 4
+        },
+        "blank": {
+          "sourceRow": 50,
+          "label": "暂无",
+          "rawVisible": false,
+          "dataNotesVisible": false,
+          "rawFieldsRetainedInDataset": true
+        },
+        "nbsp": {
+          "sourceRow": 54,
+          "label": "暂无",
+          "rawVisible": false,
+          "dataNotesVisible": false,
+          "rawFieldsRetainedInDataset": true,
+          "rawFieldCount": 4
+        },
+        "abnormal": {
+          "sourceRow": 119,
+          "label": "待核",
+          "rawVisible": false,
+          "rawVisibleByDefault": false,
+          "dataNotesAvailable": true,
+          "dataNotesOpenByDefault": false,
+          "formattedWidth": "20.741 m",
+          "formattedHeight": "11.244 m",
+          "rawFieldCount": 1
+        }
+      },
+      "consoleErrors": [],
+      "network": {
+        "datasetRequestPerLoad": 1,
+        "externalAmapRequests": 0,
+        "providerPoiRequests": 0
+      },
+      "securityProxy": {
+        "status": "passed",
+        "reason": "Official SDK loaded through the same-origin runtime path; the security code was not present as a browser DOM literal."
+      },
+      "realSdkSmoke": {
+        "status": "passed",
+        "sdk": "official AMap JS API 2.0",
+        "markerClusterLoaded": true,
+        "mapCanvasPresent": true,
+        "amapLogoVisible": true,
+        "amapCopyrightVisible": true,
+        "securityCodeInBrowser": false
+      }
+    }
+  },
+  "blockers": [],
+  "gates": {
+    "humanReviewMaterialization": [],
+    "amapPublication": [],
+    "development": []
+  }
+}

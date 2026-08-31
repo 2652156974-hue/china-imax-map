@@ -1,0 +1,88 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-08-20T08:58:00.492Z",
+  "status": "cache-only-test-not-full-run",
+  "total": 901,
+  "evaluated": 20,
+  "provider": "AMap",
+  "byDecision": {
+    "automaticHigh": 15,
+    "automaticMedium": 0,
+    "reviewedOverrideHigh": 4,
+    "reviewedOverrideMedium": 0,
+    "unresolvedWithinTest": 1,
+    "outsideTestUnresolved": 881
+  },
+  "automaticAccepted": 15,
+  "reviewedOverrideAccepted": 4,
+  "unresolved": 882,
+  "currentRunNetworkRequests": 0,
+  "coordinatesAppliedToDerived": 0,
+  "regression": {
+    "currentRunNetworkRequests": 0,
+    "invalidMallFallbackCount": 0,
+    "invalidMallFallbacks": [],
+    "nonCinemaTypePromotedToCinemaCount": 0,
+    "jiuyuanMalformedHistoryQueryCount": 0,
+    "jiuyuanQueries": [
+      "包头万达影城（九原万达广场店) 包头",
+      "九原万达广场 万达影城 包头"
+    ],
+    "longgangDecision": "accepted-high",
+    "longgangHardRejectedDistractors": [
+      {
+        "poiId": "B0K2ZD5LFA",
+        "name": "云逸宝摇杆游戏机(万达影城深圳龙岗万达广场IMAX激光店)",
+        "reasons": [
+          "non-cinema-poi"
+        ]
+      },
+      {
+        "poiId": "B0L3YRK5LQ",
+        "name": "飞越中国·裸眼9D球幕悬空飞行影院(龙岗万达店)",
+        "reasons": [
+          "non-cinema-poi",
+          "auditorium-format-conflict"
+        ]
+      }
+    ],
+    "longgangTrueAmbiguity": false,
+    "focusRows": {
+      "51": {
+        "decision": "accepted-high",
+        "poiId": "B01C302873",
+        "poiName": "黑龙江省科学技术馆",
+        "positionType": "venue-poi"
+      },
+      "155": {
+        "decision": "accepted-high",
+        "poiId": "B0FFFDTAL6",
+        "poiName": "幸福蓝海国际影城(扬州IMAX店)",
+        "positionType": "cinema-poi"
+      },
+      "309": {
+        "decision": "accepted-high",
+        "poiId": "B0HBXCQO2P",
+        "poiName": "中国电影博物馆-IMAX GT巨幕影厅",
+        "positionType": "cinema-poi"
+      },
+      "538": {
+        "decision": "accepted-high",
+        "poiId": "B023B14BCH",
+        "poiName": "浙影时代影城(西湖文化广场店)",
+        "positionType": "cinema-poi"
+      },
+      "843": {
+        "decision": "unresolved",
+        "poiId": null,
+        "poiName": null,
+        "positionType": null
+      }
+    },
+    "crsFieldsCompleteForSelected": true,
+    "convertedCoordinatesWithinRange": true,
+    "providerCoordinatesPreservedSeparately": true,
+    "selectedCoordinateCount": 19,
+    "sourceRecordCount": 20
+  }
+}

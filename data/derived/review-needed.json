@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-08-20T06:50:55.725Z",
+  "generatedAt": "2026-08-31T04:19:55.047Z",
   "dataset": "arvin-imax-review-needed",
   "source": {
     "maintainer": "@ArvinTingcn",
@@ -617,14 +617,10 @@
       "sourceRow": 19,
       "name": "上海寰映影城（大融城店）",
       "reasonCodes": [
-        "screen-multivalue",
         "status-unknown",
         "geocode-pending"
       ],
       "details": [
-        "width 存在多组值，未选择第一/最后/最大/最小值",
-        "height 存在多组值，未选择第一/最后/最大/最小值",
-        "area 存在多组值，未选择第一/最后/最大/最小值",
         "status-no-decisive-event",
         "没有经过影院名称与城市双重匹配的可靠经纬度；保留 null"
       ],
@@ -645,7 +641,7 @@
         "rawWidth": "25.880\n23.453",
         "rawHeight": "13.460\n12.678",
         "rawArea": "348.3450\n297.3371",
-        "selectionConfidence": "unknown"
+        "selectionConfidence": "high"
       },
       "status": "unknown"
     },
@@ -1671,14 +1667,12 @@
       "name": "上海正大乐影城（正大广场IMAX店）",
       "reasonCodes": [
         "screen-multivalue",
-        "seats-multivalue",
         "geocode-pending"
       ],
       "details": [
         "width 存在多组值，未选择第一/最后/最大/最小值",
         "height 存在多组值，未选择第一/最后/最大/最小值",
         "area 存在多组值，未选择第一/最后/最大/最小值",
-        "座位数包含多组值或附加座位说明，未强行取值",
         "没有经过影院名称与城市双重匹配的可靠经纬度；保留 null"
       ],
       "location": {
@@ -1698,7 +1692,7 @@
         "rawWidth": "24.380\n25.720\n24.380\n24.457",
         "rawHeight": "13.880\n14.030\n13.600\n13.619",
         "rawArea": "338.3944\n360.8516\n331.5680\n333.0798",
-        "selectionConfidence": "unknown"
+        "selectionConfidence": "high"
       },
       "status": "open"
     },
@@ -1740,6 +1734,7 @@
       "reasonCodes": [
         "screen-missing",
         "seats-missing",
+        "status-unknown",
         "geocode-pending"
       ],
       "details": [
@@ -1747,6 +1742,7 @@
         "height 为空或仅含空白字符",
         "area 为空或仅含空白字符",
         "座位数为空或仅含空白字符",
+        "status-future-only-or-no-decisive-event",
         "没有经过影院名称与城市双重匹配的可靠经纬度；保留 null"
       ],
       "location": {
@@ -1768,7 +1764,7 @@
         "rawArea": "",
         "selectionConfidence": "unknown"
       },
-      "status": "open"
+      "status": "unknown"
     },
     {
       "id": "imax-cn-0051",
@@ -2077,7 +2073,7 @@
         "rawArea": "628.7970\n596.4108\n588.3142",
         "selectionConfidence": "unknown"
       },
-      "status": "closed"
+      "status": "open"
     },
     {
       "id": "imax-cn-0060",
@@ -10224,6 +10220,7 @@
       "reasonCodes": [
         "screen-missing",
         "seats-missing",
+        "status-unknown",
         "geocode-pending"
       ],
       "details": [
@@ -10231,6 +10228,7 @@
         "height 为空或仅含空白字符",
         "area 为空或仅含空白字符",
         "座位数为空或仅含空白字符",
+        "status-future-only-or-no-decisive-event",
         "没有经过影院名称与城市双重匹配的可靠经纬度；保留 null"
       ],
       "location": {
@@ -10252,7 +10250,7 @@
         "rawArea": "",
         "selectionConfidence": "unknown"
       },
-      "status": "open"
+      "status": "unknown"
     },
     {
       "id": "imax-cn-0294",
@@ -11144,7 +11142,7 @@
     {
       "id": "imax-cn-0320",
       "sourceRow": 320,
-      "name": "北京儒意影城（CBD万达广场店",
+      "name": "北京儒意影城（CBD万达广场店）原万达影城",
       "reasonCodes": [
         "screen-multivalue",
         "seats-multivalue",
@@ -11354,6 +11352,7 @@
       "reasonCodes": [
         "screen-missing",
         "seats-missing",
+        "status-unknown",
         "geocode-pending"
       ],
       "details": [
@@ -11361,6 +11360,7 @@
         "height 为空或仅含空白字符",
         "area 为空或仅含空白字符",
         "座位数为空或仅含空白字符",
+        "status-future-only-or-no-decisive-event",
         "没有经过影院名称与城市双重匹配的可靠经纬度；保留 null"
       ],
       "location": {
@@ -11382,7 +11382,7 @@
         "rawArea": "",
         "selectionConfidence": "unknown"
       },
-      "status": "open"
+      "status": "unknown"
     },
     {
       "id": "imax-cn-0327",
@@ -11399,7 +11399,7 @@
         "height 为空或仅含空白字符",
         "area 为空或仅含空白字符",
         "座位数为空或仅含空白字符",
-        "status-future-only-or-no-decisive-event",
+        "status-no-decisive-event",
         "没有经过影院名称与城市双重匹配的可靠经纬度；保留 null"
       ],
       "location": {
@@ -11573,14 +11573,12 @@
       "name": "沈阳万达影城（北一路万达广场店）",
       "reasonCodes": [
         "screen-multivalue",
-        "status-unknown",
         "geocode-pending"
       ],
       "details": [
         "width 存在多组值，未选择第一/最后/最大/最小值",
         "height 存在多组值，未选择第一/最后/最大/最小值",
         "area 存在多组值，未选择第一/最后/最大/最小值",
-        "status-no-decisive-event",
         "没有经过影院名称与城市双重匹配的可靠经纬度；保留 null"
       ],
       "location": {
@@ -11602,7 +11600,7 @@
         "rawArea": "271.6740\n246.9165",
         "selectionConfidence": "unknown"
       },
-      "status": "unknown"
+      "status": "open"
     },
     {
       "id": "imax-cn-0333",
@@ -11610,10 +11608,12 @@
       "name": "大连CGV影城（东港店）",
       "reasonCodes": [
         "projection-planned-upgrade",
+        "status-unknown",
         "geocode-pending"
       ],
       "details": [
         "源文本包含即将升级为 Laser XT 的计划描述",
+        "status-future-only-or-no-decisive-event",
         "没有经过影院名称与城市双重匹配的可靠经纬度；保留 null"
       ],
       "location": {
@@ -11635,7 +11635,7 @@
         "rawArea": "277.0048",
         "selectionConfidence": "high"
       },
-      "status": "open"
+      "status": "unknown"
     },
     {
       "id": "imax-cn-0334",
@@ -12534,10 +12534,12 @@
       "sourceRow": 360,
       "name": "昆明维斯影城（海乐城IMAX店）",
       "reasonCodes": [
+        "name-history-ambiguous",
         "status-unknown",
         "geocode-pending"
       ],
       "details": [
+        "名称存在未能按“原”规则解释的附加行：1 行",
         "status-no-decisive-event",
         "没有经过影院名称与城市双重匹配的可靠经纬度；保留 null"
       ],
@@ -12908,14 +12910,12 @@
       "name": "武汉武商摩尔国际电影城",
       "reasonCodes": [
         "screen-multivalue",
-        "status-unknown",
         "geocode-pending"
       ],
       "details": [
         "width 存在多组值，未选择第一/最后/最大/最小值",
         "height 存在多组值，未选择第一/最后/最大/最小值",
         "area 存在多组值，未选择第一/最后/最大/最小值",
-        "status-no-decisive-event",
         "没有经过影院名称与城市双重匹配的可靠经纬度；保留 null"
       ],
       "location": {
@@ -12937,7 +12937,7 @@
         "rawArea": "236.8740 \n213.5261\n208.7943",
         "selectionConfidence": "unknown"
       },
-      "status": "unknown"
+      "status": "open"
     },
     {
       "id": "imax-cn-0372",
@@ -14238,6 +14238,7 @@
         "projection-unrecognized",
         "screen-missing",
         "seats-missing",
+        "status-unknown",
         "geocode-pending"
       ],
       "details": [
@@ -14246,6 +14247,7 @@
         "height 为空或仅含空白字符",
         "area 为空或仅含空白字符",
         "座位数为空或仅含空白字符",
+        "status-future-only-or-no-decisive-event",
         "没有经过影院名称与城市双重匹配的可靠经纬度；保留 null"
       ],
       "location": {
@@ -14267,7 +14269,7 @@
         "rawArea": "",
         "selectionConfidence": "unknown"
       },
-      "status": "open"
+      "status": "unknown"
     },
     {
       "id": "imax-cn-0410",
@@ -15596,6 +15598,7 @@
       "reasonCodes": [
         "screen-missing",
         "seats-missing",
+        "status-unknown",
         "geocode-pending"
       ],
       "details": [
@@ -15603,6 +15606,7 @@
         "height 为空或仅含空白字符",
         "area 为空或仅含空白字符",
         "座位数为空或仅含空白字符",
+        "status-future-only-or-no-decisive-event",
         "没有经过影院名称与城市双重匹配的可靠经纬度；保留 null"
       ],
       "location": {
@@ -15624,7 +15628,7 @@
         "rawArea": "",
         "selectionConfidence": "unknown"
       },
-      "status": "open"
+      "status": "unknown"
     },
     {
       "id": "imax-cn-0449",
@@ -18956,7 +18960,7 @@
         "height 为空或仅含空白字符",
         "area 为空或仅含空白字符",
         "座位数为空或仅含空白字符",
-        "status-future-only-or-no-decisive-event",
+        "status-no-decisive-event",
         "没有经过影院名称与城市双重匹配的可靠经纬度；保留 null"
       ],
       "location": {
@@ -22647,14 +22651,12 @@
       "name": "莆田万达影城（万达广场店）",
       "reasonCodes": [
         "screen-multivalue",
-        "status-unknown",
         "geocode-pending"
       ],
       "details": [
         "width 存在多组值，未选择第一/最后/最大/最小值",
         "height 存在多组值，未选择第一/最后/最大/最小值",
         "area 存在多组值，未选择第一/最后/最大/最小值",
-        "status-no-decisive-event",
         "没有经过影院名称与城市双重匹配的可靠经纬度；保留 null"
       ],
       "location": {
@@ -22676,7 +22678,7 @@
         "rawArea": "243.1920\n246.0177",
         "selectionConfidence": "unknown"
       },
-      "status": "unknown"
+      "status": "open"
     },
     {
       "id": "imax-cn-0650",
@@ -23095,6 +23097,7 @@
       "reasonCodes": [
         "projection-planned-upgrade",
         "screen-multivalue",
+        "status-unknown",
         "geocode-pending"
       ],
       "details": [
@@ -23102,6 +23105,7 @@
         "width 存在多组值，未选择第一/最后/最大/最小值",
         "height 存在多组值，未选择第一/最后/最大/最小值",
         "area 存在多组值，未选择第一/最后/最大/最小值",
+        "status-future-only-or-no-decisive-event",
         "没有经过影院名称与城市双重匹配的可靠经纬度；保留 null"
       ],
       "location": {
@@ -23123,7 +23127,7 @@
         "rawArea": "322.3208\n262.9959",
         "selectionConfidence": "unknown"
       },
-      "status": "open"
+      "status": "unknown"
     },
     {
       "id": "imax-cn-0663",
@@ -23882,10 +23886,12 @@
       "name": "成都CGV影城（金牛店）",
       "reasonCodes": [
         "projection-planned-upgrade",
+        "status-unknown",
         "geocode-pending"
       ],
       "details": [
         "源文本包含即将升级为 Laser XT 的计划描述",
+        "status-future-only-or-no-decisive-event",
         "没有经过影院名称与城市双重匹配的可靠经纬度；保留 null"
       ],
       "location": {
@@ -23907,7 +23913,7 @@
         "rawArea": "231.6250",
         "selectionConfidence": "high"
       },
-      "status": "open"
+      "status": "unknown"
     },
     {
       "id": "imax-cn-0685",
@@ -23915,10 +23921,12 @@
       "name": "成都CGV影城（高新店）",
       "reasonCodes": [
         "projection-planned-upgrade",
+        "status-unknown",
         "geocode-pending"
       ],
       "details": [
         "源文本包含即将升级为 Laser XT 的计划描述",
+        "status-future-only-or-no-decisive-event",
         "没有经过影院名称与城市双重匹配的可靠经纬度；保留 null"
       ],
       "location": {
@@ -23940,7 +23948,7 @@
         "rawArea": "291.0538",
         "selectionConfidence": "high"
       },
-      "status": "open"
+      "status": "unknown"
     },
     {
       "id": "imax-cn-0686",
@@ -24740,10 +24748,12 @@
       "name": "成都CGV影城（金楠店）",
       "reasonCodes": [
         "projection-planned-upgrade",
+        "status-unknown",
         "geocode-pending"
       ],
       "details": [
         "源文本包含即将升级为 Laser XT 的计划描述",
+        "status-future-only-or-no-decisive-event",
         "没有经过影院名称与城市双重匹配的可靠经纬度；保留 null"
       ],
       "location": {
@@ -24765,7 +24775,7 @@
         "rawArea": "229.9616",
         "selectionConfidence": "high"
       },
-      "status": "open"
+      "status": "unknown"
     },
     {
       "id": "imax-cn-0709",
@@ -24803,9 +24813,11 @@
       "sourceRow": 710,
       "name": "成都熊猫基地IMAX影院",
       "reasonCodes": [
+        "status-unknown",
         "geocode-pending"
       ],
       "details": [
+        "status-future-only-or-no-decisive-event",
         "没有经过影院名称与城市双重匹配的可靠经纬度；保留 null"
       ],
       "location": {
@@ -24827,7 +24839,7 @@
         "rawArea": "345.2916",
         "selectionConfidence": "high"
       },
-      "status": "open"
+      "status": "unknown"
     },
     {
       "id": "imax-cn-0711",
@@ -25044,6 +25056,7 @@
       "reasonCodes": [
         "projection-planned-upgrade",
         "screen-missing",
+        "status-unknown",
         "geocode-pending"
       ],
       "details": [
@@ -25051,6 +25064,7 @@
         "width 为空或仅含空白字符",
         "height 为空或仅含空白字符",
         "area 为空或仅含空白字符",
+        "status-future-only-or-no-decisive-event",
         "没有经过影院名称与城市双重匹配的可靠经纬度；保留 null"
       ],
       "location": {
@@ -25072,7 +25086,7 @@
         "rawArea": "",
         "selectionConfidence": "unknown"
       },
-      "status": "open"
+      "status": "unknown"
     },
     {
       "id": "imax-cn-0718",
@@ -25824,10 +25838,12 @@
       "name": "赣州CGV影城 （万象城店）",
       "reasonCodes": [
         "projection-planned-upgrade",
+        "status-unknown",
         "geocode-pending"
       ],
       "details": [
         "源文本包含即将升级为 Laser XT 的计划描述",
+        "status-future-only-or-no-decisive-event",
         "没有经过影院名称与城市双重匹配的可靠经纬度；保留 null"
       ],
       "location": {
@@ -25849,7 +25865,7 @@
         "rawArea": "310.0656",
         "selectionConfidence": "high"
       },
-      "status": "open"
+      "status": "unknown"
     },
     {
       "id": "imax-cn-0740",
@@ -28802,7 +28818,7 @@
     {
       "id": "imax-cn-0825",
       "sourceRow": 825,
-      "name": "武汉万达影城（汉街万达广场店",
+      "name": "武汉万达影城（汉街万达广场店） 原有商业综合体拆除",
       "reasonCodes": [
         "status-unknown",
         "geocode-pending"
