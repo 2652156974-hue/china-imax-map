@@ -26,3 +26,39 @@ test('benchmark builder validates real captures and derives call/churn totals', 
     fs.rmSync(outputDir, { recursive: true, force: true });
   }
 });
+
+test('benchmark validator rejects a declared target zoom that the final event misses', () => {
+  const outputDir = fs.mkdtempSync(path.join(os.tmpdir(), 'imax-navigation-benchmark-target-'));
+  const before = path.join(outputDir, 'before.json');
+  const after = path.join(outputDir, 'after.json');
+  const output = path.join(outputDir, 'benchmark.json');
+  try {
+    const capture = JSON.parse(fs.readFileSync('data/audit/navigation-render-captures/after.chromium.json', 'utf8'));
+    capture.scenarios[0].zoom.target = 4;
+    fs.writeFileSync(before, fs.readFileSync('data/audit/navigation-render-captures/before.chromium.json'));
+    fs.writeFileSync(after, JSON.stringify(capture));
+    const result = spawnSync(process.execPath, ['scripts/build-navigation-render-benchmark.mjs', '--before', before, '--after', after, '--output', output], { encoding: 'utf8' });
+    assert.notEqual(result.status, 0);
+    assert.match(result.stderr, /target zoom/i);
+  } finally {
+    fs.rmSync(outputDir, { recursive: true, force: true });
+  }
+});
+
+test('benchmark validator recursively rejects sensitive nested capture fields', () => {
+  const outputDir = fs.mkdtempSync(path.join(os.tmpdir(), 'imax-navigation-benchmark-sensitive-'));
+  const before = path.join(outputDir, 'before.json');
+  const after = path.join(outputDir, 'after.json');
+  const output = path.join(outputDir, 'benchmark.json');
+  try {
+    const capture = JSON.parse(fs.readFileSync('data/audit/navigation-render-captures/after.chromium.json', 'utf8'));
+    capture.scenarios[0].runtimeState = { nested: { providerLat: 31.2 } };
+    fs.writeFileSync(before, fs.readFileSync('data/audit/navigation-render-captures/before.chromium.json'));
+    fs.writeFileSync(after, JSON.stringify(capture));
+    const result = spawnSync(process.execPath, ['scripts/build-navigation-render-benchmark.mjs', '--before', before, '--after', after, '--output', output], { encoding: 'utf8' });
+    assert.notEqual(result.status, 0);
+    assert.match(result.stderr, /Forbidden fields/i);
+  } finally {
+    fs.rmSync(outputDir, { recursive: true, force: true });
+  }
+});
