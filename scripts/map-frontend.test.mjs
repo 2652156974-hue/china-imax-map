@@ -91,6 +91,15 @@ test('administrative focus hides out-of-scope provinces and supports breadcrumb,
   assert.match(focusCss, /\.focus-back/);
 });
 
+test('navigation renders from explicit target zoom and skips unchanged display signatures', () => {
+  assert.match(app, /applyFilters\(\{ targetZoom: navigationTargetZoom\(currentFocus\(\)\) \}\)/);
+  assert.match(app, /renderAdministrativeDisplay\(located, targetZoom \?\? state\.map\?\.getZoom\?\.\(\) \?\? 4\)/);
+  assert.match(app, /const signature = displayRenderSignature\(displayMode, resolvedItems\)/);
+  assert.match(app, /const skipped = signature === state\.displaySignature/);
+  assert.match(app, /if \(!skipped\) \{/);
+  assert.match(app, /skipped\n\s*\}\);/);
+});
+
 test('administrative binding stays on the public record, not only inside location', () => {
   assert.match(app, /return marker \? \{\s*\.\.\.record,\s*administrative: normalizeAdministrativeBinding\(marker\.administrative \?\? record\.administrative \?\? null\),\s*location:/s);
   assert.doesNotMatch(app, /reviewVerdict: marker\.reviewVerdict,\s*administrative:/s);

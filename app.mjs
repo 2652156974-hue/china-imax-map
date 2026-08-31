@@ -23,7 +23,8 @@ import {
   applyFocusScope,
   effectiveDisplayZoom,
   focusScopeFromItem,
-  focusTargetZoom
+  focusTargetZoom,
+  navigationTargetZoom
 } from './focus-navigation.mjs';
 
 const config = window.__PUBLIC_AMAP_CONFIG__ ?? {};
@@ -86,6 +87,7 @@ const state = {
   map: null,
   displayMarkers: [],
   displayItems: [],
+  displaySignature: null,
   infoWindow: null,
   AMap: null,
   focus: {
@@ -334,7 +336,12 @@ function currentFocus() {
 }
 
 function recordNavigationDiagnostic(fromDepth, toDepth) {
-  diagnostics.navigationEvents.push({ fromDepth, toDepth });
+  appendBoundedDiagnostic(diagnostics.navigationEvents, { fromDepth, toDepth });
+}
+
+function appendBoundedDiagnostic(list, value, limit = 200) {
+  list.push(value);
+  if (list.length > limit) list.splice(0, list.length - limit);
 }
 
 function readMapView() {
@@ -395,7 +402,7 @@ function enterAdministrativeFocus(item) {
   diagnostics.focusDepth = state.focus.path.length;
   diagnostics.focusScope = currentFocus()?.name || '全国';
   renderFocusNavigation();
-  applyFilters();
+  applyFilters({ targetZoom: navigationTargetZoom(currentFocus()) });
   recordList.scrollTop = 0;
   if (Array.isArray(item.lnglat)) {
     state.map.setZoomAndCenter(focusTargetZoom(scope.level), item.lnglat, false, 420);
@@ -413,7 +420,7 @@ function navigateFocusToDepth(depth) {
   diagnostics.focusDepth = state.focus.path.length;
   diagnostics.focusScope = currentFocus()?.name || '全国';
   renderFocusNavigation();
-  applyFilters();
+  applyFilters({ targetZoom: navigationTargetZoom(currentFocus()) });
   if (restoreEntry) restoreFocusReturnState(restoreEntry);
   else if (targetDepth === 0) state.map.setZoomAndCenter(4, [104.1954, 35.8617], false, 420);
 }
@@ -685,7 +692,7 @@ function renderLifecycleCounts(counts = lifecycleCounts(state.cinemas)) {
   historyLifecycleCount.textContent = String(counts.history);
 }
 
-function applyFilters() {
+function applyFilters({ targetZoom = null } = {}) {
   const sourceRecords = state.nearby.active ? state.nearby.candidates : state.cinemas;
   const scopedRecords = state.nearby.active ? sourceRecords : applyFocusScope(sourceRecords, currentFocus());
   const scopedLifecycleRecords = scopedRecords.filter((cinema) => cinemaLifecycle(cinema) === state.lifecycle);
@@ -701,7 +708,7 @@ function applyFilters() {
   });
   if (state.nearby.active) state.visible = sortNearbyCandidates(state.visible, state.nearby.sort);
   const located = state.visible.filter(hasCoordinate);
-  renderAdministrativeDisplay(located);
+  renderAdministrativeDisplay(located, targetZoom ?? state.map?.getZoom?.() ?? 4);
   renderRecordList(state.visible);
   diagnostics.visibleMarkers = located.length;
   document.body.dataset.lifecycle = state.lifecycle;
@@ -721,9 +728,6 @@ function applyFilters() {
 function renderAdministrativeDisplay(records = state.visible.filter(hasCoordinate), zoom = state.map?.getZoom?.() ?? 4) {
   const renderStarted = performance.now();
   const requestedZoom = Number(zoom) || 4;
-  const markerClearStarted = performance.now();
-  const removedCount = clearDisplayMarkers();
-  const markerClearMs = performance.now() - markerClearStarted;
   const effectiveZoom = effectiveDisplayZoom(requestedZoom, currentFocus());
   const buildStarted = performance.now();
   const items = buildAdministrativeDisplay(records, effectiveZoom);
@@ -740,22 +744,33 @@ function renderAdministrativeDisplay(records = state.visible.filter(hasCoordinat
       ? collisionByKey.get(displayItemKey(item)) ?? withZeroDisplayOffset(item)
       : withZeroDisplayOffset(item)
   ));
+  const signature = displayRenderSignature(displayMode, resolvedItems);
+  const skipped = signature === state.displaySignature;
   state.displayItems = resolvedItems;
   diagnostics.displayMode = displayMode;
   diagnostics.renderedItems = resolvedItems.length;
   diagnostics.adminAggregateCount = resolvedItems.filter((item) => item.kind === 'administrative').length;
 
-  const markerCreateStarted = performance.now();
+  let markerClearMs = 0;
+  let markerCreateMs = 0;
+  let removedCount = 0;
   let createdCount = 0;
-  for (const item of resolvedItems) {
-    const marker = createDisplayMarker(item);
-    if (marker) {
-      state.displayMarkers.push(marker);
-      createdCount += 1;
+  if (!skipped) {
+    const markerClearStarted = performance.now();
+    removedCount = clearDisplayMarkers();
+    markerClearMs = performance.now() - markerClearStarted;
+    const markerCreateStarted = performance.now();
+    for (const item of resolvedItems) {
+      const marker = createDisplayMarker(item);
+      if (marker) {
+        state.displayMarkers.push(marker);
+        createdCount += 1;
+      }
     }
+    markerCreateMs = performance.now() - markerCreateStarted;
+    state.displaySignature = signature;
   }
-  const markerCreateMs = performance.now() - markerCreateStarted;
-  diagnostics.renderEvents.push({
+  appendBoundedDiagnostic(diagnostics.renderEvents, {
     requestedZoom,
     effectiveZoom,
     displayMode,
@@ -766,8 +781,21 @@ function renderAdministrativeDisplay(records = state.visible.filter(hasCoordinat
     markerClearMs,
     markerCreateMs,
     totalRenderMs: performance.now() - renderStarted,
-    marker: { removedCount, createdCount }
+    marker: { removedCount, createdCount },
+    skipped
   });
+}
+
+function displayRenderSignature(mode, items) {
+  return JSON.stringify([
+    mode,
+    items.map((item) => ({
+      key: displayItemKey(item),
+      kind: item.kind,
+      count: item.count,
+      lnglat: item.lnglat
+    }))
+  ]);
 }
 
 function displayItemKey(item) {
