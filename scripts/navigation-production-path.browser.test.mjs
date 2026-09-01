@@ -12,7 +12,7 @@ import { createPublicAmapServer, loadPublicServerConfig } from './public-amap-se
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const PUBLIC_FILES = [
   'index.html', 'app.mjs', 'styles.css', 'nearby.mjs', 'admin-clusters.mjs',
-  'cinema-lifecycle.mjs', 'focus-navigation.mjs', 'focus-navigation.css',
+  'cinema-lifecycle.mjs', 'screen-presentation.mjs', 'focus-navigation.mjs', 'focus-navigation.css',
   'marker-render-descriptor.mjs', 'navigation-coordinator.mjs',
   'render-signature.mjs', 'visible-state.mjs'
 ];

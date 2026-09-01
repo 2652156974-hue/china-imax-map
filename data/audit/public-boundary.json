@@ -1,10 +1,10 @@
 {
   "schemaVersion": 2,
-  "generatedAt": "2026-08-31T04:20:49.294Z",
+  "generatedAt": "2026-09-01T07:54:55.437Z",
   "status": "public-boundary-check-passed",
   "publicDataset": {
     "file": "data/public/cinemas.json",
-    "sha256": "6e5c3b20ee844f5209e12e77a784511cae1c688cbdbaa91dd810ed1b8246b116",
+    "sha256": "28a44fe19366bc452d2c5949a1a1b77531cfb2974409d3eaac3507d9a03d86fe",
     "mode": "public-amap-runtime",
     "records": 901,
     "staticCoordinates": 0,
@@ -32,7 +32,7 @@
   },
   "warnings": [],
   "cleanBranch": {
-    "currentBranch": "develop/current",
+    "currentBranch": "fix/canonical-display-navigation-lod",
     "publicReleaseBranch": "codex/public-release",
     "publicReleaseBranchExists": true,
     "recommendedBase": "fba4dcd (last clean public baseline before the Tencent raw mirror)",

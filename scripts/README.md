@@ -13,6 +13,23 @@ npm run check
 
 `npm run check` 不发出地图 API 请求，也不应用坐标；它只检查项目结构、数据量、静态/运行时边界、Git 忽略规则和凭据泄漏，并刷新项目 manifest。
 
+## Cloudflare 自动发布
+
+生产分支为 `develop/current`。GitHub Actions 会在该分支 push 时自动执行测试、公开静态构建、Cloudflare KV marker 校验、Wrangler dry-run 和 Worker 部署；Pull Request 只执行验证。工作流文件为 [`../.github/workflows/deploy-cloudflare.yml`](../.github/workflows/deploy-cloudflare.yml)。
+
+本地可先运行：
+
+```powershell
+npm run test:cloudflare
+npm run build:cloudflare
+npm run prepare:cloudflare-marker
+npm run cloudflare:check
+```
+
+其中 `prepare:cloudflare-marker` 只从本机 gitignored 的 reviewed layer 生成最小 runtime marker；它不会把坐标、provider cache 或密钥写入 Git。GitHub Actions 不重新请求高德，而是校验 Cloudflare KV 中已准备好的 `public-amap-markers`，因此日常网页和代码发布只需要 push 代码。若 reviewed marker 的坐标或行政绑定发生变化，因为该私有层不进公开 Git，需要另行更新一次 KV。
+
+首次启用前，在 GitHub 仓库 Actions secrets 中配置 `CLOUDFLARE_API_TOKEN` 和 `CLOUDFLARE_ACCOUNT_ID`。AMap JS Key 与安全密钥继续存放在 Cloudflare Worker secrets 中。
+
 ## 数据构建
 
 ```powershell

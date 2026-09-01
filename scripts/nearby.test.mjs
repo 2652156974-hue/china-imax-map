@@ -95,8 +95,8 @@ test('screen sorting prefers reliable area, then reliable width, and never selec
     screen: { area: null, width: null, rawArea: '100\n500', rawWidth: '20\n30', selectionConfidence: 'unknown' }
   });
   const sorted = sortNearbyCandidates([multi, width, area], 'screen');
-  assert.deepEqual(sorted.map((record) => record.id), ['area', 'width', 'multi']);
-  assert.equal(reliableScreenMeasure(multi), null);
+  assert.deepEqual(sorted.map((record) => record.id), ['area', 'multi', 'width']);
+  assert.deepEqual(reliableScreenMeasure(multi), { kind: 'area', value: 100 });
 });
 
 test('spec sorting uses projection tier, screen size, then audio, with Dome kept independent', () => {
@@ -122,7 +122,7 @@ test('display helpers distinguish normal, blank, NBSP, multi-value, and abnormal
   assert.equal(screenMeasureLabel({ screen: normal }), '226.77 m²');
   assert.equal(reliableScreenField({ area: null, rawArea: '', selectionConfidence: 'high' }, 'area'), null);
   assert.equal(reliableScreenField({ area: null, rawArea: '\u00a0', selectionConfidence: 'high' }, 'area'), null);
-  assert.equal(reliableScreenField({ area: null, rawArea: '12\n15', selectionConfidence: 'unknown' }, 'area'), null);
+  assert.equal(reliableScreenField({ area: null, rawArea: '12\n15', selectionConfidence: 'unknown' }, 'area').value, 12);
   assert.equal(reliableScreenField({ area: 12, rawArea: '12（自测）', selectionConfidence: 'high' }, 'area'), null);
 });
 
@@ -166,7 +166,7 @@ test('canonical field presentation exposes the reviewed number, pending state, a
     status: 'reviewed', html: '25.88 m', raw: '25.880\n23.453'
   });
   assert.deepEqual(canonicalFieldPresentation(pending, 'width', 'm'), {
-    status: 'unresolved', html: '<span>待核<span class="field-flag">数据说明</span></span>', raw: '25.880\n23.453'
+    status: 'multiple', html: '25.88 m', raw: '25.880\n23.453'
   });
 });
 
@@ -178,7 +178,7 @@ test('canonical seat presentation distinguishes direct, missing, and reviewed va
     seatsRaw: '329\n340',
     screenSeatReview: { confidence: 'high', materializedFields: ['seats'] }
   };
-  assert.deepEqual(canonicalFieldPresentation(direct, 'seats'), { status: 'direct', html: '329', raw: null });
+  assert.deepEqual(canonicalFieldPresentation(direct, 'seats'), { status: 'direct', html: '329', raw: '329' });
   assert.deepEqual(canonicalFieldPresentation(missing, 'seats'), { status: 'missing', html: '暂无数据', raw: null });
   assert.deepEqual(canonicalFieldPresentation(reviewed, 'seats'), { status: 'reviewed', html: '329', raw: '329\n340' });
 });

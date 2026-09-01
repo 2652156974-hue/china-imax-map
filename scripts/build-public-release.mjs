@@ -36,6 +36,7 @@ for (const filename of [
   'app.mjs',
   'styles.css',
   'nearby.mjs',
+  'screen-presentation.mjs',
   'admin-clusters.mjs',
   'cinema-lifecycle.mjs',
   'focus-navigation.mjs',

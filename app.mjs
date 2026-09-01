@@ -27,6 +27,7 @@ import { displayRenderSignature } from './render-signature.mjs';
 import { markerClickTarget, markerRenderDescriptor } from './marker-render-descriptor.mjs';
 import { createNavigationCoordinator } from './navigation-coordinator.mjs';
 import { deriveVisibleState, hasCoordinate, normalizeSearch, validCoordinate } from './visible-state.mjs';
+import { resolveScreenPresentation } from './screen-presentation.mjs';
 
 const config = window.__PUBLIC_AMAP_CONFIG__ ?? {};
 const mapError = document.querySelector('#mapError');
@@ -1090,6 +1091,7 @@ function detailHtml(cinema, popup) {
   const height = screenField(cinema, 'height', 'rawHeight', 'm');
   const area = screenField(cinema, 'area', 'rawArea', 'm²');
   const seats = seatField(cinema);
+  const presentation = resolveScreenPresentation(cinema);
   const dataNotes = renderDataNotes([
     ['宽度', width.raw],
     ['高度', height.raw],
@@ -1127,9 +1129,16 @@ function detailHtml(cinema, popup) {
     `<b>座位</b><span>${seats.html}</span>` +
     `<b>状态</b><span>${statusLabel(cinema.status)}</span>` +
     `<b>定位</b><span>${escapeHtml(granularityLabel(location.locationGranularity))} · 位置${escapeHtml(confidenceLabel(location.locationConfidence))} / 身份${escapeHtml(confidenceLabel(location.identityConfidence))}<small class="field-secondary">${locationText}</small></span>` +
-    `</div>${historyNote}${dataNotes}${formerNames}${locationNote}` +
+    `</div>${renderScreenAlternatives(presentation)}${historyNote}${dataNotes}${formerNames}${locationNote}` +
     `<div class="raw-note">数据来源：<a href="${escapeHtml(cinema.source?.url || 'https://docs.qq.com/sheet/DQ3FEUUZJdklNSWJP?tab=BB08J2')}" target="_blank" rel="noopener">@ArvinTingcn《全球 IMAX 及特效影厅分布》</a></div>` +
     `</article>`;
+}
+
+function renderScreenAlternatives(presentation) {
+  if (!presentation.alternatives.length) return '';
+  const value = (config, field) => config.fields[field].state === 'value' ? config[field] : config.fields[field].state === 'missing' ? '暂无数据' : '待核';
+  const rows = presentation.alternatives.map((config, index) => `记录 ${index + 1}（原表第 ${config.sourceIndex + 1} 组）：${value(config, 'width')} × ${value(config, 'height')} · ${value(config, 'area')} m² · ${value(config, 'seats')} 座`).join('；');
+  return `<details class="data-notes"><summary>多记录 · 另有 ${presentation.alternatives.length} 组</summary><div class="data-notes-body"><div class="data-note"><b>其他记录</b><span class="raw-value">${escapeHtml(rows)}</span></div></div></details>`;
 }
 
 function renderLifecycleNavigation(cinema) {

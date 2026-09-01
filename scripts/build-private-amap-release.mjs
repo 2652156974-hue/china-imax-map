@@ -89,7 +89,7 @@ export function buildPrivateAmapRelease({
   for (const filename of ['index.html', 'app.mjs', 'styles.css']) {
     fs.copyFileSync(path.join(resolvedAppRoot, filename), path.join(resolvedOutput, filename));
   }
-  for (const filename of ['nearby.mjs', 'admin-clusters.mjs', 'cinema-lifecycle.mjs']) {
+  for (const filename of ['nearby.mjs', 'screen-presentation.mjs', 'admin-clusters.mjs', 'cinema-lifecycle.mjs']) {
     fs.copyFileSync(path.join(ROOT, filename), path.join(resolvedOutput, filename));
   }
   fs.writeFileSync(

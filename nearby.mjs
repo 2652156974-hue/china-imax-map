@@ -2,6 +2,7 @@ const MAX_DISTANCE_KM = 120;
 const CITY_EXPANSION_KM = 80;
 const CITY_FALLBACK_KM = 50;
 const MIN_CITY_CANDIDATES = 3;
+import { presentationField, presentationMeasure, resolveScreenPresentation } from './screen-presentation.mjs';
 
 const PROJECTION_RANK = Object.freeze({
   'GT Laser': 5,
@@ -61,55 +62,19 @@ export function displayCity(value) {
  * select a value from ambiguous raw text.
  */
 export function resolveCanonicalScreenField(record = {}, field) {
-  const isSeats = field === 'seats';
-  const source = isSeats
-    ? record
-    : (record?.screen && typeof record.screen === 'object' ? record.screen : record);
-  const rawField = isSeats ? 'seatsRaw' : `raw${field[0].toUpperCase()}${field.slice(1)}`;
-  const raw = String((isSeats ? record?.[rawField] : source?.[rawField]) ?? '').replace(/\u00a0/g, ' ');
-  const trimmed = raw.trim();
-  const value = Number(source?.[field]);
-  const review = record?.screenSeatReview ?? source?.screenSeatReview ?? null;
-  const materializedFields = new Set(Array.isArray(review?.materializedFields) ? review.materializedFields : []);
-  const reviewConfidence = review?.confidence;
-  const reviewAllowsMaterialization = reviewConfidence === 'high';
-  const canonicalValid = isSeats
-    ? Number.isInteger(value) && value >= 0
-    : Number.isFinite(value) && value > 0;
-  const singleNumeric = isSeats
-    ? /^\d+$/.test(trimmed)
-    : /^[-+]?\d+(?:\.\d+)?$/.test(trimmed);
-  const confidence = reviewConfidence ?? source?.selectionConfidence ?? null;
-  const directConfidenceAllowed = confidence === undefined || confidence === null || confidence === 'high';
-
-  if (canonicalValid && materializedFields.has(field) && reviewAllowsMaterialization) {
-    return {
-      status: 'reviewed',
-      value,
-      raw,
-      provenance: 'screen-seat-review',
-      confidence: reviewConfidence
-    };
+  const presentation = resolveScreenPresentation(record);
+  const fieldState = presentation.selected?.fields?.[field];
+  const selectedValue = presentation.selected?.[field] ?? null;
+  const review = record.screenSeatReview ?? record.screen?.screenSeatReview;
+  if (review?.confidence === 'high' && review.materializedFields?.includes(field)) {
+    const source = field === 'seats' ? record : record.screen ?? record;
+    const value = Number(source?.[field]);
+    const valid = field === 'seats' ? Number.isInteger(value) && value > 0 : Number.isFinite(value) && value > 0;
+    if (valid) return { status: 'reviewed', value, raw: presentation.raw[field] ?? '', provenance: 'screen-seat-review', confidence: review.confidence };
   }
-  if (canonicalValid && singleNumeric && directConfidenceAllowed) {
-    return {
-      status: 'direct',
-      value,
-      raw,
-      provenance: 'raw-single-value',
-      confidence
-    };
-  }
-  if (!trimmed) {
-    return { status: 'missing', value: null, raw, provenance: null, confidence };
-  }
-  return {
-    status: 'unresolved',
-    value: null,
-    raw,
-    provenance: materializedFields.has(field) ? 'screen-seat-review-insufficient-confidence' : null,
-    confidence
-  };
+  if (!fieldState && !String(presentation.raw[field] ?? '').trim()) return { status: 'missing', value: null, raw: '', provenance: null, confidence: review?.confidence ?? null };
+  const status = fieldState?.state === 'value' ? presentation.status === 'reviewed' ? 'reviewed' : 'direct' : fieldState?.state === 'missing' ? 'missing' : 'unresolved';
+  return { status, value: selectedValue, raw: presentation.raw[field] ?? '', provenance: status === 'reviewed' ? 'screen-seat-review' : null, confidence: review?.confidence ?? null };
 }
 
 export function reliableScreenField(screen = {}, field) {
@@ -123,11 +88,7 @@ export function reliableScreenField(screen = {}, field) {
 }
 
 export function reliableScreenMeasure(record) {
-  const area = reliableScreenField(record, 'area');
-  if (area) return { kind: 'area', value: area.value };
-  const width = reliableScreenField(record, 'width');
-  if (width) return { kind: 'width', value: width.value };
-  return null;
+  return presentationMeasure(record);
 }
 
 export function screenMeasureLabel(record) {
@@ -144,21 +105,7 @@ export function formatNumber(value, maximumFractionDigits = 3) {
 }
 
 export function canonicalFieldPresentation(record = {}, field, unit = '') {
-  const resolved = resolveCanonicalScreenField(record, field);
-  if (resolved.status === 'missing') return { status: resolved.status, html: '暂无数据', raw: null };
-  if (resolved.status === 'reviewed' || resolved.status === 'direct') {
-    const digits = field === 'seats' ? 0 : field === 'area' ? 2 : 3;
-    return {
-      status: resolved.status,
-      html: `${formatNumber(resolved.value, digits)}${unit ? ` ${unit}` : ''}`,
-      raw: resolved.status === 'reviewed' ? resolved.raw : null
-    };
-  }
-  return {
-    status: resolved.status,
-    html: '<span>待核<span class="field-flag">数据说明</span></span>',
-    raw: resolved.raw
-  };
+  return presentationField(record, field, unit);
 }
 
 export function formatDistanceKm(value) {
