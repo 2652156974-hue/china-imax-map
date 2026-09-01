@@ -10,6 +10,7 @@ const app = await readFile(join(repoRoot, 'app.mjs'), 'utf8');
 const css = await readFile(join(repoRoot, 'styles.css'), 'utf8');
 const focusModule = await readFile(join(repoRoot, 'focus-navigation.mjs'), 'utf8');
 const coordinatorModule = await readFile(join(repoRoot, 'navigation-coordinator.mjs'), 'utf8');
+const visibleStateModule = await readFile(join(repoRoot, 'visible-state.mjs'), 'utf8');
 const markerDescriptorModule = await readFile(join(repoRoot, 'marker-render-descriptor.mjs'), 'utf8');
 const focusCss = await readFile(join(repoRoot, 'focus-navigation.css'), 'utf8');
 const privateHtml = await readFile(join(repoRoot, 'private-amap', 'index.html'), 'utf8');
@@ -78,11 +79,11 @@ test('administrative display keeps one zoom layer and explicit marker accessibil
 
 test('administrative focus hides out-of-scope provinces and supports breadcrumb, back, and Escape restoration', () => {
   assert.match(html, /focus-navigation\.css/);
-  assert.match(app, /focus:\s*\{\s*path:\s*\[\]/s);
-  assert.match(app, /applyFocusScope\(sourceRecords, currentFocus\(\)\)/);
-  assert.match(app, /const scopedLifecycleRecords = scopedRecords\.filter/);
+  assert.match(app, /view:\s*\{\s*focusPath:\s*\[\]/s);
+  assert.match(app, /deriveVisibleState\(\{/);
+  assert.match(app, /state\.view = \{\s*focusPath: \[\.\.\.focusPath\]/s);
   assert.match(app, /function enterAdministrativeFocus\(item\)/);
-  assert.match(app, /function navigateFocusToDepth\(depth\)/);
+  assert.match(app, /function navigateFocusToDepth\(depth,/);
   assert.match(app, /restoreEntry\?\.returnView/);
   assert.match(app, /event\.key !== 'Escape'/);
   assert.match(app, /resetFocusNavigation\(\)/);
@@ -93,13 +94,15 @@ test('administrative focus hides out-of-scope provinces and supports breadcrumb,
 });
 
 test('navigation renders from explicit target zoom and skips unchanged display signatures', () => {
-  assert.match(app, /navigationCoordinator\?\.transition\(\{ focus: currentFocus\(\)/);
+  assert.match(app, /commit: commitNavigationView/);
+  assert.match(app, /reconcileMap: \(\{ requestedZoom, source \}\) => renderAdministrativeDisplay\(state\.view\.locatedRecords/);
   assert.match(coordinatorModule, /const requestedZoom = navigationTargetZoom\(focus\)/);
-  assert.match(app, /renderAdministrativeDisplay\(located, targetZoom \?\? state\.map\?\.getZoom\?\.\(\) \?\? 4\)/);
+  assert.match(coordinatorModule, /const committed = commit\(\{ focus, requestedZoom, source: 'navigation', context \}\)/);
+  assert.match(coordinatorModule, /map\?\.setZoomAndCenter\?\.\(mapZoom, center, false, duration\)/);
   assert.match(app, /const signature = displayRenderSignature\(\{ lifecycle: state\.lifecycle, mode: displayMode, items: resolvedItems \}\)/);
   assert.match(app, /const skipped = signature === state\.displaySignature/);
   assert.match(app, /if \(!skipped\) \{/);
-  assert.match(app, /skipped\n\s*\}\);/);
+  assert.match(app, /skipped\n\s*\};\n\s*appendBoundedDiagnostic\(diagnostics\.renderEvents, event\)/);
 });
 
 test('public marker and navigation production paths use the shared compact modules', () => {
@@ -108,6 +111,8 @@ test('public marker and navigation production paths use the shared compact modul
   assert.match(app, /createNavigationCoordinator/);
   assert.match(markerDescriptorModule, /export function markerRenderDescriptor/);
   assert.match(markerDescriptorModule, /export function markerClickTarget/);
+  assert.match(visibleStateModule, /export function deriveVisibleState/);
+  assert.match(visibleStateModule, /const scopedRecords = nearby\.active \? sourceRecords : applyFocusScope\(sourceRecords, focus\)/);
 });
 
 test('administrative binding stays on the public record, not only inside location', () => {
@@ -197,7 +202,7 @@ test('nearby mode is user initiated and does not issue cinema POI queries', () =
   assert.match(app, /getCurrentPosition/);
   assert.match(app, /showMarker: false/);
   assert.match(app, /buildNearbyCandidateSet/);
-  assert.match(app, /sortNearbyCandidates/);
+  assert.match(visibleStateModule, /sortNearbyCandidates/);
   assert.doesNotMatch(app, /AMap\.PlaceSearch|AMap\.Geocoder|AMap\.DistrictSearch/);
   assert.doesNotMatch(`${html}\n${app}`, /navigator\.geolocation/);
 });

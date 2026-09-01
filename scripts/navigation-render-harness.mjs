@@ -1,8 +1,8 @@
 import { buildAdministrativeDisplay } from '../admin-clusters.mjs';
-import { applyFocusScope, effectiveDisplayZoom, navigationTargetZoom } from '../focus-navigation.mjs';
+import { effectiveDisplayZoom, navigationTargetZoom } from '../focus-navigation.mjs';
 import { displayRenderSignature } from '../render-signature.mjs';
-import { cinemaLifecycle } from '../cinema-lifecycle.mjs';
 import { createNavigationCoordinator } from '../navigation-coordinator.mjs';
+import { deriveVisibleState } from '../visible-state.mjs';
 
 class MockMap {
   constructor(zoom) { this.zoom = zoom; this.listeners = new Map(); this.transitions = []; }
@@ -21,16 +21,15 @@ export function createNavigationRenderHarness(records, { lifecycle = 'current', 
   let activeLifecycle = lifecycle;
   let activeItems = [];
   let lastSignature = null;
-  let currentFocus = null;
+  let view = { focus: null, scopedLifecycleRecords: [], visibleRecords: [], locatedRecords: [] };
   let currentZoom = mapZoom;
   const events = [];
   const map = new MockMap(mapZoom);
 
-  function render({ focus = currentFocus, requestedZoom = currentZoom, source = 'direct' } = {}) {
-    const lifecycleRecords = sourceRecords.filter((record) => cinemaLifecycle(record) === activeLifecycle);
-    const scoped = applyFocusScope(lifecycleRecords, focus);
+  function renderMap({ requestedZoom = currentZoom, source = 'direct' } = {}) {
+    const focus = view.focus;
     const effectiveZoom = effectiveDisplayZoom(requestedZoom, focus);
-    const built = buildAdministrativeDisplay(scoped, effectiveZoom);
+    const built = buildAdministrativeDisplay(view.locatedRecords, effectiveZoom);
     const mode = built.mode ?? 'province';
     const items = built.map((item) => ({ ...item, offsetX: Number(item.offsetX) || 0, offsetY: Number(item.offsetY) || 0 }));
     const signature = displayRenderSignature({ lifecycle: activeLifecycle, mode, items });
@@ -41,12 +40,35 @@ export function createNavigationRenderHarness(records, { lifecycle = 'current', 
       activeItems = items;
       lastSignature = signature;
     }
-    const event = { source, requestedZoom, effectiveZoom, mode, inputRecordCount: scoped.length, outputItemCount: items.length, removedCount, createdCount, skipped };
+    const event = {
+      source,
+      requestedZoom,
+      effectiveZoom,
+      mode,
+      focus,
+      visibleRecordCount: view.visibleRecords.length,
+      inputRecordCount: view.locatedRecords.length,
+      outputItemCount: items.length,
+      removedCount,
+      createdCount,
+      skipped
+    };
     events.push(event);
     return event;
   }
 
-  const coordinator = createNavigationCoordinator({ map, getFocus: () => currentFocus, render });
+  function deriveAndRender({ focus = view.focus, requestedZoom = currentZoom, source = 'direct' } = {}) {
+    const derived = deriveVisibleState({ cinemas: sourceRecords, focus, lifecycle: activeLifecycle });
+    view = { focus, ...derived };
+    return renderMap({ requestedZoom, source });
+  }
+
+  const coordinator = createNavigationCoordinator({
+    map,
+    getFocus: () => view.focus,
+    commit: deriveAndRender,
+    reconcileMap: renderMap
+  });
 
   return {
     get events() { return events; },
@@ -54,12 +76,12 @@ export function createNavigationRenderHarness(records, { lifecycle = 'current', 
     get transitions() { return map.transitions; },
     setRecords(recordsToUse) { sourceRecords = [...(recordsToUse ?? [])]; },
     setLifecycle(nextLifecycle) { activeLifecycle = nextLifecycle === 'history' ? 'history' : 'current'; },
-    render,
+    render: deriveAndRender,
     navigateTo(focus) {
-      currentFocus = focus ?? null;
       const firstIndex = events.length;
-      const targetZoom = navigationTargetZoom(currentFocus);
-      coordinator.transition({ focus: currentFocus, mapZoom: targetZoom });
+      const targetFocus = focus ?? null;
+      const targetZoom = navigationTargetZoom(targetFocus);
+      coordinator.transition({ focus: targetFocus, mapZoom: targetZoom });
       currentZoom = targetZoom;
       return { first: events[firstIndex], zoomend: events[firstIndex + 1] };
     },

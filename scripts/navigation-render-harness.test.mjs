@@ -15,12 +15,21 @@ const records = publicData.records.map((record) => {
   return marker ? {
     ...record,
     administrative: marker.administrative,
-    location: { ...record.location, providerLat: marker.providerLat, providerLng: marker.providerLng, providerCrs: 'GCJ-02' }
+    location: {
+      ...record.location,
+      provider: 'amap',
+      providerLat: marker.providerLat,
+      providerLng: marker.providerLng,
+      providerCrs: 'GCJ-02',
+      mapCrs: 'GCJ-02'
+    }
   } : record;
 });
 
 const provinceJiangsu = { level: 'province', provinceName: '江苏', prefectureName: null, countyName: null };
 const prefectureYangzhou = { level: 'prefecture', provinceName: '江苏', prefectureName: '扬州', countyName: null };
+const prefectureNanjing = { level: 'prefecture', provinceName: '江苏', prefectureName: '南京', countyName: null };
+const currentNationalCount = records.filter((record) => cinemaLifecycle(record) === 'current').length;
 const currentJiangsuCount = records.filter((record) => record.administrative?.provinceName === '江苏' && cinemaLifecycle(record) === 'current').length;
 
 test('same-coordinate 0294 to 0809 changes signature, rebuilds marker, and clicks the new record', () => {
@@ -116,6 +125,9 @@ test('current to history is a marker rebuild, not a skipped render', () => {
 test('navigation harness uses target LOD and skips identical zoomend without marker churn', () => {
   const harness = createNavigationRenderHarness(records);
   const national = harness.navigateTo(null);
+  assert.equal(national.first.focus, null);
+  assert.equal(national.first.visibleRecordCount, currentNationalCount);
+  assert.equal(national.first.inputRecordCount, currentNationalCount);
   assert.equal(national.first.mode, 'province');
   assert.equal(national.first.source, 'navigation');
   assert.equal(national.zoomend.source, 'zoomend');
@@ -138,6 +150,14 @@ test('navigation harness uses target LOD and skips identical zoomend without mar
   assert.equal(backToJiangsu.first.inputRecordCount, currentJiangsuCount);
   assert.notEqual(backToJiangsu.first.mode, 'spread');
   assert.notEqual(backToJiangsu.first.mode, 'cinema');
+
+  harness.navigateTo(prefectureNanjing);
+  const nanjingBackToJiangsu = harness.navigateTo(provinceJiangsu);
+  assert.equal(nanjingBackToJiangsu.first.focus.provinceName, '江苏');
+  assert.equal(nanjingBackToJiangsu.first.focus.prefectureName, null);
+  assert.equal(nanjingBackToJiangsu.first.visibleRecordCount, currentJiangsuCount);
+  assert.equal(nanjingBackToJiangsu.first.inputRecordCount, currentJiangsuCount);
+  assert.equal(nanjingBackToJiangsu.first.mode, 'prefecture');
 });
 
 test('stale zoom 8.25 cannot force the first national render above province mode', () => {

@@ -1,0 +1,94 @@
+{
+  "schemaVersion": 1,
+  "capturedAt": "2026-09-01T01:52:00Z",
+  "status": "local-production-path-browser-capture",
+  "scope": "full user navigation transaction from click handler through target UI commit and next-frame availability",
+  "application": {
+    "entrypoint": "dist-public/app.mjs",
+    "sourceBranch": "fix/canonical-display-navigation-lod",
+    "baseHead": "73f2771c5aa9d718bf39ca112543d4a236743510",
+    "workingTreeBuild": true,
+    "published": false,
+    "merged": false,
+    "deployed": false
+  },
+  "browser": {
+    "engine": "Chromium",
+    "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/151.0.0.0 Safari/537.36",
+    "headed": true,
+    "sdk": "local AMap DOM-compatible test layer",
+    "longTaskSupport": true
+  },
+  "metrics": [
+    "deriveVisibleStateMs",
+    "mapRenderMs",
+    "recordListRenderMs",
+    "navigationUiMs",
+    "handlerTotalMs",
+    "mainThreadFreeForNextFrameMs"
+  ],
+  "scenarios": [
+    {
+      "name": "nanjing-to-jiangsu-return",
+      "trigger": "return-button",
+      "fromFocus": "南京",
+      "toFocus": "江苏",
+      "targetVisibleRecordCount": 101,
+      "targetLocatedRecordCount": 101,
+      "displayMode": "prefecture",
+      "deriveVisibleStateMs": 0.7,
+      "mapRenderMs": 3.1,
+      "recordListRenderMs": 5.4,
+      "navigationUiMs": 0.1,
+      "handlerTotalMs": 11.4,
+      "mainThreadFreeForNextFrameMs": 14.9,
+      "longTasks": [],
+      "firstRender": {
+        "source": "navigation",
+        "focusScope": "江苏",
+        "visibleRecordCount": 101,
+        "inputRecordCount": 101,
+        "displayMode": "prefecture"
+      },
+      "zoomend": {
+        "displayMode": "prefecture",
+        "skipped": true,
+        "markerRemovedCount": 0,
+        "markerCreatedCount": 0
+      },
+      "recordListResultCount": 101
+    },
+    {
+      "name": "jiangsu-to-national-return",
+      "trigger": "return-button",
+      "fromFocus": "江苏",
+      "toFocus": "全国",
+      "targetVisibleRecordCount": 874,
+      "targetLocatedRecordCount": 874,
+      "displayMode": "province",
+      "deriveVisibleStateMs": 0.3,
+      "mapRenderMs": 9.7,
+      "recordListRenderMs": 4.9,
+      "navigationUiMs": 0.1,
+      "handlerTotalMs": 21.4,
+      "mainThreadFreeForNextFrameMs": 24.6,
+      "longTasks": [],
+      "firstRender": {
+        "source": "navigation",
+        "focus": null,
+        "focusScope": "全国",
+        "visibleRecordCount": 874,
+        "inputRecordCount": 874,
+        "displayMode": "province"
+      },
+      "zoomend": {
+        "displayMode": "province",
+        "skipped": true,
+        "markerRemovedCount": 0,
+        "markerCreatedCount": 0
+      },
+      "recordListResultCount": 874,
+      "status": "现有 874 / 874 · 地图点 874"
+    }
+  ]
+}

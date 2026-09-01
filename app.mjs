@@ -4,8 +4,7 @@ import {
   formatDistanceKm,
   geolocationFailureMessage,
   readAmapGeolocationResult,
-  screenMeasureLabel,
-  sortNearbyCandidates
+  screenMeasureLabel
 } from './nearby.mjs';
 import {
   buildAdministrativeDisplay,
@@ -19,7 +18,6 @@ import {
   relatedLifecycleRecords
 } from './cinema-lifecycle.mjs';
 import {
-  applyFocusScope,
   effectiveDisplayZoom,
   focusScopeFromItem,
   focusTargetZoom,
@@ -28,6 +26,7 @@ import {
 import { displayRenderSignature } from './render-signature.mjs';
 import { markerClickTarget, markerRenderDescriptor } from './marker-render-descriptor.mjs';
 import { createNavigationCoordinator } from './navigation-coordinator.mjs';
+import { deriveVisibleState, hasCoordinate, normalizeSearch, validCoordinate } from './visible-state.mjs';
 
 const config = window.__PUBLIC_AMAP_CONFIG__ ?? {};
 const mapError = document.querySelector('#mapError');
@@ -73,13 +72,20 @@ const diagnostics = window.__imaxMapDiagnostics = {
   focusScope: '全国',
   focusRecordCount: 0,
   navigationEvents: [],
+  navigationTransactions: [],
   renderEvents: [],
+  longTasks: [],
   errors: []
 };
 
 const state = {
   cinemas: [],
-  visible: [],
+  view: {
+    focusPath: [],
+    scopedLifecycleRecords: [],
+    visibleRecords: [],
+    locatedRecords: []
+  },
   system: 'ALL',
   region: 'ALL',
   lifecycle: 'current',
@@ -93,9 +99,6 @@ const state = {
   displaySignature: null,
   infoWindow: null,
   AMap: null,
-  focus: {
-    path: []
-  },
   nearby: {
     active: false,
     position: null,
@@ -109,6 +112,8 @@ const state = {
     geolocation: null
   }
 };
+
+observeLongTasks();
 
 const markerColors = Object.freeze({
   'GT Laser': '#b42318',
@@ -299,7 +304,9 @@ function createMap() {
   navigationCoordinator = createNavigationCoordinator({
     map: state.map,
     getFocus: currentFocus,
-    render: ({ requestedZoom }) => renderAdministrativeDisplay(undefined, requestedZoom)
+    commit: commitNavigationView,
+    reconcileMap: ({ requestedZoom, source }) => renderAdministrativeDisplay(state.view.locatedRecords, requestedZoom, source),
+    afterTransition: ({ committed }) => finishNavigationTransaction(committed)
   });
   state.map.addControl(new AMap.ToolBar({ position: { right: '16px', bottom: '96px' } }));
   state.map.addControl(new AMap.Scale());
@@ -325,21 +332,26 @@ function initFocusNavigation() {
   focusBreadcrumbs = focusNavigation.querySelector('#focusBreadcrumbs');
   focusScopeNote = focusNavigation.querySelector('#focusScopeNote');
 
-  focusBackButton.addEventListener('click', () => navigateFocusToDepth(Math.max(0, state.focus.path.length - 1)));
+  focusBackButton.addEventListener('click', () => {
+    const handlerStarted = performance.now();
+    navigateFocusToDepth(Math.max(0, state.view.focusPath.length - 1), { handlerStarted, trigger: 'return-button' });
+  });
   focusBreadcrumbs.addEventListener('click', (event) => {
+    const handlerStarted = performance.now();
     const button = event.target.closest('button[data-focus-depth]');
     if (!button || button.disabled) return;
-    navigateFocusToDepth(Number(button.dataset.focusDepth));
+    navigateFocusToDepth(Number(button.dataset.focusDepth), { handlerStarted, trigger: 'breadcrumb' });
   });
   document.addEventListener('keydown', (event) => {
-    if (event.key !== 'Escape' || !state.focus.path.length || state.nearby.active) return;
-    navigateFocusToDepth(state.focus.path.length - 1);
+    const handlerStarted = performance.now();
+    if (event.key !== 'Escape' || !state.view.focusPath.length || state.nearby.active) return;
+    navigateFocusToDepth(state.view.focusPath.length - 1, { handlerStarted, trigger: 'escape' });
   });
   renderFocusNavigation();
 }
 
 function currentFocus() {
-  return state.focus.path[state.focus.path.length - 1] ?? null;
+  return state.view.focusPath[state.view.focusPath.length - 1] ?? null;
 }
 
 function recordNavigationDiagnostic(fromDepth, toDepth) {
@@ -349,6 +361,36 @@ function recordNavigationDiagnostic(fromDepth, toDepth) {
 function appendBoundedDiagnostic(list, value, limit = 200) {
   list.push(value);
   if (list.length > limit) list.splice(0, list.length - limit);
+}
+
+function observeLongTasks() {
+  if (typeof PerformanceObserver !== 'function' || !PerformanceObserver.supportedEntryTypes?.includes('longtask')) return;
+  const observer = new PerformanceObserver((list) => {
+    for (const entry of list.getEntries()) {
+      appendBoundedDiagnostic(diagnostics.longTasks, {
+        startTime: entry.startTime,
+        duration: entry.duration,
+        name: entry.name
+      });
+    }
+  });
+  observer.observe({ type: 'longtask', buffered: true });
+}
+
+function finishNavigationTransaction(committed) {
+  const transaction = committed?.transaction;
+  if (!transaction) return;
+  const handlerStarted = committed.handlerStarted;
+  transaction.handlerTotalMs = performance.now() - handlerStarted;
+  requestAnimationFrame(() => {
+    setTimeout(() => {
+      const nextFrameFreeAt = performance.now();
+      transaction.mainThreadFreeForNextFrameMs = nextFrameFreeAt - handlerStarted;
+      transaction.longTasks = diagnostics.longTasks.filter((entry) => (
+        entry.startTime < nextFrameFreeAt && entry.startTime + entry.duration >= handlerStarted
+      )).map((entry) => ({ ...entry }));
+    }, 0);
+  });
 }
 
 function readMapView() {
@@ -393,7 +435,7 @@ function enterAdministrativeFocus(item) {
   enterAdministrativeFocusTarget(target);
 }
 
-function enterAdministrativeFocusTarget(target) {
+function enterAdministrativeFocusTarget(target, { handlerStarted = performance.now(), trigger = 'administrative-marker' } = {}) {
   const scope = target?.focus;
   if (!scope || (!scope.provinceName && !scope.prefectureName && !scope.countyName)) return;
 
@@ -401,38 +443,40 @@ function enterAdministrativeFocusTarget(target) {
   const key = scope.key ?? `${scope.level}:${scope.provinceName || ''}:${scope.prefectureName || ''}:${scope.countyName || ''}`;
   if (existing?.key === key) return;
 
-  recordNavigationDiagnostic(state.focus.path.length, state.focus.path.length + 1);
-
-  state.focus.path.push({
+  const fromDepth = state.view.focusPath.length;
+  recordNavigationDiagnostic(fromDepth, fromDepth + 1);
+  const targetPath = [...state.view.focusPath, {
     ...scope,
     key,
     ...readFocusReturnState()
-  });
+  }];
   state.infoWindow?.close();
   detailPanel.hidden = true;
-  diagnostics.focusDepth = state.focus.path.length;
-  diagnostics.focusScope = currentFocus()?.name || '全国';
-  renderFocusNavigation();
-  navigationCoordinator?.transition({ focus: currentFocus(), center: scope.lnglat, mapZoom: focusTargetZoom(scope.level) });
+  navigationCoordinator?.transition({
+    focus: targetPath.at(-1),
+    center: scope.lnglat,
+    mapZoom: focusTargetZoom(scope.level),
+    context: { focusPath: targetPath, handlerStarted, trigger, fromDepth }
+  });
   recordList.scrollTop = 0;
 }
 
-function navigateFocusToDepth(depth) {
-  const targetDepth = Math.max(0, Math.min(Number(depth) || 0, state.focus.path.length));
-  if (targetDepth === state.focus.path.length) return;
-  recordNavigationDiagnostic(state.focus.path.length, targetDepth);
-  const restoreEntry = state.focus.path[targetDepth] ?? null;
-  state.focus.path = state.focus.path.slice(0, targetDepth);
+function navigateFocusToDepth(depth, { handlerStarted = performance.now(), trigger = 'navigation' } = {}) {
+  const fromDepth = state.view.focusPath.length;
+  const targetDepth = Math.max(0, Math.min(Number(depth) || 0, fromDepth));
+  if (targetDepth === fromDepth) return;
+  recordNavigationDiagnostic(fromDepth, targetDepth);
+  const restoreEntry = state.view.focusPath[targetDepth] ?? null;
+  const targetPath = state.view.focusPath.slice(0, targetDepth);
+  const targetFocus = targetPath.at(-1) ?? null;
   state.infoWindow?.close();
   detailPanel.hidden = true;
-  diagnostics.focusDepth = state.focus.path.length;
-  diagnostics.focusScope = currentFocus()?.name || '全国';
-  renderFocusNavigation();
   const returnView = restoreEntry?.returnView;
   navigationCoordinator?.transition({
-    focus: currentFocus(),
+    focus: targetFocus,
     center: returnView?.center ?? (targetDepth === 0 ? [104.1954, 35.8617] : null),
-    mapZoom: returnView?.zoom ?? (targetDepth === 0 ? 4 : navigationTargetZoom(currentFocus()))
+    mapZoom: returnView?.zoom ?? (targetDepth === 0 ? 4 : navigationTargetZoom(targetFocus)),
+    context: { focusPath: targetPath, handlerStarted, trigger, fromDepth }
   });
   if (restoreEntry) {
     if (Number.isFinite(Number(restoreEntry.returnScrollTop))) recordList.scrollTop = Number(restoreEntry.returnScrollTop);
@@ -442,19 +486,15 @@ function navigateFocusToDepth(depth) {
 }
 
 function resetFocusNavigation({ restore = false } = {}) {
-  if (!state.focus.path.length) return;
-  const restoreView = state.focus.path[0]?.returnView ?? null;
-  state.focus.path = [];
-  diagnostics.focusDepth = 0;
-  diagnostics.focusScope = '全国';
-  diagnostics.focusRecordCount = 0;
-  renderFocusNavigation();
+  if (!state.view.focusPath.length) return;
+  const restoreView = state.view.focusPath[0]?.returnView ?? null;
+  applyFilters({ focusPath: [], targetZoom: restoreView?.zoom ?? 4, source: 'focus-reset' });
   if (restore && restoreView) restoreMapView(restoreView);
 }
 
 function renderFocusNavigation(scopeCount = null) {
   if (!focusNavigation || !focusBreadcrumbs) return;
-  const path = state.focus.path;
+  const path = state.view.focusPath;
   focusNavigation.hidden = path.length === 0;
   if (!path.length) {
     focusBreadcrumbs.replaceChildren();
@@ -708,40 +748,111 @@ function renderLifecycleCounts(counts = lifecycleCounts(state.cinemas)) {
   historyLifecycleCount.textContent = String(counts.history);
 }
 
-function applyFilters({ targetZoom = null } = {}) {
-  const sourceRecords = state.nearby.active ? state.nearby.candidates : state.cinemas;
-  const scopedRecords = state.nearby.active ? sourceRecords : applyFocusScope(sourceRecords, currentFocus());
-  const scopedLifecycleRecords = scopedRecords.filter((cinema) => cinemaLifecycle(cinema) === state.lifecycle);
-  state.visible = scopedLifecycleRecords.filter((cinema) => {
-    const projection = cinema.projection ?? {};
-    const matchesSystem = state.system === 'ALL' || (projection.system ?? 'unknown') === state.system;
-    const matchesDome = !state.dome || projection.dome === true;
-    const matchesRegion = state.region === 'ALL' || cinema.region === state.region;
-    const matchesStatus = state.status === 'ALL' || (cinema.status ?? 'unknown') === state.status;
-    const matchesAudio = !state.audio12 || Number(projection.audioChannels) === 12;
-    const matchesSearch = !state.query || searchText(cinema).includes(state.query);
-    return matchesSystem && matchesDome && matchesRegion && matchesStatus && matchesAudio && matchesSearch;
+function applyFilters({ targetZoom = null, focusPath = state.view.focusPath, source = 'filters' } = {}) {
+  return deriveCommitAndRenderView({
+    focusPath,
+    requestedZoom: targetZoom ?? state.map?.getZoom?.() ?? 4,
+    source
   });
-  if (state.nearby.active) state.visible = sortNearbyCandidates(state.visible, state.nearby.sort);
-  const located = state.visible.filter(hasCoordinate);
-  renderAdministrativeDisplay(located, targetZoom ?? state.map?.getZoom?.() ?? 4);
-  renderRecordList(state.visible);
-  diagnostics.visibleMarkers = located.length;
+}
+
+function commitNavigationView({ focus, requestedZoom, source, context } = {}) {
+  const focusPath = Array.isArray(context?.focusPath) ? context.focusPath : state.view.focusPath;
+  return deriveCommitAndRenderView({
+    focusPath,
+    focus,
+    requestedZoom,
+    source,
+    navigation: context
+  });
+}
+
+function deriveCommitAndRenderView({
+  focusPath = state.view.focusPath,
+  focus = focusPath.at(-1) ?? null,
+  requestedZoom = state.map?.getZoom?.() ?? 4,
+  source = 'direct',
+  navigation = null
+} = {}) {
+  const deriveStarted = performance.now();
+  const derived = deriveVisibleState({
+    cinemas: state.cinemas,
+    focus,
+    lifecycle: state.lifecycle,
+    filters: {
+      system: state.system,
+      region: state.region,
+      status: state.status,
+      audio12: state.audio12,
+      dome: state.dome,
+      query: state.query
+    },
+    nearby: state.nearby
+  });
+  const deriveVisibleStateMs = performance.now() - deriveStarted;
+
+  // A single reference swap commits target focus and all record projections.
+  // Nothing rendering the page can observe a new focus with old visible data.
+  state.view = {
+    focusPath: [...focusPath],
+    scopedLifecycleRecords: derived.scopedLifecycleRecords,
+    visibleRecords: derived.visibleRecords,
+    locatedRecords: derived.locatedRecords
+  };
+
+  const mapStarted = performance.now();
+  const mapEvent = renderAdministrativeDisplay(derived.locatedRecords, requestedZoom, source);
+  const mapRenderMs = performance.now() - mapStarted;
+  const recordListStarted = performance.now();
+  renderRecordList(derived.visibleRecords);
+  void recordList.getBoundingClientRect();
+  const recordListRenderMs = performance.now() - recordListStarted;
+  const navigationUiStarted = performance.now();
+  updateViewUi(derived);
+  const navigationUiMs = performance.now() - navigationUiStarted;
+
+  if (!navigation) return { deriveVisibleStateMs, mapRenderMs, recordListRenderMs, navigationUiMs, mapEvent };
+  const transaction = {
+    trigger: navigation.trigger ?? 'navigation',
+    fromDepth: Number(navigation.fromDepth) || 0,
+    toDepth: focusPath.length,
+    targetFocus: focus?.name || '全国',
+    targetVisibleRecordCount: derived.visibleRecords.length,
+    targetLocatedRecordCount: derived.locatedRecords.length,
+    displayMode: mapEvent.displayMode,
+    deriveVisibleStateMs,
+    mapRenderMs,
+    recordListRenderMs,
+    navigationUiMs,
+    handlerTotalMs: null,
+    mainThreadFreeForNextFrameMs: null,
+    longTasks: []
+  };
+  appendBoundedDiagnostic(diagnostics.navigationTransactions, transaction);
+  return { transaction, handlerStarted: Number(navigation.handlerStarted) || performance.now() };
+}
+
+function updateViewUi({ scopedLifecycleRecords, visibleRecords, locatedRecords }) {
+  diagnostics.visibleMarkers = locatedRecords.length;
+  diagnostics.visibleRecordCount = visibleRecords.length;
+  diagnostics.recordListResultCount = visibleRecords.length;
   document.body.dataset.lifecycle = state.lifecycle;
   const lifecycleLabel = state.lifecycle === 'history' ? '历史' : '现有';
   diagnostics.focusRecordCount = currentFocus() ? scopedLifecycleRecords.length : 0;
+  diagnostics.focusDepth = state.view.focusPath.length;
+  diagnostics.focusScope = currentFocus()?.name || '全国';
   renderFocusNavigation(scopedLifecycleRecords.length);
   if (state.nearby.active) {
-    statusElement.textContent = `${lifecycleLabel} · 附近 ${state.visible.length} · ${nearbySortLabel(state.nearby.sort)} · 地图点 ${located.length}`;
+    statusElement.textContent = `${lifecycleLabel} · 附近 ${visibleRecords.length} · ${nearbySortLabel(state.nearby.sort)} · 地图点 ${locatedRecords.length}`;
   } else if (currentFocus()) {
-    statusElement.textContent = `${currentFocus().name} · ${lifecycleLabel} ${state.visible.length} / ${scopedLifecycleRecords.length} · 地图点 ${located.length}`;
+    statusElement.textContent = `${currentFocus().name} · ${lifecycleLabel} ${visibleRecords.length} / ${scopedLifecycleRecords.length} · 地图点 ${locatedRecords.length}`;
   } else {
     const lifecycleTotal = state.lifecycle === 'history' ? diagnostics.historicalRecords : diagnostics.currentRecords;
-    statusElement.textContent = `${lifecycleLabel} ${state.visible.length} / ${lifecycleTotal} · 地图点 ${located.length}`;
+    statusElement.textContent = `${lifecycleLabel} ${visibleRecords.length} / ${lifecycleTotal} · 地图点 ${locatedRecords.length}`;
   }
 }
 
-function renderAdministrativeDisplay(records = state.visible.filter(hasCoordinate), zoom = state.map?.getZoom?.() ?? 4) {
+function renderAdministrativeDisplay(records = state.view.locatedRecords, zoom = state.map?.getZoom?.() ?? 4, source = 'direct') {
   const renderStarted = performance.now();
   const requestedZoom = Number(zoom) || 4;
   const effectiveZoom = effectiveDisplayZoom(requestedZoom, currentFocus());
@@ -786,10 +897,20 @@ function renderAdministrativeDisplay(records = state.visible.filter(hasCoordinat
     markerCreateMs = performance.now() - markerCreateStarted;
     state.displaySignature = signature;
   }
-  appendBoundedDiagnostic(diagnostics.renderEvents, {
+  const event = {
+    source,
     requestedZoom,
     effectiveZoom,
     displayMode,
+    focus: currentFocus() ? {
+      level: currentFocus().level,
+      provinceName: currentFocus().provinceName ?? null,
+      prefectureName: currentFocus().prefectureName ?? null,
+      countyName: currentFocus().countyName ?? null,
+      name: currentFocus().name ?? null
+    } : null,
+    focusScope: currentFocus()?.name || '全国',
+    visibleRecordCount: state.view.visibleRecords.length,
     inputRecordCount: records.length,
     outputItemCount: resolvedItems.length,
     buildAdministrativeDisplayMs,
@@ -799,7 +920,9 @@ function renderAdministrativeDisplay(records = state.visible.filter(hasCoordinat
     totalRenderMs: performance.now() - renderStarted,
     marker: { removedCount, createdCount },
     skipped
-  });
+  };
+  appendBoundedDiagnostic(diagnostics.renderEvents, event);
+  return event;
 }
 
 function displayItemKey(item) {
@@ -836,6 +959,7 @@ function createDisplayMarker(item) {
   marker.setOffset(new AMap.Pixel(-size / 2 + offsetX, -size / 2 + offsetY));
   marker.off?.('click');
   marker.on?.('click', () => {
+    const handlerStarted = performance.now();
     const target = descriptor.click;
     if (target.type === 'same-site') {
       state.map.setZoomAndCenter(17, descriptor.lnglat, false, 420);
@@ -848,7 +972,7 @@ function createDisplayMarker(item) {
       if (cinema) openCinema(cinema);
       return;
     }
-    enterAdministrativeFocusTarget(target);
+    enterAdministrativeFocusTarget(target, { handlerStarted, trigger: 'administrative-marker' });
   });
   return marker;
 }
@@ -1045,17 +1169,6 @@ function bindTheme() {
   media.addEventListener('change', (event) => state.map?.setMapStyle(event.matches ? 'amap://styles/dark' : 'amap://styles/whitesmoke'));
 }
 
-function hasCoordinate(cinema) {
-  const location = cinema?.location ?? {};
-  return location.provider === 'amap' && location.providerCrs === 'GCJ-02' && validCoordinate(location.providerLat, location.providerLng);
-}
-
-function validCoordinate(lat, lng) {
-  const numericLat = Number(lat);
-  const numericLng = Number(lng);
-  return Number.isFinite(numericLat) && Number.isFinite(numericLng) && numericLat >= -90 && numericLat <= 90 && numericLng >= -180 && numericLng <= 180;
-}
-
 function locationBucket(cinema) {
   if (!hasCoordinate(cinema)) return 'unresolved';
   const location = cinema.location ?? {};
@@ -1076,14 +1189,6 @@ function systemLabel(cinema) {
   if (projection.plannedSystem) parts.push(`计划：${projection.plannedSystem}`);
   return parts.length ? parts.join(' · ') : '待核';
 }
-function searchText(cinema) {
-  return normalizeSearch([
-    cinema.name, ...(cinema.formerNames ?? []), cinema.city, cinema.province, cinema.region,
-    cinema.administrative?.prefectureName, cinema.administrative?.countyName,
-    cinema.mallOrVenue, cinema.location?.address, cinema.projection?.raw
-  ].filter(Boolean).join(' '));
-}
-function normalizeSearch(value) { return String(value ?? '').normalize('NFKC').toLowerCase().replace(/[\s·•,，。()（）\-_/]+/g, ''); }
 function confidenceWeight(value) { return value === 'high' ? 3 : value === 'medium' ? 2 : 1; }
 function statusLabel(value) { return value === 'open' ? '营业' : value === 'closed' ? '已关闭' : value === 'temporarily_closed' ? '暂时停业' : '待核'; }
 function confidenceLabel(value) { return value === 'high' ? '高' : value === 'medium' ? '中' : value === 'low' ? '低' : '待核'; }
