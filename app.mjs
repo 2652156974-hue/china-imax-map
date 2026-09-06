@@ -583,7 +583,7 @@ function enterNearbyMode(resolved) {
   state.map.setZoomAndCenter(11, [resolved.position.lng, resolved.position.lat], false, 520);
   nearbyButton.hidden = true;
   nearbyButton.disabled = false;
-  nearbyButton.textContent = '我的位置';
+  nearbyButton.textContent = '附近 IMAX';
   exitNearbyButton.hidden = false;
   nearbyStatus.hidden = false;
   nearbyStatus.textContent = resolved.city ? `已定位到${resolved.city}，附近结果仅用于本次浏览。` : '已获取当前位置，按距离范围查找附近 IMAX。';
@@ -610,7 +610,7 @@ function refreshNearbyCandidates() {
 function setNearbyFailure(message) {
   nearbyButton.disabled = false;
   nearbyButton.hidden = false;
-  nearbyButton.textContent = '我的位置';
+  nearbyButton.textContent = '附近 IMAX';
   nearbyStatus.hidden = false;
   nearbyStatus.textContent = message;
   nearbyToolbar.hidden = true;
@@ -632,7 +632,7 @@ function exitNearbyMode() {
   state.infoWindow?.close();
   nearbyButton.hidden = false;
   nearbyButton.disabled = false;
-  nearbyButton.textContent = '我的位置';
+  nearbyButton.textContent = '附近 IMAX';
   exitNearbyButton.hidden = true;
   nearbyToolbar.hidden = true;
   nearbyStatus.hidden = true;
@@ -1028,7 +1028,7 @@ function systemLabel(cinema) {
   const parts = [];
   if (projection.system) parts.push(systemDisplayLabel(projection.system));
   if (projection.geometry) parts.push(projection.geometry);
-  if (projection.dome) parts.push('Dome');
+  if (projection.dome) parts.push('球幕');
   if (projection.plannedSystem) parts.push(`计划：${systemDisplayLabel(projection.plannedSystem)}`);
   return parts.length ? parts.join(' · ') : systemDisplayLabels.unknown;
 }
