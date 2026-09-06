@@ -25,7 +25,25 @@
     </header>
 
     <div class="panel-body">
-      <div class="data-banner" id="dataBanner">正在加载公开事实层和高德运行时点位…</div>
+      <div class="data-banner" id="dataBanner">正在加载影院地图…</div>
+
+      <div class="search-wrap">
+        <input id="search" type="search" placeholder="搜索城市、影院或商场" autocomplete="off" />
+      </div>
+      <div class="nearby-actions" aria-label="附近 IMAX 操作">
+        <button class="nearby-button" id="nearbyButton" type="button" title="我的位置"><span aria-hidden="true">⌖</span> 附近 IMAX</button>
+        <button class="nearby-exit" id="exitNearbyButton" type="button" hidden>× 退出附近</button>
+      </div>
+      <div class="nearby-status" id="nearbyStatus" role="status" aria-live="polite" hidden></div>
+      <div class="nearby-toolbar" id="nearbyToolbar" hidden>
+        <div class="nearby-scope" id="nearbyScope"></div>
+        <div class="nearby-sort" id="nearbySortFilters" aria-label="附近排序">
+          <button class="active" data-nearby-sort="distance" type="button" aria-pressed="true">距离</button>
+          <button data-nearby-sort="screen" type="button" aria-pressed="false">银幕大小</button>
+          <button data-nearby-sort="spec" type="button" aria-pressed="false">综合规格</button>
+        </div>
+        <button class="nearby-expand" id="expandNearbyButton" type="button" hidden>扩大范围</button>
+      </div>
 
       <div class="lifecycle-block">
         <div class="section-heading">
@@ -42,60 +60,57 @@
         </div>
       </div>
 
-      <div class="search-wrap">
-        <input id="search" type="search" placeholder="搜索影院、曾用名、城市、商场或场馆" autocomplete="off" />
-      </div>
-      <div class="nearby-actions" aria-label="附近 IMAX 操作">
-        <button class="nearby-button" id="nearbyButton" type="button"><span aria-hidden="true">⌖</span> 我的位置</button>
-        <button class="nearby-exit" id="exitNearbyButton" type="button" hidden>× 退出附近</button>
-      </div>
-      <div class="nearby-status" id="nearbyStatus" role="status" aria-live="polite" hidden></div>
-      <div class="nearby-toolbar" id="nearbyToolbar" hidden>
-        <div class="nearby-scope" id="nearbyScope"></div>
-        <div class="nearby-sort" id="nearbySortFilters" aria-label="附近排序">
-          <button class="active" data-nearby-sort="distance" type="button">距离</button>
-          <button data-nearby-sort="screen" type="button">银幕大小</button>
-          <button data-nearby-sort="spec" type="button">综合规格</button>
-        </div>
-        <button class="nearby-expand" id="expandNearbyButton" type="button" hidden>扩大范围</button>
-      </div>
-
       <details class="filter-details">
         <summary><span>高级筛选</span><small>投影 · 地区 · 营业状态</small></summary>
         <div class="filter-content">
       <div class="filter-label">投影系统</div>
       <div class="filters" id="systemFilters" aria-label="放映系统筛选">
-        <button class="active" data-system="ALL">全部</button>
-        <button data-system="GT Laser">GT Laser</button>
-        <button data-system="Commercial Laser">Commercial Laser</button>
-        <button data-system="Laser XT">Laser XT</button>
-        <button data-system="Xenon">Xenon</button>
-        <button data-dome="true">Dome</button>
-        <button data-system="unknown">Unknown</button>
+        <button class="active" data-system="ALL" type="button" aria-pressed="true">全部</button>
+        <button data-system="GT Laser" type="button" aria-pressed="false">GT 激光</button>
+        <button data-system="Commercial Laser" type="button" aria-pressed="false">商业激光</button>
+        <button data-system="Laser XT" type="button" aria-pressed="false">XT 激光</button>
+        <button data-system="Xenon" type="button" aria-pressed="false">氙灯</button>
+        <button data-system="unknown" type="button" aria-pressed="false">待核实</button>
       </div>
+      <details class="filter-model-notes">
+        <summary>型号说明</summary>
+        <table>
+          <thead><tr><th scope="col">原始值</th><th scope="col">界面显示</th></tr></thead>
+          <tbody>
+            <tr><td>GT Laser</td><td>GT 激光</td></tr>
+            <tr><td>Commercial Laser</td><td>商业激光</td></tr>
+            <tr><td>Laser XT</td><td>XT 激光</td></tr>
+            <tr><td>Xenon</td><td>氙灯</td></tr>
+            <tr><td>unknown</td><td>待核实</td></tr>
+          </tbody>
+        </table>
+      </details>
       <div class="filter-label">地区</div>
       <div class="filters" id="regionFilters" aria-label="地区筛选">
-        <button class="active" data-region="ALL">全部地区</button>
-        <button data-region="中国大陆">中国大陆</button>
-        <button data-region="香港">香港</button>
-        <button data-region="澳门">澳门</button>
-        <button data-region="台湾">台湾</button>
+        <button class="active" data-region="ALL" type="button" aria-pressed="true">全部地区</button>
+        <button data-region="中国大陆" type="button" aria-pressed="false">中国大陆</button>
+        <button data-region="香港" type="button" aria-pressed="false">香港</button>
+        <button data-region="澳门" type="button" aria-pressed="false">澳门</button>
+        <button data-region="台湾" type="button" aria-pressed="false">台湾</button>
       </div>
-      <div class="filter-label">状态与声道</div>
+      <div class="filter-label">状态</div>
       <div class="filters" id="statusFilters" aria-label="营业状态筛选">
-        <button class="active" data-status="ALL">全部状态</button>
-        <button data-status="open">营业</button>
-        <button data-status="closed">已关闭</button>
-        <button data-status="temporarily_closed">暂时停业</button>
-        <button data-status="unknown">状态待核</button>
-        <button data-audio="12">12声道</button>
+        <button class="active" data-status="ALL" type="button" aria-pressed="true">全部状态</button>
+        <button data-status="open" type="button" aria-pressed="false">营业</button>
+        <button data-status="closed" type="button" aria-pressed="false">已关闭</button>
+        <button data-status="temporarily_closed" type="button" aria-pressed="false">暂时停业</button>
+        <button data-status="unknown" type="button" aria-pressed="false">状态待核</button>
+      </div>
+      <div class="filter-label">附加条件</div>
+      <div class="filter-checkboxes" aria-label="附加条件筛选">
+        <label class="filter-checkbox"><input id="domeOnlyFilter" type="checkbox" data-dome="true" />仅看球幕</label>
+        <label class="filter-checkbox"><input id="audio12OnlyFilter" type="checkbox" data-audio="12" />仅看12声道</label>
       </div>
         </div>
     </details>
 
     <div class="meta-row">
       <div class="status" id="status">加载中…</div>
-      <div class="coverage">GCJ‑02 · 运行时点位</div>
     </div>
     <div class="record-list" id="recordList" aria-label="筛选后的影院记录"></div>
     </div>
