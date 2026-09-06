@@ -195,11 +195,11 @@ input:focus { border-color: color-mix(in srgb, var(--accent) 58%, var(--line)); 
 .nearby-expand { justify-self: start; }
 
 .filter-details { margin-top: 10px; border: 1px solid var(--line); border-radius: 12px; background: color-mix(in srgb, var(--soft) 72%, transparent); }
-.filter-details summary { display: flex; align-items: center; justify-content: space-between; gap: 12px; padding: 10px 11px; color: var(--text); cursor: pointer; font-size: 10px; font-weight: 780; list-style: none; user-select: none; }
-.filter-details summary::-webkit-details-marker { display: none; }
-.filter-details summary::after { color: var(--muted); content: "+"; font-size: 15px; font-weight: 400; line-height: 1; }
-.filter-details[open] summary::after { content: "−"; }
-.filter-details summary small { margin-left: auto; color: var(--muted); font-size: 9px; font-weight: 500; }
+.filter-details > summary { display: flex; align-items: center; justify-content: space-between; gap: 12px; padding: 10px 11px; color: var(--text); cursor: pointer; font-size: 10px; font-weight: 780; list-style: none; user-select: none; }
+.filter-details > summary::-webkit-details-marker { display: none; }
+.filter-details > summary::after { color: var(--muted); content: "+"; font-size: 15px; font-weight: 400; line-height: 1; }
+.filter-details[open] > summary::after { content: "−"; }
+.filter-details > summary small { margin-left: auto; color: var(--muted); font-size: 9px; font-weight: 500; }
 .filter-content { padding: 0 10px 10px; border-top: 1px solid var(--line); }
 .filter-label { margin: 9px 0 5px; color: var(--muted); font-size: 8px; font-weight: 850; letter-spacing: .09em; text-transform: uppercase; }
 .filters { display: flex; flex-wrap: wrap; gap: 5px; }
@@ -253,7 +253,7 @@ input:focus { border-color: color-mix(in srgb, var(--accent) 58%, var(--line)); 
   margin-top: 8px;
   border-top: 1px solid var(--line);
 }
-.filter-model-notes summary {
+.filter-model-notes > summary {
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -264,9 +264,9 @@ input:focus { border-color: color-mix(in srgb, var(--accent) 58%, var(--line)); 
   font-weight: 760;
   list-style: none;
 }
-.filter-model-notes summary::-webkit-details-marker { display: none; }
-.filter-model-notes summary::after { color: var(--muted); content: "+"; font-size: 14px; font-weight: 400; line-height: 1; }
-.filter-model-notes[open] summary::after { content: "−"; }
+.filter-model-notes > summary::-webkit-details-marker { display: none; }
+.filter-model-notes > summary::after { color: var(--muted); content: "+"; font-size: 14px; font-weight: 400; line-height: 1; }
+.filter-model-notes[open] > summary::after { content: "−"; }
 .filter-model-notes table { width: 100%; border-collapse: collapse; color: var(--muted); font-size: 9px; line-height: 1.35; }
 .filter-model-notes th, .filter-model-notes td { padding: 5px 6px; border-top: 1px solid var(--line); text-align: left; }
 .filter-model-notes th { color: var(--muted-strong); font-weight: 760; }
@@ -438,8 +438,8 @@ input:focus { border-color: color-mix(in srgb, var(--accent) 58%, var(--line)); 
   .nearby-sort button,
   .nearby-expand,
   .filters button,
-  .filter-details summary,
-  .filter-model-notes summary,
+  .filter-details > summary,
+  .filter-model-notes > summary,
   .filter-checkbox {
     min-height: 44px;
   }
