@@ -40,6 +40,8 @@ const nearbyToolbar = document.querySelector('#nearbyToolbar');
 const nearbyScope = document.querySelector('#nearbyScope');
 const nearbySortFilters = document.querySelector('#nearbySortFilters');
 const expandNearbyButton = document.querySelector('#expandNearbyButton');
+const domeOnlyFilter = document.querySelector('#domeOnlyFilter');
+const audio12OnlyFilter = document.querySelector('#audio12OnlyFilter');
 const currentLifecycleCount = document.querySelector('#currentLifecycleCount');
 const historyLifecycleCount = document.querySelector('#historyLifecycleCount');
 
@@ -111,11 +113,20 @@ const markerColors = Object.freeze({
   unknown: '#98a2b3'
 });
 
+const systemDisplayLabels = Object.freeze({
+  'GT Laser': 'GT 激光',
+  'Commercial Laser': '商业激光',
+  'Laser XT': 'XT 激光',
+  Xenon: '氙灯',
+  unknown: '待核实'
+});
+
 main().catch((error) => {
   const message = error instanceof Error ? error.message : String(error);
   diagnostics.errors.push(message);
-  setMapError(message);
-  dataBanner.textContent = `公开地图未启动：${message}`;
+  setMapError('地图加载失败，请刷新重试');
+  dataBanner.textContent = '地图加载失败，请刷新重试';
+  dataBanner.hidden = false;
   statusElement.textContent = '加载失败';
 });
 
@@ -147,7 +158,7 @@ async function main() {
   bindRecordVariantNavigation();
   applyFilters();
   bindTheme();
-  dataBanner.textContent = `现有 ${counts.current} · 历史 ${counts.history} · 已定位 ${diagnostics.locatedRecords} / ${state.cinemas.length}`;
+  dataBanner.hidden = true;
 }
 
 async function loadAmap() {
@@ -469,15 +480,14 @@ function bindFilters() {
     applyFilters();
   });
   document.querySelector('#systemFilters').addEventListener('click', (event) => {
-    const button = event.target.closest('button');
+    const button = event.target.closest('button[data-system]');
     if (!button) return;
-    if (button.dataset.dome === 'true') {
-      button.classList.toggle('active');
-      state.dome = !state.dome;
-    } else {
-      state.system = button.dataset.system ?? 'ALL';
-      activateSingle('#systemFilters button[data-system]', button);
-    }
+    state.system = button.dataset.system ?? 'ALL';
+    activateSingle('#systemFilters button[data-system]', button);
+    applyFilters();
+  });
+  domeOnlyFilter.addEventListener('change', () => {
+    state.dome = domeOnlyFilter.checked;
     applyFilters();
   });
   document.querySelector('#regionFilters').addEventListener('click', (event) => {
@@ -488,15 +498,14 @@ function bindFilters() {
     applyFilters();
   });
   document.querySelector('#statusFilters').addEventListener('click', (event) => {
-    const button = event.target.closest('button');
+    const button = event.target.closest('button[data-status]');
     if (!button) return;
-    if (button.dataset.audio === '12') {
-      state.audio12 = !state.audio12;
-      button.classList.toggle('active', state.audio12);
-    } else {
-      state.status = button.dataset.status ?? 'ALL';
-      activateSingle('#statusFilters button[data-status]', button);
-    }
+    state.status = button.dataset.status ?? 'ALL';
+    activateSingle('#statusFilters button[data-status]', button);
+    applyFilters();
+  });
+  audio12OnlyFilter.addEventListener('change', () => {
+    state.audio12 = audio12OnlyFilter.checked;
     applyFilters();
   });
   searchInput.addEventListener('input', () => {
@@ -574,7 +583,7 @@ function enterNearbyMode(resolved) {
   state.map.setZoomAndCenter(11, [resolved.position.lng, resolved.position.lat], false, 520);
   nearbyButton.hidden = true;
   nearbyButton.disabled = false;
-  nearbyButton.textContent = '我的位置';
+  nearbyButton.textContent = '附近 IMAX';
   exitNearbyButton.hidden = false;
   nearbyStatus.hidden = false;
   nearbyStatus.textContent = resolved.city ? `已定位到${resolved.city}，附近结果仅用于本次浏览。` : '已获取当前位置，按距离范围查找附近 IMAX。';
@@ -601,7 +610,7 @@ function refreshNearbyCandidates() {
 function setNearbyFailure(message) {
   nearbyButton.disabled = false;
   nearbyButton.hidden = false;
-  nearbyButton.textContent = '我的位置';
+  nearbyButton.textContent = '附近 IMAX';
   nearbyStatus.hidden = false;
   nearbyStatus.textContent = message;
   nearbyToolbar.hidden = true;
@@ -623,7 +632,7 @@ function exitNearbyMode() {
   state.infoWindow?.close();
   nearbyButton.hidden = false;
   nearbyButton.disabled = false;
-  nearbyButton.textContent = '我的位置';
+  nearbyButton.textContent = '附近 IMAX';
   exitNearbyButton.hidden = true;
   nearbyToolbar.hidden = true;
   nearbyStatus.hidden = true;
@@ -659,7 +668,11 @@ function bindRecordVariantNavigation() {
 }
 
 function activateSingle(selector, selected) {
-  for (const button of document.querySelectorAll(selector)) button.classList.toggle('active', button === selected);
+  for (const button of document.querySelectorAll(selector)) {
+    const active = button === selected;
+    button.classList.toggle('active', active);
+    button.setAttribute('aria-pressed', String(active));
+  }
 }
 
 function activateLifecycleButton(selected) {
@@ -1005,14 +1018,19 @@ function locationBucketLabel(cinema) {
 }
 
 function markerColorKey(cinema) { return cinema.projection?.dome ? 'Dome' : cinema.projection?.system ?? 'unknown'; }
+function systemDisplayLabel(value) {
+  const key = String(value ?? 'unknown');
+  return systemDisplayLabels[key] ?? key;
+}
+
 function systemLabel(cinema) {
   const projection = cinema.projection ?? {};
   const parts = [];
-  if (projection.system && projection.system !== 'unknown') parts.push(projection.system);
+  if (projection.system) parts.push(systemDisplayLabel(projection.system));
   if (projection.geometry) parts.push(projection.geometry);
-  if (projection.dome) parts.push('Dome');
-  if (projection.plannedSystem) parts.push(`计划：${projection.plannedSystem}`);
-  return parts.length ? parts.join(' · ') : '待核';
+  if (projection.dome) parts.push('球幕');
+  if (projection.plannedSystem) parts.push(`计划：${systemDisplayLabel(projection.plannedSystem)}`);
+  return parts.length ? parts.join(' · ') : systemDisplayLabels.unknown;
 }
 function searchText(cinema) {
   return normalizeSearch([
