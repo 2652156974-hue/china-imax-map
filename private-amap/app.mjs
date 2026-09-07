@@ -3,7 +3,7 @@ import {
   formatDistanceKm,
   geolocationFailureMessage,
   readAmapGeolocationResult,
-  reliableScreenField,
+  canonicalFieldPresentation,
   screenMeasureLabel,
   sortNearbyCandidates
 } from './nearby.mjs';
@@ -18,6 +18,7 @@ import {
   lifecycleCounts,
   relatedLifecycleRecords
 } from './cinema-lifecycle.mjs';
+import { resolveScreenPresentation } from './screen-presentation.mjs';
 
 const config = window.__PRIVATE_AMAP_CONFIG__ ?? {};
 const mapError = document.querySelector('#mapError');
@@ -636,12 +637,12 @@ function showDetail(cinema, fromMap = false) {
 
 function popupHtml(cinema, popup = true) {
   const projection = cinema.projection ?? {};
-  const screen = cinema.screen ?? {};
   const location = cinema.location ?? {};
-  const width = screenField(screen, 'width', 'rawWidth', 'm');
-  const height = screenField(screen, 'height', 'rawHeight', 'm');
-  const area = screenField(screen, 'area', 'rawArea', 'm²');
-  const seats = seatField(cinema.seats, cinema.seatsRaw);
+  const width = screenField(cinema, 'width', 'm');
+  const height = screenField(cinema, 'height', 'm');
+  const area = screenField(cinema, 'area', 'm²');
+  const seats = seatField(cinema);
+  const presentation = resolveScreenPresentation(cinema);
   const dataNotes = renderDataNotes([
     ['宽度', width.raw],
     ['高度', height.raw],
@@ -683,9 +684,16 @@ function popupHtml(cinema, popup = true) {
     `<b>座位</b><span>${seats.html}</span>` +
     `<b>状态</b><span>${statusLabel(cinema.status)}</span>` +
     `<b>定位</b><span>${escapeHtml(granularityLabel(location.locationGranularity))} · 位置${escapeHtml(confidenceLabel(location.locationConfidence))} / 身份${escapeHtml(confidenceLabel(location.identityConfidence))}<small class="field-secondary">${locationStatus}</small></span>` +
-    `</div>` + historyNote + dataNotes + formerNames + locationNote +
+    `</div>` + renderScreenAlternatives(presentation) + historyNote + dataNotes + formerNames + locationNote +
     `<div class="popup-note">数据来源：<a href="${escapeHtml(cinema.source?.url || 'https://docs.qq.com/sheet/DQ3FEUUZJdklNSWJP?tab=BB08J2')}" target="_blank" rel="noopener">@ArvinTingcn《全球 IMAX 及特效影厅分布》</a></div>` +
     `</article>`;
+}
+
+function renderScreenAlternatives(presentation) {
+  if (!presentation.alternatives.length) return '';
+  const value = (config, field) => config.fields[field].state === 'value' ? config[field] : config.fields[field].state === 'missing' ? '暂无数据' : '待核';
+  const rows = presentation.alternatives.map((config, index) => `记录 ${index + 1}（原表第 ${config.sourceIndex + 1} 组）：${value(config, 'width')} × ${value(config, 'height')} · ${value(config, 'area')} m² · ${value(config, 'seats')} 座`).join('；');
+  return `<details class="data-notes"><summary>多记录 · 另有 ${presentation.alternatives.length} 组</summary><div class="data-notes-body"><div class="data-note"><b>其他记录</b><span class="raw-value">${escapeHtml(rows)}</span></div></div></details>`;
 }
 
 function renderLifecycleNavigation(cinema) {
@@ -704,21 +712,12 @@ function renderLifecycleNavigation(cinema) {
   return `<div class="history-switch"><div class="history-switch__label">同址沿革</div><div class="history-switch__options">${buttons}</div></div>`;
 }
 
-function screenField(screen, field, rawField, unit) {
-  const raw = String(screen?.[rawField] ?? '');
-  const trimmed = raw.replace(/\u00a0/g, ' ').trim();
-  if (!trimmed) return { html: '暂无数据', raw: null };
-  const reliable = reliableScreenField(screen, field);
-  if (reliable) return { html: `${formatNumber(reliable.value, field === 'area' ? 2 : 3)} ${unit}`, raw: null };
-  return { html: '<span>待核 <small>数据说明</small></span>', raw };
+function screenField(record, field, unit) {
+  return canonicalFieldPresentation(record, field, unit);
 }
 
-function seatField(value, rawValue) {
-  const raw = String(rawValue ?? '');
-  const trimmed = raw.replace(/\u00a0/g, ' ').trim();
-  if (!trimmed) return { html: '暂无数据', raw: null };
-  if (/^\d+$/.test(trimmed) && Number.isFinite(Number(value))) return { html: formatNumber(value, 0), raw: null };
-  return { html: '<span>待核 <small>数据说明</small></span>', raw };
+function seatField(record) {
+  return canonicalFieldPresentation(record, 'seats');
 }
 
 function renderDataNotes(fields) {

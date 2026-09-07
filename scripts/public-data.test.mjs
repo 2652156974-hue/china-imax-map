@@ -14,6 +14,7 @@ const humanVerificationResults = Array.isArray(humanVerificationResultsDocument)
   : humanVerificationResultsDocument.results;
 const html = fs.readFileSync(path.join(ROOT, 'index.html'), 'utf8');
 const app = fs.readFileSync(path.join(ROOT, 'app.mjs'), 'utf8');
+const navigationCoordinator = fs.readFileSync(path.join(ROOT, 'navigation-coordinator.mjs'), 'utf8');
 
 test('public dataset is a 901-row AMap runtime fact layer', () => {
   assert.equal(publicData.records.length, 901);
@@ -51,6 +52,17 @@ test('public static data has no coordinates and preserves all 3604 raw fields', 
     matches += 1;
   }
   assert.equal(matches, 3604);
+});
+
+test('public facts retain only minimal screen-seat materialization provenance', () => {
+  const reviewed = publicData.records.filter((record) => record.screenSeatReview);
+  assert.equal(reviewed.length, 2);
+  assert.equal(reviewed.every((record) =>
+    Object.keys(record.screenSeatReview).sort().join('|') === 'confidence|materializedFields' &&
+    record.screenSeatReview.confidence === 'high' &&
+    record.screenSeatReview.materializedFields.length > 0), true);
+  assert.equal(JSON.stringify(reviewed).includes('decisionNote'), false);
+  assert.equal(JSON.stringify(reviewed).includes('sourceUrls'), false);
 });
 
 test('public reviewed layer exposes only minimal dynamic AMap GCJ-02 decisions', () => {
@@ -165,7 +177,7 @@ test('public frontend loads AMap online and keeps no-coordinate detail reachable
   assert.match(app, /https:\/\/webapi\.amap\.com\/maps/);
   assert.match(app, /buildAdministrativeDisplay/);
   assert.match(app, /resolveAdminCollisions/);
-  assert.match(app, /zoomend/);
+  assert.match(navigationCoordinator, /zoomend/);
   assert.doesNotMatch(app, /AMap\.MarkerCluster|averageCenter/);
   assert.match(app, /AMap\.Geolocation/);
   assert.match(app, /method: 'POST'/);

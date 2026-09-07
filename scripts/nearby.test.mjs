@@ -2,12 +2,14 @@ import assert from 'node:assert/strict';
 import test from 'node:test';
 import {
   buildNearbyCandidateSet,
+  canonicalFieldPresentation,
   formatDistanceKm,
   geolocationFailureMessage,
   haversineKm,
   readAmapGeolocationResult,
   reliableScreenField,
   reliableScreenMeasure,
+  resolveCanonicalScreenField,
   screenMeasureLabel,
   sortNearbyCandidates
 } from '../nearby.mjs';
@@ -93,8 +95,8 @@ test('screen sorting prefers reliable area, then reliable width, and never selec
     screen: { area: null, width: null, rawArea: '100\n500', rawWidth: '20\n30', selectionConfidence: 'unknown' }
   });
   const sorted = sortNearbyCandidates([multi, width, area], 'screen');
-  assert.deepEqual(sorted.map((record) => record.id), ['area', 'width', 'multi']);
-  assert.equal(reliableScreenMeasure(multi), null);
+  assert.deepEqual(sorted.map((record) => record.id), ['area', 'multi', 'width']);
+  assert.deepEqual(reliableScreenMeasure(multi), { kind: 'area', value: 100 });
 });
 
 test('spec sorting uses projection tier, screen size, then audio, with Dome kept independent', () => {
@@ -120,8 +122,65 @@ test('display helpers distinguish normal, blank, NBSP, multi-value, and abnormal
   assert.equal(screenMeasureLabel({ screen: normal }), '226.77 m²');
   assert.equal(reliableScreenField({ area: null, rawArea: '', selectionConfidence: 'high' }, 'area'), null);
   assert.equal(reliableScreenField({ area: null, rawArea: '\u00a0', selectionConfidence: 'high' }, 'area'), null);
-  assert.equal(reliableScreenField({ area: null, rawArea: '12\n15', selectionConfidence: 'unknown' }, 'area'), null);
+  assert.equal(reliableScreenField({ area: null, rawArea: '12\n15', selectionConfidence: 'unknown' }, 'area').value, 12);
   assert.equal(reliableScreenField({ area: 12, rawArea: '12（自测）', selectionConfidence: 'high' }, 'area'), null);
+});
+
+test('reviewed canonical screen values win over raw multi-value text while retaining provenance', () => {
+  const record = {
+    screen: { width: 28, height: null, area: null, rawWidth: '28 / 26', rawHeight: '', rawArea: '', selectionConfidence: 'high' },
+    screenSeatReview: { confidence: 'high', materializedFields: ['width'] }
+  };
+  const resolved = resolveCanonicalScreenField(record, 'width');
+  assert.deepEqual(resolved, {
+    status: 'reviewed', value: 28, raw: '28 / 26', provenance: 'screen-seat-review', confidence: 'high'
+  });
+  assert.equal(resolveCanonicalScreenField(record, 'height').status, 'missing');
+});
+
+test('unresolved raw multi-value screen values remain pending and direct values stay direct', () => {
+  const unresolved = { screen: { width: null, rawWidth: '28 / 26', selectionConfidence: 'unknown' } };
+  assert.equal(resolveCanonicalScreenField(unresolved, 'width').status, 'unresolved');
+  const direct = { screen: { width: 28, rawWidth: '28', selectionConfidence: 'high' } };
+  assert.equal(resolveCanonicalScreenField(direct, 'width').status, 'direct');
+});
+
+test('reviewed canonical seats win over raw multi-value text', () => {
+  const record = {
+    seats: 426,
+    seatsRaw: '453\n445\n426',
+    screenSeatReview: { confidence: 'high', materializedFields: ['seats'] }
+  };
+  assert.deepEqual(resolveCanonicalScreenField(record, 'seats'), {
+    status: 'reviewed', value: 426, raw: '453\n445\n426', provenance: 'screen-seat-review', confidence: 'high'
+  });
+});
+
+test('canonical field presentation exposes the reviewed number, pending state, and raw note', () => {
+  const reviewed = {
+    screen: { width: 25.88, rawWidth: '25.880\n23.453', selectionConfidence: 'high' },
+    screenSeatReview: { confidence: 'high', materializedFields: ['width'] }
+  };
+  const pending = { screen: { width: null, rawWidth: '25.880\n23.453', selectionConfidence: 'unknown' } };
+  assert.deepEqual(canonicalFieldPresentation(reviewed, 'width', 'm'), {
+    status: 'reviewed', html: '25.88 m', raw: '25.880\n23.453'
+  });
+  assert.deepEqual(canonicalFieldPresentation(pending, 'width', 'm'), {
+    status: 'multiple', html: '25.88 m', raw: '25.880\n23.453'
+  });
+});
+
+test('canonical seat presentation distinguishes direct, missing, and reviewed values', () => {
+  const direct = { seats: 329, seatsRaw: '329', selectionConfidence: 'high' };
+  const missing = { seats: null, seatsRaw: '' };
+  const reviewed = {
+    seats: 329,
+    seatsRaw: '329\n340',
+    screenSeatReview: { confidence: 'high', materializedFields: ['seats'] }
+  };
+  assert.deepEqual(canonicalFieldPresentation(direct, 'seats'), { status: 'direct', html: '329', raw: '329' });
+  assert.deepEqual(canonicalFieldPresentation(missing, 'seats'), { status: 'missing', html: '暂无数据', raw: null });
+  assert.deepEqual(canonicalFieldPresentation(reviewed, 'seats'), { status: 'reviewed', html: '329', raw: '329\n340' });
 });
 
 test('AMap geolocation success, permission rejection, timeout, and missing city are handled without coordinate conversion', () => {

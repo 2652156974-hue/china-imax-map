@@ -12,8 +12,11 @@
     "extract:screen-seat": "node scripts/extract-screen-seat.mjs",
     "audit:screen-seat": "node scripts/screen-seat-web-review.mjs",
     "test:screen-seat": "node scripts/screen-seat-web-review.test.mjs",
+    "diagnostic:screen-presentation": "node scripts/screen-presentation-diagnostic.mjs",
     "validate:derived": "node scripts/validate-derived.mjs",
     "build:public": "node scripts/build-public-release.mjs",
+    "build:cloudflare": "node scripts/build-cloudflare-public.mjs",
+    "prepare:cloudflare-marker": "node scripts/prepare-cloudflare-marker.mjs",
     "validate:public": "node scripts/validate-public.mjs",
     "build:public-layer": "node scripts/build-public-amap-layer.mjs",
     "serve:public": "node scripts/public-amap-server.mjs",
@@ -38,7 +41,13 @@
     "manifest": "node scripts/build-project-manifest.mjs",
     "manifest:release": "node scripts/build-release-manifests.mjs",
     "audit:final": "node scripts/build-final-audits.mjs",
+    "test:cloudflare": "node --test scripts/cloudflare-worker.test.mjs scripts/map-frontend.test.mjs",
+    "cloudflare:check": "node scripts/cloudflare-check.mjs",
+    "deploy": "npm run cloudflare:check && wrangler deploy",
     "check": "node scripts/project-check.mjs",
     "test": "node scripts/run-all-tests.mjs"
+  },
+  "devDependencies": {
+    "wrangler": "^4.127.1"
   }
 }

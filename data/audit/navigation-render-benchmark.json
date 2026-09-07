@@ -1,0 +1,656 @@
+{
+  "schemaVersion": 2,
+  "artifact": "navigation-render-benchmark",
+  "source": "real-browser-capture",
+  "capturedAt": {
+    "before": "2026-08-31T09:35:29+08:00",
+    "after": "2026-08-31T09:41:18+08:00"
+  },
+  "browser": {
+    "engine": "Chromium",
+    "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/151.0.0.0 Safari/537.36",
+    "headed": true,
+    "session": "imax-before",
+    "viewport": {
+      "width": 1036,
+      "height": 905
+    },
+    "devicePixelRatio": 1.5
+  },
+  "environment": {
+    "os": "Windows",
+    "architecture": "x64",
+    "node": "v24.16.0",
+    "machine": "shared local browser host"
+  },
+  "before": {
+    "captureKind": "before",
+    "commit": "f8a0a7de91b2402fd08f146ce0d84ddab23fbeef",
+    "captureDigest": "209ddf888fa56e65a980f5b0f160717c72a852a87df47068bdb4f6e648d3dd8e",
+    "browser": {
+      "engine": "Chromium",
+      "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/151.0.0.0 Safari/537.36",
+      "headed": true,
+      "session": "imax-before",
+      "viewport": {
+        "width": 1036,
+        "height": 905
+      },
+      "devicePixelRatio": 1.5
+    },
+    "environment": {
+      "os": "Windows",
+      "architecture": "x64",
+      "node": "v24.16.0",
+      "machine": "shared local browser host"
+    },
+    "scenarios": [
+      {
+        "name": "national-to-jiangsu",
+        "filters": {
+          "lifecycle": "current",
+          "system": "ALL",
+          "region": "ALL",
+          "status": "ALL",
+          "audio12": false,
+          "dome": false,
+          "query": ""
+        },
+        "runtimeState": {
+          "totalRecords": 901,
+          "currentRecords": 874,
+          "historicalRecords": 27,
+          "visibleMarkers": 101,
+          "focusDepth": 1,
+          "focusScope": "江苏",
+          "displayMode": "prefecture",
+          "renderedItems": 13
+        },
+        "focus": {
+          "from": "全国",
+          "to": "江苏"
+        },
+        "zoom": {
+          "initial": 4,
+          "target": 6.25
+        },
+        "waits": {
+          "targetFocus": "江苏",
+          "targetZoom": 6.25,
+          "zoomend": true,
+          "quietWindowMs": 2200
+        },
+        "renderCalls": 2,
+        "markerMutatingRenderCalls": 2,
+        "maxRenderedItems": 13,
+        "markerCreated": 26,
+        "markerRemoved": 47,
+        "totalJsTimeMs": 13.5,
+        "renderEvents": [
+          {
+            "requestedZoom": 4,
+            "effectiveZoom": 6.01,
+            "mode": "prefecture",
+            "inputRecordCount": 101,
+            "outputItemCount": 13,
+            "totalRenderMs": 4.5,
+            "marker": {
+              "removedCount": 34,
+              "createdCount": 13
+            },
+            "skipped": false,
+            "source": "navigation"
+          },
+          {
+            "requestedZoom": 6.25,
+            "effectiveZoom": 6.25,
+            "mode": "prefecture",
+            "inputRecordCount": 101,
+            "outputItemCount": 13,
+            "totalRenderMs": 9,
+            "marker": {
+              "removedCount": 13,
+              "createdCount": 13
+            },
+            "skipped": false,
+            "source": "zoomend"
+          }
+        ]
+      },
+      {
+        "name": "jiangsu-to-national",
+        "filters": {
+          "lifecycle": "current",
+          "system": "ALL",
+          "region": "ALL",
+          "status": "ALL",
+          "audio12": false,
+          "dome": false,
+          "query": ""
+        },
+        "runtimeState": {
+          "totalRecords": 901,
+          "currentRecords": 874,
+          "historicalRecords": 27,
+          "visibleMarkers": 874,
+          "focusDepth": 0,
+          "focusScope": "全国",
+          "displayMode": "province",
+          "renderedItems": 34
+        },
+        "focus": {
+          "from": "江苏",
+          "to": "全国"
+        },
+        "zoom": {
+          "initial": 6.25,
+          "target": 4
+        },
+        "waits": {
+          "targetFocus": "全国",
+          "targetZoom": 4,
+          "zoomend": true,
+          "quietWindowMs": 2200
+        },
+        "renderCalls": 2,
+        "markerMutatingRenderCalls": 2,
+        "maxRenderedItems": 343,
+        "markerCreated": 377,
+        "markerRemoved": 356,
+        "totalJsTimeMs": 152.4,
+        "renderEvents": [
+          {
+            "requestedZoom": 6.25,
+            "effectiveZoom": 6.25,
+            "mode": "prefecture",
+            "inputRecordCount": 874,
+            "outputItemCount": 343,
+            "totalRenderMs": 134.90000000223517,
+            "marker": {
+              "removedCount": 13,
+              "createdCount": 343
+            },
+            "skipped": false,
+            "source": "navigation"
+          },
+          {
+            "requestedZoom": 4,
+            "effectiveZoom": 4,
+            "mode": "province",
+            "inputRecordCount": 874,
+            "outputItemCount": 34,
+            "totalRenderMs": 17.5,
+            "marker": {
+              "removedCount": 343,
+              "createdCount": 34
+            },
+            "skipped": false,
+            "source": "zoomend"
+          }
+        ]
+      },
+      {
+        "name": "jiangsu-to-nanjing",
+        "filters": {
+          "lifecycle": "current",
+          "system": "ALL",
+          "region": "ALL",
+          "status": "ALL",
+          "audio12": false,
+          "dome": false,
+          "query": ""
+        },
+        "runtimeState": {
+          "totalRecords": 901,
+          "currentRecords": 874,
+          "historicalRecords": 27,
+          "visibleMarkers": 21,
+          "focusDepth": 2,
+          "focusScope": "南京",
+          "displayMode": "county",
+          "renderedItems": 21
+        },
+        "focus": {
+          "from": "江苏",
+          "to": "南京"
+        },
+        "zoom": {
+          "initial": 6.25,
+          "target": 8.25
+        },
+        "waits": {
+          "targetFocus": "南京",
+          "targetZoom": 8.25,
+          "zoomend": true,
+          "quietWindowMs": 2200
+        },
+        "renderCalls": 2,
+        "markerMutatingRenderCalls": 2,
+        "maxRenderedItems": 21,
+        "markerCreated": 42,
+        "markerRemoved": 34,
+        "totalJsTimeMs": 11.4,
+        "renderEvents": [
+          {
+            "requestedZoom": 6.25,
+            "effectiveZoom": 8.01,
+            "mode": "county",
+            "inputRecordCount": 21,
+            "outputItemCount": 21,
+            "totalRenderMs": 3.600000001490116,
+            "marker": {
+              "removedCount": 13,
+              "createdCount": 21
+            },
+            "skipped": false,
+            "source": "navigation"
+          },
+          {
+            "requestedZoom": 8.25,
+            "effectiveZoom": 8.25,
+            "mode": "county",
+            "inputRecordCount": 21,
+            "outputItemCount": 21,
+            "totalRenderMs": 7.800000000745058,
+            "marker": {
+              "removedCount": 21,
+              "createdCount": 21
+            },
+            "skipped": false,
+            "source": "zoomend"
+          }
+        ]
+      },
+      {
+        "name": "nanjing-to-jiangsu",
+        "filters": {
+          "lifecycle": "current",
+          "system": "ALL",
+          "region": "ALL",
+          "status": "ALL",
+          "audio12": false,
+          "dome": false,
+          "query": ""
+        },
+        "runtimeState": {
+          "totalRecords": 901,
+          "currentRecords": 874,
+          "historicalRecords": 27,
+          "visibleMarkers": 101,
+          "focusDepth": 1,
+          "focusScope": "江苏",
+          "displayMode": "prefecture",
+          "renderedItems": 13
+        },
+        "focus": {
+          "from": "南京",
+          "to": "江苏"
+        },
+        "zoom": {
+          "initial": 8.25,
+          "target": 6.25
+        },
+        "waits": {
+          "targetFocus": "江苏",
+          "targetZoom": 6.25,
+          "zoomend": true,
+          "quietWindowMs": 2200
+        },
+        "renderCalls": 2,
+        "markerMutatingRenderCalls": 2,
+        "maxRenderedItems": 94,
+        "markerCreated": 107,
+        "markerRemoved": 115,
+        "totalJsTimeMs": 22.5,
+        "renderEvents": [
+          {
+            "requestedZoom": 8.25,
+            "effectiveZoom": 8.25,
+            "mode": "county",
+            "inputRecordCount": 101,
+            "outputItemCount": 94,
+            "totalRenderMs": 17.400000002235174,
+            "marker": {
+              "removedCount": 21,
+              "createdCount": 94
+            },
+            "skipped": false,
+            "source": "navigation"
+          },
+          {
+            "requestedZoom": 6.25,
+            "effectiveZoom": 6.25,
+            "mode": "prefecture",
+            "inputRecordCount": 101,
+            "outputItemCount": 13,
+            "totalRenderMs": 5.100000001490116,
+            "marker": {
+              "removedCount": 94,
+              "createdCount": 13
+            },
+            "skipped": false,
+            "source": "zoomend"
+          }
+        ]
+      }
+    ]
+  },
+  "after": {
+    "captureKind": "after",
+    "commit": "970ae1ca67b9b3fbc8b1ab2a71082342e33c4424",
+    "captureDigest": "23ae54f33a3487b968262025a2c45cf2a13865d3c1d0b4dc530604d2788d54b6",
+    "browser": {
+      "engine": "Chromium",
+      "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/151.0.0.0 Safari/537.36",
+      "headed": true,
+      "session": "imax-before",
+      "viewport": {
+        "width": 1036,
+        "height": 905
+      },
+      "devicePixelRatio": 1.5
+    },
+    "environment": {
+      "os": "Windows",
+      "architecture": "x64",
+      "node": "v24.16.0",
+      "machine": "shared local browser host"
+    },
+    "scenarios": [
+      {
+        "name": "national-to-jiangsu",
+        "filters": {
+          "lifecycle": "current",
+          "system": "ALL",
+          "region": "ALL",
+          "status": "ALL",
+          "audio12": false,
+          "dome": false,
+          "query": ""
+        },
+        "runtimeState": {
+          "totalRecords": 901,
+          "currentRecords": 874,
+          "historicalRecords": 27,
+          "visibleMarkers": 101,
+          "focusDepth": 1,
+          "focusScope": "江苏",
+          "displayMode": "prefecture",
+          "renderedItems": 13
+        },
+        "focus": {
+          "from": "全国",
+          "to": "江苏"
+        },
+        "zoom": {
+          "initial": 4,
+          "target": 6.25
+        },
+        "waits": {
+          "targetFocus": "江苏",
+          "targetZoom": 6.25,
+          "zoomend": true,
+          "quietWindowMs": 2200
+        },
+        "renderCalls": 2,
+        "markerMutatingRenderCalls": 1,
+        "maxRenderedItems": 13,
+        "markerCreated": 13,
+        "markerRemoved": 34,
+        "totalJsTimeMs": 6.5,
+        "renderEvents": [
+          {
+            "requestedZoom": 6.25,
+            "effectiveZoom": 6.25,
+            "mode": "prefecture",
+            "inputRecordCount": 101,
+            "outputItemCount": 13,
+            "totalRenderMs": 4.599999997764826,
+            "marker": {
+              "removedCount": 34,
+              "createdCount": 13
+            },
+            "skipped": false,
+            "source": "navigation"
+          },
+          {
+            "requestedZoom": 6.25,
+            "effectiveZoom": 6.25,
+            "mode": "prefecture",
+            "inputRecordCount": 101,
+            "outputItemCount": 13,
+            "totalRenderMs": 1.8999999985098839,
+            "marker": {
+              "removedCount": 0,
+              "createdCount": 0
+            },
+            "skipped": true,
+            "source": "zoomend"
+          }
+        ]
+      },
+      {
+        "name": "jiangsu-to-national",
+        "filters": {
+          "lifecycle": "current",
+          "system": "ALL",
+          "region": "ALL",
+          "status": "ALL",
+          "audio12": false,
+          "dome": false,
+          "query": ""
+        },
+        "runtimeState": {
+          "totalRecords": 901,
+          "currentRecords": 874,
+          "historicalRecords": 27,
+          "visibleMarkers": 874,
+          "focusDepth": 0,
+          "focusScope": "全国",
+          "displayMode": "province",
+          "renderedItems": 34
+        },
+        "focus": {
+          "from": "江苏",
+          "to": "全国"
+        },
+        "zoom": {
+          "initial": 6.25,
+          "target": 4
+        },
+        "waits": {
+          "targetFocus": "全国",
+          "targetZoom": 4,
+          "zoomend": true,
+          "quietWindowMs": 2200
+        },
+        "renderCalls": 2,
+        "markerMutatingRenderCalls": 1,
+        "maxRenderedItems": 34,
+        "markerCreated": 34,
+        "markerRemoved": 13,
+        "totalJsTimeMs": 18.6,
+        "renderEvents": [
+          {
+            "requestedZoom": 4,
+            "effectiveZoom": 4,
+            "mode": "province",
+            "inputRecordCount": 874,
+            "outputItemCount": 34,
+            "totalRenderMs": 12.299999997019768,
+            "marker": {
+              "removedCount": 13,
+              "createdCount": 34
+            },
+            "skipped": false,
+            "source": "navigation"
+          },
+          {
+            "requestedZoom": 4,
+            "effectiveZoom": 4,
+            "mode": "province",
+            "inputRecordCount": 874,
+            "outputItemCount": 34,
+            "totalRenderMs": 6.300000000745058,
+            "marker": {
+              "removedCount": 0,
+              "createdCount": 0
+            },
+            "skipped": true,
+            "source": "zoomend"
+          }
+        ]
+      },
+      {
+        "name": "jiangsu-to-nanjing",
+        "filters": {
+          "lifecycle": "current",
+          "system": "ALL",
+          "region": "ALL",
+          "status": "ALL",
+          "audio12": false,
+          "dome": false,
+          "query": ""
+        },
+        "runtimeState": {
+          "totalRecords": 901,
+          "currentRecords": 874,
+          "historicalRecords": 27,
+          "visibleMarkers": 21,
+          "focusDepth": 2,
+          "focusScope": "南京",
+          "displayMode": "county",
+          "renderedItems": 11,
+          "adminAggregateCount": 10
+        },
+        "focus": {
+          "from": "江苏",
+          "to": "南京"
+        },
+        "zoom": {
+          "initial": 6.25,
+          "target": 8.25
+        },
+        "waits": {
+          "targetFocus": "南京",
+          "targetZoom": 8.25,
+          "zoomend": true,
+          "quietWindowMs": 2200
+        },
+        "renderCalls": 2,
+        "markerMutatingRenderCalls": 1,
+        "maxRenderedItems": 11,
+        "markerCreated": 11,
+        "markerRemoved": 13,
+        "totalJsTimeMs": 6.9,
+        "renderEvents": [
+          {
+            "requestedZoom": 8.25,
+            "effectiveZoom": 8.25,
+            "mode": "county",
+            "inputRecordCount": 21,
+            "outputItemCount": 11,
+            "totalRenderMs": 5.5,
+            "marker": {
+              "removedCount": 13,
+              "createdCount": 11
+            },
+            "skipped": false,
+            "source": "navigation"
+          },
+          {
+            "requestedZoom": 8.25,
+            "effectiveZoom": 8.25,
+            "mode": "county",
+            "inputRecordCount": 21,
+            "outputItemCount": 11,
+            "totalRenderMs": 1.3999999985098839,
+            "marker": {
+              "removedCount": 0,
+              "createdCount": 0
+            },
+            "skipped": true,
+            "source": "zoomend"
+          }
+        ]
+      },
+      {
+        "name": "nanjing-to-jiangsu",
+        "filters": {
+          "lifecycle": "current",
+          "system": "ALL",
+          "region": "ALL",
+          "status": "ALL",
+          "audio12": false,
+          "dome": false,
+          "query": ""
+        },
+        "runtimeState": {
+          "totalRecords": 901,
+          "currentRecords": 874,
+          "historicalRecords": 27,
+          "visibleMarkers": 101,
+          "focusDepth": 1,
+          "focusScope": "江苏",
+          "displayMode": "prefecture",
+          "renderedItems": 13
+        },
+        "focus": {
+          "from": "南京",
+          "to": "江苏"
+        },
+        "zoom": {
+          "initial": 8.25,
+          "target": 6.25
+        },
+        "waits": {
+          "targetFocus": "江苏",
+          "targetZoom": 6.25,
+          "zoomend": true,
+          "quietWindowMs": 2200
+        },
+        "renderCalls": 2,
+        "markerMutatingRenderCalls": 1,
+        "maxRenderedItems": 13,
+        "markerCreated": 13,
+        "markerRemoved": 11,
+        "totalJsTimeMs": 4.2,
+        "renderEvents": [
+          {
+            "requestedZoom": 6.25,
+            "effectiveZoom": 6.25,
+            "mode": "prefecture",
+            "inputRecordCount": 101,
+            "outputItemCount": 13,
+            "totalRenderMs": 3.199999999254942,
+            "marker": {
+              "removedCount": 11,
+              "createdCount": 13
+            },
+            "skipped": false,
+            "source": "navigation"
+          },
+          {
+            "requestedZoom": 6.25,
+            "effectiveZoom": 6.25,
+            "mode": "prefecture",
+            "inputRecordCount": 101,
+            "outputItemCount": 13,
+            "totalRenderMs": 1,
+            "marker": {
+              "removedCount": 0,
+              "createdCount": 0
+            },
+            "skipped": true,
+            "source": "zoomend"
+          }
+        ]
+      }
+    ]
+  },
+  "validation": {
+    "sameBrowserSession": true,
+    "sameEnvironment": true,
+    "forbiddenPayloadFields": []
+  }
+}

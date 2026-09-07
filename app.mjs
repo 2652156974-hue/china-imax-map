@@ -1,11 +1,10 @@
 import {
   buildNearbyCandidateSet,
+  canonicalFieldPresentation,
   formatDistanceKm,
   geolocationFailureMessage,
   readAmapGeolocationResult,
-  reliableScreenField,
-  screenMeasureLabel,
-  sortNearbyCandidates
+  screenMeasureLabel
 } from './nearby.mjs';
 import {
   buildAdministrativeDisplay,
@@ -19,11 +18,16 @@ import {
   relatedLifecycleRecords
 } from './cinema-lifecycle.mjs';
 import {
-  applyFocusScope,
   effectiveDisplayZoom,
   focusScopeFromItem,
-  focusTargetZoom
+  focusTargetZoom,
+  navigationTargetZoom
 } from './focus-navigation.mjs';
+import { displayRenderSignature } from './render-signature.mjs';
+import { markerClickTarget, markerRenderDescriptor } from './marker-render-descriptor.mjs';
+import { createNavigationCoordinator } from './navigation-coordinator.mjs';
+import { deriveVisibleState, hasCoordinate, normalizeSearch, validCoordinate } from './visible-state.mjs';
+import { resolveScreenPresentation } from './screen-presentation.mjs';
 
 const config = window.__PUBLIC_AMAP_CONFIG__ ?? {};
 const mapError = document.querySelector('#mapError');
@@ -40,6 +44,8 @@ const nearbyToolbar = document.querySelector('#nearbyToolbar');
 const nearbyScope = document.querySelector('#nearbyScope');
 const nearbySortFilters = document.querySelector('#nearbySortFilters');
 const expandNearbyButton = document.querySelector('#expandNearbyButton');
+const domeOnlyFilter = document.querySelector('#domeOnlyFilter');
+const audio12OnlyFilter = document.querySelector('#audio12OnlyFilter');
 const currentLifecycleCount = document.querySelector('#currentLifecycleCount');
 const historyLifecycleCount = document.querySelector('#historyLifecycleCount');
 
@@ -47,6 +53,7 @@ let focusNavigation = null;
 let focusBackButton = null;
 let focusBreadcrumbs = null;
 let focusScopeNote = null;
+let navigationCoordinator = null;
 
 const diagnostics = window.__imaxMapDiagnostics = {
   renderer: 'AMap JS API 2.0',
@@ -67,12 +74,21 @@ const diagnostics = window.__imaxMapDiagnostics = {
   focusDepth: 0,
   focusScope: '全国',
   focusRecordCount: 0,
+  navigationEvents: [],
+  navigationTransactions: [],
+  renderEvents: [],
+  longTasks: [],
   errors: []
 };
 
 const state = {
   cinemas: [],
-  visible: [],
+  view: {
+    focusPath: [],
+    scopedLifecycleRecords: [],
+    visibleRecords: [],
+    locatedRecords: []
+  },
   system: 'ALL',
   region: 'ALL',
   lifecycle: 'current',
@@ -83,11 +99,9 @@ const state = {
   map: null,
   displayMarkers: [],
   displayItems: [],
+  displaySignature: null,
   infoWindow: null,
   AMap: null,
-  focus: {
-    path: []
-  },
   nearby: {
     active: false,
     position: null,
@@ -102,6 +116,8 @@ const state = {
   }
 };
 
+observeLongTasks();
+
 const markerColors = Object.freeze({
   'GT Laser': '#b42318',
   'Commercial Laser': '#7f56d9',
@@ -111,11 +127,20 @@ const markerColors = Object.freeze({
   unknown: '#98a2b3'
 });
 
+const systemDisplayLabels = Object.freeze({
+  'GT Laser': 'GT 激光',
+  'Commercial Laser': '商业激光',
+  'Laser XT': 'XT 激光',
+  Xenon: '氙灯',
+  unknown: '待核实'
+});
+
 main().catch((error) => {
   const message = error instanceof Error ? error.message : String(error);
   diagnostics.errors.push(message);
-  setMapError(message);
-  dataBanner.textContent = `公开地图未启动：${message}`;
+  setMapError('地图加载失败，请刷新重试');
+  dataBanner.textContent = '地图加载失败，请刷新重试';
+  dataBanner.hidden = false;
   statusElement.textContent = '加载失败';
 });
 
@@ -147,7 +172,7 @@ async function main() {
   bindRecordVariantNavigation();
   applyFilters();
   bindTheme();
-  dataBanner.textContent = `现有 ${counts.current} · 历史 ${counts.history} · 已定位 ${diagnostics.locatedRecords} / ${state.cinemas.length}`;
+  dataBanner.hidden = true;
 }
 
 async function loadAmap() {
@@ -288,7 +313,13 @@ function createMap() {
     showIndoorMap: false,
     mapStyle: dark ? 'amap://styles/dark' : 'amap://styles/whitesmoke'
   });
-  state.map.on?.('zoomend', () => renderAdministrativeDisplay());
+  navigationCoordinator = createNavigationCoordinator({
+    map: state.map,
+    getFocus: currentFocus,
+    commit: commitNavigationView,
+    reconcileMap: ({ requestedZoom, source }) => renderAdministrativeDisplay(state.view.locatedRecords, requestedZoom, source),
+    afterTransition: ({ committed }) => finishNavigationTransaction(committed)
+  });
   state.map.addControl(new AMap.ToolBar({ position: { right: '16px', bottom: '96px' } }));
   state.map.addControl(new AMap.Scale());
   state.infoWindow = new AMap.InfoWindow({ isCustom: true, closeWhenClickMap: true, offset: new AMap.Pixel(0, -12) });
@@ -313,21 +344,65 @@ function initFocusNavigation() {
   focusBreadcrumbs = focusNavigation.querySelector('#focusBreadcrumbs');
   focusScopeNote = focusNavigation.querySelector('#focusScopeNote');
 
-  focusBackButton.addEventListener('click', () => navigateFocusToDepth(Math.max(0, state.focus.path.length - 1)));
+  focusBackButton.addEventListener('click', () => {
+    const handlerStarted = performance.now();
+    navigateFocusToDepth(Math.max(0, state.view.focusPath.length - 1), { handlerStarted, trigger: 'return-button' });
+  });
   focusBreadcrumbs.addEventListener('click', (event) => {
+    const handlerStarted = performance.now();
     const button = event.target.closest('button[data-focus-depth]');
     if (!button || button.disabled) return;
-    navigateFocusToDepth(Number(button.dataset.focusDepth));
+    navigateFocusToDepth(Number(button.dataset.focusDepth), { handlerStarted, trigger: 'breadcrumb' });
   });
   document.addEventListener('keydown', (event) => {
-    if (event.key !== 'Escape' || !state.focus.path.length || state.nearby.active) return;
-    navigateFocusToDepth(state.focus.path.length - 1);
+    const handlerStarted = performance.now();
+    if (event.key !== 'Escape' || !state.view.focusPath.length || state.nearby.active) return;
+    navigateFocusToDepth(state.view.focusPath.length - 1, { handlerStarted, trigger: 'escape' });
   });
   renderFocusNavigation();
 }
 
 function currentFocus() {
-  return state.focus.path[state.focus.path.length - 1] ?? null;
+  return state.view.focusPath[state.view.focusPath.length - 1] ?? null;
+}
+
+function recordNavigationDiagnostic(fromDepth, toDepth) {
+  appendBoundedDiagnostic(diagnostics.navigationEvents, { fromDepth, toDepth });
+}
+
+function appendBoundedDiagnostic(list, value, limit = 200) {
+  list.push(value);
+  if (list.length > limit) list.splice(0, list.length - limit);
+}
+
+function observeLongTasks() {
+  if (typeof PerformanceObserver !== 'function' || !PerformanceObserver.supportedEntryTypes?.includes('longtask')) return;
+  const observer = new PerformanceObserver((list) => {
+    for (const entry of list.getEntries()) {
+      appendBoundedDiagnostic(diagnostics.longTasks, {
+        startTime: entry.startTime,
+        duration: entry.duration,
+        name: entry.name
+      });
+    }
+  });
+  observer.observe({ type: 'longtask', buffered: true });
+}
+
+function finishNavigationTransaction(committed) {
+  const transaction = committed?.transaction;
+  if (!transaction) return;
+  const handlerStarted = committed.handlerStarted;
+  transaction.handlerTotalMs = performance.now() - handlerStarted;
+  requestAnimationFrame(() => {
+    setTimeout(() => {
+      const nextFrameFreeAt = performance.now();
+      transaction.mainThreadFreeForNextFrameMs = nextFrameFreeAt - handlerStarted;
+      transaction.longTasks = diagnostics.longTasks.filter((entry) => (
+        entry.startTime < nextFrameFreeAt && entry.startTime + entry.duration >= handlerStarted
+      )).map((entry) => ({ ...entry }));
+    }, 0);
+  });
 }
 
 function readMapView() {
@@ -368,60 +443,70 @@ function restoreFocusReturnState(entry) {
 
 function enterAdministrativeFocus(item) {
   if (state.nearby.active || !item || item.kind !== 'administrative') return;
-  const scope = focusScopeFromItem(item);
-  if (!scope.provinceName && !scope.prefectureName && !scope.countyName) return;
+  const target = markerClickTarget(item, state.lifecycle);
+  enterAdministrativeFocusTarget(target);
+}
+
+function enterAdministrativeFocusTarget(target, { handlerStarted = performance.now(), trigger = 'administrative-marker' } = {}) {
+  const scope = target?.focus;
+  if (!scope || (!scope.provinceName && !scope.prefectureName && !scope.countyName)) return;
 
   const existing = currentFocus();
-  const key = item.adminKey ?? item.key ?? `${scope.level}:${scope.provinceName || ''}:${scope.prefectureName || ''}:${scope.countyName || ''}`;
+  const key = scope.key ?? `${scope.level}:${scope.provinceName || ''}:${scope.prefectureName || ''}:${scope.countyName || ''}`;
   if (existing?.key === key) return;
 
-  state.focus.path.push({
+  const fromDepth = state.view.focusPath.length;
+  recordNavigationDiagnostic(fromDepth, fromDepth + 1);
+  const targetPath = [...state.view.focusPath, {
     ...scope,
     key,
-    name: item.name || scope.countyName || scope.prefectureName || scope.provinceName || '地区',
     ...readFocusReturnState()
-  });
+  }];
   state.infoWindow?.close();
   detailPanel.hidden = true;
-  diagnostics.focusDepth = state.focus.path.length;
-  diagnostics.focusScope = currentFocus()?.name || '全国';
-  renderFocusNavigation();
-  applyFilters();
+  navigationCoordinator?.transition({
+    focus: targetPath.at(-1),
+    center: scope.lnglat,
+    mapZoom: focusTargetZoom(scope.level),
+    context: { focusPath: targetPath, handlerStarted, trigger, fromDepth }
+  });
   recordList.scrollTop = 0;
-  if (Array.isArray(item.lnglat)) {
-    state.map.setZoomAndCenter(focusTargetZoom(scope.level), item.lnglat, false, 420);
+}
+
+function navigateFocusToDepth(depth, { handlerStarted = performance.now(), trigger = 'navigation' } = {}) {
+  const fromDepth = state.view.focusPath.length;
+  const targetDepth = Math.max(0, Math.min(Number(depth) || 0, fromDepth));
+  if (targetDepth === fromDepth) return;
+  recordNavigationDiagnostic(fromDepth, targetDepth);
+  const restoreEntry = state.view.focusPath[targetDepth] ?? null;
+  const targetPath = state.view.focusPath.slice(0, targetDepth);
+  const targetFocus = targetPath.at(-1) ?? null;
+  state.infoWindow?.close();
+  detailPanel.hidden = true;
+  const returnView = restoreEntry?.returnView;
+  navigationCoordinator?.transition({
+    focus: targetFocus,
+    center: returnView?.center ?? (targetDepth === 0 ? [104.1954, 35.8617] : null),
+    mapZoom: returnView?.zoom ?? (targetDepth === 0 ? 4 : navigationTargetZoom(targetFocus)),
+    context: { focusPath: targetPath, handlerStarted, trigger, fromDepth }
+  });
+  if (restoreEntry) {
+    if (Number.isFinite(Number(restoreEntry.returnScrollTop))) recordList.scrollTop = Number(restoreEntry.returnScrollTop);
+    if (Number.isFinite(Number(returnView?.pitch))) state.map?.setPitch?.(Number(returnView.pitch));
+    if (Number.isFinite(Number(returnView?.rotation))) state.map?.setRotation?.(Number(returnView.rotation));
   }
 }
 
-function navigateFocusToDepth(depth) {
-  const targetDepth = Math.max(0, Math.min(Number(depth) || 0, state.focus.path.length));
-  if (targetDepth === state.focus.path.length) return;
-  const restoreEntry = state.focus.path[targetDepth] ?? null;
-  state.focus.path = state.focus.path.slice(0, targetDepth);
-  state.infoWindow?.close();
-  detailPanel.hidden = true;
-  diagnostics.focusDepth = state.focus.path.length;
-  diagnostics.focusScope = currentFocus()?.name || '全国';
-  renderFocusNavigation();
-  applyFilters();
-  if (restoreEntry) restoreFocusReturnState(restoreEntry);
-  else if (targetDepth === 0) state.map.setZoomAndCenter(4, [104.1954, 35.8617], false, 420);
-}
-
 function resetFocusNavigation({ restore = false } = {}) {
-  if (!state.focus.path.length) return;
-  const restoreView = state.focus.path[0]?.returnView ?? null;
-  state.focus.path = [];
-  diagnostics.focusDepth = 0;
-  diagnostics.focusScope = '全国';
-  diagnostics.focusRecordCount = 0;
-  renderFocusNavigation();
+  if (!state.view.focusPath.length) return;
+  const restoreView = state.view.focusPath[0]?.returnView ?? null;
+  applyFilters({ focusPath: [], targetZoom: restoreView?.zoom ?? 4, source: 'focus-reset' });
   if (restore && restoreView) restoreMapView(restoreView);
 }
 
 function renderFocusNavigation(scopeCount = null) {
   if (!focusNavigation || !focusBreadcrumbs) return;
-  const path = state.focus.path;
+  const path = state.view.focusPath;
   focusNavigation.hidden = path.length === 0;
   if (!path.length) {
     focusBreadcrumbs.replaceChildren();
@@ -469,15 +554,14 @@ function bindFilters() {
     applyFilters();
   });
   document.querySelector('#systemFilters').addEventListener('click', (event) => {
-    const button = event.target.closest('button');
+    const button = event.target.closest('button[data-system]');
     if (!button) return;
-    if (button.dataset.dome === 'true') {
-      button.classList.toggle('active');
-      state.dome = !state.dome;
-    } else {
-      state.system = button.dataset.system ?? 'ALL';
-      activateSingle('#systemFilters button[data-system]', button);
-    }
+    state.system = button.dataset.system ?? 'ALL';
+    activateSingle('#systemFilters button[data-system]', button);
+    applyFilters();
+  });
+  domeOnlyFilter.addEventListener('change', () => {
+    state.dome = domeOnlyFilter.checked;
     applyFilters();
   });
   document.querySelector('#regionFilters').addEventListener('click', (event) => {
@@ -488,15 +572,14 @@ function bindFilters() {
     applyFilters();
   });
   document.querySelector('#statusFilters').addEventListener('click', (event) => {
-    const button = event.target.closest('button');
+    const button = event.target.closest('button[data-status]');
     if (!button) return;
-    if (button.dataset.audio === '12') {
-      state.audio12 = !state.audio12;
-      button.classList.toggle('active', state.audio12);
-    } else {
-      state.status = button.dataset.status ?? 'ALL';
-      activateSingle('#statusFilters button[data-status]', button);
-    }
+    state.status = button.dataset.status ?? 'ALL';
+    activateSingle('#statusFilters button[data-status]', button);
+    applyFilters();
+  });
+  audio12OnlyFilter.addEventListener('change', () => {
+    state.audio12 = audio12OnlyFilter.checked;
     applyFilters();
   });
   searchInput.addEventListener('input', () => {
@@ -574,7 +657,7 @@ function enterNearbyMode(resolved) {
   state.map.setZoomAndCenter(11, [resolved.position.lng, resolved.position.lat], false, 520);
   nearbyButton.hidden = true;
   nearbyButton.disabled = false;
-  nearbyButton.textContent = '我的位置';
+  nearbyButton.textContent = '附近 IMAX';
   exitNearbyButton.hidden = false;
   nearbyStatus.hidden = false;
   nearbyStatus.textContent = resolved.city ? `已定位到${resolved.city}，附近结果仅用于本次浏览。` : '已获取当前位置，按距离范围查找附近 IMAX。';
@@ -601,7 +684,7 @@ function refreshNearbyCandidates() {
 function setNearbyFailure(message) {
   nearbyButton.disabled = false;
   nearbyButton.hidden = false;
-  nearbyButton.textContent = '我的位置';
+  nearbyButton.textContent = '附近 IMAX';
   nearbyStatus.hidden = false;
   nearbyStatus.textContent = message;
   nearbyToolbar.hidden = true;
@@ -623,7 +706,7 @@ function exitNearbyMode() {
   state.infoWindow?.close();
   nearbyButton.hidden = false;
   nearbyButton.disabled = false;
-  nearbyButton.textContent = '我的位置';
+  nearbyButton.textContent = '附近 IMAX';
   exitNearbyButton.hidden = true;
   nearbyToolbar.hidden = true;
   nearbyStatus.hidden = true;
@@ -659,7 +742,11 @@ function bindRecordVariantNavigation() {
 }
 
 function activateSingle(selector, selected) {
-  for (const button of document.querySelectorAll(selector)) button.classList.toggle('active', button === selected);
+  for (const button of document.querySelectorAll(selector)) {
+    const active = button === selected;
+    button.classList.toggle('active', active);
+    button.setAttribute('aria-pressed', String(active));
+  }
 }
 
 function activateLifecycleButton(selected) {
@@ -675,61 +762,181 @@ function renderLifecycleCounts(counts = lifecycleCounts(state.cinemas)) {
   historyLifecycleCount.textContent = String(counts.history);
 }
 
-function applyFilters() {
-  const sourceRecords = state.nearby.active ? state.nearby.candidates : state.cinemas;
-  const scopedRecords = state.nearby.active ? sourceRecords : applyFocusScope(sourceRecords, currentFocus());
-  const scopedLifecycleRecords = scopedRecords.filter((cinema) => cinemaLifecycle(cinema) === state.lifecycle);
-  state.visible = scopedLifecycleRecords.filter((cinema) => {
-    const projection = cinema.projection ?? {};
-    const matchesSystem = state.system === 'ALL' || (projection.system ?? 'unknown') === state.system;
-    const matchesDome = !state.dome || projection.dome === true;
-    const matchesRegion = state.region === 'ALL' || cinema.region === state.region;
-    const matchesStatus = state.status === 'ALL' || (cinema.status ?? 'unknown') === state.status;
-    const matchesAudio = !state.audio12 || Number(projection.audioChannels) === 12;
-    const matchesSearch = !state.query || searchText(cinema).includes(state.query);
-    return matchesSystem && matchesDome && matchesRegion && matchesStatus && matchesAudio && matchesSearch;
+function applyFilters({ targetZoom = null, focusPath = state.view.focusPath, source = 'filters' } = {}) {
+  return deriveCommitAndRenderView({
+    focusPath,
+    requestedZoom: targetZoom ?? state.map?.getZoom?.() ?? 4,
+    source
   });
-  if (state.nearby.active) state.visible = sortNearbyCandidates(state.visible, state.nearby.sort);
-  const located = state.visible.filter(hasCoordinate);
-  renderAdministrativeDisplay(located);
-  renderRecordList(state.visible);
-  diagnostics.visibleMarkers = located.length;
+}
+
+function commitNavigationView({ focus, requestedZoom, source, context } = {}) {
+  const focusPath = Array.isArray(context?.focusPath) ? context.focusPath : state.view.focusPath;
+  return deriveCommitAndRenderView({
+    focusPath,
+    focus,
+    requestedZoom,
+    source,
+    navigation: context
+  });
+}
+
+function deriveCommitAndRenderView({
+  focusPath = state.view.focusPath,
+  focus = focusPath.at(-1) ?? null,
+  requestedZoom = state.map?.getZoom?.() ?? 4,
+  source = 'direct',
+  navigation = null
+} = {}) {
+  const deriveStarted = performance.now();
+  const derived = deriveVisibleState({
+    cinemas: state.cinemas,
+    focus,
+    lifecycle: state.lifecycle,
+    filters: {
+      system: state.system,
+      region: state.region,
+      status: state.status,
+      audio12: state.audio12,
+      dome: state.dome,
+      query: state.query
+    },
+    nearby: state.nearby
+  });
+  const deriveVisibleStateMs = performance.now() - deriveStarted;
+
+  // A single reference swap commits target focus and all record projections.
+  // Nothing rendering the page can observe a new focus with old visible data.
+  state.view = {
+    focusPath: [...focusPath],
+    scopedLifecycleRecords: derived.scopedLifecycleRecords,
+    visibleRecords: derived.visibleRecords,
+    locatedRecords: derived.locatedRecords
+  };
+
+  const mapStarted = performance.now();
+  const mapEvent = renderAdministrativeDisplay(derived.locatedRecords, requestedZoom, source);
+  const mapRenderMs = performance.now() - mapStarted;
+  const recordListStarted = performance.now();
+  renderRecordList(derived.visibleRecords);
+  void recordList.getBoundingClientRect();
+  const recordListRenderMs = performance.now() - recordListStarted;
+  const navigationUiStarted = performance.now();
+  updateViewUi(derived);
+  const navigationUiMs = performance.now() - navigationUiStarted;
+
+  if (!navigation) return { deriveVisibleStateMs, mapRenderMs, recordListRenderMs, navigationUiMs, mapEvent };
+  const transaction = {
+    trigger: navigation.trigger ?? 'navigation',
+    fromDepth: Number(navigation.fromDepth) || 0,
+    toDepth: focusPath.length,
+    targetFocus: focus?.name || '全国',
+    targetVisibleRecordCount: derived.visibleRecords.length,
+    targetLocatedRecordCount: derived.locatedRecords.length,
+    displayMode: mapEvent.displayMode,
+    deriveVisibleStateMs,
+    mapRenderMs,
+    recordListRenderMs,
+    navigationUiMs,
+    handlerTotalMs: null,
+    mainThreadFreeForNextFrameMs: null,
+    longTasks: []
+  };
+  appendBoundedDiagnostic(diagnostics.navigationTransactions, transaction);
+  return { transaction, handlerStarted: Number(navigation.handlerStarted) || performance.now() };
+}
+
+function updateViewUi({ scopedLifecycleRecords, visibleRecords, locatedRecords }) {
+  diagnostics.visibleMarkers = locatedRecords.length;
+  diagnostics.visibleRecordCount = visibleRecords.length;
+  diagnostics.recordListResultCount = visibleRecords.length;
   document.body.dataset.lifecycle = state.lifecycle;
   const lifecycleLabel = state.lifecycle === 'history' ? '历史' : '现有';
   diagnostics.focusRecordCount = currentFocus() ? scopedLifecycleRecords.length : 0;
+  diagnostics.focusDepth = state.view.focusPath.length;
+  diagnostics.focusScope = currentFocus()?.name || '全国';
   renderFocusNavigation(scopedLifecycleRecords.length);
   if (state.nearby.active) {
-    statusElement.textContent = `${lifecycleLabel} · 附近 ${state.visible.length} · ${nearbySortLabel(state.nearby.sort)} · 地图点 ${located.length}`;
+    statusElement.textContent = `${lifecycleLabel} · 附近 ${visibleRecords.length} · ${nearbySortLabel(state.nearby.sort)} · 地图点 ${locatedRecords.length}`;
   } else if (currentFocus()) {
-    statusElement.textContent = `${currentFocus().name} · ${lifecycleLabel} ${state.visible.length} / ${scopedLifecycleRecords.length} · 地图点 ${located.length}`;
+    statusElement.textContent = `${currentFocus().name} · ${lifecycleLabel} ${visibleRecords.length} / ${scopedLifecycleRecords.length} · 地图点 ${locatedRecords.length}`;
   } else {
     const lifecycleTotal = state.lifecycle === 'history' ? diagnostics.historicalRecords : diagnostics.currentRecords;
-    statusElement.textContent = `${lifecycleLabel} ${state.visible.length} / ${lifecycleTotal} · 地图点 ${located.length}`;
+    statusElement.textContent = `${lifecycleLabel} ${visibleRecords.length} / ${lifecycleTotal} · 地图点 ${locatedRecords.length}`;
   }
 }
 
-function renderAdministrativeDisplay(records = state.visible.filter(hasCoordinate), zoom = state.map?.getZoom?.() ?? 4) {
-  clearDisplayMarkers();
-  const items = buildAdministrativeDisplay(records, effectiveDisplayZoom(zoom, currentFocus()));
+function renderAdministrativeDisplay(records = state.view.locatedRecords, zoom = state.map?.getZoom?.() ?? 4, source = 'direct') {
+  const renderStarted = performance.now();
+  const requestedZoom = Number(zoom) || 4;
+  const effectiveZoom = effectiveDisplayZoom(requestedZoom, currentFocus());
+  const buildStarted = performance.now();
+  const items = buildAdministrativeDisplay(records, effectiveZoom);
+  const buildAdministrativeDisplayMs = performance.now() - buildStarted;
   const displayMode = items.mode ?? 'province';
   const project = (lnglat) => projectStableCollisionPoint(lnglat, displayMode);
   const collisionItems = items.filter((item) => item.kind === 'administrative' || item.kind === 'same-site');
+  const collisionStarted = performance.now();
   const resolvedCollisionItems = resolveAdminCollisions(collisionItems, project, { maxOffsetPx: 32, stepPx: 8, paddingPx: 4 });
+  const collisionResolveMs = performance.now() - collisionStarted;
   const collisionByKey = new Map(resolvedCollisionItems.map((item) => [displayItemKey(item), item]));
   const resolvedItems = items.map((item) => (
     item.kind === 'administrative' || item.kind === 'same-site'
       ? collisionByKey.get(displayItemKey(item)) ?? withZeroDisplayOffset(item)
       : withZeroDisplayOffset(item)
   ));
+  const signature = displayRenderSignature({ lifecycle: state.lifecycle, mode: displayMode, items: resolvedItems });
+  const skipped = signature === state.displaySignature;
   state.displayItems = resolvedItems;
   diagnostics.displayMode = displayMode;
   diagnostics.renderedItems = resolvedItems.length;
   diagnostics.adminAggregateCount = resolvedItems.filter((item) => item.kind === 'administrative').length;
 
-  for (const item of resolvedItems) {
-    const marker = createDisplayMarker(item);
-    if (marker) state.displayMarkers.push(marker);
+  let markerClearMs = 0;
+  let markerCreateMs = 0;
+  let removedCount = 0;
+  let createdCount = 0;
+  if (!skipped) {
+    const markerClearStarted = performance.now();
+    removedCount = clearDisplayMarkers();
+    markerClearMs = performance.now() - markerClearStarted;
+    const markerCreateStarted = performance.now();
+    for (const item of resolvedItems) {
+      const marker = createDisplayMarker(item);
+      if (marker) {
+        state.displayMarkers.push(marker);
+        createdCount += 1;
+      }
+    }
+    markerCreateMs = performance.now() - markerCreateStarted;
+    state.displaySignature = signature;
   }
+  const event = {
+    source,
+    requestedZoom,
+    effectiveZoom,
+    displayMode,
+    focus: currentFocus() ? {
+      level: currentFocus().level,
+      provinceName: currentFocus().provinceName ?? null,
+      prefectureName: currentFocus().prefectureName ?? null,
+      countyName: currentFocus().countyName ?? null,
+      name: currentFocus().name ?? null
+    } : null,
+    focusScope: currentFocus()?.name || '全国',
+    visibleRecordCount: state.view.visibleRecords.length,
+    inputRecordCount: records.length,
+    outputItemCount: resolvedItems.length,
+    buildAdministrativeDisplayMs,
+    collisionResolveMs,
+    markerClearMs,
+    markerCreateMs,
+    totalRenderMs: performance.now() - renderStarted,
+    marker: { removedCount, createdCount },
+    skipped
+  };
+  appendBoundedDiagnostic(diagnostics.renderEvents, event);
+  return event;
 }
 
 function displayItemKey(item) {
@@ -741,68 +948,73 @@ function withZeroDisplayOffset(item) {
 }
 
 function clearDisplayMarkers() {
+  const removedCount = state.displayMarkers.length;
   for (const marker of state.displayMarkers) marker?.setMap?.(null);
   state.displayMarkers = [];
+  return removedCount;
 }
 
 function createDisplayMarker(item) {
   const AMap = state.AMap;
-  const firstCinema = item.records?.[0] ?? item.cinemas?.[0] ?? null;
-  if (!AMap?.Marker || !Array.isArray(item.lnglat) || item.lnglat.length < 2) return null;
-  const isCinema = item.kind === 'cinema';
-  const isSameSite = item.kind === 'same-site';
-  const size = isCinema ? 16 : displayItemSize(item);
+  const descriptor = markerRenderDescriptor(item, state.lifecycle);
+  if (!AMap?.Marker || !Array.isArray(descriptor.lnglat) || descriptor.lnglat.length < 2) return null;
+  const isCinema = descriptor.kind === 'cinema';
+  const isSameSite = descriptor.kind === 'same-site';
+  const size = isCinema ? 16 : displayItemSize(descriptor);
   const marker = new AMap.Marker({
     map: state.map,
-    position: item.lnglat,
-    content: displayItemHtml(item),
+    position: descriptor.lnglat,
+    content: displayItemHtml(item, descriptor),
     offset: new AMap.Pixel(-size / 2, -size / 2),
     zIndex: isCinema ? 70 : 80
   });
-  const offsetX = Number(item.offsetX) || 0;
-  const offsetY = Number(item.offsetY) || 0;
+  const offsetX = descriptor.offsetX;
+  const offsetY = descriptor.offsetY;
   marker.setOffset(new AMap.Pixel(-size / 2 + offsetX, -size / 2 + offsetY));
   marker.off?.('click');
   marker.on?.('click', () => {
-    if (isSameSite) {
-      state.map.setZoomAndCenter(17, item.lnglat, false, 420);
-      if (firstCinema) openCinema(firstCinema);
+    const handlerStarted = performance.now();
+    const target = descriptor.click;
+    if (target.type === 'same-site') {
+      state.map.setZoomAndCenter(17, descriptor.lnglat, false, 420);
+      const cinema = state.cinemas.find((record) => record.id === target.recordId);
+      if (cinema) openCinema(cinema);
       return;
     }
-    if (isCinema) {
-      if (firstCinema) openCinema(firstCinema);
+    if (target.type === 'cinema') {
+      const cinema = state.cinemas.find((record) => record.id === target.recordId);
+      if (cinema) openCinema(cinema);
       return;
     }
-    enterAdministrativeFocus(item);
+    enterAdministrativeFocusTarget(target, { handlerStarted, trigger: 'administrative-marker' });
   });
   return marker;
 }
 
-function displayItemHtml(item) {
-  const isCinema = item.kind === 'cinema';
-  const isSameSite = item.kind === 'same-site';
-  const firstCinema = item.records?.[0] ?? item.cinemas?.[0] ?? null;
+function displayItemHtml(item, descriptor = markerRenderDescriptor(item, state.lifecycle)) {
+  const isCinema = descriptor.kind === 'cinema';
+  const isSameSite = descriptor.kind === 'same-site';
   if (isCinema) {
-    const color = firstCinema ? (markerColors[markerColorKey(firstCinema)] ?? markerColors.unknown) : markerColors.unknown;
-    const locationOnly = firstCinema ? locationBucket(firstCinema) === 'location-only' : true;
-    const historical = firstCinema ? cinemaLifecycle(firstCinema) === 'history' : state.lifecycle === 'history';
-    const title = escapeHtml(firstCinema?.name || item.name || 'IMAX 影院');
+    const color = markerColors[descriptor.html.colorKey] ?? markerColors.unknown;
+    const title = escapeHtml(descriptor.name || 'IMAX 影院');
+    const locationOnly = descriptor.html.locationOnly;
+    const historical = descriptor.html.historical;
     return `<div class="imax-marker${locationOnly ? ' location-only' : ''}${historical ? ' is-history' : ''}" style="--marker-color:${color}" title="${title}" aria-label="${title}"><span></span></div>`;
   }
 
-  const levelClass = isSameSite ? 'admin-cluster--overlap' : `admin-cluster--${item.level || 'county'}`;
-  const fallbackClass = !isSameSite && item.fallback ? ' admin-cluster--fallback' : '';
+  const levelClass = isSameSite ? 'admin-cluster--overlap' : `admin-cluster--${descriptor.html.level}`;
+  const fallbackClass = !isSameSite && descriptor.fallback ? ' admin-cluster--fallback' : '';
   // Administrative names are identity, not optional decoration.  A crowded
   // layout may keep its bounded offset, but only a same-site cinema stack is
   // allowed to collapse to the count-only treatment.
-  const compactClass = isSameSite ? ' admin-cluster--compact' : '';
-  const historyClass = state.lifecycle === 'history' ? ' admin-cluster--history' : '';
-  const sizeClass = `count-size--${displaySizeClass(item.sizeClass)}`;
-  const name = escapeHtml(item.name || '地区待核');
-  const count = Number.isFinite(Number(item.count)) ? String(item.count) : '0';
+  const compactClass = descriptor.html.compact ? ' admin-cluster--compact' : '';
+  const historyClass = descriptor.html.historical ? ' admin-cluster--history' : '';
+  const sizeClass = `count-size--${displaySizeClass(descriptor.sizeClass)}`;
+  const name = escapeHtml(descriptor.name || '地区待核');
+  const count = descriptor.html.count;
   const title = escapeHtml(isSameSite
-    ? `同址 ${count} 家 IMAX · ${item.name || 'IMAX 影院'}`
-    : `${item.name || '地区待核'} · ${count} 家 IMAX`);
+    ? `同址 ${count} 家 IMAX · ${descriptor.name || 'IMAX 影院'}`
+    : `${descriptor.name || '地区待核'} · ${count} 家 IMAX`);
   return `<div class="admin-cluster ${levelClass}${fallbackClass}${compactClass}${historyClass} ${sizeClass}" title="${title}" aria-label="${title}" role="button">` +
     `<span class="admin-cluster__name">${name}</span><span class="admin-cluster__count">${count}</span></div>`;
 }
@@ -888,10 +1100,11 @@ function popupHtml(cinema) { return detailHtml(cinema, true); }
 function detailHtml(cinema, popup) {
   const projection = cinema.projection ?? {};
   const location = cinema.location ?? {};
-  const width = screenField(cinema.screen, 'width', 'rawWidth', 'm');
-  const height = screenField(cinema.screen, 'height', 'rawHeight', 'm');
-  const area = screenField(cinema.screen, 'area', 'rawArea', 'm²');
-  const seats = seatField(cinema.seats, cinema.seatsRaw);
+  const width = screenField(cinema, 'width', 'rawWidth', 'm');
+  const height = screenField(cinema, 'height', 'rawHeight', 'm');
+  const area = screenField(cinema, 'area', 'rawArea', 'm²');
+  const seats = seatField(cinema);
+  const presentation = resolveScreenPresentation(cinema);
   const dataNotes = renderDataNotes([
     ['宽度', width.raw],
     ['高度', height.raw],
@@ -929,9 +1142,16 @@ function detailHtml(cinema, popup) {
     `<b>座位</b><span>${seats.html}</span>` +
     `<b>状态</b><span>${statusLabel(cinema.status)}</span>` +
     `<b>定位</b><span>${escapeHtml(granularityLabel(location.locationGranularity))} · 位置${escapeHtml(confidenceLabel(location.locationConfidence))} / 身份${escapeHtml(confidenceLabel(location.identityConfidence))}<small class="field-secondary">${locationText}</small></span>` +
-    `</div>${historyNote}${dataNotes}${formerNames}${locationNote}` +
+    `</div>${renderScreenAlternatives(presentation)}${historyNote}${dataNotes}${formerNames}${locationNote}` +
     `<div class="raw-note">数据来源：<a href="${escapeHtml(cinema.source?.url || 'https://docs.qq.com/sheet/DQ3FEUUZJdklNSWJP?tab=BB08J2')}" target="_blank" rel="noopener">@ArvinTingcn《全球 IMAX 及特效影厅分布》</a></div>` +
     `</article>`;
+}
+
+function renderScreenAlternatives(presentation) {
+  if (!presentation.alternatives.length) return '';
+  const value = (config, field) => config.fields[field].state === 'value' ? config[field] : config.fields[field].state === 'missing' ? '暂无数据' : '待核';
+  const rows = presentation.alternatives.map((config, index) => `记录 ${index + 1}（原表第 ${config.sourceIndex + 1} 组）：${value(config, 'width')} × ${value(config, 'height')} · ${value(config, 'area')} m² · ${value(config, 'seats')} 座`).join('；');
+  return `<details class="data-notes"><summary>多记录 · 另有 ${presentation.alternatives.length} 组</summary><div class="data-notes-body"><div class="data-note"><b>其他记录</b><span class="raw-value">${escapeHtml(rows)}</span></div></div></details>`;
 }
 
 function renderLifecycleNavigation(cinema) {
@@ -950,23 +1170,12 @@ function renderLifecycleNavigation(cinema) {
   return `<div class="history-switch"><div class="history-switch__label">同址沿革</div><div class="history-switch__options">${buttons}</div></div>`;
 }
 
-function screenField(screen = {}, field, rawField, unit) {
-  const raw = String(screen[rawField] ?? '');
-  const normalized = raw.replace(/\u00a0/g, ' ');
-  const trimmed = normalized.trim();
-  if (!trimmed) return { html: '暂无数据', raw: null };
-  const reliable = reliableScreenField(screen, field);
-  if (reliable) return { html: `${formatNumber(reliable.value, field === 'area' ? 2 : 3)} ${unit}`, raw: null };
-  return { html: '<span>待核<span class="field-flag">数据说明</span></span>', raw };
+function screenField(record = {}, field, rawField, unit) {
+  return canonicalFieldPresentation(record, field, unit);
 }
 
-function seatField(value, rawValue) {
-  const raw = String(rawValue ?? '');
-  const normalized = raw.replace(/\u00a0/g, ' ');
-  const trimmed = normalized.trim();
-  if (!trimmed) return { html: '暂无数据', raw: null };
-  if (/^\d+$/.test(trimmed) && Number.isFinite(Number(value))) return { html: formatNumber(value, 0), raw: null };
-  return { html: '<span>待核<span class="field-flag">数据说明</span></span>', raw };
+function seatField(record = {}) {
+  return canonicalFieldPresentation(record, 'seats');
 }
 
 function renderDataNotes(fields) {
@@ -982,17 +1191,6 @@ function bindTheme() {
   media.addEventListener('change', (event) => state.map?.setMapStyle(event.matches ? 'amap://styles/dark' : 'amap://styles/whitesmoke'));
 }
 
-function hasCoordinate(cinema) {
-  const location = cinema?.location ?? {};
-  return location.provider === 'amap' && location.providerCrs === 'GCJ-02' && validCoordinate(location.providerLat, location.providerLng);
-}
-
-function validCoordinate(lat, lng) {
-  const numericLat = Number(lat);
-  const numericLng = Number(lng);
-  return Number.isFinite(numericLat) && Number.isFinite(numericLng) && numericLat >= -90 && numericLat <= 90 && numericLng >= -180 && numericLng <= 180;
-}
-
 function locationBucket(cinema) {
   if (!hasCoordinate(cinema)) return 'unresolved';
   const location = cinema.location ?? {};
@@ -1004,24 +1202,20 @@ function locationBucketLabel(cinema) {
   return bucket === 'exact' ? '精确身份' : bucket === 'location-only' ? '场所级定位' : '未定位';
 }
 
-function markerColorKey(cinema) { return cinema.projection?.dome ? 'Dome' : cinema.projection?.system ?? 'unknown'; }
+function systemDisplayLabel(value) {
+  const key = String(value ?? 'unknown');
+  return systemDisplayLabels[key] ?? key;
+}
+
 function systemLabel(cinema) {
   const projection = cinema.projection ?? {};
   const parts = [];
-  if (projection.system && projection.system !== 'unknown') parts.push(projection.system);
+  if (projection.system) parts.push(systemDisplayLabel(projection.system));
   if (projection.geometry) parts.push(projection.geometry);
-  if (projection.dome) parts.push('Dome');
-  if (projection.plannedSystem) parts.push(`计划：${projection.plannedSystem}`);
-  return parts.length ? parts.join(' · ') : '待核';
+  if (projection.dome) parts.push('球幕');
+  if (projection.plannedSystem) parts.push(`计划：${systemDisplayLabel(projection.plannedSystem)}`);
+  return parts.length ? parts.join(' · ') : systemDisplayLabels.unknown;
 }
-function searchText(cinema) {
-  return normalizeSearch([
-    cinema.name, ...(cinema.formerNames ?? []), cinema.city, cinema.province, cinema.region,
-    cinema.administrative?.prefectureName, cinema.administrative?.countyName,
-    cinema.mallOrVenue, cinema.location?.address, cinema.projection?.raw
-  ].filter(Boolean).join(' '));
-}
-function normalizeSearch(value) { return String(value ?? '').normalize('NFKC').toLowerCase().replace(/[\s·•,，。()（）\-_/]+/g, ''); }
 function confidenceWeight(value) { return value === 'high' ? 3 : value === 'medium' ? 2 : 1; }
 function statusLabel(value) { return value === 'open' ? '营业' : value === 'closed' ? '已关闭' : value === 'temporarily_closed' ? '暂时停业' : '待核'; }
 function confidenceLabel(value) { return value === 'high' ? '高' : value === 'medium' ? '中' : value === 'low' ? '低' : '待核'; }

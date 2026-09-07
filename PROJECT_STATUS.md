@@ -1,9 +1,9 @@
 # china-imax-map 项目状态
 
-更新日期：2026-08-31
+更新日期：2026-09-01
 工作分支：`develop/current`
 公开基线：`fba4dcd` → `codex/public-release`（公开发布基线）
-线上部署：Cloudflare Worker `china-imax-map` 当前版本为 `5880b745-58e8-4f68-922e-6ba1ca889e9c`；静态应用资源已与本地构建核对一致，运行时 marker layer 仍由外部 `data/local/` 提供。
+线上部署：Cloudflare Worker `china-imax-map` 现由 GitHub Actions 自动发布；生产触发分支为 `develop/current`。本次自动发布配置已完成本地验证，但尚未由本地分支提交、推送或用新配置重新部署线上版本。
 发布状态：`publicationReady=true`；本次同步不合并 `main`，不重写公共发布历史
 
 ## 一句话状态
@@ -19,6 +19,12 @@
 - 公开地图读取 `data/public/cinemas.json` 的 901 条静态事实，并从 `/api/public/markers` 动态获取 901 个最小 GCJ-02 marker；静态目录不含坐标批量文件。
 - 私人高德地图运行层使用本机忽略文件和环境变量；公开/私人两版真实浏览器 smoke 均通过，且不把安全密钥、provider cache 或 raw candidates 写入发布数据。
 - 901 条公开、私人和 Luna 记录均携带银幕宽度、高度、面积和座位原文；3,604 个原文字段跨层一致。正常单值按格式化数字显示，暂无数据不显示 raw，多值/异常原文只在折叠「数据说明」中显示。
+
+## 自动发布状态
+
+- GitHub Actions 工作流为 [`.github/workflows/deploy-cloudflare.yml`](.github/workflows/deploy-cloudflare.yml)，仅 `develop/current` 的 push 或从 `develop/current` 手动触发会进入部署 job；Pull Request 只验证，不上线。
+- Cloudflare KV namespace 已建立，`public-amap-markers` 已写入并复核 901 条最小 GCJ-02 marker；静态 `dist-public/` 仍保持 0 坐标。
+- GitHub 仓库还需一次性配置 `CLOUDFLARE_API_TOKEN` 与 `CLOUDFLARE_ACCOUNT_ID` 两个 Actions secret。此后正常流程是提交并 push `develop/current`，由 Actions 自动完成校验、构建和 Worker 部署。
 
 ## 坐标状态
 
@@ -38,7 +44,7 @@
 1. 历史 323-row Luna review snapshot 已明确标为 `historical-non-blocking`；其 `needsMoreEvidence/reviewComplete:false` 不参与当前 release gate。
 2. 公开/私人 JS API 2.0 真实浏览器 smoke 已通过；环境凭据未写入源码、审计 JSON 或发布包。
 3. 已从 clean baseline `fba4dcd` 建立 `codex/public-release`，公开 manifest 明确排除 raw、provider cache、data-local、私有包和完整坐标导出。
-4. 本次同步目标是 `develop/current`；公开静态事实层保持无坐标，GCJ-02 marker 与行政绑定继续通过本地/部署环境的运行时层提供，不将 `data/local/` 或 provider cache 纳入公开 Git 历史。
+4. 本次同步目标是 `develop/current`；公开静态事实层保持无坐标，GCJ-02 marker 与行政绑定通过 Cloudflare KV 运行时层提供，不将 `data/local/` 或 provider cache 纳入公开 Git 历史。
 
 ## 项目入口
 

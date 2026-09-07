@@ -81,6 +81,10 @@ function readRuntimeMarkerCount() {
 }
 
 function publicRecord(record) {
+  const review = record.screenSeatReview;
+  const materializedFields = Array.isArray(review?.materializedFields)
+    ? [...new Set(review.materializedFields.filter((field) => ['width', 'height', 'area', 'seats'].includes(field)))]
+    : [];
   return {
     id: record.id,
     sourceRow: record.sourceRow,
@@ -112,6 +116,12 @@ function publicRecord(record) {
     },
     seats: numberOrNull(record.seats),
     seatsRaw: String(record.seatsRaw ?? ''),
+    ...(materializedFields.length ? {
+      screenSeatReview: {
+        confidence: ['high', 'medium', 'low', 'unknown'].includes(review?.confidence) ? review.confidence : 'unknown',
+        materializedFields
+      }
+    } : {}),
     status: record.status ?? 'unknown',
     historySummary: record.historySummary ?? '',
     location: {

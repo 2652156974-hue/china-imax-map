@@ -9,8 +9,10 @@ import {
   effectiveDisplayZoom,
   focusScopeFromItem,
   focusTargetZoom,
-  matchesFocusScope
+  matchesFocusScope,
+  navigationTargetZoom
 } from '../focus-navigation.mjs';
+import { zoomDisplayMode } from '../admin-clusters.mjs';
 
 const repoRoot = join(fileURLToPath(new URL('..', import.meta.url)));
 const publicDataset = JSON.parse(await readFile(join(repoRoot, 'data', 'public', 'cinemas.json'), 'utf8'));
@@ -86,4 +88,17 @@ test('focus scope normalizes names and keeps the selected child layer open', () 
   assert.equal(effectiveDisplayZoom(6.5, { level: 'prefecture' }), 8.01);
   assert.equal(effectiveDisplayZoom(15, { level: 'county' }), 15);
   assert.equal(effectiveDisplayZoom(4, null), 4);
+});
+
+test('navigation target zoom selects the target LOD instead of stale map zoom', () => {
+  const previousZoom = 8.25;
+  const nationalTarget = navigationTargetZoom(null);
+  assert.equal(nationalTarget, 4);
+  assert.equal(zoomDisplayMode(nationalTarget), 'province');
+  assert.notEqual(zoomDisplayMode(previousZoom), zoomDisplayMode(nationalTarget));
+
+  const provinceTarget = navigationTargetZoom({ level: 'province' });
+  assert.equal(provinceTarget, 6.25);
+  assert.equal(zoomDisplayMode(provinceTarget), 'prefecture');
+  assert.equal(zoomDisplayMode(navigationTargetZoom({ level: 'prefecture' })), 'county');
 });

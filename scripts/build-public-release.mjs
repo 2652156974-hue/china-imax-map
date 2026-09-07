@@ -31,7 +31,21 @@ assertSafeOutput(DIST_ROOT);
 fs.rmSync(DIST_ROOT, { recursive: true, force: true });
 fs.mkdirSync(path.join(DIST_ROOT, 'data'), { recursive: true });
 
-for (const filename of ['index.html', 'app.mjs', 'styles.css', 'nearby.mjs', 'admin-clusters.mjs', 'cinema-lifecycle.mjs', 'focus-navigation.mjs', 'focus-navigation.css']) {
+for (const filename of [
+  'index.html',
+  'app.mjs',
+  'styles.css',
+  'nearby.mjs',
+  'screen-presentation.mjs',
+  'admin-clusters.mjs',
+  'cinema-lifecycle.mjs',
+  'focus-navigation.mjs',
+  'focus-navigation.css',
+  'marker-render-descriptor.mjs',
+  'navigation-coordinator.mjs',
+  'render-signature.mjs',
+  'visible-state.mjs'
+]) {
   fs.copyFileSync(path.join(ROOT, filename), path.join(DIST_ROOT, filename));
 }
 fs.copyFileSync(PUBLIC_DATASET, path.join(DIST_ROOT, 'data/cinemas.json'));

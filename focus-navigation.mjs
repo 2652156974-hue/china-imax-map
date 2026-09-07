@@ -48,6 +48,10 @@ export function focusTargetZoom(level) {
   return 11.2;
 }
 
+export function navigationTargetZoom(focus) {
+  return focus ? focusTargetZoom(focus.level) : 4;
+}
+
 export function effectiveDisplayZoom(zoom, focus) {
   const numeric = Number(zoom) || 4;
   if (!focus) return numeric;

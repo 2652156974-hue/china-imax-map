@@ -1,0 +1,78 @@
+name: Deploy China IMAX map
+
+on:
+  push:
+    branches:
+      - develop/current
+  pull_request:
+    branches:
+      - develop/current
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: china-imax-map-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  verify:
+    name: Verify public Worker build
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v6
+
+      - name: Use Node.js 20
+        uses: actions/setup-node@v5
+        with:
+          node-version: 20
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Test Worker and public frontend
+        run: npm run test:cloudflare
+
+      - name: Build publication-safe static assets
+        run: npm run build:cloudflare
+
+  deploy:
+    name: Deploy to Cloudflare Worker
+    if: (github.event_name == 'push' && github.ref == 'refs/heads/develop/current') || (github.event_name == 'workflow_dispatch' && github.ref == 'refs/heads/develop/current')
+    needs: verify
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    env:
+      CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+      CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v6
+
+      - name: Use Node.js 20
+        uses: actions/setup-node@v5
+        with:
+          node-version: 20
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Verify the remote runtime marker layer
+        run: |
+          npx wrangler kv key get public-amap-markers --namespace-id 454acbfd6d0c46c080972f49bdae3458 --remote --text > "$RUNNER_TEMP/china-imax-map-markers.json"
+          node scripts/validate-cloudflare-runtime.mjs "$RUNNER_TEMP/china-imax-map-markers.json"
+
+      - name: Build and dry-run the Worker
+        run: npm run cloudflare:check
+
+      - name: Deploy Worker
+        uses: cloudflare/wrangler-action@v3
+        with:
+          apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+          command: deploy

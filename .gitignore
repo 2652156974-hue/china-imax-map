@@ -3,6 +3,9 @@
 .env.*
 !.env.example
 *.key
+.dev.vars
+.dev.vars.*
+worker-configuration.d.ts
 
 # Provider responses are private/local working caches, not public datasets.
 data/geocode/provider-cache/*.json

@@ -43,7 +43,7 @@ Windows 公开/私人高德地图都只从 Windows 用户环境变量读取真�
 - 增加用户主动触发的“我的位置 / 附近 IMAX”：先按城市或距离建立候选集，再提供距离、银幕大小、综合规格三种排序，不调用影院 POI 查询
 - 最终 canonical layer 已接受 901 / 901 条；历史 review snapshot 仅保留为 `historical-non-blocking` provenance，不再与当前 `0 unresolved` 并列作为发布门
 - 正常单值宽度/高度/面积/座位按格式化数字显示并去除无意义尾零；空白或 NBSP 显示 `暂无数据`；多值/异常显示 `待核`，原文只保留在默认折叠的 `数据说明` 中，raw 仍只在数据层保留
-- 公开发布分支 `codex/public-release` 从 clean baseline `fba4dcd` 创建，排除 `data/raw/`、provider cache、`data/local/`、私有包和完整坐标导出；运行层装配时通过环境变量 `PUBLIC_AMAP_REVIEWED_SOURCE_FILE` 从外部安全位置注入 reviewed marker source，构建后的最小 layer 仍为 gitignored；当前只保留本地分支，不自动 push、merge 或 deploy
+- 公开发布分支 `codex/public-release` 从 clean baseline `fba4dcd` 创建，排除 `data/raw/`、provider cache、`data/local/`、私有包和完整坐标导出；运行层装配时通过外部安全位置注入 reviewed marker source，构建后的最小 layer 仍为 gitignored。代码不自动 push 或 merge；生产分支 `develop/current` 的 GitHub push 会由 Actions 自动完成 Cloudflare 校验、构建和部署
 - 本地 QA 可运行 `node scripts/build-local-preview.mjs` 后用 `index.html?preview=local` 查看旧审计预览；该模式明确标注 `LOCAL PREVIEW · NOT FOR PUBLICATION`，生成的 `data/local/` 已被 gitignore
 - 私人高德运行出口由 `node scripts/build-private-amap-release.mjs` 生成 gitignored 的 `dist-private/`，保留审核状态和更完整证据；完整说明见 [`docs/AMAP_PRIVATE_RELEASE.md`](docs/AMAP_PRIVATE_RELEASE.md)
 
@@ -114,7 +114,22 @@ node scripts/derive-cinemas.mjs
 
 ### 合并前的 raw 快照处理
 
-当前 feature 分支的历史包含内部审计用 raw mirror；公开发布已改为从 clean baseline `fba4dcd` 创建 `codex/public-release`，只挑选公开安全的派生层、审计摘要、脚本和网页提交，确认公开历史不包含完整 raw 镜像。当前不删除本地 raw，也不自动 push、merge 或 deploy。
+当前 feature 分支的历史包含内部审计用 raw mirror；公开发布已改为从 clean baseline `fba4dcd` 创建 `codex/public-release`，只挑选公开安全的派生层、审计摘要、脚本和网页提交，确认公开历史不包含完整 raw 镜像。当前不删除本地 raw，也不自动 push 或 merge；推送到 `develop/current` 后由 GitHub Actions 负责部署。
+
+## 自动发布到 Cloudflare
+
+生产发布入口是 `develop/current`。GitHub Actions 工作流见 [`.github/workflows/deploy-cloudflare.yml`](.github/workflows/deploy-cloudflare.yml)：
+
+1. 对 `develop/current` 的 Pull Request 只执行测试和公开构建，不上线。
+2. 对 `develop/current` 的 push 先执行 `npm ci`、Cloudflare Worker 测试、公开静态边界检查和 Wrangler dry-run。
+3. 校验 Cloudflare KV 中一次性准备好的 901 条最小 GCJ-02 runtime marker，再自动部署 Worker `china-imax-map`。
+
+只需在 GitHub 仓库的 **Settings → Secrets and variables → Actions** 添加一次：
+
+- `CLOUDFLARE_API_TOKEN`：可部署该账户 Worker、读取对应 KV 的 Cloudflare API Token
+- `CLOUDFLARE_ACCOUNT_ID`：Cloudflare 账户 ID
+
+AMap 的运行时密钥仍只保存在 Cloudflare Worker secrets 中，不进入 GitHub 或网页包；公开静态资源不包含批量坐标。完成这两个 GitHub secret 后，日常只需要把要发布的代码提交并 push 到 `develop/current`，不再手动到 Cloudflare 点部署。修复分支和普通 Pull Request 不会直接改线上。由于 reviewed marker layer 含私有坐标且刻意不进公开 Git，今后只有坐标/行政绑定本身发生变化时才需要单独更新一次 Cloudflare KV；普通网页、脚本和公开事实层改动不需要额外操作 Cloudflare。
 
 ## 技术栈
 

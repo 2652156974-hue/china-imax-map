@@ -2,6 +2,7 @@ const MAX_DISTANCE_KM = 120;
 const CITY_EXPANSION_KM = 80;
 const CITY_FALLBACK_KM = 50;
 const MIN_CITY_CANDIDATES = 3;
+import { presentationField, presentationMeasure, resolveScreenPresentation } from './screen-presentation.mjs';
 
 const PROJECTION_RANK = Object.freeze({
   'GT Laser': 5,
@@ -55,26 +56,39 @@ export function displayCity(value) {
   return String(text).normalize('NFKC').trim().replace(/市$/u, '');
 }
 
+/**
+ * Resolve one displayable screen/seat value without interpreting raw
+ * multi-value text. Reviewed materialization is the only authority that may
+ * select a value from ambiguous raw text.
+ */
+export function resolveCanonicalScreenField(record = {}, field) {
+  const presentation = resolveScreenPresentation(record);
+  const fieldState = presentation.selected?.fields?.[field];
+  const selectedValue = presentation.selected?.[field] ?? null;
+  const review = record.screenSeatReview ?? record.screen?.screenSeatReview;
+  if (review?.confidence === 'high' && review.materializedFields?.includes(field)) {
+    const source = field === 'seats' ? record : record.screen ?? record;
+    const value = Number(source?.[field]);
+    const valid = field === 'seats' ? Number.isInteger(value) && value > 0 : Number.isFinite(value) && value > 0;
+    if (valid) return { status: 'reviewed', value, raw: presentation.raw[field] ?? '', provenance: 'screen-seat-review', confidence: review.confidence };
+  }
+  if (!fieldState && !String(presentation.raw[field] ?? '').trim()) return { status: 'missing', value: null, raw: '', provenance: null, confidence: review?.confidence ?? null };
+  const status = fieldState?.state === 'value' ? presentation.status === 'reviewed' ? 'reviewed' : 'direct' : fieldState?.state === 'missing' ? 'missing' : 'unresolved';
+  return { status, value: selectedValue, raw: presentation.raw[field] ?? '', provenance: status === 'reviewed' ? 'screen-seat-review' : null, confidence: review?.confidence ?? null };
+}
+
 export function reliableScreenField(screen = {}, field) {
-  const rawField = `raw${field[0].toUpperCase()}${field.slice(1)}`;
-  const raw = String(screen?.[rawField] ?? '').replace(/\u00a0/g, ' ');
-  const trimmed = raw.trim();
-  const value = Number(screen?.[field]);
-  const confidence = screen?.selectionConfidence;
-  const confidenceAllowsSelection = confidence === undefined || confidence === null || confidence === 'high';
-  const positive = Number.isFinite(value) && value > 0;
-  const singleNumeric = /^[-+]?\d+(?:\.\d+)?$/.test(trimmed);
-  if (!trimmed || !confidenceAllowsSelection || !singleNumeric || !positive) return null;
-  return { value, raw: null, rawText: raw };
+  const resolved = resolveCanonicalScreenField(screen, field);
+  if (resolved.status !== 'reviewed' && resolved.status !== 'direct') return null;
+  return {
+    value: resolved.value,
+    raw: resolved.status === 'direct' ? null : resolved.raw,
+    rawText: resolved.raw
+  };
 }
 
 export function reliableScreenMeasure(record) {
-  const screen = record?.screen ?? record ?? {};
-  const area = reliableScreenField(screen, 'area');
-  if (area) return { kind: 'area', value: area.value };
-  const width = reliableScreenField(screen, 'width');
-  if (width) return { kind: 'width', value: width.value };
-  return null;
+  return presentationMeasure(record);
 }
 
 export function screenMeasureLabel(record) {
@@ -88,6 +102,10 @@ export function formatNumber(value, maximumFractionDigits = 3) {
   if (!Number.isFinite(number)) return '待核';
   const epsilon = number === 0 ? 0 : Math.sign(number) * 1e-9;
   return String(Number((number + epsilon).toFixed(maximumFractionDigits)));
+}
+
+export function canonicalFieldPresentation(record = {}, field, unit = '') {
+  return presentationField(record, field, unit);
 }
 
 export function formatDistanceKm(value) {
